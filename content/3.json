@@ -1,0 +1,82 @@
+[
+  {
+    "homeTeamName": "BOU",
+    "awayTeamName": "MCI",
+    "score": {
+      "homeTeamScores": 0,
+      "awayTeamScores": 2
+    }
+  },
+  {
+    "homeTeamName": "CRY",
+    "awayTeamName": "SWA",
+    "score": {
+      "homeTeamScores": 0,
+      "awayTeamScores": 1
+    }
+  },
+  {
+    "homeTeamName": "NEW",
+    "awayTeamName": "WHU",
+    "score": {
+      "homeTeamScores": 1,
+      "awayTeamScores": 1
+    }
+  },
+  {
+    "homeTeamName": "WAT",
+    "awayTeamName": "BHA",
+    "score": {
+      "homeTeamScores": 1,
+      "awayTeamScores": 0
+    }
+  },
+  {
+    "homeTeamName": "HUD",
+    "awayTeamName": "SOU",
+    "score": {
+      "homeTeamScores": 0,
+      "awayTeamScores": 1
+    }
+  },
+  {
+    "homeTeamName": "MUN",
+    "awayTeamName": "LEI",
+    "score": {
+      "homeTeamScores": 2,
+      "awayTeamScores": 1
+    }
+  },
+  {
+    "homeTeamName": "WBA",
+    "awayTeamName": "STK",
+    "score": {
+      "homeTeamScores": 1,
+      "awayTeamScores": 1
+    }
+  },
+  {
+    "homeTeamName": "CHE",
+    "awayTeamName": "EVE",
+    "score": {
+      "homeTeamScores": 1,
+      "awayTeamScores": 1
+    }
+  },
+  {
+    "homeTeamName": "LIV",
+    "awayTeamName": "ARS",
+    "score": {
+      "homeTeamScores": 2,
+      "awayTeamScores": 1
+    }
+  },
+  {
+    "homeTeamName": "TOT",
+    "awayTeamName": "BUR",
+    "score": {
+      "homeTeamScores": 2,
+      "awayTeamScores": 0
+    }
+  }
+]
