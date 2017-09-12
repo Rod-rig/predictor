@@ -36,6 +36,7 @@
     "express": "^4.15.4",
     "extract-text-webpack-plugin": "^3.0.0",
     "file-loader": "^0.11.2",
+    "mongodb": "^2.2.31",
     "nodemon": "^1.12.0",
     "postcss-cssnext": "^3.0.2",
     "postcss-csso": "^2.0.0",

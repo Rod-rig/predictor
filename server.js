@@ -1,24 +1,23 @@
-let express = require('express');
-let bodyParser = require('body-parser');
+const express = require('express');
+const MongoClient = require('mongodb').MongoClient;
+const bodyParser = require('body-parser');
+const config = require('./config/config').dev;
+const path = __dirname + '/';
+const router = require('./router');
+const app = express();
 
-let port = process.env.PORT || 8000;
-let path = __dirname + '/';
-
-let app = express();
-
-let urlencodedParser = bodyParser.urlencoded({extended: false});
+let urlencodedParser = bodyParser.urlencoded({extended: true});
+app.use(urlencodedParser);
 
 app.use(express.static(path + 'public'));
-
-app.post('/', urlencodedParser, function (request, response) {
-    if (!request.body) return response.sendStatus(400);
-    response.send(`${request.body.homeTeamName}`);
+app.get('/', (req, res) => {
+    res.sendFile(path + 'index.html');
 });
 
-app.get('/', function (request, response) {
-    response.sendFile(path + 'index.html');
-});
-
-app.listen(port, function () {
-    console.log('server started');
+MongoClient.connect(config.dbUrl, (err, database) => {
+    if (err) console.log(err);
+    router(app, database);
+    app.listen(config.port, () => {
+        console.log('server started');
+    });
 });
