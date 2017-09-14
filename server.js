@@ -4,6 +4,7 @@ const bodyParser = require('body-parser');
 const config = require('./config/config').dev;
 const path = __dirname + '/';
 const router = require('./router');
+const db = require('./db');
 const app = express();
 
 let urlencodedParser = bodyParser.urlencoded({extended: true});
@@ -14,9 +15,9 @@ app.get('/', (req, res) => {
     res.sendFile(path + 'index.html');
 });
 
-MongoClient.connect(config.dbUrl, (err, database) => {
-    if (err) console.log(err);
-    router(app, database);
+db.connect(config.dbUrl, (err) => {
+    if (err) return console.log(err);
+    router(app, db);
     app.listen(config.port, () => {
         console.log('server started');
     });

@@ -4,7 +4,7 @@ module.exports = (app, db) => {
     app.get('/predictions/:id', (req, res) => {
         const id = req.params.id;
         const details = {'_id': new ObjectID(id)};
-        db.collection('predictions').findOne(details, (err, item) => {
+        db.get().collection('predictions').findOne(details, (err, item) => {
             if (err) {
                 res.send({'error': 'An error has occurred'});
             } else {
@@ -18,7 +18,7 @@ module.exports = (app, db) => {
             'ARS': 3,
             'BOU': 0
         };
-        db.collection('predictions').insertOne(pred, (err, result) => {
+        db.get().collection('predictions').insertOne(pred, (err, result) => {
             if (err) {
                 res.send({
                     'error': 'An error occurred'
@@ -32,7 +32,7 @@ module.exports = (app, db) => {
     app.delete('/predictions/:id', (req, res) => {
         const id = req.params.id;
         const details = {'_id': new ObjectID(id)};
-        db.collection('predictions').removeOne(details, (err) => {
+        db.get().collection('predictions').removeOne(details, (err) => {
             if (err) {
                 res.send({'error': 'An error has occurred'});
             } else {
@@ -45,7 +45,7 @@ module.exports = (app, db) => {
         const id = req.params.id;
         const details = {'_id': new ObjectID(id)};
         const pred = {'ARS': req.body.ars, 'BOU': req.body.bou};
-        db.collection('predictions').updateOne(details, pred, (err) => {
+        db.get().collection('predictions').updateOne(details, pred, (err) => {
             if (err) {
                 res.send({'error': 'An error has occurred'});
             } else {
