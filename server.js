@@ -17,7 +17,7 @@ app.get('/', (req, res) => {
 
 db.connect(config.dbUrl, (err) => {
     if (err) return console.log(err);
-    router(app, db);
+    router(app);
     app.listen(config.port, () => {
         console.log('server started');
     });
