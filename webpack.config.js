@@ -24,7 +24,7 @@ module.exports = {
                     },
                     'eslint-loader'
                 ],
-                exclude: /node_modules/
+                exclude: ['/node_modules/', '/models/', '/controllers/', '/config/']
             },
             {
                 test: /\.(woff|woff2)$/,

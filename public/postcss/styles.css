@@ -1,2 +1,8 @@
 /* libraries */
 @import "../../node_modules/reset-css/reset.css";
+
+/* utils */
+@import "_variables.css";
+
+/* custom */
+@import "_custom.css";

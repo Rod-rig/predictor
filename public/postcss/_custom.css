@@ -1,0 +1,64 @@
+html {
+    font-size: 10px;
+}
+
+body {
+    font-family: var(--main-font-family);
+    font-size: 1.6rem;
+}
+
+.content {
+    max-width: 1220px;
+    margin-left: auto;
+    margin-right: auto;
+    padding-left: 1rem;
+    padding-right: 1rem;
+}
+
+.prediction {
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+}
+
+.prediction__title {
+    text-align: center;
+    font-size: 2rem;
+    margin-bottom: 1rem;
+}
+
+.prediction__row {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 10px 0;
+}
+
+.prediction__team {
+    display: flex;
+    align-items: center;
+    flex-basis: 50%;
+}
+
+.prediction__input {
+    font-size: 2rem;
+    border: none;
+    padding: 0.5rem;
+    border-bottom: 2px solid var(--accent-color);
+    height: 2rem;
+    width: 3rem;
+    text-align: center;
+    transition: all 0.3s ease-in-out;
+    margin: 0 1rem;
+}
+
+.prediction__submit {
+    border: 0;
+    background-color: var(--accent-color);
+    color: #fff;
+    padding: 1rem 3rem;
+    font-size: 1.6rem;
+}
+
+.justify-end {
+    justify-content: flex-end;
+}
