@@ -1,0 +1,16 @@
+.prediction {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 10px 0;
+}
+
+.prediction__team {
+    display: flex;
+    align-items: center;
+    flex-basis: 50%;
+}
+
+.justify-end {
+    justify-content: flex-end;
+}

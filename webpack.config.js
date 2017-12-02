@@ -6,9 +6,9 @@ const stylelint = require('stylelint');
 const ExtractTextPlugin = require('extract-text-webpack-plugin');
 
 module.exports = {
-    entry: './public/js/local.js',
+    entry: './public/src/index.js',
     output: {
-        path: path.resolve(__dirname, './public/js'),
+        path: path.resolve(__dirname, './public/dist/js'),
         filename: 'bundle.min.js'
     },
     module: {
@@ -19,7 +19,7 @@ module.exports = {
                     {
                         loader: 'babel-loader',
                         options: {
-                            'presets': ['es2015']
+                            'presets': ['es2015', 'react']
                         }
                     },
                     'eslint-loader'

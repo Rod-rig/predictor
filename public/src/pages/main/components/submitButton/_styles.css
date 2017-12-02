@@ -1,0 +1,9 @@
+@import "../../../../css/_variables.css";
+
+.submit-button {
+    border: 0;
+    background-color: var(--accent-color);
+    color: #fff;
+    padding: 1rem 3rem;
+    font-size: 1.6rem;
+}
