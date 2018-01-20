@@ -1,14 +1,14 @@
 import React from 'react';
-import Prediction from './../Prediction/index';
-import matchdayContent from './../../../../services/1';
+import Prediction from '../Prediction/Prediction';
+import matchdayContent from 'Services/1';
 
-import './_styles.css';
+import './Matchday.css';
 
 export default class Matchday extends React.Component {
     render() {
-        return <div className="matchday">
-            <div className="matchday__title">Matchday 1</div>
-            <form action="" method="post">
+        return (
+            <div className="matchday">
+                <div className="matchday__title">Matchday 1</div>
                 {
                     matchdayContent.map(function (item, index) {
                         return <Prediction
@@ -19,7 +19,7 @@ export default class Matchday extends React.Component {
                         />;
                     })
                 }
-            </form>
-        </div>;
+            </div>
+        );
     }
 }

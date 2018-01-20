@@ -67,7 +67,10 @@ module.exports = {
         ]
     },
     resolve: {
-        modules: ['node_modules', 'img']
+        modules: ['node_modules', 'img'],
+        alias: {
+            Services: path.resolve(__dirname, 'public/src/services/')
+        }
     },
     plugins: [
         new ExtractTextPlugin('../css/bundle.min.css')

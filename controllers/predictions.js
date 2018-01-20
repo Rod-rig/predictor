@@ -21,7 +21,7 @@ module.exports.getById = (req, res) => {
 };
 
 module.exports.create = (req, res) => {
-    const pred = {'ARS': req.body.ars, 'BOU': req.body.bou};
+    let pred = req.body;
     Predictions.create(pred, (err) => {
         if (err) {
             res.send({'error': 'An error has occurred'});
