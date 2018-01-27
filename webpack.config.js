@@ -11,6 +11,11 @@ module.exports = {
         path: path.resolve(__dirname, './public/dist/js'),
         filename: 'bundle.min.js'
     },
+    devServer: {
+        hot: true,
+        open: true,
+        contentBase: './public'
+    },
     module: {
         rules: [
             {
