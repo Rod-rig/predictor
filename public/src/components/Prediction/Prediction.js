@@ -1,6 +1,6 @@
 import React from 'react';
 import ScoreInput from '../ScoreInput/ScoreInput';
-import matchdayContent from 'Services/1';
+import itemdayContent from 'Services/1';
 
 import './Prediction.css';
 
@@ -10,14 +10,13 @@ export default class Prediction extends React.Component {
             <div className="prediction">
                 <div className="prediction__title">Matchday 1</div>
                 {
-                    matchdayContent.map(function (item, index) {
-                        let match = matchdayContent[index],
-                            homeId = 'homeTeam' + index,
+                    itemdayContent.map(function (item, index) {
+                        let homeId = 'homeTeam' + index,
                             awayId = 'awayTeam' + index;
                         return (
                             <div className='prediction__row' key={index}>
                                 <div className="prediction__team justify-end">
-                                    <label htmlFor={homeId}>{match.homeTeamName}</label>
+                                    <label htmlFor={homeId}>{item.homeTeamName}</label>
                                     <ScoreInput
                                         id={homeId}
                                         name={'homeTeamScores' + homeId}
@@ -28,7 +27,7 @@ export default class Prediction extends React.Component {
                                     <ScoreInput
                                         id={awayId}
                                         name={'awayTeamScores' + awayId}/>
-                                    <label htmlFor={awayId}>{match.awayTeamName}</label>
+                                    <label htmlFor={awayId}>{item.awayTeamName}</label>
                                 </div>
                             </div>
                         );
