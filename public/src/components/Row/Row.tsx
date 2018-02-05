@@ -1,6 +1,14 @@
-import React from 'react';
+import * as React from 'react';
 
-const Row = (props) => {
+export interface IRow {
+    [index: string]: string;
+}
+
+interface IProps {
+    row: IRow;
+}
+
+export const Row = (props: IProps) => {
     return (
         <tr>
             <td>{props.row.position}</td>
@@ -14,5 +22,3 @@ const Row = (props) => {
         </tr>
     );
 };
-
-export default Row;

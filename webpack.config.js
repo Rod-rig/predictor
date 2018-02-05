@@ -6,11 +6,12 @@ const stylelint = require('stylelint');
 const ExtractTextPlugin = require('extract-text-webpack-plugin');
 
 module.exports = {
-    entry: './public/src/index.js',
+    entry: './public/src/index.tsx',
     output: {
         path: path.resolve(__dirname, './public/dist/js'),
         filename: 'bundle.min.js'
     },
+    devtool: 'source-map',
     devServer: {
         hot: true,
         open: true,
@@ -18,18 +19,27 @@ module.exports = {
     },
     module: {
         rules: [
+            // {
+            //     test: /\.js$/,
+            //     use: [
+            //         {
+            //             loader: 'babel-loader',
+            //             options: {
+            //                 'presets': ['es2015', 'react']
+            //             }
+            //         },
+            //         'eslint-loader'
+            //     ],
+            //     exclude: ['/node_modules/', '/models/', '/controllers/', '/config/']
+            // },
             {
+                test: /\.tsx?$/,
+                loader: 'awesome-typescript-loader',
+            },
+            {
+                enforce: 'pre',
                 test: /\.js$/,
-                use: [
-                    {
-                        loader: 'babel-loader',
-                        options: {
-                            'presets': ['es2015', 'react']
-                        }
-                    },
-                    'eslint-loader'
-                ],
-                exclude: ['/node_modules/', '/models/', '/controllers/', '/config/']
+                loader: 'source-map-loader'
             },
             {
                 test: /\.(woff|woff2)$/,
@@ -72,10 +82,8 @@ module.exports = {
         ]
     },
     resolve: {
-        modules: ['node_modules', 'img'],
-        alias: {
-            Services: path.resolve(__dirname, 'public/src/services/')
-        }
+        extensions: ['.ts', '.tsx', '.js', '.json'],
+        modules: ['node_modules', 'img']
     },
     plugins: [
         new ExtractTextPlugin('../css/bundle.min.css')

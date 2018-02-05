@@ -1,10 +1,10 @@
-import React from 'react';
+import * as React from 'react';
 import Header from '../Header/Header';
-import TableContainer from '../TableContainer/TableContainer';
 import Prediction from '../Prediction/Prediction';
+import TableContainer from '../TableContainer/TableContainer';
 
 export default class App extends React.Component {
-    render() {
+    public render() {
         return (
             <div className='content'>
                 <Header/>
