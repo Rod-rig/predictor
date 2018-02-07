@@ -19,19 +19,6 @@ module.exports = {
     },
     module: {
         rules: [
-            // {
-            //     test: /\.js$/,
-            //     use: [
-            //         {
-            //             loader: 'babel-loader',
-            //             options: {
-            //                 'presets': ['es2015', 'react']
-            //             }
-            //         },
-            //         'eslint-loader'
-            //     ],
-            //     exclude: ['/node_modules/', '/models/', '/controllers/', '/config/']
-            // },
             {
                 test: /\.tsx?$/,
                 loader: 'awesome-typescript-loader',
