@@ -21,7 +21,7 @@ export default class ScoreInput extends React.Component<IScore, {}> {
                 name={this.props.name}
                 readOnly={true}
                 autoFocus={(this.props.autofocus)}
-                className="score-input"
+                className='score-input'
                 type='text'
                 onChange={ScoreInput.typeOnlyNum}
             />

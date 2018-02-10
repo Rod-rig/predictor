@@ -15,7 +15,8 @@
     "server": "nodemon server.js --ignore public/",
     "server:dev": "webpack-dev-server",
     "start": "concurrently \"npm run build:w\" \"npm run mongo\" \"npm run server:dev\"",
-    "test": ""
+    "pretest": "npm run lint",
+    "test": "jest"
   },
   "repository": {
     "type": "git",
@@ -35,6 +36,24 @@
     "ie >= 10",
     "last 3 versions"
   ],
+  "jest": {
+    "transform": {
+      "^.+\\.tsx?$": "ts-jest"
+    },
+    "setupTestFrameworkScriptFile": "<rootDir>/jest.config.js",
+    "moduleNameMapper": {
+      "^.+\\.(css)$": "identity-obj-proxy"
+    },
+    "testRegex": "(/__tests__/.*|(\\.|/)(test|spec))\\.(jsx?|tsx?)$",
+    "moduleFileExtensions": [
+      "ts",
+      "tsx",
+      "js",
+      "jsx",
+      "json",
+      "node"
+    ]
+  },
   "devDependencies": {
     "awesome-typescript-loader": "^3.4.1",
     "body-parser": "^1.17.2",
@@ -43,6 +62,8 @@
     "express": "^4.15.4",
     "extract-text-webpack-plugin": "^3.0.0",
     "file-loader": "^1.1.6",
+    "identity-obj-proxy": "^3.0.0",
+    "jest": "^22.2.2",
     "mongodb": "^3.0.2",
     "nodemon": "^1.12.0",
     "postcss-cssnext": "^3.0.2",
@@ -53,6 +74,7 @@
     "style-loader": "^0.20.1",
     "stylelint": "^8.4.0",
     "stylelint-config-standard": "^18.0.0",
+    "ts-jest": "^22.0.3",
     "tslint": "^5.9.1",
     "tslint-react": "^3.4.0",
     "typescript": "^2.6.2",
@@ -61,10 +83,17 @@
     "webpack-spritesmith": "^0.4.0"
   },
   "dependencies": {
+    "@types/enzyme": "^3.1.8",
+    "@types/enzyme-adapter-react-16": "^1.0.1",
+    "@types/jest": "^22.1.2",
     "@types/react": "^16.0.35",
     "@types/react-dom": "^16.0.3",
+    "@types/react-test-renderer": "^16.0.0",
+    "enzyme": "^3.3.0",
+    "enzyme-adapter-react-16": "^1.1.1",
     "react": "^16.1.1",
     "react-dom": "^16.1.1",
+    "react-test-renderer": "^16.2.0",
     "reset-css": "^2.2.0"
   }
 }

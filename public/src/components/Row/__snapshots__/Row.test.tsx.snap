@@ -1,0 +1,30 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Row should render correctly 1`] = `
+<tr>
+  <td>
+    1.
+  </td>
+  <td>
+    Манчестер Сити
+  </td>
+  <td>
+    24
+  </td>
+  <td>
+    21
+  </td>
+  <td>
+    2
+  </td>
+  <td>
+    1
+  </td>
+  <td>
+    70:18
+  </td>
+  <td>
+    65
+  </td>
+</tr>
+`;

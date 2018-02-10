@@ -1,6 +1,9 @@
 import * as React from 'react';
-import table from "../../services/england-table.json";
 import {IRow, Row} from '../Row/Row';
+
+interface IProps {
+    table: object[];
+}
 
 interface IState {
     order: string;
@@ -8,13 +11,13 @@ interface IState {
     table: object[];
 }
 
-class TableContainer extends React.Component<{}, IState> {
-    constructor(props: any) {
+class TableContainer extends React.Component<IProps, IState> {
+    constructor(props: IProps) {
         super(props);
         this.state = {
             order: 'asc',
             sort: 'position',
-            table: [...table],
+            table: props.table,
         };
         this.sort = this.sort.bind(this);
     }
@@ -34,7 +37,7 @@ class TableContainer extends React.Component<{}, IState> {
 
     public render() {
         const state = this.state;
-        const sortedTable = table.sort((a: any, b: any) => {
+        const sortedTable = state.table.sort((a: any, b: any) => {
             if (this.state.order === 'asc') {
                 return a[state.sort] - b[state.sort];
             } else {
@@ -47,8 +50,9 @@ class TableContainer extends React.Component<{}, IState> {
                 <table>
                     <thead>
                         <tr onClick={this.sort}>
-                            {Object.keys(table[0]).map(
-                                (title: string, index: number): JSX.Element => <td key={index}>{title}</td>)}
+                            {Object.keys(state.table[0]).map(
+                                (title: string, index: number): JSX.Element => <td key={index}>{title}</td>)
+                            }
                         </tr>
                     </thead>
                     <tbody>

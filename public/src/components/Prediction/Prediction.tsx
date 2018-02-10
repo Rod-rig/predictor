@@ -11,15 +11,15 @@ interface ITeam {
 export default class Prediction extends React.Component {
     public render() {
         return (
-            <div className="prediction">
-                <div className="prediction__title">Matchday 1</div>
+            <div className='prediction'>
+                <div className='prediction__title'>Matchday 1</div>
                 {
                     itemdayContent.map((item: ITeam, index: number) => {
                         const homeId = 'homeTeam' + index;
                         const awayId = 'awayTeam' + index;
                         return (
                             <div className='prediction__row' key={index}>
-                                <div className="prediction__team justify-end">
+                                <div className='prediction__team justify-end'>
                                     <label htmlFor={homeId}>{item.homeTeamName}</label>
                                     <ScoreInput
                                         id={homeId}
@@ -27,8 +27,8 @@ export default class Prediction extends React.Component {
                                         autofocus={index === 0}
                                     />
                                 </div>
-                                <div className="prediction__divider">:</div>
-                                <div className="prediction__team">
+                                <div className='prediction__divider'>:</div>
+                                <div className='prediction__team'>
                                     <ScoreInput
                                         id={awayId}
                                         name={'awayTeamScores' + awayId}
@@ -40,8 +40,8 @@ export default class Prediction extends React.Component {
                         );
                     })
                 }
-                <div className="text-center">
-                    <button className="prediction__submit" type="submit">Send</button>
+                <div className='text-center'>
+                    <button className='prediction__submit' type='submit'>Send</button>
                 </div>
             </div>
         );
