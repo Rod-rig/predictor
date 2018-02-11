@@ -1,12 +1,14 @@
+import {Table, TableBody} from 'material-ui';
 import * as React from 'react';
 import {IRow, Row} from '../Row/Row';
+import TableHeadContainer from '../TableHeadContainer/TableHeadContainer';
 
 interface IProps {
     table: object[];
 }
 
 interface IState {
-    order: string;
+    order: any;
     sort: string;
     table: object[];
 }
@@ -47,15 +49,14 @@ class TableContainer extends React.Component<IProps, IState> {
 
         return (
             <div>
-                <table>
-                    <thead>
-                        <tr onClick={this.sort}>
-                            {Object.keys(state.table[0]).map(
-                                (title: string, index: number): JSX.Element => <td key={index}>{title}</td>)
-                            }
-                        </tr>
-                    </thead>
-                    <tbody>
+                <Table>
+                    <TableHeadContainer
+                        orderBy={Object.keys(state.table[0])}
+                        order={state.order}
+                        sort={state.sort}
+                        sortHandle={this.sort}
+                    />
+                    <TableBody>
                         {
                             sortedTable.map((row: IRow, index: number): JSX.Element => {
                                 return <Row
@@ -64,8 +65,8 @@ class TableContainer extends React.Component<IProps, IState> {
                                 />;
                             })
                         }
-                    </tbody>
-                </table>
+                    </TableBody>
+                </Table>
             </div>
         );
     }

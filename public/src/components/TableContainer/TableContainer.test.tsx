@@ -6,10 +6,6 @@ const table = require('../../mocks/england-table.json');
 
 describe('TableContainer', () => {
     const tableContainer = shallow(<TableContainer table={table}/>);
-    it('should have classname', () => {
-        const headCell = tableContainer.find('thead td');
-        expect(headCell.length).toBeGreaterThan(2);
-    });
 
     it('should have correct initial state', () => {
         expect(tableContainer.state('sort')).toEqual('position');

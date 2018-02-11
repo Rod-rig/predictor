@@ -1,3 +1,4 @@
+import {TableCell, TableRow} from 'material-ui';
 import * as React from 'react';
 
 export interface IRow {
@@ -10,15 +11,15 @@ interface IProps {
 
 export const Row = (props: IProps) => {
     return (
-        <tr>
-            <td>{props.row.position}</td>
-            <td>{props.row.teamName}</td>
-            <td>{props.row.matches}</td>
-            <td>{props.row.w}</td>
-            <td>{props.row.d}</td>
-            <td>{props.row.l}</td>
-            <td>{props.row.goals}</td>
-            <td>{props.row.points}</td>
-        </tr>
+        <TableRow hover={true}>
+            <TableCell>{props.row.position}</TableCell>
+            <TableCell>{props.row.teamName}</TableCell>
+            <TableCell>{props.row.matches}</TableCell>
+            <TableCell>{props.row.w}</TableCell>
+            <TableCell>{props.row.d}</TableCell>
+            <TableCell>{props.row.l}</TableCell>
+            <TableCell>{props.row.goals}</TableCell>
+            <TableCell>{props.row.points}</TableCell>
+        </TableRow>
     );
 };

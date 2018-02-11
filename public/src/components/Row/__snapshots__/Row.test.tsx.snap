@@ -1,29 +1,55 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`Row should render correctly 1`] = `
-<tr>
-  <td>
+<tr
+  className="MuiTableRow-root-1"
+>
+  <td
+    aria-sort={null}
+    className="MuiTableCell-root-6 MuiTableCell-paddingDefault-11"
+  >
     1.
   </td>
-  <td>
+  <td
+    aria-sort={null}
+    className="MuiTableCell-root-6 MuiTableCell-paddingDefault-11"
+  >
     Манчестер Сити
   </td>
-  <td>
+  <td
+    aria-sort={null}
+    className="MuiTableCell-root-6 MuiTableCell-paddingDefault-11"
+  >
     24
   </td>
-  <td>
+  <td
+    aria-sort={null}
+    className="MuiTableCell-root-6 MuiTableCell-paddingDefault-11"
+  >
     21
   </td>
-  <td>
+  <td
+    aria-sort={null}
+    className="MuiTableCell-root-6 MuiTableCell-paddingDefault-11"
+  >
     2
   </td>
-  <td>
+  <td
+    aria-sort={null}
+    className="MuiTableCell-root-6 MuiTableCell-paddingDefault-11"
+  >
     1
   </td>
-  <td>
+  <td
+    aria-sort={null}
+    className="MuiTableCell-root-6 MuiTableCell-paddingDefault-11"
+  >
     70:18
   </td>
-  <td>
+  <td
+    aria-sort={null}
+    className="MuiTableCell-root-6 MuiTableCell-paddingDefault-11"
+  >
     65
   </td>
 </tr>
