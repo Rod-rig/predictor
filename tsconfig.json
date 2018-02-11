@@ -3,7 +3,8 @@
     "outDir": "./public/dist/",
     "sourceMap": true,
     "noImplicitAny": true,
-    "module": "esnext",
+    "module": "commonjs",
+    "lib": ["es5", "es6", "dom"],
     "target": "es5",
     "jsx": "react"
   },

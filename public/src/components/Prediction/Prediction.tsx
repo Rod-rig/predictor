@@ -1,8 +1,9 @@
 import * as React from 'react';
-import itemdayContent from '../../services/1.json';
 import ScoreInput from '../ScoreInput/ScoreInput';
 
 import './Prediction.css';
+
+const itemdayContent = require('../../services/1.json');
 
 interface ITeam {
     [index: string]: string;
