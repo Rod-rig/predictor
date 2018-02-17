@@ -23,6 +23,7 @@ class TableContainer extends React.Component<IProps, IState> {
         };
         this.sort = this.sort.bind(this);
     }
+
     public sort(e: any) {
         const key = e.target.textContent;
         if (this.state.sort === key) {
@@ -40,7 +41,7 @@ class TableContainer extends React.Component<IProps, IState> {
     public render() {
         const state = this.state;
         const sortedTable = state.table.sort((a: any, b: any) => {
-            if (this.state.order === 'asc') {
+            if (state.order === 'asc') {
                 return a[state.sort] - b[state.sort];
             } else {
                 return b[state.sort] - a[state.sort];

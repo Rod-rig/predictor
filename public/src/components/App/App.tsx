@@ -11,6 +11,7 @@ export default class App extends React.Component {
         return (
             <div className='content'>
                 <Reboot/>
+
                 <Header/>
 
                 <TableContainer table={table}/>

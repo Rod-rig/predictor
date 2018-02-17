@@ -2,6 +2,7 @@ import {shallow} from 'enzyme';
 import * as React from 'react';
 import * as renderer from 'react-test-renderer';
 import TableContainer from './TableContainer';
+
 const table = require('../../mocks/england-table.json');
 
 describe('TableContainer', () => {

@@ -6,17 +6,15 @@
   "scripts": {
     "build": "webpack",
     "build:w": "webpack --watch",
-    "coverage": "",
     "lint": "npm run lint:css && npm run lint:js",
     "lint:js": "tslint -t stylish 'public/src/**/*.{ts*,js}'",
     "lint:css": "stylelint \"public/src/**/*.css\"",
     "mongo": "mongod",
-    "precommit": "",
     "server": "nodemon server.js --ignore public/",
     "server:dev": "webpack-dev-server",
     "start": "concurrently \"npm run build:w\" \"npm run mongo\" \"npm run server:dev\"",
     "pretest": "npm run lint",
-    "test": "jest"
+    "test": "jest --config package.json"
   },
   "repository": {
     "type": "git",
@@ -43,6 +41,14 @@
     "setupTestFrameworkScriptFile": "<rootDir>/jest.config.js",
     "moduleNameMapper": {
       "^.+\\.(css)$": "identity-obj-proxy"
+    },
+    "coverageThreshold": {
+      "global": {
+        "branches": 80,
+        "functions": 80,
+        "lines": 80,
+        "statements": 80
+      }
     },
     "testRegex": "(/__tests__/.*|(\\.|/)(test|spec))\\.(jsx?|tsx?)$",
     "moduleFileExtensions": [
