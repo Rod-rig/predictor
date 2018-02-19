@@ -5,11 +5,11 @@ import Header from './Header';
 describe('Header', () => {
     it('should have logo', () => {
         const logo = shallow(<Header/>).find('Logo');
-        expect(logo.length).toEqual(1);
+        expect(logo).toHaveLength(1);
     });
 
     it('should have menu links', () => {
-        const logo = shallow(<Header/>).find('a');
+        const logo = shallow(<Header/>).find('.header__link');
         expect(logo.length).toBeGreaterThanOrEqual(2);
     });
 });

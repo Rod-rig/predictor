@@ -15,6 +15,6 @@ describe('Logo', () => {
 
     it('should have one image', () => {
         const logoImg = shallow(<Logo/>).find('img');
-        expect(logoImg.length).toEqual(1);
+        expect(logoImg).toHaveLength(1);
     });
 });
