@@ -5,15 +5,15 @@ import AppRouter from '../AppRouter/AppRouter';
 import Header from '../Header/Header';
 
 const App = () => (
-    <Router>
-        <div className='content'>
-            <Reboot/>
+  <Router>
+    <div className='content'>
+      <Reboot/>
 
-            <Header/>
+      <Header/>
 
-            <AppRouter/>
-        </div>
-    </Router>
+      <AppRouter/>
+    </div>
+  </Router>
 );
 
 export default App;

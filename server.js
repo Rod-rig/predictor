@@ -12,13 +12,13 @@ app.use(urlencodedParser);
 
 app.use(express.static(path + 'public'));
 app.get('/', (req, res) => {
-    res.sendFile(path + 'index.html');
+  res.sendFile(path + 'index.html');
 });
 
 db.connect(config.dbUrl, (err) => {
-    if (err) return console.log(err);
-    router(app);
-    app.listen(config.port, () => {
-        console.log('server started');
-    });
+  if (err) return console.log(err);
+  router(app);
+  app.listen(config.port, () => {
+    console.log('server started');
+  });
 });
