@@ -32,7 +32,7 @@
   "homepage": "",
   "browserslist": [
     "> 1%",
-    "ie >= 10",
+    "ie >= 11",
     "last 3 versions"
   ],
   "jest": {

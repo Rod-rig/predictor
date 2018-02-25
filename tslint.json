@@ -10,7 +10,8 @@
   "rules": {
     "quotemark": false,
     "jsx-no-multiline-js": false,
-    "no-var-requires": false
+    "no-var-requires": false,
+    "no-submodule-imports": ["material-ui"]
   },
   "rulesDirectory": []
 }

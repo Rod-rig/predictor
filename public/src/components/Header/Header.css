@@ -1,14 +1,8 @@
-.header {
+.header__toolbar {
     display: flex;
-    align-items: center;
-    justify-content: space-between;
 }
 
 .header__link {
-    color: #e34;
     text-decoration: none;
-}
-
-.header__link:not(:first-of-type) {
     margin-left: 1rem;
 }
