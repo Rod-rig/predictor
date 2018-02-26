@@ -1,0 +1,98 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Header should render correctly 1`] = `
+<header
+  className="MuiPaper-root-9 MuiPaper-shadow4-15 MuiAppBar-root-1 MuiAppBar-positionStatic-5 MuiAppBar-colorPrimary-7 header"
+>
+  <div
+    className="MuiToolbar-root-36 MuiToolbar-gutters-37 header__toolbar"
+  >
+    <button
+      aria-label="Menu"
+      className="MuiButtonBase-root-44 MuiIconButton-root-38 MuiIconButton-colorInherit-39"
+      disabled={false}
+      onBlur={[Function]}
+      onFocus={[Function]}
+      onKeyDown={[Function]}
+      onKeyUp={[Function]}
+      onMouseDown={[Function]}
+      onMouseLeave={[Function]}
+      onMouseUp={[Function]}
+      onTouchEnd={[Function]}
+      onTouchMove={[Function]}
+      onTouchStart={[Function]}
+      tabIndex={0}
+      type="button"
+    >
+      <span
+        className="MuiIconButton-label-43"
+      >
+        <svg
+          aria-hidden="true"
+          className="MuiSvgIcon-root-46 MuiSvgIcon-fontSize-52"
+          color={undefined}
+          focusable="false"
+          viewBox="0 0 24 24"
+        >
+          <path
+            d="M3 18h18v-2H3v2zm0-5h18v-2H3v2zm0-7v2h18V6H3z"
+          />
+        </svg>
+      </span>
+      <span
+        className="MuiTouchRipple-root-53"
+      />
+    </button>
+    <div
+      className="logo"
+    >
+      <a
+        href="/"
+        onClick={[Function]}
+      >
+        <img
+          alt="logo"
+          className="logo__img"
+          src="https://avatars2.githubusercontent.com/u/11474330"
+        />
+      </a>
+    </div>
+    <h2
+      className="MuiTypography-root-60 MuiTypography-title-66 MuiTypography-colorInherit-79"
+      style={
+        Object {
+          "marginLeft": 16,
+        }
+      }
+    >
+      Title
+    </h2>
+    <div>
+      <a
+        className="header__link"
+        href="/predictions"
+        onClick={[Function]}
+        style={
+          Object {
+            "color": "#fff",
+          }
+        }
+      >
+        Predictions
+      </a>
+      <a
+        className="header__link"
+        href="/statistics/england"
+        onClick={[Function]}
+        style={
+          Object {
+            "color": "#fff",
+          }
+        }
+      >
+        Statistics
+      </a>
+    </div>
+  </div>
+</header>
+`;

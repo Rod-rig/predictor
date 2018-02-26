@@ -6,7 +6,7 @@ describe('App', () => {
   const app = shallow(<App/>);
 
   it('should have header', () => {
-    const header = app.find('Header');
+    const header = app.find('WithTheme(Header)');
     expect(header).toHaveLength(1);
   });
 

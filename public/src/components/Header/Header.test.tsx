@@ -1,15 +1,30 @@
 import {shallow} from 'enzyme';
+import {withTheme} from 'material-ui/styles';
 import * as React from 'react';
+import {BrowserRouter as Router, StaticRouter} from 'react-router-dom';
+import * as renderer from 'react-test-renderer';
 import Header from './Header';
 
 describe('Header', () => {
+  const header = shallow(<Header/>, {context: {withTheme}}).dive();
+
   it('should have logo', () => {
-    const logo = shallow(<Header/>).find('Logo');
+    const logo = header.find('Logo');
     expect(logo).toHaveLength(1);
   });
 
   it('should have menu links', () => {
-    const logo = shallow(<Header/>).find('.header__link');
-    expect(logo.length).toBeGreaterThanOrEqual(2);
+    const links = header.find('.header__link');
+    expect(links.length).toBeGreaterThanOrEqual(2);
+  });
+
+  it('should render correctly', () => {
+    const tree = renderer
+      .create(
+        <StaticRouter>
+          <Header/>
+        </StaticRouter>)
+      .toJSON();
+    expect(tree).toMatchSnapshot();
   });
 });

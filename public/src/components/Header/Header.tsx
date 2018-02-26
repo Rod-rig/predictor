@@ -21,6 +21,7 @@ const Header = (props?: any) => {
       marginLeft: theme.spacing.unit * 2,
     },
   };
+
   return (
     <AppBar position='static' className='header'>
       <Toolbar className='header__toolbar'>
