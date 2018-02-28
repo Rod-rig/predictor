@@ -48,7 +48,6 @@ exports[`Header should render correctly 1`] = `
     >
       <a
         href="/"
-        onClick={[Function]}
       >
         <img
           alt="logo"
@@ -70,27 +69,25 @@ exports[`Header should render correctly 1`] = `
     <div>
       <a
         className="header__link"
-        href="/predictions"
-        onClick={[Function]}
+        href=""
         style={
           Object {
             "color": "#fff",
           }
         }
       >
-        Predictions
+        Link1
       </a>
       <a
         className="header__link"
-        href="/statistics/england"
-        onClick={[Function]}
+        href=""
         style={
           Object {
             "color": "#fff",
           }
         }
       >
-        Statistics
+        Link2
       </a>
     </div>
   </div>

@@ -1,7 +1,6 @@
 import {shallow} from 'enzyme';
 import {withTheme} from 'material-ui/styles';
 import * as React from 'react';
-import {BrowserRouter as Router, StaticRouter} from 'react-router-dom';
 import * as renderer from 'react-test-renderer';
 import Header from './Header';
 
@@ -20,10 +19,7 @@ describe('Header', () => {
 
   it('should render correctly', () => {
     const tree = renderer
-      .create(
-        <StaticRouter>
-          <Header/>
-        </StaticRouter>)
+      .create(<Header/>)
       .toJSON();
     expect(tree).toMatchSnapshot();
   });

@@ -10,8 +10,8 @@ describe('App', () => {
     expect(header).toHaveLength(1);
   });
 
-  it('should have app router', () => {
-    const appRouter = app.find('AppRouter');
-    expect(appRouter).toHaveLength(1);
+  it('should have table', () => {
+    const table = app.find('TableContainer');
+    expect(table).toHaveLength(1);
   });
 });

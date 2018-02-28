@@ -10,16 +10,14 @@ interface IProps {
 }
 
 export const Row = (props: IProps) => {
+  const keys = Object.keys(props.row);
   return (
     <TableRow hover={true}>
-      <TableCell>{props.row.position}</TableCell>
-      <TableCell>{props.row.teamName}</TableCell>
-      <TableCell>{props.row.matches}</TableCell>
-      <TableCell>{props.row.w}</TableCell>
-      <TableCell>{props.row.d}</TableCell>
-      <TableCell>{props.row.l}</TableCell>
-      <TableCell>{props.row.goals}</TableCell>
-      <TableCell>{props.row.points}</TableCell>
+      {
+        keys.map((val, i) => (
+          <TableCell key={i}>{props.row[val]}</TableCell>
+        ))
+      }
     </TableRow>
   );
 };

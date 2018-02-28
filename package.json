@@ -95,7 +95,6 @@
     "@types/jest": "^22.1.2",
     "@types/react": "^16.0.35",
     "@types/react-dom": "^16.0.3",
-    "@types/react-router-dom": "^4.2.4",
     "@types/react-test-renderer": "^16.0.0",
     "enzyme": "^3.3.0",
     "enzyme-adapter-react-16": "^1.1.1",
@@ -103,7 +102,6 @@
     "material-ui-icons": "^1.0.0-beta.17",
     "react": "^16.1.1",
     "react-dom": "^16.1.1",
-    "react-router-dom": "^4.2.2",
     "react-test-renderer": "^16.2.0"
   }
 }

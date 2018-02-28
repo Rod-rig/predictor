@@ -6,7 +6,6 @@ import Toolbar from 'material-ui/Toolbar';
 import Typography from 'material-ui/Typography';
 
 import * as React from 'react';
-import {Link} from 'react-router-dom';
 import Logo from '../Logo/Logo';
 
 import './Header.css';
@@ -33,8 +32,8 @@ const Header = (props?: any) => {
           Title
         </Typography>
         <div>
-          <Link style={styles.link} className='header__link' to='/predictions'>Predictions</Link>
-          <Link style={styles.link} className='header__link' to='/statistics/england'>Statistics</Link>
+          <a style={styles.link} className='header__link' href=''>Link1</a>
+          <a style={styles.link} className='header__link' href=''>Link2</a>
         </div>
       </Toolbar>
     </AppBar>
