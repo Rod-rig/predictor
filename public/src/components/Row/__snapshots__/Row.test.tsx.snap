@@ -7,48 +7,56 @@ exports[`Row should render correctly 1`] = `
   <td
     aria-sort={null}
     className="MuiTableCell-root-6 MuiTableCell-paddingDefault-11"
+    scope={undefined}
   >
     1.
   </td>
   <td
     aria-sort={null}
     className="MuiTableCell-root-6 MuiTableCell-paddingDefault-11"
+    scope={undefined}
   >
     Манчестер Сити
   </td>
   <td
     aria-sort={null}
     className="MuiTableCell-root-6 MuiTableCell-paddingDefault-11"
+    scope={undefined}
   >
     24
   </td>
   <td
     aria-sort={null}
     className="MuiTableCell-root-6 MuiTableCell-paddingDefault-11"
+    scope={undefined}
   >
     21
   </td>
   <td
     aria-sort={null}
     className="MuiTableCell-root-6 MuiTableCell-paddingDefault-11"
+    scope={undefined}
   >
     2
   </td>
   <td
     aria-sort={null}
     className="MuiTableCell-root-6 MuiTableCell-paddingDefault-11"
+    scope={undefined}
   >
     1
   </td>
   <td
     aria-sort={null}
     className="MuiTableCell-root-6 MuiTableCell-paddingDefault-11"
+    scope={undefined}
   >
     70:18
   </td>
   <td
     aria-sort={null}
     className="MuiTableCell-root-6 MuiTableCell-paddingDefault-11"
+    scope={undefined}
   >
     65
   </td>
