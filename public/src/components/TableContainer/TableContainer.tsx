@@ -8,7 +8,7 @@ interface IProps {
 }
 
 interface IState {
-  order: any;
+  order: string;
   sort: string;
   table: object[];
 }
