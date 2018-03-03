@@ -4,7 +4,7 @@ import TableHeadContainer from './TableHeadContainer';
 
 const sort = ['position', 'team', 'points'];
 
-describe('TableContainer', () => {
+describe('TableHeadContainer', () => {
   it('should render correctly with default props', () => {
     const tree = renderer
       .create(<TableHeadContainer orderBy={sort}/>)

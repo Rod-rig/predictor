@@ -19,28 +19,35 @@ describe('TableContainer', () => {
     expect(tableContainer.state('order')).toEqual('asc');
   });
 
-  it('should sort correctly', () => {
-    const tableInst = tableContainer.instance();
-    const sortSpy = jest.spyOn(tableInst, 'sort');
-
-    sortSpy({target: {textContent: tableContainer.state('sort')}});
-    expect(sortSpy).toHaveBeenCalledTimes(1);
-    expect(tableContainer.state('order')).toEqual('desc');
-
-    sortSpy({target: {textContent: tableContainer.state('sort')}});
-    expect(sortSpy).toHaveBeenCalledTimes(2);
-    expect(tableContainer.state('order')).toEqual('asc');
-
-    sortSpy({target: {textContent: 'foo'}});
-    expect(sortSpy).toHaveBeenCalledTimes(3);
-    expect(tableContainer.state('order')).toEqual('asc');
-    expect(tableContainer.state('sort')).toEqual('foo');
-  });
-
   it('should render correctly', () => {
     const tree = renderer
       .create(<TableContainer table={table}/>)
       .toJSON();
     expect(tree).toMatchSnapshot();
+  });
+});
+
+describe('sorting in TableContainer', () => {
+  const tableContainer = shallow(<TableContainer table={table}/>);
+  const tableInst = tableContainer.instance();
+  const sortSpy = jest.fn(TableContainer.prototype.sort.bind(tableInst));
+
+  it('should change order state if sort was not changed', () => {
+    sortSpy({target: {textContent: tableContainer.state('sort')}});
+    expect(sortSpy).toHaveBeenCalledTimes(1);
+    expect(tableContainer.state('order')).toEqual('desc');
+  });
+
+  it('should set default order if sort state was repeated', () => {
+    sortSpy({target: {textContent: tableContainer.state('sort')}});
+    expect(sortSpy).toHaveBeenCalledTimes(2);
+    expect(tableContainer.state('order')).toEqual('asc');
+  });
+
+  it('should change sort state if we get custom params', () => {
+    sortSpy({target: {textContent: 'foo'}});
+    expect(sortSpy).toHaveBeenCalledTimes(3);
+    expect(tableContainer.state('order')).toEqual('asc');
+    expect(tableContainer.state('sort')).toEqual('foo');
   });
 });

@@ -4,7 +4,7 @@
   "main": "webpack.config.js",
   "license": "MIT",
   "scripts": {
-    "build": "webpack",
+    "build": "webpack -p",
     "build:w": "webpack --watch",
     "lint": "npm run lint:css && npm run lint:js",
     "lint:js": "tslint -t stylish 'public/src/**/*.{ts*,js}'",
