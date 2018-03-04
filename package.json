@@ -15,7 +15,8 @@
     "start": "concurrently \"npm run build:w\" \"npm run mongo\" \"npm run server:dev\"",
     "pretest": "npm run lint",
     "test": "jest --config package.json",
-    "test:coverage": "jest --config package.json --coverage"
+    "test:coverage": "jest --config package.json --coverage",
+    "test:ci": "npm run test:coverage && cat ./coverage/lcov.info | ./node_modules/coveralls/bin/coveralls.js && rm -rf ./coverage"
   },
   "repository": {
     "type": "git",
