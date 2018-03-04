@@ -1,4 +1,5 @@
 [![Build Status](https://travis-ci.org/Rod-rig/pl.svg?branch=master)](https://travis-ci.org/Rod-rig/pl)
+[![Coverage Status](https://coveralls.io/repos/github/Rod-rig/pl/badge.svg?branch=master)](https://coveralls.io/github/Rod-rig/pl?branch=master)
 
 ## English Premier League table
 

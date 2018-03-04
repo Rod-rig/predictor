@@ -65,6 +65,7 @@
     "awesome-typescript-loader": "^3.4.1",
     "body-parser": "^1.17.2",
     "concurrently": "^3.5.1",
+    "coveralls": "^3.0.0",
     "css-loader": "^0.28.4",
     "express": "^4.15.4",
     "extract-text-webpack-plugin": "^3.0.0",
