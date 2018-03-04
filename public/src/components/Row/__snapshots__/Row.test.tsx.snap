@@ -1,64 +1,68 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`Row should render correctly 1`] = `
-<tr
-  className="MuiTableRow-root-1"
+<table
+  className="MuiTable-root-1"
 >
-  <td
-    aria-sort={null}
-    className="MuiTableCell-root-6 MuiTableCell-paddingDefault-11"
-    scope={undefined}
+  <tr
+    className="MuiTableRow-root-2 MuiTableRow-hover-6"
   >
-    1.
-  </td>
-  <td
-    aria-sort={null}
-    className="MuiTableCell-root-6 MuiTableCell-paddingDefault-11"
-    scope={undefined}
-  >
-    Манчестер Сити
-  </td>
-  <td
-    aria-sort={null}
-    className="MuiTableCell-root-6 MuiTableCell-paddingDefault-11"
-    scope={undefined}
-  >
-    24
-  </td>
-  <td
-    aria-sort={null}
-    className="MuiTableCell-root-6 MuiTableCell-paddingDefault-11"
-    scope={undefined}
-  >
-    21
-  </td>
-  <td
-    aria-sort={null}
-    className="MuiTableCell-root-6 MuiTableCell-paddingDefault-11"
-    scope={undefined}
-  >
-    2
-  </td>
-  <td
-    aria-sort={null}
-    className="MuiTableCell-root-6 MuiTableCell-paddingDefault-11"
-    scope={undefined}
-  >
-    1
-  </td>
-  <td
-    aria-sort={null}
-    className="MuiTableCell-root-6 MuiTableCell-paddingDefault-11"
-    scope={undefined}
-  >
-    70:18
-  </td>
-  <td
-    aria-sort={null}
-    className="MuiTableCell-root-6 MuiTableCell-paddingDefault-11"
-    scope={undefined}
-  >
-    65
-  </td>
-</tr>
+    <td
+      aria-sort={null}
+      className="MuiTableCell-root-7 MuiTableCell-paddingDefault-12"
+      scope={undefined}
+    >
+      1.
+    </td>
+    <td
+      aria-sort={null}
+      className="MuiTableCell-root-7 MuiTableCell-paddingDefault-12"
+      scope={undefined}
+    >
+      Манчестер Сити
+    </td>
+    <td
+      aria-sort={null}
+      className="MuiTableCell-root-7 MuiTableCell-paddingDefault-12"
+      scope={undefined}
+    >
+      24
+    </td>
+    <td
+      aria-sort={null}
+      className="MuiTableCell-root-7 MuiTableCell-paddingDefault-12"
+      scope={undefined}
+    >
+      21
+    </td>
+    <td
+      aria-sort={null}
+      className="MuiTableCell-root-7 MuiTableCell-paddingDefault-12"
+      scope={undefined}
+    >
+      2
+    </td>
+    <td
+      aria-sort={null}
+      className="MuiTableCell-root-7 MuiTableCell-paddingDefault-12"
+      scope={undefined}
+    >
+      1
+    </td>
+    <td
+      aria-sort={null}
+      className="MuiTableCell-root-7 MuiTableCell-paddingDefault-12"
+      scope={undefined}
+    >
+      70:18
+    </td>
+    <td
+      aria-sort={null}
+      className="MuiTableCell-root-7 MuiTableCell-paddingDefault-12"
+      scope={undefined}
+    >
+      65
+    </td>
+  </tr>
+</table>
 `;

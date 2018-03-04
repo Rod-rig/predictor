@@ -1,3 +1,4 @@
+import {Table} from 'material-ui';
 import * as React from 'react';
 import * as renderer from 'react-test-renderer';
 import {Row} from './Row';
@@ -9,7 +10,7 @@ describe('Row', () => {
 
   it('should render correctly', () => {
     const tree = renderer
-      .create(<Row row={team}/>)
+      .create(<Table><Row row={team}/></Table>)
       .toJSON();
     expect(tree).toMatchSnapshot();
   });

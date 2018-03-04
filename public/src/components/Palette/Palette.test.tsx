@@ -4,7 +4,7 @@ import Palette from './Palette';
 
 describe('Palette', () => {
   it('should contain material theme tag', () => {
-    const palette = shallow(<Palette/>);
+    const palette = shallow(<Palette>Foo</Palette>);
     const materialTag = palette.find('MuiThemeProvider');
     expect(materialTag).toHaveLength(1);
   });
