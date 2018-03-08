@@ -7,10 +7,11 @@ const table = require('../../mocks/england-table.json');
 
 describe('Row', () => {
   const team = table[0];
+  const chars = Object.keys(team);
 
   it('should render correctly', () => {
     const tree = renderer
-      .create(<Table><Row row={team}/></Table>)
+      .create(<Table><Row row={team} chars={chars}/></Table>)
       .toJSON();
     expect(tree).toMatchSnapshot();
   });

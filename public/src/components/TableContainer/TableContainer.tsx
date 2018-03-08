@@ -39,6 +39,8 @@ class TableContainer extends React.Component<IProps, IState> {
   }
 
   public render() {
+    const chars = ['position', 'engTeamName', 'matches', 'w', 'd', 'l', 'goals for',
+      'goals against', 'goal difference', 'points'];
     const state = this.state;
     const sortedTable = state.table.sort((a: any, b: any) => {
       if (this.state.order === 'asc') {
@@ -56,6 +58,7 @@ class TableContainer extends React.Component<IProps, IState> {
             order={state.order}
             sort={state.sort}
             sortHandle={this.sort}
+            chars={chars}
           />
           <TableBody>
             {
@@ -63,6 +66,7 @@ class TableContainer extends React.Component<IProps, IState> {
                 return <Row
                   key={index}
                   row={row}
+                  chars={chars}
                 />;
               })
             }

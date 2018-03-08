@@ -7,7 +7,7 @@ exports[`TableHeadContainer should render correctly with default props 1`] = `
   >
     <th
       aria-sort="ascending"
-      className="MuiTableCell-root-6 MuiTableCell-paddingDefault-11 MuiTableCell-typeHead-8"
+      className="MuiTableCell-root-6 MuiTableCell-paddingCheckbox-13 MuiTableCell-paddingDefault-11 MuiTableCell-typeHead-8"
       scope="col"
     >
       <div
@@ -71,7 +71,7 @@ exports[`TableHeadContainer should render correctly with default props 1`] = `
     </th>
     <th
       aria-sort="ascending"
-      className="MuiTableCell-root-6 MuiTableCell-paddingDefault-11 MuiTableCell-typeHead-8"
+      className="MuiTableCell-root-6 MuiTableCell-paddingCheckbox-13 MuiTableCell-paddingDefault-11 MuiTableCell-typeHead-8"
       scope="col"
     >
       <div
@@ -135,7 +135,7 @@ exports[`TableHeadContainer should render correctly with default props 1`] = `
     </th>
     <th
       aria-sort="ascending"
-      className="MuiTableCell-root-6 MuiTableCell-paddingDefault-11 MuiTableCell-typeHead-8"
+      className="MuiTableCell-root-6 MuiTableCell-paddingCheckbox-13 MuiTableCell-paddingDefault-11 MuiTableCell-typeHead-8"
       scope="col"
     >
       <div
@@ -208,7 +208,7 @@ exports[`TableHeadContainer should render correctly with different props 1`] = `
   >
     <th
       aria-sort="ascending"
-      className="MuiTableCell-root-6 MuiTableCell-paddingDefault-11 MuiTableCell-typeHead-8"
+      className="MuiTableCell-root-6 MuiTableCell-paddingCheckbox-13 MuiTableCell-paddingDefault-11 MuiTableCell-typeHead-8"
       scope="col"
     >
       <div
@@ -272,7 +272,7 @@ exports[`TableHeadContainer should render correctly with different props 1`] = `
     </th>
     <th
       aria-sort="ascending"
-      className="MuiTableCell-root-6 MuiTableCell-paddingDefault-11 MuiTableCell-typeHead-8"
+      className="MuiTableCell-root-6 MuiTableCell-paddingCheckbox-13 MuiTableCell-paddingDefault-11 MuiTableCell-typeHead-8"
       scope="col"
     >
       <div
@@ -336,7 +336,7 @@ exports[`TableHeadContainer should render correctly with different props 1`] = `
     </th>
     <th
       aria-sort="ascending"
-      className="MuiTableCell-root-6 MuiTableCell-paddingDefault-11 MuiTableCell-typeHead-8"
+      className="MuiTableCell-root-6 MuiTableCell-paddingCheckbox-13 MuiTableCell-paddingDefault-11 MuiTableCell-typeHead-8"
       scope="col"
     >
       <div

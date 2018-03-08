@@ -1,32 +1,44 @@
 [
   {
-    "position": "1.",
-    "teamName": "Манчестер Сити",
-    "matches": "24",
-    "w": "21",
-    "d": "2",
-    "l": "1",
-    "goals": "70:18",
-    "points": "65"
+    "position": 1,
+    "matches": 29,
+    "w": 25,
+    "d": 3,
+    "l": 1,
+    "goals for": 83,
+    "goals against": 20,
+    "points": 78,
+    "engTeamName": "Manchester City",
+    "shortName": "MCI",
+    "goal difference": 63,
+    "next match": "Stoke City"
   },
   {
-    "position": "2.",
-    "teamName": "Манчестер Юнайтед",
-    "matches": "24",
-    "w": "16",
-    "d": "5",
-    "l": "3",
-    "goals": "49:16",
-    "points": "53"
+    "position": 2,
+    "matches": 29,
+    "w": 19,
+    "d": 5,
+    "l": 5,
+    "goals for": 56,
+    "goals against": 22,
+    "points": 62,
+    "engTeamName": "Manchester United",
+    "shortName": "MUN",
+    "goal difference": 34,
+    "next match": "Liverpool"
   },
   {
-    "position": "3.",
-    "teamName": "Челси",
-    "matches": "24",
-    "w": "15",
-    "d": "5",
-    "l": "4",
-    "goals": "45:16",
-    "points": "50"
+    "position": 3,
+    "matches": 29,
+    "w": 17,
+    "d": 9,
+    "l": 3,
+    "goals for": 67,
+    "goals against": 32,
+    "points": 60,
+    "engTeamName": "Liverpool",
+    "shortName": "LIV",
+    "goal difference": 35,
+    "next match": "Manchester United"
   }
 ]

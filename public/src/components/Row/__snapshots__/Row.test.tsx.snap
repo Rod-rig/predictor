@@ -9,59 +9,87 @@ exports[`Row should render correctly 1`] = `
   >
     <td
       aria-sort={null}
-      className="MuiTableCell-root-7 MuiTableCell-paddingDefault-12"
-      scope={undefined}
-    >
-      1.
-    </td>
-    <td
-      aria-sort={null}
-      className="MuiTableCell-root-7 MuiTableCell-paddingDefault-12"
-      scope={undefined}
-    >
-      Манчестер Сити
-    </td>
-    <td
-      aria-sort={null}
-      className="MuiTableCell-root-7 MuiTableCell-paddingDefault-12"
-      scope={undefined}
-    >
-      24
-    </td>
-    <td
-      aria-sort={null}
-      className="MuiTableCell-root-7 MuiTableCell-paddingDefault-12"
-      scope={undefined}
-    >
-      21
-    </td>
-    <td
-      aria-sort={null}
-      className="MuiTableCell-root-7 MuiTableCell-paddingDefault-12"
-      scope={undefined}
-    >
-      2
-    </td>
-    <td
-      aria-sort={null}
-      className="MuiTableCell-root-7 MuiTableCell-paddingDefault-12"
+      className="MuiTableCell-root-7 MuiTableCell-paddingCheckbox-14 MuiTableCell-paddingDefault-12"
       scope={undefined}
     >
       1
     </td>
     <td
       aria-sort={null}
-      className="MuiTableCell-root-7 MuiTableCell-paddingDefault-12"
+      className="MuiTableCell-root-7 MuiTableCell-paddingCheckbox-14 MuiTableCell-paddingDefault-12"
       scope={undefined}
     >
-      70:18
+      29
     </td>
     <td
       aria-sort={null}
-      className="MuiTableCell-root-7 MuiTableCell-paddingDefault-12"
+      className="MuiTableCell-root-7 MuiTableCell-paddingCheckbox-14 MuiTableCell-paddingDefault-12"
       scope={undefined}
     >
-      65
+      25
+    </td>
+    <td
+      aria-sort={null}
+      className="MuiTableCell-root-7 MuiTableCell-paddingCheckbox-14 MuiTableCell-paddingDefault-12"
+      scope={undefined}
+    >
+      3
+    </td>
+    <td
+      aria-sort={null}
+      className="MuiTableCell-root-7 MuiTableCell-paddingCheckbox-14 MuiTableCell-paddingDefault-12"
+      scope={undefined}
+    >
+      1
+    </td>
+    <td
+      aria-sort={null}
+      className="MuiTableCell-root-7 MuiTableCell-paddingCheckbox-14 MuiTableCell-paddingDefault-12"
+      scope={undefined}
+    >
+      83
+    </td>
+    <td
+      aria-sort={null}
+      className="MuiTableCell-root-7 MuiTableCell-paddingCheckbox-14 MuiTableCell-paddingDefault-12"
+      scope={undefined}
+    >
+      20
+    </td>
+    <td
+      aria-sort={null}
+      className="MuiTableCell-root-7 MuiTableCell-paddingCheckbox-14 MuiTableCell-paddingDefault-12"
+      scope={undefined}
+    >
+      78
+    </td>
+    <td
+      aria-sort={null}
+      className="MuiTableCell-root-7 MuiTableCell-paddingCheckbox-14 MuiTableCell-paddingDefault-12"
+      scope={undefined}
+    >
+      Manchester City
+    </td>
+    <td
+      aria-sort={null}
+      className="MuiTableCell-root-7 MuiTableCell-paddingCheckbox-14 MuiTableCell-paddingDefault-12"
+      scope={undefined}
+    >
+      MCI
+    </td>
+    <td
+      aria-sort={null}
+      className="MuiTableCell-root-7 MuiTableCell-paddingCheckbox-14 MuiTableCell-paddingDefault-12"
+      scope={undefined}
+    >
+      63
+    </td>
+    <td
+      aria-sort={null}
+      className="MuiTableCell-root-7 MuiTableCell-paddingCheckbox-14 MuiTableCell-paddingDefault-12"
+      scope={undefined}
+    >
+      Stoke City
     </td>
   </tr>
 </table>

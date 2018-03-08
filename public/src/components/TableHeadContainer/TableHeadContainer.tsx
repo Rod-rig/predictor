@@ -6,15 +6,20 @@ interface IHead {
   order?: any;
   sort?: string;
   sortHandle?: any;
+  chars: string[];
 }
 
 const TableHeadContainer = (props: IHead) => {
   return (
     <TableHead>
       <TableRow>
-        {props.orderBy.map(
+        {props.chars.map(
           (name: string, index: number) => (
-            <TableCell key={index} sortDirection={props.order === 'asc' ? 'desc' : 'asc'}>
+            <TableCell
+              key={index}
+              sortDirection={props.order === 'asc' ? 'desc' : 'asc'}
+              padding='checkbox'
+            >
               <Tooltip title='Sort' enterDelay={300}>
                 <TableSortLabel
                   active={props.sort === name}

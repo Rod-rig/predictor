@@ -12,7 +12,7 @@
     "mongo": "mongod",
     "server": "nodemon server.js --ignore public/",
     "server:dev": "webpack-dev-server",
-    "start": "concurrently \"npm run build:w\" \"npm run mongo\" \"npm run server\"",
+    "start": "concurrently \"npm run build:w\" \"npm run mongo\" \"npm run server:dev\"",
     "pretest": "npm run lint",
     "test": "jest --config package.json",
     "test:coverage": "jest --config package.json --coverage",

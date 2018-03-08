@@ -6,16 +6,16 @@ export interface IRow {
 }
 
 interface IProps {
+  chars: string[];
   row: IRow;
 }
 
 export const Row = (props: IProps) => {
-  const keys = Object.keys(props.row);
   return (
     <TableRow hover={true}>
       {
-        keys.map((val, i) => (
-          <TableCell key={i}>{props.row[val]}</TableCell>
+        props.chars.map((val, i) => (
+          <TableCell key={i} padding='checkbox'>{props.row[val]}</TableCell>
         ))
       }
     </TableRow>
