@@ -3,7 +3,7 @@ import * as React from 'react';
 import * as renderer from 'react-test-renderer';
 import {Row} from './Row';
 
-const table = require('../../mocks/england-table.json');
+const table = require('../../__mocks__/england-table.json');
 
 describe('Row', () => {
   const team = table[0];

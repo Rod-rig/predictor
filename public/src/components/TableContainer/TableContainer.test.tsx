@@ -4,6 +4,7 @@ import * as renderer from 'react-test-renderer';
 import TableContainer from './TableContainer';
 
 describe('TableContainer', () => {
+  jest.mock('axios');
   const tableContainer = shallow(<TableContainer/>);
 
   it('should have head', () => {

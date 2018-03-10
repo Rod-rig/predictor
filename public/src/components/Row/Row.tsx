@@ -14,7 +14,7 @@ export const Row = (props: IProps) => {
   return (
     <TableRow hover={true}>
       {
-        props.chars.map((val, i) => (
+        props.chars.map((val, i): JSX.Element => (
           <TableCell key={i} padding='checkbox'>{props.row[val]}</TableCell>
         ))
       }

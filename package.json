@@ -7,7 +7,7 @@
     "build": "webpack -p",
     "build:w": "webpack --watch",
     "lint": "npm run lint:css && npm run lint:js",
-    "lint:js": "tslint -t stylish 'public/src/**/*.{ts*,js}'",
+    "lint:js": "tslint -t stylish 'public/src/**/*.{tsx,ts,js}'",
     "lint:css": "stylelint \"public/src/**/*.css\"",
     "mongo": "mongod",
     "server": "nodemon server.js --ignore public/",
@@ -37,6 +37,9 @@
     "last 3 versions"
   ],
   "jest": {
+    "collectCoverageFrom": [
+      "public/src/components/**/*.{ts,tsx}"
+    ],
     "transform": {
       "^.+\\.tsx?$": "ts-jest"
     },
@@ -63,7 +66,7 @@
     ]
   },
   "devDependencies": {
-    "awesome-typescript-loader": "^3.4.1",
+    "awesome-typescript-loader": "^4.0.1",
     "body-parser": "^1.17.2",
     "concurrently": "^3.5.1",
     "coveralls": "^3.0.0",

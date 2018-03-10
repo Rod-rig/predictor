@@ -1,4 +1,4 @@
-import axios from 'axios';
+import axios, {AxiosResponse} from 'axios';
 import {Table, TableBody} from 'material-ui';
 import * as React from 'react';
 import {IRow, Row} from '../Row/Row';
@@ -39,12 +39,13 @@ class TableContainer extends React.Component<{}, IState> {
   }
 
   public componentDidMount() {
-    axios(tableUrl)
-      .then((res: any) => {
+    axios.get(tableUrl)
+      .then((res: AxiosResponse) => {
         this.setState({
           table: [...res.data],
         });
-      });
+      })
+      .catch((error) => error);
   }
 
   public render() {
