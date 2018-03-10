@@ -10,11 +10,11 @@ module.exports.connect = (url, done) => {
     done();
   }
 
-  MongoClient.connect(config.dbUrl, (err, db) => {
+  MongoClient.connect(config.dbUrl, (err, database) => {
     if (err) {
       return done(err);
     }
-    state.db = db;
+    state.db = database.db('football');
     done();
   });
 };

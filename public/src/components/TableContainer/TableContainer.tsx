@@ -1,11 +1,11 @@
+import axios from 'axios';
 import {Table, TableBody} from 'material-ui';
 import * as React from 'react';
 import {IRow, Row} from '../Row/Row';
 import TableHeadContainer from '../TableHeadContainer/TableHeadContainer';
 
-interface IProps {
-  table: object[];
-}
+const ghUrl: string = 'https://raw.githubusercontent.com/Rod-rig/epl-data/master';
+const tableUrl: string = `${ghUrl}/2017-2018/england/premier-league/table.json`;
 
 interface IState {
   order: 'asc' | 'desc';
@@ -13,13 +13,13 @@ interface IState {
   table: object[];
 }
 
-class TableContainer extends React.Component<IProps, IState> {
-  constructor(props: IProps) {
+class TableContainer extends React.Component<{}, IState> {
+  constructor(props: {}) {
     super(props);
     this.state = {
       order: 'asc',
       sort: 'position',
-      table: props.table,
+      table: [],
     };
     this.sort = this.sort.bind(this);
   }
@@ -38,6 +38,15 @@ class TableContainer extends React.Component<IProps, IState> {
     }
   }
 
+  public componentDidMount() {
+    axios(tableUrl)
+      .then((res: any) => {
+        this.setState({
+          table: [...res.data],
+        });
+      });
+  }
+
   public render() {
     const chars = ['position', 'engTeamName', 'matches', 'w', 'd', 'l', 'goals for',
       'goals against', 'goal difference', 'points'];
@@ -54,7 +63,6 @@ class TableContainer extends React.Component<IProps, IState> {
       <div>
         <Table>
           <TableHeadContainer
-            orderBy={Object.keys(state.table[0])}
             order={state.order}
             sort={state.sort}
             sortHandle={this.sort}

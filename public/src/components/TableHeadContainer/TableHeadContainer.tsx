@@ -2,7 +2,6 @@ import {TableCell, TableHead, TableRow, TableSortLabel, Tooltip} from 'material-
 import * as React from 'react';
 
 interface IHead {
-  orderBy: string[];
   order?: any;
   sort?: string;
   sortHandle?: any;

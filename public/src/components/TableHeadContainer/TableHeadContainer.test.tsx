@@ -7,7 +7,7 @@ const sort = ['position', 'team', 'points'];
 describe('TableHeadContainer', () => {
   it('should render correctly with default props', () => {
     const tree = renderer
-      .create(<TableHeadContainer orderBy={sort} chars={sort}/>)
+      .create(<TableHeadContainer chars={sort}/>)
       .toJSON();
     expect(tree).toMatchSnapshot();
   });
@@ -16,7 +16,6 @@ describe('TableHeadContainer', () => {
     const tree = renderer
       .create(
         <TableHeadContainer
-          orderBy={sort}
           order='desc'
           sort={sort[1]}
           chars={sort}

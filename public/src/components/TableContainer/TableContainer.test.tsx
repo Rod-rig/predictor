@@ -3,10 +3,8 @@ import * as React from 'react';
 import * as renderer from 'react-test-renderer';
 import TableContainer from './TableContainer';
 
-const table = require('../../mocks/england-table.json');
-
 describe('TableContainer', () => {
-  const tableContainer = shallow(<TableContainer table={table}/>);
+  const tableContainer = shallow(<TableContainer/>);
 
   it('should have head', () => {
     const head = tableContainer.find('TableHeadContainer');
@@ -21,14 +19,14 @@ describe('TableContainer', () => {
 
   it('should render correctly', () => {
     const tree = renderer
-      .create(<TableContainer table={table}/>)
+      .create(<TableContainer/>)
       .toJSON();
     expect(tree).toMatchSnapshot();
   });
 });
 
 describe('sorting in TableContainer', () => {
-  const tableContainer = shallow(<TableContainer table={table}/>);
+  const tableContainer = shallow(<TableContainer/>);
   const tableInst = tableContainer.instance();
   const sortSpy = jest.fn(TableContainer.prototype.sort.bind(tableInst));
 
