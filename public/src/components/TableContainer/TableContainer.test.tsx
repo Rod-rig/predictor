@@ -1,6 +1,5 @@
 import {shallow} from 'enzyme';
 import * as React from 'react';
-import * as renderer from 'react-test-renderer';
 import TableContainer from './TableContainer';
 
 describe('TableContainer', () => {
@@ -16,13 +15,6 @@ describe('TableContainer', () => {
   it('should have correct initial state', () => {
     expect(tableContainer.state('sort')).toEqual('position');
     expect(tableContainer.state('order')).toEqual('asc');
-  });
-
-  it('should render correctly', () => {
-    const tree = renderer
-      .create(<TableContainer/>)
-      .toJSON();
-    expect(tree).toMatchSnapshot();
   });
 });
 

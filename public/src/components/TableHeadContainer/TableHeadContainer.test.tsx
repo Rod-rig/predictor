@@ -23,4 +23,16 @@ describe('TableHeadContainer', () => {
       .toJSON();
     expect(tree).toMatchSnapshot();
   });
+
+  it('should render correctly with another props', () => {
+    const tree = renderer
+      .create(
+        <TableHeadContainer
+          order='asc'
+          sort={sort[sort.length - 1]}
+          chars={sort}
+        />)
+      .toJSON();
+    expect(tree).toMatchSnapshot();
+  });
 });

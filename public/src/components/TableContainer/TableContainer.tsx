@@ -45,7 +45,9 @@ class TableContainer extends React.Component<{}, IState> {
           table: [...res.data],
         });
       })
-      .catch((error) => error);
+      .catch(/* istanbul ignore next */(error) => {
+        throw error;
+      });
   }
 
   public render() {
