@@ -2,7 +2,7 @@
 
 exports[`Header should render correctly 1`] = `
 <header
-  className="MuiPaper-root-9 MuiPaper-shadow4-15 MuiAppBar-root-1 MuiAppBar-positionStatic-5 MuiAppBar-colorPrimary-7 header"
+  className="MuiPaper-root-9 MuiPaper-elevation4-15 MuiAppBar-root-1 MuiAppBar-positionStatic-5 MuiAppBar-colorPrimary-7 header"
 >
   <div
     className="MuiToolbar-root-36 MuiToolbar-gutters-37 header__toolbar"
@@ -21,7 +21,7 @@ exports[`Header should render correctly 1`] = `
       onTouchEnd={[Function]}
       onTouchMove={[Function]}
       onTouchStart={[Function]}
-      tabIndex={0}
+      tabIndex="0"
       type="button"
     >
       <span
@@ -29,7 +29,7 @@ exports[`Header should render correctly 1`] = `
       >
         <svg
           aria-hidden="true"
-          className="MuiSvgIcon-root-46 MuiSvgIcon-fontSize-52"
+          className="MuiSvgIcon-root-47"
           color={undefined}
           focusable="false"
           viewBox="0 0 24 24"
