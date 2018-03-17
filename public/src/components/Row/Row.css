@@ -1,0 +1,30 @@
+@import '../../css/_variables.css';
+
+.row .row__cell:not(:nth-child(2)) {
+    text-align: center;
+}
+
+@media (--md-breakpoint) {
+    .row .row__cell {
+        padding-left: 6px;
+        padding-right: 6px;
+    }
+
+    .row__cell:nth-child(3),
+    .row__cell:nth-child(7),
+    .row__cell:nth-child(8) {
+        display: none;
+    }
+}
+
+@media (--sm-breakpoint) {
+    .row__cell:nth-child(4),
+    .row__cell:nth-child(5),
+    .row__cell:nth-child(6) {
+        display: none;
+    }
+
+    .row .row__cell:last-child {
+        padding-right: 6px;
+    }
+}

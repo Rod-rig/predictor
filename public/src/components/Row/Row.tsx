@@ -1,6 +1,8 @@
 import {TableCell, TableRow} from 'material-ui';
 import * as React from 'react';
 
+import './Row.css';
+
 export interface IRow {
   [index: string]: string;
 }
@@ -12,10 +14,10 @@ interface IProps {
 
 export const Row = (props: IProps) => {
   return (
-    <TableRow hover={true}>
+    <TableRow hover={true} className='row'>
       {
         props.chars.map((val, i): JSX.Element => (
-          <TableCell key={i} padding='checkbox'>{props.row[val]}</TableCell>
+          <TableCell key={i} padding='checkbox' className='row__cell'>{props.row[val]}</TableCell>
         ))
       }
     </TableRow>

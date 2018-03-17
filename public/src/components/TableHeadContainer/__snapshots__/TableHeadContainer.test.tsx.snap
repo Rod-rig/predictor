@@ -2,15 +2,16 @@
 
 exports[`TableHeadContainer should render correctly with another props 1`] = `
 <thead
-  className="MuiTableHead-root-1"
+  className="MuiTableHead-root-1 table-head"
 >
   <tr
     className="MuiTableRow-root-2 MuiTableRow-head-3"
   >
     <th
       aria-sort="descending"
-      className="MuiTableCell-root-7 MuiTableCell-head-8 MuiTableCell-paddingCheckbox-13"
+      className="MuiTableCell-root-7 MuiTableCell-head-8 MuiTableCell-paddingCheckbox-13 table-head__cell"
       scope="col"
+      type="head"
     >
       <div
         className="MuiTooltip-root-15"
@@ -73,8 +74,9 @@ exports[`TableHeadContainer should render correctly with another props 1`] = `
     </th>
     <th
       aria-sort="descending"
-      className="MuiTableCell-root-7 MuiTableCell-head-8 MuiTableCell-paddingCheckbox-13"
+      className="MuiTableCell-root-7 MuiTableCell-head-8 MuiTableCell-paddingCheckbox-13 table-head__cell"
       scope="col"
+      type="head"
     >
       <div
         className="MuiTooltip-root-15"
@@ -137,8 +139,9 @@ exports[`TableHeadContainer should render correctly with another props 1`] = `
     </th>
     <th
       aria-sort="descending"
-      className="MuiTableCell-root-7 MuiTableCell-head-8 MuiTableCell-paddingCheckbox-13"
+      className="MuiTableCell-root-7 MuiTableCell-head-8 MuiTableCell-paddingCheckbox-13 table-head__cell"
       scope="col"
+      type="head"
     >
       <div
         className="MuiTooltip-root-15"
@@ -205,15 +208,16 @@ exports[`TableHeadContainer should render correctly with another props 1`] = `
 
 exports[`TableHeadContainer should render correctly with default props 1`] = `
 <thead
-  className="MuiTableHead-root-1"
+  className="MuiTableHead-root-1 table-head"
 >
   <tr
     className="MuiTableRow-root-2 MuiTableRow-head-3"
   >
     <th
       aria-sort="ascending"
-      className="MuiTableCell-root-7 MuiTableCell-head-8 MuiTableCell-paddingCheckbox-13"
+      className="MuiTableCell-root-7 MuiTableCell-head-8 MuiTableCell-paddingCheckbox-13 table-head__cell"
       scope="col"
+      type="head"
     >
       <div
         className="MuiTooltip-root-15"
@@ -276,8 +280,9 @@ exports[`TableHeadContainer should render correctly with default props 1`] = `
     </th>
     <th
       aria-sort="ascending"
-      className="MuiTableCell-root-7 MuiTableCell-head-8 MuiTableCell-paddingCheckbox-13"
+      className="MuiTableCell-root-7 MuiTableCell-head-8 MuiTableCell-paddingCheckbox-13 table-head__cell"
       scope="col"
+      type="head"
     >
       <div
         className="MuiTooltip-root-15"
@@ -340,8 +345,9 @@ exports[`TableHeadContainer should render correctly with default props 1`] = `
     </th>
     <th
       aria-sort="ascending"
-      className="MuiTableCell-root-7 MuiTableCell-head-8 MuiTableCell-paddingCheckbox-13"
+      className="MuiTableCell-root-7 MuiTableCell-head-8 MuiTableCell-paddingCheckbox-13 table-head__cell"
       scope="col"
+      type="head"
     >
       <div
         className="MuiTooltip-root-15"
@@ -408,15 +414,16 @@ exports[`TableHeadContainer should render correctly with default props 1`] = `
 
 exports[`TableHeadContainer should render correctly with different props 1`] = `
 <thead
-  className="MuiTableHead-root-1"
+  className="MuiTableHead-root-1 table-head"
 >
   <tr
     className="MuiTableRow-root-2 MuiTableRow-head-3"
   >
     <th
       aria-sort="ascending"
-      className="MuiTableCell-root-7 MuiTableCell-head-8 MuiTableCell-paddingCheckbox-13"
+      className="MuiTableCell-root-7 MuiTableCell-head-8 MuiTableCell-paddingCheckbox-13 table-head__cell"
       scope="col"
+      type="head"
     >
       <div
         className="MuiTooltip-root-15"
@@ -479,8 +486,9 @@ exports[`TableHeadContainer should render correctly with different props 1`] = `
     </th>
     <th
       aria-sort="ascending"
-      className="MuiTableCell-root-7 MuiTableCell-head-8 MuiTableCell-paddingCheckbox-13"
+      className="MuiTableCell-root-7 MuiTableCell-head-8 MuiTableCell-paddingCheckbox-13 table-head__cell"
       scope="col"
+      type="head"
     >
       <div
         className="MuiTooltip-root-15"
@@ -543,8 +551,9 @@ exports[`TableHeadContainer should render correctly with different props 1`] = `
     </th>
     <th
       aria-sort="ascending"
-      className="MuiTableCell-root-7 MuiTableCell-head-8 MuiTableCell-paddingCheckbox-13"
+      className="MuiTableCell-root-7 MuiTableCell-head-8 MuiTableCell-paddingCheckbox-13 table-head__cell"
       scope="col"
+      type="head"
     >
       <div
         className="MuiTooltip-root-15"

@@ -5,88 +5,88 @@ exports[`Row should render correctly 1`] = `
   className="MuiTable-root-1"
 >
   <tr
-    className="MuiTableRow-root-2 MuiTableRow-hover-6"
+    className="MuiTableRow-root-2 MuiTableRow-hover-6 row"
   >
     <td
       aria-sort={null}
-      className="MuiTableCell-root-7 MuiTableCell-paddingCheckbox-13"
+      className="MuiTableCell-root-7 MuiTableCell-paddingCheckbox-13 row__cell"
       scope={undefined}
     >
       1
     </td>
     <td
       aria-sort={null}
-      className="MuiTableCell-root-7 MuiTableCell-paddingCheckbox-13"
+      className="MuiTableCell-root-7 MuiTableCell-paddingCheckbox-13 row__cell"
       scope={undefined}
     >
       29
     </td>
     <td
       aria-sort={null}
-      className="MuiTableCell-root-7 MuiTableCell-paddingCheckbox-13"
+      className="MuiTableCell-root-7 MuiTableCell-paddingCheckbox-13 row__cell"
       scope={undefined}
     >
       25
     </td>
     <td
       aria-sort={null}
-      className="MuiTableCell-root-7 MuiTableCell-paddingCheckbox-13"
+      className="MuiTableCell-root-7 MuiTableCell-paddingCheckbox-13 row__cell"
       scope={undefined}
     >
       3
     </td>
     <td
       aria-sort={null}
-      className="MuiTableCell-root-7 MuiTableCell-paddingCheckbox-13"
+      className="MuiTableCell-root-7 MuiTableCell-paddingCheckbox-13 row__cell"
       scope={undefined}
     >
       1
     </td>
     <td
       aria-sort={null}
-      className="MuiTableCell-root-7 MuiTableCell-paddingCheckbox-13"
+      className="MuiTableCell-root-7 MuiTableCell-paddingCheckbox-13 row__cell"
       scope={undefined}
     >
       83
     </td>
     <td
       aria-sort={null}
-      className="MuiTableCell-root-7 MuiTableCell-paddingCheckbox-13"
+      className="MuiTableCell-root-7 MuiTableCell-paddingCheckbox-13 row__cell"
       scope={undefined}
     >
       20
     </td>
     <td
       aria-sort={null}
-      className="MuiTableCell-root-7 MuiTableCell-paddingCheckbox-13"
+      className="MuiTableCell-root-7 MuiTableCell-paddingCheckbox-13 row__cell"
       scope={undefined}
     >
       78
     </td>
     <td
       aria-sort={null}
-      className="MuiTableCell-root-7 MuiTableCell-paddingCheckbox-13"
+      className="MuiTableCell-root-7 MuiTableCell-paddingCheckbox-13 row__cell"
       scope={undefined}
     >
       Manchester City
     </td>
     <td
       aria-sort={null}
-      className="MuiTableCell-root-7 MuiTableCell-paddingCheckbox-13"
+      className="MuiTableCell-root-7 MuiTableCell-paddingCheckbox-13 row__cell"
       scope={undefined}
     >
       MCI
     </td>
     <td
       aria-sort={null}
-      className="MuiTableCell-root-7 MuiTableCell-paddingCheckbox-13"
+      className="MuiTableCell-root-7 MuiTableCell-paddingCheckbox-13 row__cell"
       scope={undefined}
     >
       63
     </td>
     <td
       aria-sort={null}
-      className="MuiTableCell-root-7 MuiTableCell-paddingCheckbox-13"
+      className="MuiTableCell-root-7 MuiTableCell-paddingCheckbox-13 row__cell"
       scope={undefined}
     >
       Stoke City
