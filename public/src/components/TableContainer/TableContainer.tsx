@@ -51,7 +51,7 @@ class TableContainer extends React.Component<{}, IState> {
   }
 
   public render() {
-    const chars = ['position', 'engTeamName', 'matches', 'w', 'd', 'l', 'goals for',
+    const chars = ['position', 'teamName', 'matches', 'w', 'd', 'l', 'goals for',
       'goals against', 'goal difference', 'points'];
     const state = this.state;
     const sortedTable = state.table.sort((a: any, b: any) => {

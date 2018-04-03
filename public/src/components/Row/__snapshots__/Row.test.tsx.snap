@@ -19,14 +19,7 @@ exports[`Row should render correctly 1`] = `
       className="MuiTableCell-root-7 MuiTableCell-paddingCheckbox-13 row__cell"
       scope={undefined}
     >
-      29
-    </td>
-    <td
-      aria-sort={null}
-      className="MuiTableCell-root-7 MuiTableCell-paddingCheckbox-13 row__cell"
-      scope={undefined}
-    >
-      25
+      27
     </td>
     <td
       aria-sort={null}
@@ -47,49 +40,42 @@ exports[`Row should render correctly 1`] = `
       className="MuiTableCell-root-7 MuiTableCell-paddingCheckbox-13 row__cell"
       scope={undefined}
     >
-      83
+      88
     </td>
     <td
       aria-sort={null}
       className="MuiTableCell-root-7 MuiTableCell-paddingCheckbox-13 row__cell"
       scope={undefined}
     >
-      20
+      21
     </td>
     <td
       aria-sort={null}
       className="MuiTableCell-root-7 MuiTableCell-paddingCheckbox-13 row__cell"
       scope={undefined}
     >
-      78
+      84
     </td>
     <td
       aria-sort={null}
       className="MuiTableCell-root-7 MuiTableCell-paddingCheckbox-13 row__cell"
       scope={undefined}
     >
-      Manchester City
-    </td>
-    <td
-      aria-sort={null}
-      className="MuiTableCell-root-7 MuiTableCell-paddingCheckbox-13 row__cell"
-      scope={undefined}
-    >
-      MCI
-    </td>
-    <td
-      aria-sort={null}
-      className="MuiTableCell-root-7 MuiTableCell-paddingCheckbox-13 row__cell"
-      scope={undefined}
-    >
-      63
-    </td>
-    <td
-      aria-sort={null}
-      className="MuiTableCell-root-7 MuiTableCell-paddingCheckbox-13 row__cell"
-      scope={undefined}
-    >
-      Stoke City
+      <div
+        className="row__info"
+      >
+        <div
+          className="MuiAvatar-root-15 row__img"
+        />
+        <span
+          className="row__name"
+        >
+          Manchester City
+        </span>
+        <span
+          className="row__shortname"
+        />
+      </div>
     </td>
   </tr>
 </table>

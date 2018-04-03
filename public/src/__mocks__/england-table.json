@@ -1,44 +1,32 @@
 [
   {
     "position": 1,
-    "matches": 29,
-    "w": 25,
+    "w": 27,
     "d": 3,
     "l": 1,
-    "goals for": 83,
-    "goals against": 20,
-    "points": 78,
-    "engTeamName": "Manchester City",
-    "shortName": "MCI",
-    "goal difference": 63,
-    "next match": "Stoke City"
+    "goals for": 88,
+    "goals against": 21,
+    "points": 84,
+    "teamName": "Manchester City"
   },
   {
     "position": 2,
-    "matches": 29,
-    "w": 19,
+    "w": 21,
     "d": 5,
     "l": 5,
-    "goals for": 56,
-    "goals against": 22,
-    "points": 62,
-    "engTeamName": "Manchester United",
-    "shortName": "MUN",
-    "goal difference": 34,
-    "next match": "Liverpool"
+    "goals for": 60,
+    "goals against": 23,
+    "points": 68,
+    "teamName": "Manchester United"
   },
   {
     "position": 3,
-    "matches": 29,
-    "w": 17,
+    "w": 19,
     "d": 9,
-    "l": 3,
-    "goals for": 67,
-    "goals against": 32,
-    "points": 60,
-    "engTeamName": "Liverpool",
-    "shortName": "LIV",
-    "goal difference": 35,
-    "next match": "Manchester United"
+    "l": 4,
+    "goals for": 75,
+    "goals against": 35,
+    "points": 66,
+    "teamName": "Liverpool"
   }
 ]
