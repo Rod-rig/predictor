@@ -1,9 +1,5 @@
 @import '../../css/_variables.css';
 
-.table-head__cell {
-    position: relative;
-}
-
 .table-head__cell:nth-child(2) {
     width: 100%;
 }
@@ -17,7 +13,7 @@
     width: 80px;
 }
 
-.table-head__cell svg[class*='MuiSvgIcon'] {
+.table-head__cell svg {
     position: absolute;
     top: 50%;
     margin-top: -8px;

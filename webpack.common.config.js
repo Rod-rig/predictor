@@ -9,19 +9,13 @@ module.exports = {
   entry: './public/src/index.tsx',
   output: {
     path: path.resolve(__dirname, './public/dist/js'),
-    filename: 'bundle.min.js'
-  },
-  devtool: 'source-map',
-  devServer: {
-    hot: true,
-    open: true,
-    contentBase: './public'
+    filename: 'bundle.js'
   },
   module: {
     rules: [
       {
         test: /\.tsx?$/,
-        loader: 'awesome-typescript-loader',
+        loader: 'ts-loader',
       },
       {
         enforce: 'pre',
@@ -72,7 +66,17 @@ module.exports = {
     extensions: ['.ts', '.tsx', '.js', '.json'],
     modules: ['node_modules', 'img']
   },
+  // resolve: {
+  //   modules: ['node_modules'],
+  //   extensions: ['.tsx', '.ts', '.js'],
+  //   descriptionFiles: ['package.json'],
+  //   alias: {
+  //     '_config': resolve(__dirname, 'src', 'config.ts'),
+  //     '_controller': resolve(__dirname, 'src', 'controllers'),
+  //     '_utils': resolve(__dirname, 'src', 'utils'),
+  //   },
+  // },
   plugins: [
-    new ExtractTextPlugin('../css/bundle.min.css')
+    new ExtractTextPlugin('../css/bundle.css')
   ]
 };
