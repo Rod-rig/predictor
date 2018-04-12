@@ -1,7 +1,7 @@
 {
   "name": "predictor",
   "version": "1.0.0",
-  "main": "webpack.config.js",
+  "main": "public/src/index.tsx",
   "license": "MIT",
   "scripts": {
     "build": "webpack --config webpack.prod.config.js",
@@ -28,7 +28,7 @@
   ],
   "author": "Vadim Cherniak <cherniakvadim08@gmail.com>",
   "bugs": {
-    "url": ""
+    "url": "https://github.com/Rod-rig/pl/issues"
   },
   "homepage": "https://rod-rig.github.io/pl/",
   "browserslist": [
