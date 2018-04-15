@@ -1,7 +1,8 @@
 import * as React from 'react';
+import dict from '../../dict/dict';
 
 const NotFound = () => (
-  <div>Not found</div>
+  <div>{dict.notFoundText}</div>
 );
 
 export default NotFound;

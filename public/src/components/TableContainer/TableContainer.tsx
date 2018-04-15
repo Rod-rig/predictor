@@ -5,7 +5,6 @@ import {IRow, Row} from '../Row/Row';
 import TableHeadContainer from '../TableHeadContainer/TableHeadContainer';
 
 const ghUrl: string = 'https://raw.githubusercontent.com/Rod-rig/epl-data/master';
-const tableUrl: string = `${ghUrl}/2017-2018/england/premier-league/table.json`;
 
 interface IState {
   order: 'asc' | 'desc';
@@ -13,9 +12,20 @@ interface IState {
   table: object[];
 }
 
-class TableContainer extends React.Component<{}, IState> {
-  constructor(props: {}) {
+interface IProps {
+  id: string;
+  match: {
+    params: {
+      id: string;
+    };
+  };
+}
+
+class TableContainer extends React.Component<IProps, IState> {
+  private id: string;
+  constructor(props: IProps) {
     super(props);
+    this.id = this.props.match.params.id ? this.props.match.params.id : this.props.id;
     this.state = {
       order: 'asc',
       sort: 'position',
@@ -39,6 +49,7 @@ class TableContainer extends React.Component<{}, IState> {
   }
 
   public componentDidMount() {
+    const tableUrl = `${ghUrl}/2017-2018/england/${this.props.match.params.id}/table.json`;
     axios.get(tableUrl)
       .then((res: AxiosResponse) => {
         this.setState({

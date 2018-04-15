@@ -13,9 +13,6 @@ import './Header.css';
 const Header = (props?: any) => {
   const {theme} = props;
   const styles = {
-    link: {
-      color: theme.palette.primary.contrastText,
-    },
     title: {
       marginLeft: theme.spacing.unit * 2,
     },
@@ -31,10 +28,6 @@ const Header = (props?: any) => {
         <Typography style={styles.title} variant='title' color='inherit'>
           Title
         </Typography>
-        <div>
-          <a style={styles.link} className='header__link' href=''>Link1</a>
-          <a style={styles.link} className='header__link' href=''>Link2</a>
-        </div>
       </Toolbar>
     </AppBar>
   );

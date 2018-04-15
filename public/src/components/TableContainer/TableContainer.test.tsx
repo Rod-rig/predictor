@@ -4,7 +4,7 @@ import TableContainer from './TableContainer';
 
 describe('TableContainer', () => {
   jest.mock('axios');
-  const tableContainer = shallow(<TableContainer/>);
+  const tableContainer = shallow(<TableContainer id='premier-league'/>);
 
   it('should have head', () => {
     const head = tableContainer.find('TableHeadContainer');
@@ -19,7 +19,7 @@ describe('TableContainer', () => {
 });
 
 describe('sorting in TableContainer', () => {
-  const tableContainer = shallow(<TableContainer/>);
+  const tableContainer = shallow(<TableContainer id='premier-league'/>);
   const tableInst = tableContainer.instance();
   const sortSpy = jest.fn(TableContainer.prototype.sort.bind(tableInst));
 

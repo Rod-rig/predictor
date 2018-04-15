@@ -12,11 +12,6 @@ describe('Header', () => {
     expect(logo).toHaveLength(1);
   });
 
-  it('should have menu links', () => {
-    const links = header.find('.header__link');
-    expect(links.length).toBeGreaterThanOrEqual(2);
-  });
-
   it('should render correctly', () => {
     const tree = renderer
       .create(<Header/>)
