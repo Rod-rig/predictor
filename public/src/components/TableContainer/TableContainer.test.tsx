@@ -4,7 +4,7 @@ import TableContainer from './TableContainer';
 
 describe('TableContainer', () => {
   jest.mock('axios');
-  const tableContainer = shallow(<TableContainer id='premier-league'/>);
+  const tableContainer = shallow(<TableContainer match={{params: {id: 'premier-league'}}}/>);
 
   it('should have head', () => {
     const head = tableContainer.find('TableHeadContainer');

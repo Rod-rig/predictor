@@ -13,8 +13,8 @@ interface IState {
 }
 
 interface IProps {
-  id: string;
-  match: {
+  id?: string;
+  match?: {
     params: {
       id: string;
     };
@@ -22,10 +22,10 @@ interface IProps {
 }
 
 class TableContainer extends React.Component<IProps, IState> {
-  private id: string;
+  private readonly id: string;
   constructor(props: IProps) {
     super(props);
-    this.id = this.props.match.params.id ? this.props.match.params.id : this.props.id;
+    this.id = this.props.match ? this.props.match.params.id : this.props.id;
     this.state = {
       order: 'asc',
       sort: 'position',
@@ -49,7 +49,7 @@ class TableContainer extends React.Component<IProps, IState> {
   }
 
   public componentDidMount() {
-    const tableUrl = `${ghUrl}/2017-2018/england/${this.props.match.params.id}/table.json`;
+    const tableUrl = `${ghUrl}/2017-2018/england/${this.id}/table.json`;
     axios.get(tableUrl)
       .then((res: AxiosResponse) => {
         this.setState({

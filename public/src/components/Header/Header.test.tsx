@@ -1,11 +1,12 @@
-import {shallow} from 'enzyme';
-import {withTheme} from 'material-ui/styles';
+import {mount} from 'enzyme';
 import * as React from 'react';
+import {MemoryRouter} from 'react-router-dom';
 import * as renderer from 'react-test-renderer';
 import Header from './Header';
 
 describe('Header', () => {
-  const header = shallow(<Header/>, {context: {withTheme}}).dive();
+  const headerInRouter = <MemoryRouter><Header/></MemoryRouter>;
+  const header = mount(headerInRouter);
 
   it('should have logo', () => {
     const logo = header.find('Logo');
@@ -14,7 +15,7 @@ describe('Header', () => {
 
   it('should render correctly', () => {
     const tree = renderer
-      .create(<Header/>)
+      .create(headerInRouter)
       .toJSON();
     expect(tree).toMatchSnapshot();
   });
