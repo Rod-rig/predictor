@@ -13,6 +13,7 @@ interface IState {
 }
 
 interface IProps {
+  chars: string[];
   id?: string;
   match?: {
     params: {
@@ -62,8 +63,7 @@ class TableContainer extends React.Component<IProps, IState> {
   }
 
   public render() {
-    const chars = ['position', 'teamName', 'matches', 'w', 'd', 'l', 'goals for',
-      'goals against', 'goal difference', 'points'];
+    const chars = this.props.chars;
     const state = this.state;
     const sortedTable = state.table.sort((a: any, b: any) => {
       if (this.state.order === 'asc') {

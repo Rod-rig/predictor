@@ -69323,6 +69323,14 @@ module.exports = function(originalModule) {
 
 "use strict";
 
+var __assign = (this && this.__assign) || Object.assign || function(t) {
+    for (var s, i = 1, n = arguments.length; i < n; i++) {
+        s = arguments[i];
+        for (var p in s) if (Object.prototype.hasOwnProperty.call(s, p))
+            t[p] = s[p];
+    }
+    return t;
+};
 Object.defineProperty(exports, "__esModule", { value: true });
 var material_ui_1 = __webpack_require__(/*! material-ui */ "./node_modules/material-ui/index.es.js");
 var React = __webpack_require__(/*! react */ "./node_modules/react/index.js");
@@ -69332,6 +69340,8 @@ var NotFound_1 = __webpack_require__(/*! ../NotFound/NotFound */ "./public/src/c
 var Palette_1 = __webpack_require__(/*! ../Palette/Palette */ "./public/src/components/Palette/Palette.tsx");
 var TableContainer_1 = __webpack_require__(/*! ../TableContainer/TableContainer */ "./public/src/components/TableContainer/TableContainer.tsx");
 var TournamentList_1 = __webpack_require__(/*! ../TournamentList/TournamentList */ "./public/src/components/TournamentList/TournamentList.tsx");
+var table = function (props) { return (React.createElement(TableContainer_1.default, __assign({}, props, { chars: ['position', 'teamName', 'matches', 'w', 'd', 'l', 'goals for',
+        'goals against', 'goal difference', 'points'] }))); };
 var App = function () { return (React.createElement(Palette_1.default, null,
     React.createElement(material_ui_1.CssBaseline, null),
     React.createElement(react_router_dom_1.BrowserRouter, null,
@@ -69339,7 +69349,7 @@ var App = function () { return (React.createElement(Palette_1.default, null,
             React.createElement(Header_1.default, null),
             React.createElement(react_router_dom_1.Switch, null,
                 React.createElement(react_router_dom_1.Route, { exact: true, path: '/', component: TournamentList_1.default }),
-                React.createElement(react_router_dom_1.Route, { path: '/tournament/:id', component: TableContainer_1.default }),
+                React.createElement(react_router_dom_1.Route, { path: '/tournament/:id', render: table }),
                 React.createElement(react_router_dom_1.Route, { component: NotFound_1.default })))))); };
 exports.default = App;
 
@@ -69583,8 +69593,7 @@ var TableContainer = /** @class */ (function (_super) {
     };
     TableContainer.prototype.render = function () {
         var _this = this;
-        var chars = ['position', 'teamName', 'matches', 'w', 'd', 'l', 'goals for',
-            'goals against', 'goal difference', 'points'];
+        var chars = this.props.chars;
         var state = this.state;
         var sortedTable = state.table.sort(function (a, b) {
             if (_this.state.order === 'asc') {
