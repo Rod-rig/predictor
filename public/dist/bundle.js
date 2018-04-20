@@ -69556,6 +69556,7 @@ var TableContainer = /** @class */ (function (_super) {
     function TableContainer(props) {
         var _this = _super.call(this, props) || this;
         _this.id = _this.props.match ? _this.props.match.params.id : _this.props.id;
+        _this.range = _this.props.range ? _this.props.range : null;
         _this.state = {
             order: 'asc',
             sort: 'position',
@@ -69578,18 +69579,28 @@ var TableContainer = /** @class */ (function (_super) {
             });
         }
     };
+    TableContainer.prototype.rangeData = function (data) {
+        var range = this.range;
+        var dataSize = data.length;
+        var from = range && range[0] > 0 ? range[0] - 1 : 0;
+        var to = range && range[1] < dataSize ? range[1] : dataSize;
+        return data.slice(from, to);
+    };
     TableContainer.prototype.componentDidMount = function () {
         var _this = this;
         var tableUrl = ghUrl + "/2017-2018/england/" + this.id + "/table.json";
         axios_1.default.get(tableUrl)
             .then(function (res) {
             _this.setState({
-                table: res.data.slice(),
+                table: _this.range ? _this.rangeData(res.data).slice() : res.data.slice(),
             });
         })
             .catch(/* istanbul ignore next */ function (error) {
             throw error;
         });
+    };
+    TableContainer.prototype.renderBody = function (rows, chars) {
+        return rows.map(function (row, index) { return (React.createElement(Row_1.Row, { key: index, row: row, chars: chars })); });
     };
     TableContainer.prototype.render = function () {
         var _this = this;
@@ -69606,9 +69617,7 @@ var TableContainer = /** @class */ (function (_super) {
         return (React.createElement("div", null,
             React.createElement(material_ui_1.Table, null,
                 React.createElement(TableHeadContainer_1.default, { order: state.order, sort: state.sort, sortHandle: this.sort, chars: chars }),
-                React.createElement(material_ui_1.TableBody, null, sortedTable.map(function (row, index) {
-                    return React.createElement(Row_1.Row, { key: index, row: row, chars: chars });
-                })))));
+                React.createElement(material_ui_1.TableBody, null, this.renderBody(sortedTable, chars)))));
     };
     return TableContainer;
 }(React.Component));

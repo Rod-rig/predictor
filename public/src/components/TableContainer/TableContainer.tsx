@@ -20,13 +20,16 @@ interface IProps {
       id: string;
     };
   };
+  range?: number[];
 }
 
 class TableContainer extends React.Component<IProps, IState> {
   private readonly id: string;
+  private readonly range: number[] | null;
   constructor(props: IProps) {
     super(props);
     this.id = this.props.match ? this.props.match.params.id : this.props.id;
+    this.range = this.props.range ? this.props.range : null;
     this.state = {
       order: 'asc',
       sort: 'position',
@@ -49,17 +52,34 @@ class TableContainer extends React.Component<IProps, IState> {
     }
   }
 
+  public rangeData(data: any[], from: number, to: number) {
+    const dataSize: number = data.length;
+    from = from > 0 ? from - 1 : 0;
+    to = to < dataSize ? to : dataSize;
+    return data.slice(from, to);
+  }
+
   public componentDidMount() {
     const tableUrl = `${ghUrl}/2017-2018/england/${this.id}/table.json`;
     axios.get(tableUrl)
       .then((res: AxiosResponse) => {
         this.setState({
-          table: [...res.data],
+          table: this.range ? [...this.rangeData(res.data, this.range[0], this.range[1])] : [...res.data],
         });
       })
       .catch(/* istanbul ignore next */(error) => {
         throw error;
       });
+  }
+
+  public renderBody(rows: object[], chars: string[]): JSX.Element[] {
+    return rows.map((row: IRow, index: number): JSX.Element => (
+      <Row
+        key={index}
+        row={row}
+        chars={chars}
+      />
+    ));
   }
 
   public render() {
@@ -82,17 +102,7 @@ class TableContainer extends React.Component<IProps, IState> {
             sortHandle={this.sort}
             chars={chars}
           />
-          <TableBody>
-            {
-              sortedTable.map((row: IRow, index: number): JSX.Element => {
-                return <Row
-                  key={index}
-                  row={row}
-                  chars={chars}
-                />;
-              })
-            }
-          </TableBody>
+          <TableBody>{this.renderBody(sortedTable, chars)}</TableBody>
         </Table>
       </div>
     );
