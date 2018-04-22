@@ -4,7 +4,8 @@ import * as React from 'react';
 import './Row.css';
 
 export interface IRow {
-  [index: string]: string;
+  logo?: string;
+  [index: string]: string | number;
 }
 
 interface IProps {

@@ -18,7 +18,7 @@ describe('TournamentCard', () => {
 
   it('should contain correct link', () => {
     const link = card.find('Link');
-    expect(link.length).toEqual(1);
+    expect(link).toHaveLength(1);
     expect(link.prop('to')).toEqual('tournament/premier-league');
   });
 });

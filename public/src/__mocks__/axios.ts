@@ -1,12 +1,11 @@
-const mockTable = require('./england-table');
-const tableLink = 'https://raw.githubusercontent.com/Rod-rig/epl-data/master/' +
-  '2017-2018/england/premier-league/table.json';
+import table from './table';
+import urls from './urls';
 
 export default {
   get: (url: string) => {
     return new Promise((resolve, reject) => {
-      if (url === tableLink) {
-        resolve({data: [...mockTable]});
+      if (url === urls.table) {
+        resolve({data: [...table.table]});
       } else {
         reject(new Error(this.statusText));
       }

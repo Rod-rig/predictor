@@ -12,35 +12,7 @@ exports[`Row should render correctly 1`] = `
       className="MuiTableCell-root-7 MuiTableCell-paddingCheckbox-13 row__cell"
       scope={undefined}
     >
-      1
-    </td>
-    <td
-      aria-sort={null}
-      className="MuiTableCell-root-7 MuiTableCell-paddingCheckbox-13 row__cell"
-      scope={undefined}
-    >
-      27
-    </td>
-    <td
-      aria-sort={null}
-      className="MuiTableCell-root-7 MuiTableCell-paddingCheckbox-13 row__cell"
-      scope={undefined}
-    >
       3
-    </td>
-    <td
-      aria-sort={null}
-      className="MuiTableCell-root-7 MuiTableCell-paddingCheckbox-13 row__cell"
-      scope={undefined}
-    >
-      1
-    </td>
-    <td
-      aria-sort={null}
-      className="MuiTableCell-root-7 MuiTableCell-paddingCheckbox-13 row__cell"
-      scope={undefined}
-    >
-      88
     </td>
     <td
       aria-sort={null}
@@ -54,7 +26,28 @@ exports[`Row should render correctly 1`] = `
       className="MuiTableCell-root-7 MuiTableCell-paddingCheckbox-13 row__cell"
       scope={undefined}
     >
+      88
+    </td>
+    <td
+      aria-sort={null}
+      className="MuiTableCell-root-7 MuiTableCell-paddingCheckbox-13 row__cell"
+      scope={undefined}
+    >
+      1
+    </td>
+    <td
+      aria-sort={null}
+      className="MuiTableCell-root-7 MuiTableCell-paddingCheckbox-13 row__cell"
+      scope={undefined}
+    >
       84
+    </td>
+    <td
+      aria-sort={null}
+      className="MuiTableCell-root-7 MuiTableCell-paddingCheckbox-13 row__cell"
+      scope={undefined}
+    >
+      1
     </td>
     <td
       aria-sort={null}
@@ -76,6 +69,13 @@ exports[`Row should render correctly 1`] = `
           className="row__shortname"
         />
       </div>
+    </td>
+    <td
+      aria-sort={null}
+      className="MuiTableCell-root-7 MuiTableCell-paddingCheckbox-13 row__cell"
+      scope={undefined}
+    >
+      27
     </td>
   </tr>
 </table>

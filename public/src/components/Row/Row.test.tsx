@@ -1,12 +1,11 @@
 import {Table} from 'material-ui';
 import * as React from 'react';
 import * as renderer from 'react-test-renderer';
+import table from '../../__mocks__/table';
 import {Row} from './Row';
 
-const table = require('../../__mocks__/england-table.json');
-
 describe('Row', () => {
-  const team = table[0];
+  const team = table.table[0];
   const chars = Object.keys(team);
 
   it('should render correctly', () => {
