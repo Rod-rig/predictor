@@ -2,14 +2,14 @@
 
 exports[`Header should render correctly 1`] = `
 <header
-  className="MuiPaper-root-9 MuiPaper-elevation4-15 MuiAppBar-root-1 MuiAppBar-positionStatic-5 MuiAppBar-colorPrimary-7 header"
+  className="MuiPaper-root-11 MuiPaper-elevation4-17 MuiAppBar-root-3 MuiAppBar-positionStatic-7 MuiAppBar-colorPrimary-9 WithTheme-Header--header-1"
 >
   <div
-    className="MuiToolbar-root-36 MuiToolbar-gutters-37 header__toolbar"
+    className="MuiToolbar-root-38 MuiToolbar-gutters-39 header__toolbar"
   >
     <button
       aria-label="Menu"
-      className="MuiButtonBase-root-44 MuiIconButton-root-38 MuiIconButton-colorInherit-39"
+      className="MuiButtonBase-root-46 MuiIconButton-root-40 MuiIconButton-colorInherit-41"
       disabled={false}
       onBlur={[Function]}
       onFocus={[Function]}
@@ -25,11 +25,11 @@ exports[`Header should render correctly 1`] = `
       type="button"
     >
       <span
-        className="MuiIconButton-label-43"
+        className="MuiIconButton-label-45"
       >
         <svg
           aria-hidden="true"
-          className="MuiSvgIcon-root-47"
+          className="MuiSvgIcon-root-49"
           color={undefined}
           focusable="false"
           viewBox="0 0 24 24"
@@ -40,7 +40,7 @@ exports[`Header should render correctly 1`] = `
         </svg>
       </span>
       <span
-        className="MuiTouchRipple-root-53"
+        className="MuiTouchRipple-root-55"
       />
     </button>
     <div
@@ -58,12 +58,7 @@ exports[`Header should render correctly 1`] = `
       </a>
     </div>
     <h2
-      className="MuiTypography-root-60 MuiTypography-title-66 MuiTypography-colorInherit-79"
-      style={
-        Object {
-          "marginLeft": 16,
-        }
-      }
+      className="MuiTypography-root-62 MuiTypography-title-68 MuiTypography-colorInherit-81 WithTheme-Header--title-2"
     >
       Title
     </h2>

@@ -1,14 +1,27 @@
+import {withStyles} from 'material-ui/styles';
 import * as React from 'react';
 import {Link} from 'react-router-dom';
 
-import './Logo.css';
+const styles = {
+  img: {
+    display: 'block',
+    maxWidth: '100%',
+  },
+  logo: {
+    maxWidth: 50,
+  },
+};
 
-const Logo = () => (
-  <div className='logo'>
-    <Link to='/'>
-      <img className='logo__img' src='https://avatars2.githubusercontent.com/u/11474330' alt='logo'/>
-    </Link>
-  </div>
-);
+const Logo = (props: any) => {
+  const {classes} = props;
 
-export default Logo;
+  return (
+    <div className={classes.logo}>
+      <Link to='/'>
+        <img className={classes.img} src='https://avatars2.githubusercontent.com/u/11474330' alt='logo'/>
+      </Link>
+    </div>
+  );
+};
+
+export default withStyles(styles)(Logo);

@@ -1,15 +1,15 @@
 @import '../../css/_variables.css';
 
-.table-head__cell:nth-child(2) {
+.table-head__teamName {
     width: 100%;
 }
 
-.table-head .table-head__cell:not(:nth-child(2)) {
+.table-head .table-head__cell:not(.table-head__teamName) {
     text-align: center;
     min-width: 90px;
 }
 
-.table-head .table-head__cell:first-child {
+.table-head .table-head__position {
     width: 80px;
 }
 
@@ -26,21 +26,21 @@
         padding-right: 6px;
     }
 
-    .table-head__cell:nth-child(3),
-    .table-head__cell:nth-child(7),
-    .table-head__cell:nth-child(8) {
+    .table-head .table-head__matches,
+    .table-head .table-head__goals-for,
+    .table-head .table-head__goals-against {
         display: none;
     }
 
-    .table-head .table-head__cell:not(:nth-child(2)) {
+    .table-head .table-head__cell:not(.table-head__teamName) {
         min-width: 80px;
     }
 }
 
 @media (--sm-breakpoint) {
-    .table-head__cell:nth-child(4),
-    .table-head__cell:nth-child(5),
-    .table-head__cell:nth-child(6) {
+    .table-head .table-head__w,
+    .table-head .table-head__d,
+    .table-head .table-head__l {
         display: none;
     }
 
@@ -48,7 +48,7 @@
         padding-right: 6px;
     }
 
-    .table-head .table-head__cell:not(:nth-child(2)) {
+    .table-head .table-head__cell:not(.table-head__teamName) {
         min-width: 70px;
     }
 }

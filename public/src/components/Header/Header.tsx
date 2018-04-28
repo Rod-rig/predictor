@@ -1,31 +1,32 @@
 import MenuIcon from 'material-ui-icons/Menu';
 import AppBar from 'material-ui/AppBar';
 import IconButton from 'material-ui/IconButton';
-import {withTheme} from 'material-ui/styles';
+import {withStyles, withTheme} from 'material-ui/styles';
 import Toolbar from 'material-ui/Toolbar';
 import Typography from 'material-ui/Typography';
-
 import * as React from 'react';
 import Logo from '../Logo/Logo';
 
-import './Header.css';
+const styles = (theme: any) => ({
+  header: {
+    marginBottom: theme.spacing.unit,
+  },
+  title: {
+    marginLeft: theme.spacing.unit * 2,
+  },
+});
 
 const Header = (props?: any) => {
-  const {theme} = props;
-  const styles = {
-    title: {
-      marginLeft: theme.spacing.unit * 2,
-    },
-  };
+  const {classes} = props;
 
   return (
-    <AppBar position='static' className='header'>
+    <AppBar position='static' className={classes.header}>
       <Toolbar className='header__toolbar'>
         <IconButton color='inherit' aria-label='Menu'>
           <MenuIcon/>
         </IconButton>
         <Logo/>
-        <Typography style={styles.title} variant='title' color='inherit'>
+        <Typography className={classes.title} variant='title' color='inherit'>
           Title
         </Typography>
       </Toolbar>
@@ -33,4 +34,4 @@ const Header = (props?: any) => {
   );
 };
 
-export default withTheme()(Header);
+export default withStyles(styles)(withTheme()(Header));

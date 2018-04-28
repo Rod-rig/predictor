@@ -1,10 +1,17 @@
 import Grid from 'material-ui/Grid';
+import {withStyles} from 'material-ui/styles';
 import * as React from 'react';
 import TournamentCard from '../TournamentCard/TournamentCard';
 
-import './TournamentList.css';
+const styles = {
+  list: {
+    margin: 0,
+    width: '100%',
+  },
+};
 
-const TournamentList = () => {
+const TournamentList = (props: any) => {
+  const {classes} = props;
   const tournaments = [{
     country: 'England',
     id: 'premier-league',
@@ -12,7 +19,7 @@ const TournamentList = () => {
     name: 'Premier League',
   }];
   return (
-    <Grid container={true} spacing={16} className='tournament_list'>
+    <Grid container={true} spacing={16} className={classes.list}>
       <Grid item={true} xs={12} sm={6} md={4} lg={3}>
         {tournaments.map((item, index: number) => {
           return (
@@ -30,4 +37,4 @@ const TournamentList = () => {
   );
 };
 
-export default TournamentList;
+export default withStyles(styles)(TournamentList);

@@ -1,6 +1,6 @@
 @import '../../css/_variables.css';
 
-.row .row__cell:not(:nth-child(2)) {
+.row .row__cell:not(.row__teamName) {
     text-align: center;
 }
 
@@ -32,18 +32,18 @@
         padding-right: 6px;
     }
 
-    .row__cell:nth-child(3),
-    .row__cell:nth-child(7),
-    .row__cell:nth-child(8) {
+    .row .row__matches,
+    .row .row__goals-for,
+    .row .row__goals-against {
         display: none;
     }
 }
 
 @media (--sm-breakpoint) {
     .row__name,
-    .row__cell:nth-child(4),
-    .row__cell:nth-child(5),
-    .row__cell:nth-child(6) {
+    .row .row__w,
+    .row .row__d,
+    .row .row__l {
         display: none;
     }
 

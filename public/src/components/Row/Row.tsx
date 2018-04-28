@@ -19,13 +19,16 @@ export const Row = (props: IProps) => {
     <TableRow hover={true} className='row'>
       {
         props.chars.map((val, i): JSX.Element => {
+          const rowClassName = val.split(' ').join('-');
           if (val !== 'teamName') {
             return (
-              <TableCell key={i} padding='checkbox' className='row__cell'>{props.row[val]}</TableCell>
+              <TableCell key={i} padding='checkbox' className={`row__cell row__${rowClassName}`}>
+                {props.row[val]}
+              </TableCell>
             );
           } else {
             return (
-              <TableCell key={i} padding='checkbox' className='row__cell'>
+              <TableCell key={i} padding='checkbox' className={`row__cell row__${rowClassName}`}>
                 <div className='row__info'>
                   <Avatar
                     src={props.row.logo}
