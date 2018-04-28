@@ -2,6 +2,7 @@ import {CssBaseline} from 'material-ui';
 import * as React from 'react';
 import {BrowserRouter as Router, Route, Switch} from 'react-router-dom';
 import Header from '../Header/Header';
+import MatchList from '../MatchList/MatchList';
 import NotFound from '../NotFound/NotFound';
 import Palette from '../Palette/Palette';
 import TableContainer from '../TableContainer/TableContainer';
@@ -23,10 +24,8 @@ const App = () => (
 
         <Switch>
           <Route exact={true} path='/' component={TournamentList}/>
-          <Route
-            path='/tournament/:id'
-            render={table}
-          />
+          <Route path='/tournament/:id' render={table}/>
+          <Route path='/matchlist/:id' component={MatchList}/>
           <Route component={NotFound}/>
         </Switch>
       </React.Fragment>
