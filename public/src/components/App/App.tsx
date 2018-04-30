@@ -23,9 +23,10 @@ const App = () => (
         <Header/>
 
         <Switch>
-          <Route exact={true} path='/' component={TournamentList}/>
+          {/*<Route exact={true} path='/' component={TournamentList}/>*/}
+          <Route exact={true} path='/' component={MatchList}/>
           <Route path='/tournament/:id' render={table}/>
-          <Route path='/matchlist/:id' component={MatchList}/>
+          {/*<Route path='/matchlist/:id' component={MatchList}/>*/}
           <Route component={NotFound}/>
         </Switch>
       </React.Fragment>
