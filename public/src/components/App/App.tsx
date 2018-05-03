@@ -15,6 +15,14 @@ const table = (props: object) => (
       'goals against', 'goal difference', 'points']}
   />);
 
+const results = (props: object) => (
+  <MatchList type='results' {...props} />
+);
+
+const fixtures = (props: object) => (
+  <MatchList type='fixtures' {...props} />
+);
+
 const App = () => (
   <Palette>
     <CssBaseline/>
@@ -23,10 +31,10 @@ const App = () => (
         <Header/>
 
         <Switch>
-          {/*<Route exact={true} path='/' component={TournamentList}/>*/}
-          <Route exact={true} path='/' component={MatchList}/>
+          <Route exact={true} path='/' component={TournamentList}/>
           <Route path='/tournament/:id' render={table}/>
-          {/*<Route path='/matchlist/:id' component={MatchList}/>*/}
+          <Route path='/results/:id' render={results}/>
+          <Route path='/fixtures/:id' render={fixtures}/>
           <Route component={NotFound}/>
         </Switch>
       </React.Fragment>

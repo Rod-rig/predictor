@@ -7,8 +7,8 @@ import './MatchItem.css';
 export interface IMatch {
   homeTeam: string;
   awayTeam: string;
-  homeScore: number;
-  awayScore: number;
+  homeScore?: number;
+  awayScore?: number;
   homeLogo?: string;
   awayLogo?: string;
 }
@@ -29,6 +29,12 @@ const renderScore = (homeScore: number, awayScore: number): JSX.Element => (
   </div>
 );
 
+const renderEmptyScore = (): JSX.Element => (
+  <div className='match__score'>
+    <div className='match__dash'>-</div>
+  </div>
+);
+
 export const MatchItem = (props: IMatch) => {
   return (
     <ListItem button={true} divider={true} className='match'>
@@ -36,7 +42,7 @@ export const MatchItem = (props: IMatch) => {
         <div>{props.homeTeam}</div>
         {renderLogo(props.homeLogo)}
       </ListItemText>
-      {renderScore(props.homeScore, props.awayScore)}
+      {!isNaN(props.homeScore) ? renderScore(props.homeScore, props.awayScore) : renderEmptyScore()}
       <ListItemText className='match__text'>
         {renderLogo(props.awayLogo)}
         <div>{props.awayTeam}</div>

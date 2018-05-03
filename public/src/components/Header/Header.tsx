@@ -5,6 +5,7 @@ import {withStyles, withTheme} from 'material-ui/styles';
 import Toolbar from 'material-ui/Toolbar';
 import Typography from 'material-ui/Typography';
 import * as React from 'react';
+import {Link} from 'react-router-dom';
 import Logo from '../Logo/Logo';
 
 const styles = (theme: any) => ({
@@ -28,6 +29,12 @@ const Header = (props?: any) => {
         <Logo/>
         <Typography className={classes.title} variant='title' color='inherit'>
           Title
+        </Typography>
+        <Typography className={classes.title} variant='title' color='inherit'>
+          <Link to='fixtures/premier-league'>Fixtures</Link>
+        </Typography>
+        <Typography className={classes.title} variant='title' color='inherit'>
+          <Link to='results/premier-league'>Results</Link>
         </Typography>
       </Toolbar>
     </AppBar>

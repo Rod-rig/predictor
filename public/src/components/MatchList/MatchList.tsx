@@ -5,12 +5,22 @@ import {IMatch, MatchItem} from '../MatchItem/MatchItem';
 
 const ghUrl: string = 'https://raw.githubusercontent.com/Rod-rig/epl-data/master';
 
-class MatchList extends React.Component<{}, {
+class MatchList extends React.Component<{
+  id?: string;
+  match?: {
+    params: {
+      id: string;
+    };
+  };
+  type: string,
+}, {
   list: object[],
   logos: any,
 }> {
+  private readonly id: string;
   constructor(props: any) {
     super(props);
+    this.id = this.props.match ? this.props.match.params.id : this.props.id;
     this.state = {
       list: [],
       logos: [],
@@ -18,9 +28,8 @@ class MatchList extends React.Component<{}, {
   }
 
   public componentDidMount() {
-    // const matchesUrl = `${ghUrl}/2017-2018/england/${this.id}/results.json`;
-    const matchesUrl = `${ghUrl}/2017-2018/england/premier-league/results.json`;
-    const logosUrl = `${ghUrl}/2017-2018/england/premier-league/teams.json`;
+    const matchesUrl = `${ghUrl}/2017-2018/england/${this.id}/${this.props.type}.json`;
+    const logosUrl = `${ghUrl}/2017-2018/england/${this.id}/teams.json`;
     axios.all([
       axios.get(matchesUrl),
       axios.get(logosUrl),

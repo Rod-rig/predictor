@@ -70350,16 +70350,21 @@ var MatchList_1 = __webpack_require__(/*! ../MatchList/MatchList */ "./public/sr
 var NotFound_1 = __webpack_require__(/*! ../NotFound/NotFound */ "./public/src/components/NotFound/NotFound.tsx");
 var Palette_1 = __webpack_require__(/*! ../Palette/Palette */ "./public/src/components/Palette/Palette.tsx");
 var TableContainer_1 = __webpack_require__(/*! ../TableContainer/TableContainer */ "./public/src/components/TableContainer/TableContainer.tsx");
+var TournamentList_1 = __webpack_require__(/*! ../TournamentList/TournamentList */ "./public/src/components/TournamentList/TournamentList.tsx");
 var table = function (props) { return (React.createElement(TableContainer_1.default, __assign({}, props, { chars: ['position', 'teamName', 'matches', 'w', 'd', 'l', 'goals for',
         'goals against', 'goal difference', 'points'] }))); };
+var results = function (props) { return (React.createElement(MatchList_1.default, __assign({ type: 'results' }, props))); };
+var fixtures = function (props) { return (React.createElement(MatchList_1.default, __assign({ type: 'fixtures' }, props))); };
 var App = function () { return (React.createElement(Palette_1.default, null,
     React.createElement(material_ui_1.CssBaseline, null),
     React.createElement(react_router_dom_1.BrowserRouter, null,
         React.createElement(React.Fragment, null,
             React.createElement(Header_1.default, null),
             React.createElement(react_router_dom_1.Switch, null,
-                React.createElement(react_router_dom_1.Route, { exact: true, path: '/', component: MatchList_1.default }),
+                React.createElement(react_router_dom_1.Route, { exact: true, path: '/', component: TournamentList_1.default }),
                 React.createElement(react_router_dom_1.Route, { path: '/tournament/:id', render: table }),
+                React.createElement(react_router_dom_1.Route, { path: '/results/:id', render: results }),
+                React.createElement(react_router_dom_1.Route, { path: '/fixtures/:id', render: fixtures }),
                 React.createElement(react_router_dom_1.Route, { component: NotFound_1.default })))))); };
 exports.default = App;
 
@@ -70383,6 +70388,7 @@ var styles_1 = __webpack_require__(/*! material-ui/styles */ "./node_modules/mat
 var Toolbar_1 = __webpack_require__(/*! material-ui/Toolbar */ "./node_modules/material-ui/Toolbar/index.js");
 var Typography_1 = __webpack_require__(/*! material-ui/Typography */ "./node_modules/material-ui/Typography/index.js");
 var React = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+var react_router_dom_1 = __webpack_require__(/*! react-router-dom */ "./node_modules/react-router-dom/es/index.js");
 var Logo_1 = __webpack_require__(/*! ../Logo/Logo */ "./public/src/components/Logo/Logo.tsx");
 var styles = function (theme) { return ({
     header: {
@@ -70399,7 +70405,11 @@ var Header = function (props) {
             React.createElement(IconButton_1.default, { color: 'inherit', "aria-label": 'Menu' },
                 React.createElement(Menu_1.default, null)),
             React.createElement(Logo_1.default, null),
-            React.createElement(Typography_1.default, { className: classes.title, variant: 'title', color: 'inherit' }, "Title"))));
+            React.createElement(Typography_1.default, { className: classes.title, variant: 'title', color: 'inherit' }, "Title"),
+            React.createElement(Typography_1.default, { className: classes.title, variant: 'title', color: 'inherit' },
+                React.createElement(react_router_dom_1.Link, { to: 'fixtures/premier-league' }, "Fixtures")),
+            React.createElement(Typography_1.default, { className: classes.title, variant: 'title', color: 'inherit' },
+                React.createElement(react_router_dom_1.Link, { to: 'results/premier-league' }, "Results")))));
 };
 exports.default = styles_1.withStyles(styles)(styles_1.withTheme()(Header));
 
@@ -70472,12 +70482,14 @@ var renderScore = function (homeScore, awayScore) { return (React.createElement(
     React.createElement("div", null, homeScore),
     React.createElement("div", { className: 'match__dash' }, "-"),
     React.createElement("div", null, awayScore))); };
+var renderEmptyScore = function () { return (React.createElement("div", { className: 'match__score' },
+    React.createElement("div", { className: 'match__dash' }, "-"))); };
 exports.MatchItem = function (props) {
     return (React.createElement(List_1.ListItem, { button: true, divider: true, className: 'match' },
         React.createElement(List_1.ListItemText, { className: 'match__text' },
             React.createElement("div", null, props.homeTeam),
             renderLogo(props.homeLogo)),
-        renderScore(props.homeScore, props.awayScore),
+        !isNaN(props.homeScore) ? renderScore(props.homeScore, props.awayScore) : renderEmptyScore(),
         React.createElement(List_1.ListItemText, { className: 'match__text' },
             renderLogo(props.awayLogo),
             React.createElement("div", null, props.awayTeam))));
@@ -70515,6 +70527,7 @@ var MatchList = /** @class */ (function (_super) {
     __extends(MatchList, _super);
     function MatchList(props) {
         var _this = _super.call(this, props) || this;
+        _this.id = _this.props.match ? _this.props.match.params.id : _this.props.id;
         _this.state = {
             list: [],
             logos: [],
@@ -70523,9 +70536,8 @@ var MatchList = /** @class */ (function (_super) {
     }
     MatchList.prototype.componentDidMount = function () {
         var _this = this;
-        // const matchesUrl = `${ghUrl}/2017-2018/england/${this.id}/results.json`;
-        var matchesUrl = ghUrl + "/2017-2018/england/premier-league/results.json";
-        var logosUrl = ghUrl + "/2017-2018/england/premier-league/teams.json";
+        var matchesUrl = ghUrl + "/2017-2018/england/" + this.id + "/" + this.props.type + ".json";
+        var logosUrl = ghUrl + "/2017-2018/england/" + this.id + "/teams.json";
         axios_1.default.all([
             axios_1.default.get(matchesUrl),
             axios_1.default.get(logosUrl),
@@ -70787,6 +70799,91 @@ var TableHeadContainer = function (props) {
         }))));
 };
 exports.default = TableHeadContainer;
+
+
+/***/ }),
+
+/***/ "./public/src/components/TournamentCard/TournamentCard.tsx":
+/*!*****************************************************************!*\
+  !*** ./public/src/components/TournamentCard/TournamentCard.tsx ***!
+  \*****************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+var __assign = (this && this.__assign) || Object.assign || function(t) {
+    for (var s, i = 1, n = arguments.length; i < n; i++) {
+        s = arguments[i];
+        for (var p in s) if (Object.prototype.hasOwnProperty.call(s, p))
+            t[p] = s[p];
+    }
+    return t;
+};
+Object.defineProperty(exports, "__esModule", { value: true });
+var Button_1 = __webpack_require__(/*! material-ui/Button */ "./node_modules/material-ui/Button/index.js");
+var Card_1 = __webpack_require__(/*! material-ui/Card */ "./node_modules/material-ui/Card/index.js");
+var styles_1 = __webpack_require__(/*! material-ui/styles */ "./node_modules/material-ui/styles/index.js");
+var Typography_1 = __webpack_require__(/*! material-ui/Typography */ "./node_modules/material-ui/Typography/index.js");
+var React = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+var react_router_dom_1 = __webpack_require__(/*! react-router-dom */ "./node_modules/react-router-dom/es/index.js");
+var dict_1 = __webpack_require__(/*! ../../dict/dict */ "./public/src/dict/dict.ts");
+var styles = {
+    img: {
+        backgroundSize: 'contain',
+        height: '300px',
+    },
+};
+var TournamentCard = function (props) {
+    var classes = props.classes;
+    var MyLink = function (linkProps) { return React.createElement(react_router_dom_1.Link, __assign({ to: "tournament/" + props.id }, linkProps)); };
+    return (React.createElement(Card_1.default, null,
+        React.createElement(Card_1.CardMedia, { className: classes.img, image: props.img, title: props.name }),
+        React.createElement(Card_1.CardContent, null,
+            React.createElement(Typography_1.default, { variant: 'headline', component: 'h2' }, props.name),
+            React.createElement(Typography_1.default, { variant: 'caption' }, props.country)),
+        React.createElement(Card_1.CardActions, null,
+            React.createElement(Button_1.default, { component: MyLink, size: 'small', color: 'primary' }, dict_1.default.tournamentCardMore))));
+};
+exports.default = styles_1.withStyles(styles)(TournamentCard);
+
+
+/***/ }),
+
+/***/ "./public/src/components/TournamentList/TournamentList.tsx":
+/*!*****************************************************************!*\
+  !*** ./public/src/components/TournamentList/TournamentList.tsx ***!
+  \*****************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+Object.defineProperty(exports, "__esModule", { value: true });
+var Grid_1 = __webpack_require__(/*! material-ui/Grid */ "./node_modules/material-ui/Grid/index.js");
+var styles_1 = __webpack_require__(/*! material-ui/styles */ "./node_modules/material-ui/styles/index.js");
+var React = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+var TournamentCard_1 = __webpack_require__(/*! ../TournamentCard/TournamentCard */ "./public/src/components/TournamentCard/TournamentCard.tsx");
+var styles = {
+    list: {
+        margin: 0,
+        width: '100%',
+    },
+};
+var TournamentList = function (props) {
+    var classes = props.classes;
+    var tournaments = [{
+            country: 'England',
+            id: 'premier-league',
+            img: 'https://www.premierleague.com/resources/ver/i/elements/premier-league-logo.svg',
+            name: 'Premier League',
+        }];
+    return (React.createElement(Grid_1.default, { container: true, spacing: 16, className: classes.list },
+        React.createElement(Grid_1.default, { item: true, xs: 12, sm: 6, md: 4, lg: 3 }, tournaments.map(function (item, index) {
+            return (React.createElement(TournamentCard_1.default, { country: item.country, id: item.id, img: item.img, key: index, name: item.name }));
+        }))));
+};
+exports.default = styles_1.withStyles(styles)(TournamentList);
 
 
 /***/ }),
