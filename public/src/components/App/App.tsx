@@ -32,9 +32,9 @@ const App = () => (
 
         <Switch>
           <Route exact={true} path='/' component={TournamentList}/>
-          <Route path='/tournament/:id' render={table}/>
-          <Route path='/results/:id' render={results}/>
-          <Route path='/fixtures/:id' render={fixtures}/>
+          <Route path='/tournament/:id' component={table}/>
+          <Route path='/results/:id' component={results}/>
+          <Route path='/fixtures/:id' component={fixtures}/>
           <Route component={NotFound}/>
         </Switch>
       </React.Fragment>

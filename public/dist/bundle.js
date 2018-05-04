@@ -70362,9 +70362,9 @@ var App = function () { return (React.createElement(Palette_1.default, null,
             React.createElement(Header_1.default, null),
             React.createElement(react_router_dom_1.Switch, null,
                 React.createElement(react_router_dom_1.Route, { exact: true, path: '/', component: TournamentList_1.default }),
-                React.createElement(react_router_dom_1.Route, { path: '/tournament/:id', render: table }),
-                React.createElement(react_router_dom_1.Route, { path: '/results/:id', render: results }),
-                React.createElement(react_router_dom_1.Route, { path: '/fixtures/:id', render: fixtures }),
+                React.createElement(react_router_dom_1.Route, { path: '/tournament/:id', component: table }),
+                React.createElement(react_router_dom_1.Route, { path: '/results/:id', component: results }),
+                React.createElement(react_router_dom_1.Route, { path: '/fixtures/:id', component: fixtures }),
                 React.createElement(react_router_dom_1.Route, { component: NotFound_1.default })))))); };
 exports.default = App;
 
@@ -70394,6 +70394,11 @@ var styles = function (theme) { return ({
     header: {
         marginBottom: theme.spacing.unit,
     },
+    link: {
+        color: theme.palette.primary.contrastText,
+        fontSize: theme.typography.fontSize,
+        textDecoration: 'none',
+    },
     title: {
         marginLeft: theme.spacing.unit * 2,
     },
@@ -70406,10 +70411,10 @@ var Header = function (props) {
                 React.createElement(Menu_1.default, null)),
             React.createElement(Logo_1.default, null),
             React.createElement(Typography_1.default, { className: classes.title, variant: 'title', color: 'inherit' }, "Title"),
-            React.createElement(Typography_1.default, { className: classes.title, variant: 'title', color: 'inherit' },
-                React.createElement(react_router_dom_1.Link, { to: 'fixtures/premier-league' }, "Fixtures")),
-            React.createElement(Typography_1.default, { className: classes.title, variant: 'title', color: 'inherit' },
-                React.createElement(react_router_dom_1.Link, { to: 'results/premier-league' }, "Results")))));
+            React.createElement(Typography_1.default, { className: classes.title, variant: 'title' },
+                React.createElement(react_router_dom_1.Link, { className: classes.link, to: '/fixtures/premier-league' }, "Fixtures")),
+            React.createElement(Typography_1.default, { className: classes.title, variant: 'title' },
+                React.createElement(react_router_dom_1.Link, { className: classes.link, to: '/results/premier-league' }, "Results")))));
 };
 exports.default = styles_1.withStyles(styles)(styles_1.withTheme()(Header));
 

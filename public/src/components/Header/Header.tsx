@@ -12,6 +12,11 @@ const styles = (theme: any) => ({
   header: {
     marginBottom: theme.spacing.unit,
   },
+  link: {
+    color: theme.palette.primary.contrastText,
+    fontSize: theme.typography.fontSize,
+    textDecoration: 'none',
+  },
   title: {
     marginLeft: theme.spacing.unit * 2,
   },
@@ -30,11 +35,11 @@ const Header = (props?: any) => {
         <Typography className={classes.title} variant='title' color='inherit'>
           Title
         </Typography>
-        <Typography className={classes.title} variant='title' color='inherit'>
-          <Link to='fixtures/premier-league'>Fixtures</Link>
+        <Typography className={classes.title} variant='title'>
+          <Link className={classes.link} to='/fixtures/premier-league'>Fixtures</Link>
         </Typography>
-        <Typography className={classes.title} variant='title' color='inherit'>
-          <Link to='results/premier-league'>Results</Link>
+        <Typography className={classes.title} variant='title'>
+          <Link className={classes.link} to='/results/premier-league'>Results</Link>
         </Typography>
       </Toolbar>
     </AppBar>
