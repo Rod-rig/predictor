@@ -1,7 +1,7 @@
 import axios, {AxiosResponse} from 'axios';
 import List from 'material-ui/List';
 import * as React from 'react';
-import {IMatch, MatchItem} from '../MatchItem/MatchItem';
+import {IMatch, MatchItem} from '../MatchItem';
 
 const ghUrl: string = 'https://raw.githubusercontent.com/Rod-rig/epl-data/master';
 

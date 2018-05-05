@@ -70454,17 +70454,6 @@ exports.default = styles_1.withStyles(styles)(Logo);
 
 /***/ }),
 
-/***/ "./public/src/components/MatchItem/MatchItem.css":
-/*!*******************************************************!*\
-  !*** ./public/src/components/MatchItem/MatchItem.css ***!
-  \*******************************************************/
-/*! no static exports found */
-/***/ (function(module, exports, __webpack_require__) {
-
-// extracted by mini-css-extract-plugin
-
-/***/ }),
-
 /***/ "./public/src/components/MatchItem/MatchItem.tsx":
 /*!*******************************************************!*\
   !*** ./public/src/components/MatchItem/MatchItem.tsx ***!
@@ -70477,28 +70466,81 @@ exports.default = styles_1.withStyles(styles)(Logo);
 Object.defineProperty(exports, "__esModule", { value: true });
 var Avatar_1 = __webpack_require__(/*! material-ui/Avatar */ "./node_modules/material-ui/Avatar/index.js");
 var List_1 = __webpack_require__(/*! material-ui/List */ "./node_modules/material-ui/List/index.js");
+var styles_1 = __webpack_require__(/*! material-ui/styles */ "./node_modules/material-ui/styles/index.js");
 var React = __webpack_require__(/*! react */ "./node_modules/react/index.js");
-__webpack_require__(/*! ./MatchItem.css */ "./public/src/components/MatchItem/MatchItem.css");
-var renderLogo = function (logo) {
-    return logo ? (React.createElement(List_1.ListItemIcon, { className: 'match__logo' },
-        React.createElement(Avatar_1.default, { src: logo }))) : null;
+var decorate = styles_1.withStyles(function (_a) {
+    var palette = _a.palette, spacing = _a.spacing, typography = _a.typography;
+    return ({
+        dash: {
+            marginLeft: spacing.unit / 2,
+            marginRight: spacing.unit / 2,
+        },
+        icon: {
+            marginLeft: spacing.unit * 2,
+            marginRight: 0,
+        },
+        logo: {
+            '& img': {
+                'object-fit': 'contain',
+            },
+        },
+        right: {
+            justifyContent: 'flex-end',
+        },
+        score: {
+            backgroundColor: palette.primary.main,
+            color: palette.primary.contrastText,
+            display: 'flex',
+            fontSize: typography.pxToRem(20),
+            justifyContent: 'center',
+            lineHeight: typography.pxToRem(20 * 1.5),
+            width: typography.pxToRem(20 * 3),
+        },
+        text: {
+            display: 'flex',
+            flexBasis: '40%',
+        },
+    });
+});
+var renderLogo = function (logo, classesLogo, classesIcon) {
+    return logo ? (React.createElement(List_1.ListItemIcon, { className: classesIcon ? classesIcon : '' },
+        React.createElement(Avatar_1.default, { src: logo, className: classesLogo }))) : null;
 };
-var renderScore = function (homeScore, awayScore) { return (React.createElement("div", { className: 'match__score' },
+var renderScore = function (homeScore, awayScore, classes) { return (React.createElement("div", { className: classes.score },
     React.createElement("div", null, homeScore),
-    React.createElement("div", { className: 'match__dash' }, "-"),
+    React.createElement("div", { className: classes.dash }, "-"),
     React.createElement("div", null, awayScore))); };
-var renderEmptyScore = function () { return (React.createElement("div", { className: 'match__score' },
-    React.createElement("div", { className: 'match__dash' }, "-"))); };
-exports.MatchItem = function (props) {
-    return (React.createElement(List_1.ListItem, { button: true, divider: true, className: 'match' },
-        React.createElement(List_1.ListItemText, { className: 'match__text' },
-            React.createElement("div", null, props.homeTeam),
-            renderLogo(props.homeLogo)),
-        !isNaN(props.homeScore) ? renderScore(props.homeScore, props.awayScore) : renderEmptyScore(),
-        React.createElement(List_1.ListItemText, { className: 'match__text' },
-            renderLogo(props.awayLogo),
-            React.createElement("div", null, props.awayTeam))));
-};
+var renderEmptyScore = function (classes) { return (React.createElement("div", { className: classes.score },
+    React.createElement("div", { className: classes.dash }, "-"))); };
+exports.MatchItem = decorate(function (props) {
+    var awayLogo = props.awayLogo, awayScore = props.awayScore, awayTeam = props.awayTeam, classes = props.classes, homeLogo = props.homeLogo, homeScore = props.homeScore, homeTeam = props.homeTeam;
+    return (React.createElement(List_1.ListItem, { button: true, divider: true },
+        React.createElement(List_1.ListItemText, { className: classes.text + " " + classes.right, disableTypography: true },
+            React.createElement("div", null, homeTeam),
+            renderLogo(homeLogo, classes.logo, classes.icon)),
+        !isNaN(props.homeScore) ? renderScore(homeScore, awayScore, classes) : renderEmptyScore(classes),
+        React.createElement(List_1.ListItemText, { className: classes.text, disableTypography: true },
+            renderLogo(awayLogo, classes.logo),
+            React.createElement("div", null, awayTeam))));
+});
+
+
+/***/ }),
+
+/***/ "./public/src/components/MatchItem/index.ts":
+/*!**************************************************!*\
+  !*** ./public/src/components/MatchItem/index.ts ***!
+  \**************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+function __export(m) {
+    for (var p in m) if (!exports.hasOwnProperty(p)) exports[p] = m[p];
+}
+Object.defineProperty(exports, "__esModule", { value: true });
+__export(__webpack_require__(/*! ./MatchItem */ "./public/src/components/MatchItem/MatchItem.tsx"));
 
 
 /***/ }),
@@ -70526,7 +70568,7 @@ Object.defineProperty(exports, "__esModule", { value: true });
 var axios_1 = __webpack_require__(/*! axios */ "./node_modules/axios/index.js");
 var List_1 = __webpack_require__(/*! material-ui/List */ "./node_modules/material-ui/List/index.js");
 var React = __webpack_require__(/*! react */ "./node_modules/react/index.js");
-var MatchItem_1 = __webpack_require__(/*! ../MatchItem/MatchItem */ "./public/src/components/MatchItem/MatchItem.tsx");
+var MatchItem_1 = __webpack_require__(/*! ../MatchItem */ "./public/src/components/MatchItem/index.ts");
 var ghUrl = 'https://raw.githubusercontent.com/Rod-rig/epl-data/master';
 var MatchList = /** @class */ (function (_super) {
     __extends(MatchList, _super);
