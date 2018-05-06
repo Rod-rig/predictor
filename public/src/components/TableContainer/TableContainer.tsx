@@ -1,7 +1,7 @@
 import axios, {AxiosResponse} from 'axios';
 import {Table, TableBody} from 'material-ui';
 import * as React from 'react';
-import {IRow, Row} from '../Row/Row';
+import {IRow, Row} from '../Row';
 import TableHeadContainer from '../TableHeadContainer/TableHeadContainer';
 
 const ghUrl: string = 'https://raw.githubusercontent.com/Rod-rig/epl-data/master';

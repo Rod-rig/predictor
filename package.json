@@ -6,9 +6,8 @@
   "scripts": {
     "build": "webpack --config webpack.prod.config.js",
     "build:w": "webpack --config webpack.dev.config.js --watch",
-    "lint": "npm run lint:css && npm run lint:js",
+    "lint": "npm run lint:js",
     "lint:js": "tslint -t stylish 'public/src/**/*.{tsx,ts,js}'",
-    "lint:css": "stylelint \"public/src/**/*.css\"",
     "mongo": "mongod",
     "pretest": "npm run lint",
     "server": "nodemon server.js --ignore public/",
@@ -44,9 +43,6 @@
       "^.+\\.tsx?$": "ts-jest"
     },
     "setupTestFrameworkScriptFile": "<rootDir>/jest.config.js",
-    "moduleNameMapper": {
-      "^.+\\.(css)$": "identity-obj-proxy"
-    },
     "coverageThreshold": {
       "global": {
         "branches": 80,
@@ -70,22 +66,12 @@
     "compression-webpack-plugin": "^1.1.11",
     "concurrently": "^3.5.1",
     "coveralls": "^3.0.0",
-    "css-loader": "^0.28.11",
     "express": "^4.16.3",
-    "file-loader": "^1.1.11",
-    "identity-obj-proxy": "^3.0.0",
     "jest": "^22.4.3",
-    "mini-css-extract-plugin": "^0.4.0",
     "mongodb": "^3.0.5",
     "nodemon": "^1.17.3",
-    "postcss-cssnext": "^3.1.0",
-    "postcss-csso": "^3.0.0",
-    "postcss-import": "^11.1.0",
-    "postcss-loader": "^2.1.3",
     "source-map-loader": "^0.2.3",
     "style-loader": "^0.20.3",
-    "stylelint": "^9.2.0",
-    "stylelint-config-standard": "^18.2.0",
     "ts-jest": "^22.4.2",
     "ts-loader": "^4.1.0",
     "tslint": "^5.9.1",

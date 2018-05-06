@@ -10,7 +10,7 @@
 * typescript
 * jest
 * enzyme
-* postcss
+* css-in-js
 * material ui
 
 ##### To start the project type in your CLI:

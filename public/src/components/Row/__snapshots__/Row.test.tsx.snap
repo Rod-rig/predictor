@@ -5,74 +5,74 @@ exports[`Row should render correctly 1`] = `
   className="MuiTable-root-1"
 >
   <tr
-    className="MuiTableRow-root-2 MuiTableRow-hover-4 row"
+    className="MuiTableRow-root-14 MuiTableRow-hover-16 row"
   >
     <td
       aria-sort={null}
-      className="MuiTableCell-root-7 MuiTableCell-paddingCheckbox-13 row__cell row__d"
+      className="MuiTableCell-root-19 MuiTableCell-paddingCheckbox-25 Component-cell-2 Component-d-3"
       scope={undefined}
     >
       3
     </td>
     <td
       aria-sort={null}
-      className="MuiTableCell-root-7 MuiTableCell-paddingCheckbox-13 row__cell row__goals-against"
+      className="MuiTableCell-root-19 MuiTableCell-paddingCheckbox-25 Component-cell-2 Component-goals-against-4"
       scope={undefined}
     >
       21
     </td>
     <td
       aria-sort={null}
-      className="MuiTableCell-root-7 MuiTableCell-paddingCheckbox-13 row__cell row__goals-for"
+      className="MuiTableCell-root-19 MuiTableCell-paddingCheckbox-25 Component-cell-2 Component-goals-for-5"
       scope={undefined}
     >
       88
     </td>
     <td
       aria-sort={null}
-      className="MuiTableCell-root-7 MuiTableCell-paddingCheckbox-13 row__cell row__l"
+      className="MuiTableCell-root-19 MuiTableCell-paddingCheckbox-25 Component-cell-2 Component-l-8"
       scope={undefined}
     >
       1
     </td>
     <td
       aria-sort={null}
-      className="MuiTableCell-root-7 MuiTableCell-paddingCheckbox-13 row__cell row__points"
+      className="MuiTableCell-root-19 MuiTableCell-paddingCheckbox-25 Component-cell-2 "
       scope={undefined}
     >
       84
     </td>
     <td
       aria-sort={null}
-      className="MuiTableCell-root-7 MuiTableCell-paddingCheckbox-13 row__cell row__position"
+      className="MuiTableCell-root-19 MuiTableCell-paddingCheckbox-25 Component-cell-2 "
       scope={undefined}
     >
       1
     </td>
     <td
       aria-sort={null}
-      className="MuiTableCell-root-7 MuiTableCell-paddingCheckbox-13 row__cell row__teamName"
+      className="MuiTableCell-root-19 MuiTableCell-paddingCheckbox-25 Component-cell-2 Component-teamName-12"
       scope={undefined}
     >
       <div
-        className="row__info"
+        className="Component-info-7"
       >
         <div
-          className="MuiAvatar-root-15 row__img"
+          className="MuiAvatar-root-27 Component-img-6"
         />
         <span
-          className="row__name"
+          className="Component-name-10"
         >
           Manchester City
         </span>
         <span
-          className="row__shortname"
+          className="Component-shortName-11"
         />
       </div>
     </td>
     <td
       aria-sort={null}
-      className="MuiTableCell-root-7 MuiTableCell-paddingCheckbox-13 row__cell row__w"
+      className="MuiTableCell-root-19 MuiTableCell-paddingCheckbox-25 Component-cell-2 Component-w-13"
       scope={undefined}
     >
       27

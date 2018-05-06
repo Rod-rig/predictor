@@ -1,34 +1,103 @@
 import {TableCell, TableHead, TableRow, TableSortLabel, Tooltip} from 'material-ui';
+import {withStyles} from 'material-ui/styles';
 import * as React from 'react';
-
-import './TableHeadContainer.css';
 
 interface IHead {
   chars: string[];
+  classes?: any;
   order?: any;
   sort?: string;
   sortHandle?: any;
 }
 
-const TableHeadContainer = (props: IHead) => {
+const decorate = withStyles(({breakpoints, spacing}) => ({
+  'cell': {
+    '& svg': {
+      margin: `${-spacing.unit}px 0 0`,
+      position: 'absolute' as 'absolute',
+      right: -2 * spacing.unit,
+      top: '50%',
+    },
+    '&:last-child': {
+      [breakpoints.down('sm')]: {
+        paddingRight: 0.75 * spacing.unit,
+      },
+    },
+    'min-width': 90,
+    'text-align': 'center',
+    [breakpoints.down('sm')]: {
+      minWidth: 80,
+      paddingLeft: 0.75 * spacing.unit,
+      paddingRight: 0.75 * spacing.unit,
+    },
+    [breakpoints.down('xs')]: {
+      minWidth: 70,
+      paddingRight: 0.75 * spacing.unit,
+    },
+  },
+  'd': {
+    [breakpoints.down('xs')]: {
+      display: 'none',
+    },
+  },
+  'goals-against': {
+    [breakpoints.down('sm')]: {
+      display: 'none',
+    },
+  },
+  'goals-for': {
+    [breakpoints.down('sm')]: {
+      display: 'none',
+    },
+  },
+  'l': {
+    [breakpoints.down('xs')]: {
+      display: 'none',
+    },
+  },
+  'matches': {
+    [breakpoints.down('sm')]: {
+      display: 'none',
+    },
+  },
+  'position': {
+    width: 80,
+  },
+  'teamName': {
+    'min-width': 0,
+    'text-align': 'left',
+    'width': '100%',
+    [breakpoints.down('xs')]: {
+      width: 70,
+    },
+  },
+  'w': {
+    [breakpoints.down('xs')]: {
+      display: 'none',
+    },
+  },
+}));
+
+const TableHeadContainer = decorate((props: IHead) => {
+  const {chars, classes, order, sort, sortHandle} = props;
   return (
-    <TableHead className='table-head'>
+    <TableHead>
       <TableRow>
-        {props.chars.map(
+        {chars.map(
           (name: string, index: number) => {
             const thClassName = name.split(' ').join('-');
             return <TableCell
               key={index}
-              sortDirection={props.order === 'asc' ? 'desc' : 'asc'}
+              sortDirection={order === 'asc' ? 'desc' : 'asc'}
               padding='checkbox'
-              className={`table-head__cell table-head__${thClassName}`}
+              className={`${classes.cell} ${classes[thClassName] ? classes[thClassName] : ''}`}
               type='head'
             >
               <Tooltip title='Sort' enterDelay={300}>
                 <TableSortLabel
-                  active={props.sort === name}
-                  direction={props.order}
-                  onClick={props.sortHandle}
+                  active={sort === name}
+                  direction={order}
+                  onClick={sortHandle}
                 >
                   {name}
                 </TableSortLabel>
@@ -39,6 +108,6 @@ const TableHeadContainer = (props: IHead) => {
       </TableRow>
     </TableHead>
   );
-};
+});
 
 export default TableHeadContainer;

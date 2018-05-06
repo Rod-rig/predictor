@@ -2,7 +2,7 @@ import {Table} from 'material-ui';
 import * as React from 'react';
 import * as renderer from 'react-test-renderer';
 import table from '../../__mocks__/table';
-import {Row} from './Row';
+import {Row} from './';
 
 describe('Row', () => {
   const team = table.table[0];
