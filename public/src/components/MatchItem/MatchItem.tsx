@@ -19,6 +19,7 @@ const decorate = withStyles(({palette, spacing, typography}) => ({
     marginRight: spacing.unit / 2,
   },
   icon: {
+    borderRadius: 0,
     marginLeft: spacing.unit * 2,
     marginRight: 0,
   },

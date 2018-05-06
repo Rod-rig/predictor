@@ -1,20 +1,17 @@
-import {shallow} from 'enzyme';
+import {mount} from 'enzyme';
 import * as React from 'react';
+import {MemoryRouter} from 'react-router-dom';
 import TournamentList from './TournamentList';
 
 describe('TournamentList', () => {
-  it('should have classname', () => {
-    const tournClass: boolean = shallow(<TournamentList/>).hasClass('tournament_list');
-    expect(tournClass).toBeTruthy();
-  });
-
+  const root = mount(<MemoryRouter><TournamentList/></MemoryRouter>);
   it('should have container prop', () => {
-    const tournProp: boolean = shallow(<TournamentList/>).prop('container');
-    expect(tournProp).toEqual(true);
+    const tournProp = root.find('Grid').first().prop('container');
+    expect(tournProp).toBe(true);
   });
 
   it('should have spacing prop', () => {
-    const tournProp: number = shallow(<TournamentList/>).prop('spacing');
-    expect(tournProp).toBeDefined();
+    const tournProp = root.find('Grid').first().prop('spacing');
+    expect(tournProp).toBe(16);
   });
 });

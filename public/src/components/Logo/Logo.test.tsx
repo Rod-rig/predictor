@@ -1,14 +1,10 @@
-import {shallow} from 'enzyme';
+import {mount} from 'enzyme';
 import * as React from 'react';
+import {MemoryRouter} from 'react-router-dom';
 import Logo from './Logo';
 
 describe('Logo', () => {
-  const logo = shallow(<Logo/>);
-
-  it('should have classname', () => {
-    const logoClass: boolean = logo.hasClass('logo');
-    expect(logoClass).toBeTruthy();
-  });
+  const logo = mount(<MemoryRouter><Logo/></MemoryRouter>);
 
   it('should have src attr', () => {
     const logoSrc: string = logo.find('img').prop('src');

@@ -2,14 +2,14 @@
 
 exports[`Header should render correctly 1`] = `
 <header
-  className="MuiPaper-root-11 MuiPaper-elevation4-17 MuiAppBar-root-3 MuiAppBar-positionStatic-7 MuiAppBar-colorPrimary-9 WithTheme-Header--header-1"
+  className="MuiPaper-root-12 MuiPaper-elevation4-18 MuiAppBar-root-4 MuiAppBar-positionStatic-8 MuiAppBar-colorPrimary-10 WithTheme-Header--header-1"
 >
   <div
-    className="MuiToolbar-root-38 MuiToolbar-gutters-39 header__toolbar"
+    className="MuiToolbar-root-39 MuiToolbar-gutters-40 header__toolbar"
   >
     <button
       aria-label="Menu"
-      className="MuiButtonBase-root-46 MuiIconButton-root-40 MuiIconButton-colorInherit-41"
+      className="MuiButtonBase-root-47 MuiIconButton-root-41 MuiIconButton-colorInherit-42"
       disabled={false}
       onBlur={[Function]}
       onFocus={[Function]}
@@ -25,7 +25,7 @@ exports[`Header should render correctly 1`] = `
       type="button"
     >
       <span
-        className="MuiIconButton-label-45"
+        className="MuiIconButton-label-46"
       >
         <svg
           aria-hidden="true"
@@ -44,7 +44,7 @@ exports[`Header should render correctly 1`] = `
       />
     </button>
     <div
-      className="logo"
+      className="Logo-logo-63"
     >
       <a
         href="/"
@@ -52,15 +52,37 @@ exports[`Header should render correctly 1`] = `
       >
         <img
           alt="logo"
-          className="logo__img"
+          className="Logo-img-62"
           src="https://avatars2.githubusercontent.com/u/11474330"
         />
       </a>
     </div>
     <h2
-      className="MuiTypography-root-62 MuiTypography-title-68 MuiTypography-colorInherit-81 WithTheme-Header--title-2"
+      className="MuiTypography-root-64 MuiTypography-title-70 MuiTypography-colorInherit-83 WithTheme-Header--title-3"
     >
       Title
+    </h2>
+    <h2
+      className="MuiTypography-root-64 MuiTypography-title-70 WithTheme-Header--title-3"
+    >
+      <a
+        className="WithTheme-Header--link-2"
+        href="/fixtures/premier-league"
+        onClick={[Function]}
+      >
+        Fixtures
+      </a>
+    </h2>
+    <h2
+      className="MuiTypography-root-64 MuiTypography-title-70 WithTheme-Header--title-3"
+    >
+      <a
+        className="WithTheme-Header--link-2"
+        href="/results/premier-league"
+        onClick={[Function]}
+      >
+        Results
+      </a>
     </h2>
   </div>
 </header>
