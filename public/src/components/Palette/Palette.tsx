@@ -4,9 +4,13 @@ import * as React from 'react';
 const theme = createMuiTheme({
   palette: {
     primary: {
+      dark: '#1a0018',
+      light: '#652d67',
       main: '#38003C',
     },
     secondary: {
+      dark: '#af002a',
+      light: '#ff577e',
       main: '#E90052',
     },
   },
