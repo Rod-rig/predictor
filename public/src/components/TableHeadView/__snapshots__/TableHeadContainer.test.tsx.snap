@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`TableHeadContainer should render correctly with another props 1`] = `
+exports[`TableHeadView should render correctly with another props 1`] = `
 <thead
   className="MuiTableHead-root-1 table-head"
 >
@@ -206,7 +206,7 @@ exports[`TableHeadContainer should render correctly with another props 1`] = `
 </thead>
 `;
 
-exports[`TableHeadContainer should render correctly with default props 1`] = `
+exports[`TableHeadView should render correctly with default props 1`] = `
 <thead
   className="MuiTableHead-root-1 table-head"
 >
@@ -412,7 +412,7 @@ exports[`TableHeadContainer should render correctly with default props 1`] = `
 </thead>
 `;
 
-exports[`TableHeadContainer should render correctly with different props 1`] = `
+exports[`TableHeadView should render correctly with different props 1`] = `
 <thead
   className="MuiTableHead-root-1 table-head"
 >

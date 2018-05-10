@@ -3,7 +3,7 @@ import List from 'material-ui/List';
 import * as React from 'react';
 import {IMatch, MatchItem} from '../MatchItem';
 
-const ghUrl: string = 'https://raw.githubusercontent.com/Rod-rig/epl-data/master';
+const ghUrl: string = 'https://raw.githubusercontent.com/Rod-rig/epl-store/master';
 
 class MatchList extends React.Component<{
   id?: string;

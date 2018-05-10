@@ -6,7 +6,8 @@
     "module": "commonjs",
     "lib": ["es5", "es6", "dom"],
     "target": "es5",
-    "jsx": "react"
+    "jsx": "react",
+    "experimentalDecorators": true
   },
   "include": [
     "./public/src/**/*"

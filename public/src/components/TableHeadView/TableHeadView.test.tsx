@@ -1,13 +1,13 @@
 import * as React from 'react';
 import * as renderer from 'react-test-renderer';
-import TableHeadContainer from './TableHeadContainer';
+import TableHeadView from './TableHeadView';
 
 const sort = ['position', 'team', 'points'];
 
-describe('TableHeadContainer', () => {
+describe('TableHeadView', () => {
   it('should render correctly with default props', () => {
     const tree = renderer
-      .create(<TableHeadContainer chars={sort}/>)
+      .create(<TableHeadView chars={sort}/>)
       .toJSON();
     expect(tree).toMatchSnapshot();
   });
@@ -15,7 +15,7 @@ describe('TableHeadContainer', () => {
   it('should render correctly with different props', () => {
     const tree = renderer
       .create(
-        <TableHeadContainer
+        <TableHeadView
           order='desc'
           sort={sort[1]}
           chars={sort}
@@ -27,7 +27,7 @@ describe('TableHeadContainer', () => {
   it('should render correctly with another props', () => {
     const tree = renderer
       .create(
-        <TableHeadContainer
+        <TableHeadView
           order='asc'
           sort={sort[sort.length - 1]}
           chars={sort}

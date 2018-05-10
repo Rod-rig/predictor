@@ -6,6 +6,8 @@
 
 ##### Used:
 * react
+* react-router
+* mobx
 * webpack
 * typescript
 * jest

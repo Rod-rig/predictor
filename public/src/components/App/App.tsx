@@ -1,12 +1,13 @@
 import {CssBaseline} from 'material-ui';
 import {withStyles} from 'material-ui/styles';
 import * as React from 'react';
-import {BrowserRouter as Router, Route, Switch} from 'react-router-dom';
+import {HashRouter, Route, Switch} from 'react-router-dom';
+import {TableStore} from '../../stores';
 import Header from '../Header/Header';
 import MatchList from '../MatchList/MatchList';
 import NotFound from '../NotFound/NotFound';
 import Palette from '../Palette/Palette';
-import TableContainer from '../TableContainer/TableContainer';
+import TableView from '../TableView/TableView';
 import TournamentList from '../TournamentList/TournamentList';
 
 const decorate = withStyles(({typography}) => ({
@@ -16,10 +17,14 @@ const decorate = withStyles(({typography}) => ({
 }));
 
 const table = (props: object) => (
-  <TableContainer
+  <TableView
+    store={new TableStore({
+      chars: ['position', 'teamName', 'matches', 'w', 'd', 'l', 'goals for',
+        'goals against', 'goal difference', 'points'],
+      order: 'asc',
+      sort: 'position',
+    })}
     {...props}
-    chars={['position', 'teamName', 'matches', 'w', 'd', 'l', 'goals for',
-      'goals against', 'goal difference', 'points']}
   />);
 
 const results = (props: object) => (
@@ -34,7 +39,7 @@ const App = ({classes}: any) => (
   <div className={classes.main}>
     <Palette>
       <CssBaseline/>
-      <Router>
+      <HashRouter>
         <React.Fragment>
           <Header/>
 
@@ -46,7 +51,7 @@ const App = ({classes}: any) => (
             <Route component={NotFound}/>
           </Switch>
         </React.Fragment>
-      </Router>
+      </HashRouter>
     </Palette>
   </div>
 );
