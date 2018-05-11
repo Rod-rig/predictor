@@ -9,14 +9,10 @@ export interface ITableProps {
   range?: RangeType;
 }
 
-export interface ITable {
+export interface ITable extends ITableProps{
   id?: string;
   isLoaded: boolean;
-  order: OrderType;
-  sort: string;
   table: object[];
-  chars: string[];
-  range?: RangeType;
   url: string;
   sortHandler(e: Event): void;
 }

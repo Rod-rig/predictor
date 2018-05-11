@@ -1,5 +1,6 @@
 import * as React from 'react';
+import dict from '../../dict/dict';
 
 export const Loader = () => (
-  <div>Loading...</div>
+  <div>{dict.loadingMsg}</div>
 );

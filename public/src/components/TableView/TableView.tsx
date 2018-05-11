@@ -11,24 +11,24 @@ class TableView extends React.Component<{
   store: ITable,
 }, {}> {
   public render() {
-    const props = this.props.store;
+    const store = this.props.store;
 
-    return props.isLoaded ? (
+    return store.isLoaded ? (
       <div>
         <Table>
           <TableHeadView
-            order={props.order}
-            sort={props.sort}
-            sortHandle={props.sortHandler}
-            chars={props.chars}
+            order={store.order}
+            sort={store.sort}
+            sortHandle={store.sortHandler}
+            chars={store.chars}
           />
           <TableBody>
             {
-              props.table.map((row: IRow, index: number): JSX.Element => (
+              store.table.map((row: IRow, index: number): JSX.Element => (
                 <Row
                   key={index}
                   row={row}
-                  chars={props.chars}
+                  chars={store.chars}
                 />
               ))
             }

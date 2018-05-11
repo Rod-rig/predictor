@@ -2,7 +2,8 @@ import {CssBaseline} from 'material-ui';
 import {withStyles} from 'material-ui/styles';
 import * as React from 'react';
 import {HashRouter, Route, Switch} from 'react-router-dom';
-import {TableStore} from '../../stores';
+import {ITableProps} from '../../@types';
+import {MatchListStore, TableStore} from '../../stores';
 import Header from '../Header/Header';
 import MatchList from '../MatchList/MatchList';
 import NotFound from '../NotFound/NotFound';
@@ -16,7 +17,7 @@ const decorate = withStyles(({typography}) => ({
   },
 }));
 
-const table = (props: object) => (
+const table = (props: ITableProps) => (
   <TableView
     store={new TableStore({
       chars: ['position', 'teamName', 'matches', 'w', 'd', 'l', 'goals for',
@@ -25,14 +26,25 @@ const table = (props: object) => (
       sort: 'position',
     })}
     {...props}
-  />);
-
-const results = (props: object) => (
-  <MatchList type='results' {...props} />
+  />
 );
 
-const fixtures = (props: object) => (
-  <MatchList type='fixtures' {...props} />
+const results = (props: any) => (
+  <MatchList
+    store={new MatchListStore({
+      type: 'results',
+    })}
+    {...props}
+  />
+);
+
+const fixtures = (props: any) => (
+  <MatchList
+    store={new MatchListStore({
+      type: 'fixtures',
+    })}
+    {...props}
+  />
 );
 
 const App = ({classes}: any) => (

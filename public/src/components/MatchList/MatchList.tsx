@@ -1,74 +1,35 @@
-import axios, {AxiosResponse} from 'axios';
 import List from 'material-ui/List';
+import {observer} from 'mobx-react';
 import * as React from 'react';
-import {IMatch, MatchItem} from '../MatchItem';
+import {IMatch, IMatchList} from '../../@types';
+import {Loader} from '../Loader/Loader';
+import {MatchItem} from '../MatchItem';
 
-const ghUrl: string = 'https://raw.githubusercontent.com/Rod-rig/epl-store/master';
-
+@observer
 class MatchList extends React.Component<{
-  id?: string;
-  match?: {
-    params: {
-      id: string;
-    };
-  };
-  type: string,
-}, {
-  list: object[],
-  logos: any,
-}> {
-  private readonly id: string;
-  constructor(props: any) {
-    super(props);
-    this.id = this.props.match ? this.props.match.params.id : this.props.id;
-    this.state = {
-      list: [],
-      logos: [],
-    };
-  }
-
-  public componentDidMount() {
-    const matchesUrl = `${ghUrl}/2017-2018/england/${this.id}/${this.props.type}.json`;
-    const logosUrl = `${ghUrl}/2017-2018/england/${this.id}/teams.json`;
-    axios.all([
-      axios.get(matchesUrl),
-      axios.get(logosUrl),
-    ]).then(axios.spread((matchesRes: AxiosResponse, logosRes: AxiosResponse) => {
-      this.setState({
-        list: [...matchesRes.data],
-        logos: this.flatLogos(logosRes.data),
-      });
-    }))
-      .catch(/* istanbul ignore next */(error) => {
-        throw error;
-      });
-  }
-
-  public flatLogos(logos: object[]) {
-    const logosCollection: any = {};
-    logos.forEach((logo: {logo: string, teamName: string}) => {
-      logosCollection[logo.teamName] = logo.logo;
-    });
-    return logosCollection;
-  }
-
+  store: IMatchList,
+}, {}> {
   public render() {
-    return (
+    const store = this.props.store;
+
+    return store.isLoaded ? (
       <List disablePadding={true}>
         {
-          this.state.list.map((item: IMatch, index: number) => (
+          store.list.map((item: IMatch, index: number) => (
             <MatchItem
-              key={index}
+              key={`${item.homeTeam}-${item.awayTeam}-${index}`}
               homeTeam={item.homeTeam}
               awayTeam={item.awayTeam}
               homeScore={item.homeScore}
               awayScore={item.awayScore}
-              homeLogo={this.state.logos[item.homeTeam]}
-              awayLogo={this.state.logos[item.awayTeam]}
+              homeLogo={store.logos[item.homeTeam]}
+              awayLogo={store.logos[item.awayTeam]}
             />
           ))
         }
       </List>
+    ) : (
+      <Loader/>
     );
   }
 }

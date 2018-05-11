@@ -2,16 +2,7 @@ import Avatar from 'material-ui/Avatar';
 import {ListItem, ListItemIcon, ListItemText} from 'material-ui/List';
 import {withStyles} from 'material-ui/styles';
 import * as React from 'react';
-
-export interface IMatch {
-  awayLogo?: string;
-  awayScore?: number;
-  awayTeam: string;
-  classes?: any;
-  homeLogo?: string;
-  homeScore?: number;
-  homeTeam: string;
-}
+import {IMatch} from '../../@types';
 
 const decorate = withStyles(({palette, spacing, typography}) => ({
   dash: {
@@ -27,6 +18,8 @@ const decorate = withStyles(({palette, spacing, typography}) => ({
     '& img': {
       'object-fit': 'contain',
     },
+    'height': '1.25em',
+    'width': '1.25em',
   },
   right: {
     justifyContent: 'flex-end',
@@ -41,6 +34,7 @@ const decorate = withStyles(({palette, spacing, typography}) => ({
     width: typography.pxToRem(20 * 3),
   },
   text: {
+    alignItems: 'center',
     display: 'flex',
     flexBasis: '40%',
   },

@@ -11,7 +11,6 @@ export class TableStore implements ITable {
   @observable public table: object[] = [];
   public readonly chars: string[];
   public readonly range?: RangeType;
-  // public url: string;
   public url: string =
     `https://raw.githubusercontent.com/Rod-rig/epl-data/master/2017-2018/england/${this.id}/table.json`;
 
