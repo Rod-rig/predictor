@@ -29,7 +29,7 @@ exports[`Header should render correctly 1`] = `
       >
         <svg
           aria-hidden="true"
-          className="MuiSvgIcon-root-49"
+          className="MuiSvgIcon-root-50"
           color={undefined}
           focusable="false"
           viewBox="0 0 24 24"
@@ -40,11 +40,11 @@ exports[`Header should render correctly 1`] = `
         </svg>
       </span>
       <span
-        className="MuiTouchRipple-root-55"
+        className="MuiTouchRipple-root-56"
       />
     </button>
     <div
-      className="Logo-logo-63"
+      className="Logo-logo-64"
     >
       <a
         href="/"
@@ -52,18 +52,18 @@ exports[`Header should render correctly 1`] = `
       >
         <img
           alt="logo"
-          className="Logo-img-62"
+          className="Logo-img-63"
           src="https://avatars2.githubusercontent.com/u/11474330"
         />
       </a>
     </div>
     <h2
-      className="MuiTypography-root-64 MuiTypography-title-70 MuiTypography-colorInherit-83 WithTheme-Header--title-3"
+      className="MuiTypography-root-65 MuiTypography-title-71 MuiTypography-colorInherit-84 WithTheme-Header--title-3"
     >
       Title
     </h2>
     <h2
-      className="MuiTypography-root-64 MuiTypography-title-70 WithTheme-Header--title-3"
+      className="MuiTypography-root-65 MuiTypography-title-71 WithTheme-Header--title-3"
     >
       <a
         className="WithTheme-Header--link-2"
@@ -74,7 +74,7 @@ exports[`Header should render correctly 1`] = `
       </a>
     </h2>
     <h2
-      className="MuiTypography-root-64 MuiTypography-title-70 WithTheme-Header--title-3"
+      className="MuiTypography-root-65 MuiTypography-title-71 WithTheme-Header--title-3"
     >
       <a
         className="WithTheme-Header--link-2"

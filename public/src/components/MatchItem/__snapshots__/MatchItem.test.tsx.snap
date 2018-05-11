@@ -17,7 +17,7 @@ exports[`MatchItem should render future match correctly 1`] = `
   tabIndex="0"
 >
   <div
-    className="MuiListItemText-root-19 Component-text-6 Component-right-4"
+    className="MuiListItemText-root-20 Component-text-6 Component-right-4"
   >
     <div>
       Test2
@@ -33,14 +33,14 @@ exports[`MatchItem should render future match correctly 1`] = `
     </div>
   </div>
   <div
-    className="MuiListItemText-root-19 Component-text-6"
+    className="MuiListItemText-root-20 Component-text-6"
   >
     <div>
       Test1
     </div>
   </div>
   <span
-    className="MuiTouchRipple-root-25"
+    className="MuiTouchRipple-root-26"
   />
 </div>
 `;
