@@ -1,0 +1,30 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`TableHeadView should render correctly with default props 1`] = `
+<thead
+  className="MuiTableHead-root-10"
+>
+  <tr
+    className="MuiTableRow-root-11 MuiTableRow-head-14"
+  >
+    <th
+      aria-sort="ascending"
+      className="MuiTableCell-root-16 MuiTableCell-head-17 MuiTableCell-paddingCheckbox-22 Component-cell-1 Component-position-7"
+      scope="col"
+      type="head"
+    />
+    <th
+      aria-sort="ascending"
+      className="MuiTableCell-root-16 MuiTableCell-head-17 MuiTableCell-paddingCheckbox-22 Component-cell-1 "
+      scope="col"
+      type="head"
+    />
+    <th
+      aria-sort="ascending"
+      className="MuiTableCell-root-16 MuiTableCell-head-17 MuiTableCell-paddingCheckbox-22 Component-cell-1 "
+      scope="col"
+      type="head"
+    />
+  </tr>
+</thead>
+`;

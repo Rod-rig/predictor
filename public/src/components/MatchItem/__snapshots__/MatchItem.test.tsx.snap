@@ -62,17 +62,17 @@ exports[`MatchItem should render played match correctly 1`] = `
   tabIndex="0"
 >
   <div
-    className="MuiListItemText-root-19 Component-text-6 Component-right-4"
+    className="MuiListItemText-root-20 Component-text-6 Component-right-4"
   >
     <div>
       Test2
     </div>
     <div
-      className="MuiAvatar-root-33 MuiListItemIcon-root-32 Component-icon-2 Component-logo-3"
+      className="MuiAvatar-root-34 MuiListItemIcon-root-33 Component-icon-2 Component-logo-3"
     >
       <img
         alt={undefined}
-        className="MuiAvatar-img-35"
+        className="MuiAvatar-img-36"
         sizes={undefined}
         src="logo2"
         srcSet={undefined}
@@ -95,14 +95,14 @@ exports[`MatchItem should render played match correctly 1`] = `
     </div>
   </div>
   <div
-    className="MuiListItemText-root-19 Component-text-6"
+    className="MuiListItemText-root-20 Component-text-6"
   >
     <div
-      className="MuiAvatar-root-33 MuiListItemIcon-root-32 Component-logo-3"
+      className="MuiAvatar-root-34 MuiListItemIcon-root-33 Component-logo-3"
     >
       <img
         alt={undefined}
-        className="MuiAvatar-img-35"
+        className="MuiAvatar-img-36"
         sizes={undefined}
         src="logo1"
         srcSet={undefined}
@@ -113,7 +113,7 @@ exports[`MatchItem should render played match correctly 1`] = `
     </div>
   </div>
   <span
-    className="MuiTouchRipple-root-25"
+    className="MuiTouchRipple-root-26"
   />
 </div>
 `;
