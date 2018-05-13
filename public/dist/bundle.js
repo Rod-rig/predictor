@@ -76284,6 +76284,7 @@ var decorate = styles_1.withStyles(function (_a) {
         },
     });
 });
+var tournamentList = function () { return (React.createElement(TournamentList_1.default, { store: new stores_1.TournamentListStore() })); };
 var table = function (props) { return (React.createElement(TableView_1.default, __assign({ store: new stores_1.TableStore({
         chars: ['position', 'teamName', 'matches', 'w', 'd', 'l', 'goals for',
             'goals against', 'goal difference', 'points'],
@@ -76305,7 +76306,7 @@ var App = function (_a) {
                 React.createElement(React.Fragment, null,
                     React.createElement(Header_1.default, null),
                     React.createElement(react_router_dom_1.Switch, null,
-                        React.createElement(react_router_dom_1.Route, { exact: true, path: '/', component: TournamentList_1.default }),
+                        React.createElement(react_router_dom_1.Route, { exact: true, path: '/', component: tournamentList }),
                         React.createElement(react_router_dom_1.Route, { path: '/tournament/:id', component: table }),
                         React.createElement(react_router_dom_1.Route, { path: '/results/:id', component: results }),
                         React.createElement(react_router_dom_1.Route, { path: '/fixtures/:id', component: fixtures }),
@@ -76955,7 +76956,9 @@ exports.default = styles_1.withStyles(styles)(TournamentCard);
 Object.defineProperty(exports, "__esModule", { value: true });
 var Grid_1 = __webpack_require__(/*! material-ui/Grid */ "./node_modules/material-ui/Grid/index.js");
 var styles_1 = __webpack_require__(/*! material-ui/styles */ "./node_modules/material-ui/styles/index.js");
+var mobx_react_1 = __webpack_require__(/*! mobx-react */ "./node_modules/mobx-react/index.module.js");
 var React = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+var Loader_1 = __webpack_require__(/*! ../Loader/Loader */ "./public/src/components/Loader/Loader.tsx");
 var TournamentCard_1 = __webpack_require__(/*! ../TournamentCard/TournamentCard */ "./public/src/components/TournamentCard/TournamentCard.tsx");
 var styles = {
     list: {
@@ -76963,20 +76966,31 @@ var styles = {
         width: '100%',
     },
 };
-var TournamentList = function (props) {
-    var classes = props.classes;
-    var tournaments = [{
-            country: 'England',
-            id: 'premier-league',
-            img: 'https://www.premierleague.com/resources/ver/i/elements/premier-league-logo.svg',
-            name: 'Premier League',
-        }];
-    return (React.createElement(Grid_1.default, { container: true, spacing: 16, className: classes.list },
-        React.createElement(Grid_1.default, { item: true, xs: 12, sm: 6, md: 4, lg: 3 }, tournaments.map(function (item, index) {
-            return (React.createElement(TournamentCard_1.default, { country: item.country, id: item.id, img: item.img, key: index, name: item.name }));
-        }))));
-};
+var TournamentList = mobx_react_1.observer(function (props) {
+    var classes = props.classes, store = props.store;
+    return store.isLoaded ? (React.createElement(Grid_1.default, { container: true, spacing: 16, className: classes.list }, store.list.map(function (item) {
+        return (React.createElement(Grid_1.default, { key: item.id, item: true, xs: 12, sm: 6, md: 4, lg: 3 },
+            React.createElement(TournamentCard_1.default, { country: item.category.name, id: item.id, img: item.img, name: item.name })));
+    }))) : React.createElement(Loader_1.Loader, null);
+});
 exports.default = styles_1.withStyles(styles)(TournamentList);
+
+
+/***/ }),
+
+/***/ "./public/src/config/config.ts":
+/*!*************************************!*\
+  !*** ./public/src/config/config.ts ***!
+  \*************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+Object.defineProperty(exports, "__esModule", { value: true });
+exports.default = {
+    apiKey: '4z2rjn677w98utfvz9quyr56',
+};
 
 
 /***/ }),
@@ -77082,6 +77096,26 @@ var React = __webpack_require__(/*! react */ "./node_modules/react/index.js");
 var ReactDOM = __webpack_require__(/*! react-dom */ "./node_modules/react-dom/index.js");
 var App_1 = __webpack_require__(/*! ./components/App/App */ "./public/src/components/App/App.tsx");
 ReactDOM.render(React.createElement(App_1.default, null), document.getElementById('root'));
+
+
+/***/ }),
+
+/***/ "./public/src/stores/AppStore/AppStore.ts":
+/*!************************************************!*\
+  !*** ./public/src/stores/AppStore/AppStore.ts ***!
+  \************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+Object.defineProperty(exports, "__esModule", { value: true });
+var AppStore = /** @class */ (function () {
+    function AppStore() {
+    }
+    return AppStore;
+}());
+exports.AppStore = AppStore;
 
 
 /***/ }),
@@ -77250,6 +77284,52 @@ exports.TableStore = TableStore;
 
 /***/ }),
 
+/***/ "./public/src/stores/TournamentListStore/TournamentListStore.ts":
+/*!**********************************************************************!*\
+  !*** ./public/src/stores/TournamentListStore/TournamentListStore.ts ***!
+  \**********************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+Object.defineProperty(exports, "__esModule", { value: true });
+var axios_1 = __webpack_require__(/*! axios */ "./node_modules/axios/index.js");
+var mobx_1 = __webpack_require__(/*! mobx */ "./node_modules/mobx/lib/mobx.module.js");
+var config_1 = __webpack_require__(/*! ../../config/config */ "./public/src/config/config.ts");
+var TournamentListStore = /** @class */ (function () {
+    function TournamentListStore() {
+        this.isLoaded = false;
+        this.list = [];
+        this.url = "//api.sportradar.us/soccer-t3/eu/en/tournaments.json?api_key=" + config_1.default.apiKey;
+        this.fetchList();
+    }
+    TournamentListStore.prototype.fetchList = function () {
+        var _this = this;
+        axios_1.default.get(this.url).then(function (res) {
+            _this.list = res.data.tournaments;
+            _this.isLoaded = true;
+        });
+    };
+    __decorate([
+        mobx_1.observable
+    ], TournamentListStore.prototype, "isLoaded", void 0);
+    __decorate([
+        mobx_1.observable
+    ], TournamentListStore.prototype, "list", void 0);
+    return TournamentListStore;
+}());
+exports.TournamentListStore = TournamentListStore;
+
+
+/***/ }),
+
 /***/ "./public/src/stores/index.ts":
 /*!************************************!*\
   !*** ./public/src/stores/index.ts ***!
@@ -77263,8 +77343,10 @@ function __export(m) {
     for (var p in m) if (!exports.hasOwnProperty(p)) exports[p] = m[p];
 }
 Object.defineProperty(exports, "__esModule", { value: true });
+__export(__webpack_require__(/*! ./AppStore/AppStore */ "./public/src/stores/AppStore/AppStore.ts"));
 __export(__webpack_require__(/*! ./TableStore/TableStore */ "./public/src/stores/TableStore/TableStore.ts"));
 __export(__webpack_require__(/*! ./MatchListStore/MatchListStore */ "./public/src/stores/MatchListStore/MatchListStore.ts"));
+__export(__webpack_require__(/*! ./TournamentListStore/TournamentListStore */ "./public/src/stores/TournamentListStore/TournamentListStore.ts"));
 
 
 /***/ })

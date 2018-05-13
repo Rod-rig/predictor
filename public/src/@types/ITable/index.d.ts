@@ -9,7 +9,7 @@ export interface ITableProps {
   range?: RangeType;
 }
 
-export interface ITable extends ITableProps{
+export interface ITable extends ITableProps {
   id?: string;
   isLoaded: boolean;
   table: object[];

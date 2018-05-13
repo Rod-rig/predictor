@@ -3,7 +3,7 @@ import {withStyles} from 'material-ui/styles';
 import * as React from 'react';
 import {HashRouter, Route, Switch} from 'react-router-dom';
 import {ITableProps} from '../../@types';
-import {MatchListStore, TableStore} from '../../stores';
+import {MatchListStore, TableStore, TournamentListStore} from '../../stores';
 import Header from '../Header/Header';
 import MatchList from '../MatchList/MatchList';
 import NotFound from '../NotFound/NotFound';
@@ -16,6 +16,10 @@ const decorate = withStyles(({typography}) => ({
     fontFamily: typography.fontFamily,
   },
 }));
+
+const tournamentList = () => (
+  <TournamentList store={new TournamentListStore()}/>
+);
 
 const table = (props: ITableProps) => (
   <TableView
@@ -56,7 +60,7 @@ const App = ({classes}: any) => (
           <Header/>
 
           <Switch>
-            <Route exact={true} path='/' component={TournamentList}/>
+            <Route exact={true} path='/' component={tournamentList}/>
             <Route path='/tournament/:id' component={table}/>
             <Route path='/results/:id' component={results}/>
             <Route path='/fixtures/:id' component={fixtures}/>
