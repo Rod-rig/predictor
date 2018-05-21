@@ -4,7 +4,7 @@ import * as React from 'react';
 
 export interface IRow {
   logo?: string;
-  [index: string]: string | number;
+  [index: string]: any;
 }
 
 interface IProps {
@@ -15,7 +15,7 @@ interface IProps {
 }
 
 const decorate = withStyles(({breakpoints, spacing}) => ({
-  'cell': {
+  cell: {
     '&:last-child': {
       [breakpoints.down('sm')]: {
         paddingRight: 0.75 * spacing.unit,
@@ -27,22 +27,22 @@ const decorate = withStyles(({breakpoints, spacing}) => ({
       paddingRight: 0.75 * spacing.unit,
     },
   },
-  'd': {
+  draw: {
     [breakpoints.down('xs')]: {
       display: 'none',
     },
   },
-  'goals-against': {
+  goals_against: {
     [breakpoints.down('sm')]: {
       display: 'none',
     },
   },
-  'goals-for': {
+  goals_for: {
     [breakpoints.down('sm')]: {
       display: 'none',
     },
   },
-  'img': {
+  img: {
     '& img': {
       'object-fit': 'contain',
     },
@@ -53,35 +53,35 @@ const decorate = withStyles(({breakpoints, spacing}) => ({
     'verticalAlign': 'middle',
     'width': 25,
   },
-  'info': {
+  info: {
     alignItems: 'center',
     display: 'flex',
   },
-  'l': {
+  loss: {
     [breakpoints.down('xs')]: {
       display: 'none',
     },
   },
-  'matches': {
+  played: {
     [breakpoints.down('sm')]: {
       display: 'none',
     },
   },
-  'name': {
+  // shortName: {
+  //   display: 'inline',
+  //   [breakpoints.up('sm')]: {
+  //     display: 'none',
+  //   },
+  // },
+  team: {
     [breakpoints.down('xs')]: {
       display: 'none',
     },
   },
-  'shortName': {
-    display: 'inline',
-    [breakpoints.up('sm')]: {
-      display: 'none',
-    },
-  },
-  'teamName': {
+  teamName: {
     'text-align': 'left',
   },
-  'w': {
+  win: {
     [breakpoints.down('xs')]: {
       display: 'none',
     },
@@ -94,13 +94,12 @@ export const Row = decorate((props: IProps) => {
     <TableRow hover={true} className='row'>
       {
         props.chars.map((val, i): JSX.Element => {
-          const rowClassName = val.split(' ').join('-');
-          if (val !== 'teamName') {
+          if (val !== 'team') {
             return (
               <TableCell
                 key={i}
                 padding='checkbox'
-                className={`${classes.cell} ${classes[rowClassName] ? classes[rowClassName] : ''}`}
+                className={`${classes.cell} ${classes[val] ? classes[val] : ''}`}
               >
                 {row[val]}
               </TableCell>
@@ -114,8 +113,8 @@ export const Row = decorate((props: IProps) => {
                     alt={row[val] + '\'s logo'}
                     className={classes.img}
                   />
-                  <span className={classes.name}>{row[val]}</span>
-                  <span className={classes.shortName}>{row.shortName}</span>
+                  <span className={classes.team}>{row.team.name}</span>
+                  {/*<span className={classes.shortName}>{row.shortName}</span>*/}
                 </div>
               </TableCell>
             );

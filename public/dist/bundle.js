@@ -76285,12 +76285,13 @@ var decorate = styles_1.withStyles(function (_a) {
     });
 });
 var tournamentList = function () { return (React.createElement(TournamentList_1.default, { store: new stores_1.TournamentListStore() })); };
-var table = function (props) { return (React.createElement(TableView_1.default, __assign({ store: new stores_1.TableStore({
-        chars: ['position', 'teamName', 'matches', 'w', 'd', 'l', 'goals for',
-            'goals against', 'goal difference', 'points'],
+var table = function (props) { return (React.createElement(TableView_1.default, { store: new stores_1.TableStore({
+        chars: ['rank', 'team', 'played', 'win', 'draw', 'loss', 'goals_for',
+            'goals_against', 'goal_diff', 'points'],
+        id: props.match.params.id,
         order: 'asc',
-        sort: 'position',
-    }) }, props))); };
+        sort: 'rank',
+    }) })); };
 var results = function (props) { return (React.createElement(MatchList_1.default, __assign({ store: new stores_1.MatchListStore({
         type: 'results',
     }) }, props))); };
@@ -76628,7 +76629,7 @@ var React = __webpack_require__(/*! react */ "./node_modules/react/index.js");
 var decorate = styles_1.withStyles(function (_a) {
     var breakpoints = _a.breakpoints, spacing = _a.spacing;
     return ({
-        'cell': (_b = {
+        cell: (_b = {
                 '&:last-child': (_c = {},
                     _c[breakpoints.down('sm')] = {
                         paddingRight: 0.75 * spacing.unit,
@@ -76641,22 +76642,22 @@ var decorate = styles_1.withStyles(function (_a) {
                 paddingRight: 0.75 * spacing.unit,
             },
             _b),
-        'd': (_d = {},
+        draw: (_d = {},
             _d[breakpoints.down('xs')] = {
                 display: 'none',
             },
             _d),
-        'goals-against': (_e = {},
+        goals_against: (_e = {},
             _e[breakpoints.down('sm')] = {
                 display: 'none',
             },
             _e),
-        'goals-for': (_f = {},
+        goals_for: (_f = {},
             _f[breakpoints.down('sm')] = {
                 display: 'none',
             },
             _f),
-        'img': {
+        img: {
             '& img': {
                 'object-fit': 'contain',
             },
@@ -76667,56 +76668,53 @@ var decorate = styles_1.withStyles(function (_a) {
             'verticalAlign': 'middle',
             'width': 25,
         },
-        'info': {
+        info: {
             alignItems: 'center',
             display: 'flex',
         },
-        'l': (_g = {},
+        loss: (_g = {},
             _g[breakpoints.down('xs')] = {
                 display: 'none',
             },
             _g),
-        'matches': (_h = {},
+        played: (_h = {},
             _h[breakpoints.down('sm')] = {
                 display: 'none',
             },
             _h),
-        'name': (_j = {},
+        // shortName: {
+        //   display: 'inline',
+        //   [breakpoints.up('sm')]: {
+        //     display: 'none',
+        //   },
+        // },
+        team: (_j = {},
             _j[breakpoints.down('xs')] = {
                 display: 'none',
             },
             _j),
-        'shortName': (_k = {
-                display: 'inline'
-            },
-            _k[breakpoints.up('sm')] = {
+        teamName: {
+            'text-align': 'left',
+        },
+        win: (_k = {},
+            _k[breakpoints.down('xs')] = {
                 display: 'none',
             },
             _k),
-        'teamName': {
-            'text-align': 'left',
-        },
-        'w': (_l = {},
-            _l[breakpoints.down('xs')] = {
-                display: 'none',
-            },
-            _l),
     });
-    var _b, _c, _d, _e, _f, _g, _h, _j, _k, _l;
+    var _b, _c, _d, _e, _f, _g, _h, _j, _k;
 });
 exports.Row = decorate(function (props) {
     var classes = props.classes, row = props.row;
     return (React.createElement(material_ui_1.TableRow, { hover: true, className: 'row' }, props.chars.map(function (val, i) {
-        var rowClassName = val.split(' ').join('-');
-        if (val !== 'teamName') {
-            return (React.createElement(material_ui_1.TableCell, { key: i, padding: 'checkbox', className: classes.cell + " " + (classes[rowClassName] ? classes[rowClassName] : '') }, row[val]));
+        if (val !== 'team') {
+            return (React.createElement(material_ui_1.TableCell, { key: i, padding: 'checkbox', className: classes.cell + " " + (classes[val] ? classes[val] : '') }, row[val]));
         }
         else {
             return (React.createElement(material_ui_1.TableCell, { key: i, padding: 'checkbox', className: classes.cell + " " + classes.teamName },
                 React.createElement("div", { className: classes.info },
                     React.createElement(material_ui_1.Avatar, { src: row.logo, alt: row[val] + '\'s logo', className: classes.img }),
-                    React.createElement("span", { className: classes.name }, row[val]),
-                    React.createElement("span", { className: classes.shortName }, row.shortName))));
+                    React.createElement("span", { className: classes.team }, row.team.name))));
         }
     })));
 });
@@ -76758,7 +76756,7 @@ var React = __webpack_require__(/*! react */ "./node_modules/react/index.js");
 var decorate = styles_1.withStyles(function (_a) {
     var breakpoints = _a.breakpoints, spacing = _a.spacing;
     return ({
-        'cell': (_b = {
+        cell: (_b = {
                 '& svg': {
                     margin: -spacing.unit + "px 0 0",
                     position: 'absolute',
@@ -76783,35 +76781,35 @@ var decorate = styles_1.withStyles(function (_a) {
                 paddingRight: 0.75 * spacing.unit,
             },
             _b),
-        'd': (_d = {},
+        draw: (_d = {},
             _d[breakpoints.down('xs')] = {
                 display: 'none',
             },
             _d),
-        'goals-against': (_e = {},
+        goals_against: (_e = {},
             _e[breakpoints.down('sm')] = {
                 display: 'none',
             },
             _e),
-        'goals-for': (_f = {},
+        goals_for: (_f = {},
             _f[breakpoints.down('sm')] = {
                 display: 'none',
             },
             _f),
-        'l': (_g = {},
+        loss: (_g = {},
             _g[breakpoints.down('xs')] = {
                 display: 'none',
             },
             _g),
-        'matches': (_h = {},
+        played: (_h = {},
             _h[breakpoints.down('sm')] = {
                 display: 'none',
             },
             _h),
-        'position': {
+        rank: {
             width: 80,
         },
-        'teamName': (_j = {
+        team: (_j = {
                 'min-width': 0,
                 'text-align': 'left',
                 'width': '100%'
@@ -76820,7 +76818,7 @@ var decorate = styles_1.withStyles(function (_a) {
                 width: 70,
             },
             _j),
-        'w': (_k = {},
+        win: (_k = {},
             _k[breakpoints.down('xs')] = {
                 display: 'none',
             },
@@ -76832,8 +76830,7 @@ var TableHeadView = decorate(function (props) {
     var chars = props.chars, classes = props.classes, order = props.order, sort = props.sort, sortHandle = props.sortHandle;
     return (React.createElement(material_ui_1.TableHead, null,
         React.createElement(material_ui_1.TableRow, null, chars.map(function (name, index) {
-            var thClassName = name.split(' ').join('-');
-            return React.createElement(material_ui_1.TableCell, { key: index, sortDirection: order === 'asc' ? 'desc' : 'asc', padding: 'checkbox', className: classes.cell + " " + (classes[thClassName] ? classes[thClassName] : ''), type: 'head' },
+            return React.createElement(material_ui_1.TableCell, { key: index, sortDirection: order === 'asc' ? 'desc' : 'asc', padding: 'checkbox', className: classes.cell + " " + (classes[name] ? classes[name] : ''), type: 'head' },
                 React.createElement(material_ui_1.Tooltip, { title: 'Sort', enterDelay: 300 },
                     React.createElement(material_ui_1.TableSortLabel, { active: sort === name, direction: order, onClick: sortHandle }, name)));
         }))));
@@ -77100,26 +77097,6 @@ ReactDOM.render(React.createElement(App_1.default, null), document.getElementByI
 
 /***/ }),
 
-/***/ "./public/src/stores/AppStore/AppStore.ts":
-/*!************************************************!*\
-  !*** ./public/src/stores/AppStore/AppStore.ts ***!
-  \************************************************/
-/*! no static exports found */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-Object.defineProperty(exports, "__esModule", { value: true });
-var AppStore = /** @class */ (function () {
-    function AppStore() {
-    }
-    return AppStore;
-}());
-exports.AppStore = AppStore;
-
-
-/***/ }),
-
 /***/ "./public/src/stores/MatchListStore/MatchListStore.ts":
 /*!************************************************************!*\
   !*** ./public/src/stores/MatchListStore/MatchListStore.ts ***!
@@ -77208,17 +77185,17 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 Object.defineProperty(exports, "__esModule", { value: true });
 var axios_1 = __webpack_require__(/*! axios */ "./node_modules/axios/index.js");
 var mobx_1 = __webpack_require__(/*! mobx */ "./node_modules/mobx/lib/mobx.module.js");
+var config_1 = __webpack_require__(/*! ../../config/config */ "./public/src/config/config.ts");
 var helpers_1 = __webpack_require__(/*! ../../helpers */ "./public/src/helpers/index.ts");
 var TableStore = /** @class */ (function () {
     function TableStore(props) {
-        this.id = 'premier-league';
         this.isLoaded = false;
         this.table = [];
-        this.url = "https://raw.githubusercontent.com/Rod-rig/epl-data/master/2017-2018/england/" + this.id + "/table.json";
         this.chars = props.chars;
         this.order = props.order;
         this.range = props.range;
         this.sort = props.sort;
+        this.url = "//api.sportradar.us/soccer-t3/eu/en/tournaments/" + props.id + "/standings.json?api_key=" + config_1.default.apiKey;
         this.fetchTable();
     }
     TableStore.prototype.sortHandler = function (e) {
@@ -77249,7 +77226,8 @@ var TableStore = /** @class */ (function () {
         var _this = this;
         axios_1.default.get(this.url)
             .then(function (res) {
-            _this.table = _this.range ? helpers_1.rangeData(res.data, _this.range[0], _this.range[1]).slice() : res.data.slice();
+            var table = res.data.standings[0].groups[0].team_standings;
+            _this.table = _this.range ? helpers_1.rangeData(table, _this.range[0], _this.range[1]).slice() : table.slice();
             _this.isLoaded = true;
         });
     };
@@ -77302,12 +77280,12 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 Object.defineProperty(exports, "__esModule", { value: true });
 var axios_1 = __webpack_require__(/*! axios */ "./node_modules/axios/index.js");
 var mobx_1 = __webpack_require__(/*! mobx */ "./node_modules/mobx/lib/mobx.module.js");
-var config_1 = __webpack_require__(/*! ../../config/config */ "./public/src/config/config.ts");
 var TournamentListStore = /** @class */ (function () {
     function TournamentListStore() {
         this.isLoaded = false;
         this.list = [];
-        this.url = "//api.sportradar.us/soccer-t3/eu/en/tournaments.json?api_key=" + config_1.default.apiKey;
+        // private url: string =  `//api.sportradar.us/soccer-t3/eu/en/tournaments.json?api_key=${config.apiKey}`;
+        this.url = "../../../src/config/tournamentList.json";
         this.fetchList();
     }
     TournamentListStore.prototype.fetchList = function () {
@@ -77343,7 +77321,6 @@ function __export(m) {
     for (var p in m) if (!exports.hasOwnProperty(p)) exports[p] = m[p];
 }
 Object.defineProperty(exports, "__esModule", { value: true });
-__export(__webpack_require__(/*! ./AppStore/AppStore */ "./public/src/stores/AppStore/AppStore.ts"));
 __export(__webpack_require__(/*! ./TableStore/TableStore */ "./public/src/stores/TableStore/TableStore.ts"));
 __export(__webpack_require__(/*! ./MatchListStore/MatchListStore */ "./public/src/stores/MatchListStore/MatchListStore.ts"));
 __export(__webpack_require__(/*! ./TournamentListStore/TournamentListStore */ "./public/src/stores/TournamentListStore/TournamentListStore.ts"));

@@ -1,6 +1,6 @@
 import {shallow} from 'enzyme';
 import * as React from 'react';
-import {ITable} from '../../@types/ITable';
+import {ITable} from '../../@types';
 import table from '../../__mocks__/table';
 import {Loader} from '../Loader/Loader';
 import {Row} from '../Row';
@@ -9,6 +9,7 @@ import TableView from './TableView';
 describe('TableView', () => {
   const mockStore: ITable = {
     chars: ['position', 'teamName', 'points'],
+    id: 'test',
     isLoaded: true,
     order: 'asc',
     sort: '',

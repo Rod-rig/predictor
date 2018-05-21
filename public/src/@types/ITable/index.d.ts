@@ -1,8 +1,13 @@
+import {match} from 'react-router-dom';
+
 export type OrderType = 'asc' | 'desc';
 
 export type RangeType = number[] | null;
 
+export type IId = match<{id: string}>;
+
 export interface ITableProps {
+  id: string;
   order: OrderType;
   sort: string;
   chars: string[];
@@ -10,7 +15,6 @@ export interface ITableProps {
 }
 
 export interface ITable extends ITableProps {
-  id?: string;
   isLoaded: boolean;
   table: object[];
   url: string;

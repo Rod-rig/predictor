@@ -1,24 +1,25 @@
 import axios, {AxiosResponse} from 'axios';
 import {action, observable} from 'mobx';
-import {ITable, ITableProps, OrderType, RangeType} from '../../@types';
+import {IId, ITable, ITableProps, OrderType, RangeType} from '../../@types';
+import config from '../../config/config';
 import {rangeData} from '../../helpers';
 
 export class TableStore implements ITable {
-  public id?: string = 'premier-league';
+  public id: string;
   @observable public isLoaded: boolean = false;
   @observable public order: OrderType;
   @observable public sort: string;
   @observable public table: object[] = [];
   public readonly chars: string[];
   public readonly range?: RangeType;
-  public url: string =
-    `https://raw.githubusercontent.com/Rod-rig/epl-data/master/2017-2018/england/${this.id}/table.json`;
+  public url: string;
 
   constructor(props: ITableProps) {
     this.chars = props.chars;
     this.order = props.order;
     this.range = props.range;
     this.sort = props.sort;
+    this.url = `//api.sportradar.us/soccer-t3/eu/en/tournaments/${props.id}/standings.json?api_key=${config.apiKey}`;
     this.fetchTable();
   }
 
@@ -55,7 +56,8 @@ export class TableStore implements ITable {
   private fetchTable() {
     axios.get(this.url)
       .then((res: AxiosResponse) => {
-        this.table = this.range ? [...rangeData(res.data, this.range[0], this.range[1])] : [...res.data];
+        const table = res.data.standings[0].groups[0].team_standings;
+        this.table = this.range ? [...rangeData(table, this.range[0], this.range[1])] : [...table];
         this.isLoaded = true;
       });
   }

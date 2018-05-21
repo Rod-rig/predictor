@@ -2,7 +2,7 @@ import {CssBaseline} from 'material-ui';
 import {withStyles} from 'material-ui/styles';
 import * as React from 'react';
 import {HashRouter, Route, Switch} from 'react-router-dom';
-import {ITableProps} from '../../@types';
+import {IId, ITableProps} from '../../@types';
 import {MatchListStore, TableStore, TournamentListStore} from '../../stores';
 import Header from '../Header/Header';
 import MatchList from '../MatchList/MatchList';
@@ -21,15 +21,15 @@ const tournamentList = () => (
   <TournamentList store={new TournamentListStore()}/>
 );
 
-const table = (props: ITableProps) => (
+const table = (props: ITableProps & {match: IId}) => (
   <TableView
     store={new TableStore({
-      chars: ['position', 'teamName', 'matches', 'w', 'd', 'l', 'goals for',
-        'goals against', 'goal difference', 'points'],
+      chars: ['rank', 'team', 'played', 'win', 'draw', 'loss', 'goals_for',
+        'goals_against', 'goal_diff', 'points'],
+      id: props.match.params.id,
       order: 'asc',
-      sort: 'position',
+      sort: 'rank',
     })}
-    {...props}
   />
 );
 

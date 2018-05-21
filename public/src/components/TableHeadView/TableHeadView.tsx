@@ -11,7 +11,7 @@ interface IHead {
 }
 
 const decorate = withStyles(({breakpoints, spacing}) => ({
-  'cell': {
+  cell: {
     '& svg': {
       margin: `${-spacing.unit}px 0 0`,
       position: 'absolute' as 'absolute',
@@ -35,35 +35,35 @@ const decorate = withStyles(({breakpoints, spacing}) => ({
       paddingRight: 0.75 * spacing.unit,
     },
   },
-  'd': {
+  draw: {
     [breakpoints.down('xs')]: {
       display: 'none',
     },
   },
-  'goals-against': {
+  goals_against: {
     [breakpoints.down('sm')]: {
       display: 'none',
     },
   },
-  'goals-for': {
+  goals_for: {
     [breakpoints.down('sm')]: {
       display: 'none',
     },
   },
-  'l': {
+  loss: {
     [breakpoints.down('xs')]: {
       display: 'none',
     },
   },
-  'matches': {
+  played: {
     [breakpoints.down('sm')]: {
       display: 'none',
     },
   },
-  'position': {
+  rank: {
     width: 80,
   },
-  'teamName': {
+  team: {
     'min-width': 0,
     'text-align': 'left',
     'width': '100%',
@@ -71,7 +71,7 @@ const decorate = withStyles(({breakpoints, spacing}) => ({
       width: 70,
     },
   },
-  'w': {
+  win: {
     [breakpoints.down('xs')]: {
       display: 'none',
     },
@@ -85,12 +85,11 @@ const TableHeadView = decorate((props: IHead) => {
       <TableRow>
         {chars.map(
           (name: string, index: number) => {
-            const thClassName = name.split(' ').join('-');
             return <TableCell
               key={index}
               sortDirection={order === 'asc' ? 'desc' : 'asc'}
               padding='checkbox'
-              className={`${classes.cell} ${classes[thClassName] ? classes[thClassName] : ''}`}
+              className={`${classes.cell} ${classes[name] ? classes[name] : ''}`}
               type='head'
             >
               <Tooltip title='Sort' enterDelay={300}>

@@ -3,6 +3,7 @@ import {TableStore} from './TableStore';
 describe('TableStore', () => {
   const mockStore = new TableStore({
     chars: ['test'],
+    id: 'test',
     order: 'asc',
     sort: 'test',
   });
