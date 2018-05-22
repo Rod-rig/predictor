@@ -76987,6 +76987,7 @@ exports.default = styles_1.withStyles(styles)(TournamentList);
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.default = {
     apiKey: '4z2rjn677w98utfvz9quyr56',
+    apiUrl: '//api.sportradar.us/soccer-t3/eu',
 };
 
 
@@ -77195,7 +77196,7 @@ var TableStore = /** @class */ (function () {
         this.order = props.order;
         this.range = props.range;
         this.sort = props.sort;
-        this.url = "//api.sportradar.us/soccer-t3/eu/en/tournaments/" + props.id + "/standings.json?api_key=" + config_1.default.apiKey;
+        this.url = config_1.default.apiUrl + "/en/tournaments/" + props.id + "/standings.json?api_key=" + config_1.default.apiKey;
         this.fetchTable();
     }
     TableStore.prototype.sortHandler = function (e) {
@@ -77284,7 +77285,7 @@ var TournamentListStore = /** @class */ (function () {
     function TournamentListStore() {
         this.isLoaded = false;
         this.list = [];
-        // private url: string =  `//api.sportradar.us/soccer-t3/eu/en/tournaments.json?api_key=${config.apiKey}`;
+        // private url: string =  `${config.apiUrl}/en/tournaments.json?api_key=${config.apiKey}`;
         this.url = "../../../src/config/tournamentList.json";
         this.fetchList();
     }

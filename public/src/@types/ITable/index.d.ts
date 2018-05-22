@@ -17,6 +17,5 @@ export interface ITableProps {
 export interface ITable extends ITableProps {
   isLoaded: boolean;
   table: object[];
-  url: string;
   sortHandler(e: Event): void;
 }

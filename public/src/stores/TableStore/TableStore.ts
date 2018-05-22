@@ -1,6 +1,6 @@
 import axios, {AxiosResponse} from 'axios';
 import {action, observable} from 'mobx';
-import {IId, ITable, ITableProps, OrderType, RangeType} from '../../@types';
+import {ITable, ITableProps, OrderType, RangeType} from '../../@types';
 import config from '../../config/config';
 import {rangeData} from '../../helpers';
 
@@ -12,14 +12,14 @@ export class TableStore implements ITable {
   @observable public table: object[] = [];
   public readonly chars: string[];
   public readonly range?: RangeType;
-  public url: string;
+  private url: string;
 
   constructor(props: ITableProps) {
     this.chars = props.chars;
     this.order = props.order;
     this.range = props.range;
     this.sort = props.sort;
-    this.url = `//api.sportradar.us/soccer-t3/eu/en/tournaments/${props.id}/standings.json?api_key=${config.apiKey}`;
+    this.url = `${config.apiUrl}/en/tournaments/${props.id}/standings.json?api_key=${config.apiKey}`;
     this.fetchTable();
   }
 

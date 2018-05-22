@@ -17,7 +17,6 @@ describe('TableView', () => {
       return;
     },
     table: table.table,
-    url: '',
   };
   const tableElement = shallow(<TableView store={mockStore}/>);
   const notRenderedTable = shallow(<TableView store={{...mockStore, ...{isLoaded: false}}}/>);
