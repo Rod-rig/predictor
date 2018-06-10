@@ -56,7 +56,8 @@ export class TableStore implements ITable {
   private fetchTable() {
     axios.get(this.url)
       .then((res: AxiosResponse) => {
-        const table = res.data.standings[0].groups[0].team_standings;
+        const groups = res.data.standings[0].groups;
+        const table = groups[0].team_standings;
         this.table = this.range ? [...rangeData(table, this.range[0], this.range[1])] : [...table];
         this.isLoaded = true;
       });

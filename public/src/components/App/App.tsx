@@ -1,11 +1,11 @@
-import {CssBaseline} from 'material-ui';
-import {withStyles} from 'material-ui/styles';
+import {CssBaseline, withStyles} from '@material-ui/core';
 import * as React from 'react';
 import {HashRouter, Route, Switch} from 'react-router-dom';
 import {IId, ITableProps} from '../../@types';
 import {MatchListStore, TableStore, TournamentListStore} from '../../stores';
 import Header from '../Header/Header';
 import MatchList from '../MatchList/MatchList';
+import Nav from '../Nav/Nav';
 import NotFound from '../NotFound/NotFound';
 import Palette from '../Palette/Palette';
 import TableView from '../TableView/TableView';
@@ -21,7 +21,7 @@ const tournamentList = () => (
   <TournamentList store={new TournamentListStore()}/>
 );
 
-const table = (props: ITableProps & {match: IId}) => (
+const table = (props: ITableProps & { match: IId }) => (
   <TableView
     store={new TableStore({
       chars: ['rank', 'team', 'played', 'win', 'draw', 'loss', 'goals_for',
@@ -36,6 +36,7 @@ const table = (props: ITableProps & {match: IId}) => (
 const results = (props: any) => (
   <MatchList
     store={new MatchListStore({
+      id: props.match.params.id,
       type: 'results',
     })}
     {...props}
@@ -45,11 +46,35 @@ const results = (props: any) => (
 const fixtures = (props: any) => (
   <MatchList
     store={new MatchListStore({
+      id: props.match.params.id,
       type: 'fixtures',
     })}
     {...props}
   />
 );
+
+const routes = [
+  {
+    component: tournamentList,
+    exact: true,
+    path: '/',
+  },
+  {
+    component: table,
+    path: '/tournament/:id',
+  },
+  {
+    component: results,
+    path: '/results/:id',
+  },
+  {
+    component: fixtures,
+    path: '/fixtures/:id',
+  },
+  {
+    component: NotFound,
+  },
+];
 
 const App = ({classes}: any) => (
   <div className={classes.main}>
@@ -57,14 +82,21 @@ const App = ({classes}: any) => (
       <CssBaseline/>
       <HashRouter>
         <React.Fragment>
-          <Header/>
+          <Header>
+            <Route path='/:title/:id' component={Nav}/>
+          </Header>
 
           <Switch>
-            <Route exact={true} path='/' component={tournamentList}/>
-            <Route path='/tournament/:id' component={table}/>
-            <Route path='/results/:id' component={results}/>
-            <Route path='/fixtures/:id' component={fixtures}/>
-            <Route component={NotFound}/>
+            {
+              routes.map((route, index: number) => (
+                <Route
+                  key={index}
+                  exact={route.exact}
+                  component={route.component}
+                  path={route.path}
+                />
+              ))
+            }
           </Switch>
         </React.Fragment>
       </HashRouter>

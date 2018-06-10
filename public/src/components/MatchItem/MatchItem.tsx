@@ -1,8 +1,5 @@
-import Avatar from 'material-ui/Avatar';
-import {ListItem, ListItemIcon, ListItemText} from 'material-ui/List';
-import {withStyles} from 'material-ui/styles';
+import {Avatar, ListItem, ListItemIcon, ListItemText, withStyles} from '@material-ui/core';
 import * as React from 'react';
-import {IMatch} from '../../@types';
 
 const decorate = withStyles(({palette, spacing, typography}) => ({
   dash: {
@@ -62,7 +59,15 @@ const renderEmptyScore = (classes: any): JSX.Element => (
   </div>
 );
 
-export const MatchItem = decorate((props: IMatch) => {
+export const MatchItem = decorate((props: {
+  awayLogo?: string;
+  awayScore?: number;
+  awayTeam: string;
+  classes: any;
+  homeLogo?: string;
+  homeScore?: number;
+  homeTeam: string;
+}) => {
   const {
     awayLogo,
     awayScore,

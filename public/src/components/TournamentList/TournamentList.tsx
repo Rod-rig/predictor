@@ -1,5 +1,4 @@
-import Grid from 'material-ui/Grid';
-import {withStyles} from 'material-ui/styles';
+import {Grid, withStyles} from '@material-ui/core';
 import {observer} from 'mobx-react';
 import * as React from 'react';
 import {ITournament} from '../../@types';

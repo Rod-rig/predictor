@@ -1,7 +1,4 @@
-import Button from 'material-ui/Button';
-import Card, {CardActions, CardContent, CardMedia} from 'material-ui/Card';
-import {withStyles} from 'material-ui/styles';
-import Typography from 'material-ui/Typography';
+import {Button, Card, CardActions, CardContent, CardMedia, Typography, withStyles} from '@material-ui/core';
 import * as React from 'react';
 import {Link} from 'react-router-dom';
 import dict from '../../dict/dict';
@@ -28,7 +25,7 @@ const TournamentCard = (props: IProps) => {
   return (
     <Card>
       <CardMedia
-        className={classes.img}
+        className={props.img ? classes.img : ''}
         image={props.img}
         title={props.name}
       />

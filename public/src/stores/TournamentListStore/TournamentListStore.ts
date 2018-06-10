@@ -6,8 +6,7 @@ import config from '../../config/config';
 export class TournamentListStore implements ITournamentList {
   @observable public isLoaded: boolean = false;
   @observable public list: ITournament[] = [];
-  // private url: string =  `${config.apiUrl}/en/tournaments.json?api_key=${config.apiKey}`;
-  private url: string =  `../../../src/config/tournamentList.json`;
+  private url: string =  `${config.apiUrl}/en/tournaments.json?api_key=${config.apiKey}`;
   constructor() {
     this.fetchList();
   }

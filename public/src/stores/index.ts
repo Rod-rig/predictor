@@ -1,3 +1,3 @@
-export * from './TableStore/TableStore';
-export * from './MatchListStore/MatchListStore';
-export * from './TournamentListStore/TournamentListStore';
+export * from './TableStore';
+export * from './MatchListStore';
+export * from './TournamentListStore';

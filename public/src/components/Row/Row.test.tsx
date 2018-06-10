@@ -1,4 +1,4 @@
-import {Table} from 'material-ui';
+import {Table} from '@material-ui/core';
 import * as React from 'react';
 import * as renderer from 'react-test-renderer';
 import table from '../../__mocks__/table';

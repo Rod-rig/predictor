@@ -1,4 +1,4 @@
-import {Table, TableBody} from 'material-ui';
+import {Table, TableBody} from '@material-ui/core';
 import {observer} from 'mobx-react';
 import * as React from 'react';
 import {ITable} from '../../@types';

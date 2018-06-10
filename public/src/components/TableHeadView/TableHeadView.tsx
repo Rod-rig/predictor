@@ -1,5 +1,4 @@
-import {TableCell, TableHead, TableRow, TableSortLabel, Tooltip} from 'material-ui';
-import {withStyles} from 'material-ui/styles';
+import {TableCell, TableHead, TableRow, TableSortLabel, Tooltip, withStyles} from '@material-ui/core';
 import * as React from 'react';
 
 interface IHead {

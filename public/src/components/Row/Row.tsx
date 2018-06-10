@@ -1,5 +1,4 @@
-import {Avatar, TableCell, TableRow} from 'material-ui';
-import {withStyles} from 'material-ui/styles';
+import {Avatar, TableCell, TableRow, withStyles} from '@material-ui/core';
 import * as React from 'react';
 
 export interface IRow {

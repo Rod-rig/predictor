@@ -13,8 +13,8 @@ describe('MatchList', () => {
           id: 'test',
           isLoaded: false,
           list: [{}],
-          logos: {test1: 'test1', test2: 'test2'},
-          logosUrl: 'test',
+          // logos: {test1: 'test1', test2: 'test2'},
+          // logosUrl: 'test',
           type: 'test',
         }}
       />);
@@ -29,8 +29,8 @@ describe('MatchList', () => {
             id: 'test',
             isLoaded: true,
             list: matchList.matchList,
-            logos: {test1: 'test1', test2: 'test2'},
-            logosUrl: 'test',
+            // logos: {test1: 'test1', test2: 'test2'},
+            // logosUrl: 'test',
             type: 'test',
           }}
         />)
