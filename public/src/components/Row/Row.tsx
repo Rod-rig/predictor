@@ -72,13 +72,16 @@ const decorate = withStyles(({breakpoints, spacing}) => ({
   //     display: 'none',
   //   },
   // },
-  team: {
-    [breakpoints.down('xs')]: {
-      display: 'none',
-    },
-  },
+  // team: {
+  //   [breakpoints.down('xs')]: {
+  //     display: 'none',
+  //   },
+  // },
   teamName: {
     'text-align': 'left',
+    [breakpoints.down('xs')]: {
+      width: '100%',
+    },
   },
   win: {
     [breakpoints.down('xs')]: {
@@ -86,6 +89,12 @@ const decorate = withStyles(({breakpoints, spacing}) => ({
     },
   },
 }));
+
+// const renderAvatar = (logo: string, altText: string, className: string) => {
+//   return logo ? (
+//     <Avatar src={logo} alt={altText + '\'s logo'} className={className}/>
+//   ) : undefined;
+// };
 
 export const Row = decorate((props: IProps) => {
   const {classes, row} = props;
@@ -107,11 +116,7 @@ export const Row = decorate((props: IProps) => {
             return (
               <TableCell key={i} padding='checkbox' className={`${classes.cell} ${classes.teamName}`}>
                 <div className={classes.info}>
-                  <Avatar
-                    src={row.logo}
-                    alt={row[val] + '\'s logo'}
-                    className={classes.img}
-                  />
+                  {/*{renderAvatar(row.logo, row[val], classes.img)}*/}
                   <span className={classes.team}>{row.team.name}</span>
                   {/*<span className={classes.shortName}>{row.shortName}</span>*/}
                 </div>

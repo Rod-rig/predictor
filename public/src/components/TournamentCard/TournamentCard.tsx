@@ -12,6 +12,11 @@ interface IProps {
 }
 
 const styles = {
+  h2: {
+    'overflow': 'hidden',
+    'text-overflow': 'ellipsis',
+    'white-space': 'nowrap',
+  },
   img: {
     backgroundSize: 'contain',
     height: '300px',
@@ -35,7 +40,7 @@ const TournamentCardElement = (props: IProps) => {
     <Card>
       {renderImage()}
       <CardContent>
-        <Typography variant='headline' component='h2'>{props.name}</Typography>
+        <Typography className={classes.h2} variant='headline' component='h2'>{props.name}</Typography>
         <Typography variant='caption'>{props.country}</Typography>
       </CardContent>
       <CardActions>
