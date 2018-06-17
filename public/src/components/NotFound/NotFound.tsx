@@ -1,8 +1,6 @@
 import * as React from 'react';
-import dict from '../../dict/dict';
+import {dict} from '../../dict';
 
-const NotFound = () => (
+export const NotFound = () => (
   <div>{dict.notFoundText}</div>
 );
-
-export default NotFound;

@@ -12,7 +12,7 @@ const styles = {
   },
 };
 
-const Logo = (props: any) => {
+const LogoElement = (props: any) => {
   const {classes} = props;
 
   return (
@@ -24,4 +24,4 @@ const Logo = (props: any) => {
   );
 };
 
-export default withStyles(styles)(Logo);
+export const Logo = withStyles(styles)(LogoElement);

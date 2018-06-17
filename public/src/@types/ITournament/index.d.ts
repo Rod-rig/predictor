@@ -1,6 +1,6 @@
 export interface ITournament {
   category: {
-    country_code: string;
+    country_code?: string;
     id: string;
     name: string;
   };

@@ -1,30 +1,7 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`TableHeadView should render correctly with default props 1`] = `
-<thead
-  className="MuiTableHead-root-10"
->
-  <tr
-    className="MuiTableRow-root-11 MuiTableRow-head-14"
-  >
-    <th
-      aria-sort="ascending"
-      className="MuiTableCell-root-16 MuiTableCell-head-17 MuiTableCell-paddingCheckbox-22 Component-cell-1 Component-position-7"
-      scope="col"
-      type="head"
-    />
-    <th
-      aria-sort="ascending"
-      className="MuiTableCell-root-16 MuiTableCell-head-17 MuiTableCell-paddingCheckbox-22 Component-cell-1 "
-      scope="col"
-      type="head"
-    />
-    <th
-      aria-sort="ascending"
-      className="MuiTableCell-root-16 MuiTableCell-head-17 MuiTableCell-paddingCheckbox-22 Component-cell-1 "
-      scope="col"
-      type="head"
-    />
-  </tr>
-</thead>
-`;
+exports[`TableHeadView should render correctly with another props 1`] = `"<table class=\\"MuiTable-root-1\\"><thead class=\\"MuiTableHead-root-11\\"><tr class=\\"MuiTableRow-root-12 MuiTableRow-head-15\\"><th class=\\"MuiTableCell-root-17 MuiTableCell-head-18 MuiTableCell-paddingCheckbox-23 Component-cell-2 \\" aria-sort=\\"descending\\" scope=\\"col\\" type=\\"head\\"><span tabindex=\\"0\\" class=\\"MuiButtonBase-root-38 MuiTableSortLabel-root-33\\" role=\\"button\\">position<svg class=\\"MuiSvgIcon-root-41 MuiTableSortLabel-icon-35 MuiTableSortLabel-iconDirectionAsc-37\\" focusable=\\"false\\" viewBox=\\"0 0 24 24\\" aria-hidden=\\"true\\"><path d=\\"M20 12l-1.41-1.41L13 16.17V4h-2v12.17l-5.58-5.59L4 12l8 8 8-8z\\"></path></svg></span></th><th class=\\"MuiTableCell-root-17 MuiTableCell-head-18 MuiTableCell-paddingCheckbox-23 Component-cell-2 Component-team-9\\" aria-sort=\\"descending\\" scope=\\"col\\" type=\\"head\\"><span tabindex=\\"0\\" class=\\"MuiButtonBase-root-38 MuiTableSortLabel-root-33\\" role=\\"button\\">team<svg class=\\"MuiSvgIcon-root-41 MuiTableSortLabel-icon-35 MuiTableSortLabel-iconDirectionAsc-37\\" focusable=\\"false\\" viewBox=\\"0 0 24 24\\" aria-hidden=\\"true\\"><path d=\\"M20 12l-1.41-1.41L13 16.17V4h-2v12.17l-5.58-5.59L4 12l8 8 8-8z\\"></path></svg></span></th><th class=\\"MuiTableCell-root-17 MuiTableCell-head-18 MuiTableCell-paddingCheckbox-23 Component-cell-2 \\" aria-sort=\\"descending\\" scope=\\"col\\" type=\\"head\\"><span tabindex=\\"0\\" class=\\"MuiButtonBase-root-38 MuiTableSortLabel-root-33 MuiTableSortLabel-active-34\\" role=\\"button\\">points<svg class=\\"MuiSvgIcon-root-41 MuiTableSortLabel-icon-35 MuiTableSortLabel-iconDirectionAsc-37\\" focusable=\\"false\\" viewBox=\\"0 0 24 24\\" aria-hidden=\\"true\\"><path d=\\"M20 12l-1.41-1.41L13 16.17V4h-2v12.17l-5.58-5.59L4 12l8 8 8-8z\\"></path></svg></span></th></tr></thead></table>"`;
+
+exports[`TableHeadView should render correctly with default props 1`] = `"<table class=\\"MuiTable-root-1\\"><thead class=\\"MuiTableHead-root-11\\"><tr class=\\"MuiTableRow-root-12 MuiTableRow-head-15\\"><th class=\\"MuiTableCell-root-17 MuiTableCell-head-18 MuiTableCell-paddingCheckbox-23 Component-cell-2 \\" aria-sort=\\"ascending\\" scope=\\"col\\" type=\\"head\\"><span tabindex=\\"0\\" class=\\"MuiButtonBase-root-38 MuiTableSortLabel-root-33\\" role=\\"button\\">position<svg class=\\"MuiSvgIcon-root-41 MuiTableSortLabel-icon-35 MuiTableSortLabel-iconDirectionDesc-36\\" focusable=\\"false\\" viewBox=\\"0 0 24 24\\" aria-hidden=\\"true\\"><path d=\\"M20 12l-1.41-1.41L13 16.17V4h-2v12.17l-5.58-5.59L4 12l8 8 8-8z\\"></path></svg></span></th><th class=\\"MuiTableCell-root-17 MuiTableCell-head-18 MuiTableCell-paddingCheckbox-23 Component-cell-2 Component-team-9\\" aria-sort=\\"ascending\\" scope=\\"col\\" type=\\"head\\"><span tabindex=\\"0\\" class=\\"MuiButtonBase-root-38 MuiTableSortLabel-root-33\\" role=\\"button\\">team<svg class=\\"MuiSvgIcon-root-41 MuiTableSortLabel-icon-35 MuiTableSortLabel-iconDirectionDesc-36\\" focusable=\\"false\\" viewBox=\\"0 0 24 24\\" aria-hidden=\\"true\\"><path d=\\"M20 12l-1.41-1.41L13 16.17V4h-2v12.17l-5.58-5.59L4 12l8 8 8-8z\\"></path></svg></span></th><th class=\\"MuiTableCell-root-17 MuiTableCell-head-18 MuiTableCell-paddingCheckbox-23 Component-cell-2 \\" aria-sort=\\"ascending\\" scope=\\"col\\" type=\\"head\\"><span tabindex=\\"0\\" class=\\"MuiButtonBase-root-38 MuiTableSortLabel-root-33\\" role=\\"button\\">points<svg class=\\"MuiSvgIcon-root-41 MuiTableSortLabel-icon-35 MuiTableSortLabel-iconDirectionDesc-36\\" focusable=\\"false\\" viewBox=\\"0 0 24 24\\" aria-hidden=\\"true\\"><path d=\\"M20 12l-1.41-1.41L13 16.17V4h-2v12.17l-5.58-5.59L4 12l8 8 8-8z\\"></path></svg></span></th></tr></thead></table>"`;
+
+exports[`TableHeadView should render correctly with different props 1`] = `"<table class=\\"MuiTable-root-1\\"><thead class=\\"MuiTableHead-root-11\\"><tr class=\\"MuiTableRow-root-12 MuiTableRow-head-15\\"><th class=\\"MuiTableCell-root-17 MuiTableCell-head-18 MuiTableCell-paddingCheckbox-23 Component-cell-2 \\" aria-sort=\\"ascending\\" scope=\\"col\\" type=\\"head\\"><span tabindex=\\"0\\" class=\\"MuiButtonBase-root-38 MuiTableSortLabel-root-33\\" role=\\"button\\">position<svg class=\\"MuiSvgIcon-root-41 MuiTableSortLabel-icon-35 MuiTableSortLabel-iconDirectionDesc-36\\" focusable=\\"false\\" viewBox=\\"0 0 24 24\\" aria-hidden=\\"true\\"><path d=\\"M20 12l-1.41-1.41L13 16.17V4h-2v12.17l-5.58-5.59L4 12l8 8 8-8z\\"></path></svg></span></th><th class=\\"MuiTableCell-root-17 MuiTableCell-head-18 MuiTableCell-paddingCheckbox-23 Component-cell-2 Component-team-9\\" aria-sort=\\"ascending\\" scope=\\"col\\" type=\\"head\\"><span tabindex=\\"0\\" class=\\"MuiButtonBase-root-38 MuiTableSortLabel-root-33 MuiTableSortLabel-active-34\\" role=\\"button\\">team<svg class=\\"MuiSvgIcon-root-41 MuiTableSortLabel-icon-35 MuiTableSortLabel-iconDirectionDesc-36\\" focusable=\\"false\\" viewBox=\\"0 0 24 24\\" aria-hidden=\\"true\\"><path d=\\"M20 12l-1.41-1.41L13 16.17V4h-2v12.17l-5.58-5.59L4 12l8 8 8-8z\\"></path></svg></span></th><th class=\\"MuiTableCell-root-17 MuiTableCell-head-18 MuiTableCell-paddingCheckbox-23 Component-cell-2 \\" aria-sort=\\"ascending\\" scope=\\"col\\" type=\\"head\\"><span tabindex=\\"0\\" class=\\"MuiButtonBase-root-38 MuiTableSortLabel-root-33\\" role=\\"button\\">points<svg class=\\"MuiSvgIcon-root-41 MuiTableSortLabel-icon-35 MuiTableSortLabel-iconDirectionDesc-36\\" focusable=\\"false\\" viewBox=\\"0 0 24 24\\" aria-hidden=\\"true\\"><path d=\\"M20 12l-1.41-1.41L13 16.17V4h-2v12.17l-5.58-5.59L4 12l8 8 8-8z\\"></path></svg></span></th></tr></thead></table>"`;

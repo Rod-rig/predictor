@@ -1,10 +1,6 @@
-import {match} from 'react-router-dom';
-
 export type OrderType = 'asc' | 'desc';
 
 export type RangeType = number[] | null;
-
-export type IId = match<{id: string}>;
 
 export interface ITableProps {
   id: string;
@@ -14,8 +10,35 @@ export interface ITableProps {
   range?: RangeType;
 }
 
+interface ITeam {
+  team: {
+    id: string;
+    name: string;
+  };
+  rank: number;
+  current_outcome: string;
+  played: number;
+  win: number;
+  draw: number;
+  loss: number;
+  goals_for: number;
+  goals_against: number;
+  goal_diff: number;
+  points: number;
+}
+
+interface IGroup {
+  team_standings: ITeam[];
+}
+
+interface IStanding {
+  tie_break_rule: string;
+  type: string;
+  groups: IGroup[];
+}
+
 export interface ITable extends ITableProps {
   isLoaded: boolean;
-  table: object[];
+  table: ITeam[];
   sortHandler(e: Event): void;
 }

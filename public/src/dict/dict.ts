@@ -1,13 +1,15 @@
 interface IDict {
+  fixtures: string;
   loadingMsg: string;
   notFoundText: string;
+  results: string;
   tournamentCardMore: string;
 }
 
-const dict: IDict = {
+export const dict: IDict = {
+  fixtures: 'Fixtures',
   loadingMsg: 'Loading...',
   notFoundText: 'Not found',
+  results: 'Results',
   tournamentCardMore: 'Learn more',
 };
-
-export default dict;

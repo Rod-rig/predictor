@@ -1,12 +1,11 @@
 import {List} from '@material-ui/core';
 import {observer} from 'mobx-react';
 import * as React from 'react';
+import {Loader, MatchItem} from '../';
 import {IMatch, IMatchList} from '../../@types';
-import {Loader} from '../Loader/Loader';
-import {MatchItem} from '../MatchItem';
 
 @observer
-class MatchList extends React.Component<{
+export class MatchList extends React.Component<{
   store: IMatchList,
 }, {}> {
   public render() {
@@ -33,5 +32,3 @@ class MatchList extends React.Component<{
     );
   }
 }
-
-export default MatchList;

@@ -1,6 +1,6 @@
 import axios, {AxiosResponse} from 'axios';
 import {action, observable} from 'mobx';
-import {ITable, ITableProps, OrderType, RangeType} from '../../@types';
+import {ITable, ITableProps, ITeam, OrderType, RangeType} from '../../@types';
 import config from '../../config/config';
 import {rangeData} from '../../helpers';
 
@@ -9,7 +9,7 @@ export class TableStore implements ITable {
   @observable public isLoaded: boolean = false;
   @observable public order: OrderType;
   @observable public sort: string;
-  @observable public table: object[] = [];
+  @observable public table: ITeam[] = [];
   public readonly chars: string[];
   public readonly range?: RangeType;
   private url: string;
@@ -34,7 +34,7 @@ export class TableStore implements ITable {
 
   @action.bound
   private sortTable() {
-    this.table = this.table.sort((a: any, b: any) => {
+    this.table = this.table.slice().sort((a: any, b: any) => {
       if (this.order === 'asc') {
         return a[this.sort] - b[this.sort];
       } else {

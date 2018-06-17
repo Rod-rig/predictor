@@ -2,14 +2,14 @@
 
 exports[`Header should render correctly 1`] = `
 <header
-  className="MuiPaper-root-12 MuiPaper-elevation4-18 MuiAppBar-root-4 MuiAppBar-positionStatic-8 MuiAppBar-colorPrimary-10 WithTheme-Header--header-1"
+  className="MuiPaper-root-10 MuiPaper-elevation4-16 MuiAppBar-root-2 MuiAppBar-positionStatic-6 MuiAppBar-colorPrimary-8 WithTheme-HeaderElement--header-1"
 >
   <div
-    className="MuiToolbar-root-39 MuiToolbar-gutters-40 header__toolbar"
+    className="MuiToolbar-root-37 MuiToolbar-gutters-38 header__toolbar"
   >
     <button
       aria-label="Menu"
-      className="MuiButtonBase-root-47 MuiIconButton-root-41 MuiIconButton-colorInherit-42"
+      className="MuiButtonBase-root-45 MuiIconButton-root-39 MuiIconButton-colorInherit-40"
       disabled={false}
       onBlur={[Function]}
       onFocus={[Function]}
@@ -25,26 +25,27 @@ exports[`Header should render correctly 1`] = `
       type="button"
     >
       <span
-        className="MuiIconButton-label-46"
+        className="MuiIconButton-label-44"
       >
         <svg
           aria-hidden="true"
-          className="MuiSvgIcon-root-50"
-          color={undefined}
+          className="MuiSvgIcon-root-48"
           focusable="false"
           viewBox="0 0 24 24"
         >
-          <path
-            d="M3 18h18v-2H3v2zm0-5h18v-2H3v2zm0-7v2h18V6H3z"
-          />
+          <g>
+            <path
+              d="M3 18h18v-2H3v2zm0-5h18v-2H3v2zm0-7v2h18V6H3z"
+            />
+          </g>
         </svg>
       </span>
       <span
-        className="MuiTouchRipple-root-56"
+        className="MuiTouchRipple-root-54"
       />
     </button>
     <div
-      className="Logo-logo-64"
+      className="LogoElement-logo-62"
     >
       <a
         href="/"
@@ -52,38 +53,11 @@ exports[`Header should render correctly 1`] = `
       >
         <img
           alt="logo"
-          className="Logo-img-63"
+          className="LogoElement-img-61"
           src="https://avatars2.githubusercontent.com/u/11474330"
         />
       </a>
     </div>
-    <h2
-      className="MuiTypography-root-65 MuiTypography-title-71 MuiTypography-colorInherit-84 WithTheme-Header--title-3"
-    >
-      Title
-    </h2>
-    <h2
-      className="MuiTypography-root-65 MuiTypography-title-71 WithTheme-Header--title-3"
-    >
-      <a
-        className="WithTheme-Header--link-2"
-        href="/fixtures/premier-league"
-        onClick={[Function]}
-      >
-        Fixtures
-      </a>
-    </h2>
-    <h2
-      className="MuiTypography-root-65 MuiTypography-title-71 WithTheme-Header--title-3"
-    >
-      <a
-        className="WithTheme-Header--link-2"
-        href="/results/premier-league"
-        onClick={[Function]}
-      >
-        Results
-      </a>
-    </h2>
   </div>
 </header>
 `;

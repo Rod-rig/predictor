@@ -1,6 +1,6 @@
 import {shallow} from 'enzyme';
 import * as React from 'react';
-import Palette from './Palette';
+import {Palette} from './';
 
 describe('Palette', () => {
   it('should contain material theme tag', () => {

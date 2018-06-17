@@ -1,6 +1,6 @@
 import * as React from 'react';
 import * as renderer from 'react-test-renderer';
-import {MatchItem} from './MatchItem';
+import {MatchItem} from './';
 
 describe('MatchItem', () => {
   const futureMatch = <MatchItem awayTeam='Test1' homeTeam='Test2'/>;

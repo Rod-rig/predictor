@@ -1,7 +1,7 @@
 import {mount} from 'enzyme';
 import * as React from 'react';
 import {MemoryRouter} from 'react-router-dom';
-import Logo from './Logo';
+import {Logo} from './';
 
 describe('Logo', () => {
   const logo = mount(<MemoryRouter><Logo/></MemoryRouter>);

@@ -16,10 +16,8 @@ const theme = createMuiTheme({
   },
 });
 
-const Palette = (props?: any) => (
+export const Palette = (props?: any) => (
   <MuiThemeProvider theme={theme}>
     {props.children}
   </MuiThemeProvider>
 );
-
-export default Palette;

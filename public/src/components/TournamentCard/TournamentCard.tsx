@@ -1,7 +1,7 @@
 import {Button, Card, CardActions, CardContent, CardMedia, Typography, withStyles} from '@material-ui/core';
 import * as React from 'react';
 import {Link} from 'react-router-dom';
-import dict from '../../dict/dict';
+import {dict} from '../../dict';
 
 interface IProps {
   classes?: any;
@@ -18,17 +18,22 @@ const styles = {
   },
 };
 
-const TournamentCard = (props: IProps) => {
+const TournamentCardElement = (props: IProps) => {
   const {classes} = props;
   const MyLink = (linkProps: any) => <Link to={`tournament/${props.id}`} {...linkProps}/>;
-
-  return (
-    <Card>
+  const renderImage = () => {
+    return props.img ? (
       <CardMedia
-        className={props.img ? classes.img : ''}
+        className={classes.img}
         image={props.img}
         title={props.name}
       />
+    ) : undefined;
+  };
+
+  return (
+    <Card>
+      {renderImage()}
       <CardContent>
         <Typography variant='headline' component='h2'>{props.name}</Typography>
         <Typography variant='caption'>{props.country}</Typography>
@@ -40,4 +45,4 @@ const TournamentCard = (props: IProps) => {
   );
 };
 
-export default withStyles(styles)(TournamentCard);
+export const TournamentCard = withStyles(styles)(TournamentCardElement);

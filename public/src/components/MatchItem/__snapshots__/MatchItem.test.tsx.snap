@@ -71,11 +71,8 @@ exports[`MatchItem should render played match correctly 1`] = `
       className="MuiAvatar-root-34 MuiListItemIcon-root-33 Component-icon-2 Component-logo-3"
     >
       <img
-        alt={undefined}
         className="MuiAvatar-img-36"
-        sizes={undefined}
         src="logo2"
-        srcSet={undefined}
       />
     </div>
   </div>
@@ -101,11 +98,8 @@ exports[`MatchItem should render played match correctly 1`] = `
       className="MuiAvatar-root-34 MuiListItemIcon-root-33 Component-logo-3"
     >
       <img
-        alt={undefined}
         className="MuiAvatar-img-36"
-        sizes={undefined}
         src="logo1"
-        srcSet={undefined}
       />
     </div>
     <div>

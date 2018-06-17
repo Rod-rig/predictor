@@ -1,6 +1,7 @@
 import {Typography, withStyles, withTheme} from '@material-ui/core';
 import * as React from 'react';
 import {Link} from 'react-router-dom';
+import {dict} from '../../dict';
 
 const styles = (theme: any) => ({
   link: {
@@ -13,7 +14,7 @@ const styles = (theme: any) => ({
   },
 });
 
-const Nav = (props?: any) => {
+const NavElement = (props?: any) => {
   const {classes, match} = props;
   const title = match.params.title[0].toUpperCase() + match.params.title.slice(1);
   return (
@@ -22,13 +23,13 @@ const Nav = (props?: any) => {
         {title}
       </Typography>
       <Typography className={classes.title} variant='title'>
-        <Link className={classes.link} to={`/fixtures/${match.params.id}`}>Fixtures</Link>
+        <Link className={classes.link} to={`/fixtures/${match.params.id}`}>{dict.fixtures}</Link>
       </Typography>
       <Typography className={classes.title} variant='title'>
-        <Link className={classes.link} to={`/results/${match.params.id}`}>Results</Link>
+        <Link className={classes.link} to={`/results/${match.params.id}`}>{dict.results}</Link>
       </Typography>
     </React.Fragment>
   );
 };
 
-export default withStyles(styles)(withTheme()(Nav));
+export const Nav = withStyles(styles)(withTheme()(NavElement));

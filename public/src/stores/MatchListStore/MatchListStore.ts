@@ -1,12 +1,12 @@
 import axios, {AxiosResponse} from 'axios';
 import {computed, observable} from 'mobx';
-import {IMatchList, IMatchListProps} from '../../@types';
+import {IMatch, IMatchList, IMatchListProps} from '../../@types';
 import config from '../../config/config';
 
 export class MatchListStore implements IMatchList {
   public id: string;
   @observable public isLoaded: boolean = false;
-  @observable public list: object[] = [];
+  @observable public list: IMatch[] = [];
   public readonly type: string;
 
   constructor(props: IMatchListProps) {

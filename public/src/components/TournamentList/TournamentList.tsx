@@ -1,9 +1,8 @@
 import {Grid, withStyles} from '@material-ui/core';
 import {observer} from 'mobx-react';
 import * as React from 'react';
+import {Loader, TournamentCard} from '../';
 import {ITournament} from '../../@types';
-import {Loader} from '../Loader/Loader';
-import TournamentCard from '../TournamentCard/TournamentCard';
 
 const styles = {
   list: {
@@ -12,7 +11,7 @@ const styles = {
   },
 };
 
-const TournamentList = observer((props: any) => {
+const TournamentListElement = observer((props: any) => {
   const {classes, store} = props;
   return store.isLoaded ? (
     <Grid container={true} spacing={16} className={classes.list}>
@@ -32,4 +31,4 @@ const TournamentList = observer((props: any) => {
   ) : <Loader/>;
 });
 
-export default withStyles(styles)(TournamentList);
+export const TournamentList = withStyles(styles)(TournamentListElement);

@@ -1,15 +1,11 @@
 import {CssBaseline, withStyles} from '@material-ui/core';
 import * as React from 'react';
-import {HashRouter, Route, Switch} from 'react-router-dom';
-import {IId, ITableProps} from '../../@types';
+import {HashRouter, match, Route, Switch} from 'react-router-dom';
+import {Header, MatchList, Nav, NotFound, Palette, TableView, TournamentList} from '../';
+import {IMatchListProps, ITableProps} from '../../@types';
 import {MatchListStore, TableStore, TournamentListStore} from '../../stores';
-import Header from '../Header/Header';
-import MatchList from '../MatchList/MatchList';
-import Nav from '../Nav/Nav';
-import NotFound from '../NotFound/NotFound';
-import Palette from '../Palette/Palette';
-import TableView from '../TableView/TableView';
-import TournamentList from '../TournamentList/TournamentList';
+
+type IId = match<{ id: string }>;
 
 const decorate = withStyles(({typography}) => ({
   main: {
@@ -17,10 +13,9 @@ const decorate = withStyles(({typography}) => ({
   },
 }));
 
-const tournamentList = () => (
-  <TournamentList store={new TournamentListStore()}/>
-);
+const tournamentList = () => <TournamentList store={new TournamentListStore()}/>;
 
+/* istanbul ignore next */
 const table = (props: ITableProps & { match: IId }) => (
   <TableView
     store={new TableStore({
@@ -33,7 +28,8 @@ const table = (props: ITableProps & { match: IId }) => (
   />
 );
 
-const results = (props: any) => (
+/* istanbul ignore next */
+const results = (props: IMatchListProps & { match: IId }) => (
   <MatchList
     store={new MatchListStore({
       id: props.match.params.id,
@@ -43,7 +39,8 @@ const results = (props: any) => (
   />
 );
 
-const fixtures = (props: any) => (
+/* istanbul ignore next */
+const fixtures = (props: IMatchListProps & { match: IId }) => (
   <MatchList
     store={new MatchListStore({
       id: props.match.params.id,

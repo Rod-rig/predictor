@@ -77,7 +77,7 @@ const decorate = withStyles(({breakpoints, spacing}) => ({
   },
 }));
 
-const TableHeadView = decorate((props: IHead) => {
+export const TableHeadView = decorate((props: IHead) => {
   const {chars, classes, order, sort, sortHandle} = props;
   return (
     <TableHead>
@@ -107,5 +107,3 @@ const TableHeadView = decorate((props: IHead) => {
     </TableHead>
   );
 });
-
-export default TableHeadView;

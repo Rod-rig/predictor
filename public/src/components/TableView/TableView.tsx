@@ -1,13 +1,11 @@
 import {Table, TableBody} from '@material-ui/core';
 import {observer} from 'mobx-react';
 import * as React from 'react';
+import {IRow, Loader, Row, TableHeadView} from '../';
 import {ITable} from '../../@types';
-import {Loader} from '../Loader/Loader';
-import {IRow, Row} from '../Row';
-import TableHeadView from '../TableHeadView/TableHeadView';
 
 @observer
-class TableView extends React.Component<{
+export class TableView extends React.Component<{
   store: ITable,
 }, {}> {
   public render() {
@@ -40,5 +38,3 @@ class TableView extends React.Component<{
     );
   }
 }
-
-export default TableView;

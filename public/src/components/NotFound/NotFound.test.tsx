@@ -1,6 +1,6 @@
 import {shallow} from 'enzyme';
 import * as React from 'react';
-import NotFound from './NotFound';
+import {NotFound} from './';
 
 describe('NotFound', () => {
   it('should exist', () => {

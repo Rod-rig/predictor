@@ -1,9 +1,8 @@
 import {shallow} from 'enzyme';
 import * as React from 'react';
 import * as renderer from 'react-test-renderer';
-import matchList from '../../__mocks__/matchList';
-import {Loader} from '../Loader/Loader';
-import MatchList from './MatchList';
+import {Loader, MatchList} from '../';
+import {matchListMock} from '../../__mocks__';
 
 describe('MatchList', () => {
   it('should render loader', () => {
@@ -12,9 +11,7 @@ describe('MatchList', () => {
         store={{
           id: 'test',
           isLoaded: false,
-          list: [{}],
-          // logos: {test1: 'test1', test2: 'test2'},
-          // logosUrl: 'test',
+          list: undefined,
           type: 'test',
         }}
       />);
@@ -28,9 +25,7 @@ describe('MatchList', () => {
           store={{
             id: 'test',
             isLoaded: true,
-            list: matchList.matchList,
-            // logos: {test1: 'test1', test2: 'test2'},
-            // logosUrl: 'test',
+            list: matchListMock.results,
             type: 'test',
           }}
         />)

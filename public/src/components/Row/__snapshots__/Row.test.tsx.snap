@@ -5,77 +5,84 @@ exports[`Row should render correctly 1`] = `
   className="MuiTable-root-1"
 >
   <tr
-    className="MuiTableRow-root-14 MuiTableRow-hover-16 row"
+    className="MuiTableRow-root-13 MuiTableRow-hover-15 row"
   >
     <td
       aria-sort={null}
-      className="MuiTableCell-root-19 MuiTableCell-paddingCheckbox-25 Component-cell-2 Component-d-3"
-      scope={undefined}
-    >
-      3
-    </td>
-    <td
-      aria-sort={null}
-      className="MuiTableCell-root-19 MuiTableCell-paddingCheckbox-25 Component-cell-2 Component-goals-against-4"
-      scope={undefined}
-    >
-      21
-    </td>
-    <td
-      aria-sort={null}
-      className="MuiTableCell-root-19 MuiTableCell-paddingCheckbox-25 Component-cell-2 Component-goals-for-5"
-      scope={undefined}
-    >
-      88
-    </td>
-    <td
-      aria-sort={null}
-      className="MuiTableCell-root-19 MuiTableCell-paddingCheckbox-25 Component-cell-2 Component-l-8"
-      scope={undefined}
-    >
-      1
-    </td>
-    <td
-      aria-sort={null}
-      className="MuiTableCell-root-19 MuiTableCell-paddingCheckbox-25 Component-cell-2 "
-      scope={undefined}
-    >
-      84
-    </td>
-    <td
-      aria-sort={null}
-      className="MuiTableCell-root-19 MuiTableCell-paddingCheckbox-25 Component-cell-2 "
-      scope={undefined}
-    >
-      1
-    </td>
-    <td
-      aria-sort={null}
-      className="MuiTableCell-root-19 MuiTableCell-paddingCheckbox-25 Component-cell-2 Component-teamName-12"
-      scope={undefined}
+      className="MuiTableCell-root-18 MuiTableCell-paddingCheckbox-24 Component-cell-2 Component-teamName-11"
     >
       <div
         className="Component-info-7"
       >
         <div
-          className="MuiAvatar-root-27 Component-img-6"
+          className="MuiAvatar-root-26 Component-img-6"
         />
         <span
-          className="Component-name-10"
+          className="Component-team-10"
         >
-          Manchester City
+          Arsenal
         </span>
-        <span
-          className="Component-shortName-11"
-        />
       </div>
     </td>
     <td
       aria-sort={null}
-      className="MuiTableCell-root-19 MuiTableCell-paddingCheckbox-25 Component-cell-2 Component-w-13"
-      scope={undefined}
+      className="MuiTableCell-root-18 MuiTableCell-paddingCheckbox-24 Component-cell-2 "
     >
-      27
+      1
+    </td>
+    <td
+      aria-sort={null}
+      className="MuiTableCell-root-18 MuiTableCell-paddingCheckbox-24 Component-cell-2 "
+    >
+      Champions League
+    </td>
+    <td
+      aria-sort={null}
+      className="MuiTableCell-root-18 MuiTableCell-paddingCheckbox-24 Component-cell-2 Component-played-9"
+    >
+      38
+    </td>
+    <td
+      aria-sort={null}
+      className="MuiTableCell-root-18 MuiTableCell-paddingCheckbox-24 Component-cell-2 Component-win-12"
+    >
+      30
+    </td>
+    <td
+      aria-sort={null}
+      className="MuiTableCell-root-18 MuiTableCell-paddingCheckbox-24 Component-cell-2 Component-draw-3"
+    >
+      5
+    </td>
+    <td
+      aria-sort={null}
+      className="MuiTableCell-root-18 MuiTableCell-paddingCheckbox-24 Component-cell-2 Component-loss-8"
+    >
+      3
+    </td>
+    <td
+      aria-sort={null}
+      className="MuiTableCell-root-18 MuiTableCell-paddingCheckbox-24 Component-cell-2 Component-goals_for-5"
+    >
+      95
+    </td>
+    <td
+      aria-sort={null}
+      className="MuiTableCell-root-18 MuiTableCell-paddingCheckbox-24 Component-cell-2 Component-goals_against-4"
+    >
+      32
+    </td>
+    <td
+      aria-sort={null}
+      className="MuiTableCell-root-18 MuiTableCell-paddingCheckbox-24 Component-cell-2 "
+    >
+      63
+    </td>
+    <td
+      aria-sort={null}
+      className="MuiTableCell-root-18 MuiTableCell-paddingCheckbox-24 Component-cell-2 "
+    >
+      95
     </td>
   </tr>
 </table>

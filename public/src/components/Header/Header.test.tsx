@@ -2,14 +2,15 @@ import {mount} from 'enzyme';
 import * as React from 'react';
 import {MemoryRouter} from 'react-router-dom';
 import * as renderer from 'react-test-renderer';
-import Header from './Header';
+import {Logo} from '..';
+import {Header} from './';
 
 describe('Header', () => {
   const headerInRouter = <MemoryRouter><Header/></MemoryRouter>;
   const header = mount(headerInRouter);
 
   it('should have logo', () => {
-    const logo = header.find('Logo');
+    const logo = header.find(Logo);
     expect(logo).toHaveLength(1);
   });
 

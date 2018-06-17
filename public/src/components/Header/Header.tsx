@@ -1,7 +1,7 @@
 import {AppBar, IconButton, Toolbar, withStyles, withTheme} from '@material-ui/core';
 import {Menu} from '@material-ui/icons';
 import * as React from 'react';
-import Logo from '../Logo/Logo';
+import {Logo} from '../';
 
 const styles = (theme: any) => ({
   header: {
@@ -9,7 +9,7 @@ const styles = (theme: any) => ({
   },
 });
 
-const Header = (props?: any) => {
+const HeaderElement = (props?: any) => {
   const {classes} = props;
 
   return (
@@ -25,4 +25,4 @@ const Header = (props?: any) => {
   );
 };
 
-export default withStyles(styles)(withTheme()(Header));
+export const Header = withStyles(styles)(withTheme()(HeaderElement));
