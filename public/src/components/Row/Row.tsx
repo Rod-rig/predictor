@@ -1,4 +1,4 @@
-import {Avatar, TableCell, TableRow, withStyles} from '@material-ui/core';
+import {/*Avatar,*/ TableCell, TableRow, withStyles} from '@material-ui/core';
 import * as React from 'react';
 
 export interface IRow {
@@ -13,7 +13,7 @@ interface IProps {
   row: IRow;
 }
 
-const decorate = withStyles(({breakpoints, spacing}) => ({
+const decorate = withStyles(({breakpoints, palette, spacing}) => ({
   cell: {
     '&:last-child': {
       [breakpoints.down('sm')]: {
@@ -30,6 +30,12 @@ const decorate = withStyles(({breakpoints, spacing}) => ({
     [breakpoints.down('xs')]: {
       display: 'none',
     },
+  },
+  edge: {
+    '& td': {
+      borderColor: palette.grey[50],
+    },
+    'backgroundColor': palette.grey[300],
   },
   goals_against: {
     [breakpoints.down('sm')]: {
@@ -61,10 +67,16 @@ const decorate = withStyles(({breakpoints, spacing}) => ({
       display: 'none',
     },
   },
+  middle: {
+    backgroundColor: palette.grey[200],
+  },
   played: {
     [breakpoints.down('sm')]: {
       display: 'none',
     },
+  },
+  row: {
+    backgroundColor: palette.common.white,
   },
   // shortName: {
   //   display: 'inline',
@@ -83,6 +95,9 @@ const decorate = withStyles(({breakpoints, spacing}) => ({
       width: '100%',
     },
   },
+  top: {
+    backgroundColor: palette.grey[400],
+  },
   win: {
     [breakpoints.down('xs')]: {
       display: 'none',
@@ -96,10 +111,21 @@ const decorate = withStyles(({breakpoints, spacing}) => ({
 //   ) : undefined;
 // };
 
+const highlightCell = (stage: string) => {
+  if (stage === 'Champions League' || stage === 'Champions League Qualification' || stage === 'Relegation') {
+    return 'edge';
+  } else if (stage === 'Europa League' || stage === 'Europa League Qualification') {
+    return 'middle';
+  } else {
+    return 'row';
+  }
+};
+
 export const Row = decorate((props: IProps) => {
   const {classes, row} = props;
+  const rowClass = highlightCell(row.current_outcome);
   return (
-    <TableRow hover={true} className='row'>
+    <TableRow hover={true} className={`${classes[rowClass]} ${row.rank === 1 ? classes.top : ''}`}>
       {
         props.chars.map((val, i): JSX.Element => {
           if (val !== 'team') {

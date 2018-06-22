@@ -5,14 +5,14 @@ exports[`Row should render correctly 1`] = `
   className="MuiTable-root-1"
 >
   <tr
-    className="MuiTableRow-root-12 MuiTableRow-hover-14 row"
+    className="MuiTableRow-root-16 MuiTableRow-hover-18 Component-edge-4 Component-top-14"
   >
     <td
       aria-sort={null}
-      className="MuiTableCell-root-17 MuiTableCell-paddingCheckbox-23 Component-cell-2 Component-teamName-10"
+      className="MuiTableCell-root-21 MuiTableCell-paddingCheckbox-27 Component-cell-2 Component-teamName-13"
     >
       <div
-        className="Component-info-7"
+        className="Component-info-8"
       >
         <span>
           Arsenal
@@ -21,63 +21,443 @@ exports[`Row should render correctly 1`] = `
     </td>
     <td
       aria-sort={null}
-      className="MuiTableCell-root-17 MuiTableCell-paddingCheckbox-23 Component-cell-2 "
+      className="MuiTableCell-root-21 MuiTableCell-paddingCheckbox-27 Component-cell-2 "
     >
       1
     </td>
     <td
       aria-sort={null}
-      className="MuiTableCell-root-17 MuiTableCell-paddingCheckbox-23 Component-cell-2 "
+      className="MuiTableCell-root-21 MuiTableCell-paddingCheckbox-27 Component-cell-2 "
     >
       Champions League
     </td>
     <td
       aria-sort={null}
-      className="MuiTableCell-root-17 MuiTableCell-paddingCheckbox-23 Component-cell-2 Component-played-9"
+      className="MuiTableCell-root-21 MuiTableCell-paddingCheckbox-27 Component-cell-2 Component-played-11"
     >
       38
     </td>
     <td
       aria-sort={null}
-      className="MuiTableCell-root-17 MuiTableCell-paddingCheckbox-23 Component-cell-2 Component-win-11"
+      className="MuiTableCell-root-21 MuiTableCell-paddingCheckbox-27 Component-cell-2 Component-win-15"
     >
       30
     </td>
     <td
       aria-sort={null}
-      className="MuiTableCell-root-17 MuiTableCell-paddingCheckbox-23 Component-cell-2 Component-draw-3"
+      className="MuiTableCell-root-21 MuiTableCell-paddingCheckbox-27 Component-cell-2 Component-draw-3"
     >
       5
     </td>
     <td
       aria-sort={null}
-      className="MuiTableCell-root-17 MuiTableCell-paddingCheckbox-23 Component-cell-2 Component-loss-8"
+      className="MuiTableCell-root-21 MuiTableCell-paddingCheckbox-27 Component-cell-2 Component-loss-9"
     >
       3
     </td>
     <td
       aria-sort={null}
-      className="MuiTableCell-root-17 MuiTableCell-paddingCheckbox-23 Component-cell-2 Component-goals_for-5"
+      className="MuiTableCell-root-21 MuiTableCell-paddingCheckbox-27 Component-cell-2 Component-goals_for-6"
     >
       95
     </td>
     <td
       aria-sort={null}
-      className="MuiTableCell-root-17 MuiTableCell-paddingCheckbox-23 Component-cell-2 Component-goals_against-4"
+      className="MuiTableCell-root-21 MuiTableCell-paddingCheckbox-27 Component-cell-2 Component-goals_against-5"
     >
       32
     </td>
     <td
       aria-sort={null}
-      className="MuiTableCell-root-17 MuiTableCell-paddingCheckbox-23 Component-cell-2 "
+      className="MuiTableCell-root-21 MuiTableCell-paddingCheckbox-27 Component-cell-2 "
     >
       63
     </td>
     <td
       aria-sort={null}
-      className="MuiTableCell-root-17 MuiTableCell-paddingCheckbox-23 Component-cell-2 "
+      className="MuiTableCell-root-21 MuiTableCell-paddingCheckbox-27 Component-cell-2 "
     >
       95
+    </td>
+  </tr>
+  <tr
+    className="MuiTableRow-root-16 MuiTableRow-hover-18 Component-edge-4 "
+  >
+    <td
+      aria-sort={null}
+      className="MuiTableCell-root-21 MuiTableCell-paddingCheckbox-27 Component-cell-2 Component-teamName-13"
+    >
+      <div
+        className="Component-info-8"
+      >
+        <span>
+          AFC Bournemouth
+        </span>
+      </div>
+    </td>
+    <td
+      aria-sort={null}
+      className="MuiTableCell-root-21 MuiTableCell-paddingCheckbox-27 Component-cell-2 "
+    >
+      2
+    </td>
+    <td
+      aria-sort={null}
+      className="MuiTableCell-root-21 MuiTableCell-paddingCheckbox-27 Component-cell-2 "
+    >
+      Champions League Qualification
+    </td>
+    <td
+      aria-sort={null}
+      className="MuiTableCell-root-21 MuiTableCell-paddingCheckbox-27 Component-cell-2 Component-played-11"
+    >
+      20
+    </td>
+    <td
+      aria-sort={null}
+      className="MuiTableCell-root-21 MuiTableCell-paddingCheckbox-27 Component-cell-2 Component-win-15"
+    >
+      10
+    </td>
+    <td
+      aria-sort={null}
+      className="MuiTableCell-root-21 MuiTableCell-paddingCheckbox-27 Component-cell-2 Component-draw-3"
+    >
+      0
+    </td>
+    <td
+      aria-sort={null}
+      className="MuiTableCell-root-21 MuiTableCell-paddingCheckbox-27 Component-cell-2 Component-loss-9"
+    >
+      10
+    </td>
+    <td
+      aria-sort={null}
+      className="MuiTableCell-root-21 MuiTableCell-paddingCheckbox-27 Component-cell-2 Component-goals_for-6"
+    >
+      30
+    </td>
+    <td
+      aria-sort={null}
+      className="MuiTableCell-root-21 MuiTableCell-paddingCheckbox-27 Component-cell-2 Component-goals_against-5"
+    >
+      0
+    </td>
+    <td
+      aria-sort={null}
+      className="MuiTableCell-root-21 MuiTableCell-paddingCheckbox-27 Component-cell-2 "
+    >
+      0
+    </td>
+    <td
+      aria-sort={null}
+      className="MuiTableCell-root-21 MuiTableCell-paddingCheckbox-27 Component-cell-2 "
+    >
+      30
+    </td>
+  </tr>
+  <tr
+    className="MuiTableRow-root-16 MuiTableRow-hover-18 Component-edge-4 "
+  >
+    <td
+      aria-sort={null}
+      className="MuiTableCell-root-21 MuiTableCell-paddingCheckbox-27 Component-cell-2 Component-teamName-13"
+    >
+      <div
+        className="Component-info-8"
+      >
+        <span>
+          Brighton & Hove Albion FC
+        </span>
+      </div>
+    </td>
+    <td
+      aria-sort={null}
+      className="MuiTableCell-root-21 MuiTableCell-paddingCheckbox-27 Component-cell-2 "
+    >
+      3
+    </td>
+    <td
+      aria-sort={null}
+      className="MuiTableCell-root-21 MuiTableCell-paddingCheckbox-27 Component-cell-2 "
+    >
+      Relegation
+    </td>
+    <td
+      aria-sort={null}
+      className="MuiTableCell-root-21 MuiTableCell-paddingCheckbox-27 Component-cell-2 Component-played-11"
+    >
+      0
+    </td>
+    <td
+      aria-sort={null}
+      className="MuiTableCell-root-21 MuiTableCell-paddingCheckbox-27 Component-cell-2 Component-win-15"
+    >
+      0
+    </td>
+    <td
+      aria-sort={null}
+      className="MuiTableCell-root-21 MuiTableCell-paddingCheckbox-27 Component-cell-2 Component-draw-3"
+    >
+      0
+    </td>
+    <td
+      aria-sort={null}
+      className="MuiTableCell-root-21 MuiTableCell-paddingCheckbox-27 Component-cell-2 Component-loss-9"
+    >
+      0
+    </td>
+    <td
+      aria-sort={null}
+      className="MuiTableCell-root-21 MuiTableCell-paddingCheckbox-27 Component-cell-2 Component-goals_for-6"
+    >
+      0
+    </td>
+    <td
+      aria-sort={null}
+      className="MuiTableCell-root-21 MuiTableCell-paddingCheckbox-27 Component-cell-2 Component-goals_against-5"
+    >
+      0
+    </td>
+    <td
+      aria-sort={null}
+      className="MuiTableCell-root-21 MuiTableCell-paddingCheckbox-27 Component-cell-2 "
+    >
+      0
+    </td>
+    <td
+      aria-sort={null}
+      className="MuiTableCell-root-21 MuiTableCell-paddingCheckbox-27 Component-cell-2 "
+    >
+      0
+    </td>
+  </tr>
+  <tr
+    className="MuiTableRow-root-16 MuiTableRow-hover-18 Component-middle-10 "
+  >
+    <td
+      aria-sort={null}
+      className="MuiTableCell-root-21 MuiTableCell-paddingCheckbox-27 Component-cell-2 Component-teamName-13"
+    >
+      <div
+        className="Component-info-8"
+      >
+        <span>
+          Leeds United
+        </span>
+      </div>
+    </td>
+    <td
+      aria-sort={null}
+      className="MuiTableCell-root-21 MuiTableCell-paddingCheckbox-27 Component-cell-2 "
+    >
+      5
+    </td>
+    <td
+      aria-sort={null}
+      className="MuiTableCell-root-21 MuiTableCell-paddingCheckbox-27 Component-cell-2 "
+    >
+      Europa League
+    </td>
+    <td
+      aria-sort={null}
+      className="MuiTableCell-root-21 MuiTableCell-paddingCheckbox-27 Component-cell-2 Component-played-11"
+    >
+      10
+    </td>
+    <td
+      aria-sort={null}
+      className="MuiTableCell-root-21 MuiTableCell-paddingCheckbox-27 Component-cell-2 Component-win-15"
+    >
+      10
+    </td>
+    <td
+      aria-sort={null}
+      className="MuiTableCell-root-21 MuiTableCell-paddingCheckbox-27 Component-cell-2 Component-draw-3"
+    >
+      0
+    </td>
+    <td
+      aria-sort={null}
+      className="MuiTableCell-root-21 MuiTableCell-paddingCheckbox-27 Component-cell-2 Component-loss-9"
+    >
+      0
+    </td>
+    <td
+      aria-sort={null}
+      className="MuiTableCell-root-21 MuiTableCell-paddingCheckbox-27 Component-cell-2 Component-goals_for-6"
+    >
+      45
+    </td>
+    <td
+      aria-sort={null}
+      className="MuiTableCell-root-21 MuiTableCell-paddingCheckbox-27 Component-cell-2 Component-goals_against-5"
+    >
+      1
+    </td>
+    <td
+      aria-sort={null}
+      className="MuiTableCell-root-21 MuiTableCell-paddingCheckbox-27 Component-cell-2 "
+    >
+      44
+    </td>
+    <td
+      aria-sort={null}
+      className="MuiTableCell-root-21 MuiTableCell-paddingCheckbox-27 Component-cell-2 "
+    >
+      30
+    </td>
+  </tr>
+  <tr
+    className="MuiTableRow-root-16 MuiTableRow-hover-18 Component-middle-10 "
+  >
+    <td
+      aria-sort={null}
+      className="MuiTableCell-root-21 MuiTableCell-paddingCheckbox-27 Component-cell-2 Component-teamName-13"
+    >
+      <div
+        className="Component-info-8"
+      >
+        <span>
+          Everton
+        </span>
+      </div>
+    </td>
+    <td
+      aria-sort={null}
+      className="MuiTableCell-root-21 MuiTableCell-paddingCheckbox-27 Component-cell-2 "
+    >
+      6
+    </td>
+    <td
+      aria-sort={null}
+      className="MuiTableCell-root-21 MuiTableCell-paddingCheckbox-27 Component-cell-2 "
+    >
+      Europa League Qualification
+    </td>
+    <td
+      aria-sort={null}
+      className="MuiTableCell-root-21 MuiTableCell-paddingCheckbox-27 Component-cell-2 Component-played-11"
+    >
+      11
+    </td>
+    <td
+      aria-sort={null}
+      className="MuiTableCell-root-21 MuiTableCell-paddingCheckbox-27 Component-cell-2 Component-win-15"
+    >
+      10
+    </td>
+    <td
+      aria-sort={null}
+      className="MuiTableCell-root-21 MuiTableCell-paddingCheckbox-27 Component-cell-2 Component-draw-3"
+    >
+      1
+    </td>
+    <td
+      aria-sort={null}
+      className="MuiTableCell-root-21 MuiTableCell-paddingCheckbox-27 Component-cell-2 Component-loss-9"
+    >
+      0
+    </td>
+    <td
+      aria-sort={null}
+      className="MuiTableCell-root-21 MuiTableCell-paddingCheckbox-27 Component-cell-2 Component-goals_for-6"
+    >
+      18
+    </td>
+    <td
+      aria-sort={null}
+      className="MuiTableCell-root-21 MuiTableCell-paddingCheckbox-27 Component-cell-2 Component-goals_against-5"
+    >
+      3
+    </td>
+    <td
+      aria-sort={null}
+      className="MuiTableCell-root-21 MuiTableCell-paddingCheckbox-27 Component-cell-2 "
+    >
+      15
+    </td>
+    <td
+      aria-sort={null}
+      className="MuiTableCell-root-21 MuiTableCell-paddingCheckbox-27 Component-cell-2 "
+    >
+      31
+    </td>
+  </tr>
+  <tr
+    className="MuiTableRow-root-16 MuiTableRow-hover-18 Component-row-12 "
+  >
+    <td
+      aria-sort={null}
+      className="MuiTableCell-root-21 MuiTableCell-paddingCheckbox-27 Component-cell-2 Component-teamName-13"
+    >
+      <div
+        className="Component-info-8"
+      >
+        <span>
+          Burnley
+        </span>
+      </div>
+    </td>
+    <td
+      aria-sort={null}
+      className="MuiTableCell-root-21 MuiTableCell-paddingCheckbox-27 Component-cell-2 "
+    >
+      7
+    </td>
+    <td
+      aria-sort={null}
+      className="MuiTableCell-root-21 MuiTableCell-paddingCheckbox-27 Component-cell-2 "
+    >
+      
+    </td>
+    <td
+      aria-sort={null}
+      className="MuiTableCell-root-21 MuiTableCell-paddingCheckbox-27 Component-cell-2 Component-played-11"
+    >
+      6
+    </td>
+    <td
+      aria-sort={null}
+      className="MuiTableCell-root-21 MuiTableCell-paddingCheckbox-27 Component-cell-2 Component-win-15"
+    >
+      5
+    </td>
+    <td
+      aria-sort={null}
+      className="MuiTableCell-root-21 MuiTableCell-paddingCheckbox-27 Component-cell-2 Component-draw-3"
+    >
+      1
+    </td>
+    <td
+      aria-sort={null}
+      className="MuiTableCell-root-21 MuiTableCell-paddingCheckbox-27 Component-cell-2 Component-loss-9"
+    >
+      0
+    </td>
+    <td
+      aria-sort={null}
+      className="MuiTableCell-root-21 MuiTableCell-paddingCheckbox-27 Component-cell-2 Component-goals_for-6"
+    >
+      23
+    </td>
+    <td
+      aria-sort={null}
+      className="MuiTableCell-root-21 MuiTableCell-paddingCheckbox-27 Component-cell-2 Component-goals_against-5"
+    >
+      33
+    </td>
+    <td
+      aria-sort={null}
+      className="MuiTableCell-root-21 MuiTableCell-paddingCheckbox-27 Component-cell-2 "
+    >
+      -4
+    </td>
+    <td
+      aria-sort={null}
+      className="MuiTableCell-root-21 MuiTableCell-paddingCheckbox-27 Component-cell-2 "
+    >
+      25
     </td>
   </tr>
 </table>
