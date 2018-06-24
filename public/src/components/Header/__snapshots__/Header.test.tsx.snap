@@ -5,7 +5,7 @@ exports[`Header should render correctly 1`] = `
   className="MuiPaper-root-10 MuiPaper-elevation4-16 MuiAppBar-root-2 MuiAppBar-positionStatic-6 MuiAppBar-colorPrimary-8 WithTheme-HeaderElement--header-1"
 >
   <div
-    className="MuiToolbar-root-37 MuiToolbar-gutters-38 header__toolbar"
+    className="MuiToolbar-root-37 MuiToolbar-gutters-38"
   >
     <button
       aria-label="Menu"

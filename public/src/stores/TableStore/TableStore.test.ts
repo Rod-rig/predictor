@@ -6,17 +6,15 @@ describe('TableStore', () => {
     chars: ['test'],
     id: 'test',
     order: 'asc',
-    sort: 'test',
+    sortName: 'test',
   };
   const mockStore = new TableStore(props);
 
-  const mockStoreWithRange = new TableStore({...props, range: [0, 5]});
-
-  const mockEvent = {
-    target: {
-      textContent: 'foo',
-    },
-  };
+  const mockStoreWithRange = new TableStore({
+    chars: ['test'],
+    id: 'test',
+    range: [0, 5],
+  });
 
   it('should be initialized correctly', () => {
     expect(mockStore).toBeInstanceOf(TableStore);
@@ -25,30 +23,47 @@ describe('TableStore', () => {
 
   it('should have correct sort handler', () => {
     const mockHandler = jest.fn(mockStore.sortHandler);
-    mockHandler(mockEvent);
+    mockHandler(0, 'foo');
     expect(mockHandler).toHaveBeenCalledTimes(1);
-    expect(mockStore.sort).toEqual('foo');
-    expect(mockStore.order).toEqual('desc');
-
-    mockHandler(mockEvent);
-    expect(mockHandler).toHaveBeenCalledTimes(2);
-    expect(mockStore.sort).toEqual('foo');
+    expect(mockStore.sortName).toEqual('test');
     expect(mockStore.order).toEqual('asc');
+    expect(mockStore.table[0].sortName).toEqual('foo');
+    expect(mockStore.table[0].order).toEqual('desc');
+
+    mockHandler(0, 'foo');
+    expect(mockHandler).toHaveBeenCalledTimes(2);
+    expect(mockStore.sortName).toEqual('test');
+    expect(mockStore.order).toEqual('asc');
+    expect(mockStore.table[0].sortName).toEqual('foo');
+    expect(mockStore.table[0].order).toEqual('asc');
+
+    mockHandler(0, 'bar');
+    expect(mockHandler).toHaveBeenCalledTimes(3);
+    expect(mockStore.sortName).toEqual('test');
+    expect(mockStore.order).toEqual('asc');
+    expect(mockStore.table[0].sortName).toEqual('bar');
+    expect(mockStore.table[0].order).toEqual('desc');
   });
 
   it('should have correct props', () => {
     expect(mockStore.isLoaded).toBeTruthy();
-    expect(mockStore.table[0].team.name).toBe('Arsenal');
-    expect(mockStore.table[0].rank).toBe(1);
-    expect(mockStore.table[0].current_outcome).toBe('Champions League');
-    expect(mockStore.table[0].points).toBe(95);
-    expect(mockStore.table[1].team.name).toBe('AFC Bournemouth');
-    expect(mockStore.table[1].rank).toBe(2);
-    expect(mockStore.table[1].loss).toBe(10);
-    expect(mockStore.table[1].goals_against).toBe(0);
+    expect(mockStore.table[0].team_standings[0].team.name).toBe('Arsenal');
+    expect(mockStore.table[0].team_standings[0].rank).toBe(1);
+    expect(mockStore.table[0].team_standings[0].current_outcome).toBe('Champions League');
+    expect(mockStore.table[0].team_standings[0].points).toBe(95);
+    expect(mockStore.table[0].team_standings[1].team.name).toBe('AFC Bournemouth');
+    expect(mockStore.table[0].team_standings[1].rank).toBe(2);
+    expect(mockStore.table[0].team_standings[1].loss).toBe(10);
+    expect(mockStore.table[0].team_standings[1].goals_against).toBe(0);
   });
 
   it('should return correct object with range', () => {
+    expect(mockStoreWithRange.table[0].team_standings).toHaveLength(5);
     expect(mockStoreWithRange.isLoaded).toBeTruthy();
+
+    const mockHandler = jest.fn(mockStoreWithRange.sortHandler);
+    mockHandler(0, 'foo');
+    expect(mockHandler).toHaveBeenCalledTimes(1);
+    expect(mockStoreWithRange.table[0].order).toBe('asc');
   });
 });

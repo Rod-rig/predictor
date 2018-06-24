@@ -114,7 +114,7 @@ const decorate = withStyles(({breakpoints, palette, spacing}) => ({
 const highlightCell = (stage: string) => {
   if (stage === 'Champions League' || stage === 'Champions League Qualification' || stage === 'Relegation') {
     return 'edge';
-  } else if (stage === 'Europa League' || stage === 'Europa League Qualification') {
+  } else if (stage === 'Europa League' || stage === 'Europa League Qualification' || stage === 'Playoffs') {
     return 'middle';
   } else {
     return 'row';
@@ -124,8 +124,13 @@ const highlightCell = (stage: string) => {
 export const Row = decorate((props: IProps) => {
   const {classes, row} = props;
   const rowClass = highlightCell(row.current_outcome);
+  const topClass = row.rank === 1 && row.current_outcome !== 'Playoffs' ? classes.top : '';
+  const rowProps = {
+    className: `${classes[rowClass]} ${topClass}`,
+    hover: !row.current_outcome,
+  };
   return (
-    <TableRow hover={true} className={`${classes[rowClass]} ${row.rank === 1 ? classes.top : ''}`}>
+    <TableRow {...rowProps}>
       {
         props.chars.map((val, i): JSX.Element => {
           if (val !== 'team') {

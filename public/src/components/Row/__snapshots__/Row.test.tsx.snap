@@ -5,7 +5,7 @@ exports[`Row should render correctly 1`] = `
   className="MuiTable-root-1"
 >
   <tr
-    className="MuiTableRow-root-16 MuiTableRow-hover-18 Component-edge-4 Component-top-14"
+    className="MuiTableRow-root-16 Component-edge-4 Component-top-14"
   >
     <td
       aria-sort={null}
@@ -81,7 +81,7 @@ exports[`Row should render correctly 1`] = `
     </td>
   </tr>
   <tr
-    className="MuiTableRow-root-16 MuiTableRow-hover-18 Component-edge-4 "
+    className="MuiTableRow-root-16 Component-edge-4 "
   >
     <td
       aria-sort={null}
@@ -157,7 +157,7 @@ exports[`Row should render correctly 1`] = `
     </td>
   </tr>
   <tr
-    className="MuiTableRow-root-16 MuiTableRow-hover-18 Component-edge-4 "
+    className="MuiTableRow-root-16 Component-edge-4 "
   >
     <td
       aria-sort={null}
@@ -233,7 +233,7 @@ exports[`Row should render correctly 1`] = `
     </td>
   </tr>
   <tr
-    className="MuiTableRow-root-16 MuiTableRow-hover-18 Component-middle-10 "
+    className="MuiTableRow-root-16 Component-middle-10 "
   >
     <td
       aria-sort={null}
@@ -309,7 +309,7 @@ exports[`Row should render correctly 1`] = `
     </td>
   </tr>
   <tr
-    className="MuiTableRow-root-16 MuiTableRow-hover-18 Component-middle-10 "
+    className="MuiTableRow-root-16 Component-middle-10 "
   >
     <td
       aria-sort={null}

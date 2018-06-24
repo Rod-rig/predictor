@@ -1,6 +1,6 @@
 import axios, {AxiosResponse} from 'axios';
 import {action, observable} from 'mobx';
-import {ITable, ITableProps, ITeam, OrderType, RangeType} from '../../@types';
+import {IGroup, ITable, ITableProps, OrderType, RangeType} from '../../@types';
 import config from '../../config/config';
 import {rangeData} from '../../helpers';
 
@@ -8,8 +8,8 @@ export class TableStore implements ITable {
   public id: string;
   @observable public isLoaded: boolean = false;
   @observable public order: OrderType;
-  @observable public sort: string;
-  @observable public table: ITeam[] = [];
+  @observable public sortName: string;
+  @observable public table: IGroup[] = [];
   public readonly chars: string[];
   public readonly range?: RangeType;
   private url: string;
@@ -18,47 +18,59 @@ export class TableStore implements ITable {
     this.chars = props.chars;
     this.order = props.order;
     this.range = props.range;
-    this.sort = props.sort;
+    this.sortName = props.sortName;
     this.url = `${config.apiUrl}/en/tournaments/${props.id}/standings.json?api_key=${config.apiKey}`;
     this.fetchTable();
   }
 
   @action.bound
-  public sortHandler(e: any) {
-    const key = e.target.textContent;
-    const newOrder = this.order === 'asc' ? 'desc' : 'asc';
-    this.setSort(key);
-    this.setOrder(newOrder);
-    this.sortTable();
+  public sortHandler(index: number, sortName: string) {
+    let newOrder: OrderType;
+    if (this.table[index].order) {
+      newOrder = this.table[index].order === 'asc' ? 'desc' : 'asc';
+    } else {
+      newOrder = this.order ? this.order : 'asc';
+      this.table[index].order = newOrder;
+    }
+    this.setSort(index, sortName);
+    this.setOrder(index, newOrder);
+    this.sortTable(index, newOrder, sortName);
   }
 
   @action.bound
-  private sortTable() {
-    this.table = this.table.slice().sort((a: any, b: any) => {
-      if (this.order === 'asc') {
-        return a[this.sort] - b[this.sort];
-      } else {
-        return b[this.sort] - a[this.sort];
-      }
-    });
+  private sortTable(index: number, order: OrderType, sortName: string) {
+    this.table[index].team_standings = this.table[index].team_standings
+      .slice().sort((a: any, b: any) => {
+        if (order === 'asc') {
+          return a[sortName] - b[sortName];
+        } else {
+          return b[sortName] - a[sortName];
+        }
+      });
   }
 
   @action.bound
-  private setOrder(order: 'asc' | 'desc') {
-    this.order = order;
+  private setOrder(index: number, order: OrderType) {
+    this.table[index].order = order;
   }
 
   @action.bound
-  private setSort(sort: string) {
-    this.sort = sort;
+  private setSort(index: number, sortName: string) {
+    this.table[index].sortName = sortName;
   }
 
   private fetchTable() {
     axios.get(this.url)
       .then((res: AxiosResponse) => {
-        const groups = res.data.standings[0].groups;
-        const table = groups[0].team_standings;
-        this.table = this.range ? [...rangeData(table, this.range[0], this.range[1])] : [...table];
+        const {standings} = res.data;
+        this.table = this.range && standings[0].groups.length === 1 ?
+          [...rangeData(standings[0].groups[0].team_standings, this.range[0], this.range[1])] :
+          [...standings[0].groups];
+        if (this.sortName) {
+          this.table.forEach((item, index) => {
+            this.sortHandler(index, this.sortName);
+          });
+        }
         this.isLoaded = true;
       });
   }

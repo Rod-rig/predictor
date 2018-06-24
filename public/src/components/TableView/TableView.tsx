@@ -1,40 +1,65 @@
-import {Table, TableBody} from '@material-ui/core';
+import {createStyles, Paper, Table, TableBody, Theme, withStyles, WithStyles} from '@material-ui/core';
 import {observer} from 'mobx-react';
 import * as React from 'react';
-import {IRow, Loader, Row, TableHeadView} from '../';
-import {ITable} from '../../@types';
+import {Loader, Row, TableHeadView} from '../';
+import {IGroup, ITable, ITeam} from '../../@types';
 
-@observer
-export class TableView extends React.Component<{
-  store: ITable,
-}, {}> {
+const styles = ({breakpoints, palette, spacing, typography}: Theme) => createStyles({
+  group: {
+    ...typography.title,
+    backgroundColor: palette.secondary.main,
+    color: palette.common.white,
+    fontSize: '',
+    padding: `${spacing.unit * 2}px ${spacing.unit * 3}px`,
+  },
+  paper: {
+    marginBottom: spacing.unit,
+    [breakpoints.up('lg')]: {
+      margin: `0 ${spacing.unit * 3}px ${spacing.unit * 3}px`,
+    },
+  },
+});
+
+interface IProps extends WithStyles<typeof styles> {
+  store: ITable;
+}
+
+export const TableView = withStyles(styles)(observer(class extends React.Component<IProps, {}> {
   public render() {
     const store = this.props.store;
+    const {classes} = this.props;
 
     return store.isLoaded ? (
-      <div>
-        <Table>
-          <TableHeadView
-            order={store.order}
-            sort={store.sort}
-            sortHandle={store.sortHandler}
-            chars={store.chars}
-          />
-          <TableBody>
-            {
-              store.table.map((row: IRow, index: number): JSX.Element => (
-                <Row
-                  key={index}
-                  row={row}
-                  chars={store.chars}
-                />
-              ))
-            }
-          </TableBody>
-        </Table>
-      </div>
+      store.table.map((group: IGroup, key: number) => {
+        return (
+          <Paper key={key} className={classes.paper}>
+            {group.name ?
+              <div className={classes.group}>Group {group.name}</div> : /* istanbul ignore next */
+              undefined}
+            <Table>
+              <TableHeadView
+                order={store.table[key].order}
+                sortName={store.table[key].sortName}
+                sortHandle={store.sortHandler.bind(store, key)}
+                chars={store.chars}
+              />
+              <TableBody>
+                {
+                  group.team_standings.map((row: ITeam, index: number): JSX.Element => (
+                    <Row
+                      key={index}
+                      row={row}
+                      chars={store.chars}
+                    />
+                  ))
+                }
+              </TableBody>
+            </Table>
+          </Paper>
+        );
+      })
     ) : (
       <Loader/>
     );
   }
-}
+}));

@@ -1,11 +1,14 @@
-import {AppBar, IconButton, Toolbar, withStyles, withTheme} from '@material-ui/core';
+import {AppBar, IconButton, Theme, Toolbar, withStyles, withTheme} from '@material-ui/core';
 import {Menu} from '@material-ui/icons';
 import * as React from 'react';
 import {Logo} from '../';
 
-const styles = (theme: any) => ({
+const styles = ({breakpoints, spacing}: Theme) => ({
   header: {
-    marginBottom: theme.spacing.unit,
+    marginBottom: spacing.unit,
+    [breakpoints.up('lg')]: {
+      marginBottom: spacing.unit * 3,
+    },
   },
 });
 
@@ -14,7 +17,7 @@ const HeaderElement = (props?: any) => {
 
   return (
     <AppBar position='static' className={classes.header}>
-      <Toolbar className='header__toolbar'>
+      <Toolbar>
         <IconButton color='inherit' aria-label='Menu'>
           <Menu/>
         </IconButton>

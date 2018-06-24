@@ -4,13 +4,13 @@ export type RangeType = number[] | null;
 
 export interface ITableProps {
   id: string;
-  order: OrderType;
-  sort: string;
+  order?: OrderType;
+  sortName?: string;
   chars: string[];
   range?: RangeType;
 }
 
-interface ITeam {
+export interface ITeam {
   team: {
     id: string;
     name: string;
@@ -28,17 +28,20 @@ interface ITeam {
 }
 
 interface IGroup {
+  name?: string;
+  sortName?: string;  // not from api
+  order?: OrderType;  // not from api
   team_standings: ITeam[];
 }
 
 interface IStanding {
   tie_break_rule: string;
-  type: string;
+  type: 'total' | 'home' | 'away';
   groups: IGroup[];
 }
 
 export interface ITable extends ITableProps {
   isLoaded: boolean;
-  table: ITeam[];
-  sortHandler(e: Event): void;
+  table: IGroup[];
+  sortHandler(index: number, sortName: string): void;
 }

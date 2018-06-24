@@ -1,28 +1,27 @@
-import {shallow} from 'enzyme';
+import {createMount, createShallow} from '@material-ui/core/test-utils';
 import * as React from 'react';
 import {Loader, Row, TableView} from '../';
 import {ITable} from '../../@types';
 import {tableMock} from '../../__mocks__';
 
 describe('TableView', () => {
-  const mockStore: ITable = {
+  const createMockStore = (isLoaded: boolean): ITable => ({
     chars: ['position', 'teamName', 'points'],
     id: 'test',
-    isLoaded: true,
+    isLoaded,
     order: 'asc',
-    sort: '',
     sortHandler: () => {
       return;
     },
-    table: tableMock.standings[0].groups[0].team_standings,
-  };
-  const tableElement = shallow(<TableView store={mockStore}/>);
-  const notRenderedTable = shallow(<TableView store={{...mockStore, isLoaded: false}}/>);
+    sortName: '',
+    table: tableMock.standings[0].groups,
+  });
+  const shallow = createShallow({dive: true});
+  const notRenderedTable = shallow(<TableView store={createMockStore(false)}/>);
 
-  it('should render rows correctly', () => {
-    const row = tableElement.find(Row);
-    expect(row).toHaveLength(mockStore.table.length);
-    expect(row.first().prop('row')).toEqual(mockStore.table[0]);
+  it('should render correctly with default props', () => {
+    const tree = createMount()(<TableView store={createMockStore(true)}/>);
+    expect(tree.html()).toMatchSnapshot();
   });
 
   it('should render loader', () => {

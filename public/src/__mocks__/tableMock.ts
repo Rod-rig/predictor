@@ -37,6 +37,7 @@ export const tableMock = {
       'type': 'total',
       'groups': [
         {
+          'name': 'A',
           'team_standings': [
             {
               'team': {

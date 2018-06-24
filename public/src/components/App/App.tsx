@@ -22,8 +22,9 @@ const table = (props: ITableProps & { match: IId }) => (
       chars: ['rank', 'team', 'played', 'win', 'draw', 'loss', 'goals_for',
         'goals_against', 'goal_diff', 'points'],
       id: props.match.params.id,
-      order: 'asc',
-      sort: 'rank',
+      // order: 'asc',
+      // sortName: 'rank',
+      // range: [0, 5],
     })}
   />
 );

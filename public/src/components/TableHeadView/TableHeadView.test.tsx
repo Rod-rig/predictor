@@ -3,17 +3,22 @@ import {createMount} from '@material-ui/core/test-utils';
 import * as React from 'react';
 import {TableHeadView} from './';
 
-const sort = ['position', 'team', 'points'];
+const props = {
+  chars: ['position', 'team', 'points'],
+  sortHandle: () => {
+    return;
+  },
+};
 
 describe('TableHeadView', () => {
   it('should exist', () => {
-    expect(<TableHeadView chars={sort}/>).toBeDefined();
+    expect(<TableHeadView {...props}/>).toBeDefined();
   });
 
   it('should render correctly with default props', () => {
     const tree = createMount()(
       <Table>
-        <TableHeadView chars={sort}/>
+        <TableHeadView {...props}/>
       </Table>);
     expect(tree.html()).toMatchSnapshot();
   });
@@ -21,7 +26,7 @@ describe('TableHeadView', () => {
   it('should render correctly with different props', () => {
     const tree = createMount()(
       <Table>
-        <TableHeadView order='desc' sort={sort[1]} chars={sort}/>
+        <TableHeadView order='desc' sortName={props.chars[1]} {...props}/>
       </Table>);
     expect(tree.html()).toMatchSnapshot();
   });
@@ -29,7 +34,7 @@ describe('TableHeadView', () => {
   it('should render correctly with another props', () => {
     const tree = createMount()(
       <Table>
-        <TableHeadView order='asc' sort={sort[sort.length - 1]} chars={sort}/>
+        <TableHeadView order='asc' sortName={props.chars[props.chars.length - 1]} {...props}/>
       </Table>);
     expect(tree.html()).toMatchSnapshot();
   });

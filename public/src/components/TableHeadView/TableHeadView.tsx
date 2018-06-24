@@ -1,12 +1,13 @@
 import {TableCell, TableHead, TableRow, TableSortLabel, Tooltip, withStyles} from '@material-ui/core';
 import * as React from 'react';
+import {OrderType} from '../../@types';
 
 interface IHead {
   chars: string[];
   classes?: any;
-  order?: any;
-  sort?: string;
-  sortHandle?: any;
+  order?: OrderType;
+  sortName?: string;
+  sortHandle(name: string): any;
 }
 
 const decorate = withStyles(({breakpoints, spacing}) => ({
@@ -78,7 +79,7 @@ const decorate = withStyles(({breakpoints, spacing}) => ({
 }));
 
 export const TableHeadView = decorate((props: IHead) => {
-  const {chars, classes, order, sort, sortHandle} = props;
+  const {chars, classes, order, sortName, sortHandle} = props;
   return (
     <TableHead>
       <TableRow>
@@ -93,9 +94,9 @@ export const TableHeadView = decorate((props: IHead) => {
             >
               <Tooltip title='Sort' enterDelay={300}>
                 <TableSortLabel
-                  active={sort === name}
+                  active={sortName === name}
                   direction={order}
-                  onClick={sortHandle}
+                  onClick={sortHandle.bind(this, name)}
                 >
                   {name}
                 </TableSortLabel>
