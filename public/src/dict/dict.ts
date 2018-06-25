@@ -1,15 +1,35 @@
-interface IDict {
+export interface IDict {
+  draw: string;
   fixtures: string;
+  goal_diff: string;
+  goals_against: string;
+  goals_for: string;
   loadingMsg: string;
+  loss: string;
   notFoundText: string;
+  played: string;
+  points: string;
+  rank: string;
   results: string;
+  team: string;
   tournamentCardMore: string;
+  win: string;
 }
 
 export const dict: IDict = {
+  draw: 'draw',
   fixtures: 'Fixtures',
+  goal_diff: 'GD',
+  goals_against: 'GA',
+  goals_for: 'GF',
   loadingMsg: 'Loading...',
+  loss: 'loss',
   notFoundText: 'Not found',
+  played: 'played',
+  points: 'points',
+  rank: 'rank',
   results: 'Results',
+  team: 'team',
   tournamentCardMore: 'Learn more',
+  win: 'win',
 };

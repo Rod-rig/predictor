@@ -1,6 +1,7 @@
 import {TableCell, TableHead, TableRow, TableSortLabel, Tooltip, withStyles} from '@material-ui/core';
 import * as React from 'react';
 import {OrderType} from '../../@types';
+import {dict, IDict} from '../../dict';
 
 interface IHead {
   chars: string[];
@@ -84,7 +85,7 @@ export const TableHeadView = decorate((props: IHead) => {
     <TableHead>
       <TableRow>
         {chars.map(
-          (name: string, index: number) => {
+          (name: keyof IDict, index: number) => {
             return <TableCell
               key={index}
               sortDirection={order === 'asc' ? 'desc' : 'asc'}
@@ -98,7 +99,7 @@ export const TableHeadView = decorate((props: IHead) => {
                   direction={order}
                   onClick={sortHandle.bind(this, name)}
                 >
-                  {name}
+                  {dict[name]}
                 </TableSortLabel>
               </Tooltip>
             </TableCell>;
