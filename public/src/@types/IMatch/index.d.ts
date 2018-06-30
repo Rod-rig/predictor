@@ -27,9 +27,13 @@ interface ISportEvent {
   start_time_tbd: boolean;
   tournament: ITournament;
   tournament_round: {
+    cup_round_match_number?: string;
+    cup_round_matches?: string;
+    name?: string;
     number: number;
     type: string;
     group: string,
+    other_match_id?: string;
     tournament_match_number: number,
   };
   venue: IVenue;
