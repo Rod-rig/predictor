@@ -103,7 +103,7 @@ export const matchListMock = {
         'start_time_tbd': false,
         'tournament_round': {
           'type': 'group',
-          'number': 1,
+          'number': 2,
           'group': 'A',
           'tournament_match_number': 2,
         },

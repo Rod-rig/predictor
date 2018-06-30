@@ -3,6 +3,9 @@ import * as React from 'react';
 
 const theme = createMuiTheme({
   palette: {
+    background: {
+      default: '#f2f2f2',
+    },
     primary: {
       dark: '#1a0018',
       light: '#652d67',

@@ -1,4 +1,4 @@
-import {CssBaseline, withStyles} from '@material-ui/core';
+import {CssBaseline, Theme, withStyles} from '@material-ui/core';
 import * as React from 'react';
 import {HashRouter, match, Route, Switch} from 'react-router-dom';
 import {Header, MatchList, Nav, NotFound, Palette, TableView, TournamentList} from '../';
@@ -7,7 +7,7 @@ import {MatchListStore, TableStore, TournamentListStore} from '../../stores';
 
 type IId = match<{ id: string }>;
 
-const decorate = withStyles(({typography}) => ({
+const decorate = withStyles(({typography}: Theme) => ({
   main: {
     fontFamily: typography.fontFamily,
   },

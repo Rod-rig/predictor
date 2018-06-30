@@ -2,103 +2,123 @@
 
 exports[`MatchList should render correctly 1`] = `
 <ul
-  className="MuiList-root-1"
+  className="MuiList-root-3"
 >
   <div
-    className="MuiButtonBase-root-21 MuiListItem-root-11 MuiListItem-default-14 MuiListItem-gutters-18 MuiListItem-divider-17 MuiListItem-button-19"
-    onBlur={[Function]}
-    onFocus={[Function]}
-    onKeyDown={[Function]}
-    onKeyUp={[Function]}
-    onMouseDown={[Function]}
-    onMouseLeave={[Function]}
-    onMouseUp={[Function]}
-    onTouchEnd={[Function]}
-    onTouchMove={[Function]}
-    onTouchStart={[Function]}
-    role="button"
-    tabIndex="0"
+    className="class_1-title-2"
   >
-    <div
-      className="MuiListItemText-root-24 Component-text-10 Component-right-8"
-    >
-      <div>
-        Russia
-      </div>
-    </div>
-    <div
-      className="Component-score-9"
-    >
-      <div>
-        0
-      </div>
-      <div
-        className="Component-dash-5"
-      >
-        -
-      </div>
-      <div>
-        5
-      </div>
-    </div>
-    <div
-      className="MuiListItemText-root-24 Component-text-10"
-    >
-      <div>
-        Saudi Arabia
-      </div>
-    </div>
-    <span
-      className="MuiTouchRipple-root-30"
-    />
+    Round 
+    1
   </div>
   <div
-    className="MuiButtonBase-root-21 MuiListItem-root-11 MuiListItem-default-14 MuiListItem-gutters-18 MuiListItem-divider-17 MuiListItem-button-19"
-    onBlur={[Function]}
-    onFocus={[Function]}
-    onKeyDown={[Function]}
-    onKeyUp={[Function]}
-    onMouseDown={[Function]}
-    onMouseLeave={[Function]}
-    onMouseUp={[Function]}
-    onTouchEnd={[Function]}
-    onTouchMove={[Function]}
-    onTouchStart={[Function]}
-    role="button"
-    tabIndex="0"
+    className="MuiPaper-root-7 MuiPaper-elevation2-11 MuiPaper-rounded-8 class_1-round-1"
   >
     <div
-      className="MuiListItemText-root-24 Component-text-10 Component-right-8"
+      className="MuiButtonBase-root-50 MuiListItem-root-40 MuiListItem-default-43 MuiListItem-gutters-47 MuiListItem-divider-46 MuiListItem-button-48"
+      onBlur={[Function]}
+      onFocus={[Function]}
+      onKeyDown={[Function]}
+      onKeyUp={[Function]}
+      onMouseDown={[Function]}
+      onMouseLeave={[Function]}
+      onMouseUp={[Function]}
+      onTouchEnd={[Function]}
+      onTouchMove={[Function]}
+      onTouchStart={[Function]}
+      role="button"
+      tabIndex="0"
     >
-      <div>
-        Egypt
-      </div>
-    </div>
-    <div
-      className="Component-score-9"
-    >
-      <div>
-        0
+      <div
+        className="MuiListItemText-root-53 Component-text-39 Component-right-37"
+      >
+        <div>
+          Russia
+        </div>
       </div>
       <div
-        className="Component-dash-5"
+        className="Component-score-38"
       >
-        -
+        <div>
+          0
+        </div>
+        <div
+          className="Component-dash-34"
+        >
+          -
+        </div>
+        <div>
+          5
+        </div>
       </div>
-      <div>
-        1
+      <div
+        className="MuiListItemText-root-53 Component-text-39"
+      >
+        <div>
+          Saudi Arabia
+        </div>
       </div>
+      <span
+        className="MuiTouchRipple-root-59"
+      />
     </div>
+  </div>
+  <div
+    className="class_1-title-2"
+  >
+    Round 
+    2
+  </div>
+  <div
+    className="MuiPaper-root-7 MuiPaper-elevation2-11 MuiPaper-rounded-8 class_1-round-1"
+  >
     <div
-      className="MuiListItemText-root-24 Component-text-10"
+      className="MuiButtonBase-root-50 MuiListItem-root-40 MuiListItem-default-43 MuiListItem-gutters-47 MuiListItem-divider-46 MuiListItem-button-48"
+      onBlur={[Function]}
+      onFocus={[Function]}
+      onKeyDown={[Function]}
+      onKeyUp={[Function]}
+      onMouseDown={[Function]}
+      onMouseLeave={[Function]}
+      onMouseUp={[Function]}
+      onTouchEnd={[Function]}
+      onTouchMove={[Function]}
+      onTouchStart={[Function]}
+      role="button"
+      tabIndex="0"
     >
-      <div>
-        Uruguay
+      <div
+        className="MuiListItemText-root-53 Component-text-39 Component-right-37"
+      >
+        <div>
+          Egypt
+        </div>
       </div>
+      <div
+        className="Component-score-38"
+      >
+        <div>
+          0
+        </div>
+        <div
+          className="Component-dash-34"
+        >
+          -
+        </div>
+        <div>
+          1
+        </div>
+      </div>
+      <div
+        className="MuiListItemText-root-53 Component-text-39"
+      >
+        <div>
+          Uruguay
+        </div>
+      </div>
+      <span
+        className="MuiTouchRipple-root-59"
+      />
     </div>
-    <span
-      className="MuiTouchRipple-root-30"
-    />
   </div>
 </ul>
 `;

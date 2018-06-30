@@ -91,7 +91,7 @@ export const TableHeadView = decorate((props: IHead) => {
               sortDirection={order === 'asc' ? 'desc' : 'asc'}
               padding='checkbox'
               className={`${classes.cell} ${classes[name] ? classes[name] : ''}`}
-              type='head'
+              variant='head'
             >
               <Tooltip title='Sort' enterDelay={300}>
                 <TableSortLabel
