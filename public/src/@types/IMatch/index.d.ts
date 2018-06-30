@@ -30,9 +30,9 @@ interface ISportEvent {
     cup_round_match_number?: string;
     cup_round_matches?: string;
     name?: string;
-    number: number;
+    number?: number;
     type: string;
-    group: string,
+    group?: string,
     other_match_id?: string;
     tournament_match_number: number,
   };

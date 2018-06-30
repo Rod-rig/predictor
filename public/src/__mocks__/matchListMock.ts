@@ -98,6 +98,87 @@ export const matchListMock = {
     },
     {
       'sport_event': {
+        'id': 'sr:match:13246028',
+        'scheduled': '2018-06-18T12:00:00+00:00',
+        'start_time_tbd': false,
+        'tournament_round': {
+          'type': 'group',
+          'number': 1,
+          'group': 'F',
+          'tournament_match_number': 12,
+        },
+        'season': {
+          'id': 'sr:season:48238',
+          'name': 'World Cup',
+          'start_date': '2018-06-14',
+          'end_date': '2018-07-16',
+          'year': '2018',
+          'tournament_id': 'sr:tournament:16',
+        },
+        'tournament': {
+          'id': 'sr:tournament:16',
+          'name': 'World Cup',
+          'sport': {
+            'id': 'sr:sport:1',
+            'name': 'Soccer',
+          },
+          'category': {
+            'id': 'sr:category:4',
+            'name': 'International',
+          },
+        },
+        'competitors': [
+          {
+            'id': 'sr:competitor:4688',
+            'name': 'Sweden',
+            'country': 'Sweden',
+            'country_code': 'SWE',
+            'abbreviation': 'SWE',
+            'qualifier': 'home',
+          },
+          {
+            'id': 'sr:competitor:4735',
+            'name': 'Republic of Korea',
+            'country': 'Republic of Korea',
+            'country_code': 'KOR',
+            'abbreviation': 'KOR',
+            'qualifier': 'away',
+          },
+        ],
+        'venue': {
+          'id': 'sr:venue:26170',
+          'name': 'Nizhny Novgorod Stadium',
+          'capacity': 43319,
+          'city_name': 'Nizhny Novgorod',
+          'country_name': 'Russia',
+          'map_coordinates': '56.337500,43.963333',
+          'country_code': 'RUS',
+        },
+      },
+      'sport_event_status': {
+        'status': 'closed',
+        'match_status': 'ended',
+        'home_score': 1,
+        'away_score': 0,
+        'winner_id': 'sr:competitor:4688',
+        'period_scores': [
+          {
+            'home_score': 0,
+            'away_score': 0,
+            'type': 'regular_period',
+            'number': 1,
+          },
+          {
+            'home_score': 1,
+            'away_score': 0,
+            'type': 'regular_period',
+            'number': 2,
+          },
+        ],
+      },
+    },
+    {
+      'sport_event': {
         'id': 'sr:match:13245922',
         'scheduled': '2018-06-15T12:00:00+00:00',
         'start_time_tbd': false,

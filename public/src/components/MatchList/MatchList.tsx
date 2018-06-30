@@ -40,10 +40,8 @@ export const MatchList = withStyles(styles)(observer(class extends React.Compone
               homeTeam: item.sport_event.competitors[0].name,
               round: item.sport_event.tournament_round.number,
             };
-            if (list[index + 1] && stat.round === list[index + 1].sport_event.tournament_round.number) {
-              group.push(<MatchItem key={`${stat.homeTeam}-${stat.awayTeam}-${index}`} {...stat}/>);
-            } else if (list[index + 1] || index === list.length - 1) {
-              group.push(<MatchItem key={`${stat.homeTeam}-${stat.awayTeam}-${index}`} {...stat}/>);
+            group.push(<MatchItem key={`${stat.homeTeam}-${stat.awayTeam}-${index}`} {...stat}/>);
+            if (!list[index + 1] || stat.round !== list[index + 1].sport_event.tournament_round.number) {
               const round = (
                 <React.Fragment key={`${stat.homeTeam}-${stat.awayTeam}-${index}`}>
                   <div className={classes.title}>Round {stat.round}</div>
@@ -52,8 +50,6 @@ export const MatchList = withStyles(styles)(observer(class extends React.Compone
               );
               group = [];
               return round;
-            } else {
-              return <MatchItem key={`${stat.homeTeam}-${stat.awayTeam}-${index}`} {...stat}/>;
             }
           })
         }

@@ -27,11 +27,8 @@ describe('MatchList', () => {
           list: matchListMock.results,
           type: 'test',
         }}
-      />
-    );
-    const mountedComp = mount(comp);
+      />);
     const tree = renderer.create(comp).toJSON();
-    expect(mountedComp.find('Paper').length).toBeGreaterThanOrEqual(1);
     expect(tree).toMatchSnapshot();
   });
 });
