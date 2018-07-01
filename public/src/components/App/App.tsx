@@ -1,7 +1,7 @@
 import {CssBaseline, Theme, withStyles} from '@material-ui/core';
 import * as React from 'react';
 import {HashRouter, match, Route, Switch} from 'react-router-dom';
-import {Header, MatchList, Nav, NotFound, Palette, TableView, TournamentList} from '../';
+import {Header, MatchList, Nav, NotFound, Palette, PredictionForm, TableView, TournamentList} from '../';
 import {IMatchListProps, ITableProps} from '../../@types';
 import {MatchListStore, TableStore, TournamentListStore} from '../../stores';
 
@@ -68,6 +68,10 @@ const routes = [
   {
     component: fixtures,
     path: '/fixtures/:id',
+  },
+  {
+    component: PredictionForm,
+    path: '/prediction',
   },
   {
     component: NotFound,

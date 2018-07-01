@@ -1,7 +1,7 @@
-import {Avatar, ListItem, ListItemIcon, ListItemText, withStyles} from '@material-ui/core';
+import {Avatar, ListItem, ListItemIcon, ListItemText, Theme, withStyles} from '@material-ui/core';
 import * as React from 'react';
 
-const decorate = withStyles(({palette, spacing, typography}) => ({
+const decorate = withStyles(({palette, spacing, typography}: Theme) => ({
   dash: {
     marginLeft: spacing.unit / 2,
     marginRight: spacing.unit / 2,
@@ -48,14 +48,14 @@ const renderLogo = (logo: string, classesLogo: any, classesIcon?: any) => {
 const renderScore = (homeScore: number, awayScore: number, classes: any): JSX.Element => (
   <div className={classes.score}>
     <div>{homeScore}</div>
-    <div className={classes.dash}>-</div>
+    <div className={classes.dash}>:</div>
     <div>{awayScore}</div>
   </div>
 );
 
 const renderEmptyScore = (classes: any): JSX.Element => (
   <div className={classes.score}>
-    <div className={classes.dash}>-</div>
+    <div className={classes.dash}>:</div>
   </div>
 );
 

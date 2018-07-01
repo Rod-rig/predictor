@@ -6,6 +6,7 @@ export * from './MatchList';
 export * from './NotFound';
 export * from './Nav';
 export * from './Palette';
+export * from './PredictionForm';
 export * from './Row';
 export * from './TableHeadView';
 export * from './TableView';

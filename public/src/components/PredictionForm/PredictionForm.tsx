@@ -1,0 +1,90 @@
+import {
+  Button,
+  createStyles,
+  Input,
+  InputLabel,
+  List,
+  ListItem,
+  ListItemText,
+  Theme,
+  withStyles,
+  WithStyles,
+} from '@material-ui/core';
+import * as React from 'react';
+import {ISportEvent} from '../../@types';
+import {dict} from '../../dict';
+
+const styles = ({palette, spacing}: Theme) => createStyles({
+  away: {
+    width: '100%',
+  },
+  btnWrap: {
+    textAlign: 'center',
+  },
+  home: {
+    '&:first-child': {
+      paddingLeft: spacing.unit * 2,
+    },
+    'textAlign': 'right',
+    'width': '100%',
+  },
+  input: {
+    textAlign: 'center',
+    width: '3rem',
+  },
+  inputWrap: {
+    fontSize: '1.25rem',
+  },
+  name: {},
+  score: {
+    alignItems: 'center',
+    display: 'flex',
+  },
+  underline: {
+    '&:after': {
+      borderBottomColor: palette.secondary.main,
+    },
+  },
+});
+
+interface IProps extends WithStyles<typeof styles> {}
+
+export const PredictionForm = withStyles(styles)((props: IProps) => {
+  const sportEvents: any[] = [];
+  const {classes} = props;
+  return (
+    <form autoComplete='off'>
+      <List>
+        {sportEvents.map((item: ISportEvent, index: number) => {
+          return (
+            <ListItem divider={true} key={item.id}>
+              <ListItemText classes={{root: classes.home}}>
+                <InputLabel htmlFor={item.competitors[0].id}>{item.competitors[0].name}</InputLabel>
+              </ListItemText>
+              <div className={classes.score}>
+                <Input
+                  classes={{input: classes.input, root: classes.inputWrap, underline: classes.underline}}
+                  id={item.competitors[0].id}
+                  name={item.competitors[0].name}
+                  autoFocus={index === 0}
+                />
+                <div>:</div>
+                <Input
+                  classes={{input: classes.input, root: classes.inputWrap, underline: classes.underline}}
+                  id={item.competitors[1].id}
+                  name={item.competitors[1].name}
+                />
+              </div>
+              <ListItemText classes={{root: classes.away}}>
+                <InputLabel htmlFor={item.competitors[1].id}>{item.competitors[1].name}</InputLabel>
+              </ListItemText>
+            </ListItem>
+          );
+        })}
+      </List>
+      <div className={classes.btnWrap}>
+        <Button type='submit' variant='contained' color='secondary'>{dict.submit_btn_text}</Button>
+      </div>
+    </form>
+  );
+});
