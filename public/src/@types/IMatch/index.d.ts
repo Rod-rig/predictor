@@ -69,3 +69,8 @@ export interface IMatch {
   sport_event: ISportEvent;
   sport_event_status: ISportEventStatus;
 }
+
+export interface IPredictionFormProps {
+  isLoaded: boolean;
+  matches: ISportEvent[];
+}

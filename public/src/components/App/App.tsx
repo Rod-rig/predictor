@@ -3,7 +3,7 @@ import * as React from 'react';
 import {HashRouter, match, Route, Switch} from 'react-router-dom';
 import {Header, MatchList, Nav, NotFound, Palette, PredictionForm, TableView, TournamentList} from '../';
 import {IMatchListProps, ITableProps} from '../../@types';
-import {MatchListStore, TableStore, TournamentListStore} from '../../stores';
+import {MatchListStore, PredictionStore, TableStore, TournamentListStore} from '../../stores';
 
 type IId = match<{ id: string }>;
 
@@ -51,6 +51,12 @@ const fixtures = (props: IMatchListProps & { match: IId }) => (
   />
 );
 
+const predictions = () => (
+  <PredictionForm
+    store={new PredictionStore()}
+  />
+);
+
 const routes = [
   {
     component: tournamentList,
@@ -70,7 +76,7 @@ const routes = [
     path: '/fixtures/:id',
   },
   {
-    component: PredictionForm,
+    component: predictions,
     path: '/prediction',
   },
   {

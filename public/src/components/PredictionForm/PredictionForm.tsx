@@ -10,8 +10,10 @@ import {
   withStyles,
   WithStyles,
 } from '@material-ui/core';
+import {observer} from 'mobx-react';
 import * as React from 'react';
-import {ISportEvent} from '../../@types';
+import {Loader} from '../';
+import {IPredictionFormProps, ISportEvent} from '../../@types';
 import {dict} from '../../dict';
 
 const styles = ({palette, spacing}: Theme) => createStyles({
@@ -47,15 +49,16 @@ const styles = ({palette, spacing}: Theme) => createStyles({
   },
 });
 
-interface IProps extends WithStyles<typeof styles> {}
+interface IProps extends WithStyles<typeof styles> {
+  store: IPredictionFormProps;
+}
 
-export const PredictionForm = withStyles(styles)((props: IProps) => {
-  const sportEvents: any[] = [];
-  const {classes} = props;
-  return (
+export const PredictionForm = withStyles(styles)(observer((props: IProps) => {
+  const {classes, store} = props;
+  return store.isLoaded ? (
     <form autoComplete='off'>
       <List>
-        {sportEvents.map((item: ISportEvent, index: number) => {
+        {store.matches.map((item: ISportEvent, index: number) => {
           return (
             <ListItem divider={true} key={item.id}>
               <ListItemText classes={{root: classes.home}}>
@@ -86,5 +89,7 @@ export const PredictionForm = withStyles(styles)((props: IProps) => {
         <Button type='submit' variant='contained' color='secondary'>{dict.submit_btn_text}</Button>
       </div>
     </form>
+  ) : (
+    <Loader/>
   );
-});
+}));
