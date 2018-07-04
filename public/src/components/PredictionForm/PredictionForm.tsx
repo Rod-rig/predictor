@@ -56,7 +56,7 @@ interface IProps extends WithStyles<typeof styles> {
 export const PredictionForm = withStyles(styles)(observer((props: IProps) => {
   const {classes, store} = props;
   return store.isLoaded ? (
-    <form autoComplete='off'>
+    <form autoComplete='off' onSubmit={store.handleSubmit.bind(store)}>
       <List>
         {store.matches.map((item: ISportEvent, index: number) => {
           return (
@@ -69,6 +69,7 @@ export const PredictionForm = withStyles(styles)(observer((props: IProps) => {
                   classes={{input: classes.input, root: classes.inputWrap, underline: classes.underline}}
                   id={item.competitors[0].id}
                   name={item.competitors[0].name}
+                  onChange={store.handleChange.bind(store, index, 0)}
                   autoFocus={index === 0}
                 />
                 <div>:</div>
@@ -76,6 +77,7 @@ export const PredictionForm = withStyles(styles)(observer((props: IProps) => {
                   classes={{input: classes.input, root: classes.inputWrap, underline: classes.underline}}
                   id={item.competitors[1].id}
                   name={item.competitors[1].name}
+                  onChange={store.handleChange.bind(store, index, 1)}
                 />
               </div>
               <ListItemText classes={{root: classes.away}}>

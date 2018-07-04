@@ -7,6 +7,7 @@ interface ICompetitor {
   id: string;
   name: string;
   qualifier: string;
+  userPrediction?: number;
 }
 
 interface IVenue {
@@ -73,4 +74,6 @@ export interface IMatch {
 export interface IPredictionFormProps {
   isLoaded: boolean;
   matches: ISportEvent[];
+  handleSubmit(e: any): void;
+  handleChange(index: number, compIndex: number, e: any): void;
 }

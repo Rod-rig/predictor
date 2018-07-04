@@ -12,6 +12,14 @@ export class PredictionStore implements IPredictionFormProps {
     this.fetchTodayMatches();
   }
 
+  public handleSubmit(e: any): void {
+    e.preventDefault();
+  }
+
+  public handleChange(index: number, compIndex: number, e: any): void {
+    this.matches[index].competitors[compIndex].userPrediction = +e.target.value;
+  }
+
   private fetchTodayMatches() {
     axios.get(`${config.apiUrl}/en/schedules/${this.today}/schedule.json?api_key=${config.apiKey}`)
       .then((res: AxiosResponse) => {
