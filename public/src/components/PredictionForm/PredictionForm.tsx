@@ -21,6 +21,7 @@ const styles = ({palette, spacing}: Theme) => createStyles({
     width: '100%',
   },
   btnWrap: {
+    marginBottom: spacing.unit,
     textAlign: 'center',
   },
   home: {
@@ -60,7 +61,7 @@ export const PredictionForm = withStyles(styles)(observer((props: IProps) => {
       <List>
         {store.matches.map((item: ISportEvent, index: number) => {
           return (
-            <ListItem divider={true} key={item.id}>
+            <ListItem disableGutters={true} divider={true} key={item.id}>
               <ListItemText classes={{root: classes.home}}>
                 <InputLabel htmlFor={item.competitors[0].id}>{item.competitors[0].name}</InputLabel>
               </ListItemText>

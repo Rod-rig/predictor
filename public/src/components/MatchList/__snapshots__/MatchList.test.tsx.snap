@@ -44,7 +44,7 @@ exports[`MatchList should render correctly 1`] = `
         <div
           className="Component-dash-34"
         >
-          -
+          :
         </div>
         <div>
           5
@@ -92,7 +92,7 @@ exports[`MatchList should render correctly 1`] = `
         <div
           className="Component-dash-34"
         >
-          -
+          :
         </div>
         <div>
           0
@@ -150,7 +150,7 @@ exports[`MatchList should render correctly 1`] = `
         <div
           className="Component-dash-34"
         >
-          -
+          :
         </div>
         <div>
           1

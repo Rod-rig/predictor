@@ -28,6 +28,9 @@ const NavElement = (props?: any) => {
       <Typography className={classes.title} variant='title'>
         <Link className={classes.link} to={`/results/${match.params.id}`}>{dict.results}</Link>
       </Typography>
+      <Typography className={classes.title} variant='title'>
+        <Link className={classes.link} to='/prediction'>{dict.prediction}</Link>
+      </Typography>
     </React.Fragment>
   );
 };

@@ -35,7 +35,7 @@ interface ISportEvent {
     type: string;
     group?: string,
     other_match_id?: string;
-    tournament_match_number: number,
+    tournament_match_number?: number,
   };
   venue: IVenue;
 }

@@ -9,6 +9,7 @@ export interface IDict {
   notFoundText: string;
   played: string;
   points: string;
+  prediction: string;
   rank: string;
   results: string;
   submit_btn_text: string;
@@ -28,6 +29,7 @@ export const dict: IDict = {
   notFoundText: 'Not found',
   played: 'played',
   points: 'points',
+  prediction: 'Prediction',
   rank: 'rank',
   results: 'Results',
   submit_btn_text: 'Submit',

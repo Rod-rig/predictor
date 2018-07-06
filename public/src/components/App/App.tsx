@@ -51,6 +51,7 @@ const fixtures = (props: IMatchListProps & { match: IId }) => (
   />
 );
 
+/* istanbul ignore next */
 const predictions = () => (
   <PredictionForm
     store={new PredictionStore()}

@@ -1,5 +1,5 @@
 import config from '../config/config';
-import {matchListMock, tableMock, tournamentListMock} from './';
+import {matchListMock, scheduleMock, tableMock, tournamentListMock} from './';
 
 export default {
   get: jest.fn((url) => {
@@ -11,6 +11,8 @@ export default {
       return Promise.resolve({data: tableMock});
     } else if (urlWithoutKey === `${rootUrl}/tournaments/test_id/results.json`) {
       return Promise.resolve({data: matchListMock});
+    } else if (urlWithoutKey === `${rootUrl}/schedules/2018-07-07/schedule.json`) {
+      return Promise.resolve({data: scheduleMock});
     } else {
       return Promise.reject('No such url');
     }
