@@ -1,6 +1,6 @@
 {
   "name": "predictor",
-  "version": "0.1.5",
+  "version": "0.2.0",
   "main": "public/src/index.tsx",
   "license": "MIT",
   "scripts": {
@@ -8,11 +8,9 @@
     "build:w": "webpack --config webpack.dev.config.js --watch",
     "lint": "npm run lint:js",
     "lint:js": "tslint -t stylish 'public/src/**/*.{tsx,ts,js}'",
-    "mongo": "mongod",
     "pretest": "npm run lint",
-    "server": "nodemon server.js --ignore public/",
     "server:dev": "webpack-dev-server --config webpack.dev.config.js",
-    "start": "concurrently \"npm run build:w\" \"npm run mongo\" \"npm run server:dev\"",
+    "start": "concurrently \"npm run build:w\" \"npm run server:dev\"",
     "test": "jest --config package.json",
     "test:ci": "npm run test:coverage && cat ./coverage/lcov.info | ./node_modules/coveralls/bin/coveralls.js && rm -rf ./coverage",
     "test:coverage": "jest --config package.json --coverage"
@@ -31,9 +29,7 @@
   },
   "homepage": "https://rod-rig.github.io/pl/",
   "browserslist": [
-    "> 1%",
-    "ie >= 11",
-    "last 3 versions"
+    "last 2 versions"
   ],
   "jest": {
     "collectCoverageFrom": [
@@ -65,13 +61,10 @@
     ]
   },
   "devDependencies": {
-    "body-parser": "^1.18.2",
-    "compression-webpack-plugin": "^1.1.11",
     "concurrently": "^3.6.0",
     "coveralls": "^3.0.2",
     "express": "^4.16.3",
     "jest": "^23.2.0",
-    "mongodb": "^3.1.0",
     "nodemon": "^1.17.4",
     "source-map-loader": "^0.2.3",
     "ts-jest": "^22.4.5",
@@ -95,10 +88,12 @@
     "@types/react-router-dom": "^4.2.6",
     "@types/react-test-renderer": "^16.0.1",
     "axios": "^0.18.0",
+    "body-parser": "^1.18.3",
     "enzyme": "^3.3.0",
     "enzyme-adapter-react-16": "^1.1.1",
     "mobx": "^5.0.3",
     "mobx-react": "^5.2.3",
+    "mongoose": "^5.2.1",
     "react": "^16.4.1",
     "react-dom": "^16.4.1",
     "react-router-dom": "^4.2.2",

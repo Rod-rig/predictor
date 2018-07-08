@@ -1,6 +1,6 @@
 .idea/
 node_modules/
 npm-debug.log
-/config/
+/server/config/
 /coverage/
 yarn-error.log
