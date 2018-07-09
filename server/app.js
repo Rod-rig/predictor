@@ -10,6 +10,8 @@ const app = express();
 app.use(bodyParser.urlencoded({extended: true}));
 app.use(bodyParser.json());
 
+app.use(express.static('public'));
+
 db.connect(config.dbUrl, (err) => {
   if (err) return console.error(err);
   router(app);

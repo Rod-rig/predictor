@@ -1,6 +1,6 @@
 {
   "name": "predictor",
-  "version": "0.2.0",
+  "version": "0.2.1",
   "main": "public/src/index.tsx",
   "license": "MIT",
   "scripts": {
@@ -9,6 +9,7 @@
     "lint": "npm run lint:js",
     "lint:js": "tslint -t stylish 'public/src/**/*.{tsx,ts,js}'",
     "pretest": "npm run lint",
+    "server": "nodemon server/app.js",
     "server:dev": "webpack-dev-server --config webpack.dev.config.js",
     "start": "concurrently \"npm run build:w\" \"npm run server:dev\"",
     "test": "jest --config package.json",
