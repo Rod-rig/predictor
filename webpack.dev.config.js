@@ -2,9 +2,5 @@ const config = require('./webpack.common.config');
 
 module.exports = Object.assign({}, config, {
   mode: 'development',
-  devtool: 'source-map',
-  devServer: {
-    open: true,
-    contentBase: './public'
-  }
+  devtool: 'source-map'
 });

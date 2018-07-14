@@ -4,7 +4,8 @@ module.exports = {
   entry: './public/src/index.tsx',
   output: {
     path: path.resolve(__dirname, './public/dist'),
-    filename: 'bundle.js'
+    filename: 'bundle.js',
+    publicPath: '/dist'
   },
   module: {
     rules: [
