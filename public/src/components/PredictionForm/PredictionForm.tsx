@@ -56,7 +56,7 @@ interface IProps extends WithStyles<typeof styles> {
 
 export const PredictionForm = withStyles(styles)(observer((props: IProps) => {
   const {classes, store} = props;
-  return store.isLoaded ? (
+  return store.isLoaded && !store.isSuccessSubmit ? (
     <form autoComplete='off' onSubmit={store.handleSubmit.bind(store)}>
       <List>
         {store.matches.map((item: ISportEvent, index: number) => {
@@ -92,7 +92,9 @@ export const PredictionForm = withStyles(styles)(observer((props: IProps) => {
         <Button type='submit' variant='contained' color='secondary'>{dict.submit_btn_text}</Button>
       </div>
     </form>
-  ) : (
+  ) : !store.isLoaded || !store.isSuccessSubmit ? (
     <Loader/>
+  ) : (
+    <div>Successssszzzzzzzzzzzzzz!</div>
   );
 }));

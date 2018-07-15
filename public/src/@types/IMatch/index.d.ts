@@ -73,6 +73,7 @@ export interface IMatch {
 
 export interface IPredictionFormProps {
   isLoaded: boolean;
+  isSuccessSubmit: boolean;
   matches: ISportEvent[];
   handleSubmit(e: any): void;
   handleChange(index: number, compIndex: number, e: any): void;

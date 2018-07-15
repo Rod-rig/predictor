@@ -22,6 +22,6 @@ module.exports = {
   },
   resolve: {
     extensions: ['.ts', '.tsx', '.js', '.json'],
-    modules: ['node_modules', 'img']
+    modules: ['node_modules']
   }
 };

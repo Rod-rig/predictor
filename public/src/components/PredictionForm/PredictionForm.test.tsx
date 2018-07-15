@@ -12,6 +12,7 @@ describe('PredictionForm', () => {
           handleChange: () => ({}),
           handleSubmit: () => ({}),
           isLoaded: false,
+          isSuccessSubmit: false,
           matches: undefined,
         }}
       />);
@@ -25,6 +26,7 @@ describe('PredictionForm', () => {
           handleChange: () => ({}),
           handleSubmit: () => ({}),
           isLoaded: true,
+          isSuccessSubmit: false,
           matches: scheduleMock.sport_events,
         }}
       />);

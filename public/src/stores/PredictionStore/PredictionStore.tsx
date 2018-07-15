@@ -6,6 +6,7 @@ import config from '../../config/config';
 export class PredictionStore implements IPredictionFormProps {
   @observable public matches: ISportEvent[] = [];
   @observable public isLoaded: boolean = false;
+  @observable public isSuccessSubmit: boolean = false;
   public today: string = PredictionStore.getTodayDate;
 
   constructor() {
@@ -14,6 +15,15 @@ export class PredictionStore implements IPredictionFormProps {
 
   public handleSubmit(e: any): void {
     e.preventDefault();
+    axios.post('/predictions', {
+      awayScore: this.matches[0].competitors[1].userPrediction,
+      awayTeam: this.matches[0].competitors[1].name,
+      homeScore: this.matches[0].competitors[0].userPrediction,
+      homeTeam: this.matches[0].competitors[0].name,
+      id: this.matches[0].id,
+    }).then(() => {
+      this.isSuccessSubmit = true;
+    });
   }
 
   public handleChange(index: number, compIndex: number, e: any): void {

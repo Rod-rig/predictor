@@ -1,9 +1,10 @@
 const mongoose = require('mongoose');
 
 const UserSchema = new mongoose.Schema({
-  name: String,
   email: String,
-  password: String
+  name: String,
+  password: String,
+  predictions: Array,
 });
 
 const User = mongoose.model('User', UserSchema);
