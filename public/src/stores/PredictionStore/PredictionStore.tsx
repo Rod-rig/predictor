@@ -1,7 +1,6 @@
 import axios, {AxiosResponse} from 'axios';
 import {observable} from 'mobx';
 import {IPredictionFormProps, ISportEvent} from '../../@types';
-import config from '../../config/config';
 
 export class PredictionStore implements IPredictionFormProps {
   @observable public matches: ISportEvent[] = [];
@@ -31,7 +30,7 @@ export class PredictionStore implements IPredictionFormProps {
   }
 
   private fetchTodayMatches() {
-    axios.get(`${config.apiUrl}/en/schedules/${this.today}/schedule.json?api_key=${config.apiKey}`)
+    axios.get('/api/daily-schedule')
       .then((res: AxiosResponse) => {
         this.matches = res.data.sport_events;
         this.isLoaded = true;
