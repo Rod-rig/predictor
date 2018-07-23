@@ -14,13 +14,18 @@ export class PredictionStore implements IPredictionFormProps {
 
   public handleSubmit(e: any): void {
     e.preventDefault();
-    axios.post('/predictions', {
-      awayScore: this.matches[0].competitors[1].userPrediction,
-      awayTeam: this.matches[0].competitors[1].name,
-      homeScore: this.matches[0].competitors[0].userPrediction,
-      homeTeam: this.matches[0].competitors[0].name,
-      id: this.matches[0].id,
-    }).then(() => {
+    const validatedMatches = this.matches.filter((match: ISportEvent) => {
+      return match.competitors[0].userPrediction >= 0 && match.competitors[1].userPrediction >= 0;
+    }).map((match) => {
+      return {
+        awayScore: match.competitors[1].userPrediction,
+        awayTeam: match.competitors[1].name,
+        homeScore: match.competitors[0].userPrediction,
+        homeTeam: match.competitors[0].name,
+        id: match.id,
+      };
+    });
+    axios.post('/predictions', validatedMatches).then(() => {
       this.isSuccessSubmit = true;
     });
   }

@@ -32,7 +32,7 @@ export const MatchList = withStyles(styles)(observer(class extends React.Compone
     return store.isLoaded ? (
       <List disablePadding={true}>
         {
-          store.list.map((item: IMatch, index: number, list: any) => {
+          store.list.map((item: IMatch, index: number, list: IMatch[]) => {
             const stat = {
               awayScore: item.sport_event_status.away_score,
               awayTeam: item.sport_event.competitors[1].name,

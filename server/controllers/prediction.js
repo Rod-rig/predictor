@@ -10,16 +10,9 @@ module.exports.all = (req, res) => {
 };
 
 module.exports.create = (req, res) => {
-  const q = {
-    id: req.body.id,
-    awayScore: req.body.awayScore,
-    awayTeam: req.body.awayTeam,
-    homeScore: req.body.homeScore,
-    homeTeam: req.body.homeTeam,
-  };
   User.findOne({name: 'admin'}, (err, user) => {
     if (err) return res.send(500).send('Did not find current user');
-    user.predictions.push(q);
+    user.predictions.push(...req.body);
     user.save((err) => {
       if (err) return res.send(500).send('Did not save prediction');
     });
