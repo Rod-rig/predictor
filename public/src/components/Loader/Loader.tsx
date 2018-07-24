@@ -1,6 +1,4 @@
+import {CircularProgress} from '@material-ui/core';
 import * as React from 'react';
-import {dict} from '../../dict';
 
-export const Loader = () => (
-  <div>{dict.loadingMsg}</div>
-);
+export const Loader = () => <CircularProgress/>;

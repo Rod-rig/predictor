@@ -13,5 +13,6 @@ module.exports = (app) => {
 
   //predictions
   app.get('/predictions', predictionController.all);
+  app.get('/available-predictions', predictionController.getAvailablePredictions);
   app.post('/predictions', predictionController.create);
 };

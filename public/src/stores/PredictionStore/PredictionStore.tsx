@@ -35,9 +35,9 @@ export class PredictionStore implements IPredictionFormProps {
   }
 
   private fetchTodayMatches() {
-    axios.get('/api/daily-schedule')
+    axios.get('/available-predictions')
       .then((res: AxiosResponse) => {
-        this.matches = res.data.sport_events;
+        this.matches = res.data;
         this.isLoaded = true;
       });
   }

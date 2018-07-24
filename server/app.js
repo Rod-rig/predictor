@@ -1,21 +1,21 @@
 const express = require('express');
-const webpack = require('webpack');
+// const webpack = require('webpack');
 const bodyParser = require('body-parser');
-const webpackDevMiddleware = require('webpack-dev-middleware');
-const webpackConfig = require('../webpack.dev.config.js');
+// const webpackDevMiddleware = require('webpack-dev-middleware');
+// const webpackConfig = require('../webpack.dev.config.js');
 const router = require('./router');
 const db = require('./db');
 const config = require('./config/config');
 
 const app = express();
-const compiler = webpack(webpackConfig);
+// const compiler = webpack(webpackConfig);
 
 // initialize middleware
 app.use(bodyParser.urlencoded({extended: true}));
 app.use(bodyParser.json());
-app.use(webpackDevMiddleware(compiler, {
-  publicPath: webpackConfig.output.publicPath
-}));
+// app.use(webpackDevMiddleware(compiler, {
+//   publicPath: webpackConfig.output.publicPath
+// }));
 
 app.use(express.static('public'));
 
