@@ -1,5 +1,4 @@
 const axios = require('axios');
-const circularJSON = require('circular-json');
 const config = require('../config/config');
 const User = require('../models/user');
 const msg = require('../messages/index');
@@ -12,11 +11,11 @@ module.exports.all = (req, res) => {
 };
 
 module.exports.getAvailablePredictions = (req, res) => {
-  axios.get(`${config.url}:${config.port}/api/daily-schedule`)
-    .then((data) => {
+  axios.get(`${config.url}:${config.port}/api/eng-daily-schedule`)
+    .then((response) => {
       User.findOne({name: 'admin'}, (err, user) => {
         if (err) return res.status(500).send('Cannot get all predictions');
-        const sportEvents = data.data.sport_events;
+        const sportEvents = response.data;
         const ids = user.predictions.map((prediction) => {
           return prediction.id;
         });

@@ -5,6 +5,7 @@ const apiController = require('./controllers/api');
 module.exports = (app) => {
   //api
   app.get('/api/daily-schedule', apiController.all);
+  app.get('/api/eng-daily-schedule', apiController.getEngDailySchedule);
 
   //users
   app.get('/users', userController.all);
