@@ -1,7 +1,6 @@
 import axios, {AxiosResponse} from 'axios';
 import {computed, observable} from 'mobx';
 import {IMatch, IMatchList, IMatchListProps} from '../../@types';
-import config from '../../config/config';
 
 export class MatchListStore implements IMatchList {
   public id: string;
@@ -25,6 +24,6 @@ export class MatchListStore implements IMatchList {
 
   @computed
   private get matchListUrl(): string {
-    return `${config.apiUrl}/en/tournaments/${this.id}/results.json?api_key=${config.apiKey}`;
+    return `/api/results/${this.id}`;
   }
 }

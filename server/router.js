@@ -4,6 +4,9 @@ const apiController = require('./controllers/api');
 
 module.exports = (app) => {
   //api
+  app.get('/api/tournaments', apiController.getAllTournaments);
+  app.get('/api/standings/:id', apiController.getStandings);
+  app.get('/api/results/:id', apiController.getResults);
   app.get('/api/daily-schedule', apiController.all);
   app.get('/api/eng-daily-schedule', apiController.getEngDailySchedule);
 

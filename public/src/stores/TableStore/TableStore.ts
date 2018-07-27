@@ -1,7 +1,6 @@
 import axios, {AxiosResponse} from 'axios';
 import {action, observable} from 'mobx';
 import {IGroup, ITable, ITableProps, OrderType, RangeType} from '../../@types';
-import config from '../../config/config';
 import {rangeData} from '../../helpers';
 
 export class TableStore implements ITable {
@@ -19,7 +18,7 @@ export class TableStore implements ITable {
     this.order = props.order;
     this.range = props.range;
     this.sortName = props.sortName;
-    this.url = `${config.apiUrl}/en/tournaments/${props.id}/standings.json?api_key=${config.apiKey}`;
+    this.url = `/api/standings/${props.id}`;
     this.fetchTable();
   }
 
