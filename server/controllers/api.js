@@ -36,11 +36,11 @@ module.exports.all = (req, res) => {
     });
 };
 
-module.exports.getEngDailySchedule = (req, res) => {
+module.exports.getDailyScheduleByTournamentId = (req, res) => {
   axios.get(`${config.apiUrl}/en/schedules/2018-08-11/schedule.json?api_key=${config.apiKey}`)
     .then((response) => {
       const engMatches = response.data.sport_events.filter((match) => {
-        return match.tournament.id === 'sr:tournament:17';
+        return match.tournament.id === req.params.id;
       });
       res.status(200).send(engMatches);
     })

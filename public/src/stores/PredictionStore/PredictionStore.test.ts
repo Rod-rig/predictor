@@ -1,7 +1,7 @@
 import {PredictionStore} from './';
 
 describe('PredictionStore', () => {
-  const mockStore = new PredictionStore();
+  const mockStore = new PredictionStore({});
 
   it('should be initialized correctly', () => {
     expect(mockStore).toBeInstanceOf(PredictionStore);

@@ -1,14 +1,19 @@
 import axios, {AxiosResponse} from 'axios';
 import {observable} from 'mobx';
-import {IPredictionFormProps, ISportEvent} from '../../@types';
+import {parse} from 'query-string';
+import {IPredictionStore, ISportEvent} from '../../@types';
 
-export class PredictionStore implements IPredictionFormProps {
+export class PredictionStore implements IPredictionStore {
   @observable public matches: ISportEvent[] = [];
   @observable public isLoaded: boolean = false;
   @observable public isSuccessSubmit: boolean = false;
-  public today: string = PredictionStore.getTodayDate;
+  public filter: any;
+  // public today: string = PredictionStore.getTodayDate;
 
-  constructor() {
+  constructor(props: {
+    filter?: string;
+  }) {
+    this.filter = parse(props.filter);
     this.fetchTodayMatches();
   }
 
@@ -35,18 +40,18 @@ export class PredictionStore implements IPredictionFormProps {
   }
 
   private fetchTodayMatches() {
-    axios.get('/available-predictions')
+    axios.get(`/available-predictions/${this.filter.tournamentId}`)
       .then((res: AxiosResponse) => {
         this.matches = res.data;
         this.isLoaded = true;
       });
   }
 
-  public static get getTodayDate(): string {
-    const today: Date = new Date();
-    const year = today.getFullYear();
-    const month = today.getMonth() + 1 < 10 ? `0${today.getMonth() + 1}` : today.getMonth() + 1;
-    const day = today.getDate() < 10 ? `0${today.getDate()}` : today.getDate();
-    return `${year}-${month}-${day}`;
-  }
+  // public static get getTodayDate(): string {
+  //   const today: Date = new Date();
+  //   const year = today.getFullYear();
+  //   const month = today.getMonth() + 1 < 10 ? `0${today.getMonth() + 1}` : today.getMonth() + 1;
+  //   const day = today.getDate() < 10 ? `0${today.getDate()}` : today.getDate();
+  //   return `${year}-${month}-${day}`;
+  // }
 }

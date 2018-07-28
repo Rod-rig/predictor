@@ -11,7 +11,7 @@ module.exports.all = (req, res) => {
 };
 
 module.exports.getAvailablePredictions = (req, res) => {
-  axios.get(`${config.url}:${config.port}/api/eng-daily-schedule`)
+  axios.get(`${config.url}:${config.port}/api/tournament-daily-schedule/${req.params.id}`)
     .then((response) => {
       User.findOne({name: 'admin'}, (err, user) => {
         if (err) return res.status(500).send('Cannot get all predictions');

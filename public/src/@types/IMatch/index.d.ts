@@ -71,7 +71,8 @@ export interface IMatch {
   sport_event_status: ISportEventStatus;
 }
 
-export interface IPredictionFormProps {
+export interface IPredictionStore {
+  filter?: any;
   isLoaded: boolean;
   isSuccessSubmit: boolean;
   matches: ISportEvent[];

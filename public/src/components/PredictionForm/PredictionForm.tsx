@@ -13,7 +13,7 @@ import {
 import {observer} from 'mobx-react';
 import * as React from 'react';
 import {Loader} from '../';
-import {IPredictionFormProps, ISportEvent} from '../../@types';
+import {IPredictionStore, ISportEvent} from '../../@types';
 import {dict} from '../../dict';
 
 const styles = ({palette, spacing}: Theme) => createStyles({
@@ -51,12 +51,12 @@ const styles = ({palette, spacing}: Theme) => createStyles({
 });
 
 interface IProps extends WithStyles<typeof styles> {
-  store: IPredictionFormProps;
+  store: IPredictionStore;
 }
 
 export const PredictionForm = withStyles(styles)(observer((props: IProps) => {
   const {classes, store} = props;
-  return store.isLoaded && !store.isSuccessSubmit ? (
+  return store.isLoaded && !store.isSuccessSubmit && store.matches.length > 0 ? (
     <form autoComplete='off' onSubmit={store.handleSubmit.bind(store)}>
       <List>
         {store.matches.map((item: ISportEvent, index: number) => {

@@ -1,8 +1,8 @@
 import {CssBaseline, Theme, withStyles} from '@material-ui/core';
 import * as React from 'react';
-import {HashRouter, match, Route, Switch} from 'react-router-dom';
+import {HashRouter, match, Route, RouteProps, Switch} from 'react-router-dom';
 import {Header, MatchList, Nav, NotFound, Palette, PredictionForm, TableView, TournamentList} from '../';
-import {IMatchListProps, ITableProps} from '../../@types';
+import {IMatchListProps, IPredictionStore, ITableProps} from '../../@types';
 import {MatchListStore, PredictionStore, TableStore, TournamentListStore} from '../../stores';
 
 type IId = match<{ id: string }>;
@@ -52,9 +52,11 @@ const fixtures = (props: IMatchListProps & { match: IId }) => (
 );
 
 /* istanbul ignore next */
-const predictions = () => (
+const predictions = (props: IPredictionStore & RouteProps) => (
   <PredictionForm
-    store={new PredictionStore()}
+    store={new PredictionStore({
+      filter: props.location.search,
+    })}
   />
 );
 
@@ -78,7 +80,7 @@ const routes = [
   },
   {
     component: predictions,
-    path: '/prediction',
+    path: '/predictions',
   },
   {
     component: NotFound,
