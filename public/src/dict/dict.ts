@@ -11,6 +11,7 @@ export interface IDict {
   prediction: string;
   rank: string;
   results: string;
+  sidebarMenuPrediction: string;
   submit_btn_text: string;
   team: string;
   tournamentCardMore: string;
@@ -30,6 +31,7 @@ export const dict: IDict = {
   prediction: 'Prediction',
   rank: 'rank',
   results: 'Results',
+  sidebarMenuPrediction: 'Predictions',
   submit_btn_text: 'Submit',
   team: 'team',
   tournamentCardMore: 'Learn more',

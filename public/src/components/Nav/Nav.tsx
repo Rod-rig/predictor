@@ -29,7 +29,7 @@ const NavElement = (props?: any) => {
         <Link className={classes.link} to={`/results/${match.params.id}`}>{dict.results}</Link>
       </Typography>
       <Typography className={classes.title} variant='title'>
-        <Link className={classes.link} to={`/predictions?tournamentId=${match.params.id}`}>{dict.prediction}</Link>
+        <Link className={classes.link} to={`/predictions?tournament_id=${match.params.id}`}>{dict.prediction}</Link>
       </Typography>
     </React.Fragment>
   );

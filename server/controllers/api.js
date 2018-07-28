@@ -39,10 +39,10 @@ module.exports.all = (req, res) => {
 module.exports.getDailyScheduleByTournamentId = (req, res) => {
   axios.get(`${config.apiUrl}/en/schedules/2018-08-11/schedule.json?api_key=${config.apiKey}`)
     .then((response) => {
-      const engMatches = response.data.sport_events.filter((match) => {
-        return match.tournament.id === req.params.id;
-      });
-      res.status(200).send(engMatches);
+      const matches = req.query.tournament_id !== 'undefined' ? response.data.sport_events.filter((match) => {
+        return match.tournament.id === req.query.tournament_id;
+      }) : response.data.sport_events;
+      res.status(200).send(matches);
     })
     .catch((err) => {
       console.log(err);

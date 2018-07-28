@@ -40,7 +40,10 @@ export class PredictionStore implements IPredictionStore {
   }
 
   private fetchTodayMatches() {
-    axios.get(`/available-predictions/${this.filter.tournamentId}`)
+    const baseUrl = '/available-predictions';
+    const {tournament_id} = this.filter;
+    const url = tournament_id ? `${baseUrl}?tournament_id=${tournament_id}` : baseUrl;
+    axios.get(url)
       .then((res: AxiosResponse) => {
         this.matches = res.data;
         this.isLoaded = true;

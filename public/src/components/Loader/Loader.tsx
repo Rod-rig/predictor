@@ -12,8 +12,6 @@ const styles = ({spacing}: Theme) => createStyles({
   },
 });
 
-interface IProps extends WithStyles<typeof styles> {}
-
-export const Loader = withStyles(styles)((props: IProps) => (
+export const Loader = withStyles(styles)((props: any) => (
   <CircularProgress classes={{root: props.classes.root}}/>
 ));

@@ -26,8 +26,7 @@ interface IProps extends WithStyles<typeof styles> {
 
 export const TableView = withStyles(styles)(observer(class extends React.Component<IProps, {}> {
   public render() {
-    const store = this.props.store;
-    const {classes} = this.props;
+    const {classes, store} = this.props;
 
     return store.isLoaded ? (
       store.table.map((group: IGroup, key: number) => {
