@@ -1,5 +1,5 @@
 import {AppBar, IconButton, Theme, Toolbar, withStyles, withTheme} from '@material-ui/core';
-import {Menu} from '@material-ui/icons';
+import Menu from '@material-ui/icons/Menu';
 import * as React from 'react';
 import {Logo} from '../';
 
