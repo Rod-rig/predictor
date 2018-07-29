@@ -7,8 +7,9 @@ export class PredictionStore implements IPredictionStore {
   @observable public matches: ISportEvent[] = [];
   @observable public isLoaded: boolean = false;
   @observable public isSuccessSubmit: boolean = false;
-  public filter: any;
-  // public today: string = PredictionStore.getTodayDate;
+  public filter: {
+    tournament_id?: string;
+  };
 
   constructor(props: {
     filter?: string;
@@ -40,16 +41,19 @@ export class PredictionStore implements IPredictionStore {
   }
 
   private fetchTodayMatches() {
-    const baseUrl = '/available-predictions';
     const {tournament_id} = this.filter;
-    const url = tournament_id ? `${baseUrl}?tournament_id=${tournament_id}` : baseUrl;
-    axios.get(url)
+    axios.get('/available-predictions')
       .then((res: AxiosResponse) => {
-        this.matches = res.data;
+        this.matches = tournament_id ? this.filterMatches(res.data) : res.data;
         this.isLoaded = true;
       });
   }
 
+  private filterMatches(matches: ISportEvent[]) {
+    return matches.filter((match: ISportEvent) => {
+      return match.tournament.id === this.filter.tournament_id;
+    });
+  }
   // public static get getTodayDate(): string {
   //   const today: Date = new Date();
   //   const year = today.getFullYear();

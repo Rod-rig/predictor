@@ -7,8 +7,7 @@ module.exports = (app) => {
   app.get('/api/tournaments', apiController.getAllTournaments);
   app.get('/api/standings/:id', apiController.getStandings);
   app.get('/api/results/:id', apiController.getResults);
-  app.get('/api/daily-schedule', apiController.all);
-  app.get('/api/tournament-daily-schedule', apiController.getDailyScheduleByTournamentId);
+  app.get('/api/schedule', apiController.getSchedule);
 
   //users
   app.get('/users', userController.all);
@@ -17,7 +16,6 @@ module.exports = (app) => {
 
   //predictions
   app.get('/predictions', predictionController.all);
-  //queries: ?tournamentId
   app.get('/available-predictions', predictionController.getAvailablePredictions);
   app.post('/predictions', predictionController.create);
 };

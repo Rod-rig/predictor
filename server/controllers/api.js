@@ -26,23 +26,10 @@ module.exports.getResults = (req, res) => {
     });
 };
 
-module.exports.all = (req, res) => {
+module.exports.getSchedule = (req, res) => {
   axios.get(`${config.apiUrl}/en/schedules/2018-08-11/schedule.json?api_key=${config.apiKey}`)
     .then((response) => {
-      res.status(200).send(circularJSON.stringify(response.data));
-    })
-    .catch((err) => {
-      console.log(err);
-    });
-};
-
-module.exports.getDailyScheduleByTournamentId = (req, res) => {
-  axios.get(`${config.apiUrl}/en/schedules/2018-08-11/schedule.json?api_key=${config.apiKey}`)
-    .then((response) => {
-      const matches = req.query.tournament_id !== 'undefined' ? response.data.sport_events.filter((match) => {
-        return match.tournament.id === req.query.tournament_id;
-      }) : response.data.sport_events;
-      res.status(200).send(matches);
+      res.status(200).send(response.data.sport_events);
     })
     .catch((err) => {
       console.log(err);
