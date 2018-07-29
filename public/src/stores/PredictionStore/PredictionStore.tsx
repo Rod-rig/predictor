@@ -7,6 +7,7 @@ export class PredictionStore implements IPredictionStore {
   @observable public matches: ISportEvent[] = [];
   @observable public isLoaded: boolean = false;
   @observable public isSuccessSubmit: boolean = false;
+  public dates: string[] = [];
   public filter: {
     tournament_id?: string;
   };
@@ -15,6 +16,7 @@ export class PredictionStore implements IPredictionStore {
     filter?: string;
   }) {
     this.filter = parse(props.filter);
+    this.dates = this.getFutureDates();
     this.fetchTodayMatches();
   }
 
@@ -40,6 +42,18 @@ export class PredictionStore implements IPredictionStore {
     this.matches[index].competitors[compIndex].userPrediction = +e.target.value;
   }
 
+  public getFutureDates(): string[] {
+    const dates = this.dates;
+    const today: Date = new Date();
+    for (let i = 0; i < 7; i++) {
+      const year = today.getFullYear();
+      const month = today.getMonth() + 1 < 10 ? `0${today.getMonth() + 1}` : today.getMonth() + 1;
+      const day = today.getDate() + i < 10 ? `0${today.getDate() + i}` : today.getDate() + i;
+      dates.push(`${year}-${month}-${day}`);
+    }
+    return dates;
+  }
+
   private fetchTodayMatches() {
     const {tournament_id} = this.filter;
     axios.get('/available-predictions')
@@ -54,11 +68,4 @@ export class PredictionStore implements IPredictionStore {
       return match.tournament.id === this.filter.tournament_id;
     });
   }
-  // public static get getTodayDate(): string {
-  //   const today: Date = new Date();
-  //   const year = today.getFullYear();
-  //   const month = today.getMonth() + 1 < 10 ? `0${today.getMonth() + 1}` : today.getMonth() + 1;
-  //   const day = today.getDate() < 10 ? `0${today.getDate()}` : today.getDate();
-  //   return `${year}-${month}-${day}`;
-  // }
 }

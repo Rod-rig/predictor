@@ -72,6 +72,7 @@ export interface IMatch {
 }
 
 export interface IPredictionStore {
+  dates?: string[];
   filter?: any;
   isLoaded: boolean;
   isSuccessSubmit: boolean;
