@@ -73,9 +73,8 @@ export interface IMatch {
 
 export interface IPredictionStore {
   currentDate: string;
-  dates?: string[];
+  dates: string[];
   filter?: any;
-  futureDates: string[];
   isLoaded: boolean;
   isSuccessSubmit: boolean;
   matches: ISportEvent[];

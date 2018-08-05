@@ -16,7 +16,8 @@ import {IPredictionStore} from '../../@types';
 
 const styles = ({spacing}: Theme) => createStyles({
   btn: {
-    textAlign: 'center',
+    paddingBottom: spacing.unit * 1.5,
+    paddingTop: spacing.unit * 1.5,
   },
   btnIcon: {
     marginRight: spacing.unit,
@@ -26,6 +27,7 @@ const styles = ({spacing}: Theme) => createStyles({
     width: '20%',
   },
   wrap: {
+    alignItems: 'center',
     display: 'flex',
   },
 });
@@ -57,15 +59,13 @@ export const PredictionFilter = withStyles(styles)(observer(class extends React.
                 name: 'date',
               }}
             >
-              <MenuItem key={'None'} value={''}><em>None</em></MenuItem>
-              {store.futureDates.map((item: string) => (
-                <MenuItem key={item} value={item}>{item}</MenuItem>
-              ))}
+              {store.dates.map((item: string) => {
+                const date = item.split('-').reverse().join('.');
+                return <MenuItem key={item} value={item}>{date}</MenuItem>;
+              })}
             </Select>
           </FormControl>
-        </div>
-        <div className={classes.btn}>
-          <Button size='small' onClick={refreshMatches} variant='contained' color='secondary'>
+          <Button className={classes.btn} size='small' onClick={refreshMatches} variant='contained' color='secondary'>
             <FilterList className={classes.btnIcon}/>
             Filter
           </Button>

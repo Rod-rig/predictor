@@ -76404,7 +76404,8 @@ var styles = function (_a) {
     var spacing = _a.spacing;
     return core_1.createStyles({
         btn: {
-            textAlign: 'center',
+            paddingBottom: spacing.unit * 1.5,
+            paddingTop: spacing.unit * 1.5,
         },
         btnIcon: {
             marginRight: spacing.unit,
@@ -76414,6 +76415,7 @@ var styles = function (_a) {
             width: '20%',
         },
         wrap: {
+            alignItems: 'center',
             display: 'flex',
         },
     });
@@ -76438,12 +76440,11 @@ exports.PredictionFilter = core_1.withStyles(styles)(mobx_react_1.observer(/** @
                     React.createElement(core_1.Select, { value: store.currentDate, onChange: handleChange, inputProps: {
                             id: 'date',
                             name: 'date',
-                        } },
-                        React.createElement(core_1.MenuItem, { key: 'None', value: '' },
-                            React.createElement("em", null, "None")),
-                        store.futureDates.map(function (item) { return (React.createElement(core_1.MenuItem, { key: item, value: item }, item)); })))),
-            React.createElement("div", { className: classes.btn },
-                React.createElement(core_1.Button, { size: 'small', onClick: refreshMatches, variant: 'contained', color: 'secondary' },
+                        } }, store.dates.map(function (item) {
+                        var date = item.split('-').reverse().join('.');
+                        return React.createElement(core_1.MenuItem, { key: item, value: item }, date);
+                    }))),
+                React.createElement(core_1.Button, { className: classes.btn, size: 'small', onClick: refreshMatches, variant: 'contained', color: 'secondary' },
                     React.createElement(FilterList_1.default, { className: classes.btnIcon }),
                     "Filter"))));
     };
@@ -77109,6 +77110,49 @@ __export(__webpack_require__(/*! ./dict */ "./public/src/dict/dict.ts"));
 
 /***/ }),
 
+/***/ "./public/src/helpers/getFutureDates/getFutureDates.ts":
+/*!*************************************************************!*\
+  !*** ./public/src/helpers/getFutureDates/getFutureDates.ts ***!
+  \*************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+Object.defineProperty(exports, "__esModule", { value: true });
+exports.getFutureDates = function () {
+    var dates = [];
+    var today = new Date();
+    for (var i = 0; i < 7; i++) {
+        var year = today.getFullYear();
+        var month = today.getMonth() + 1 < 10 ? "0" + (today.getMonth() + 1) : today.getMonth() + 1;
+        var day = today.getDate() + i < 10 ? "0" + (today.getDate() + i) : today.getDate() + i;
+        dates.push(year + "-" + month + "-" + day);
+    }
+    return dates;
+};
+
+
+/***/ }),
+
+/***/ "./public/src/helpers/getFutureDates/index.ts":
+/*!****************************************************!*\
+  !*** ./public/src/helpers/getFutureDates/index.ts ***!
+  \****************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+function __export(m) {
+    for (var p in m) if (!exports.hasOwnProperty(p)) exports[p] = m[p];
+}
+Object.defineProperty(exports, "__esModule", { value: true });
+__export(__webpack_require__(/*! ./getFutureDates */ "./public/src/helpers/getFutureDates/getFutureDates.ts"));
+
+
+/***/ }),
+
 /***/ "./public/src/helpers/index.ts":
 /*!*************************************!*\
   !*** ./public/src/helpers/index.ts ***!
@@ -77123,6 +77167,7 @@ function __export(m) {
 }
 Object.defineProperty(exports, "__esModule", { value: true });
 __export(__webpack_require__(/*! ./rangeData */ "./public/src/helpers/rangeData/index.ts"));
+__export(__webpack_require__(/*! ./getFutureDates */ "./public/src/helpers/getFutureDates/index.ts"));
 
 
 /***/ }),
@@ -77286,14 +77331,15 @@ Object.defineProperty(exports, "__esModule", { value: true });
 var axios_1 = __webpack_require__(/*! axios */ "./node_modules/axios/index.js");
 var mobx_1 = __webpack_require__(/*! mobx */ "./node_modules/mobx/lib/mobx.module.js");
 var query_string_1 = __webpack_require__(/*! query-string */ "./node_modules/query-string/index.js");
+var helpers_1 = __webpack_require__(/*! ../../helpers */ "./public/src/helpers/index.ts");
 var PredictionStore = /** @class */ (function () {
     function PredictionStore(props) {
         this.matches = [];
         this.isLoaded = false;
         this.isSuccessSubmit = false;
         this.filter = query_string_1.parse(props.filter);
-        this.currentDate = this.getFutureDates()[0];
-        this.futureDates = this.getFutureDates();
+        this.dates = helpers_1.getFutureDates();
+        this.currentDate = this.dates[0];
         this.fetchMatches();
     }
     Object.defineProperty(PredictionStore.prototype, "apiPredictionUrl", {
@@ -77323,17 +77369,6 @@ var PredictionStore = /** @class */ (function () {
     };
     PredictionStore.prototype.handleChange = function (index, compIndex, e) {
         this.matches[index].competitors[compIndex].userPrediction = +e.target.value;
-    };
-    PredictionStore.prototype.getFutureDates = function () {
-        var dates = [];
-        var today = new Date();
-        for (var i = 0; i < 7; i++) {
-            var year = today.getFullYear();
-            var month = today.getMonth() + 1 < 10 ? "0" + (today.getMonth() + 1) : today.getMonth() + 1;
-            var day = today.getDate() + i < 10 ? "0" + (today.getDate() + i) : today.getDate() + i;
-            dates.push(year + "-" + month + "-" + day);
-        }
-        return dates;
     };
     PredictionStore.prototype.fetchMatches = function () {
         var _this = this;

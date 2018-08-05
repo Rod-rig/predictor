@@ -10,8 +10,8 @@ describe('PredictionForm', () => {
       <Prediction
         store={{
           currentDate: '',
+          dates: [],
           fetchMatches: () => ({}),
-          futureDates: [],
           handleChange: () => ({}),
           handleSubmit: () => ({}),
           isLoaded: false,
@@ -28,8 +28,8 @@ describe('PredictionForm', () => {
       <Prediction
         store={{
           currentDate: '',
+          dates: [],
           fetchMatches: () => ({}),
-          futureDates: [],
           handleChange: () => ({}),
           handleSubmit: () => ({}),
           isLoaded: true,

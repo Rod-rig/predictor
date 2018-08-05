@@ -2,13 +2,14 @@ import axios, {AxiosResponse} from 'axios';
 import {computed, observable} from 'mobx';
 import {parse} from 'query-string';
 import {IPredictionStore, ISportEvent} from '../../@types';
+import {getFutureDates} from '../../helpers';
 
 export class PredictionStore implements IPredictionStore {
   @observable public matches: ISportEvent[] = [];
   @observable public isLoaded: boolean = false;
   @observable public isSuccessSubmit: boolean = false;
   @observable public currentDate: string;
-  public futureDates: string[];
+  public dates: string[];
 
   public filter: {
     tournament_id?: string;
@@ -18,8 +19,8 @@ export class PredictionStore implements IPredictionStore {
     filter?: string;
   }) {
     this.filter = parse(props.filter);
-    this.currentDate = this.getFutureDates()[0];
-    this.futureDates = this.getFutureDates();
+    this.dates = getFutureDates();
+    this.currentDate = this.dates[0];
     this.fetchMatches();
   }
 
@@ -47,18 +48,6 @@ export class PredictionStore implements IPredictionStore {
 
   public handleChange(index: number, compIndex: number, e: any): void {
     this.matches[index].competitors[compIndex].userPrediction = +e.target.value;
-  }
-
-  public getFutureDates(): string[] {
-    const dates = [];
-    const today: Date = new Date();
-    for (let i = 0; i < 7; i++) {
-      const year = today.getFullYear();
-      const month = today.getMonth() + 1 < 10 ? `0${today.getMonth() + 1}` : today.getMonth() + 1;
-      const day = today.getDate() + i < 10 ? `0${today.getDate() + i}` : today.getDate() + i;
-      dates.push(`${year}-${month}-${day}`);
-    }
-    return dates;
   }
 
   public fetchMatches() {
