@@ -27,7 +27,7 @@ module.exports.getResults = (req, res) => {
 };
 
 module.exports.getSchedule = (req, res) => {
-  axios.get(`${config.apiUrl}/en/schedules/2018-08-11/schedule.json?api_key=${config.apiKey}`)
+  axios.get(`${config.apiUrl}/en/schedules/${req.params.date}/schedule.json?api_key=${config.apiKey}`)
     .then((response) => {
       res.status(200).send(response.data.sport_events);
     })

@@ -10,10 +10,9 @@ import {
   withStyles,
 } from '@material-ui/core';
 import FilterList from '@material-ui/icons/FilterList';
-import {observable} from 'mobx';
 import {observer} from 'mobx-react';
 import * as React from 'react';
-import {Link} from 'react-router-dom';
+import {IPredictionStore} from '../../@types';
 
 const styles = ({spacing}: Theme) => createStyles({
   btn: {
@@ -32,17 +31,17 @@ const styles = ({spacing}: Theme) => createStyles({
 });
 
 interface IDatePickerProps extends WithStyles<typeof styles> {
-  dates: string[];
+  store: IPredictionStore;
 }
 
 export const PredictionFilter = withStyles(styles)(observer(class extends React.Component<IDatePickerProps, {}> {
-  public date = observable.box('');
-
   public render() {
-    const {classes, dates} = this.props;
-    const FilterBtn = (elProps: any) => <Link to={`/`} {...elProps}/>;
+    const {classes, store} = this.props;
+    const refreshMatches = () => {
+      store.fetchMatches();
+    };
     const handleChange = (event: any) => {
-      this.date.set(event.target.value);
+      store.setCurrentDate(event.target.value);
     };
 
     return (
@@ -51,7 +50,7 @@ export const PredictionFilter = withStyles(styles)(observer(class extends React.
           <FormControl className={classes.control}>
             <InputLabel htmlFor='date'>Date</InputLabel>
             <Select
-              value={this.date.get()}
+              value={store.currentDate}
               onChange={handleChange}
               inputProps={{
                 id: 'date',
@@ -59,14 +58,14 @@ export const PredictionFilter = withStyles(styles)(observer(class extends React.
               }}
             >
               <MenuItem key={'None'} value={''}><em>None</em></MenuItem>
-              {dates.map((item: string) => (
+              {store.futureDates.map((item: string) => (
                 <MenuItem key={item} value={item}>{item}</MenuItem>
               ))}
             </Select>
           </FormControl>
         </div>
         <div className={classes.btn}>
-          <Button size='small' component={FilterBtn} variant='contained' color='secondary'>
+          <Button size='small' onClick={refreshMatches} variant='contained' color='secondary'>
             <FilterList className={classes.btnIcon}/>
             Filter
           </Button>

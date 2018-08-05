@@ -1,5 +1,5 @@
 import axios, {AxiosResponse} from 'axios';
-import {observable} from 'mobx';
+import {computed, observable} from 'mobx';
 import {parse} from 'query-string';
 import {IPredictionStore, ISportEvent} from '../../@types';
 
@@ -7,7 +7,9 @@ export class PredictionStore implements IPredictionStore {
   @observable public matches: ISportEvent[] = [];
   @observable public isLoaded: boolean = false;
   @observable public isSuccessSubmit: boolean = false;
-  public dates: string[] = [];
+  @observable public currentDate: string;
+  public futureDates: string[];
+
   public filter: {
     tournament_id?: string;
   };
@@ -16,8 +18,13 @@ export class PredictionStore implements IPredictionStore {
     filter?: string;
   }) {
     this.filter = parse(props.filter);
-    this.dates = this.getFutureDates();
-    this.fetchTodayMatches();
+    this.currentDate = this.getFutureDates()[0];
+    this.futureDates = this.getFutureDates();
+    this.fetchMatches();
+  }
+
+  @computed get apiPredictionUrl() {
+    return `/available-predictions/${this.currentDate}`;
   }
 
   public handleSubmit(e: any): void {
@@ -43,7 +50,7 @@ export class PredictionStore implements IPredictionStore {
   }
 
   public getFutureDates(): string[] {
-    const dates = this.dates;
+    const dates = [];
     const today: Date = new Date();
     for (let i = 0; i < 7; i++) {
       const year = today.getFullYear();
@@ -54,13 +61,18 @@ export class PredictionStore implements IPredictionStore {
     return dates;
   }
 
-  private fetchTodayMatches() {
+  public fetchMatches() {
     const {tournament_id} = this.filter;
-    axios.get('/available-predictions')
+    this.isLoaded ? this.isLoaded = false : this.isLoaded = true;
+    axios.get(this.apiPredictionUrl)
       .then((res: AxiosResponse) => {
         this.matches = tournament_id ? this.filterMatches(res.data) : res.data;
         this.isLoaded = true;
       });
+  }
+
+  public setCurrentDate(date: string) {
+    this.currentDate = date;
   }
 
   private filterMatches(matches: ISportEvent[]) {

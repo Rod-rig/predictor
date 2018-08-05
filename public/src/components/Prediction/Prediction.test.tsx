@@ -9,11 +9,15 @@ describe('PredictionForm', () => {
     const notRenderedComp = mount(
       <Prediction
         store={{
+          currentDate: '',
+          fetchMatches: () => ({}),
+          futureDates: [],
           handleChange: () => ({}),
           handleSubmit: () => ({}),
           isLoaded: false,
           isSuccessSubmit: false,
           matches: undefined,
+          setCurrentDate: () => ({}),
         }}
       />);
     expect(notRenderedComp.find(Loader)).toHaveLength(1);
@@ -23,11 +27,15 @@ describe('PredictionForm', () => {
     const comp = (
       <Prediction
         store={{
+          currentDate: '',
+          fetchMatches: () => ({}),
+          futureDates: [],
           handleChange: () => ({}),
           handleSubmit: () => ({}),
           isLoaded: true,
           isSuccessSubmit: false,
           matches: scheduleMock.sport_events,
+          setCurrentDate: () => ({}),
         }}
       />);
     const tree = renderer.create(comp).toJSON();

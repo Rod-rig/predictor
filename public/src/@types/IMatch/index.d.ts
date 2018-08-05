@@ -72,11 +72,15 @@ export interface IMatch {
 }
 
 export interface IPredictionStore {
+  currentDate: string;
   dates?: string[];
   filter?: any;
+  futureDates: string[];
   isLoaded: boolean;
   isSuccessSubmit: boolean;
   matches: ISportEvent[];
+  fetchMatches(): void;
   handleSubmit(e: any): void;
   handleChange(index: number, compIndex: number, e: any): void;
+  setCurrentDate(date: string): void;
 }

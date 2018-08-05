@@ -58,7 +58,7 @@ const renderForm = (props: IProps) => {
   const {classes, store} = props;
   return (
     <form autoComplete='off' onSubmit={store.handleSubmit.bind(store)}>
-      <PredictionFilter dates={store.dates}/>
+      <PredictionFilter store={store}/>
       <List>
         {store.matches.map((item: ISportEvent, index: number) => {
           return (
