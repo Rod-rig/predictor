@@ -1,6 +1,7 @@
 export * from './Header';
 export * from './Logo';
 export * from './Loader';
+export * from './Login';
 export * from './MatchItem';
 export * from './MatchList';
 export * from './NotFound';

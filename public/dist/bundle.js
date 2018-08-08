@@ -75722,6 +75722,10 @@ var routes = [
         path: '/',
     },
     {
+        component: __1.Login,
+        path: '/login',
+    },
+    {
         component: table,
         path: '/tournament/:id',
     },
@@ -75886,6 +75890,91 @@ function __export(m) {
 }
 Object.defineProperty(exports, "__esModule", { value: true });
 __export(__webpack_require__(/*! ./Loader */ "./public/src/components/Loader/Loader.tsx"));
+
+
+/***/ }),
+
+/***/ "./public/src/components/Login/Login.tsx":
+/*!***********************************************!*\
+  !*** ./public/src/components/Login/Login.tsx ***!
+  \***********************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+var __extends = (this && this.__extends) || (function () {
+    var extendStatics = Object.setPrototypeOf ||
+        ({ __proto__: [] } instanceof Array && function (d, b) { d.__proto__ = b; }) ||
+        function (d, b) { for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p]; };
+    return function (d, b) {
+        extendStatics(d, b);
+        function __() { this.constructor = d; }
+        d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
+    };
+})();
+Object.defineProperty(exports, "__esModule", { value: true });
+var core_1 = __webpack_require__(/*! @material-ui/core */ "./node_modules/@material-ui/core/index.es.js");
+var React = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+var styles = function (_a) {
+    var spacing = _a.spacing;
+    return core_1.createStyles({
+        paper: {
+            margin: spacing.unit,
+            padding: spacing.unit * 3,
+        },
+    });
+};
+exports.Login = core_1.withStyles(styles)(/** @class */ (function (_super) {
+    __extends(class_1, _super);
+    function class_1(props) {
+        var _this = _super.call(this, props) || this;
+        _this.state = {
+            name: '',
+            password: '',
+        };
+        _this.handleChange = _this.handleChange.bind(_this);
+        _this.handleSubmit = _this.handleSubmit.bind(_this);
+        return _this;
+    }
+    class_1.prototype.handleChange = function (name, event) {
+        var _a;
+        this.setState((_a = {},
+            _a[name] = event.target.value,
+            _a));
+    };
+    class_1.prototype.handleSubmit = function (event) {
+        event.preventDefault();
+        console.log(this.state);
+    };
+    class_1.prototype.render = function () {
+        var classes = this.props.classes;
+        return (React.createElement(core_1.Paper, { classes: { root: classes.paper } },
+            React.createElement("form", { onSubmit: this.handleSubmit, autoComplete: 'off' },
+                React.createElement(core_1.TextField, { id: 'name', fullWidth: true, label: 'Name', value: this.state.name, onChange: this.handleChange.bind(this, 'name'), margin: 'normal', autoFocus: true }),
+                React.createElement(core_1.TextField, { id: 'password', fullWidth: true, label: 'Password', value: this.state.password, onChange: this.handleChange.bind(this, 'password'), margin: 'normal', type: 'password' }),
+                React.createElement(core_1.Button, { type: 'submit', variant: 'contained', color: 'secondary' }, "Login"))));
+    };
+    return class_1;
+}(React.Component)));
+
+
+/***/ }),
+
+/***/ "./public/src/components/Login/index.ts":
+/*!**********************************************!*\
+  !*** ./public/src/components/Login/index.ts ***!
+  \**********************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+function __export(m) {
+    for (var p in m) if (!exports.hasOwnProperty(p)) exports[p] = m[p];
+}
+Object.defineProperty(exports, "__esModule", { value: true });
+__export(__webpack_require__(/*! ./Login */ "./public/src/components/Login/Login.tsx"));
 
 
 /***/ }),
@@ -77042,6 +77131,7 @@ Object.defineProperty(exports, "__esModule", { value: true });
 __export(__webpack_require__(/*! ./Header */ "./public/src/components/Header/index.ts"));
 __export(__webpack_require__(/*! ./Logo */ "./public/src/components/Logo/index.ts"));
 __export(__webpack_require__(/*! ./Loader */ "./public/src/components/Loader/index.ts"));
+__export(__webpack_require__(/*! ./Login */ "./public/src/components/Login/index.ts"));
 __export(__webpack_require__(/*! ./MatchItem */ "./public/src/components/MatchItem/index.ts"));
 __export(__webpack_require__(/*! ./MatchList */ "./public/src/components/MatchList/index.ts"));
 __export(__webpack_require__(/*! ./NotFound */ "./public/src/components/NotFound/index.ts"));

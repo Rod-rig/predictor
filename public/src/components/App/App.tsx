@@ -1,7 +1,7 @@
 import {CssBaseline, Theme, withStyles} from '@material-ui/core';
 import * as React from 'react';
 import {HashRouter, match, Route, RouteProps, Switch} from 'react-router-dom';
-import {Header, MatchList, Nav, NotFound, Palette, Prediction, TableView, TournamentList} from '../';
+import {Header, Login, MatchList, Nav, NotFound, Palette, Prediction, TableView, TournamentList} from '../';
 import {IMatchListProps, IPredictionStore, ITableProps} from '../../@types';
 import {MatchListStore, PredictionStore, TableStore, TournamentListStore} from '../../stores';
 
@@ -65,6 +65,10 @@ const routes = [
     component: tournamentList,
     exact: true,
     path: '/',
+  },
+  {
+    component: Login,
+    path: '/login',
   },
   {
     component: table,
