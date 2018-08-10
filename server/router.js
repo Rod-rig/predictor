@@ -12,6 +12,8 @@ module.exports = (app) => {
   //users
   app.get('/users', userController.all);
   app.get('/users/:id', userController.getById);
+  app.post('/login', userController.login);
+  app.get('/is-logged-in', userController.isLoggedIn);
   app.post('/users', userController.create);
 
   //predictions
