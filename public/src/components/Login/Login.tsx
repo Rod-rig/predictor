@@ -1,5 +1,8 @@
 import {Button, createStyles, Paper, TextField, Theme, withStyles} from '@material-ui/core';
+import {observer} from 'mobx-react';
 import * as React from 'react';
+import {Redirect} from 'react-router-dom';
+import {dict} from '../../dict';
 
 const styles = ({spacing}: Theme) => createStyles({
   paper: {
@@ -8,39 +11,18 @@ const styles = ({spacing}: Theme) => createStyles({
   },
 });
 
-export const Login =  withStyles(styles)(class extends React.Component<any, any> {
-  constructor(props: any) {
-    super(props);
-    this.state = {
-      name: '',
-      password: '',
-    };
-    this.handleChange = this.handleChange.bind(this);
-    this.handleSubmit = this.handleSubmit.bind(this);
-  }
-
-  public handleChange(name: string, event: any) {
-    this.setState({
-      [name]: event.target.value,
-    });
-  }
-
-  public handleSubmit(event: any) {
-    event.preventDefault();
-    console.log(this.state);
-  }
-
+export const Login = withStyles(styles)(observer(class extends React.Component<any, any> {
   public render() {
-    const {classes} = this.props;
-    return (
+    const {classes, store} = this.props;
+    return !store.isLoggedIn ? (
       <Paper classes={{root: classes.paper}}>
-        <form onSubmit={this.handleSubmit} autoComplete='off'>
+        <form onSubmit={store.handleSubmit} autoComplete='off'>
           <TextField
             id='name'
             fullWidth={true}
             label='Name'
-            value={this.state.name}
-            onChange={this.handleChange.bind(this, 'name')}
+            value={store.user.name}
+            onChange={store.handleChange.bind(this, 'name')}
             margin='normal'
             autoFocus={true}
           />
@@ -48,16 +30,23 @@ export const Login =  withStyles(styles)(class extends React.Component<any, any>
             id='password'
             fullWidth={true}
             label='Password'
-            value={this.state.password}
-            onChange={this.handleChange.bind(this, 'password')}
+            value={store.user.password}
+            onChange={store.handleChange.bind(this, 'password')}
             margin='normal'
             type='password'
           />
-          <Button type='submit' variant='contained' color='secondary'>
-            Login
+          <Button
+            disabled={store.user.name.length < 1 || store.user.password.length < 1}
+            type='submit'
+            variant='contained'
+            color='secondary'
+          >
+            {dict.login}
           </Button>
         </form>
       </Paper>
+    ) : (
+      <Redirect to='/'/>
     );
   }
-});
+}));

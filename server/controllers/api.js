@@ -1,5 +1,4 @@
 const axios = require('axios');
-const circularJSON = require('circular-json');
 const config = require('../config/config');
 
 module.exports.getAllTournaments = (req, res) => {

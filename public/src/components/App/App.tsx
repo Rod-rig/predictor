@@ -3,7 +3,7 @@ import * as React from 'react';
 import {HashRouter, match, Route, RouteProps, Switch} from 'react-router-dom';
 import {Header, Login, MatchList, Nav, NotFound, Palette, Prediction, TableView, TournamentList} from '../';
 import {IMatchListProps, IPredictionStore, ITableProps} from '../../@types';
-import {MatchListStore, PredictionStore, TableStore, TournamentListStore} from '../../stores';
+import {loginStore, MatchListStore, PredictionStore, TableStore, TournamentListStore} from '../../stores';
 
 type IId = match<{ id: string }>;
 
@@ -60,6 +60,8 @@ const predictions = (props: IPredictionStore & RouteProps) => (
   />
 );
 
+const login = () => <Login store={loginStore}/>;
+
 const routes = [
   {
     component: tournamentList,
@@ -67,7 +69,7 @@ const routes = [
     path: '/',
   },
   {
-    component: Login,
+    component: login,
     path: '/login',
   },
   {

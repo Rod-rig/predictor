@@ -75715,6 +75715,7 @@ var fixtures = function (props) { return (React.createElement(__1.MatchList, __a
 var predictions = function (props) { return (React.createElement(__1.Prediction, { store: new stores_1.PredictionStore({
         filter: props.location.search,
     }) })); };
+var login = function () { return React.createElement(__1.Login, { store: stores_1.loginStore }); };
 var routes = [
     {
         component: tournamentList,
@@ -75722,7 +75723,7 @@ var routes = [
         path: '/',
     },
     {
-        component: __1.Login,
+        component: login,
         path: '/login',
     },
     {
@@ -75780,11 +75781,22 @@ var __extends = (this && this.__extends) || (function () {
         d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
     };
 })();
+var __assign = (this && this.__assign) || Object.assign || function(t) {
+    for (var s, i = 1, n = arguments.length; i < n; i++) {
+        s = arguments[i];
+        for (var p in s) if (Object.prototype.hasOwnProperty.call(s, p))
+            t[p] = s[p];
+    }
+    return t;
+};
 Object.defineProperty(exports, "__esModule", { value: true });
 var core_1 = __webpack_require__(/*! @material-ui/core */ "./node_modules/@material-ui/core/index.es.js");
 var Menu_1 = __webpack_require__(/*! @material-ui/icons/Menu */ "./node_modules/@material-ui/icons/Menu.js");
 var React = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+var react_router_dom_1 = __webpack_require__(/*! react-router-dom */ "./node_modules/react-router-dom/es/index.js");
 var __1 = __webpack_require__(/*! ../ */ "./public/src/components/index.ts");
+var dict_1 = __webpack_require__(/*! ../../dict */ "./public/src/dict/index.ts");
+var stores_1 = __webpack_require__(/*! ../../stores */ "./public/src/stores/index.ts");
 var styles = function (_a) {
     var breakpoints = _a.breakpoints, spacing = _a.spacing;
     var _b;
@@ -75798,6 +75810,7 @@ var styles = function (_a) {
             _b),
     });
 };
+var LoginLink = function (props) { return React.createElement(react_router_dom_1.Link, __assign({ to: '/login' }, props)); };
 exports.Header = core_1.withStyles(styles)(/** @class */ (function (_super) {
     __extends(class_1, _super);
     function class_1() {
@@ -75819,7 +75832,8 @@ exports.Header = core_1.withStyles(styles)(/** @class */ (function (_super) {
                     React.createElement(core_1.IconButton, { onClick: this.toggleSidebar.bind(this, true), color: 'inherit', "aria-label": 'Menu' },
                         React.createElement(Menu_1.default, null)),
                     React.createElement(__1.Logo, null),
-                    this.props.children)),
+                    this.props.children,
+                    stores_1.loginStore.isLoggedIn ? (React.createElement("div", null, stores_1.loginStore.user.name)) : (React.createElement(core_1.Button, { component: LoginLink, color: 'inherit' }, dict_1.dict.login)))),
             React.createElement(__1.Sidebar, { isOpen: this.state.isSidebarOpen, toggleHandler: this.toggleSidebar.bind(this, false) })));
     };
     return class_1;
@@ -75915,7 +75929,10 @@ var __extends = (this && this.__extends) || (function () {
 })();
 Object.defineProperty(exports, "__esModule", { value: true });
 var core_1 = __webpack_require__(/*! @material-ui/core */ "./node_modules/@material-ui/core/index.es.js");
+var mobx_react_1 = __webpack_require__(/*! mobx-react */ "./node_modules/mobx-react/index.module.js");
 var React = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+var react_router_dom_1 = __webpack_require__(/*! react-router-dom */ "./node_modules/react-router-dom/es/index.js");
+var dict_1 = __webpack_require__(/*! ../../dict */ "./public/src/dict/index.ts");
 var styles = function (_a) {
     var spacing = _a.spacing;
     return core_1.createStyles({
@@ -75925,38 +75942,21 @@ var styles = function (_a) {
         },
     });
 };
-exports.Login = core_1.withStyles(styles)(/** @class */ (function (_super) {
+exports.Login = core_1.withStyles(styles)(mobx_react_1.observer(/** @class */ (function (_super) {
     __extends(class_1, _super);
-    function class_1(props) {
-        var _this = _super.call(this, props) || this;
-        _this.state = {
-            name: '',
-            password: '',
-        };
-        _this.handleChange = _this.handleChange.bind(_this);
-        _this.handleSubmit = _this.handleSubmit.bind(_this);
-        return _this;
+    function class_1() {
+        return _super !== null && _super.apply(this, arguments) || this;
     }
-    class_1.prototype.handleChange = function (name, event) {
-        var _a;
-        this.setState((_a = {},
-            _a[name] = event.target.value,
-            _a));
-    };
-    class_1.prototype.handleSubmit = function (event) {
-        event.preventDefault();
-        console.log(this.state);
-    };
     class_1.prototype.render = function () {
-        var classes = this.props.classes;
-        return (React.createElement(core_1.Paper, { classes: { root: classes.paper } },
-            React.createElement("form", { onSubmit: this.handleSubmit, autoComplete: 'off' },
-                React.createElement(core_1.TextField, { id: 'name', fullWidth: true, label: 'Name', value: this.state.name, onChange: this.handleChange.bind(this, 'name'), margin: 'normal', autoFocus: true }),
-                React.createElement(core_1.TextField, { id: 'password', fullWidth: true, label: 'Password', value: this.state.password, onChange: this.handleChange.bind(this, 'password'), margin: 'normal', type: 'password' }),
-                React.createElement(core_1.Button, { type: 'submit', variant: 'contained', color: 'secondary' }, "Login"))));
+        var _a = this.props, classes = _a.classes, store = _a.store;
+        return !store.isLoggedIn ? (React.createElement(core_1.Paper, { classes: { root: classes.paper } },
+            React.createElement("form", { onSubmit: store.handleSubmit, autoComplete: 'off' },
+                React.createElement(core_1.TextField, { id: 'name', fullWidth: true, label: 'Name', value: store.user.name, onChange: store.handleChange.bind(this, 'name'), margin: 'normal', autoFocus: true }),
+                React.createElement(core_1.TextField, { id: 'password', fullWidth: true, label: 'Password', value: store.user.password, onChange: store.handleChange.bind(this, 'password'), margin: 'normal', type: 'password' }),
+                React.createElement(core_1.Button, { disabled: store.user.name.length < 1 || store.user.password.length < 1, type: 'submit', variant: 'contained', color: 'secondary' }, dict_1.dict.login)))) : (React.createElement(react_router_dom_1.Redirect, { to: '/' }));
     };
     return class_1;
-}(React.Component)));
+}(React.Component))));
 
 
 /***/ }),
@@ -77165,6 +77165,7 @@ exports.dict = {
     goal_diff: 'GD',
     goals_against: 'GA',
     goals_for: 'GF',
+    login: 'Login',
     loss: 'loss',
     notFoundText: 'Not found',
     played: 'played',
@@ -77323,6 +77324,79 @@ var React = __webpack_require__(/*! react */ "./node_modules/react/index.js");
 var ReactDOM = __webpack_require__(/*! react-dom */ "./node_modules/react-dom/index.js");
 var App_1 = __webpack_require__(/*! ./components/App/App */ "./public/src/components/App/App.tsx");
 ReactDOM.render(React.createElement(App_1.default, null), document.getElementById('root'));
+
+
+/***/ }),
+
+/***/ "./public/src/stores/LoginStore/LoginStore.ts":
+/*!****************************************************!*\
+  !*** ./public/src/stores/LoginStore/LoginStore.ts ***!
+  \****************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+Object.defineProperty(exports, "__esModule", { value: true });
+var axios_1 = __webpack_require__(/*! axios */ "./node_modules/axios/index.js");
+var mobx_1 = __webpack_require__(/*! mobx */ "./node_modules/mobx/lib/mobx.module.js");
+var LoginStore = /** @class */ (function () {
+    function LoginStore() {
+        this.isLoggedIn = false;
+        this.user = {
+            name: '',
+            password: '',
+        };
+    }
+    LoginStore.prototype.handleChange = function (field, event) {
+        this.user[field] = event.target.value;
+    };
+    LoginStore.prototype.handleSubmit = function (event) {
+        var _this = this;
+        event.preventDefault();
+        axios_1.default.post('/login', this.user).then(function () {
+            _this.isLoggedIn = true;
+        });
+    };
+    __decorate([
+        mobx_1.observable
+    ], LoginStore.prototype, "isLoggedIn", void 0);
+    __decorate([
+        mobx_1.observable
+    ], LoginStore.prototype, "user", void 0);
+    __decorate([
+        mobx_1.action.bound
+    ], LoginStore.prototype, "handleChange", null);
+    __decorate([
+        mobx_1.action.bound
+    ], LoginStore.prototype, "handleSubmit", null);
+    return LoginStore;
+}());
+exports.loginStore = new LoginStore();
+
+
+/***/ }),
+
+/***/ "./public/src/stores/LoginStore/index.ts":
+/*!***********************************************!*\
+  !*** ./public/src/stores/LoginStore/index.ts ***!
+  \***********************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+function __export(m) {
+    for (var p in m) if (!exports.hasOwnProperty(p)) exports[p] = m[p];
+}
+Object.defineProperty(exports, "__esModule", { value: true });
+__export(__webpack_require__(/*! ./LoginStore */ "./public/src/stores/LoginStore/LoginStore.ts"));
 
 
 /***/ }),
@@ -77721,6 +77795,7 @@ __export(__webpack_require__(/*! ./TableStore */ "./public/src/stores/TableStore
 __export(__webpack_require__(/*! ./MatchListStore */ "./public/src/stores/MatchListStore/index.ts"));
 __export(__webpack_require__(/*! ./TournamentListStore */ "./public/src/stores/TournamentListStore/index.ts"));
 __export(__webpack_require__(/*! ./PredictionStore */ "./public/src/stores/PredictionStore/index.ts"));
+__export(__webpack_require__(/*! ./LoginStore */ "./public/src/stores/LoginStore/index.ts"));
 
 
 /***/ })

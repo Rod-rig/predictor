@@ -1,7 +1,10 @@
-import {AppBar, IconButton, Theme, Toolbar, withStyles} from '@material-ui/core';
+import {AppBar, Button, IconButton, Theme, Toolbar, withStyles} from '@material-ui/core';
 import Menu from '@material-ui/icons/Menu';
 import * as React from 'react';
+import {Link} from 'react-router-dom';
 import {Logo, Sidebar} from '../';
+import {dict} from '../../dict';
+import {loginStore} from '../../stores';
 
 const styles = ({breakpoints, spacing}: Theme) => ({
   header: {
@@ -11,6 +14,8 @@ const styles = ({breakpoints, spacing}: Theme) => ({
     },
   },
 });
+
+const LoginLink = (props: any) => <Link to='/login' {...props}/>;
 
 export const Header = withStyles(styles)(class extends React.Component<any> {
   public state = {
@@ -33,6 +38,11 @@ export const Header = withStyles(styles)(class extends React.Component<any> {
             </IconButton>
             <Logo/>
             {this.props.children}
+            {loginStore.isLoggedIn ? (
+              <div>{loginStore.user.name}</div>
+            ) : (
+              <Button component={LoginLink} color='inherit'>{dict.login}</Button>
+            )}
           </Toolbar>
         </AppBar>
         <Sidebar isOpen={this.state.isSidebarOpen} toggleHandler={this.toggleSidebar.bind(this, false)}/>
