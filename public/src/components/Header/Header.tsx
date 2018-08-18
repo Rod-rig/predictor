@@ -1,5 +1,6 @@
 import {AppBar, Button, IconButton, Theme, Toolbar, withStyles} from '@material-ui/core';
 import Menu from '@material-ui/icons/Menu';
+import {observer} from 'mobx-react';
 import * as React from 'react';
 import {Link} from 'react-router-dom';
 import {Logo, Sidebar} from '../';
@@ -13,11 +14,14 @@ const styles = ({breakpoints, spacing}: Theme) => ({
       marginBottom: spacing.unit * 3,
     },
   },
+  user: {
+    marginLeft: 'auto',
+  },
 });
 
 const LoginLink = (props: any) => <Link to='/login' {...props}/>;
 
-export const Header = withStyles(styles)(class extends React.Component<any> {
+export const Header = withStyles(styles)(observer(class extends React.Component<any> {
   public state = {
     isSidebarOpen: false,
   };
@@ -29,9 +33,10 @@ export const Header = withStyles(styles)(class extends React.Component<any> {
   }
 
   public render() {
+    const {classes} = this.props;
     return (
       <React.Fragment>
-        <AppBar position='static' className={this.props.classes.header}>
+        <AppBar position='static' className={classes.header}>
           <Toolbar>
             <IconButton onClick={this.toggleSidebar.bind(this, true)} color='inherit' aria-label='Menu'>
               <Menu/>
@@ -39,9 +44,9 @@ export const Header = withStyles(styles)(class extends React.Component<any> {
             <Logo/>
             {this.props.children}
             {loginStore.isLoggedIn ? (
-              <div>{loginStore.user.name}</div>
+              <div className={classes.user}>{loginStore.user.name}</div>
             ) : (
-              <Button component={LoginLink} color='inherit'>{dict.login}</Button>
+              <Button className={classes.user} component={LoginLink} color='inherit'>{dict.login}</Button>
             )}
           </Toolbar>
         </AppBar>
@@ -49,4 +54,4 @@ export const Header = withStyles(styles)(class extends React.Component<any> {
       </React.Fragment>
     );
   }
-});
+}));

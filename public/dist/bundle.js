@@ -75792,6 +75792,7 @@ var __assign = (this && this.__assign) || Object.assign || function(t) {
 Object.defineProperty(exports, "__esModule", { value: true });
 var core_1 = __webpack_require__(/*! @material-ui/core */ "./node_modules/@material-ui/core/index.es.js");
 var Menu_1 = __webpack_require__(/*! @material-ui/icons/Menu */ "./node_modules/@material-ui/icons/Menu.js");
+var mobx_react_1 = __webpack_require__(/*! mobx-react */ "./node_modules/mobx-react/index.module.js");
 var React = __webpack_require__(/*! react */ "./node_modules/react/index.js");
 var react_router_dom_1 = __webpack_require__(/*! react-router-dom */ "./node_modules/react-router-dom/es/index.js");
 var __1 = __webpack_require__(/*! ../ */ "./public/src/components/index.ts");
@@ -75808,10 +75809,13 @@ var styles = function (_a) {
                 marginBottom: spacing.unit * 3,
             },
             _b),
+        user: {
+            marginLeft: 'auto',
+        },
     });
 };
 var LoginLink = function (props) { return React.createElement(react_router_dom_1.Link, __assign({ to: '/login' }, props)); };
-exports.Header = core_1.withStyles(styles)(/** @class */ (function (_super) {
+exports.Header = core_1.withStyles(styles)(mobx_react_1.observer(/** @class */ (function (_super) {
     __extends(class_1, _super);
     function class_1() {
         var _this = _super !== null && _super.apply(this, arguments) || this;
@@ -75826,18 +75830,19 @@ exports.Header = core_1.withStyles(styles)(/** @class */ (function (_super) {
         });
     };
     class_1.prototype.render = function () {
+        var classes = this.props.classes;
         return (React.createElement(React.Fragment, null,
-            React.createElement(core_1.AppBar, { position: 'static', className: this.props.classes.header },
+            React.createElement(core_1.AppBar, { position: 'static', className: classes.header },
                 React.createElement(core_1.Toolbar, null,
                     React.createElement(core_1.IconButton, { onClick: this.toggleSidebar.bind(this, true), color: 'inherit', "aria-label": 'Menu' },
                         React.createElement(Menu_1.default, null)),
                     React.createElement(__1.Logo, null),
                     this.props.children,
-                    stores_1.loginStore.isLoggedIn ? (React.createElement("div", null, stores_1.loginStore.user.name)) : (React.createElement(core_1.Button, { component: LoginLink, color: 'inherit' }, dict_1.dict.login)))),
+                    stores_1.loginStore.isLoggedIn ? (React.createElement("div", { className: classes.user }, stores_1.loginStore.user.name)) : (React.createElement(core_1.Button, { className: classes.user, component: LoginLink, color: 'inherit' }, dict_1.dict.login)))),
             React.createElement(__1.Sidebar, { isOpen: this.state.isSidebarOpen, toggleHandler: this.toggleSidebar.bind(this, false) })));
     };
     return class_1;
-}(React.Component)));
+}(React.Component))));
 
 
 /***/ }),
@@ -77353,7 +77358,15 @@ var LoginStore = /** @class */ (function () {
             name: '',
             password: '',
         };
+        this.fetchUser();
     }
+    LoginStore.prototype.fetchUser = function () {
+        var _this = this;
+        axios_1.default.get('/is-logged-in').then(function (response) {
+            _this.isLoggedIn = response.data.isLoggedIn;
+            _this.user.name = response.data.name;
+        });
+    };
     LoginStore.prototype.handleChange = function (field, event) {
         this.user[field] = event.target.value;
     };
@@ -77370,6 +77383,9 @@ var LoginStore = /** @class */ (function () {
     __decorate([
         mobx_1.observable
     ], LoginStore.prototype, "user", void 0);
+    __decorate([
+        mobx_1.action.bound
+    ], LoginStore.prototype, "fetchUser", null);
     __decorate([
         mobx_1.action.bound
     ], LoginStore.prototype, "handleChange", null);

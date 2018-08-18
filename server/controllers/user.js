@@ -2,7 +2,12 @@ const User = require('../models/user');
 const msg = require('../messages/index');
 
 module.exports.isLoggedIn = (req, res) => {
-  res.status(200).send(req.session.isLoggedIn ? req.session.isLoggedIn : false);
+  if (req.session.isLoggedIn) {
+    res.status(200).send({
+      isLoggedIn: req.session.isLoggedIn,
+      name: req.session.name
+    });
+  }
 };
 
 module.exports.all = (req, res) => {
@@ -21,15 +26,15 @@ module.exports.getById = (req, res) => {
 };
 
 module.exports.login = (req, res) => {
-  User.find({}, (err, users) => {
-    if (err) return res.status(500).send(msg.allUsersRequestErrMsg);
-    const currentUser = users.filter((user) => {
-      return user.name === req.body.name && user.password === req.body.password;
-    });
-    if (currentUser) {
-      req.session.isLoggedIn = true;
-      res.status(200).send(currentUser[0]);
-    }
+  const query = {
+    name: req.body.name,
+    password: req.body.password
+  };
+  User.findOne(query, (err, user) => {
+    if (err || user === null) return res.status(500).send(msg.allUsersRequestErrMsg);
+    req.session.isLoggedIn = true;
+    req.session.name = user.name;
+    res.status(200).send(user.name);
   });
 };
 
