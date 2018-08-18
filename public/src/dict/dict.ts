@@ -5,6 +5,7 @@ export interface IDict {
   goals_against: string;
   goals_for: string;
   login: string;
+  logout: string;
   loss: string;
   notFoundText: string;
   played: string;
@@ -26,6 +27,7 @@ export const dict: IDict = {
   goals_against: 'GA',
   goals_for: 'GF',
   login: 'Login',
+  logout: 'Logout',
   loss: 'loss',
   notFoundText: 'Not found',
   played: 'played',

@@ -13,6 +13,7 @@ module.exports = (app) => {
   app.get('/users', userController.all);
   app.get('/users/:id', userController.getById);
   app.post('/login', userController.login);
+  app.get('/logout', userController.logout);
   app.get('/is-logged-in', userController.isLoggedIn);
   app.post('/users', userController.create);
 

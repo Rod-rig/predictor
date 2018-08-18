@@ -38,6 +38,14 @@ module.exports.login = (req, res) => {
   });
 };
 
+module.exports.logout = (req, res) => {
+  if (req.session) {
+    req.session.destroy(() => {
+      res.status(200).send();
+    });
+  }
+};
+
 module.exports.create = (req, res) => {
   User.create({
       name: req.body.name,

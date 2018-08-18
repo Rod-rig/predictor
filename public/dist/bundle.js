@@ -74269,6 +74269,9 @@ var styles = function (_a) {
                 marginBottom: spacing.unit * 3,
             },
             _b),
+        logout: {
+            marginLeft: spacing.unit,
+        },
         user: {
             marginLeft: 'auto',
         },
@@ -74298,7 +74301,9 @@ exports.Header = core_1.withStyles(styles)(mobx_react_1.observer(/** @class */ (
                         React.createElement(Menu_1.default, null)),
                     React.createElement(__1.Logo, null),
                     this.props.children,
-                    stores_1.userStore.isLoggedIn ? (React.createElement("div", { className: classes.user }, stores_1.userStore.name)) : (React.createElement(core_1.Button, { className: classes.user, component: LoginLink, color: 'inherit' }, dict_1.dict.login)))),
+                    React.createElement("div", { className: classes.user }, stores_1.userStore.isLoggedIn ? (React.createElement(React.Fragment, null,
+                        React.createElement("span", null, stores_1.userStore.name),
+                        React.createElement(core_1.Button, { className: classes.logout, onClick: stores_1.userStore.logout, color: 'inherit' }, dict_1.dict.logout))) : (React.createElement(core_1.Button, { component: LoginLink, color: 'inherit' }, dict_1.dict.login))))),
             React.createElement(__1.Sidebar, { isOpen: this.state.isSidebarOpen, toggleHandler: this.toggleSidebar.bind(this, false) })));
     };
     return class_1;
@@ -75659,6 +75664,7 @@ exports.dict = {
     goals_against: 'GA',
     goals_for: 'GF',
     login: 'Login',
+    logout: 'Logout',
     loss: 'loss',
     notFoundText: 'Not found',
     played: 'played',
@@ -76298,6 +76304,13 @@ var UserStore = /** @class */ (function () {
             _this.name = response.data.name;
         });
     };
+    UserStore.prototype.logout = function () {
+        var _this = this;
+        axios_1.default.get('/logout').then(function () {
+            _this.isLoggedIn = false;
+            delete _this.name;
+        });
+    };
     __decorate([
         mobx_1.observable
     ], UserStore.prototype, "isLoggedIn", void 0);
@@ -76307,6 +76320,9 @@ var UserStore = /** @class */ (function () {
     __decorate([
         mobx_1.action.bound
     ], UserStore.prototype, "fetchUser", null);
+    __decorate([
+        mobx_1.action.bound
+    ], UserStore.prototype, "logout", null);
     return UserStore;
 }());
 exports.userStore = new UserStore();

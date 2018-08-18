@@ -14,6 +14,9 @@ const styles = ({breakpoints, spacing}: Theme) => ({
       marginBottom: spacing.unit * 3,
     },
   },
+  logout: {
+    marginLeft: spacing.unit,
+  },
   user: {
     marginLeft: 'auto',
   },
@@ -21,7 +24,11 @@ const styles = ({breakpoints, spacing}: Theme) => ({
 
 const LoginLink = (props: any) => <Link to='/login' {...props}/>;
 
-export const Header = withStyles(styles)(observer(class extends React.Component<any> {
+export const Header = withStyles(styles)(observer(class extends React.Component<{
+  classes: any;
+}, {
+  isSidebarOpen: boolean;
+}> {
   public state = {
     isSidebarOpen: false,
   };
@@ -43,11 +50,16 @@ export const Header = withStyles(styles)(observer(class extends React.Component<
             </IconButton>
             <Logo/>
             {this.props.children}
-            {userStore.isLoggedIn ? (
-              <div className={classes.user}>{userStore.name}</div>
-            ) : (
-              <Button className={classes.user} component={LoginLink} color='inherit'>{dict.login}</Button>
-            )}
+            <div className={classes.user}>
+              {userStore.isLoggedIn ? (
+                <React.Fragment>
+                  <span>{userStore.name}</span>
+                  <Button className={classes.logout} onClick={userStore.logout} color='inherit'>{dict.logout}</Button>
+                </React.Fragment>
+              ) : (
+                <Button component={LoginLink} color='inherit'>{dict.login}</Button>
+              )}
+            </div>
           </Toolbar>
         </AppBar>
         <Sidebar isOpen={this.state.isSidebarOpen} toggleHandler={this.toggleSidebar.bind(this, false)}/>

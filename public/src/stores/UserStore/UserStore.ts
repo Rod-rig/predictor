@@ -16,6 +16,14 @@ class UserStore {
       this.name = response.data.name;
     });
   }
+
+  @action.bound
+  public logout() {
+    axios.get('/logout').then(() => {
+      this.isLoggedIn = false;
+      delete this.name;
+    });
+  }
 }
 
 export const userStore = new UserStore();

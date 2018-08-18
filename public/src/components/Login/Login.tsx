@@ -12,7 +12,10 @@ const styles = ({spacing}: Theme) => createStyles({
   },
 });
 
-export const Login = withStyles(styles)(observer(class extends React.Component<any, any> {
+export const Login = withStyles(styles)(observer(class extends React.Component<{
+  classes: any;
+  store: any;
+}, {}> {
   public render() {
     const {classes, store} = this.props;
     return !userStore.isLoggedIn ? (
