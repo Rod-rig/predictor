@@ -5,7 +5,7 @@ import * as React from 'react';
 import {Link} from 'react-router-dom';
 import {Logo, Sidebar} from '../';
 import {dict} from '../../dict';
-import {loginStore} from '../../stores';
+import {userStore} from '../../stores';
 
 const styles = ({breakpoints, spacing}: Theme) => ({
   header: {
@@ -43,8 +43,8 @@ export const Header = withStyles(styles)(observer(class extends React.Component<
             </IconButton>
             <Logo/>
             {this.props.children}
-            {loginStore.isLoggedIn ? (
-              <div className={classes.user}>{loginStore.user.name}</div>
+            {userStore.isLoggedIn ? (
+              <div className={classes.user}>{userStore.name}</div>
             ) : (
               <Button className={classes.user} component={LoginLink} color='inherit'>{dict.login}</Button>
             )}

@@ -3,6 +3,7 @@ import {observer} from 'mobx-react';
 import * as React from 'react';
 import {Redirect} from 'react-router-dom';
 import {dict} from '../../dict';
+import {userStore} from '../../stores';
 
 const styles = ({spacing}: Theme) => createStyles({
   paper: {
@@ -14,7 +15,7 @@ const styles = ({spacing}: Theme) => createStyles({
 export const Login = withStyles(styles)(observer(class extends React.Component<any, any> {
   public render() {
     const {classes, store} = this.props;
-    return !store.isLoggedIn ? (
+    return !userStore.isLoggedIn ? (
       <Paper classes={{root: classes.paper}}>
         <form onSubmit={store.handleSubmit} autoComplete='off'>
           <TextField
