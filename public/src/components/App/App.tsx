@@ -1,9 +1,27 @@
 import {CssBaseline, Theme, withStyles} from '@material-ui/core';
 import * as React from 'react';
 import {HashRouter, match, Route, RouteProps, Switch} from 'react-router-dom';
-import {Header, Login, MatchList, Nav, NotFound, Palette, Prediction, TableView, TournamentList} from '../';
+import {
+  Header,
+  Login,
+  MatchList,
+  Nav,
+  NotFound,
+  Palette,
+  Prediction,
+  Registration,
+  TableView,
+  TournamentList,
+} from '../';
 import {IMatchListProps, IPredictionStore, ITableProps} from '../../@types';
-import {loginStore, MatchListStore, PredictionStore, TableStore, TournamentListStore} from '../../stores';
+import {
+  loginStore,
+  MatchListStore,
+  PredictionStore,
+  registrationStore,
+  TableStore,
+  TournamentListStore,
+} from '../../stores';
 
 type IId = match<{ id: string }>;
 
@@ -62,6 +80,8 @@ const predictions = (props: IPredictionStore & RouteProps) => (
 
 const login = () => <Login store={loginStore}/>;
 
+const registration = () => <Registration store={registrationStore}/>;
+
 const routes = [
   {
     component: tournamentList,
@@ -71,6 +91,10 @@ const routes = [
   {
     component: login,
     path: '/login',
+  },
+  {
+    component: registration,
+    path: '/registration',
   },
   {
     component: table,

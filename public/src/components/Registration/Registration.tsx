@@ -12,12 +12,13 @@ const styles = ({spacing}: Theme) => createStyles({
   },
 });
 
-export const Login = withStyles(styles)(observer(class extends React.Component<{
+export const Registration = withStyles(styles)(observer(class extends React.Component<{
   classes: any;
   store: any;
 }, {}> {
   public render() {
     const {classes, store} = this.props;
+    const {email, name, password} = store.user;
     return !userStore.isLoggedIn ? (
       <Paper classes={{root: classes.paper}}>
         <form onSubmit={store.handleSubmit} autoComplete='off'>
@@ -26,28 +27,38 @@ export const Login = withStyles(styles)(observer(class extends React.Component<{
             required={true}
             fullWidth={true}
             label={dict.name}
-            value={store.user.name}
+            value={name}
             onChange={store.handleChange.bind(this, 'name')}
             margin='normal'
             autoFocus={true}
+          />
+          <TextField
+            id='email'
+            required={true}
+            fullWidth={true}
+            label={dict.email}
+            value={email}
+            onChange={store.handleChange.bind(this, 'email')}
+            margin='normal'
+            type='email'
           />
           <TextField
             id='password'
             required={true}
             fullWidth={true}
             label={dict.password}
-            value={store.user.password}
+            value={password}
             onChange={store.handleChange.bind(this, 'password')}
             margin='normal'
             type='password'
           />
           <Button
-            disabled={store.user.name.length < 1 || store.user.password.length < 1}
+            disabled={email.length < 1 || name.length < 1 || password.length < 1}
             type='submit'
             variant='contained'
             color='secondary'
           >
-            {dict.login}
+            {dict.register}
           </Button>
         </form>
       </Paper>

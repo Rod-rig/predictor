@@ -14,7 +14,7 @@ const styles = ({breakpoints, spacing}: Theme) => ({
       marginBottom: spacing.unit * 3,
     },
   },
-  logout: {
+  gap: {
     marginLeft: spacing.unit,
   },
   user: {
@@ -23,6 +23,7 @@ const styles = ({breakpoints, spacing}: Theme) => ({
 });
 
 const LoginLink = (props: any) => <Link to='/login' {...props}/>;
+const RegLink = (props: any) => <Link to='/registration' {...props}/>;
 
 export const Header = withStyles(styles)(observer(class extends React.Component<{
   classes: any;
@@ -54,10 +55,13 @@ export const Header = withStyles(styles)(observer(class extends React.Component<
               {userStore.isLoggedIn ? (
                 <React.Fragment>
                   <span>{userStore.name}</span>
-                  <Button className={classes.logout} onClick={userStore.logout} color='inherit'>{dict.logout}</Button>
+                  <Button className={classes.gap} onClick={userStore.logout} color='inherit'>{dict.logout}</Button>
                 </React.Fragment>
               ) : (
-                <Button component={LoginLink} color='inherit'>{dict.login}</Button>
+                <React.Fragment>
+                  <Button component={RegLink} color='inherit'>{dict.registration}</Button>
+                  <Button className={classes.gap} component={LoginLink} color='inherit'>{dict.login}</Button>
+                </React.Fragment>
               )}
             </div>
           </Toolbar>

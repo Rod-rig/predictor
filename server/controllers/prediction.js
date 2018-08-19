@@ -4,7 +4,7 @@ const User = require('../models/user');
 const msg = require('../messages/index');
 
 module.exports.all = (req, res) => {
-  User.findOne({name: 'admin'}, (err, user) => {
+  User.findOne({name: req.session.name}, (err, user) => {
     if (err) return res.status(500).send('Cannot get all predictions');
     res.status(200).send(user.predictions);
   });
@@ -13,7 +13,7 @@ module.exports.all = (req, res) => {
 module.exports.getAvailablePredictions = (req, res) => {
   axios.get(`${config.url}:${config.port}/api/schedule/${req.params.date}`)
     .then((response) => {
-      User.findOne({name: 'admin'}, (err, user) => {
+      User.findOne({name: req.session.name}, (err, user) => {
         if (err) return res.status(500).send('Cannot get all predictions');
         const sportEvents = response.data;
         const ids = user.predictions.map((prediction) => {
@@ -31,7 +31,7 @@ module.exports.getAvailablePredictions = (req, res) => {
 };
 
 module.exports.create = (req, res) => {
-  User.findOne({name: 'admin'}, (err, user) => {
+  User.findOne({name: req.session.name}, (err, user) => {
     if (err) return res.send(500).send('Did not find current user');
     user.predictions.push(...req.body);
     user.save((err) => {

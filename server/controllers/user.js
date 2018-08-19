@@ -2,12 +2,10 @@ const User = require('../models/user');
 const msg = require('../messages/index');
 
 module.exports.isLoggedIn = (req, res) => {
-  if (req.session.isLoggedIn) {
-    res.status(200).send({
-      isLoggedIn: req.session.isLoggedIn,
-      name: req.session.name
-    });
-  }
+  res.status(200).send({
+    isLoggedIn: req.session.isLoggedIn ? req.session.isLoggedIn : false,
+    name: req.session.name ? req.session.name : null
+  });
 };
 
 module.exports.all = (req, res) => {
