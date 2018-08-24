@@ -1,6 +1,6 @@
 {
   "name": "predictor",
-  "version": "0.2.29",
+  "version": "0.2.30",
   "main": "public/src/index.tsx",
   "license": "MIT",
   "scripts": {
@@ -63,7 +63,6 @@
   },
   "devDependencies": {
     "coveralls": "^3.0.2",
-    "express": "^4.16.3",
     "jest": "^23.5.0",
     "nodemon": "^1.17.4",
     "source-map-loader": "^0.2.4",
@@ -93,6 +92,7 @@
     "dotenv": "^6.0.0",
     "enzyme": "^3.4.4",
     "enzyme-adapter-react-16": "^1.2.0",
+    "express": "^4.16.3",
     "express-session": "^1.15.6",
     "mobx": "^5.0.3",
     "mobx-react": "^5.2.5",
