@@ -31,6 +31,7 @@ app.use(session({
   resave: false,
   saveUninitialized: true,
   store: new MongoStore({
+    db: process.env.DB_NAME,
     mongooseConnection: mongoose.connection
   })
 }));
@@ -41,12 +42,5 @@ db.connect(process.env.DB_URL, (err) => {
   router(app);
   app.listen(process.env.PORT, () => {
     console.log('server started');
-  });
-});
-
-process.on('SIGINT', function(){
-  mongoose.connection.close(function(){
-    console.log("Mongoose default connection is disconnected");
-    process.exit(0)
   });
 });
