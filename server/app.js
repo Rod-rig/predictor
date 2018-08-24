@@ -2,6 +2,9 @@ require('dotenv').config();
 const express = require('express');
 const morgan = require('morgan');
 const session = require('express-session');
+const MongoStore = require('connect-mongo')(session);
+const uuidv1 = require('uuid/v1');
+const mongoose = require('mongoose');
 const cookieParser = require('cookie-parser');
 // const webpack = require('webpack');
 const bodyParser = require('body-parser');
@@ -22,7 +25,14 @@ app.use(bodyParser.json());
 // }));
 
 app.use(cookieParser());
-app.use(session({secret: 'secret', resave: false, saveUninitialized: true,}));
+app.use(session({
+  secret: uuidv1(),
+  resave: false,
+  saveUninitialized: true,
+  store: new MongoStore({
+    mongooseConnection: mongoose.connection
+  })
+}));
 app.use(express.static('public'));
 
 db.connect(process.env.DB_URL, (err) => {
