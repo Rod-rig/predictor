@@ -89,6 +89,7 @@
     "axios": "^0.18.0",
     "body-parser": "^1.18.3",
     "cookie-parser": "^1.4.3",
+    "dotenv": "^6.0.0",
     "enzyme": "^3.4.4",
     "enzyme-adapter-react-16": "^1.2.0",
     "express-session": "^1.15.6",

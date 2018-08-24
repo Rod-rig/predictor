@@ -4,3 +4,4 @@ npm-debug.log
 /server/config/
 /coverage/
 yarn-error.log
+/.env

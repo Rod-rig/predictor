@@ -1,3 +1,4 @@
+require('dotenv').config();
 const express = require('express');
 const morgan = require('morgan');
 const session = require('express-session');
@@ -8,7 +9,6 @@ const bodyParser = require('body-parser');
 // const webpackConfig = require('../webpack.dev.config.js');
 const router = require('./router');
 const db = require('./db');
-const config = require('./config/config');
 
 const app = express();
 app.use(morgan('combined'));
@@ -25,10 +25,10 @@ app.use(cookieParser());
 app.use(session({secret: 'secret', resave: false, saveUninitialized: true,}));
 app.use(express.static('public'));
 
-db.connect(config.dbUrl, (err) => {
+db.connect(process.env.DB_URL, (err) => {
   if (err) return console.error(err);
   router(app);
-  app.listen(config.port, () => {
+  app.listen(process.env.PORT, () => {
     console.log('server started');
   });
 });

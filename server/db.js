@@ -1,5 +1,4 @@
 const mongoose = require('mongoose');
-const config = require('./config/config');
 
 let state = {
   db: null
@@ -10,9 +9,9 @@ module.exports.connect = (url, done) => {
     done();
   }
 
-  mongoose.connect(config.dbUrl, {useNewUrlParser: true})
+  mongoose.connect(url, {useNewUrlParser: true, dbName: process.env.DB_NAME})
     .then(() => {
-      state.db = config.dbName;
+      state.db = process.env.DB_NAME;
       done();
     })
     .catch((err) => done(err));

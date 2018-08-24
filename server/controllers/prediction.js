@@ -1,5 +1,4 @@
 const axios = require('axios');
-const config = require('../config/config');
 const User = require('../models/user');
 const msg = require('../messages/index');
 
@@ -11,7 +10,7 @@ module.exports.all = (req, res) => {
 };
 
 module.exports.getAvailablePredictions = (req, res) => {
-  axios.get(`${config.url}:${config.port}/api/schedule/${req.params.date}`)
+  axios.get(`${process.env.BASE_URL}:${process.env.PORT}/api/schedule/${req.params.date}`)
     .then((response) => {
       User.findOne({name: req.session.name}, (err, user) => {
         if (err) return res.status(500).send('Cannot get all predictions');
