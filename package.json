@@ -1,6 +1,6 @@
 {
   "name": "predictor",
-  "version": "0.2.27",
+  "version": "0.2.29",
   "main": "public/src/index.tsx",
   "license": "MIT",
   "scripts": {
@@ -9,7 +9,8 @@
     "lint": "npm run lint:js",
     "lint:js": "tslint -t stylish 'public/src/**/*.{tsx,ts,js}'",
     "pretest": "npm run lint",
-    "server": "nodemon server/app.js",
+    "server": "node server/app.js",
+    "server:dev": "nodemon server/app.js",
     "start": "yarn run server",
     "test": "jest --config package.json",
     "test:ci": "npm run test:coverage && cat ./coverage/lcov.info | ./node_modules/coveralls/bin/coveralls.js && rm -rf ./coverage",
