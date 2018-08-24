@@ -26,6 +26,7 @@ app.use(bodyParser.json());
 
 app.use(cookieParser());
 app.use(session({
+  cookie: {maxAge: 1000 * 60 * 20},
   secret: uuidv1(),
   resave: false,
   saveUninitialized: true,
@@ -40,5 +41,12 @@ db.connect(process.env.DB_URL, (err) => {
   router(app);
   app.listen(process.env.PORT, () => {
     console.log('server started');
+  });
+});
+
+process.on('SIGINT', function(){
+  mongoose.connection.close(function(){
+    console.log("Mongoose default connection is disconnected");
+    process.exit(0)
   });
 });
