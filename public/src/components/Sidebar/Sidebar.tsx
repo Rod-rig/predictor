@@ -20,7 +20,7 @@ export const Sidebar = (props: {
           <ListItemIcon>
             <OpenWithIcon/>
           </ListItemIcon>
-          <ListItemText primary={dict.sidebarMenuPrediction}/>
+          <ListItemText primary={dict.sidebar_menu_prediction}/>
         </ListItem>
       </List>
     </div>

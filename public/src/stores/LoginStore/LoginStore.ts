@@ -8,10 +8,16 @@ interface IUser {
 }
 
 class LoginStore {
+  @observable public isSnackbarOpen: boolean = false;
   @observable public user: IUser = {
     name: '',
     password: '',
   };
+
+  @action.bound
+  public toggleSnackbar() {
+    this.isSnackbarOpen = !this.isSnackbarOpen;
+  }
 
   @action.bound
   public handleChange(field: keyof IUser, event: any) {
@@ -24,6 +30,9 @@ class LoginStore {
     axios.post('/login', this.user).then(() => {
       userStore.isLoggedIn = true;
       userStore.name = this.user.name;
+      this.isSnackbarOpen = false;
+    }).catch(() => {
+      this.isSnackbarOpen = true;
     });
   }
 }

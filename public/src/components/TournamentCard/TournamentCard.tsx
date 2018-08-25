@@ -44,7 +44,7 @@ const TournamentCardElement = (props: IProps) => {
         <Typography variant='caption'>{props.country}</Typography>
       </CardContent>
       <CardActions>
-        <Button component={MyLink} size='small' color='primary'>{dict.tournamentCardMore}</Button>
+        <Button component={MyLink} size='small' color='primary'>{dict.tournament_card_more}</Button>
       </CardActions>
     </Card>
   );

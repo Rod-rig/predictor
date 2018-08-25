@@ -4,6 +4,7 @@ import * as React from 'react';
 import {Redirect} from 'react-router-dom';
 import {dict} from '../../dict';
 import {userStore} from '../../stores';
+import {LoginSnackbar} from './LoginSnackbar';
 
 const styles = ({spacing}: Theme) => createStyles({
   paper: {
@@ -50,6 +51,7 @@ export const Login = withStyles(styles)(observer(class extends React.Component<{
             {dict.login}
           </Button>
         </form>
+        <LoginSnackbar/>
       </Paper>
     ) : (
       <Redirect to='/'/>

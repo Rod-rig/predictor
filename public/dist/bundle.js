@@ -32335,6 +32335,38 @@ exports.default = _default;
 
 /***/ }),
 
+/***/ "./node_modules/@material-ui/icons/Error.js":
+/*!**************************************************!*\
+  !*** ./node_modules/@material-ui/icons/Error.js ***!
+  \**************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+var _interopRequireDefault = __webpack_require__(/*! @babel/runtime/helpers/builtin/interopRequireDefault */ "./node_modules/@babel/runtime/helpers/builtin/interopRequireDefault.js");
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.default = void 0;
+
+var _react = _interopRequireDefault(__webpack_require__(/*! react */ "./node_modules/react/index.js"));
+
+var _createSvgIcon = _interopRequireDefault(__webpack_require__(/*! ./utils/createSvgIcon */ "./node_modules/@material-ui/icons/utils/createSvgIcon.js"));
+
+var _default = (0, _createSvgIcon.default)(_react.default.createElement(_react.default.Fragment, null, _react.default.createElement("path", {
+  fill: "none",
+  d: "M0 0h24v24H0z"
+}), _react.default.createElement("path", {
+  d: "M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 15h-2v-2h2v2zm0-4h-2V7h2v6z"
+})), 'Error');
+
+exports.default = _default;
+
+/***/ }),
+
 /***/ "./node_modules/@material-ui/icons/FilterList.js":
 /*!*******************************************************!*\
   !*** ./node_modules/@material-ui/icons/FilterList.js ***!
@@ -74415,6 +74447,7 @@ var React = __webpack_require__(/*! react */ "./node_modules/react/index.js");
 var react_router_dom_1 = __webpack_require__(/*! react-router-dom */ "./node_modules/react-router-dom/es/index.js");
 var dict_1 = __webpack_require__(/*! ../../dict */ "./public/src/dict/index.ts");
 var stores_1 = __webpack_require__(/*! ../../stores */ "./public/src/stores/index.ts");
+var LoginSnackbar_1 = __webpack_require__(/*! ./LoginSnackbar */ "./public/src/components/Login/LoginSnackbar.tsx");
 var styles = function (_a) {
     var spacing = _a.spacing;
     return core_1.createStyles({
@@ -74435,10 +74468,57 @@ exports.Login = core_1.withStyles(styles)(mobx_react_1.observer(/** @class */ (f
             React.createElement("form", { onSubmit: store.handleSubmit, autoComplete: 'off' },
                 React.createElement(core_1.TextField, { id: 'name', required: true, fullWidth: true, label: dict_1.dict.name, value: store.user.name, onChange: store.handleChange.bind(this, 'name'), margin: 'normal', autoFocus: true }),
                 React.createElement(core_1.TextField, { id: 'password', required: true, fullWidth: true, label: dict_1.dict.password, value: store.user.password, onChange: store.handleChange.bind(this, 'password'), margin: 'normal', type: 'password' }),
-                React.createElement(core_1.Button, { disabled: store.user.name.length < 1 || store.user.password.length < 1, type: 'submit', variant: 'contained', color: 'secondary' }, dict_1.dict.login)))) : (React.createElement(react_router_dom_1.Redirect, { to: '/' }));
+                React.createElement(core_1.Button, { disabled: store.user.name.length < 1 || store.user.password.length < 1, type: 'submit', variant: 'contained', color: 'secondary' }, dict_1.dict.login)),
+            React.createElement(LoginSnackbar_1.LoginSnackbar, null))) : (React.createElement(react_router_dom_1.Redirect, { to: '/' }));
     };
     return class_1;
 }(React.Component))));
+
+
+/***/ }),
+
+/***/ "./public/src/components/Login/LoginSnackbar.tsx":
+/*!*******************************************************!*\
+  !*** ./public/src/components/Login/LoginSnackbar.tsx ***!
+  \*******************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+Object.defineProperty(exports, "__esModule", { value: true });
+var core_1 = __webpack_require__(/*! @material-ui/core */ "./node_modules/@material-ui/core/index.es.js");
+var Error_1 = __webpack_require__(/*! @material-ui/icons/Error */ "./node_modules/@material-ui/icons/Error.js");
+var mobx_react_1 = __webpack_require__(/*! mobx-react */ "./node_modules/mobx-react/index.module.js");
+var React = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+var dict_1 = __webpack_require__(/*! ../../dict */ "./public/src/dict/index.ts");
+var stores_1 = __webpack_require__(/*! ../../stores */ "./public/src/stores/index.ts");
+var styles = function (_a) {
+    var palette = _a.palette, spacing = _a.spacing, typography = _a.typography;
+    return core_1.createStyles({
+        error: {
+            backgroundColor: palette.error.dark,
+        },
+        msg: {
+            alignItems: 'center',
+            display: 'flex',
+        },
+        text: {
+            fontSize: typography.subheading.fontSize,
+            marginLeft: spacing.unit,
+        },
+    });
+};
+exports.LoginSnackbar = core_1.withStyles(styles)(mobx_react_1.observer(function (props) {
+    var classes = props.classes;
+    return (React.createElement(core_1.Snackbar, { anchorOrigin: {
+            horizontal: 'left',
+            vertical: 'bottom',
+        }, autoHideDuration: 2000, onClose: stores_1.loginStore.toggleSnackbar, open: stores_1.loginStore.isSnackbarOpen },
+        React.createElement(core_1.SnackbarContent, { className: classes.error, message: React.createElement("div", { className: classes.msg },
+                React.createElement(Error_1.default, null),
+                React.createElement("span", { className: classes.text }, dict_1.dict.login_error_msg)) })));
+}));
 
 
 /***/ }),
@@ -75339,7 +75419,7 @@ exports.Sidebar = function (props) { return (React.createElement(core_1.Drawer, 
             React.createElement(core_1.ListItem, { component: SidebarLink, button: true },
                 React.createElement(core_1.ListItemIcon, null,
                     React.createElement(OpenWith_1.default, null)),
-                React.createElement(core_1.ListItemText, { primary: dict_1.dict.sidebarMenuPrediction })))))); };
+                React.createElement(core_1.ListItemText, { primary: dict_1.dict.sidebar_menu_prediction })))))); };
 
 
 /***/ }),
@@ -75623,7 +75703,7 @@ var TournamentCardElement = function (props) {
             React.createElement(core_1.Typography, { className: classes.h2, variant: 'headline', component: 'h2' }, props.name),
             React.createElement(core_1.Typography, { variant: 'caption' }, props.country)),
         React.createElement(core_1.CardActions, null,
-            React.createElement(core_1.Button, { component: MyLink, size: 'small', color: 'primary' }, dict_1.dict.tournamentCardMore))));
+            React.createElement(core_1.Button, { component: MyLink, size: 'small', color: 'primary' }, dict_1.dict.tournament_card_more))));
 };
 exports.TournamentCard = core_1.withStyles(styles)(TournamentCardElement);
 
@@ -75751,6 +75831,7 @@ exports.dict = {
     goals_against: 'GA',
     goals_for: 'GF',
     login: 'Login',
+    login_error_msg: 'Wrong credentials',
     logout: 'Logout',
     loss: 'loss',
     name: 'Name',
@@ -75763,10 +75844,10 @@ exports.dict = {
     register: 'Register',
     registration: 'Registration',
     results: 'Results',
-    sidebarMenuPrediction: 'Predictions',
+    sidebar_menu_prediction: 'Predictions',
     submit_btn_text: 'Submit',
     team: 'team',
-    tournamentCardMore: 'Learn more',
+    tournament_card_more: 'Learn more',
     win: 'win',
 };
 
@@ -75939,11 +76020,15 @@ var mobx_1 = __webpack_require__(/*! mobx */ "./node_modules/mobx/lib/mobx.modul
 var UserStore_1 = __webpack_require__(/*! ../UserStore */ "./public/src/stores/UserStore/index.ts");
 var LoginStore = /** @class */ (function () {
     function LoginStore() {
+        this.isSnackbarOpen = false;
         this.user = {
             name: '',
             password: '',
         };
     }
+    LoginStore.prototype.toggleSnackbar = function () {
+        this.isSnackbarOpen = !this.isSnackbarOpen;
+    };
     LoginStore.prototype.handleChange = function (field, event) {
         this.user[field] = event.target.value;
     };
@@ -75953,11 +76038,20 @@ var LoginStore = /** @class */ (function () {
         axios_1.default.post('/login', this.user).then(function () {
             UserStore_1.userStore.isLoggedIn = true;
             UserStore_1.userStore.name = _this.user.name;
+            _this.isSnackbarOpen = false;
+        }).catch(function () {
+            _this.isSnackbarOpen = true;
         });
     };
     __decorate([
         mobx_1.observable
+    ], LoginStore.prototype, "isSnackbarOpen", void 0);
+    __decorate([
+        mobx_1.observable
     ], LoginStore.prototype, "user", void 0);
+    __decorate([
+        mobx_1.action.bound
+    ], LoginStore.prototype, "toggleSnackbar", null);
     __decorate([
         mobx_1.action.bound
     ], LoginStore.prototype, "handleChange", null);

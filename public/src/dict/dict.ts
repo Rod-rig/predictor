@@ -6,6 +6,7 @@ export interface IDict {
   goals_against: string;
   goals_for: string;
   login: string;
+  login_error_msg: string;
   logout: string;
   loss: string;
   name: string;
@@ -18,10 +19,10 @@ export interface IDict {
   register: string;
   registration: string;
   results: string;
-  sidebarMenuPrediction: string;
+  sidebar_menu_prediction: string;
   submit_btn_text: string;
   team: string;
-  tournamentCardMore: string;
+  tournament_card_more: string;
   win: string;
 }
 
@@ -33,6 +34,7 @@ export const dict: IDict = {
   goals_against: 'GA',
   goals_for: 'GF',
   login: 'Login',
+  login_error_msg: 'Wrong credentials',
   logout: 'Logout',
   loss: 'loss',
   name: 'Name',
@@ -45,9 +47,9 @@ export const dict: IDict = {
   register: 'Register',
   registration: 'Registration',
   results: 'Results',
-  sidebarMenuPrediction: 'Predictions',
+  sidebar_menu_prediction: 'Predictions',
   submit_btn_text: 'Submit',
   team: 'team',
-  tournamentCardMore: 'Learn more',
+  tournament_card_more: 'Learn more',
   win: 'win',
 };
