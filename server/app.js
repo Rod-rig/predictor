@@ -44,3 +44,22 @@ db.connect(process.env.DB_URL, (err) => {
     console.log('server started');
   });
 });
+
+const shutdown = (signal) => {
+  return (err) => {
+    console.log(`${signal}...`);
+    if (err) console.error(err.stack || err);
+    setTimeout(() => {
+      mongoose.connection.close(() => {
+        console.log('Mongoose default connection is disconnected');
+      });
+      console.log('...waited 5s, exiting.');
+      process.exit(err ? 1 : 0);
+    }, 5000).unref();
+  };
+};
+
+process
+  .on('SIGTERM', shutdown('SIGTERM'))
+  .on('SIGINT', shutdown('SIGINT'))
+  .on('uncaughtException', shutdown('uncaughtException'));
