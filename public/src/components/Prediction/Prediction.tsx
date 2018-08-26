@@ -15,6 +15,7 @@ import * as React from 'react';
 import {Loader, PredictionFilter} from '../';
 import {IPredictionStore, ISportEvent} from '../../@types';
 import {dict} from '../../dict';
+import {userStore} from '../../stores';
 
 const styles = ({palette, spacing}: Theme) => createStyles({
   away: {
@@ -98,6 +99,9 @@ const renderForm = (props: IProps) => {
 
 export const Prediction = withStyles(styles)(observer((props: IProps) => {
   const {store} = props;
+  if (!userStore.isLoggedIn) {
+    return <div>User is not authorized</div>;
+  }
   return store.isLoaded && !store.isSuccessSubmit && store.matches.length > 0 ? (
     renderForm(props)
   ) : !store.isLoaded || !store.isSuccessSubmit ? (

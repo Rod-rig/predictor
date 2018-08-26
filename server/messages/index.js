@@ -4,4 +4,6 @@ module.exports = {
   notFoundUserMsg: 'No user found',
   cannotCreateUserMsg: 'There was a problem adding the information to the database',
   cannotAddPrediction: 'There was a problem adding your prediction',
+  notVerifiedUserErrMsg: 'User is not authorized',
+  notAdminErrMsg: 'Current user is not an admin'
 };

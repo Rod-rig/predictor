@@ -10,15 +10,15 @@ module.exports = (app) => {
   app.get('/api/schedule/:date', apiController.getSchedule);
 
   //users
-  app.get('/users', userController.all);
-  app.get('/users/:id', userController.getById);
+  app.get('/users', userController.verifyIsAdmin, userController.all);
+  app.get('/users/:id', userController.verifyIsAdmin, userController.getById);
   app.post('/login', userController.login);
   app.get('/logout', userController.logout);
   app.get('/is-logged-in', userController.isLoggedIn);
   app.post('/users', userController.create);
 
   //predictions
-  app.get('/predictions', predictionController.all);
-  app.get('/available-predictions/:date', predictionController.getAvailablePredictions);
-  app.post('/predictions', predictionController.create);
+  app.get('/predictions', userController.verify, predictionController.all);
+  app.get('/available-predictions/:date', userController.verify, predictionController.getAvailablePredictions);
+  app.post('/predictions', userController.verify, predictionController.create);
 };

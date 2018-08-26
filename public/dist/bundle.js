@@ -74953,6 +74953,7 @@ var mobx_react_1 = __webpack_require__(/*! mobx-react */ "./node_modules/mobx-re
 var React = __webpack_require__(/*! react */ "./node_modules/react/index.js");
 var __1 = __webpack_require__(/*! ../ */ "./public/src/components/index.ts");
 var dict_1 = __webpack_require__(/*! ../../dict */ "./public/src/dict/index.ts");
+var stores_1 = __webpack_require__(/*! ../../stores */ "./public/src/stores/index.ts");
 var styles = function (_a) {
     var palette = _a.palette, spacing = _a.spacing;
     return core_1.createStyles({
@@ -75009,6 +75010,9 @@ var renderForm = function (props) {
 };
 exports.Prediction = core_1.withStyles(styles)(mobx_react_1.observer(function (props) {
     var store = props.store;
+    if (!stores_1.userStore.isLoggedIn) {
+        return React.createElement("div", null, "User is not authorized");
+    }
     return store.isLoaded && !store.isSuccessSubmit && store.matches.length > 0 ? (renderForm(props)) : !store.isLoaded || !store.isSuccessSubmit ? (React.createElement(__1.Loader, null)) : (React.createElement("div", null, "Successssszzzzzzzzzzzzzz!"));
 }));
 

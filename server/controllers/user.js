@@ -9,6 +9,26 @@ module.exports.isLoggedIn = (req, res) => {
   });
 };
 
+module.exports.verify = (req, res, next) => {
+  if (req.session.isLoggedIn) {
+    next();
+  } else {
+    res.status(403).send(msg.notVerifiedUserErrMsg);
+  }
+};
+
+module.exports.verifyIsAdmin = (req, res, next) => {
+  User.findOne({
+    role: 'admin'
+  }, (err, user) => {
+    if (req.session.isLoggedIn && user.name === req.session.name) {
+      next();
+    } else {
+      res.status(403).send(msg.notAdminErrMsg);
+    }
+  });
+};
+
 module.exports.all = (req, res) => {
   User.find({}, (err, users) => {
     if (err) return res.status(500).send(msg.allUsersRequestErrMsg);
