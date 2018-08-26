@@ -1,3 +1,4 @@
+const bcrypt = require('bcrypt');
 const User = require('../models/user');
 const msg = require('../messages/index');
 
@@ -45,16 +46,18 @@ module.exports.logout = (req, res) => {
 };
 
 module.exports.create = (req, res) => {
-  User.create({
-      name: req.body.name,
-      email: req.body.email,
-      password: req.body.password
-    },
-    (err, user) => {
-      if (err) return res.status(500).send(msg.cannotCreateUserMsg);
-      req.session.isLoggedIn = true;
-      req.session.name = user.name;
-      res.status(200).send(user);
-    }
-  );
+  const {name, email, password} = req.body;
+  bcrypt.hash(password, 10)
+    .then((hashedPassword) => {
+      User.create({
+          name, email, password: hashedPassword
+        },
+        (err, user) => {
+          if (err) return res.status(500).send(msg.cannotCreateUserMsg);
+          req.session.isLoggedIn = true;
+          req.session.name = user.name;
+          res.status(200).send(user);
+        }
+      );
+    });
 };
