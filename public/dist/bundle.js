@@ -74155,23 +74155,12 @@ module.exports = function(originalModule) {
 
 "use strict";
 
-var __assign = (this && this.__assign) || function () {
-    __assign = Object.assign || function(t) {
-        for (var s, i = 1, n = arguments.length; i < n; i++) {
-            s = arguments[i];
-            for (var p in s) if (Object.prototype.hasOwnProperty.call(s, p))
-                t[p] = s[p];
-        }
-        return t;
-    };
-    return __assign.apply(this, arguments);
-};
 Object.defineProperty(exports, "__esModule", { value: true });
 var core_1 = __webpack_require__(/*! @material-ui/core */ "./node_modules/@material-ui/core/index.es.js");
 var React = __webpack_require__(/*! react */ "./node_modules/react/index.js");
 var react_router_dom_1 = __webpack_require__(/*! react-router-dom */ "./node_modules/react-router-dom/es/index.js");
 var __1 = __webpack_require__(/*! ../ */ "./public/src/components/index.ts");
-var stores_1 = __webpack_require__(/*! ../../stores */ "./public/src/stores/index.ts");
+var routeConfig_1 = __webpack_require__(/*! ../../routeConfig */ "./public/src/routeConfig.tsx");
 var decorate = core_1.withStyles(function (_a) {
     var typography = _a.typography;
     return ({
@@ -74180,63 +74169,6 @@ var decorate = core_1.withStyles(function (_a) {
         },
     });
 });
-var tournamentList = function () { return React.createElement(__1.TournamentList, { store: new stores_1.TournamentListStore() }); };
-/* istanbul ignore next */
-var table = function (props) { return (React.createElement(__1.TableView, { store: new stores_1.TableStore({
-        chars: ['rank', 'team', 'played', 'win', 'draw', 'loss', 'goals_for',
-            'goals_against', 'goal_diff', 'points'],
-        id: props.match.params.id,
-    }) })); };
-/* istanbul ignore next */
-var results = function (props) { return (React.createElement(__1.MatchList, __assign({ store: new stores_1.MatchListStore({
-        id: props.match.params.id,
-        type: 'results',
-    }) }, props))); };
-/* istanbul ignore next */
-var fixtures = function (props) { return (React.createElement(__1.MatchList, __assign({ store: new stores_1.MatchListStore({
-        id: props.match.params.id,
-        type: 'fixtures',
-    }) }, props))); };
-/* istanbul ignore next */
-var predictions = function (props) { return (React.createElement(__1.Prediction, { store: new stores_1.PredictionStore({
-        filter: props.location.search,
-    }) })); };
-var login = function () { return React.createElement(__1.Login, { store: stores_1.loginStore }); };
-var registration = function () { return React.createElement(__1.Registration, { store: stores_1.registrationStore }); };
-var routes = [
-    {
-        component: tournamentList,
-        exact: true,
-        path: '/',
-    },
-    {
-        component: login,
-        path: '/login',
-    },
-    {
-        component: registration,
-        path: '/registration',
-    },
-    {
-        component: table,
-        path: '/tournament/:id',
-    },
-    {
-        component: results,
-        path: '/results/:id',
-    },
-    {
-        component: fixtures,
-        path: '/fixtures/:id',
-    },
-    {
-        component: predictions,
-        path: '/predictions',
-    },
-    {
-        component: __1.NotFound,
-    },
-];
 var App = function (_a) {
     var classes = _a.classes;
     return (React.createElement("div", { className: classes.main },
@@ -74246,7 +74178,7 @@ var App = function (_a) {
                 React.createElement(React.Fragment, null,
                     React.createElement(__1.Header, null,
                         React.createElement(react_router_dom_1.Route, { path: '/:title/:id', component: __1.Nav })),
-                    React.createElement(react_router_dom_1.Switch, null, routes.map(function (route, index) { return (React.createElement(react_router_dom_1.Route, { key: index, exact: route.exact, component: route.component, path: route.path })); })))))));
+                    React.createElement(react_router_dom_1.Switch, null, routeConfig_1.routes.map(function (route, index) { return (React.createElement(react_router_dom_1.Route, { key: index, exact: route.exact, component: route.component, path: route.path })); })))))));
 };
 exports.default = decorate(App);
 
@@ -74299,6 +74231,9 @@ var styles = function (_a) {
     var breakpoints = _a.breakpoints, spacing = _a.spacing;
     var _b;
     return ({
+        gap: {
+            marginLeft: spacing.unit,
+        },
         header: (_b = {
                 marginBottom: spacing.unit
             },
@@ -74306,9 +74241,6 @@ var styles = function (_a) {
                 marginBottom: spacing.unit * 3,
             },
             _b),
-        gap: {
-            marginLeft: spacing.unit,
-        },
         user: {
             marginLeft: 'auto',
         },
@@ -74342,7 +74274,7 @@ exports.Header = core_1.withStyles(styles)(mobx_react_1.observer(/** @class */ (
                     React.createElement("div", { className: classes.user }, stores_1.userStore.isLoggedIn ? (React.createElement(React.Fragment, null,
                         React.createElement("span", null, stores_1.userStore.name),
                         React.createElement(core_1.Button, { className: classes.gap, onClick: stores_1.userStore.logout, color: 'inherit' }, dict_1.dict.logout))) : (React.createElement(React.Fragment, null,
-                        React.createElement(core_1.Button, { component: RegLink, color: 'inherit' }, dict_1.dict.registration),
+                        React.createElement(core_1.Button, { component: RegLink, color: 'inherit' }, dict_1.dict.register),
                         React.createElement(core_1.Button, { className: classes.gap, component: LoginLink, color: 'inherit' }, dict_1.dict.login)))))),
             React.createElement(__1.Sidebar, { isOpen: this.state.isSidebarOpen, toggleHandler: this.toggleSidebar.bind(this, false) })));
     };
@@ -75846,7 +75778,6 @@ exports.dict = {
     prediction: 'Prediction',
     rank: 'rank',
     register: 'Register',
-    registration: 'Registration',
     results: 'Results',
     sidebar_menu_prediction: 'Predictions',
     submit_btn_text: 'Submit',
@@ -75999,6 +75930,92 @@ var React = __webpack_require__(/*! react */ "./node_modules/react/index.js");
 var ReactDOM = __webpack_require__(/*! react-dom */ "./node_modules/react-dom/index.js");
 var App_1 = __webpack_require__(/*! ./components/App/App */ "./public/src/components/App/App.tsx");
 ReactDOM.render(React.createElement(App_1.default, null), document.getElementById('root'));
+
+
+/***/ }),
+
+/***/ "./public/src/routeConfig.tsx":
+/*!************************************!*\
+  !*** ./public/src/routeConfig.tsx ***!
+  \************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+var __assign = (this && this.__assign) || function () {
+    __assign = Object.assign || function(t) {
+        for (var s, i = 1, n = arguments.length; i < n; i++) {
+            s = arguments[i];
+            for (var p in s) if (Object.prototype.hasOwnProperty.call(s, p))
+                t[p] = s[p];
+        }
+        return t;
+    };
+    return __assign.apply(this, arguments);
+};
+Object.defineProperty(exports, "__esModule", { value: true });
+var React = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+var components_1 = __webpack_require__(/*! ./components */ "./public/src/components/index.ts");
+var stores_1 = __webpack_require__(/*! ./stores */ "./public/src/stores/index.ts");
+var tournamentList = function () { return React.createElement(components_1.TournamentList, { store: new stores_1.TournamentListStore() }); };
+/* istanbul ignore next */
+var table = function (props) { return (React.createElement(components_1.TableView, { store: new stores_1.TableStore({
+        chars: ['rank', 'team', 'played', 'win', 'draw', 'loss', 'goals_for',
+            'goals_against', 'goal_diff', 'points'],
+        id: props.match.params.id,
+    }) })); };
+/* istanbul ignore next */
+var results = function (props) { return (React.createElement(components_1.MatchList, __assign({ store: new stores_1.MatchListStore({
+        id: props.match.params.id,
+        type: 'results',
+    }) }, props))); };
+/* istanbul ignore next */
+var fixtures = function (props) { return (React.createElement(components_1.MatchList, __assign({ store: new stores_1.MatchListStore({
+        id: props.match.params.id,
+        type: 'fixtures',
+    }) }, props))); };
+/* istanbul ignore next */
+var predictions = function (props) { return (React.createElement(components_1.Prediction, { store: new stores_1.PredictionStore({
+        filter: props.location.search,
+    }) })); };
+var login = function () { return React.createElement(components_1.Login, { store: stores_1.loginStore }); };
+var registration = function () { return React.createElement(components_1.Registration, { store: stores_1.registrationStore }); };
+exports.routes = [
+    {
+        component: tournamentList,
+        exact: true,
+        path: '/',
+    },
+    {
+        component: login,
+        exact: true,
+        path: '/login',
+    },
+    {
+        component: registration,
+        path: '/registration',
+    },
+    {
+        component: table,
+        path: '/tournament/:id',
+    },
+    {
+        component: results,
+        path: '/results/:id',
+    },
+    {
+        component: fixtures,
+        path: '/fixtures/:id',
+    },
+    {
+        component: predictions,
+        path: '/predictions',
+    },
+    {
+        component: components_1.NotFound,
+    },
+];
 
 
 /***/ }),

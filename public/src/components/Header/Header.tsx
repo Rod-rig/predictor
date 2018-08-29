@@ -8,14 +8,14 @@ import {dict} from '../../dict';
 import {userStore} from '../../stores';
 
 const styles = ({breakpoints, spacing}: Theme) => ({
+  gap: {
+    marginLeft: spacing.unit,
+  },
   header: {
     marginBottom: spacing.unit,
     [breakpoints.up('lg')]: {
       marginBottom: spacing.unit * 3,
     },
-  },
-  gap: {
-    marginLeft: spacing.unit,
   },
   user: {
     marginLeft: 'auto',
@@ -59,7 +59,7 @@ export const Header = withStyles(styles)(observer(class extends React.Component<
                 </React.Fragment>
               ) : (
                 <React.Fragment>
-                  <Button component={RegLink} color='inherit'>{dict.registration}</Button>
+                  <Button component={RegLink} color='inherit'>{dict.register}</Button>
                   <Button className={classes.gap} component={LoginLink} color='inherit'>{dict.login}</Button>
                 </React.Fragment>
               )}

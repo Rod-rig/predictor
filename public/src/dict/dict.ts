@@ -17,7 +17,6 @@ export interface IDict {
   prediction: string;
   rank: string;
   register: string;
-  registration: string;
   results: string;
   sidebar_menu_prediction: string;
   submit_btn_text: string;
@@ -45,7 +44,6 @@ export const dict: IDict = {
   prediction: 'Prediction',
   rank: 'rank',
   register: 'Register',
-  registration: 'Registration',
   results: 'Results',
   sidebar_menu_prediction: 'Predictions',
   submit_btn_text: 'Submit',
