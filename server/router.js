@@ -1,6 +1,6 @@
 const userController = require('./controllers/user');
 const predictionController = require('./controllers/prediction');
-const apiController = require('./controllers/api');
+const apiController = process.env.NODE_ENV === 'development' ? require('./controllers/devApi') : require('./controllers/api');
 
 module.exports = (app) => {
   //api
