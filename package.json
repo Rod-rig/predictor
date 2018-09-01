@@ -1,6 +1,6 @@
 {
   "name": "predictor",
-  "version": "0.2.39",
+  "version": "0.2.40",
   "main": "public/src/index.tsx",
   "license": "MIT",
   "scripts": {
@@ -32,6 +32,9 @@
   "browserslist": [
     "last 2 versions"
   ],
+  "nodemonConfig": {
+    "ignore": ["public/*"]
+  },
   "jest": {
     "collectCoverageFrom": [
       "public/src/components/**/*.{ts,tsx}",

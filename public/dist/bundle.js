@@ -75817,14 +75817,25 @@ __export(__webpack_require__(/*! ./dict */ "./public/src/dict/dict.ts"));
 "use strict";
 
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.getFutureDates = function () {
+exports.getFutureDates = function (date) {
+    if (date === void 0) { date = new Date(); }
     var dates = [];
-    var today = new Date();
+    var year = date.getFullYear();
+    var month = date.getMonth();
+    var day = date.getDate();
+    var monthsDurations = [31, year % 4 === 0 ? 29 : 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31];
     for (var i = 0; i < 7; i++) {
-        var year = today.getFullYear();
-        var month = today.getMonth() + 1 < 10 ? "0" + (today.getMonth() + 1) : today.getMonth() + 1;
-        var day = today.getDate() + i < 10 ? "0" + (today.getDate() + i) : today.getDate() + i;
-        dates.push(year + "-" + month + "-" + day);
+        if (day > monthsDurations[month]) {
+            month = (month + 1) % 12;
+            day = 1;
+        }
+        if (day === 1 && month === 0) {
+            year += 1;
+        }
+        var finalMonth = month + 1 < 10 ? "0" + (month + 1) : month + 1;
+        var finalDay = day < 10 ? "0" + day : day;
+        dates.push(year + "-" + finalMonth + "-" + finalDay);
+        day += 1;
     }
     return dates;
 };
