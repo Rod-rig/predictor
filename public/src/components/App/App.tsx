@@ -1,25 +1,22 @@
-import {CssBaseline, Theme, withStyles} from '@material-ui/core';
+import {createStyles, CssBaseline, Theme, withStyles} from '@material-ui/core';
 import * as React from 'react';
 import {HashRouter, Route, Switch} from 'react-router-dom';
-import {Header, Nav, Palette} from '../';
+import {Header, Palette} from '../';
 import {routes} from '../../routeConfig';
 
-const decorate = withStyles(({typography}: Theme) => ({
+const styles = ({typography}: Theme) => createStyles({
   main: {
     fontFamily: typography.fontFamily,
   },
-}));
+});
 
-const App = ({classes}: any) => (
-  <div className={classes.main}>
+export const App = withStyles(styles)((props: any) => (
+  <div className={props.classes.main}>
     <Palette>
       <CssBaseline/>
       <HashRouter>
         <React.Fragment>
-          <Header>
-            <Route path='/:title/:id' component={Nav}/>
-          </Header>
-
+          <Header/>
           <Switch>
             {
               routes.map((route, index: number) => (
@@ -36,6 +33,4 @@ const App = ({classes}: any) => (
       </HashRouter>
     </Palette>
   </div>
-);
-
-export default decorate(App);
+));

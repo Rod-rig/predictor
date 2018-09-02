@@ -2,7 +2,7 @@ import {mount} from 'enzyme';
 import * as React from 'react';
 import {MemoryRouter} from 'react-router-dom';
 import {Header, TableView, TournamentList} from '..';
-import App from './App';
+import {App} from './App';
 
 describe('App', () => {
   const renderRoute = (path: string) => (

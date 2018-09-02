@@ -74161,26 +74161,21 @@ var React = __webpack_require__(/*! react */ "./node_modules/react/index.js");
 var react_router_dom_1 = __webpack_require__(/*! react-router-dom */ "./node_modules/react-router-dom/es/index.js");
 var __1 = __webpack_require__(/*! ../ */ "./public/src/components/index.ts");
 var routeConfig_1 = __webpack_require__(/*! ../../routeConfig */ "./public/src/routeConfig.tsx");
-var decorate = core_1.withStyles(function (_a) {
+var styles = function (_a) {
     var typography = _a.typography;
-    return ({
+    return core_1.createStyles({
         main: {
             fontFamily: typography.fontFamily,
         },
     });
-});
-var App = function (_a) {
-    var classes = _a.classes;
-    return (React.createElement("div", { className: classes.main },
-        React.createElement(__1.Palette, null,
-            React.createElement(core_1.CssBaseline, null),
-            React.createElement(react_router_dom_1.HashRouter, null,
-                React.createElement(React.Fragment, null,
-                    React.createElement(__1.Header, null,
-                        React.createElement(react_router_dom_1.Route, { path: '/:title/:id', component: __1.Nav })),
-                    React.createElement(react_router_dom_1.Switch, null, routeConfig_1.routes.map(function (route, index) { return (React.createElement(react_router_dom_1.Route, { key: index, exact: route.exact, component: route.component, path: route.path })); })))))));
 };
-exports.default = decorate(App);
+exports.App = core_1.withStyles(styles)(function (props) { return (React.createElement("div", { className: props.classes.main },
+    React.createElement(__1.Palette, null,
+        React.createElement(core_1.CssBaseline, null),
+        React.createElement(react_router_dom_1.HashRouter, null,
+            React.createElement(React.Fragment, null,
+                React.createElement(__1.Header, null),
+                React.createElement(react_router_dom_1.Switch, null, routeConfig_1.routes.map(function (route, index) { return (React.createElement(react_router_dom_1.Route, { key: index, exact: route.exact, component: route.component, path: route.path })); }))))))); });
 
 
 /***/ }),
@@ -74227,10 +74222,11 @@ var react_router_dom_1 = __webpack_require__(/*! react-router-dom */ "./node_mod
 var __1 = __webpack_require__(/*! ../ */ "./public/src/components/index.ts");
 var dict_1 = __webpack_require__(/*! ../../dict */ "./public/src/dict/index.ts");
 var stores_1 = __webpack_require__(/*! ../../stores */ "./public/src/stores/index.ts");
+var HeaderTitle_1 = __webpack_require__(/*! ./HeaderTitle */ "./public/src/components/Header/HeaderTitle.tsx");
 var styles = function (_a) {
     var breakpoints = _a.breakpoints, spacing = _a.spacing;
     var _b;
-    return ({
+    return core_1.createStyles({
         gap: {
             marginLeft: spacing.unit,
         },
@@ -74270,7 +74266,8 @@ exports.Header = core_1.withStyles(styles)(mobx_react_1.observer(/** @class */ (
                     React.createElement(core_1.IconButton, { onClick: this.toggleSidebar.bind(this, true), color: 'inherit', "aria-label": 'Menu' },
                         React.createElement(Menu_1.default, null)),
                     React.createElement(__1.Logo, null),
-                    this.props.children,
+                    React.createElement(HeaderTitle_1.HeaderTitle, null),
+                    React.createElement(__1.Nav, null),
                     React.createElement("div", { className: classes.user }, stores_1.userStore.isLoggedIn ? (React.createElement(React.Fragment, null,
                         React.createElement("span", null, stores_1.userStore.name),
                         React.createElement(core_1.Button, { className: classes.gap, onClick: stores_1.userStore.logout, color: 'inherit' }, dict_1.dict.logout))) : (React.createElement(React.Fragment, null,
@@ -74280,6 +74277,32 @@ exports.Header = core_1.withStyles(styles)(mobx_react_1.observer(/** @class */ (
     };
     return class_1;
 }(React.Component))));
+
+
+/***/ }),
+
+/***/ "./public/src/components/Header/HeaderTitle.tsx":
+/*!******************************************************!*\
+  !*** ./public/src/components/Header/HeaderTitle.tsx ***!
+  \******************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+var _this = this;
+Object.defineProperty(exports, "__esModule", { value: true });
+var core_1 = __webpack_require__(/*! @material-ui/core */ "./node_modules/@material-ui/core/index.es.js");
+var React = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+var react_router_dom_1 = __webpack_require__(/*! react-router-dom */ "./node_modules/react-router-dom/es/index.js");
+var routeConfig_1 = __webpack_require__(/*! ../../routeConfig */ "./public/src/routeConfig.tsx");
+var Title = function (title) {
+    return (React.createElement(core_1.Typography, { variant: 'title', color: 'inherit' }, title));
+};
+exports.HeaderTitle = function () {
+    return (React.createElement(react_router_dom_1.HashRouter, null,
+        React.createElement(react_router_dom_1.Switch, null, routeConfig_1.routes.map(function (route, index) { return (React.createElement(react_router_dom_1.Route, { key: index, exact: route.exact, component: Title.bind(_this, route.title), path: route.path })); }))));
+};
 
 
 /***/ }),
@@ -74738,7 +74761,7 @@ var core_1 = __webpack_require__(/*! @material-ui/core */ "./node_modules/@mater
 var React = __webpack_require__(/*! react */ "./node_modules/react/index.js");
 var react_router_dom_1 = __webpack_require__(/*! react-router-dom */ "./node_modules/react-router-dom/es/index.js");
 var dict_1 = __webpack_require__(/*! ../../dict */ "./public/src/dict/index.ts");
-var styles = function (theme) { return ({
+var styles = function (theme) { return core_1.createStyles({
     link: {
         color: theme.palette.primary.contrastText,
         fontSize: theme.typography.fontSize,
@@ -74748,19 +74771,29 @@ var styles = function (theme) { return ({
         marginLeft: theme.spacing.unit * 2,
     },
 }); };
-var NavElement = function (props) {
+var compose = function () {
+    var funcs = [];
+    for (var _i = 0; _i < arguments.length; _i++) {
+        funcs[_i] = arguments[_i];
+    }
+    return funcs.reduce(function (a, b) { return function () {
+        var args = [];
+        for (var _i = 0; _i < arguments.length; _i++) {
+            args[_i] = arguments[_i];
+        }
+        return a(b.apply(void 0, args));
+    }; });
+};
+exports.Nav = compose(core_1.withStyles(styles), react_router_dom_1.withRouter)(function (props) {
     var classes = props.classes, match = props.match;
-    var title = match.params.title[0].toUpperCase() + match.params.title.slice(1);
     return (React.createElement(React.Fragment, null,
-        React.createElement(core_1.Typography, { className: classes.title, variant: 'title', color: 'inherit' }, title),
         React.createElement(core_1.Typography, { className: classes.title, variant: 'title' },
             React.createElement(react_router_dom_1.Link, { className: classes.link, to: "/fixtures/" + match.params.id }, dict_1.dict.fixtures)),
         React.createElement(core_1.Typography, { className: classes.title, variant: 'title' },
             React.createElement(react_router_dom_1.Link, { className: classes.link, to: "/results/" + match.params.id }, dict_1.dict.results)),
         React.createElement(core_1.Typography, { className: classes.title, variant: 'title' },
             React.createElement(react_router_dom_1.Link, { className: classes.link, to: "/predictions?tournament_id=" + match.params.id }, dict_1.dict.prediction))));
-};
-exports.Nav = core_1.withStyles(styles)(core_1.withTheme()(NavElement));
+});
 
 
 /***/ }),
@@ -75940,7 +75973,7 @@ Object.defineProperty(exports, "__esModule", { value: true });
 var React = __webpack_require__(/*! react */ "./node_modules/react/index.js");
 var ReactDOM = __webpack_require__(/*! react-dom */ "./node_modules/react-dom/index.js");
 var App_1 = __webpack_require__(/*! ./components/App/App */ "./public/src/components/App/App.tsx");
-ReactDOM.render(React.createElement(App_1.default, null), document.getElementById('root'));
+ReactDOM.render(React.createElement(App_1.App, null), document.getElementById('root'));
 
 
 /***/ }),
@@ -76002,26 +76035,32 @@ exports.routes = [
         component: login,
         exact: true,
         path: '/login',
+        title: 'Login',
     },
     {
         component: registration,
         path: '/registration',
+        title: 'Registration',
     },
     {
         component: table,
         path: '/tournament/:id',
+        title: 'Tournament table',
     },
     {
         component: results,
         path: '/results/:id',
+        title: 'Results',
     },
     {
         component: fixtures,
         path: '/fixtures/:id',
+        title: 'Fixtures',
     },
     {
         component: predictions,
         path: '/predictions',
+        title: 'Predictions',
     },
     {
         component: components_1.NotFound,

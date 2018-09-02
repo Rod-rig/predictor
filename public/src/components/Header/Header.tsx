@@ -1,13 +1,14 @@
-import {AppBar, Button, IconButton, Theme, Toolbar, withStyles} from '@material-ui/core';
+import {AppBar, Button, createStyles, IconButton, Theme, Toolbar, withStyles} from '@material-ui/core';
 import Menu from '@material-ui/icons/Menu';
 import {observer} from 'mobx-react';
 import * as React from 'react';
 import {Link} from 'react-router-dom';
-import {Logo, Sidebar} from '../';
+import {Logo, Nav, Sidebar} from '../';
 import {dict} from '../../dict';
 import {userStore} from '../../stores';
+import {HeaderTitle} from './HeaderTitle';
 
-const styles = ({breakpoints, spacing}: Theme) => ({
+const styles = ({breakpoints, spacing}: Theme) => createStyles({
   gap: {
     marginLeft: spacing.unit,
   },
@@ -50,7 +51,8 @@ export const Header = withStyles(styles)(observer(class extends React.Component<
               <Menu/>
             </IconButton>
             <Logo/>
-            {this.props.children}
+            <HeaderTitle/>
+            <Nav/>
             <div className={classes.user}>
               {userStore.isLoggedIn ? (
                 <React.Fragment>

@@ -1,9 +1,9 @@
-import {Theme, Typography, withStyles, withTheme} from '@material-ui/core';
+import {createStyles, Theme, Typography, withStyles} from '@material-ui/core';
 import * as React from 'react';
-import {Link} from 'react-router-dom';
+import {Link, withRouter} from 'react-router-dom';
 import {dict} from '../../dict';
 
-const styles = (theme: Theme) => ({
+const styles = (theme: Theme) => createStyles({
   link: {
     color: theme.palette.primary.contrastText,
     fontSize: theme.typography.fontSize,
@@ -14,14 +14,14 @@ const styles = (theme: Theme) => ({
   },
 });
 
-const NavElement = (props?: any) => {
+const compose = (...funcs: any[]) => {
+  return funcs.reduce((a, b) => (...args: any[]) => a(b(...args)));
+};
+
+export const Nav = compose(withStyles(styles), withRouter)((props?: any) => {
   const {classes, match} = props;
-  const title = match.params.title[0].toUpperCase() + match.params.title.slice(1);
   return (
     <React.Fragment>
-      <Typography className={classes.title} variant='title' color='inherit'>
-        {title}
-      </Typography>
       <Typography className={classes.title} variant='title'>
         <Link className={classes.link} to={`/fixtures/${match.params.id}`}>{dict.fixtures}</Link>
       </Typography>
@@ -33,6 +33,4 @@ const NavElement = (props?: any) => {
       </Typography>
     </React.Fragment>
   );
-};
-
-export const Nav = withStyles(styles)(withTheme()(NavElement));
+});
