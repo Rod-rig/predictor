@@ -2,7 +2,6 @@ require('dotenv').config();
 const express = require('express');
 const morgan = require('morgan');
 const session = require('express-session');
-const MongoStore = require('connect-mongo')(session);
 const uuidv1 = require('uuid/v1');
 const mongoose = require('mongoose');
 const cookieParser = require('cookie-parser');
@@ -29,11 +28,7 @@ app.use(session({
   cookie: {maxAge: 1000 * 60 * 20},
   secret: uuidv1(),
   resave: false,
-  saveUninitialized: true,
-  store: new MongoStore({
-    db: process.env.DB_NAME,
-    mongooseConnection: mongoose.connection
-  })
+  saveUninitialized: true
 }));
 app.use(express.static('public'));
 
