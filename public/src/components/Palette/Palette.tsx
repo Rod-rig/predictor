@@ -17,6 +17,9 @@ const theme = createMuiTheme({
       main: '#E90052',
     },
   },
+  typography: {
+    useNextVariants: true,
+  },
 });
 
 export const Palette = (props?: any) => (

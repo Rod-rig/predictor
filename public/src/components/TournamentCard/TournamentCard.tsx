@@ -40,7 +40,7 @@ const TournamentCardElement = (props: IProps) => {
     <Card>
       {renderImage()}
       <CardContent>
-        <Typography className={classes.h2} variant='headline' component='h2'>{props.name}</Typography>
+        <Typography className={classes.h2} variant='h5' component='h2'>{props.name}</Typography>
         <Typography variant='caption'>{props.country}</Typography>
       </CardContent>
       <CardActions>
