@@ -78374,11 +78374,8 @@ var dict_1 = __webpack_require__(/*! ../../dict */ "./public/src/dict/index.ts")
 var stores_1 = __webpack_require__(/*! ../../stores */ "./public/src/stores/index.ts");
 var styles = function (_a) {
     var breakpoints = _a.breakpoints, spacing = _a.spacing;
-    var _b;
+    var _b, _c, _d;
     return core_1.createStyles({
-        gap: {
-            marginLeft: spacing.unit,
-        },
         header: (_b = {
                 marginBottom: spacing.unit
             },
@@ -78386,6 +78383,18 @@ var styles = function (_a) {
                 marginBottom: spacing.unit * 3,
             },
             _b),
+        headerBtn: (_c = {},
+            _c[breakpoints.down('xs')] = {
+                paddingLeft: spacing.unit,
+                paddingRight: spacing.unit,
+            },
+            _c),
+        toolbar: (_d = {},
+            _d[breakpoints.down('xs')] = {
+                paddingLeft: spacing.unit,
+                paddingRight: spacing.unit,
+            },
+            _d),
         user: {
             marginLeft: 'auto',
         },
@@ -78411,15 +78420,15 @@ exports.Header = core_1.withStyles(styles)(mobx_react_1.observer(/** @class */ (
         var classes = this.props.classes;
         return (React.createElement(React.Fragment, null,
             React.createElement(core_1.AppBar, { position: 'static', className: classes.header },
-                React.createElement(core_1.Toolbar, null,
+                React.createElement(core_1.Toolbar, { className: classes.toolbar },
                     React.createElement(core_1.IconButton, { onClick: this.toggleSidebar.bind(this, true), color: 'inherit', "aria-label": 'Menu' },
                         React.createElement(Menu_1.default, null)),
                     React.createElement(__1.Logo, null),
                     React.createElement("div", { className: classes.user }, stores_1.userStore.isLoggedIn ? (React.createElement(React.Fragment, null,
                         React.createElement("span", null, stores_1.userStore.name),
-                        React.createElement(core_1.Button, { className: classes.gap, onClick: stores_1.userStore.logout, color: 'inherit' }, dict_1.dict.logout))) : (React.createElement(React.Fragment, null,
-                        React.createElement(core_1.Button, { component: RegLink, color: 'inherit' }, dict_1.dict.register),
-                        React.createElement(core_1.Button, { className: classes.gap, component: LoginLink, color: 'inherit' }, dict_1.dict.login)))))),
+                        React.createElement(core_1.Button, { className: classes.headerBtn, onClick: stores_1.userStore.logout, color: 'inherit' }, dict_1.dict.logout))) : (React.createElement(React.Fragment, null,
+                        React.createElement(core_1.Button, { className: classes.headerBtn, component: RegLink, color: 'inherit' }, dict_1.dict.register),
+                        React.createElement(core_1.Button, { className: classes.headerBtn, component: LoginLink, color: 'inherit' }, dict_1.dict.login)))))),
             React.createElement(__1.Sidebar, { isOpen: this.state.isSidebarOpen, toggleHandler: this.toggleSidebar.bind(this, false) })));
     };
     return class_1;
@@ -78630,14 +78639,22 @@ Object.defineProperty(exports, "__esModule", { value: true });
 var core_1 = __webpack_require__(/*! @material-ui/core */ "./node_modules/@material-ui/core/index.es.js");
 var React = __webpack_require__(/*! react */ "./node_modules/react/index.js");
 var react_router_dom_1 = __webpack_require__(/*! react-router-dom */ "./node_modules/react-router-dom/es/index.js");
-var styles = {
-    img: {
-        display: 'block',
-        maxWidth: '100%',
-    },
-    logo: {
-        maxWidth: 147,
-    },
+var styles = function (_a) {
+    var breakpoints = _a.breakpoints;
+    var _b;
+    return ({
+        img: {
+            display: 'block',
+            maxWidth: '100%',
+        },
+        logo: (_b = {
+                maxWidth: 100
+            },
+            _b[breakpoints.up('sm')] = {
+                maxWidth: 147,
+            },
+            _b),
+    });
 };
 var LogoElement = function (props) {
     var classes = props.classes;
@@ -79773,16 +79790,22 @@ var core_1 = __webpack_require__(/*! @material-ui/core */ "./node_modules/@mater
 var React = __webpack_require__(/*! react */ "./node_modules/react/index.js");
 var react_router_dom_1 = __webpack_require__(/*! react-router-dom */ "./node_modules/react-router-dom/es/index.js");
 var dict_1 = __webpack_require__(/*! ../../dict */ "./public/src/dict/index.ts");
-var styles = {
-    h2: {
-        'overflow': 'hidden',
-        'text-overflow': 'ellipsis',
-        'white-space': 'nowrap',
-    },
-    img: {
-        backgroundSize: 'contain',
-        height: '300px',
-    },
+var styles = function (_a) {
+    var palette = _a.palette;
+    return ({
+        caption: {
+            color: palette.text.secondary,
+        },
+        h2: {
+            'overflow': 'hidden',
+            'text-overflow': 'ellipsis',
+            'white-space': 'nowrap',
+        },
+        img: {
+            backgroundSize: 'contain',
+            height: '300px',
+        },
+    });
 };
 var TournamentCardElement = function (props) {
     var classes = props.classes;
@@ -79794,7 +79817,7 @@ var TournamentCardElement = function (props) {
         renderImage(),
         React.createElement(core_1.CardContent, null,
             React.createElement(core_1.Typography, { className: classes.h2, variant: 'h5', component: 'h2' }, props.name),
-            React.createElement(core_1.Typography, { variant: 'caption' }, props.country)),
+            React.createElement(core_1.Typography, { className: classes.caption, variant: 'caption' }, props.country)),
         React.createElement(core_1.CardActions, null,
             React.createElement(core_1.Button, { component: MyLink, size: 'small', color: 'primary' }, dict_1.dict.tournament_card_more))));
 };

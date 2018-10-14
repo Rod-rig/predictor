@@ -1,4 +1,4 @@
-import {Button, Card, CardActions, CardContent, CardMedia, Typography, withStyles} from '@material-ui/core';
+import {Button, Card, CardActions, CardContent, CardMedia, Theme, Typography, withStyles} from '@material-ui/core';
 import * as React from 'react';
 import {Link} from 'react-router-dom';
 import {dict} from '../../dict';
@@ -11,7 +11,10 @@ interface IProps {
   name: string;
 }
 
-const styles = {
+const styles = ({palette}: Theme) => ({
+  caption: {
+    color: palette.text.secondary,
+  },
   h2: {
     'overflow': 'hidden',
     'text-overflow': 'ellipsis',
@@ -21,7 +24,7 @@ const styles = {
     backgroundSize: 'contain',
     height: '300px',
   },
-};
+});
 
 const TournamentCardElement = (props: IProps) => {
   const {classes} = props;
@@ -41,7 +44,7 @@ const TournamentCardElement = (props: IProps) => {
       {renderImage()}
       <CardContent>
         <Typography className={classes.h2} variant='h5' component='h2'>{props.name}</Typography>
-        <Typography variant='caption'>{props.country}</Typography>
+        <Typography className={classes.caption} variant='caption'>{props.country}</Typography>
       </CardContent>
       <CardActions>
         <Button component={MyLink} size='small' color='primary'>{dict.tournament_card_more}</Button>

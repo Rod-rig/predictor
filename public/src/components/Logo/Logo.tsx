@@ -1,16 +1,19 @@
-import {withStyles} from '@material-ui/core';
+import {Theme, withStyles} from '@material-ui/core';
 import * as React from 'react';
 import {Link} from 'react-router-dom';
 
-const styles = {
+const styles = ({breakpoints}: Theme) => ({
   img: {
     display: 'block',
     maxWidth: '100%',
   },
   logo: {
-    maxWidth: 147,
+    maxWidth: 100,
+    [breakpoints.up('sm')]: {
+      maxWidth: 147,
+    },
   },
-};
+});
 
 const LogoElement = (props: any) => {
   const {classes} = props;
