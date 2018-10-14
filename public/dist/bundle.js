@@ -78372,7 +78372,6 @@ var react_router_dom_1 = __webpack_require__(/*! react-router-dom */ "./node_mod
 var __1 = __webpack_require__(/*! ../ */ "./public/src/components/index.ts");
 var dict_1 = __webpack_require__(/*! ../../dict */ "./public/src/dict/index.ts");
 var stores_1 = __webpack_require__(/*! ../../stores */ "./public/src/stores/index.ts");
-var HeaderTitle_1 = __webpack_require__(/*! ./HeaderTitle */ "./public/src/components/Header/HeaderTitle.tsx");
 var styles = function (_a) {
     var breakpoints = _a.breakpoints, spacing = _a.spacing;
     var _b;
@@ -78416,8 +78415,6 @@ exports.Header = core_1.withStyles(styles)(mobx_react_1.observer(/** @class */ (
                     React.createElement(core_1.IconButton, { onClick: this.toggleSidebar.bind(this, true), color: 'inherit', "aria-label": 'Menu' },
                         React.createElement(Menu_1.default, null)),
                     React.createElement(__1.Logo, null),
-                    React.createElement(HeaderTitle_1.HeaderTitle, null),
-                    React.createElement(__1.Nav, null),
                     React.createElement("div", { className: classes.user }, stores_1.userStore.isLoggedIn ? (React.createElement(React.Fragment, null,
                         React.createElement("span", null, stores_1.userStore.name),
                         React.createElement(core_1.Button, { className: classes.gap, onClick: stores_1.userStore.logout, color: 'inherit' }, dict_1.dict.logout))) : (React.createElement(React.Fragment, null,
@@ -78427,32 +78424,6 @@ exports.Header = core_1.withStyles(styles)(mobx_react_1.observer(/** @class */ (
     };
     return class_1;
 }(React.Component))));
-
-
-/***/ }),
-
-/***/ "./public/src/components/Header/HeaderTitle.tsx":
-/*!******************************************************!*\
-  !*** ./public/src/components/Header/HeaderTitle.tsx ***!
-  \******************************************************/
-/*! no static exports found */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-var _this = this;
-Object.defineProperty(exports, "__esModule", { value: true });
-var core_1 = __webpack_require__(/*! @material-ui/core */ "./node_modules/@material-ui/core/index.es.js");
-var React = __webpack_require__(/*! react */ "./node_modules/react/index.js");
-var react_router_dom_1 = __webpack_require__(/*! react-router-dom */ "./node_modules/react-router-dom/es/index.js");
-var routeConfig_1 = __webpack_require__(/*! ../../routeConfig */ "./public/src/routeConfig.tsx");
-var Title = function (title) {
-    return (React.createElement(core_1.Typography, { variant: 'h6', color: 'inherit' }, title));
-};
-exports.HeaderTitle = function () {
-    return (React.createElement(react_router_dom_1.HashRouter, null,
-        React.createElement(react_router_dom_1.Switch, null, routeConfig_1.routes.map(function (route, index) { return (React.createElement(react_router_dom_1.Route, { key: index, exact: route.exact, component: Title.bind(_this, route.title), path: route.path })); }))));
-};
 
 
 /***/ }),
@@ -78665,14 +78636,14 @@ var styles = {
         maxWidth: '100%',
     },
     logo: {
-        maxWidth: 50,
+        maxWidth: 147,
     },
 };
 var LogoElement = function (props) {
     var classes = props.classes;
     return (React.createElement("div", { className: classes.logo },
         React.createElement(react_router_dom_1.Link, { to: '/' },
-            React.createElement("img", { className: classes.img, src: 'https://avatars2.githubusercontent.com/u/11474330', alt: 'logo' }))));
+            React.createElement("img", { className: classes.img, src: 'src/images/logo.svg', alt: 'logo' }))));
 };
 exports.Logo = core_1.withStyles(styles)(LogoElement);
 

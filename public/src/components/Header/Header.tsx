@@ -3,10 +3,9 @@ import Menu from '@material-ui/icons/Menu';
 import {observer} from 'mobx-react';
 import * as React from 'react';
 import {Link} from 'react-router-dom';
-import {Logo, Nav, Sidebar} from '../';
+import {Logo, Sidebar} from '../';
 import {dict} from '../../dict';
 import {userStore} from '../../stores';
-import {HeaderTitle} from './HeaderTitle';
 
 const styles = ({breakpoints, spacing}: Theme) => createStyles({
   gap: {
@@ -51,8 +50,6 @@ export const Header = withStyles(styles)(observer(class extends React.Component<
               <Menu/>
             </IconButton>
             <Logo/>
-            <HeaderTitle/>
-            <Nav/>
             <div className={classes.user}>
               {userStore.isLoggedIn ? (
                 <React.Fragment>

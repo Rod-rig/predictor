@@ -8,7 +8,7 @@ const styles = {
     maxWidth: '100%',
   },
   logo: {
-    maxWidth: 50,
+    maxWidth: 147,
   },
 };
 
@@ -18,7 +18,7 @@ const LogoElement = (props: any) => {
   return (
     <div className={classes.logo}>
       <Link to='/'>
-        <img className={classes.img} src='https://avatars2.githubusercontent.com/u/11474330' alt='logo'/>
+        <img className={classes.img} src='src/images/logo.svg' alt='logo'/>
       </Link>
     </div>
   );
