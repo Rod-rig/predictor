@@ -6,6 +6,7 @@ import {Link} from 'react-router-dom';
 import {Logo, Sidebar} from '../';
 import {dict} from '../../dict';
 import {userStore} from '../../stores';
+import {AccountMenu} from './AccountMenu';
 
 const styles = ({breakpoints, spacing}: Theme) => createStyles({
   header: {
@@ -61,10 +62,7 @@ export const Header = withStyles(styles)(observer(class extends React.Component<
             <Logo/>
             <div className={classes.user}>
               {userStore.isLoggedIn ? (
-                <React.Fragment>
-                  <span>{userStore.name}</span>
-                  <Button className={classes.headerBtn} onClick={userStore.logout} color='inherit'>{dict.logout}</Button>
-                </React.Fragment>
+                <AccountMenu userName={userStore.name} logout={userStore.logout}/>
               ) : (
                 <React.Fragment>
                   <Button className={classes.headerBtn} component={RegLink} color='inherit'>{dict.register}</Button>

@@ -34610,6 +34610,38 @@ exports.default = _default;
 
 /***/ }),
 
+/***/ "./node_modules/@material-ui/icons/AccountCircle.js":
+/*!**********************************************************!*\
+  !*** ./node_modules/@material-ui/icons/AccountCircle.js ***!
+  \**********************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+var _interopRequireDefault = __webpack_require__(/*! @babel/runtime/helpers/interopRequireDefault */ "./node_modules/@material-ui/icons/node_modules/@babel/runtime/helpers/interopRequireDefault.js");
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.default = void 0;
+
+var _react = _interopRequireDefault(__webpack_require__(/*! react */ "./node_modules/react/index.js"));
+
+var _createSvgIcon = _interopRequireDefault(__webpack_require__(/*! ./utils/createSvgIcon */ "./node_modules/@material-ui/icons/utils/createSvgIcon.js"));
+
+var _default = (0, _createSvgIcon.default)(_react.default.createElement(_react.default.Fragment, null, _react.default.createElement("path", {
+  d: "M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 3c1.66 0 3 1.34 3 3s-1.34 3-3 3-3-1.34-3-3 1.34-3 3-3zm0 14.2c-2.5 0-4.71-1.28-6-3.22.03-1.99 4-3.08 6-3.08 1.99 0 5.97 1.09 6 3.08-1.29 1.94-3.5 3.22-6 3.22z"
+}), _react.default.createElement("path", {
+  fill: "none",
+  d: "M0 0h24v24H0z"
+})), 'AccountCircle');
+
+exports.default = _default;
+
+/***/ }),
+
 /***/ "./node_modules/@material-ui/icons/Error.js":
 /*!**************************************************!*\
   !*** ./node_modules/@material-ui/icons/Error.js ***!
@@ -78330,6 +78362,74 @@ exports.App = core_1.withStyles(styles)(function (props) { return (React.createE
 
 /***/ }),
 
+/***/ "./public/src/components/Header/AccountMenu.tsx":
+/*!******************************************************!*\
+  !*** ./public/src/components/Header/AccountMenu.tsx ***!
+  \******************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+var __extends = (this && this.__extends) || (function () {
+    var extendStatics = function (d, b) {
+        extendStatics = Object.setPrototypeOf ||
+            ({ __proto__: [] } instanceof Array && function (d, b) { d.__proto__ = b; }) ||
+            function (d, b) { for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p]; };
+        return extendStatics(d, b);
+    }
+    return function (d, b) {
+        extendStatics(d, b);
+        function __() { this.constructor = d; }
+        d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
+    };
+})();
+Object.defineProperty(exports, "__esModule", { value: true });
+var core_1 = __webpack_require__(/*! @material-ui/core */ "./node_modules/@material-ui/core/index.es.js");
+var AccountCircle_1 = __webpack_require__(/*! @material-ui/icons/AccountCircle */ "./node_modules/@material-ui/icons/AccountCircle.js");
+var React = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+var dict_1 = __webpack_require__(/*! ../../dict */ "./public/src/dict/index.ts");
+var AccountMenu = /** @class */ (function (_super) {
+    __extends(AccountMenu, _super);
+    function AccountMenu(props) {
+        var _this = _super.call(this, props) || this;
+        _this.state = {
+            anchor: null,
+        };
+        _this.openMenu = _this.openMenu.bind(_this);
+        _this.closeMenu = _this.closeMenu.bind(_this);
+        return _this;
+    }
+    AccountMenu.prototype.openMenu = function (event) {
+        this.setState({ anchor: event.currentTarget });
+    };
+    AccountMenu.prototype.closeMenu = function () {
+        this.setState({ anchor: null });
+    };
+    AccountMenu.prototype.render = function () {
+        var anchor = this.state.anchor;
+        var open = Boolean(anchor);
+        return (React.createElement(React.Fragment, null,
+            React.createElement(core_1.IconButton, { onClick: this.openMenu, color: "inherit" },
+                React.createElement(AccountCircle_1.default, null)),
+            React.createElement(core_1.Menu, { anchorEl: anchor, anchorOrigin: {
+                    horizontal: 'right',
+                    vertical: 'top',
+                }, transformOrigin: {
+                    horizontal: 'right',
+                    vertical: 'top',
+                }, open: open, onClose: this.closeMenu },
+                React.createElement(core_1.MenuItem, { onClick: this.closeMenu }, this.props.userName),
+                React.createElement(core_1.MenuItem, null, "Profile"),
+                React.createElement(core_1.MenuItem, { onClick: this.props.logout }, dict_1.dict.logout))));
+    };
+    return AccountMenu;
+}(React.Component));
+exports.AccountMenu = AccountMenu;
+
+
+/***/ }),
+
 /***/ "./public/src/components/Header/Header.tsx":
 /*!*************************************************!*\
   !*** ./public/src/components/Header/Header.tsx ***!
@@ -78372,6 +78472,7 @@ var react_router_dom_1 = __webpack_require__(/*! react-router-dom */ "./node_mod
 var __1 = __webpack_require__(/*! ../ */ "./public/src/components/index.ts");
 var dict_1 = __webpack_require__(/*! ../../dict */ "./public/src/dict/index.ts");
 var stores_1 = __webpack_require__(/*! ../../stores */ "./public/src/stores/index.ts");
+var AccountMenu_1 = __webpack_require__(/*! ./AccountMenu */ "./public/src/components/Header/AccountMenu.tsx");
 var styles = function (_a) {
     var breakpoints = _a.breakpoints, spacing = _a.spacing;
     var _b, _c, _d;
@@ -78424,9 +78525,7 @@ exports.Header = core_1.withStyles(styles)(mobx_react_1.observer(/** @class */ (
                     React.createElement(core_1.IconButton, { onClick: this.toggleSidebar.bind(this, true), color: 'inherit', "aria-label": 'Menu' },
                         React.createElement(Menu_1.default, null)),
                     React.createElement(__1.Logo, null),
-                    React.createElement("div", { className: classes.user }, stores_1.userStore.isLoggedIn ? (React.createElement(React.Fragment, null,
-                        React.createElement("span", null, stores_1.userStore.name),
-                        React.createElement(core_1.Button, { className: classes.headerBtn, onClick: stores_1.userStore.logout, color: 'inherit' }, dict_1.dict.logout))) : (React.createElement(React.Fragment, null,
+                    React.createElement("div", { className: classes.user }, stores_1.userStore.isLoggedIn ? (React.createElement(AccountMenu_1.AccountMenu, { userName: stores_1.userStore.name, logout: stores_1.userStore.logout })) : (React.createElement(React.Fragment, null,
                         React.createElement(core_1.Button, { className: classes.headerBtn, component: RegLink, color: 'inherit' }, dict_1.dict.register),
                         React.createElement(core_1.Button, { className: classes.headerBtn, component: LoginLink, color: 'inherit' }, dict_1.dict.login)))))),
             React.createElement(__1.Sidebar, { isOpen: this.state.isSidebarOpen, toggleHandler: this.toggleSidebar.bind(this, false) })));
