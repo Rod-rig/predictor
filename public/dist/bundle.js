@@ -78328,6 +78328,42 @@ module.exports = function(originalModule) {
 
 /***/ }),
 
+/***/ "./public/src/components/Account/Account.tsx":
+/*!***************************************************!*\
+  !*** ./public/src/components/Account/Account.tsx ***!
+  \***************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+Object.defineProperty(exports, "__esModule", { value: true });
+var React = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+exports.Account = function () {
+    return React.createElement("div", null, "Account page");
+};
+
+
+/***/ }),
+
+/***/ "./public/src/components/Account/index.ts":
+/*!************************************************!*\
+  !*** ./public/src/components/Account/index.ts ***!
+  \************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+function __export(m) {
+    for (var p in m) if (!exports.hasOwnProperty(p)) exports[p] = m[p];
+}
+Object.defineProperty(exports, "__esModule", { value: true });
+__export(__webpack_require__(/*! ./Account */ "./public/src/components/Account/Account.tsx"));
+
+
+/***/ }),
+
 /***/ "./public/src/components/App/App.tsx":
 /*!*******************************************!*\
   !*** ./public/src/components/App/App.tsx ***!
@@ -80020,6 +80056,7 @@ function __export(m) {
     for (var p in m) if (!exports.hasOwnProperty(p)) exports[p] = m[p];
 }
 Object.defineProperty(exports, "__esModule", { value: true });
+__export(__webpack_require__(/*! ./Account */ "./public/src/components/Account/index.ts"));
 __export(__webpack_require__(/*! ./Header */ "./public/src/components/Header/index.ts"));
 __export(__webpack_require__(/*! ./Logo */ "./public/src/components/Logo/index.ts"));
 __export(__webpack_require__(/*! ./Loader */ "./public/src/components/Loader/index.ts"));
@@ -80321,6 +80358,11 @@ exports.routes = [
         component: predictions,
         path: '/predictions',
         title: 'Predictions',
+    },
+    {
+        component: components_1.Account,
+        path: '/account',
+        title: 'My Account',
     },
     {
         component: components_1.NotFound,

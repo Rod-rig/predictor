@@ -1,7 +1,7 @@
 import * as React from 'react';
 import {match, RouteProps} from 'react-router-dom';
 import {IMatchListProps, IPredictionStore, ITableProps} from './@types';
-import {Login, MatchList, NotFound, Prediction, Registration, TableView, TournamentList} from './components';
+import {Account, Login, MatchList, NotFound, Prediction, Registration, TableView, TournamentList} from './components';
 import {
   loginStore,
   MatchListStore,
@@ -100,6 +100,11 @@ export const routes = [
     component: predictions,
     path: '/predictions',
     title: 'Predictions',
+  },
+  {
+    component: Account,
+    path: '/account',
+    title: 'My Account',
   },
   {
     component: NotFound,
