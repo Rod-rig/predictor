@@ -2,7 +2,7 @@
 
 exports[`MatchList should render correctly 1`] = `
 <ul
-  className="MuiList-root-3"
+  className="MuiList-root-13"
 >
   <div
     className="class_1-title-2"
@@ -11,10 +11,10 @@ exports[`MatchList should render correctly 1`] = `
     1
   </div>
   <div
-    className="MuiPaper-root-7 MuiPaper-elevation2-11 MuiPaper-rounded-8 class_1-round-1"
+    className="MuiPaper-root-17 MuiPaper-elevation2-21 MuiPaper-rounded-18 class_1-round-1"
   >
     <div
-      className="MuiButtonBase-root-50 MuiListItem-root-40 MuiListItem-default-43 MuiListItem-gutters-47 MuiListItem-divider-46 MuiListItem-button-48"
+      className="MuiButtonBase-root-61 MuiListItem-root-50 MuiListItem-default-53 MuiListItem-gutters-57 MuiListItem-divider-56 MuiListItem-button-58"
       onBlur={[Function]}
       onFocus={[Function]}
       onKeyDown={[Function]}
@@ -29,20 +29,20 @@ exports[`MatchList should render correctly 1`] = `
       tabIndex="0"
     >
       <div
-        className="MuiListItemText-root-53 Component-text-39 Component-right-37"
+        className="MuiListItemText-root-64 Component-text-49 Component-right-47"
       >
         <div>
           Russia
         </div>
       </div>
       <div
-        className="Component-score-38"
+        className="Component-score-48"
       >
         <div>
           0
         </div>
         <div
-          className="Component-dash-34"
+          className="Component-dash-44"
         >
           :
         </div>
@@ -51,18 +51,18 @@ exports[`MatchList should render correctly 1`] = `
         </div>
       </div>
       <div
-        className="MuiListItemText-root-53 Component-text-39"
+        className="MuiListItemText-root-64 Component-text-49"
       >
         <div>
           Saudi Arabia
         </div>
       </div>
       <span
-        className="MuiTouchRipple-root-59"
+        className="MuiTouchRipple-root-70"
       />
     </div>
     <div
-      className="MuiButtonBase-root-50 MuiListItem-root-40 MuiListItem-default-43 MuiListItem-gutters-47 MuiListItem-divider-46 MuiListItem-button-48"
+      className="MuiButtonBase-root-61 MuiListItem-root-50 MuiListItem-default-53 MuiListItem-gutters-57 MuiListItem-divider-56 MuiListItem-button-58"
       onBlur={[Function]}
       onFocus={[Function]}
       onKeyDown={[Function]}
@@ -77,20 +77,20 @@ exports[`MatchList should render correctly 1`] = `
       tabIndex="0"
     >
       <div
-        className="MuiListItemText-root-53 Component-text-39 Component-right-37"
+        className="MuiListItemText-root-64 Component-text-49 Component-right-47"
       >
         <div>
           Sweden
         </div>
       </div>
       <div
-        className="Component-score-38"
+        className="Component-score-48"
       >
         <div>
           1
         </div>
         <div
-          className="Component-dash-34"
+          className="Component-dash-44"
         >
           :
         </div>
@@ -99,14 +99,14 @@ exports[`MatchList should render correctly 1`] = `
         </div>
       </div>
       <div
-        className="MuiListItemText-root-53 Component-text-39"
+        className="MuiListItemText-root-64 Component-text-49"
       >
         <div>
           Republic of Korea
         </div>
       </div>
       <span
-        className="MuiTouchRipple-root-59"
+        className="MuiTouchRipple-root-70"
       />
     </div>
   </div>
@@ -117,10 +117,10 @@ exports[`MatchList should render correctly 1`] = `
     2
   </div>
   <div
-    className="MuiPaper-root-7 MuiPaper-elevation2-11 MuiPaper-rounded-8 class_1-round-1"
+    className="MuiPaper-root-17 MuiPaper-elevation2-21 MuiPaper-rounded-18 class_1-round-1"
   >
     <div
-      className="MuiButtonBase-root-50 MuiListItem-root-40 MuiListItem-default-43 MuiListItem-gutters-47 MuiListItem-divider-46 MuiListItem-button-48"
+      className="MuiButtonBase-root-61 MuiListItem-root-50 MuiListItem-default-53 MuiListItem-gutters-57 MuiListItem-divider-56 MuiListItem-button-58"
       onBlur={[Function]}
       onFocus={[Function]}
       onKeyDown={[Function]}
@@ -135,20 +135,20 @@ exports[`MatchList should render correctly 1`] = `
       tabIndex="0"
     >
       <div
-        className="MuiListItemText-root-53 Component-text-39 Component-right-37"
+        className="MuiListItemText-root-64 Component-text-49 Component-right-47"
       >
         <div>
           Egypt
         </div>
       </div>
       <div
-        className="Component-score-38"
+        className="Component-score-48"
       >
         <div>
           0
         </div>
         <div
-          className="Component-dash-34"
+          className="Component-dash-44"
         >
           :
         </div>
@@ -157,14 +157,14 @@ exports[`MatchList should render correctly 1`] = `
         </div>
       </div>
       <div
-        className="MuiListItemText-root-53 Component-text-39"
+        className="MuiListItemText-root-64 Component-text-49"
       >
         <div>
           Uruguay
         </div>
       </div>
       <span
-        className="MuiTouchRipple-root-59"
+        className="MuiTouchRipple-root-70"
       />
     </div>
   </div>

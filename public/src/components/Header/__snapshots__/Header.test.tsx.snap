@@ -2,16 +2,17 @@
 
 exports[`Header should render correctly 1`] = `
 <header
-  className="MuiPaper-root-10 MuiPaper-elevation4-16 MuiAppBar-root-2 MuiAppBar-positionStatic-6 MuiAppBar-colorPrimary-8 WithTheme-HeaderElement--header-1"
+  className="MuiPaper-root-14 MuiPaper-elevation4-20 MuiAppBar-root-5 MuiAppBar-positionStatic-9 MuiAppBar-colorPrimary-12 class_1-header-1"
 >
   <div
-    className="MuiToolbar-root-37 MuiToolbar-gutters-38"
+    className="MuiToolbar-root-41 MuiToolbar-regular-43 MuiToolbar-gutters-42 class_1-toolbar-3"
   >
     <button
       aria-label="Menu"
-      className="MuiButtonBase-root-45 MuiIconButton-root-39 MuiIconButton-colorInherit-40"
+      className="MuiButtonBase-root-51 MuiIconButton-root-45 MuiIconButton-colorInherit-46"
       disabled={false}
       onBlur={[Function]}
+      onClick={[Function]}
       onFocus={[Function]}
       onKeyDown={[Function]}
       onKeyUp={[Function]}
@@ -25,27 +26,30 @@ exports[`Header should render correctly 1`] = `
       type="button"
     >
       <span
-        className="MuiIconButton-label-44"
+        className="MuiIconButton-label-50"
       >
         <svg
           aria-hidden="true"
-          className="MuiSvgIcon-root-48"
+          className="MuiSvgIcon-root-54"
           focusable="false"
+          role="presentation"
           viewBox="0 0 24 24"
         >
-          <g>
-            <path
-              d="M3 18h18v-2H3v2zm0-5h18v-2H3v2zm0-7v2h18V6H3z"
-            />
-          </g>
+          <path
+            d="M0 0h24v24H0z"
+            fill="none"
+          />
+          <path
+            d="M3 18h18v-2H3v2zm0-5h18v-2H3v2zm0-7v2h18V6H3z"
+          />
         </svg>
       </span>
       <span
-        className="MuiTouchRipple-root-54"
+        className="MuiTouchRipple-root-63"
       />
     </button>
     <div
-      className="LogoElement-logo-62"
+      className="LogoElement-logo-71"
     >
       <a
         href="/"
@@ -53,8 +57,64 @@ exports[`Header should render correctly 1`] = `
       >
         <img
           alt="logo"
-          className="LogoElement-img-61"
-          src="https://avatars2.githubusercontent.com/u/11474330"
+          className="LogoElement-img-70"
+          src="src/images/logo.svg"
+        />
+      </a>
+    </div>
+    <div
+      className="class_1-user-4"
+    >
+      <a
+        className="MuiButtonBase-root-51 MuiButton-root-72 MuiButton-text-74 MuiButton-flat-77 MuiButton-colorInherit-93 class_1-headerBtn-2"
+        href="/registration"
+        onBlur={[Function]}
+        onClick={[Function]}
+        onFocus={[Function]}
+        onKeyDown={[Function]}
+        onKeyUp={[Function]}
+        onMouseDown={[Function]}
+        onMouseLeave={[Function]}
+        onMouseUp={[Function]}
+        onTouchEnd={[Function]}
+        onTouchMove={[Function]}
+        onTouchStart={[Function]}
+        role="button"
+        tabIndex="0"
+      >
+        <span
+          className="MuiButton-label-73"
+        >
+          Register
+        </span>
+        <span
+          className="MuiTouchRipple-root-63"
+        />
+      </a>
+      <a
+        className="MuiButtonBase-root-51 MuiButton-root-72 MuiButton-text-74 MuiButton-flat-77 MuiButton-colorInherit-93 class_1-headerBtn-2"
+        href="/login"
+        onBlur={[Function]}
+        onClick={[Function]}
+        onFocus={[Function]}
+        onKeyDown={[Function]}
+        onKeyUp={[Function]}
+        onMouseDown={[Function]}
+        onMouseLeave={[Function]}
+        onMouseUp={[Function]}
+        onTouchEnd={[Function]}
+        onTouchMove={[Function]}
+        onTouchStart={[Function]}
+        role="button"
+        tabIndex="0"
+      >
+        <span
+          className="MuiButton-label-73"
+        >
+          Login
+        </span>
+        <span
+          className="MuiTouchRipple-root-63"
         />
       </a>
     </div>

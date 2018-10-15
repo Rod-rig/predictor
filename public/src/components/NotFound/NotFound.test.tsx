@@ -4,8 +4,8 @@ import {NotFound} from './';
 
 describe('NotFound', () => {
   it('should exist', () => {
-    const palette = shallow(<NotFound/>);
-    const materialTag = palette.find('div');
-    expect(materialTag).toHaveLength(1);
+    const notFound = shallow(<NotFound/>);
+    const notFoundContent = notFound.find('div');
+    expect(notFoundContent).toHaveLength(1);
   });
 });
