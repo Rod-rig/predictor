@@ -78384,11 +78384,24 @@ var __extends = (this && this.__extends) || (function () {
         d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
     };
 })();
+var __assign = (this && this.__assign) || function () {
+    __assign = Object.assign || function(t) {
+        for (var s, i = 1, n = arguments.length; i < n; i++) {
+            s = arguments[i];
+            for (var p in s) if (Object.prototype.hasOwnProperty.call(s, p))
+                t[p] = s[p];
+        }
+        return t;
+    };
+    return __assign.apply(this, arguments);
+};
 Object.defineProperty(exports, "__esModule", { value: true });
 var core_1 = __webpack_require__(/*! @material-ui/core */ "./node_modules/@material-ui/core/index.es.js");
 var AccountCircle_1 = __webpack_require__(/*! @material-ui/icons/AccountCircle */ "./node_modules/@material-ui/icons/AccountCircle.js");
 var React = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+var react_router_dom_1 = __webpack_require__(/*! react-router-dom */ "./node_modules/react-router-dom/es/index.js");
 var dict_1 = __webpack_require__(/*! ../../dict */ "./public/src/dict/index.ts");
+var AccountLink = function (props) { return React.createElement(react_router_dom_1.Link, __assign({ to: '/account' }, props)); };
 var AccountMenu = /** @class */ (function (_super) {
     __extends(AccountMenu, _super);
     function AccountMenu(props) {
@@ -78419,8 +78432,9 @@ var AccountMenu = /** @class */ (function (_super) {
                     horizontal: 'right',
                     vertical: 'top',
                 }, open: open, onClose: this.closeMenu },
-                React.createElement(core_1.MenuItem, { onClick: this.closeMenu }, this.props.userName),
-                React.createElement(core_1.MenuItem, null, "Profile"),
+                React.createElement(core_1.MenuItem, { disabled: true, divider: true },
+                    React.createElement("em", null, this.props.userName)),
+                React.createElement(core_1.MenuItem, { component: AccountLink }, "My account"),
                 React.createElement(core_1.MenuItem, { onClick: this.props.logout }, dict_1.dict.logout))));
     };
     return AccountMenu;

@@ -1,12 +1,15 @@
 import {IconButton, Menu, MenuItem} from '@material-ui/core';
 import AccountCircle from '@material-ui/icons/AccountCircle';
 import * as React from 'react';
+import {Link} from 'react-router-dom';
 import {dict} from '../../dict';
 
 interface IProps {
   userName: string;
   logout: () => void;
 }
+
+const AccountLink = (props: any) => <Link to='/account' {...props}/>;
 
 export class AccountMenu extends React.Component<IProps, {
   anchor: HTMLElement,
@@ -52,8 +55,8 @@ export class AccountMenu extends React.Component<IProps, {
           open={open}
           onClose={this.closeMenu}
         >
-          <MenuItem onClick={this.closeMenu}>{this.props.userName}</MenuItem>
-          <MenuItem>Profile</MenuItem>
+          <MenuItem disabled={true} divider={true}><em>{this.props.userName}</em></MenuItem>
+          <MenuItem component={AccountLink}>My account</MenuItem>
           <MenuItem onClick={this.props.logout}>{dict.logout}</MenuItem>
         </Menu>
       </React.Fragment>
