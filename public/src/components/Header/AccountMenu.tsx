@@ -56,7 +56,7 @@ export class AccountMenu extends React.Component<IProps, {
           onClose={this.closeMenu}
         >
           <MenuItem disabled={true} divider={true}><em>{this.props.userName}</em></MenuItem>
-          <MenuItem component={AccountLink}>My account</MenuItem>
+          <MenuItem onClick={this.closeMenu} component={AccountLink}>My account</MenuItem>
           <MenuItem onClick={this.props.logout}>{dict.logout}</MenuItem>
         </Menu>
       </React.Fragment>

@@ -78338,10 +78338,31 @@ module.exports = function(originalModule) {
 "use strict";
 
 Object.defineProperty(exports, "__esModule", { value: true });
+var core_1 = __webpack_require__(/*! @material-ui/core */ "./node_modules/@material-ui/core/index.es.js");
+var AccountCircle_1 = __webpack_require__(/*! @material-ui/icons/AccountCircle */ "./node_modules/@material-ui/icons/AccountCircle.js");
+var mobx_react_1 = __webpack_require__(/*! mobx-react */ "./node_modules/mobx-react/index.module.js");
 var React = __webpack_require__(/*! react */ "./node_modules/react/index.js");
-exports.Account = function () {
-    return React.createElement("div", null, "Account page");
-};
+var UserStore_1 = __webpack_require__(/*! ../../stores/UserStore */ "./public/src/stores/UserStore/index.ts");
+var styles = function (theme) { return ({
+    account: {
+        alignItems: 'center',
+        display: 'flex',
+        padding: theme.spacing.unit,
+    },
+    icon: {
+        height: '4em',
+        width: '4em',
+    },
+}); };
+exports.Account = core_1.withStyles(styles)(mobx_react_1.observer(function (props) {
+    return (React.createElement(core_1.Paper, { className: props.classes.account },
+        React.createElement("div", null,
+            React.createElement(AccountCircle_1.default, { className: props.classes.icon })),
+        React.createElement("div", null,
+            React.createElement("div", null,
+                "Name: ",
+                React.createElement("b", null, UserStore_1.userStore.name)))));
+}));
 
 
 /***/ }),
@@ -78470,7 +78491,7 @@ var AccountMenu = /** @class */ (function (_super) {
                 }, open: open, onClose: this.closeMenu },
                 React.createElement(core_1.MenuItem, { disabled: true, divider: true },
                     React.createElement("em", null, this.props.userName)),
-                React.createElement(core_1.MenuItem, { component: AccountLink }, "My account"),
+                React.createElement(core_1.MenuItem, { onClick: this.closeMenu, component: AccountLink }, "My account"),
                 React.createElement(core_1.MenuItem, { onClick: this.props.logout }, dict_1.dict.logout))));
     };
     return AccountMenu;
