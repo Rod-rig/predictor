@@ -10,6 +10,7 @@ interface IProps {
 }
 
 const AccountLink = (props: any) => <Link to='/account' {...props}/>;
+const StatLink = (props: any) => <Link to='/stats' {...props}/>;
 
 export class AccountMenu extends React.Component<IProps, {
   anchor: HTMLElement,
@@ -56,7 +57,8 @@ export class AccountMenu extends React.Component<IProps, {
           onClose={this.closeMenu}
         >
           <MenuItem disabled={true} divider={true}><em>{this.props.userName}</em></MenuItem>
-          <MenuItem onClick={this.closeMenu} component={AccountLink}>My account</MenuItem>
+          <MenuItem onClick={this.closeMenu} component={AccountLink}>{dict.header_menu_account_link}</MenuItem>
+          <MenuItem onClick={this.closeMenu} component={StatLink}>{dict.header_menu_stat_link}</MenuItem>
           <MenuItem onClick={this.props.logout}>{dict.logout}</MenuItem>
         </Menu>
       </React.Fragment>

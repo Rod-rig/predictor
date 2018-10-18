@@ -78459,6 +78459,7 @@ var React = __webpack_require__(/*! react */ "./node_modules/react/index.js");
 var react_router_dom_1 = __webpack_require__(/*! react-router-dom */ "./node_modules/react-router-dom/es/index.js");
 var dict_1 = __webpack_require__(/*! ../../dict */ "./public/src/dict/index.ts");
 var AccountLink = function (props) { return React.createElement(react_router_dom_1.Link, __assign({ to: '/account' }, props)); };
+var StatLink = function (props) { return React.createElement(react_router_dom_1.Link, __assign({ to: '/stats' }, props)); };
 var AccountMenu = /** @class */ (function (_super) {
     __extends(AccountMenu, _super);
     function AccountMenu(props) {
@@ -78491,7 +78492,8 @@ var AccountMenu = /** @class */ (function (_super) {
                 }, open: open, onClose: this.closeMenu },
                 React.createElement(core_1.MenuItem, { disabled: true, divider: true },
                     React.createElement("em", null, this.props.userName)),
-                React.createElement(core_1.MenuItem, { onClick: this.closeMenu, component: AccountLink }, "My account"),
+                React.createElement(core_1.MenuItem, { onClick: this.closeMenu, component: AccountLink }, dict_1.dict.header_menu_account_link),
+                React.createElement(core_1.MenuItem, { onClick: this.closeMenu, component: StatLink }, dict_1.dict.header_menu_stat_link),
                 React.createElement(core_1.MenuItem, { onClick: this.props.logout }, dict_1.dict.logout))));
     };
     return AccountMenu;
@@ -79340,6 +79342,7 @@ var core_1 = __webpack_require__(/*! @material-ui/core */ "./node_modules/@mater
 var FilterList_1 = __webpack_require__(/*! @material-ui/icons/FilterList */ "./node_modules/@material-ui/icons/FilterList.js");
 var mobx_react_1 = __webpack_require__(/*! mobx-react */ "./node_modules/mobx-react/index.module.js");
 var React = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+var dict_1 = __webpack_require__(/*! ../../dict */ "./public/src/dict/index.ts");
 var styles = function (_a) {
     var spacing = _a.spacing;
     return core_1.createStyles({
@@ -79386,7 +79389,7 @@ exports.PredictionFilter = core_1.withStyles(styles)(mobx_react_1.observer(/** @
                     }))),
                 React.createElement(core_1.Button, { className: classes.btn, size: 'small', onClick: refreshMatches, variant: 'contained', color: 'secondary' },
                     React.createElement(FilterList_1.default, { className: classes.btnIcon }),
-                    "Filter"))));
+                    dict_1.dict.prediction_filter_btn))));
     };
     return class_1;
 }(React.Component))));
@@ -79718,6 +79721,67 @@ function __export(m) {
 }
 Object.defineProperty(exports, "__esModule", { value: true });
 __export(__webpack_require__(/*! ./Sidebar */ "./public/src/components/Sidebar/Sidebar.tsx"));
+
+
+/***/ }),
+
+/***/ "./public/src/components/Stats/Stats.tsx":
+/*!***********************************************!*\
+  !*** ./public/src/components/Stats/Stats.tsx ***!
+  \***********************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+var __extends = (this && this.__extends) || (function () {
+    var extendStatics = function (d, b) {
+        extendStatics = Object.setPrototypeOf ||
+            ({ __proto__: [] } instanceof Array && function (d, b) { d.__proto__ = b; }) ||
+            function (d, b) { for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p]; };
+        return extendStatics(d, b);
+    }
+    return function (d, b) {
+        extendStatics(d, b);
+        function __() { this.constructor = d; }
+        d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
+    };
+})();
+Object.defineProperty(exports, "__esModule", { value: true });
+var mobx_react_1 = __webpack_require__(/*! mobx-react */ "./node_modules/mobx-react/index.module.js");
+var React = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+var __1 = __webpack_require__(/*! ../ */ "./public/src/components/index.ts");
+exports.Stats = mobx_react_1.observer(/** @class */ (function (_super) {
+    __extends(class_1, _super);
+    function class_1() {
+        return _super !== null && _super.apply(this, arguments) || this;
+    }
+    class_1.prototype.render = function () {
+        var store = this.props.store;
+        return store.isLoaded ? (React.createElement("div", null, store.list.map(function (item) {
+            return (React.createElement(__1.MatchItem, { key: item.awayTeam + ' ' + item.homeTeam, awayTeam: item.awayTeam, homeTeam: item.homeTeam, homeScore: item.homeScore, awayScore: item.awayScore }));
+        }))) : React.createElement(__1.Loader, null);
+    };
+    return class_1;
+}(React.Component)));
+
+
+/***/ }),
+
+/***/ "./public/src/components/Stats/index.ts":
+/*!**********************************************!*\
+  !*** ./public/src/components/Stats/index.ts ***!
+  \**********************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+function __export(m) {
+    for (var p in m) if (!exports.hasOwnProperty(p)) exports[p] = m[p];
+}
+Object.defineProperty(exports, "__esModule", { value: true });
+__export(__webpack_require__(/*! ./Stats */ "./public/src/components/Stats/Stats.tsx"));
 
 
 /***/ }),
@@ -80092,6 +80156,7 @@ __export(__webpack_require__(/*! ./PredictionFilter */ "./public/src/components/
 __export(__webpack_require__(/*! ./Registration */ "./public/src/components/Registration/index.ts"));
 __export(__webpack_require__(/*! ./Row */ "./public/src/components/Row/index.ts"));
 __export(__webpack_require__(/*! ./Sidebar */ "./public/src/components/Sidebar/index.ts"));
+__export(__webpack_require__(/*! ./Stats */ "./public/src/components/Stats/index.ts"));
 __export(__webpack_require__(/*! ./TableHeadView */ "./public/src/components/TableHeadView/index.ts"));
 __export(__webpack_require__(/*! ./TableView */ "./public/src/components/TableView/index.ts"));
 __export(__webpack_require__(/*! ./TournamentCard */ "./public/src/components/TournamentCard/index.ts"));
@@ -80117,6 +80182,8 @@ exports.dict = {
     goal_diff: 'GD',
     goals_against: 'GA',
     goals_for: 'GF',
+    header_menu_account_link: 'My account',
+    header_menu_stat_link: 'My stats',
     login: 'Login',
     login_error_msg: 'Wrong credentials',
     logout: 'Logout',
@@ -80127,6 +80194,7 @@ exports.dict = {
     played: 'played',
     points: 'points',
     prediction: 'Prediction',
+    prediction_filter_btn: 'Filter',
     rank: 'rank',
     register: 'Register',
     results: 'Results',
@@ -80343,6 +80411,11 @@ var predictions = function (props) { return (React.createElement(components_1.Pr
     }) })); };
 var login = function () { return React.createElement(components_1.Login, { store: stores_1.loginStore }); };
 var registration = function () { return React.createElement(components_1.Registration, { store: stores_1.registrationStore }); };
+/* istanbul ignore next */
+var stats = function (props) { return (React.createElement(components_1.Stats, __assign({ store: new stores_1.MatchListStore({
+        id: props.match.params.id,
+        type: 'stats',
+    }) }, props))); };
 exports.routes = [
     {
         component: tournamentList,
@@ -80384,6 +80457,11 @@ exports.routes = [
         component: components_1.Account,
         path: '/account',
         title: 'My Account',
+    },
+    {
+        component: stats,
+        path: '/stats',
+        title: 'My Stats',
     },
     {
         component: components_1.NotFound,

@@ -13,6 +13,7 @@ export * from './PredictionFilter';
 export * from './Registration';
 export * from './Row';
 export * from './Sidebar';
+export * from './Stats';
 export * from './TableHeadView';
 export * from './TableView';
 export * from './TournamentCard';

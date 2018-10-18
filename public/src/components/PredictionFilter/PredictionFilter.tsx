@@ -13,6 +13,7 @@ import FilterList from '@material-ui/icons/FilterList';
 import {observer} from 'mobx-react';
 import * as React from 'react';
 import {IPredictionStore} from '../../@types';
+import {dict} from '../../dict';
 
 const styles = ({spacing}: Theme) => createStyles({
   btn: {
@@ -67,7 +68,7 @@ export const PredictionFilter = withStyles(styles)(observer(class extends React.
           </FormControl>
           <Button className={classes.btn} size='small' onClick={refreshMatches} variant='contained' color='secondary'>
             <FilterList className={classes.btnIcon}/>
-            Filter
+            {dict.prediction_filter_btn}
           </Button>
         </div>
       </div>

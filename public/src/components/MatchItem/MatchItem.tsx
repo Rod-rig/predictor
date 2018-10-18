@@ -63,7 +63,7 @@ export const MatchItem = decorate((props: {
   awayLogo?: string;
   awayScore?: number;
   awayTeam: string;
-  classes: any;
+  classes?: any;
   homeLogo?: string;
   homeScore?: number;
   homeTeam: string;

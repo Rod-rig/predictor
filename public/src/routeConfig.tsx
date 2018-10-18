@@ -1,7 +1,17 @@
 import * as React from 'react';
 import {match, RouteProps} from 'react-router-dom';
 import {IMatchListProps, IPredictionStore, ITableProps} from './@types';
-import {Account, Login, MatchList, NotFound, Prediction, Registration, TableView, TournamentList} from './components';
+import {
+  Account,
+  Login,
+  MatchList,
+  NotFound,
+  Prediction,
+  Registration,
+  Stats,
+  TableView,
+  TournamentList,
+} from './components';
 import {
   loginStore,
   MatchListStore,
@@ -64,6 +74,17 @@ const login = () => <Login store={loginStore}/>;
 
 const registration = () => <Registration store={registrationStore}/>;
 
+/* istanbul ignore next */
+const stats = (props: IMatchListProps & { match: IId }) => (
+  <Stats
+    store={new MatchListStore({
+      id: props.match.params.id,
+      type: 'stats',
+    })}
+    {...props}
+  />
+);
+
 export const routes = [
   {
     component: tournamentList,
@@ -105,6 +126,11 @@ export const routes = [
     component: Account,
     path: '/account',
     title: 'My Account',
+  },
+  {
+    component: stats,
+    path: '/stats',
+    title: 'My Stats',
   },
   {
     component: NotFound,
