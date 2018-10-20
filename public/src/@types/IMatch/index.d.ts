@@ -56,19 +56,16 @@ interface ISportEventStatus {
   winner_id: string;
 }
 
-export interface IMatchListProps {
-  type: string;
-  id: string;
-}
-
-export interface IMatchList extends IMatchListProps {
-  isLoaded: boolean;
-  list: IMatch[];
-}
-
 export interface IMatch {
   sport_event: ISportEvent;
   sport_event_status: ISportEventStatus;
+}
+
+export interface IPredictionMatch {
+  awayTeam: string;
+  homeTeam: string;
+  homeScore: number;
+  awayScore: number;
 }
 
 export interface IPredictionStore {

@@ -1,6 +1,6 @@
 import * as React from 'react';
 import {match, RouteProps} from 'react-router-dom';
-import {IMatchListProps, IPredictionStore, ITableProps} from './@types';
+import {IPredictionStore, IRetrieverProps, ITableProps} from './@types';
 import {
   Account,
   Login,
@@ -13,8 +13,8 @@ import {
   TournamentList,
 } from './components';
 import {
+  DataRetriever,
   loginStore,
-  MatchListStore,
   PredictionStore,
   registrationStore,
   TableStore,
@@ -40,22 +40,20 @@ const table = (props: ITableProps & { match: IId }) => (
 );
 
 /* istanbul ignore next */
-const results = (props: IMatchListProps & { match: IId }) => (
+const results = (props: { match: IId }) => (
   <MatchList
-    store={new MatchListStore({
-      id: props.match.params.id,
-      type: 'results',
+    store={new DataRetriever({
+      url: `/api/results/${props.match.params.id}`,
     })}
     {...props}
   />
 );
 
 /* istanbul ignore next */
-const fixtures = (props: IMatchListProps & { match: IId }) => (
+const fixtures = (props: { match: IId }) => (
   <MatchList
-    store={new MatchListStore({
-      id: props.match.params.id,
-      type: 'fixtures',
+    store={new DataRetriever({
+      url: `/api/results/${props.match.params.id}`,
     })}
     {...props}
   />
@@ -75,11 +73,10 @@ const login = () => <Login store={loginStore}/>;
 const registration = () => <Registration store={registrationStore}/>;
 
 /* istanbul ignore next */
-const stats = (props: IMatchListProps & { match: IId }) => (
+const stats = (props: IRetrieverProps & { match: IId }) => (
   <Stats
-    store={new MatchListStore({
-      id: props.match.params.id,
-      type: 'stats',
+    store={new DataRetriever({
+      url: '/predictions',
     })}
     {...props}
   />

@@ -79012,7 +79012,7 @@ exports.MatchList = core_1.withStyles(styles)(mobx_react_1.observer(/** @class *
     class_1.prototype.render = function () {
         var _a = this.props, classes = _a.classes, store = _a.store;
         var group = [];
-        return store.isLoaded ? (React.createElement(core_1.List, { disablePadding: true }, store.list.map(function (item, index, list) {
+        return store.isLoaded ? (React.createElement(core_1.List, { disablePadding: true }, store.data.results.map(function (item, index, list) {
             var stat = {
                 awayScore: item.sport_event_status.away_score,
                 awayTeam: item.sport_event.competitors[1].name,
@@ -79758,7 +79758,7 @@ exports.Stats = mobx_react_1.observer(/** @class */ (function (_super) {
     }
     class_1.prototype.render = function () {
         var store = this.props.store;
-        return store.isLoaded ? (React.createElement("div", null, store.list.map(function (item) {
+        return store.isLoaded ? (React.createElement("div", null, store.data.map(function (item) {
             return (React.createElement(__1.MatchItem, { key: item.awayTeam + ' ' + item.homeTeam, awayTeam: item.awayTeam, homeTeam: item.homeTeam, homeScore: item.homeScore, awayScore: item.awayScore }));
         }))) : React.createElement(__1.Loader, null);
     };
@@ -80396,14 +80396,12 @@ var table = function (props) { return (React.createElement(components_1.TableVie
         id: props.match.params.id,
     }) })); };
 /* istanbul ignore next */
-var results = function (props) { return (React.createElement(components_1.MatchList, __assign({ store: new stores_1.MatchListStore({
-        id: props.match.params.id,
-        type: 'results',
+var results = function (props) { return (React.createElement(components_1.MatchList, __assign({ store: new stores_1.DataRetriever({
+        url: "/api/results/" + props.match.params.id,
     }) }, props))); };
 /* istanbul ignore next */
-var fixtures = function (props) { return (React.createElement(components_1.MatchList, __assign({ store: new stores_1.MatchListStore({
-        id: props.match.params.id,
-        type: 'fixtures',
+var fixtures = function (props) { return (React.createElement(components_1.MatchList, __assign({ store: new stores_1.DataRetriever({
+        url: "/api/results/" + props.match.params.id,
     }) }, props))); };
 /* istanbul ignore next */
 var predictions = function (props) { return (React.createElement(components_1.Prediction, { store: new stores_1.PredictionStore({
@@ -80412,9 +80410,8 @@ var predictions = function (props) { return (React.createElement(components_1.Pr
 var login = function () { return React.createElement(components_1.Login, { store: stores_1.loginStore }); };
 var registration = function () { return React.createElement(components_1.Registration, { store: stores_1.registrationStore }); };
 /* istanbul ignore next */
-var stats = function (props) { return (React.createElement(components_1.Stats, __assign({ store: new stores_1.MatchListStore({
-        id: props.match.params.id,
-        type: 'stats',
+var stats = function (props) { return (React.createElement(components_1.Stats, __assign({ store: new stores_1.DataRetriever({
+        url: '/predictions',
     }) }, props))); };
 exports.routes = [
     {
@@ -80467,6 +80464,80 @@ exports.routes = [
         component: components_1.NotFound,
     },
 ];
+
+
+/***/ }),
+
+/***/ "./public/src/stores/DataRetriever/DataRetriever.ts":
+/*!**********************************************************!*\
+  !*** ./public/src/stores/DataRetriever/DataRetriever.ts ***!
+  \**********************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+var __assign = (this && this.__assign) || function () {
+    __assign = Object.assign || function(t) {
+        for (var s, i = 1, n = arguments.length; i < n; i++) {
+            s = arguments[i];
+            for (var p in s) if (Object.prototype.hasOwnProperty.call(s, p))
+                t[p] = s[p];
+        }
+        return t;
+    };
+    return __assign.apply(this, arguments);
+};
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+Object.defineProperty(exports, "__esModule", { value: true });
+var axios_1 = __webpack_require__(/*! axios */ "./node_modules/axios/index.js");
+var mobx_1 = __webpack_require__(/*! mobx */ "./node_modules/mobx/lib/mobx.module.js");
+var DataRetriever = /** @class */ (function () {
+    function DataRetriever(props) {
+        this.isLoaded = false;
+        this.url = props.url;
+        this.fetchList();
+    }
+    DataRetriever.prototype.fetchList = function () {
+        var _this = this;
+        axios_1.default.get(this.url)
+            .then(function (res) {
+            _this.data = Array.isArray(res.data) ? res.data.slice() : __assign({}, res.data);
+            _this.isLoaded = true;
+        });
+    };
+    __decorate([
+        mobx_1.observable
+    ], DataRetriever.prototype, "isLoaded", void 0);
+    __decorate([
+        mobx_1.observable
+    ], DataRetriever.prototype, "data", void 0);
+    return DataRetriever;
+}());
+exports.DataRetriever = DataRetriever;
+
+
+/***/ }),
+
+/***/ "./public/src/stores/DataRetriever/index.ts":
+/*!**************************************************!*\
+  !*** ./public/src/stores/DataRetriever/index.ts ***!
+  \**************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+function __export(m) {
+    for (var p in m) if (!exports.hasOwnProperty(p)) exports[p] = m[p];
+}
+Object.defineProperty(exports, "__esModule", { value: true });
+__export(__webpack_require__(/*! ./DataRetriever */ "./public/src/stores/DataRetriever/DataRetriever.ts"));
 
 
 /***/ }),
@@ -80551,81 +80622,6 @@ function __export(m) {
 }
 Object.defineProperty(exports, "__esModule", { value: true });
 __export(__webpack_require__(/*! ./LoginStore */ "./public/src/stores/LoginStore/LoginStore.ts"));
-
-
-/***/ }),
-
-/***/ "./public/src/stores/MatchListStore/MatchListStore.ts":
-/*!************************************************************!*\
-  !*** ./public/src/stores/MatchListStore/MatchListStore.ts ***!
-  \************************************************************/
-/*! no static exports found */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
-    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
-    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
-    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
-    return c > 3 && r && Object.defineProperty(target, key, r), r;
-};
-Object.defineProperty(exports, "__esModule", { value: true });
-var axios_1 = __webpack_require__(/*! axios */ "./node_modules/axios/index.js");
-var mobx_1 = __webpack_require__(/*! mobx */ "./node_modules/mobx/lib/mobx.module.js");
-var MatchListStore = /** @class */ (function () {
-    function MatchListStore(props) {
-        this.isLoaded = false;
-        this.list = [];
-        this.type = props.type;
-        this.id = props.id;
-        this.fetchList();
-    }
-    MatchListStore.prototype.fetchList = function () {
-        var _this = this;
-        axios_1.default.get(this.matchListUrl)
-            .then(function (res) {
-            _this.list = res.data.results.slice();
-            _this.isLoaded = true;
-        });
-    };
-    Object.defineProperty(MatchListStore.prototype, "matchListUrl", {
-        get: function () {
-            return "/api/results/" + this.id;
-        },
-        enumerable: true,
-        configurable: true
-    });
-    __decorate([
-        mobx_1.observable
-    ], MatchListStore.prototype, "isLoaded", void 0);
-    __decorate([
-        mobx_1.observable
-    ], MatchListStore.prototype, "list", void 0);
-    __decorate([
-        mobx_1.computed
-    ], MatchListStore.prototype, "matchListUrl", null);
-    return MatchListStore;
-}());
-exports.MatchListStore = MatchListStore;
-
-
-/***/ }),
-
-/***/ "./public/src/stores/MatchListStore/index.ts":
-/*!***************************************************!*\
-  !*** ./public/src/stores/MatchListStore/index.ts ***!
-  \***************************************************/
-/*! no static exports found */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-function __export(m) {
-    for (var p in m) if (!exports.hasOwnProperty(p)) exports[p] = m[p];
-}
-Object.defineProperty(exports, "__esModule", { value: true });
-__export(__webpack_require__(/*! ./MatchListStore */ "./public/src/stores/MatchListStore/MatchListStore.ts"));
 
 
 /***/ }),
@@ -81091,12 +81087,12 @@ function __export(m) {
 }
 Object.defineProperty(exports, "__esModule", { value: true });
 __export(__webpack_require__(/*! ./TableStore */ "./public/src/stores/TableStore/index.ts"));
-__export(__webpack_require__(/*! ./MatchListStore */ "./public/src/stores/MatchListStore/index.ts"));
 __export(__webpack_require__(/*! ./TournamentListStore */ "./public/src/stores/TournamentListStore/index.ts"));
 __export(__webpack_require__(/*! ./PredictionStore */ "./public/src/stores/PredictionStore/index.ts"));
 __export(__webpack_require__(/*! ./RegistrationStore */ "./public/src/stores/RegistrationStore/index.ts"));
 __export(__webpack_require__(/*! ./LoginStore */ "./public/src/stores/LoginStore/index.ts"));
 __export(__webpack_require__(/*! ./UserStore */ "./public/src/stores/UserStore/index.ts"));
+__export(__webpack_require__(/*! ./DataRetriever */ "./public/src/stores/DataRetriever/index.ts"));
 
 
 /***/ })

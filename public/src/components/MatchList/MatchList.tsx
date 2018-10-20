@@ -2,7 +2,7 @@ import {createStyles, List, Paper, Theme, WithStyles, withStyles} from '@materia
 import {observer} from 'mobx-react';
 import * as React from 'react';
 import {Loader, MatchItem} from '../';
-import {IMatch, IMatchList} from '../../@types';
+import {IMatch, IRetriever} from '../../@types';
 
 const styles = ({breakpoints, spacing, typography}: Theme) => createStyles({
   round: {
@@ -21,7 +21,9 @@ const styles = ({breakpoints, spacing, typography}: Theme) => createStyles({
 });
 
 interface IProps extends WithStyles<typeof styles> {
-  store: IMatchList;
+  store: IRetriever<{
+    results: IMatch[];
+  }>;
 }
 
 export const MatchList = withStyles(styles)(observer(class extends React.Component<IProps, {}> {
@@ -32,7 +34,7 @@ export const MatchList = withStyles(styles)(observer(class extends React.Compone
     return store.isLoaded ? (
       <List disablePadding={true}>
         {
-          store.list.map((item: IMatch, index: number, list: IMatch[]) => {
+          store.data.results.map((item: IMatch, index: number, list: IMatch[]) => {
             const stat = {
               awayScore: item.sport_event_status.away_score,
               awayTeam: item.sport_event.competitors[1].name,

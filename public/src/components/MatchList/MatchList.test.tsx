@@ -9,10 +9,11 @@ describe('MatchList', () => {
     const notRenderedComp = mount(
       <MatchList
         store={{
-          id: 'test',
+          data: {
+            results: undefined,
+          },
           isLoaded: false,
-          list: undefined,
-          type: 'test',
+          url: 'test',
         }}
       />);
     expect(notRenderedComp.find(Loader)).toHaveLength(1);
@@ -22,10 +23,11 @@ describe('MatchList', () => {
     const comp = (
       <MatchList
         store={{
-          id: 'test',
+          data: {
+            results: matchListMock.results,
+          },
           isLoaded: true,
-          list: matchListMock.results,
-          type: 'test',
+          url: 'test',
         }}
       />);
     const tree = renderer.create(comp).toJSON();
