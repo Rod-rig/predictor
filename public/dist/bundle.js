@@ -79066,18 +79066,34 @@ __export(__webpack_require__(/*! ./MatchList */ "./public/src/components/MatchLi
 
 "use strict";
 
+var __assign = (this && this.__assign) || function () {
+    __assign = Object.assign || function(t) {
+        for (var s, i = 1, n = arguments.length; i < n; i++) {
+            s = arguments[i];
+            for (var p in s) if (Object.prototype.hasOwnProperty.call(s, p))
+                t[p] = s[p];
+        }
+        return t;
+    };
+    return __assign.apply(this, arguments);
+};
 Object.defineProperty(exports, "__esModule", { value: true });
 var core_1 = __webpack_require__(/*! @material-ui/core */ "./node_modules/@material-ui/core/index.es.js");
 var React = __webpack_require__(/*! react */ "./node_modules/react/index.js");
 var react_router_dom_1 = __webpack_require__(/*! react-router-dom */ "./node_modules/react-router-dom/es/index.js");
 var dict_1 = __webpack_require__(/*! ../../dict */ "./public/src/dict/index.ts");
 var styles = function (theme) { return core_1.createStyles({
+    containedSecondary: {
+        marginRight: theme.spacing.unit,
+        textTransform: 'none',
+    },
     link: {
         color: theme.palette.primary.contrastText,
         fontSize: theme.typography.fontSize,
         textDecoration: 'none',
     },
     title: {
+        display: 'inline-block',
         marginLeft: theme.spacing.unit * 2,
     },
 }); };
@@ -79096,13 +79112,17 @@ var compose = function () {
 };
 exports.Nav = compose(core_1.withStyles(styles), react_router_dom_1.withRouter)(function (props) {
     var classes = props.classes, match = props.match;
+    var id = match.params.id;
+    var TableLink = function (linkProps) { return React.createElement(react_router_dom_1.Link, __assign({ to: "/tournament/" + id }, linkProps)); };
+    var FixturesLink = function (linkProps) { return React.createElement(react_router_dom_1.Link, __assign({ to: "/fixtures/" + id }, linkProps)); };
+    var ResultsLink = function (linkProps) { return React.createElement(react_router_dom_1.Link, __assign({ to: "/results/" + id }, linkProps)); };
+    var PredictionsLink = function (linkProps) { return React.createElement(react_router_dom_1.Link, __assign({ to: "/predictions?tournament_id=" + id }, linkProps)); };
+    var renderBtn = function (comp, text) { return (React.createElement(core_1.Button, { size: 'small', className: classes.containedSecondary, component: comp, variant: 'contained', color: 'secondary' }, text)); };
     return (React.createElement(React.Fragment, null,
-        React.createElement(core_1.Typography, { className: classes.title, variant: 'h6' },
-            React.createElement(react_router_dom_1.Link, { className: classes.link, to: "/fixtures/" + match.params.id }, dict_1.dict.fixtures)),
-        React.createElement(core_1.Typography, { className: classes.title, variant: 'h6' },
-            React.createElement(react_router_dom_1.Link, { className: classes.link, to: "/results/" + match.params.id }, dict_1.dict.results)),
-        React.createElement(core_1.Typography, { className: classes.title, variant: 'h6' },
-            React.createElement(react_router_dom_1.Link, { className: classes.link, to: "/predictions?tournament_id=" + match.params.id }, dict_1.dict.prediction))));
+        renderBtn(TableLink, dict_1.dict.table),
+        renderBtn(FixturesLink, dict_1.dict.fixtures),
+        renderBtn(ResultsLink, dict_1.dict.results),
+        renderBtn(PredictionsLink, dict_1.dict.prediction)));
 });
 
 
@@ -79698,7 +79718,7 @@ var dict_1 = __webpack_require__(/*! ../../dict */ "./public/src/dict/index.ts")
 var SidebarLink = function (props) { return React.createElement(react_router_dom_1.Link, __assign({ to: '/predictions' }, props)); };
 exports.Sidebar = function (props) { return (React.createElement(core_1.Drawer, { open: props.isOpen, onClose: props.toggleHandler },
     React.createElement("div", { onClick: props.toggleHandler, onKeyDown: props.toggleHandler },
-        React.createElement(core_1.List, { component: "nav" },
+        React.createElement(core_1.List, { component: 'nav' },
             React.createElement(core_1.ListItem, { component: SidebarLink, button: true },
                 React.createElement(core_1.ListItemIcon, null,
                     React.createElement(OpenWith_1.default, null)),
@@ -79944,16 +79964,33 @@ var React = __webpack_require__(/*! react */ "./node_modules/react/index.js");
 var __1 = __webpack_require__(/*! ../ */ "./public/src/components/index.ts");
 var styles = function (_a) {
     var breakpoints = _a.breakpoints, palette = _a.palette, spacing = _a.spacing, typography = _a.typography;
-    var _b;
+    var _b, _c, _d;
     return core_1.createStyles({
         group: __assign({}, typography.title, { backgroundColor: palette.secondary.main, color: palette.common.white, fontSize: '', padding: spacing.unit * 2 + "px " + spacing.unit * 3 + "px" }),
-        paper: (_b = {
-                marginBottom: spacing.unit
+        header: (_b = {
+                backgroundColor: palette.primary.main,
+                color: palette.primary.contrastText,
+                padding: spacing.unit
             },
             _b[breakpoints.up('lg')] = {
-                margin: "0 " + spacing.unit * 3 + "px " + spacing.unit * 3 + "px",
+                margin: "0 " + spacing.unit * 3 + "px",
+                padding: spacing.unit + "px " + spacing.unit * 3 + "px " + spacing.unit * 3 + "px",
             },
             _b),
+        paper: (_c = {
+                marginBottom: spacing.unit
+            },
+            _c[breakpoints.up('lg')] = {
+                margin: "0 " + spacing.unit * 3 + "px " + spacing.unit * 3 + "px",
+            },
+            _c),
+        title: (_d = {
+                margin: '0.35em 0'
+            },
+            _d[breakpoints.up('sm')] = {
+                fontSize: '3.5em',
+            },
+            _d),
     });
 };
 exports.TableView = core_1.withStyles(styles)(mobx_react_1.observer(/** @class */ (function (_super) {
@@ -79963,17 +80000,19 @@ exports.TableView = core_1.withStyles(styles)(mobx_react_1.observer(/** @class *
     }
     class_1.prototype.render = function () {
         var _a = this.props, classes = _a.classes, store = _a.store;
-        return store.isLoaded ? (store.table.map(function (group, key) {
-            return (React.createElement(core_1.Paper, { key: key, className: classes.paper },
-                group.name ?
-                    React.createElement("div", { className: classes.group },
+        return store.isLoaded ? (React.createElement(React.Fragment, null,
+            React.createElement("div", { className: classes.header },
+                store.title && React.createElement(core_1.Typography, { variant: 'h4', className: classes.title, color: 'inherit' }, store.title),
+                React.createElement(__1.Nav, null)),
+            store.table.map(function (group, key) {
+                return (React.createElement(core_1.Paper, { key: key, className: classes.paper },
+                    group.name && React.createElement("div", { className: classes.group },
                         "Group ",
-                        group.name) : /* istanbul ignore next */
-                    undefined,
-                React.createElement(core_1.Table, null,
-                    React.createElement(__1.TableHeadView, { order: store.table[key].order, sortName: store.table[key].sortName, sortHandle: store.sortHandler.bind(store, key), chars: store.chars }),
-                    React.createElement(core_1.TableBody, null, group.team_standings.map(function (row, index) { return (React.createElement(__1.Row, { key: index, row: row, chars: store.chars })); })))));
-        })) : (React.createElement(__1.Loader, null));
+                        group.name),
+                    React.createElement(core_1.Table, null,
+                        React.createElement(__1.TableHeadView, { order: store.table[key].order, sortName: store.table[key].sortName, sortHandle: store.sortHandler.bind(store, key), chars: store.chars }),
+                        React.createElement(core_1.TableBody, null, group.team_standings.map(function (row, index) { return (React.createElement(__1.Row, { key: index, row: row, chars: store.chars })); })))));
+            }))) : (React.createElement(__1.Loader, null));
     };
     return class_1;
 }(React.Component))));
@@ -80200,6 +80239,7 @@ exports.dict = {
     results: 'Results',
     sidebar_menu_prediction: 'Predictions',
     submit_btn_text: 'Submit',
+    table: 'Table',
     team: 'team',
     tournament_card_more: 'Learn more',
     win: 'win',
@@ -80879,13 +80919,14 @@ var TableStore = /** @class */ (function () {
         var _this = this;
         axios_1.default.get(this.url)
             .then(function (res) {
-            var standings = res.data.standings;
+            var _a = res.data, standings = _a.standings, tournament = _a.tournament;
             _this.table = _this.range && standings[0].groups.length === 1 ? helpers_1.rangeData(standings[0].groups[0].team_standings, _this.range[0], _this.range[1]).slice() : standings[0].groups.slice();
             if (_this.sortName) {
                 _this.table.forEach(function (item, index) {
                     _this.sortHandler(index, _this.sortName);
                 });
             }
+            _this.title = tournament.name;
             _this.isLoaded = true;
         });
     };

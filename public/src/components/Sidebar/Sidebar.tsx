@@ -15,7 +15,7 @@ export const Sidebar = (props: {
       onClick={props.toggleHandler}
       onKeyDown={props.toggleHandler}
     >
-      <List component="nav">
+      <List component='nav'>
         <ListItem component={SidebarLink} button={true}>
           <ListItemIcon>
             <OpenWithIcon/>

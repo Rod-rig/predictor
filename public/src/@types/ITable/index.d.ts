@@ -43,5 +43,6 @@ interface IStanding {
 export interface ITable extends ITableProps {
   isLoaded: boolean;
   table: IGroup[];
+  title?: string;
   sortHandler(index: number, sortName: string): void;
 }

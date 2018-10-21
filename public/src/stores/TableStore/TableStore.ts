@@ -9,6 +9,7 @@ export class TableStore implements ITable {
   @observable public order: OrderType;
   @observable public sortName: string;
   @observable public table: IGroup[] = [];
+  public title: string;
   public readonly chars: string[];
   public readonly range?: RangeType;
   private url: string;
@@ -61,7 +62,7 @@ export class TableStore implements ITable {
   private fetchTable() {
     axios.get(this.url)
       .then((res: AxiosResponse) => {
-        const {standings} = res.data;
+        const {standings, tournament} = res.data;
         this.table = this.range && standings[0].groups.length === 1 ?
           [...rangeData(standings[0].groups[0].team_standings, this.range[0], this.range[1])] :
           [...standings[0].groups];
@@ -70,6 +71,7 @@ export class TableStore implements ITable {
             this.sortHandler(index, this.sortName);
           });
         }
+        this.title = tournament.name;
         this.isLoaded = true;
       });
   }
