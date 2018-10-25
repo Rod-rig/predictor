@@ -2,6 +2,7 @@ import {Button, createStyles, Paper, TextField, Theme, withStyles} from '@materi
 import {observer} from 'mobx-react';
 import * as React from 'react';
 import {Redirect} from 'react-router-dom';
+import {IRegistrationProps} from '../../@types';
 import {dict} from '../../dict';
 import {userStore} from '../../stores';
 
@@ -12,10 +13,7 @@ const styles = ({spacing}: Theme) => createStyles({
   },
 });
 
-export const Registration = withStyles(styles)(observer(class extends React.Component<{
-  classes: any;
-  store: any;
-}, {}> {
+export const Registration = withStyles(styles)(observer(class extends React.Component<IRegistrationProps, {}> {
   public render() {
     const {classes, store} = this.props;
     const {email, name, password} = store.user;

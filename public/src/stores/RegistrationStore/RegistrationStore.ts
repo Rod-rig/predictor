@@ -1,14 +1,10 @@
 import axios from 'axios';
 import {action, observable} from 'mobx';
+import * as React from 'react';
+import {IRegistration, IUser} from '../../@types';
 import {userStore} from '../UserStore';
 
-interface IUser {
-  email: string;
-  name: string;
-  password: string;
-}
-
-class RegistrationStore {
+class RegistrationStore implements IRegistration {
   @observable public user: IUser = {
     email: '',
     name: '',
@@ -21,7 +17,7 @@ class RegistrationStore {
   }
 
   @action.bound
-  public handleSubmit(event: any) {
+  public handleSubmit(event: React.FormEvent<Element>) {
     event.preventDefault();
     axios.post('/users', this.user).then(() => {
       userStore.isLoggedIn = true;
