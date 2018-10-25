@@ -41,7 +41,7 @@ export class AccountMenu extends React.Component<IProps, {
           onClick={this.openMenu}
           color="inherit"
         >
-          <AccountCircle />
+          <AccountCircle/>
         </IconButton>
         <Menu
           anchorEl={anchor}

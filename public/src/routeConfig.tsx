@@ -92,42 +92,34 @@ export const routes = [
     component: login,
     exact: true,
     path: '/login',
-    title: 'Login',
   },
   {
     component: registration,
     path: '/registration',
-    title: 'Registration',
   },
   {
     component: table,
     path: '/tournament/:id',
-    title: 'Tournament table',
   },
   {
     component: results,
     path: '/results/:id',
-    title: 'Results',
   },
   {
     component: fixtures,
     path: '/fixtures/:id',
-    title: 'Fixtures',
   },
   {
     component: predictions,
     path: '/predictions',
-    title: 'Predictions',
   },
   {
     component: Account,
     path: '/account',
-    title: 'My Account',
   },
   {
     component: stats,
     path: '/stats',
-    title: 'My Stats',
   },
   {
     component: NotFound,

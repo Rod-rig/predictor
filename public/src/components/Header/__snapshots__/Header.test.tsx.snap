@@ -65,9 +65,9 @@ exports[`Header should render correctly 1`] = `
     <div
       className="class_1-user-4"
     >
-      <a
-        className="MuiButtonBase-root-51 MuiButton-root-72 MuiButton-text-74 MuiButton-flat-77 MuiButton-colorInherit-93 class_1-headerBtn-2"
-        href="/registration"
+      <button
+        className="MuiButtonBase-root-51 MuiIconButton-root-45 MuiIconButton-colorInherit-46"
+        disabled={false}
         onBlur={[Function]}
         onClick={[Function]}
         onFocus={[Function]}
@@ -79,44 +79,32 @@ exports[`Header should render correctly 1`] = `
         onTouchEnd={[Function]}
         onTouchMove={[Function]}
         onTouchStart={[Function]}
-        role="button"
         tabIndex="0"
+        type="button"
       >
         <span
-          className="MuiButton-label-73"
+          className="MuiIconButton-label-50"
         >
-          Register
+          <svg
+            aria-hidden="true"
+            className="MuiSvgIcon-root-54"
+            focusable="false"
+            role="presentation"
+            viewBox="0 0 24 24"
+          >
+            <path
+              d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 3c1.66 0 3 1.34 3 3s-1.34 3-3 3-3-1.34-3-3 1.34-3 3-3zm0 14.2c-2.5 0-4.71-1.28-6-3.22.03-1.99 4-3.08 6-3.08 1.99 0 5.97 1.09 6 3.08-1.29 1.94-3.5 3.22-6 3.22z"
+            />
+            <path
+              d="M0 0h24v24H0z"
+              fill="none"
+            />
+          </svg>
         </span>
         <span
           className="MuiTouchRipple-root-63"
         />
-      </a>
-      <a
-        className="MuiButtonBase-root-51 MuiButton-root-72 MuiButton-text-74 MuiButton-flat-77 MuiButton-colorInherit-93 class_1-headerBtn-2"
-        href="/login"
-        onBlur={[Function]}
-        onClick={[Function]}
-        onFocus={[Function]}
-        onKeyDown={[Function]}
-        onKeyUp={[Function]}
-        onMouseDown={[Function]}
-        onMouseLeave={[Function]}
-        onMouseUp={[Function]}
-        onTouchEnd={[Function]}
-        onTouchMove={[Function]}
-        onTouchStart={[Function]}
-        role="button"
-        tabIndex="0"
-      >
-        <span
-          className="MuiButton-label-73"
-        >
-          Login
-        </span>
-        <span
-          className="MuiTouchRipple-root-63"
-        />
-      </a>
+      </button>
     </div>
   </div>
 </header>

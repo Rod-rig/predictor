@@ -78342,7 +78342,7 @@ var core_1 = __webpack_require__(/*! @material-ui/core */ "./node_modules/@mater
 var AccountCircle_1 = __webpack_require__(/*! @material-ui/icons/AccountCircle */ "./node_modules/@material-ui/icons/AccountCircle.js");
 var mobx_react_1 = __webpack_require__(/*! mobx-react */ "./node_modules/mobx-react/index.module.js");
 var React = __webpack_require__(/*! react */ "./node_modules/react/index.js");
-var UserStore_1 = __webpack_require__(/*! ../../stores/UserStore */ "./public/src/stores/UserStore/index.ts");
+var stores_1 = __webpack_require__(/*! ../../stores */ "./public/src/stores/index.ts");
 var styles = function (theme) { return ({
     account: {
         alignItems: 'center',
@@ -78361,7 +78361,7 @@ exports.Account = core_1.withStyles(styles)(mobx_react_1.observer(function (prop
         React.createElement("div", null,
             React.createElement("div", null,
                 "Name: ",
-                React.createElement("b", null, UserStore_1.userStore.name)))));
+                React.createElement("b", null, stores_1.userStore.name)))));
 }));
 
 
@@ -80463,42 +80463,34 @@ exports.routes = [
         component: login,
         exact: true,
         path: '/login',
-        title: 'Login',
     },
     {
         component: registration,
         path: '/registration',
-        title: 'Registration',
     },
     {
         component: table,
         path: '/tournament/:id',
-        title: 'Tournament table',
     },
     {
         component: results,
         path: '/results/:id',
-        title: 'Results',
     },
     {
         component: fixtures,
         path: '/fixtures/:id',
-        title: 'Fixtures',
     },
     {
         component: predictions,
         path: '/predictions',
-        title: 'Predictions',
     },
     {
         component: components_1.Account,
         path: '/account',
-        title: 'My Account',
     },
     {
         component: stats,
         path: '/stats',
-        title: 'My Stats',
     },
     {
         component: components_1.NotFound,

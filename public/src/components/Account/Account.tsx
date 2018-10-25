@@ -2,7 +2,7 @@ import {Paper, Theme, withStyles} from '@material-ui/core';
 import AccountCircle from '@material-ui/icons/AccountCircle';
 import {observer} from 'mobx-react';
 import * as React from 'react';
-import {userStore} from '../../stores/UserStore';
+import {userStore} from '../../stores';
 
 const styles = (theme: Theme) => ({
   account: {

@@ -2,6 +2,7 @@ import {Button, createStyles, Paper, TextField, Theme, withStyles} from '@materi
 import {observer} from 'mobx-react';
 import * as React from 'react';
 import {Redirect} from 'react-router-dom';
+import {ILoginProps} from '../../@types';
 import {dict} from '../../dict';
 import {userStore} from '../../stores';
 import {LoginSnackbar} from './LoginSnackbar';
@@ -13,10 +14,7 @@ const styles = ({spacing}: Theme) => createStyles({
   },
 });
 
-export const Login = withStyles(styles)(observer(class extends React.Component<{
-  classes: any;
-  store: any;
-}, {}> {
+export const Login = withStyles(styles)(observer(class extends React.Component<ILoginProps, {}> {
   public render() {
     const {classes, store} = this.props;
     return !userStore.isLoggedIn ? (

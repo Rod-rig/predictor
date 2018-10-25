@@ -1,4 +1,4 @@
-import {matchListMock, scheduleMock, tableMock, tournamentListMock} from './';
+import {matchListMock, scheduleMock, tableMock, tournamentListMock, userMock} from './';
 
 export default {
   get: jest.fn((url) => {
@@ -10,6 +10,8 @@ export default {
       return Promise.resolve({data: matchListMock});
     } else if (url === '/api/daily-schedule') {
       return Promise.resolve({data: scheduleMock});
+    } else if (url === '/is-logged-in') {
+      return Promise.resolve({data: userMock});
     } else {
       return Promise.reject('No such url');
     }

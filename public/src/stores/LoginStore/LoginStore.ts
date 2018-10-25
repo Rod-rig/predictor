@@ -1,13 +1,10 @@
 import axios from 'axios';
 import {action, observable} from 'mobx';
+import * as React from 'react';
+import {ILogin, IUser} from '../../@types';
 import {userStore} from '../UserStore';
 
-interface IUser {
-  name: string;
-  password: string;
-}
-
-class LoginStore {
+class LoginStore implements ILogin {
   @observable public isSnackbarOpen: boolean = false;
   @observable public user: IUser = {
     name: '',
@@ -25,7 +22,7 @@ class LoginStore {
   }
 
   @action.bound
-  public handleSubmit(event: any) {
+  public handleSubmit(event: React.FormEvent<Element>) {
     event.preventDefault();
     axios.post('/login', this.user).then(() => {
       userStore.isLoggedIn = true;

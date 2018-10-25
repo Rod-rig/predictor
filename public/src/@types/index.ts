@@ -3,3 +3,4 @@ export * from './IMatch';
 export * from './ISeason';
 export * from './ITournament';
 export * from './IRetriever';
+export * from './IUser';

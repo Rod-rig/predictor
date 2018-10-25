@@ -1,7 +1,353 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`PredictionForm should render correctly 1`] = `
-<div>
-  User is not authorized
-</div>
+<form
+  autoComplete="off"
+  onSubmit={[Function]}
+>
+  <div>
+    <div
+      className="class_1-wrap-22"
+    >
+      <div
+        className="MuiFormControl-root-23 class_1-control-21"
+      >
+        <label
+          className="MuiFormLabel-root-34 MuiInputLabel-root-27 MuiInputLabel-formControl-28 MuiInputLabel-animated-31"
+          data-shrink={false}
+          htmlFor="date"
+        >
+          Date
+        </label>
+        <div
+          className="MuiInputBase-root-61 MuiInput-root-48 MuiInput-underline-52 MuiInputBase-formControl-62 MuiInput-formControl-49"
+          onClick={[Function]}
+        >
+          <div
+            className="MuiSelect-root-41"
+          >
+            <div
+              aria-haspopup="true"
+              aria-owns={null}
+              aria-pressed="false"
+              className="MuiSelect-select-42 MuiSelect-selectMenu-45 MuiInputBase-input-71 MuiInput-input-56"
+              onBlur={[Function]}
+              onClick={[Function]}
+              onFocus={[Function]}
+              onKeyDown={[Function]}
+              role="button"
+              tabIndex={0}
+            >
+              <span
+                dangerouslySetInnerHTML={
+                  Object {
+                    "__html": "&#8203;",
+                  }
+                }
+              />
+            </div>
+            <input
+              id="date"
+              name="date"
+              type="hidden"
+              value=""
+            />
+            <svg
+              aria-hidden="true"
+              className="MuiSvgIcon-root-78 MuiSelect-icon-47"
+              focusable="false"
+              role="presentation"
+              viewBox="0 0 24 24"
+            >
+              <path
+                d="M7 10l5 5 5-5z"
+              />
+            </svg>
+          </div>
+        </div>
+      </div>
+      <button
+        className="MuiButtonBase-root-117 MuiButton-root-91 MuiButton-contained-102 MuiButton-containedSecondary-104 MuiButton-raised-105 MuiButton-raisedSecondary-107 MuiButton-sizeSmall-114 class_1-btn-19"
+        disabled={false}
+        onBlur={[Function]}
+        onClick={[Function]}
+        onFocus={[Function]}
+        onKeyDown={[Function]}
+        onKeyUp={[Function]}
+        onMouseDown={[Function]}
+        onMouseLeave={[Function]}
+        onMouseUp={[Function]}
+        onTouchEnd={[Function]}
+        onTouchMove={[Function]}
+        onTouchStart={[Function]}
+        tabIndex="0"
+        type="button"
+      >
+        <span
+          className="MuiButton-label-92"
+        >
+          <svg
+            aria-hidden="true"
+            className="MuiSvgIcon-root-78 class_1-btnIcon-20"
+            focusable="false"
+            role="presentation"
+            viewBox="0 0 24 24"
+          >
+            <path
+              d="M10 18h4v-2h-4v2zM3 6v2h18V6H3zm3 7h12v-2H6v2z"
+            />
+            <path
+              d="M0 0h24v24H0z"
+              fill="none"
+            />
+          </svg>
+          Filter
+        </span>
+        <span
+          className="MuiTouchRipple-root-120"
+        />
+      </button>
+    </div>
+  </div>
+  <ul
+    className="MuiList-root-127 MuiList-padding-128"
+  >
+    <li
+      className="MuiListItem-root-131 MuiListItem-default-134 MuiListItem-divider-137"
+      disabled={false}
+    >
+      <div
+        className="MuiListItemText-root-142 _class-home-3"
+      >
+        <span
+          className="MuiTypography-root-148 MuiTypography-subheading-155 MuiListItemText-primary-145"
+        >
+          <label
+            className="MuiFormLabel-root-34 MuiInputLabel-root-27 MuiInputLabel-animated-31"
+            htmlFor="sr:competitor:39"
+          >
+            Newcastle United
+          </label>
+        </span>
+      </div>
+      <div
+        className="_class-score-7"
+      >
+        <div
+          className="MuiInputBase-root-61 MuiInput-root-48 _class-inputWrap-5 MuiInput-underline-52 _class-underline-8"
+          onClick={[Function]}
+        >
+          <input
+            autoFocus={true}
+            className="MuiInputBase-input-71 MuiInput-input-56 _class-input-4"
+            id="sr:competitor:39"
+            name="Newcastle United"
+            onBlur={[Function]}
+            onChange={[Function]}
+            onFocus={[Function]}
+            type="text"
+          />
+        </div>
+        <div>
+          :
+        </div>
+        <div
+          className="MuiInputBase-root-61 MuiInput-root-48 _class-inputWrap-5 MuiInput-underline-52 _class-underline-8"
+          onClick={[Function]}
+        >
+          <input
+            className="MuiInputBase-input-71 MuiInput-input-56 _class-input-4"
+            id="sr:competitor:33"
+            name="Tottenham Hotspur"
+            onBlur={[Function]}
+            onChange={[Function]}
+            onFocus={[Function]}
+            type="text"
+          />
+        </div>
+      </div>
+      <div
+        className="MuiListItemText-root-142 _class-away-1"
+      >
+        <span
+          className="MuiTypography-root-148 MuiTypography-subheading-155 MuiListItemText-primary-145"
+        >
+          <label
+            className="MuiFormLabel-root-34 MuiInputLabel-root-27 MuiInputLabel-animated-31"
+            htmlFor="sr:competitor:33"
+          >
+            Tottenham Hotspur
+          </label>
+        </span>
+      </div>
+    </li>
+    <li
+      className="MuiListItem-root-131 MuiListItem-default-134 MuiListItem-divider-137"
+      disabled={false}
+    >
+      <div
+        className="MuiListItemText-root-142 _class-home-3"
+      >
+        <span
+          className="MuiTypography-root-148 MuiTypography-subheading-155 MuiListItemText-primary-145"
+        >
+          <label
+            className="MuiFormLabel-root-34 MuiInputLabel-root-27 MuiInputLabel-animated-31"
+            htmlFor="sr:competitor:2961"
+          >
+            Willem II Tilburg
+          </label>
+        </span>
+      </div>
+      <div
+        className="_class-score-7"
+      >
+        <div
+          className="MuiInputBase-root-61 MuiInput-root-48 _class-inputWrap-5 MuiInput-underline-52 _class-underline-8"
+          onClick={[Function]}
+        >
+          <input
+            autoFocus={false}
+            className="MuiInputBase-input-71 MuiInput-input-56 _class-input-4"
+            id="sr:competitor:2961"
+            name="Willem II Tilburg"
+            onBlur={[Function]}
+            onChange={[Function]}
+            onFocus={[Function]}
+            type="text"
+          />
+        </div>
+        <div>
+          :
+        </div>
+        <div
+          className="MuiInputBase-root-61 MuiInput-root-48 _class-inputWrap-5 MuiInput-underline-52 _class-underline-8"
+          onClick={[Function]}
+        >
+          <input
+            className="MuiInputBase-input-71 MuiInput-input-56 _class-input-4"
+            id="sr:competitor:2980"
+            name="VVV Venlo"
+            onBlur={[Function]}
+            onChange={[Function]}
+            onFocus={[Function]}
+            type="text"
+          />
+        </div>
+      </div>
+      <div
+        className="MuiListItemText-root-142 _class-away-1"
+      >
+        <span
+          className="MuiTypography-root-148 MuiTypography-subheading-155 MuiListItemText-primary-145"
+        >
+          <label
+            className="MuiFormLabel-root-34 MuiInputLabel-root-27 MuiInputLabel-animated-31"
+            htmlFor="sr:competitor:2980"
+          >
+            VVV Venlo
+          </label>
+        </span>
+      </div>
+    </li>
+    <li
+      className="MuiListItem-root-131 MuiListItem-default-134 MuiListItem-divider-137"
+      disabled={false}
+    >
+      <div
+        className="MuiListItemText-root-142 _class-home-3"
+      >
+        <span
+          className="MuiTypography-root-148 MuiTypography-subheading-155 MuiListItemText-primary-145"
+        >
+          <label
+            className="MuiFormLabel-root-34 MuiInputLabel-root-27 MuiInputLabel-animated-31"
+            htmlFor="sr:competitor:1684"
+          >
+            SCO Angers
+          </label>
+        </span>
+      </div>
+      <div
+        className="_class-score-7"
+      >
+        <div
+          className="MuiInputBase-root-61 MuiInput-root-48 _class-inputWrap-5 MuiInput-underline-52 _class-underline-8"
+          onClick={[Function]}
+        >
+          <input
+            autoFocus={false}
+            className="MuiInputBase-input-71 MuiInput-input-56 _class-input-4"
+            id="sr:competitor:1684"
+            name="SCO Angers"
+            onBlur={[Function]}
+            onChange={[Function]}
+            onFocus={[Function]}
+            type="text"
+          />
+        </div>
+        <div>
+          :
+        </div>
+        <div
+          className="MuiInputBase-root-61 MuiInput-root-48 _class-inputWrap-5 MuiInput-underline-52 _class-underline-8"
+          onClick={[Function]}
+        >
+          <input
+            className="MuiInputBase-input-71 MuiInput-input-56 _class-input-4"
+            id="sr:competitor:1663"
+            name="Olympique Nimes"
+            onBlur={[Function]}
+            onChange={[Function]}
+            onFocus={[Function]}
+            type="text"
+          />
+        </div>
+      </div>
+      <div
+        className="MuiListItemText-root-142 _class-away-1"
+      >
+        <span
+          className="MuiTypography-root-148 MuiTypography-subheading-155 MuiListItemText-primary-145"
+        >
+          <label
+            className="MuiFormLabel-root-34 MuiInputLabel-root-27 MuiInputLabel-animated-31"
+            htmlFor="sr:competitor:1663"
+          >
+            Olympique Nimes
+          </label>
+        </span>
+      </div>
+    </li>
+  </ul>
+  <div
+    className="_class-btnWrap-2"
+  >
+    <button
+      className="MuiButtonBase-root-117 MuiButton-root-91 MuiButton-contained-102 MuiButton-containedSecondary-104 MuiButton-raised-105 MuiButton-raisedSecondary-107"
+      disabled={false}
+      onBlur={[Function]}
+      onFocus={[Function]}
+      onKeyDown={[Function]}
+      onKeyUp={[Function]}
+      onMouseDown={[Function]}
+      onMouseLeave={[Function]}
+      onMouseUp={[Function]}
+      onTouchEnd={[Function]}
+      onTouchMove={[Function]}
+      onTouchStart={[Function]}
+      tabIndex="0"
+      type="submit"
+    >
+      <span
+        className="MuiButton-label-92"
+      >
+        Submit
+      </span>
+      <span
+        className="MuiTouchRipple-root-120"
+      />
+    </button>
+  </div>
+</form>
 `;
