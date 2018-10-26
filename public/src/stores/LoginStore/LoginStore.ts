@@ -22,7 +22,7 @@ class LoginStore implements ILogin {
   }
 
   @action.bound
-  public handleSubmit(event: React.FormEvent<Element>) {
+  public handleSubmit(event: any) {
     event.preventDefault();
     axios.post('/login', this.user).then(() => {
       userStore.isLoggedIn = true;

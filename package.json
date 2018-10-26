@@ -1,6 +1,6 @@
 {
   "name": "predictor",
-  "version": "0.2.56",
+  "version": "0.2.57",
   "main": "public/src/index.tsx",
   "license": "MIT",
   "scripts": {
