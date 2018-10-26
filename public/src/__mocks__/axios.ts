@@ -9,7 +9,7 @@ export default {
       return Promise.resolve({data: tableMock});
     } else if (url === '/api/results/id') {
       return Promise.resolve({data: matchListMock});
-    } else if (url === '/api/daily-schedule') {
+    } else if (url === '/available-predictions/2018-10-26') {
       return Promise.resolve({data: scheduleMock});
     } else if (url === '/predictions') {
       return Promise.resolve({data: predictions});

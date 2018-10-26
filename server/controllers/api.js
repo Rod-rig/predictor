@@ -29,7 +29,7 @@ module.exports.getResults = (req, res) => {
 module.exports.getSchedule = (req, res) => {
   axios.get(`${apiUrl}/en/schedules/${req.params.date}/schedule.json?api_key=${apiKey}`)
     .then((response) => {
-      res.status(200).send(response.data.sport_events);
+      res.status(200).send(response.data);
     })
     .catch((err) => {
       console.log(err);

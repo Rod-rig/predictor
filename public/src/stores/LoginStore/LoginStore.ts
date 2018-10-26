@@ -1,6 +1,5 @@
 import axios from 'axios';
 import {action, observable} from 'mobx';
-import * as React from 'react';
 import {ILogin, IUser} from '../../@types';
 import {userStore} from '../UserStore';
 

@@ -13,7 +13,7 @@ export interface IUser {
 
 export interface ILogin {
   handleChange: (field: keyof IUser, event: any) => void;
-  handleSubmit: (event: React.FormEvent<Element>) => void;
+  handleSubmit: (event: any) => void;
   isSnackbarOpen: boolean;
   user: IUser;
 }

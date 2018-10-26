@@ -15,10 +15,10 @@ export class PredictionStore implements IPredictionStore {
     tournament_id?: string;
   };
 
-  constructor(props: {
-    filter?: string;
+  constructor(props?: {
+    filter: string;
   }) {
-    this.filter = parse(props.filter);
+    this.filter = props ? parse(props.filter) : '';
     this.dates = getFutureDates();
     this.currentDate = this.dates[0];
     this.fetchMatches();
@@ -28,7 +28,7 @@ export class PredictionStore implements IPredictionStore {
     return `/available-predictions/${this.currentDate}`;
   }
 
-  public handleSubmit(e: any): void {
+  public handleSubmit(e: Event): void {
     e.preventDefault();
     const validatedMatches = this.matches.filter((match: ISportEvent) => {
       return match.competitors[0].userPrediction >= 0 && match.competitors[1].userPrediction >= 0;
