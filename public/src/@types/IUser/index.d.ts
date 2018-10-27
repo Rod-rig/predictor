@@ -1,5 +1,3 @@
-import * as React from 'react';
-
 export interface ILoginProps {
   classes?: any;
   store: ILogin;
@@ -25,6 +23,6 @@ export interface IRegistrationProps {
 
 export interface IRegistration {
   handleChange: (field: keyof IUser, event: any) => void;
-  handleSubmit: (event: React.FormEvent<Element>) => void;
+  handleSubmit: (event: Event) => void;
   user: IUser;
 }

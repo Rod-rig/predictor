@@ -1,4 +1,3 @@
-import {IUser} from '../@types';
 import {getFutureDates} from '../helpers';
 import {matchListMock, predictions, scheduleMock, tableMock, tournamentListMock, userMock} from './';
 
@@ -23,7 +22,7 @@ export default {
   post: jest.fn((url: string, data: any) => {
     if (url === '/login' && data.name === 'test') {
       return Promise.resolve({data: {name: data.name}});
-    } else if (url === '/predictions') {
+    } else if (url === '/predictions' || url === '/users') {
       return Promise.resolve();
     } else {
       return Promise.reject({error: 'No such url'});

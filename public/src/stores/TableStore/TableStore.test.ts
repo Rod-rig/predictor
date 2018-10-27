@@ -4,7 +4,7 @@ import {TableStore} from './';
 describe('TableStore', () => {
   const props: ITableProps = {
     chars: ['test'],
-    id: 'test',
+    id: 'id',
     order: 'asc',
     sortName: 'test',
   };
@@ -12,7 +12,7 @@ describe('TableStore', () => {
 
   const mockStoreWithRange = new TableStore({
     chars: ['test'],
-    id: 'test',
+    id: 'id',
     range: [0, 5],
   });
 
@@ -24,7 +24,7 @@ describe('TableStore', () => {
   it('should have correct sort handler', () => {
     const mockHandler = jest.fn(mockStore.sortHandler);
     mockHandler(0, 'foo');
-    expect(mockHandler).toHaveBeenCalledTimes(1);
+    expect(mockHandler.mock.calls).toHaveLength(1);
     expect(mockStore.sortName).toEqual('test');
     expect(mockStore.order).toEqual('asc');
     expect(mockStore.table[0].sortName).toEqual('foo');
