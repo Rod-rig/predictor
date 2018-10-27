@@ -76,7 +76,7 @@ export interface IPredictionStore {
   isSuccessSubmit: boolean;
   matches: ISportEvent[];
   fetchMatches(): void;
-  handleSubmit(e: any): void;
+  handleSubmit(e: Event): void;
   handleChange(index: number, compIndex: number, e: any): void;
   setCurrentDate(date: string): void;
 }
