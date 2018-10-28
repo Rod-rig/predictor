@@ -23,6 +23,6 @@ export interface IRegistrationProps {
 
 export interface IRegistration {
   handleChange: (field: keyof IUser, event: any) => void;
-  handleSubmit: (event: Event) => void;
+  handleSubmit: (event: any) => void;
   user: IUser;
 }

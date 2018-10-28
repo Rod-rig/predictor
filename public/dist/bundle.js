@@ -80683,7 +80683,7 @@ var PredictionStore = /** @class */ (function () {
         this.matches = [];
         this.isLoaded = false;
         this.isSuccessSubmit = false;
-        this.filter = query_string_1.parse(props.filter);
+        this.filter = props ? query_string_1.parse(props.filter) : '';
         this.dates = helpers_1.getFutureDates();
         this.currentDate = this.dates[0];
         this.fetchMatches();

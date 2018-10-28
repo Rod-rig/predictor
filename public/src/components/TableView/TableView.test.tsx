@@ -1,5 +1,6 @@
 import {createMount, createShallow} from '@material-ui/core/test-utils';
 import * as React from 'react';
+import {MemoryRouter} from 'react-router-dom';
 import {Loader, TableView} from '../';
 import {ITable} from '../../@types';
 import {tableMock} from '../../__mocks__';
@@ -15,12 +16,13 @@ describe('TableView', () => {
     },
     sortName: '',
     table: tableMock.standings[0].groups,
+    title: 'Title',
   });
   const shallow = createShallow({dive: true});
   const notRenderedTable = shallow(<TableView store={createMockStore(false)}/>);
 
   it('should render correctly with default props', () => {
-    const tree = createMount()(<TableView store={createMockStore(true)}/>);
+    const tree = createMount()(<MemoryRouter><TableView store={createMockStore(true)}/></MemoryRouter>);
     expect(tree.html()).toMatchSnapshot();
   });
 
