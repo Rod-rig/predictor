@@ -1,4 +1,4 @@
-import {CircularProgress, createStyles, Theme, WithStyles} from '@material-ui/core';
+import {CircularProgress, createStyles, Theme} from '@material-ui/core';
 import {withStyles} from '@material-ui/core/styles';
 import * as React from 'react';
 

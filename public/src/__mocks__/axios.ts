@@ -15,6 +15,8 @@ export default {
       return Promise.resolve({data: predictions});
     } else if (url === '/is-logged-in') {
       return Promise.resolve({data: userMock});
+    }  else if (url === '/logout') {
+      return Promise.resolve();
     } else {
       return Promise.reject('No such url');
     }

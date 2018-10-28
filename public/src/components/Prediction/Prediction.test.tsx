@@ -34,7 +34,7 @@ describe('PredictionForm', () => {
           handleSubmit: () => ({}),
           isLoaded: true,
           isSuccessSubmit: false,
-          matches: scheduleMock.sport_events,
+          matches: scheduleMock,
           setCurrentDate: () => ({}),
         }}
       />);

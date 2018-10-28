@@ -1,12 +1,12 @@
-import {shallow} from 'enzyme';
+import {CircularProgress} from '@material-ui/core';
+import {mount} from 'enzyme';
 import * as React from 'react';
 import {Loader} from './';
 
 describe('Loader', () => {
   it('should exist', () => {
-    const loader = shallow(<Loader/>);
-    const loaderElement = loader.find('div');
+    const loader = mount(<Loader/>);
+    const loaderElement = loader.find(CircularProgress);
     expect(loaderElement).toHaveLength(1);
-    expect(loaderElement.text()).toBe('Loading...');
   });
 });

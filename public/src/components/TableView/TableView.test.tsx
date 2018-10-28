@@ -1,6 +1,6 @@
 import {createMount, createShallow} from '@material-ui/core/test-utils';
 import * as React from 'react';
-import {Loader, Row, TableView} from '../';
+import {Loader, TableView} from '../';
 import {ITable} from '../../@types';
 import {tableMock} from '../../__mocks__';
 
