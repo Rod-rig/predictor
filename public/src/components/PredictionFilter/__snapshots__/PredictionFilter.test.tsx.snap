@@ -24,7 +24,6 @@ exports[`PredictionFilter should render correctly 1`] = `
         >
           <div
             aria-haspopup="true"
-            aria-owns={null}
             aria-pressed="false"
             className="MuiSelect-select-24 MuiSelect-selectMenu-27 MuiInputBase-input-53 MuiInput-input-38"
             onBlur={[Function]}

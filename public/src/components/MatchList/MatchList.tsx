@@ -12,7 +12,7 @@ const styles = ({breakpoints, spacing, typography}: Theme) => createStyles({
     },
   },
   title: {
-    ...typography.body2,
+    ...typography.body1,
     padding: `${spacing.unit}px`,
     [breakpoints.up('lg')]: {
       padding: `${spacing.unit}px ${spacing.unit * 4}px`,

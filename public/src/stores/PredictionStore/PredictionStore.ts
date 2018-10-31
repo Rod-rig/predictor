@@ -1,6 +1,6 @@
 import axios, {AxiosResponse} from 'axios';
 import {computed, observable} from 'mobx';
-import {parse} from 'query-string';
+import {OutputParams, parse} from 'query-string';
 import {IPredictionStore, ISportEvent} from '../../@types';
 import {getFutureDates} from '../../helpers';
 
@@ -10,15 +10,12 @@ export class PredictionStore implements IPredictionStore {
   @observable public isSuccessSubmit: boolean = false;
   @observable public currentDate: string;
   public dates: string[];
-
-  public filter: {
-    tournament_id?: string;
-  };
+  public filter: OutputParams;
 
   constructor(props?: {
     filter: string;
   }) {
-    this.filter = props ? parse(props.filter) : '';
+    this.filter = props ? parse(props.filter) : undefined;
     this.dates = getFutureDates();
     this.currentDate = this.dates[0];
     this.fetchMatches();
@@ -51,11 +48,11 @@ export class PredictionStore implements IPredictionStore {
   }
 
   public fetchMatches() {
-    const {tournament_id} = this.filter;
+    const tournamentId = this.filter ? this.filter.tournament_id : undefined;
     this.isLoaded ? this.isLoaded = false : this.isLoaded = true;
     axios.get(this.apiPredictionUrl)
       .then((res: AxiosResponse) => {
-        this.matches = tournament_id ? this.filterMatches(res.data) : res.data;
+        this.matches = tournamentId ? this.filterMatches(res.data) : res.data;
         this.isLoaded = true;
       });
   }

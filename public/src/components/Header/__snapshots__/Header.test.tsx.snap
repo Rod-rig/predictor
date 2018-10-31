@@ -45,11 +45,11 @@ exports[`Header should render correctly 1`] = `
         </svg>
       </span>
       <span
-        className="MuiTouchRipple-root-63"
+        className="MuiTouchRipple-root-104"
       />
     </button>
     <div
-      className="LogoElement-logo-71"
+      className="LogoElement-logo-64"
     >
       <a
         href="/"
@@ -57,7 +57,7 @@ exports[`Header should render correctly 1`] = `
       >
         <img
           alt="logo"
-          className="LogoElement-img-70"
+          className="LogoElement-img-63"
           src="src/images/logo.svg"
         />
       </a>
@@ -102,7 +102,7 @@ exports[`Header should render correctly 1`] = `
           </svg>
         </span>
         <span
-          className="MuiTouchRipple-root-63"
+          className="MuiTouchRipple-root-104"
         />
       </button>
     </div>

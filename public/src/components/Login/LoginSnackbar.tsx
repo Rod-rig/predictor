@@ -14,7 +14,7 @@ const styles = ({palette, spacing, typography}: Theme) => createStyles({
     display: 'flex',
   },
   text: {
-    fontSize: typography.subheading.fontSize,
+    fontSize: typography.subtitle1.fontSize,
     marginLeft: spacing.unit,
   },
 });

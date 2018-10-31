@@ -38,7 +38,7 @@ exports[`AccountMenu should render correctly 1`] = `
     </svg>
   </span>
   <span
-    className="MuiTouchRipple-root-19"
+    className="MuiTouchRipple-root-23"
   />
 </button>
 `;
