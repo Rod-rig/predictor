@@ -2,7 +2,7 @@ import {mount} from 'enzyme';
 import * as React from 'react';
 import {MemoryRouter} from 'react-router-dom';
 import * as renderer from 'react-test-renderer';
-import {Logo} from '..';
+import {Logo, Sidebar} from '..';
 import {Header} from './';
 
 describe('Header', () => {
@@ -12,6 +12,13 @@ describe('Header', () => {
   it('should have logo', () => {
     const logo = header.find(Logo);
     expect(logo).toHaveLength(1);
+  });
+
+  it('should open sidebar', () => {
+    const menuTrigger = header.find('IconButton');
+    const headerInst = header.instance();
+    menuTrigger.simulate('click');
+    expect(header.find(Sidebar).prop('isOpen')).toBeTruthy();
   });
 
   it('should render correctly', () => {
