@@ -1,38 +1,36 @@
+import {MenuItem} from '@material-ui/core';
 import {mount} from 'enzyme';
 import * as React from 'react';
 import * as renderer from 'react-test-renderer';
 import {PredictionFilter} from './PredictionFilter';
 
 describe('PredictionFilter', () => {
-  const changeMock = jest.fn();
+  const setCurrentDateMock = jest.fn();
   const fetchMock = jest.fn();
   const predictionFilter = (
     <PredictionFilter
       store={{
         currentDate: 'date',
-        dates: ['date1', 'date2'],
+        dates: ['Berlin', 'Rome', 'Paris', 'London'],
         fetchMatches: fetchMock,
-        handleChange: changeMock,
+        handleChange: () => ({}),
         handleSubmit: () => ({}),
         isLoaded: true,
         isSuccessSubmit: false,
         matches: [],
-        setCurrentDate: (date: string) => date,
+        setCurrentDate: setCurrentDateMock,
       }}
     />
   );
   const filterWrapper = mount(predictionFilter);
 
-  // it('should trigger change event', () => {
-  //   const select = filterWrapper.find('Select');
-  //   select.simulate('change', {
-  //     target: {
-  //       value: 'date2',
-  //     },
-  //   });
-  //   expect(select.prop('value')).toBe('date2');
-  //   expect(changeMock.mock.calls).toHaveLength(1);
-  // });
+  it('should trigger change event', () => {
+    const select = filterWrapper.find('[role="button"]');
+    select.simulate('click');
+    expect(select).toHaveLength(1);
+    filterWrapper.find(MenuItem).at(2).simulate('click');
+    expect(setCurrentDateMock.mock.calls).toHaveLength(1);
+  });
 
   it('should trigger submit event', () => {
     const button = filterWrapper.find('Button');

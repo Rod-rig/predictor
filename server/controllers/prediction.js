@@ -14,7 +14,7 @@ module.exports.getAvailablePredictions = (req, res) => {
     .then((response) => {
       User.findOne({name: req.session.name}, (err, user) => {
         if (err) return res.status(500).send('Cannot get all predictions');
-        const sportEvents = response.data;
+        const sportEvents = response.data['sport_events'];
         const ids = user.predictions.map((prediction) => {
           return prediction.id;
         });

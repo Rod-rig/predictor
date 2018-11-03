@@ -16,7 +16,6 @@ describe('Header', () => {
 
   it('should open sidebar', () => {
     const menuTrigger = header.find('IconButton');
-    const headerInst = header.instance();
     menuTrigger.simulate('click');
     expect(header.find(Sidebar).prop('isOpen')).toBeTruthy();
   });

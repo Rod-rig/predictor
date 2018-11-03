@@ -80570,7 +80570,19 @@ __export(__webpack_require__(/*! ./Prediction */ "./public/src/components/Predic
 
 "use strict";
 
-var _this = this;
+var __extends = (this && this.__extends) || (function () {
+    var extendStatics = function (d, b) {
+        extendStatics = Object.setPrototypeOf ||
+            ({ __proto__: [] } instanceof Array && function (d, b) { d.__proto__ = b; }) ||
+            function (d, b) { for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p]; };
+        return extendStatics(d, b);
+    }
+    return function (d, b) {
+        extendStatics(d, b);
+        function __() { this.constructor = d; }
+        d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
+    };
+})();
 Object.defineProperty(exports, "__esModule", { value: true });
 var core_1 = __webpack_require__(/*! @material-ui/core */ "./node_modules/@material-ui/core/index.es.js");
 var FilterList_1 = __webpack_require__(/*! @material-ui/icons/FilterList */ "./node_modules/@material-ui/icons/FilterList.js");
@@ -80597,29 +80609,36 @@ var styles = function (_a) {
         },
     });
 };
-var refreshMatches = function (store) {
-    store.fetchMatches();
-};
-var handleChange = function (store, event) {
-    store.setCurrentDate(event.target.value);
-};
-exports.PredictionFilter = core_1.withStyles(styles)(mobx_react_1.observer(function (props) {
-    var classes = props.classes, store = props.store;
-    return (React.createElement("div", null,
-        React.createElement("div", { className: classes.wrap },
-            React.createElement(core_1.FormControl, { className: classes.control },
-                React.createElement(core_1.InputLabel, { htmlFor: 'date' }, "Date"),
-                React.createElement(core_1.Select, { value: store.currentDate, onChange: handleChange.bind(_this, store), inputProps: {
-                        id: 'date',
-                        name: 'date',
-                    } }, store.dates.map(function (item) {
-                    var date = item.split('-').reverse().join('.');
-                    return React.createElement(core_1.MenuItem, { key: item, value: item }, date);
-                }))),
-            React.createElement(core_1.Button, { className: classes.btn, size: 'small', onClick: refreshMatches.bind(_this, store), variant: 'contained', color: 'secondary' },
-                React.createElement(FilterList_1.default, { className: classes.btnIcon }),
-                dict_1.dict.prediction_filter_btn))));
-}));
+exports.PredictionFilter = core_1.withStyles(styles)(mobx_react_1.observer(/** @class */ (function (_super) {
+    __extends(class_1, _super);
+    function class_1() {
+        return _super !== null && _super.apply(this, arguments) || this;
+    }
+    class_1.prototype.render = function () {
+        var _a = this.props, classes = _a.classes, store = _a.store;
+        var refreshMatches = function () {
+            store.fetchMatches();
+        };
+        var handleChange = function (event) {
+            store.setCurrentDate(event.target.value);
+        };
+        return (React.createElement("div", null,
+            React.createElement("div", { className: classes.wrap },
+                React.createElement(core_1.FormControl, { className: classes.control },
+                    React.createElement(core_1.InputLabel, { htmlFor: 'date' }, "Date"),
+                    React.createElement(core_1.Select, { value: store.currentDate, onChange: handleChange, inputProps: {
+                            id: 'date',
+                            name: 'date',
+                        } }, store.dates.map(function (item) {
+                        var date = item.split('-').reverse().join('.');
+                        return React.createElement(core_1.MenuItem, { key: item, value: item }, date);
+                    }))),
+                React.createElement(core_1.Button, { className: classes.btn, size: 'small', onClick: refreshMatches, variant: 'contained', color: 'secondary' },
+                    React.createElement(FilterList_1.default, { className: classes.btnIcon }),
+                    dict_1.dict.prediction_filter_btn))));
+    };
+    return class_1;
+}(React.Component))));
 
 
 /***/ }),
