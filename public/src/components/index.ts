@@ -10,6 +10,7 @@ export * from './Nav';
 export * from './Palette';
 export * from './Prediction';
 export * from './PredictionFilter';
+export * from './PrivateRoute';
 export * from './Registration';
 export * from './Row';
 export * from './Sidebar';

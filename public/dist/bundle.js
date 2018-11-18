@@ -79634,13 +79634,18 @@ var styles = function (_a) {
         },
     });
 };
-exports.App = core_1.withStyles(styles)(function (props) { return (React.createElement("div", { className: props.classes.main },
-    React.createElement(__1.Palette, null,
-        React.createElement(core_1.CssBaseline, null),
-        React.createElement(react_router_dom_1.HashRouter, null,
-            React.createElement(React.Fragment, null,
-                React.createElement(__1.Header, null),
-                React.createElement(react_router_dom_1.Switch, null, routeConfig_1.routes.map(function (route, index) { return (React.createElement(react_router_dom_1.Route, { key: index, exact: route.exact, component: route.component, path: route.path })); }))))))); });
+exports.App = core_1.withStyles(styles)(function (props) {
+    return (React.createElement("div", { className: props.classes.main },
+        React.createElement(__1.Palette, null,
+            React.createElement(core_1.CssBaseline, null),
+            React.createElement(react_router_dom_1.HashRouter, null,
+                React.createElement(React.Fragment, null,
+                    React.createElement(__1.Header, null),
+                    React.createElement(react_router_dom_1.Switch, null, routeConfig_1.routes.map(function (route, index) {
+                        var Component = route.isProtected ? __1.PrivateRoute : react_router_dom_1.Route;
+                        return (React.createElement(Component, { key: index, exact: route.exact, component: route.component, path: route.path }));
+                    })))))));
+});
 
 
 /***/ }),
@@ -80661,6 +80666,71 @@ __export(__webpack_require__(/*! ./PredictionFilter */ "./public/src/components/
 
 /***/ }),
 
+/***/ "./public/src/components/PrivateRoute/PrivateRoute.tsx":
+/*!*************************************************************!*\
+  !*** ./public/src/components/PrivateRoute/PrivateRoute.tsx ***!
+  \*************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+var __assign = (this && this.__assign) || function () {
+    __assign = Object.assign || function(t) {
+        for (var s, i = 1, n = arguments.length; i < n; i++) {
+            s = arguments[i];
+            for (var p in s) if (Object.prototype.hasOwnProperty.call(s, p))
+                t[p] = s[p];
+        }
+        return t;
+    };
+    return __assign.apply(this, arguments);
+};
+var __rest = (this && this.__rest) || function (s, e) {
+    var t = {};
+    for (var p in s) if (Object.prototype.hasOwnProperty.call(s, p) && e.indexOf(p) < 0)
+        t[p] = s[p];
+    if (s != null && typeof Object.getOwnPropertySymbols === "function")
+        for (var i = 0, p = Object.getOwnPropertySymbols(s); i < p.length; i++) if (e.indexOf(p[i]) < 0)
+            t[p[i]] = s[p[i]];
+    return t;
+};
+Object.defineProperty(exports, "__esModule", { value: true });
+var React = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+var react_router_dom_1 = __webpack_require__(/*! react-router-dom */ "./node_modules/react-router-dom/es/index.js");
+var stores_1 = __webpack_require__(/*! ../../stores */ "./public/src/stores/index.ts");
+exports.PrivateRoute = function (_a) {
+    var Component = _a.component, rest = __rest(_a, ["component"]);
+    var renderComponent = function (props) {
+        return stores_1.userStore.isLoggedIn ? (React.createElement(Component, __assign({}, props))) : (React.createElement(react_router_dom_1.Redirect, { to: {
+                pathname: '/login',
+                state: { from: props.location },
+            } }));
+    };
+    return (React.createElement(react_router_dom_1.Route, __assign({ render: renderComponent }, rest)));
+};
+
+
+/***/ }),
+
+/***/ "./public/src/components/PrivateRoute/index.ts":
+/*!*****************************************************!*\
+  !*** ./public/src/components/PrivateRoute/index.ts ***!
+  \*****************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+function __export(m) {
+    for (var p in m) if (!exports.hasOwnProperty(p)) exports[p] = m[p];
+}
+Object.defineProperty(exports, "__esModule", { value: true });
+__export(__webpack_require__(/*! ./PrivateRoute */ "./public/src/components/PrivateRoute/PrivateRoute.tsx"));
+
+
+/***/ }),
+
 /***/ "./public/src/components/Registration/Registration.tsx":
 /*!*************************************************************!*\
   !*** ./public/src/components/Registration/Registration.tsx ***!
@@ -81418,6 +81488,7 @@ __export(__webpack_require__(/*! ./Nav */ "./public/src/components/Nav/index.ts"
 __export(__webpack_require__(/*! ./Palette */ "./public/src/components/Palette/index.ts"));
 __export(__webpack_require__(/*! ./Prediction */ "./public/src/components/Prediction/index.ts"));
 __export(__webpack_require__(/*! ./PredictionFilter */ "./public/src/components/PredictionFilter/index.ts"));
+__export(__webpack_require__(/*! ./PrivateRoute */ "./public/src/components/PrivateRoute/index.ts"));
 __export(__webpack_require__(/*! ./Registration */ "./public/src/components/Registration/index.ts"));
 __export(__webpack_require__(/*! ./Row */ "./public/src/components/Row/index.ts"));
 __export(__webpack_require__(/*! ./Sidebar */ "./public/src/components/Sidebar/index.ts"));
@@ -81708,14 +81779,17 @@ exports.routes = [
     },
     {
         component: predictions,
+        isProtected: true,
         path: '/predictions',
     },
     {
         component: components_1.Account,
+        isProtected: true,
         path: '/account',
     },
     {
         component: stats,
+        isProtected: true,
         path: '/stats',
     },
     {

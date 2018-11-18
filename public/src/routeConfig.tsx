@@ -111,14 +111,17 @@ export const routes = [
   },
   {
     component: predictions,
+    isProtected: true,
     path: '/predictions',
   },
   {
     component: Account,
+    isProtected: true,
     path: '/account',
   },
   {
     component: stats,
+    isProtected: true,
     path: '/stats',
   },
   {

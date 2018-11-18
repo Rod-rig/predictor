@@ -16,5 +16,5 @@ module.exports.getResults = (req, res) => {
 };
 
 module.exports.getSchedule = (req, res) => {
-  res.status(200).send(scheduleMock);
+  res.status(200).send({sport_events: scheduleMock});
 };
