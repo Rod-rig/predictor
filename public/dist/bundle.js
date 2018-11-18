@@ -80701,11 +80701,8 @@ var react_router_dom_1 = __webpack_require__(/*! react-router-dom */ "./node_mod
 var stores_1 = __webpack_require__(/*! ../../stores */ "./public/src/stores/index.ts");
 exports.PrivateRoute = function (_a) {
     var Component = _a.component, rest = __rest(_a, ["component"]);
-    var renderComponent = function (props) {
-        return stores_1.userStore.isLoggedIn ? (React.createElement(Component, __assign({}, props))) : (React.createElement(react_router_dom_1.Redirect, { to: {
-                pathname: '/login',
-                state: { from: props.location },
-            } }));
+    var renderComponent = function () {
+        return stores_1.userStore.isLoggedIn ? React.createElement(Component, null) : React.createElement(react_router_dom_1.Redirect, { to: '/login' });
     };
     return (React.createElement(react_router_dom_1.Route, __assign({ render: renderComponent }, rest)));
 };
