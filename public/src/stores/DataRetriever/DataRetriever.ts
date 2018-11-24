@@ -1,6 +1,7 @@
 import axios, {AxiosResponse} from 'axios';
 import {observable} from 'mobx';
 import {IRetriever, IRetrieverProps} from '../../@types';
+import {userStore} from '../UserStore';
 
 export class DataRetriever implements IRetriever {
   public url: string;
@@ -17,6 +18,11 @@ export class DataRetriever implements IRetriever {
       .then((res: AxiosResponse) => {
         this.data = Array.isArray(res.data) ? [...res.data] : {...res.data};
         this.isLoaded = true;
+      })
+      .catch(({response}) => {
+        if (response.status === 403) {
+          userStore.logout();
+        }
       });
   }
 }

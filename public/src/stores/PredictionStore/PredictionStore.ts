@@ -1,6 +1,7 @@
 import axios, {AxiosResponse} from 'axios';
 import {computed, observable} from 'mobx';
 import {OutputParams, parse} from 'query-string';
+import {userStore} from '../';
 import {IPredictionStore, ISportEvent} from '../../@types';
 import {getFutureDates} from '../../helpers';
 
@@ -54,6 +55,11 @@ export class PredictionStore implements IPredictionStore {
       .then((res: AxiosResponse) => {
         this.matches = tournamentId ? this.filterMatches(res.data) : res.data;
         this.isLoaded = true;
+      })
+      .catch(({response}) => {
+        if (response.status === 403) {
+          userStore.logout();
+        }
       });
   }
 

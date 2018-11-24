@@ -80702,7 +80702,7 @@ var stores_1 = __webpack_require__(/*! ../../stores */ "./public/src/stores/inde
 exports.PrivateRoute = function (_a) {
     var Component = _a.component, rest = __rest(_a, ["component"]);
     var renderComponent = function () {
-        return stores_1.userStore.isLoggedIn ? React.createElement(Component, null) : React.createElement(react_router_dom_1.Redirect, { to: '/login' });
+        return stores_1.userStore.isLoggedIn ? React.createElement(Component, __assign({}, rest)) : React.createElement(react_router_dom_1.Redirect, { to: '/login' });
     };
     return (React.createElement(react_router_dom_1.Route, __assign({ render: renderComponent }, rest)));
 };
@@ -81826,6 +81826,7 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 Object.defineProperty(exports, "__esModule", { value: true });
 var axios_1 = __webpack_require__(/*! axios */ "./node_modules/axios/index.js");
 var mobx_1 = __webpack_require__(/*! mobx */ "./node_modules/mobx/lib/mobx.module.js");
+var UserStore_1 = __webpack_require__(/*! ../UserStore */ "./public/src/stores/UserStore/index.ts");
 var DataRetriever = /** @class */ (function () {
     function DataRetriever(props) {
         this.isLoaded = false;
@@ -81838,6 +81839,12 @@ var DataRetriever = /** @class */ (function () {
             .then(function (res) {
             _this.data = Array.isArray(res.data) ? res.data.slice() : __assign({}, res.data);
             _this.isLoaded = true;
+        })
+            .catch(function (_a) {
+            var response = _a.response;
+            if (response.status === 403) {
+                UserStore_1.userStore.logout();
+            }
         });
     };
     __decorate([
@@ -81974,6 +81981,7 @@ Object.defineProperty(exports, "__esModule", { value: true });
 var axios_1 = __webpack_require__(/*! axios */ "./node_modules/axios/index.js");
 var mobx_1 = __webpack_require__(/*! mobx */ "./node_modules/mobx/lib/mobx.module.js");
 var query_string_1 = __webpack_require__(/*! query-string */ "./node_modules/query-string/index.js");
+var __1 = __webpack_require__(/*! ../ */ "./public/src/stores/index.ts");
 var helpers_1 = __webpack_require__(/*! ../../helpers */ "./public/src/helpers/index.ts");
 var PredictionStore = /** @class */ (function () {
     function PredictionStore(props) {
@@ -82021,6 +82029,12 @@ var PredictionStore = /** @class */ (function () {
             .then(function (res) {
             _this.matches = tournamentId ? _this.filterMatches(res.data) : res.data;
             _this.isLoaded = true;
+        })
+            .catch(function (_a) {
+            var response = _a.response;
+            if (response.status === 403) {
+                __1.userStore.logout();
+            }
         });
     };
     PredictionStore.prototype.setCurrentDate = function (date) {

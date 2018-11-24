@@ -4,7 +4,7 @@ import {userStore} from '../../stores';
 
 export const PrivateRoute = ({component: Component, ...rest}: any) => {
   const renderComponent = () => {
-    return userStore.isLoggedIn ? <Component/> : <Redirect to='/login'/>;
+    return userStore.isLoggedIn ? <Component {...rest}/> : <Redirect to='/login'/>;
   };
 
   return (
