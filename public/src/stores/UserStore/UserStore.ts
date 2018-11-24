@@ -21,7 +21,7 @@ class UserStore {
   public logout() {
     axios.get('/logout').then(() => {
       this.isLoggedIn = false;
-      delete this.name;
+      this.name = '';
     });
   }
 }

@@ -82377,7 +82377,7 @@ var UserStore = /** @class */ (function () {
         var _this = this;
         axios_1.default.get('/logout').then(function () {
             _this.isLoggedIn = false;
-            delete _this.name;
+            _this.name = '';
         });
     };
     __decorate([
