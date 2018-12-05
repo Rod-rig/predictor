@@ -12,6 +12,7 @@ export interface IDict {
   logout: string;
   loss: string;
   name: string;
+  noAvailablePredictionMatches: string;
   notFoundText: string;
   password: string;
   played: string;
@@ -43,6 +44,7 @@ export const dict: IDict = {
   logout: 'Logout',
   loss: 'loss',
   name: 'Name',
+  noAvailablePredictionMatches: 'No available matches for predictions on this date. Please choose another date.',
   notFoundText: 'Not found',
   password: 'Password',
   played: 'played',

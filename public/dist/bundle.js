@@ -80507,7 +80507,9 @@ var styles = function (_a) {
         inputWrap: {
             fontSize: '1.25rem',
         },
-        name: {},
+        noMatchesMsg: {
+            margin: spacing.unit,
+        },
         score: {
             alignItems: 'center',
             display: 'flex',
@@ -80523,26 +80525,35 @@ var renderForm = function (props) {
     var classes = props.classes, store = props.store;
     return (React.createElement("form", { autoComplete: 'off', onSubmit: store.handleSubmit.bind(store) },
         React.createElement(__1.PredictionFilter, { store: store }),
-        React.createElement(core_1.List, null, store.matches.map(function (item, index) {
-            return (React.createElement(core_1.ListItem, { disableGutters: true, divider: true, key: item.id },
-                React.createElement(core_1.ListItemText, { classes: { root: classes.home } },
-                    React.createElement(core_1.InputLabel, { htmlFor: item.competitors[0].id }, item.competitors[0].name)),
-                React.createElement("div", { className: classes.score },
-                    React.createElement(core_1.Input, { classes: { input: classes.input, root: classes.inputWrap, underline: classes.underline }, id: item.competitors[0].id, name: item.competitors[0].name, onChange: store.handleChange.bind(store, index, 0), autoFocus: index === 0 }),
-                    React.createElement("div", null, ":"),
-                    React.createElement(core_1.Input, { classes: { input: classes.input, root: classes.inputWrap, underline: classes.underline }, id: item.competitors[1].id, name: item.competitors[1].name, onChange: store.handleChange.bind(store, index, 1) })),
-                React.createElement(core_1.ListItemText, { classes: { root: classes.away } },
-                    React.createElement(core_1.InputLabel, { htmlFor: item.competitors[1].id }, item.competitors[1].name))));
-        })),
-        React.createElement("div", { className: classes.btnWrap },
-            React.createElement(core_1.Button, { type: 'submit', variant: 'contained', color: 'secondary' }, dict_1.dict.submit_btn_text))));
+        store.matches.length > 0 ? (React.createElement(React.Fragment, null,
+            React.createElement(core_1.List, null, store.matches.map(function (item, index) {
+                return (React.createElement(core_1.ListItem, { disableGutters: true, divider: true, key: item.id },
+                    React.createElement(core_1.ListItemText, { classes: { root: classes.home } },
+                        React.createElement(core_1.InputLabel, { htmlFor: item.competitors[0].id }, item.competitors[0].name)),
+                    React.createElement("div", { className: classes.score },
+                        React.createElement(core_1.Input, { classes: { input: classes.input, root: classes.inputWrap, underline: classes.underline }, id: item.competitors[0].id, name: item.competitors[0].name, onChange: store.handleChange.bind(store, index, 0), autoFocus: index === 0 }),
+                        React.createElement("div", null, ":"),
+                        React.createElement(core_1.Input, { classes: { input: classes.input, root: classes.inputWrap, underline: classes.underline }, id: item.competitors[1].id, name: item.competitors[1].name, onChange: store.handleChange.bind(store, index, 1) })),
+                    React.createElement(core_1.ListItemText, { classes: { root: classes.away } },
+                        React.createElement(core_1.InputLabel, { htmlFor: item.competitors[1].id }, item.competitors[1].name))));
+            })),
+            React.createElement("div", { className: classes.btnWrap },
+                React.createElement(core_1.Button, { type: 'submit', variant: 'contained', color: 'secondary' }, dict_1.dict.submit_btn_text)))) : (React.createElement(core_1.Typography, { className: classes.noMatchesMsg, variant: 'body1' }, dict_1.dict.noAvailablePredictionMatches))));
 };
 exports.Prediction = core_1.withStyles(styles)(mobx_react_1.observer(function (props) {
     var store = props.store;
     if (!stores_1.userStore.isLoggedIn) {
         return React.createElement("div", null, "User is not authorized");
     }
-    return store.isLoaded && !store.isSuccessSubmit && store.matches.length > 0 ? (renderForm(props)) : !store.isLoaded || !store.isSuccessSubmit ? (React.createElement(__1.Loader, null)) : (React.createElement("div", null, "Successssszzzzzzzzzzzzzz!"));
+    if (store.isSuccessSubmit) {
+        return React.createElement("div", null, "Successssszzzzzzzzzzzzzz!");
+    }
+    if (store.isLoaded) {
+        return renderForm(props);
+    }
+    else {
+        return React.createElement(__1.Loader, null);
+    }
 }));
 
 
@@ -81522,6 +81533,7 @@ exports.dict = {
     logout: 'Logout',
     loss: 'loss',
     name: 'Name',
+    noAvailablePredictionMatches: 'No available matches for predictions on this date. Please choose another date.',
     notFoundText: 'Not found',
     password: 'Password',
     played: 'played',

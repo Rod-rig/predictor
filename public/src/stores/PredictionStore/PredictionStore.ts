@@ -6,7 +6,6 @@ import {IPredictionStore, ISportEvent} from '../../@types';
 import {getFutureDates, sortByTournamentId} from '../../helpers';
 
 export class PredictionStore implements IPredictionStore {
-
   @computed get apiPredictionUrl() {
     return `/available-predictions/${this.currentDate}`;
   }
