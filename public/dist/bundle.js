@@ -81629,6 +81629,7 @@ function __export(m) {
 Object.defineProperty(exports, "__esModule", { value: true });
 __export(__webpack_require__(/*! ./rangeData */ "./public/src/helpers/rangeData/index.ts"));
 __export(__webpack_require__(/*! ./getFutureDates */ "./public/src/helpers/getFutureDates/index.ts"));
+__export(__webpack_require__(/*! ./sortByTournamentId */ "./public/src/helpers/sortByTournamentId/index.ts"));
 
 
 /***/ }),
@@ -81675,6 +81676,45 @@ exports.rangeData = function (data, from, to) {
     return [{
             team_standings: data.slice(from, to),
         }];
+};
+
+
+/***/ }),
+
+/***/ "./public/src/helpers/sortByTournamentId/index.ts":
+/*!********************************************************!*\
+  !*** ./public/src/helpers/sortByTournamentId/index.ts ***!
+  \********************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+function __export(m) {
+    for (var p in m) if (!exports.hasOwnProperty(p)) exports[p] = m[p];
+}
+Object.defineProperty(exports, "__esModule", { value: true });
+__export(__webpack_require__(/*! ./sortByTournamentId */ "./public/src/helpers/sortByTournamentId/sortByTournamentId.ts"));
+
+
+/***/ }),
+
+/***/ "./public/src/helpers/sortByTournamentId/sortByTournamentId.ts":
+/*!*********************************************************************!*\
+  !*** ./public/src/helpers/sortByTournamentId/sortByTournamentId.ts ***!
+  \*********************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+Object.defineProperty(exports, "__esModule", { value: true });
+exports.getTournamentId = function (_a) {
+    var tournament = _a.tournament;
+    return Number(tournament.id.split(':')[2]);
+};
+exports.sortByTournamentId = function (a, b) {
+    return exports.getTournamentId(a) - exports.getTournamentId(b);
 };
 
 
@@ -82027,7 +82067,7 @@ var PredictionStore = /** @class */ (function () {
         this.isLoaded ? this.isLoaded = false : this.isLoaded = true;
         axios_1.default.get(this.apiPredictionUrl)
             .then(function (res) {
-            _this.matches = tournamentId ? _this.filterMatches(res.data) : res.data;
+            _this.matches = tournamentId ? _this.filterMatches(res.data) : res.data.sort(helpers_1.sortByTournamentId);
             _this.isLoaded = true;
         })
             .catch(function (_a) {
@@ -82047,6 +82087,9 @@ var PredictionStore = /** @class */ (function () {
         });
     };
     __decorate([
+        mobx_1.computed
+    ], PredictionStore.prototype, "apiPredictionUrl", null);
+    __decorate([
         mobx_1.observable
     ], PredictionStore.prototype, "matches", void 0);
     __decorate([
@@ -82058,9 +82101,6 @@ var PredictionStore = /** @class */ (function () {
     __decorate([
         mobx_1.observable
     ], PredictionStore.prototype, "currentDate", void 0);
-    __decorate([
-        mobx_1.computed
-    ], PredictionStore.prototype, "apiPredictionUrl", null);
     return PredictionStore;
 }());
 exports.PredictionStore = PredictionStore;
