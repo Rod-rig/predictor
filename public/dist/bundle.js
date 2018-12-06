@@ -80482,6 +80482,7 @@ var mobx_react_1 = __webpack_require__(/*! mobx-react */ "./node_modules/mobx-re
 var React = __webpack_require__(/*! react */ "./node_modules/react/index.js");
 var __1 = __webpack_require__(/*! ../ */ "./public/src/components/index.ts");
 var dict_1 = __webpack_require__(/*! ../../dict */ "./public/src/dict/index.ts");
+var stores_1 = __webpack_require__(/*! ../../stores */ "./public/src/stores/index.ts");
 var styles = function (_a) {
     var palette = _a.palette, spacing = _a.spacing;
     return core_1.createStyles({
@@ -80520,32 +80521,28 @@ var styles = function (_a) {
         },
     });
 };
-var renderForm = function (props) {
-    var classes = props.classes, store = props.store;
-    return (React.createElement("form", { autoComplete: 'off', onSubmit: store.handleSubmit.bind(store) },
-        React.createElement(__1.PredictionFilter, { store: store }),
-        store.matches.length > 0 ? (React.createElement(React.Fragment, null,
-            React.createElement(core_1.List, null, store.matches.map(function (item, index) {
-                return (React.createElement(core_1.ListItem, { disableGutters: true, divider: true, key: item.id },
-                    React.createElement(core_1.ListItemText, { classes: { root: classes.home } },
-                        React.createElement(core_1.InputLabel, { htmlFor: item.competitors[0].id }, item.competitors[0].name)),
-                    React.createElement("div", { className: classes.score },
-                        React.createElement(core_1.Input, { classes: { input: classes.input, root: classes.inputWrap, underline: classes.underline }, id: item.competitors[0].id, name: item.competitors[0].name, onChange: store.handleChange.bind(store, index, 0), autoFocus: index === 0 }),
-                        React.createElement("div", null, ":"),
-                        React.createElement(core_1.Input, { classes: { input: classes.input, root: classes.inputWrap, underline: classes.underline }, id: item.competitors[1].id, name: item.competitors[1].name, onChange: store.handleChange.bind(store, index, 1) })),
-                    React.createElement(core_1.ListItemText, { classes: { root: classes.away } },
-                        React.createElement(core_1.InputLabel, { htmlFor: item.competitors[1].id }, item.competitors[1].name))));
-            })),
-            React.createElement("div", { className: classes.btnWrap },
-                React.createElement(core_1.Button, { type: 'submit', variant: 'contained', color: 'secondary' }, dict_1.dict.submit_btn_text)))) : (React.createElement(core_1.Typography, { className: classes.noMatchesMsg, variant: 'body1' }, dict_1.dict.noAvailablePredictionMatches))));
-};
 exports.Prediction = core_1.withStyles(styles)(mobx_react_1.observer(function (props) {
-    var store = props.store;
+    var classes = props.classes, store = props.store;
     if (store.isSuccessSubmit) {
         return React.createElement("div", null, "Successssszzzzzzzzzzzzzz!");
     }
-    if (store.isLoaded) {
-        return renderForm(props);
+    if (store.isLoaded && stores_1.userStore.isLoggedIn !== undefined) {
+        return (React.createElement("form", { autoComplete: 'off', onSubmit: store.handleSubmit.bind(store) },
+            React.createElement(__1.PredictionFilter, { store: store }),
+            store.matches.length > 0 ? (React.createElement(React.Fragment, null,
+                React.createElement(core_1.List, null, store.matches.map(function (item, index) {
+                    return (React.createElement(core_1.ListItem, { disableGutters: true, divider: true, key: item.id },
+                        React.createElement(core_1.ListItemText, { classes: { root: classes.home } },
+                            React.createElement(core_1.InputLabel, { htmlFor: item.competitors[0].id }, item.competitors[0].name)),
+                        React.createElement("div", { className: classes.score },
+                            React.createElement(core_1.Input, { classes: { input: classes.input, root: classes.inputWrap, underline: classes.underline }, id: item.competitors[0].id, name: item.competitors[0].name, onChange: store.handleChange.bind(store, index, 0), autoFocus: index === 0 }),
+                            React.createElement("div", null, ":"),
+                            React.createElement(core_1.Input, { classes: { input: classes.input, root: classes.inputWrap, underline: classes.underline }, id: item.competitors[1].id, name: item.competitors[1].name, onChange: store.handleChange.bind(store, index, 1) })),
+                        React.createElement(core_1.ListItemText, { classes: { root: classes.away } },
+                            React.createElement(core_1.InputLabel, { htmlFor: item.competitors[1].id }, item.competitors[1].name))));
+                })),
+                React.createElement("div", { className: classes.btnWrap },
+                    React.createElement(core_1.Button, { type: 'submit', variant: 'contained', color: 'secondary' }, dict_1.dict.submit_btn_text)))) : (React.createElement(core_1.Typography, { className: classes.noMatchesMsg, variant: 'body1' }, dict_1.dict.noAvailablePredictionMatches))));
     }
     else {
         return React.createElement(__1.Loader, null);
@@ -82102,7 +82099,7 @@ var PredictionStore = /** @class */ (function () {
     PredictionStore.prototype.fetchMatches = function () {
         var _this = this;
         var tournamentId = this.filter ? this.filter.tournament_id : undefined;
-        this.isLoaded ? this.isLoaded = false : this.isLoaded = true;
+        this.isLoaded = false;
         axios_1.default.get(this.apiPredictionUrl)
             .then(function (res) {
             _this.matches = tournamentId ? _this.filterMatches(res.data) : res.data.sort(helpers_1.sortByTournamentId);

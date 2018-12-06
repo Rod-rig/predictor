@@ -49,7 +49,7 @@ export class PredictionStore implements IPredictionStore {
 
   public fetchMatches() {
     const tournamentId = this.filter ? this.filter.tournament_id : undefined;
-    this.isLoaded ? this.isLoaded = false : this.isLoaded = true;
+    this.isLoaded = false;
     axios.get(this.apiPredictionUrl)
       .then((res: AxiosResponse) => {
         this.matches = tournamentId ? this.filterMatches(res.data) : res.data.sort(sortByTournamentId);
