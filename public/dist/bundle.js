@@ -80482,7 +80482,6 @@ var mobx_react_1 = __webpack_require__(/*! mobx-react */ "./node_modules/mobx-re
 var React = __webpack_require__(/*! react */ "./node_modules/react/index.js");
 var __1 = __webpack_require__(/*! ../ */ "./public/src/components/index.ts");
 var dict_1 = __webpack_require__(/*! ../../dict */ "./public/src/dict/index.ts");
-var stores_1 = __webpack_require__(/*! ../../stores */ "./public/src/stores/index.ts");
 var styles = function (_a) {
     var palette = _a.palette, spacing = _a.spacing;
     return core_1.createStyles({
@@ -80542,9 +80541,6 @@ var renderForm = function (props) {
 };
 exports.Prediction = core_1.withStyles(styles)(mobx_react_1.observer(function (props) {
     var store = props.store;
-    if (!stores_1.userStore.isLoggedIn) {
-        return React.createElement("div", null, "User is not authorized");
-    }
     if (store.isSuccessSubmit) {
         return React.createElement("div", null, "Successssszzzzzzzzzzzzzz!");
     }
@@ -80686,6 +80682,19 @@ __export(__webpack_require__(/*! ./PredictionFilter */ "./public/src/components/
 
 "use strict";
 
+var __extends = (this && this.__extends) || (function () {
+    var extendStatics = function (d, b) {
+        extendStatics = Object.setPrototypeOf ||
+            ({ __proto__: [] } instanceof Array && function (d, b) { d.__proto__ = b; }) ||
+            function (d, b) { for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p]; };
+        return extendStatics(d, b);
+    }
+    return function (d, b) {
+        extendStatics(d, b);
+        function __() { this.constructor = d; }
+        d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
+    };
+})();
 var __assign = (this && this.__assign) || function () {
     __assign = Object.assign || function(t) {
         for (var s, i = 1, n = arguments.length; i < n; i++) {
@@ -80707,16 +80716,33 @@ var __rest = (this && this.__rest) || function (s, e) {
     return t;
 };
 Object.defineProperty(exports, "__esModule", { value: true });
+var mobx_react_1 = __webpack_require__(/*! mobx-react */ "./node_modules/mobx-react/index.module.js");
 var React = __webpack_require__(/*! react */ "./node_modules/react/index.js");
 var react_router_dom_1 = __webpack_require__(/*! react-router-dom */ "./node_modules/react-router-dom/es/index.js");
+var __1 = __webpack_require__(/*! ../ */ "./public/src/components/index.ts");
 var stores_1 = __webpack_require__(/*! ../../stores */ "./public/src/stores/index.ts");
-exports.PrivateRoute = function (_a) {
-    var Component = _a.component, rest = __rest(_a, ["component"]);
-    var renderComponent = function () {
-        return stores_1.userStore.isLoggedIn ? React.createElement(Component, __assign({}, rest)) : React.createElement(react_router_dom_1.Redirect, { to: '/login' });
+exports.PrivateRoute = mobx_react_1.observer(/** @class */ (function (_super) {
+    __extends(class_1, _super);
+    function class_1() {
+        return _super !== null && _super.apply(this, arguments) || this;
+    }
+    class_1.prototype.render = function () {
+        var _a = this.props, Component = _a.component, rest = __rest(_a, ["component"]);
+        if (stores_1.userStore.isLoggedIn === true) {
+            var renderComponent = function () { return React.createElement(Component, __assign({}, rest)); };
+            return React.createElement(react_router_dom_1.Route, { render: renderComponent });
+        }
+        else if (stores_1.userStore.isLoggedIn === false) {
+            var renderRedirect = function () { return React.createElement(react_router_dom_1.Redirect, { to: '/login' }); };
+            return React.createElement(react_router_dom_1.Route, { render: renderRedirect });
+        }
+        else {
+            var renderLoader = function () { return React.createElement(__1.Loader, null); };
+            return React.createElement(react_router_dom_1.Route, { render: renderLoader });
+        }
     };
-    return (React.createElement(react_router_dom_1.Route, __assign({ render: renderComponent }, rest)));
-};
+    return class_1;
+}(React.Component)));
 
 
 /***/ }),

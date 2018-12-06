@@ -108,9 +108,6 @@ const renderForm = (props: IProps) => {
 
 export const Prediction = withStyles(styles)(observer((props: IProps) => {
   const {store} = props;
-  if (!userStore.isLoggedIn) {
-    return <div>User is not authorized</div>;
-  }
 
   if (store.isSuccessSubmit) {
     return <div>Successssszzzzzzzzzzzzzz!</div>;
