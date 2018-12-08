@@ -35,15 +35,17 @@ export const MatchList = withStyles(styles)(observer(class extends React.Compone
       <List disablePadding={true}>
         {
           store.data.results.map((item: IMatch, index: number, list: IMatch[]) => {
+            const awayLogo = store.logos ? store.logos.filter((logo: ILogo) => {
+              return item.sport_event.competitors[1].name === logo.name;
+            }) : [{logoUrl: ''}];
+            const homeLogo = store.logos ? store.logos.filter((logo: ILogo) => {
+              return item.sport_event.competitors[0].name === logo.name;
+            }) : [{logoUrl: ''}];
             const stat = {
-              awayLogo: store.logos ? store.logos.filter((logo: ILogo) => {
-                return item.sport_event.competitors[1].name === logo.name;
-              })[0].logoUrl : '',
+              awayLogo: awayLogo.length > 0 ? awayLogo[0].logoUrl : '',
               awayScore: item.sport_event_status.away_score,
               awayTeam: item.sport_event.competitors[1].name,
-              homeLogo: store.logos ? store.logos.filter((logo: ILogo) => {
-                return item.sport_event.competitors[0].name === logo.name;
-              })[0].logoUrl : '',
+              homeLogo: homeLogo.length > 0 ? homeLogo[0].logoUrl : '',
               homeScore: item.sport_event_status.home_score,
               homeTeam: item.sport_event.competitors[0].name,
               id: item.sport_event.id,
