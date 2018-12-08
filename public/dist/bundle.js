@@ -80245,8 +80245,14 @@ exports.MatchList = core_1.withStyles(styles)(mobx_react_1.observer(/** @class *
         var group = [];
         return store.isLoaded ? (React.createElement(core_1.List, { disablePadding: true }, store.data.results.map(function (item, index, list) {
             var stat = {
+                awayLogo: store.logos ? store.logos.filter(function (logo) {
+                    return item.sport_event.competitors[1].name === logo.name;
+                })[0].logoUrl : '',
                 awayScore: item.sport_event_status.away_score,
                 awayTeam: item.sport_event.competitors[1].name,
+                homeLogo: store.logos ? store.logos.filter(function (logo) {
+                    return item.sport_event.competitors[0].name === logo.name;
+                })[0].logoUrl : '',
                 homeScore: item.sport_event_status.home_score,
                 homeTeam: item.sport_event.competitors[0].name,
                 id: item.sport_event.id,
@@ -81670,6 +81676,43 @@ __export(__webpack_require__(/*! ./dict */ "./public/src/dict/dict.ts"));
 
 /***/ }),
 
+/***/ "./public/src/helpers/addLogos/addLogos.ts":
+/*!*************************************************!*\
+  !*** ./public/src/helpers/addLogos/addLogos.ts ***!
+  \*************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+Object.defineProperty(exports, "__esModule", { value: true });
+var logos_1 = __webpack_require__(/*! ../../content/logos */ "./public/src/content/logos.ts");
+exports.addLogos = function (data) {
+    data.logos = logos_1.logos;
+    return data;
+};
+
+
+/***/ }),
+
+/***/ "./public/src/helpers/addLogos/index.ts":
+/*!**********************************************!*\
+  !*** ./public/src/helpers/addLogos/index.ts ***!
+  \**********************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+function __export(m) {
+    for (var p in m) if (!exports.hasOwnProperty(p)) exports[p] = m[p];
+}
+Object.defineProperty(exports, "__esModule", { value: true });
+__export(__webpack_require__(/*! ./addLogos */ "./public/src/helpers/addLogos/addLogos.ts"));
+
+
+/***/ }),
+
 /***/ "./public/src/helpers/getFutureDates/getFutureDates.ts":
 /*!*************************************************************!*\
   !*** ./public/src/helpers/getFutureDates/getFutureDates.ts ***!
@@ -81740,6 +81783,7 @@ Object.defineProperty(exports, "__esModule", { value: true });
 __export(__webpack_require__(/*! ./rangeData */ "./public/src/helpers/rangeData/index.ts"));
 __export(__webpack_require__(/*! ./getFutureDates */ "./public/src/helpers/getFutureDates/index.ts"));
 __export(__webpack_require__(/*! ./sortByTournamentId */ "./public/src/helpers/sortByTournamentId/index.ts"));
+__export(__webpack_require__(/*! ./addLogos */ "./public/src/helpers/addLogos/index.ts"));
 
 
 /***/ }),
@@ -81871,6 +81915,7 @@ var __assign = (this && this.__assign) || function () {
 Object.defineProperty(exports, "__esModule", { value: true });
 var React = __webpack_require__(/*! react */ "./node_modules/react/index.js");
 var components_1 = __webpack_require__(/*! ./components */ "./public/src/components/index.ts");
+var helpers_1 = __webpack_require__(/*! ./helpers */ "./public/src/helpers/index.ts");
 var stores_1 = __webpack_require__(/*! ./stores */ "./public/src/stores/index.ts");
 var tournamentList = function () { return React.createElement(components_1.TournamentList, { store: new stores_1.TournamentListStore() }); };
 /* istanbul ignore next */
@@ -81880,13 +81925,13 @@ var table = function (props) { return (React.createElement(components_1.TableVie
         id: props.match.params.id,
     }) })); };
 /* istanbul ignore next */
-var results = function (props) { return (React.createElement(components_1.MatchList, __assign({ store: new stores_1.DataRetriever({
+var results = function (props) { return (React.createElement(components_1.MatchList, __assign({ store: helpers_1.addLogos(new stores_1.DataRetriever({
         url: "/api/results/" + props.match.params.id,
-    }) }, props))); };
+    })) }, props))); };
 /* istanbul ignore next */
-var fixtures = function (props) { return (React.createElement(components_1.MatchList, __assign({ store: new stores_1.DataRetriever({
+var fixtures = function (props) { return (React.createElement(components_1.MatchList, __assign({ store: helpers_1.addLogos(new stores_1.DataRetriever({
         url: "/api/results/" + props.match.params.id,
-    }) }, props))); };
+    })) }, props))); };
 /* istanbul ignore next */
 var predictions = function (props) { return (React.createElement(components_1.Prediction, { store: new stores_1.PredictionStore({
         filter: props.location.search,

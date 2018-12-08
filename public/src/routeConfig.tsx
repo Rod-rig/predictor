@@ -12,6 +12,7 @@ import {
   TableView,
   TournamentList,
 } from './components';
+import {addLogos} from './helpers';
 import {
   DataRetriever,
   loginStore,
@@ -42,9 +43,9 @@ const table = (props: ITableProps & { match: IId }) => (
 /* istanbul ignore next */
 const results = (props: { match: IId }) => (
   <MatchList
-    store={new DataRetriever({
+    store={addLogos(new DataRetriever({
       url: `/api/results/${props.match.params.id}`,
-    })}
+    }))}
     {...props}
   />
 );
@@ -52,9 +53,9 @@ const results = (props: { match: IId }) => (
 /* istanbul ignore next */
 const fixtures = (props: { match: IId }) => (
   <MatchList
-    store={new DataRetriever({
+    store={addLogos(new DataRetriever({
       url: `/api/results/${props.match.params.id}`,
-    })}
+    }))}
     {...props}
   />
 );
