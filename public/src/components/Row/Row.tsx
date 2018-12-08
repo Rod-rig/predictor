@@ -1,4 +1,4 @@
-import {/*Avatar,*/ TableCell, TableRow, withStyles} from '@material-ui/core';
+import {Avatar, TableCell, TableRow, withStyles} from '@material-ui/core';
 import * as React from 'react';
 
 export interface IRow {
@@ -105,11 +105,11 @@ const decorate = withStyles(({breakpoints, palette, spacing}) => ({
   },
 }));
 
-// const renderAvatar = (logo: string, altText: string, className: string) => {
-//   return logo ? (
-//     <Avatar src={logo} alt={altText + '\'s logo'} className={className}/>
-//   ) : undefined;
-// };
+const renderAvatar = (logo: string, altText: string, className: string) => {
+  return logo ? (
+    <Avatar src={logo} alt={altText + '\'s logo'} className={className}/>
+  ) : undefined;
+};
 
 const highlightCell = (stage: string) => {
   if (stage === 'Champions League' || stage === 'Champions League Qualification' || stage === 'Relegation') {
@@ -147,7 +147,7 @@ export const Row = decorate((props: IProps) => {
             return (
               <TableCell key={i} padding='checkbox' className={`${classes.cell} ${classes.teamName}`}>
                 <div className={classes.info}>
-                  {/*{renderAvatar(row.logo, row[val], classes.img)}*/}
+                  {renderAvatar(row.logo, row[val], classes.img)}
                   <span className={classes.team}>{row.team.name}</span>
                   {/*<span className={classes.shortName}>{row.shortName}</span>*/}
                 </div>

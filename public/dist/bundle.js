@@ -80959,11 +80959,9 @@ var decorate = core_1.withStyles(function (_a) {
             _k),
     });
 });
-// const renderAvatar = (logo: string, altText: string, className: string) => {
-//   return logo ? (
-//     <Avatar src={logo} alt={altText + '\'s logo'} className={className}/>
-//   ) : undefined;
-// };
+var renderAvatar = function (logo, altText, className) {
+    return logo ? (React.createElement(core_1.Avatar, { src: logo, alt: altText + '\'s logo', className: className })) : undefined;
+};
 var highlightCell = function (stage) {
     if (stage === 'Champions League' || stage === 'Champions League Qualification' || stage === 'Relegation') {
         return 'edge';
@@ -80990,6 +80988,7 @@ exports.Row = decorate(function (props) {
         else {
             return (React.createElement(core_1.TableCell, { key: i, padding: 'checkbox', className: classes.cell + " " + classes.teamName },
                 React.createElement("div", { className: classes.info },
+                    renderAvatar(row.logo, row[val], classes.img),
                     React.createElement("span", { className: classes.team }, row.team.name))));
         }
     })));
@@ -81528,6 +81527,82 @@ __export(__webpack_require__(/*! ./TableHeadView */ "./public/src/components/Tab
 __export(__webpack_require__(/*! ./TableView */ "./public/src/components/TableView/index.ts"));
 __export(__webpack_require__(/*! ./TournamentCard */ "./public/src/components/TournamentCard/index.ts"));
 __export(__webpack_require__(/*! ./TournamentList */ "./public/src/components/TournamentList/index.ts"));
+
+
+/***/ }),
+
+/***/ "./public/src/content/logos.ts":
+/*!*************************************!*\
+  !*** ./public/src/content/logos.ts ***!
+  \*************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+Object.defineProperty(exports, "__esModule", { value: true });
+exports.logos = [{
+        logoUrl: 'https://upload.wikimedia.org/wikipedia/en/e/eb/Manchester_City_FC_badge.svg',
+        name: 'Manchester City',
+    }, {
+        logoUrl: 'https://upload.wikimedia.org/wikipedia/en/0/0c/Liverpool_FC.svg',
+        name: 'Liverpool FC',
+    }, {
+        logoUrl: 'https://upload.wikimedia.org/wikipedia/en/b/b4/Tottenham_Hotspur.svg',
+        name: 'Tottenham Hotspur',
+    }, {
+        logoUrl: 'https://upload.wikimedia.org/wikipedia/en/c/cc/Chelsea_FC.svg',
+        name: 'Chelsea FC',
+    }, {
+        logoUrl: 'https://upload.wikimedia.org/wikipedia/en/5/53/Arsenal_FC.svg',
+        name: 'Arsenal FC',
+    }, {
+        logoUrl: 'https://upload.wikimedia.org/wikipedia/en/7/7c/Everton_FC_logo.svg',
+        name: 'Everton FC',
+    }, {
+        logoUrl: 'https://upload.wikimedia.org/wikipedia/en/e/e5/AFC_Bournemouth_%282013%29.svg',
+        name: 'AFC Bournemouth',
+    }, {
+        logoUrl: 'https://upload.wikimedia.org/wikipedia/en/7/7a/Manchester_United_FC_crest.svg',
+        name: 'Manchester United',
+    }, {
+        logoUrl: 'https://upload.wikimedia.org/wikipedia/en/2/2d/Leicester_City_crest.svg',
+        name: 'Leicester City',
+    }, {
+        logoUrl: 'https://upload.wikimedia.org/wikipedia/en/f/fd/Brighton_%26_Hove_Albion_logo.svg',
+        name: 'Brighton & Hove Albion FC',
+    }, {
+        logoUrl: 'https://upload.wikimedia.org/wikipedia/en/e/e2/Watford.svg',
+        name: 'Watford FC',
+    }, {
+        logoUrl: 'https://upload.wikimedia.org/wikipedia/en/f/fc/Wolverhampton_Wanderers.svg',
+        name: 'Wolverhampton Wanderers',
+    }, {
+        logoUrl: 'https://upload.wikimedia.org/wikipedia/en/c/c2/West_Ham_United_FC_logo.svg',
+        name: 'West Ham United',
+    }, {
+        logoUrl: 'https://upload.wikimedia.org/wikipedia/en/5/56/Newcastle_United_Logo.svg',
+        name: 'Newcastle United',
+    }, {
+        logoUrl: 'https://upload.wikimedia.org/wikipedia/en/0/0c/Crystal_Palace_FC_logo.svg',
+        name: 'Crystal Palace',
+    }, {
+        logoUrl: 'https://upload.wikimedia.org/wikipedia/en/3/3c/Cardiff_City_crest.svg',
+        name: 'Cardiff City',
+    }, {
+        logoUrl: 'https://upload.wikimedia.org/wikipedia/en/5/5a/Huddersfield_Town_A.F.C._logo.svg',
+        name: 'Huddersfield Town',
+    }, {
+        logoUrl: 'https://upload.wikimedia.org/wikipedia/en/c/c9/FC_Southampton.svg',
+        name: 'Southampton FC',
+    }, {
+        logoUrl: 'https://upload.wikimedia.org/wikipedia/en/6/62/Burnley_F.C._Logo.svg',
+        name: 'Burnley FC',
+    }, {
+        logoUrl: 'https://upload.wikimedia.org/wikipedia/en/e/eb/Fulham_FC_%28shield%29.svg',
+        name: 'Fulham FC',
+    },
+];
 
 
 /***/ }),
@@ -82251,6 +82326,7 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 Object.defineProperty(exports, "__esModule", { value: true });
 var axios_1 = __webpack_require__(/*! axios */ "./node_modules/axios/index.js");
 var mobx_1 = __webpack_require__(/*! mobx */ "./node_modules/mobx/lib/mobx.module.js");
+var logos_1 = __webpack_require__(/*! ../../content/logos */ "./public/src/content/logos.ts");
 var helpers_1 = __webpack_require__(/*! ../../helpers */ "./public/src/helpers/index.ts");
 var TableStore = /** @class */ (function () {
     function TableStore(props) {
@@ -82293,6 +82369,15 @@ var TableStore = /** @class */ (function () {
     TableStore.prototype.setSort = function (index, sortName) {
         this.table[index].sortName = sortName;
     };
+    TableStore.prototype.setLogos = function () {
+        this.table[0].team_standings.forEach(function (row) {
+            logos_1.logos.forEach(function (logo) {
+                if (logo.name === row.team.name) {
+                    row.logo = logo.logoUrl;
+                }
+            });
+        });
+    };
     TableStore.prototype.fetchTable = function () {
         var _this = this;
         axios_1.default.get(this.url)
@@ -82305,6 +82390,7 @@ var TableStore = /** @class */ (function () {
                 });
             }
             _this.title = tournament.name;
+            _this.setLogos();
             _this.isLoaded = true;
         });
     };

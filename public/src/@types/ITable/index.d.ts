@@ -20,6 +20,7 @@ export interface ITeam {
   played: number;
   win: number;
   draw: number;
+  logo?: string;
   loss: number;
   goals_for: number;
   goals_against: number;
