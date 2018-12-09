@@ -83,27 +83,27 @@ export const logos: ILogo[] = [
   },
   {
     logoUrl: 'https://upload.wikimedia.org/wikipedia/en/e/eb/Manchester_City_FC_badge.svg',
-    name: 'Manchester City F.C.',
+    name: 'Manchester City FC',
   },
   {
     logoUrl: 'https://upload.wikimedia.org/wikipedia/en/0/0c/Liverpool_FC.svg',
-    name: 'Liverpool F.C.',
+    name: 'Liverpool FC',
   },
   {
     logoUrl: 'https://upload.wikimedia.org/wikipedia/en/b/b4/Tottenham_Hotspur.svg',
-    name: 'Tottenham Hotspur F.C.',
+    name: 'Tottenham Hotspur FC',
   },
   {
     logoUrl: 'https://upload.wikimedia.org/wikipedia/en/c/cc/Chelsea_FC.svg',
-    name: 'Chelsea F.C.',
+    name: 'Chelsea FC',
   },
   {
     logoUrl: 'https://upload.wikimedia.org/wikipedia/en/5/53/Arsenal_FC.svg',
-    name: 'Arsenal F.C.',
+    name: 'Arsenal FC',
   },
   {
     logoUrl: 'https://upload.wikimedia.org/wikipedia/en/7/7c/Everton_FC_logo.svg',
-    name: 'Everton F.C.',
+    name: 'Everton FC',
   },
   {
     logoUrl: 'https://upload.wikimedia.org/wikipedia/en/e/e5/AFC_Bournemouth_%282013%29.svg',
@@ -111,55 +111,55 @@ export const logos: ILogo[] = [
   },
   {
     logoUrl: 'https://upload.wikimedia.org/wikipedia/en/7/7a/Manchester_United_FC_crest.svg',
-    name: 'Manchester United F.C.',
+    name: 'Manchester United FC',
   },
   {
     logoUrl: 'https://upload.wikimedia.org/wikipedia/en/2/2d/Leicester_City_crest.svg',
-    name: 'Leicester City F.C.',
+    name: 'Leicester City FC',
   },
   {
     logoUrl: 'https://upload.wikimedia.org/wikipedia/en/f/fd/Brighton_%26_Hove_Albion_logo.svg',
-    name: 'Brighton & Hove Albion F.C.',
+    name: 'Brighton & Hove Albion FC',
   },
   {
     logoUrl: 'https://upload.wikimedia.org/wikipedia/en/e/e2/Watford.svg',
-    name: 'Watford F.C.',
+    name: 'Watford FC',
   },
   {
     logoUrl: 'https://upload.wikimedia.org/wikipedia/en/f/fc/Wolverhampton_Wanderers.svg',
-    name: 'Wolverhampton Wanderers F.C.',
+    name: 'Wolverhampton Wanderers FC',
   },
   {
     logoUrl: 'https://upload.wikimedia.org/wikipedia/en/c/c2/West_Ham_United_FC_logo.svg',
-    name: 'West Ham United F.C.',
+    name: 'West Ham United FC',
   },
   {
     logoUrl: 'https://upload.wikimedia.org/wikipedia/en/5/56/Newcastle_United_Logo.svg',
-    name: 'Newcastle United F.C.',
+    name: 'Newcastle United FC',
   },
   {
     logoUrl: 'https://upload.wikimedia.org/wikipedia/en/0/0c/Crystal_Palace_FC_logo.svg',
-    name: 'Crystal Palace F.C.',
+    name: 'Crystal Palace FC',
   },
   {
     logoUrl: 'https://upload.wikimedia.org/wikipedia/en/3/3c/Cardiff_City_crest.svg',
-    name: 'Cardiff City F.C.',
+    name: 'Cardiff City FC',
   },
   {
     logoUrl: 'https://upload.wikimedia.org/wikipedia/en/5/5a/Huddersfield_Town_A.F.C._logo.svg',
-    name: 'Huddersfield Town A.F.C.',
+    name: 'Huddersfield Town A.FC',
   },
   {
     logoUrl: 'https://upload.wikimedia.org/wikipedia/en/c/c9/FC_Southampton.svg',
-    name: 'Southampton F.C.',
+    name: 'Southampton FC',
   },
   {
     logoUrl: 'https://upload.wikimedia.org/wikipedia/en/6/62/Burnley_F.C._Logo.svg',
-    name: 'Burnley F.C.',
+    name: 'Burnley FC',
   },
   {
     logoUrl: 'https://upload.wikimedia.org/wikipedia/en/e/eb/Fulham_FC_%28shield%29.svg',
-    name: 'Fulham F.C.',
+    name: 'Fulham FC',
   },
   {
     logoUrl: 'https://upload.wikimedia.org/wikipedia/en/4/47/FC_Barcelona_%28crest%29.svg',
@@ -472,5 +472,461 @@ export const logos: ILogo[] = [
   {
     logoUrl: 'https://upload.wikimedia.org/wikipedia/en/4/4a/Chievo-verona-logo.png',
     name: 'AC Chievo Verona',
+  },
+  {
+    logoUrl: 'https://upload.wikimedia.org/wikipedia/en/0/05/PSV_Eindhoven.svg',
+    name: 'PSV Eindhoven',
+  },
+  {
+    logoUrl: 'https://upload.wikimedia.org/wikipedia/en/7/79/Ajax_Amsterdam.svg',
+    name: 'Ajax Amsterdam',
+  },
+  {
+    logoUrl: 'https://upload.wikimedia.org/wikipedia/en/e/e3/Feyenoord_logo.svg',
+    name: 'Feyenoord Rotterdam',
+  },
+  {
+    logoUrl: 'https://upload.wikimedia.org/wikipedia/en/5/56/Heracles_Almelo_logo.jpg',
+    name: 'Heracles Almelo',
+  },
+  {
+    logoUrl: 'https://upload.wikimedia.org/wikipedia/commons/9/92/FC_Utrecht.png',
+    name: 'FC Utrecht',
+  },
+  {
+    logoUrl: 'https://upload.wikimedia.org/wikipedia/en/9/93/Vitesse_logo.svg',
+    name: 'Vitesse Arnhem',
+  },
+  {
+    logoUrl: 'https://upload.wikimedia.org/wikipedia/commons/e/e0/AZ_Alkmaar.svg',
+    name: 'AZ Alkmaar',
+  },
+  {
+    logoUrl: 'https://upload.wikimedia.org/wikipedia/en/d/da/Heerenveen.png',
+    name: 'SC Heerenveen',
+  },
+  {
+    logoUrl: 'https://upload.wikimedia.org/wikipedia/en/6/60/VVV-Venlo_logo.svg',
+    name: 'VVV Venlo',
+  },
+  {
+    logoUrl: 'https://upload.wikimedia.org/wikipedia/en/2/2d/Fortuna_Sittard_logo.svg',
+    name: 'Fortuna Sittard',
+  },
+  {
+    logoUrl: 'https://upload.wikimedia.org/wikipedia/en/f/fb/Willem_II.png',
+    name: 'Willem II Tilburg',
+  },
+  {
+    logoUrl: 'https://upload.wikimedia.org/wikipedia/en/a/ad/ADO_Den_Haag_logo.svg',
+    name: 'ADO Den Haag',
+  },
+  {
+    logoUrl: 'https://upload.wikimedia.org/wikipedia/en/f/f5/SBV_Excelsior_logo.png',
+    name: 'SBV Excelsior',
+  },
+  {
+    logoUrl: 'https://upload.wikimedia.org/wikipedia/en/f/f1/PEC_Zwolle_logo.jpg',
+    name: 'PEC Zwolle',
+  },
+  {
+    logoUrl: 'https://upload.wikimedia.org/wikipedia/en/8/83/FC_Emmen_logo.svg',
+    name: 'FC Emmen',
+  },
+  {
+    logoUrl: 'https://upload.wikimedia.org/wikipedia/en/b/b0/FC_Groningen.png',
+    name: 'FC Groningen',
+  },
+  {
+    logoUrl: 'https://upload.wikimedia.org/wikipedia/commons/2/28/VBV_De_Graafschap_Doetinchem.svg',
+    name: 'De Graafschap',
+  },
+  {
+    logoUrl: 'https://upload.wikimedia.org/wikipedia/commons/c/c9/Logo_NAC_Breda.png',
+    name: 'NAC Breda',
+  },
+  {
+    logoUrl: 'https://upload.wikimedia.org/wikipedia/en/3/32/Ba%C5%9Fak%C5%9Fehir_FK_Logo.png',
+    name: 'Basaksehir FK',
+  },
+  {
+    logoUrl: 'https://upload.wikimedia.org/wikipedia/en/0/0d/Kasimpasa.png',
+    name: 'Kasimpasa',
+  },
+  {
+    logoUrl: 'https://upload.wikimedia.org/wikipedia/en/7/7b/Besiktas_JK.svg',
+    name: 'Besiktas',
+  },
+  {
+    logoUrl: 'https://upload.wikimedia.org/wikipedia/en/3/31/Galatasaray_Star_Logo.svg',
+    name: 'Galatasaray',
+  },
+  {
+    logoUrl: 'https://upload.wikimedia.org/wikipedia/en/9/97/Antalyasporlogo.png',
+    name: 'Antalyaspor',
+  },
+  {
+    logoUrl: 'https://upload.wikimedia.org/wikipedia/en/7/7c/YeniMalatyaspor.png',
+    name: 'Yeni Malatyaspor',
+  },
+  {
+    logoUrl: 'https://upload.wikimedia.org/wikipedia/en/7/70/Trabzonspor.png',
+    name: 'Trabzonspor',
+  },
+  {
+    logoUrl: 'https://upload.wikimedia.org/wikipedia/en/4/41/Konyaspor_1922.png',
+    name: 'Atiker Konyaspor 1922',
+  },
+  {
+    logoUrl: 'https://upload.wikimedia.org/wikipedia/en/7/77/Ankaragucu.png',
+    name: 'Ankaragucu',
+  },
+  {
+    logoUrl: 'https://upload.wikimedia.org/wikipedia/en/0/01/Bursaspor.png',
+    name: 'Bursaspor',
+  },
+  {
+    logoUrl: 'https://upload.wikimedia.org/wikipedia/en/5/5b/G%C3%B6ztepe_logo.png',
+    name: 'Goztepe',
+  },
+  {
+    logoUrl: 'https://upload.wikimedia.org/wikipedia/en/8/80/Sivasspor.png',
+    name: 'Sivasspor',
+  },
+  {
+    logoUrl: 'https://upload.wikimedia.org/wikipedia/en/6/66/Alanyaspor.png',
+    name: 'Alanyaspor',
+  },
+  {
+    logoUrl: 'https://upload.wikimedia.org/wikipedia/en/2/26/B%C3%BCy%C3%BCk%C5%9Fehir_Belediye_Erzurumspor_logo.png',
+    name: 'Buyuksehir Belediye Erzurumspor',
+  },
+  {
+    logoUrl: 'https://upload.wikimedia.org/wikipedia/en/3/39/Fenerbah%C3%A7e.svg',
+    name: 'Fenerbahce',
+  },
+  {
+    logoUrl: 'https://upload.wikimedia.org/wikipedia/en/c/c2/Akhisar_Belediye_Logo.png',
+    name: 'Akhisar Bld Spor',
+  },
+  {
+    logoUrl: 'https://upload.wikimedia.org/wikipedia/en/8/89/KayserisporNew.png',
+    name: 'Kayserispor',
+  },
+  {
+    logoUrl: 'https://upload.wikimedia.org/wikipedia/en/5/57/Caykur_Rize_Spor_Logo.png',
+    name: 'Caykur Rizespor',
+  },
+  {
+    logoUrl: 'https://upload.wikimedia.org/wikipedia/commons/f/f6/KRC_Genk_Logo_2016.svg',
+    name: 'KRC Genk',
+  },
+  {
+    logoUrl: 'https://upload.wikimedia.org/wikipedia/en/d/d0/Club_Brugge_KV_logo.svg',
+    name: 'Club Brugge',
+  },
+  {
+    logoUrl: 'https://upload.wikimedia.org/wikipedia/en/7/76/Royal_Antwerp_Football_Club_Official_Logo.png',
+    name: 'Royal Antwerp FC',
+  },
+  {
+    logoUrl: 'https://upload.wikimedia.org/wikipedia/en/f/f1/K._Sint-Truidense_V.V._logo.png',
+    name: 'Sint-Truidense VV',
+  },
+  {
+    logoUrl: 'https://upload.wikimedia.org/wikipedia/en/7/71/RSC_Anderlecht_logo.svg',
+    name: 'RSC Anderlecht',
+  },
+  {
+    logoUrl: 'https://upload.wikimedia.org/wikipedia/en/7/7c/Royal_Standard_de_Liege.svg',
+    name: 'Standard Liege',
+  },
+  {
+    logoUrl: 'https://upload.wikimedia.org/wikipedia/en/e/e1/Royal_Charleroi_Sporting_Club_logo.svg',
+    name: 'Royal Charleroi SC',
+  },
+  {
+    logoUrl: 'https://upload.wikimedia.org/wikipedia/en/f/f4/KAA_Gent_logo.svg',
+    name: 'KAA Gent',
+  },
+  {
+    logoUrl: 'https://upload.wikimedia.org/wikipedia/en/7/7b/KV_Kortrijk_Logo_2016.png',
+    name: 'KV Kortrijk',
+  },
+  {
+    logoUrl: 'https://upload.wikimedia.org/wikipedia/en/7/7c/Cercle_Brugge_KSV_logo.svg',
+    name: 'Cercle Brugge',
+  },
+  {
+    logoUrl: 'https://upload.wikimedia.org/wikipedia/en/e/e3/K.V._Oostende_logo.svg',
+    name: 'KV Oostende',
+  },
+  {
+    logoUrl: 'https://upload.wikimedia.org/wikipedia/en/d/d9/Kas_Eupen_Logo.png',
+    name: 'AS Eupen',
+  },
+  {
+    logoUrl: 'https://upload.wikimedia.org/wikipedia/en/c/cf/Zulte-Waregem_Logo.png',
+    name: 'SV Zulte Waregem',
+  },
+  {
+    logoUrl: 'https://upload.wikimedia.org/wikipedia/en/4/4e/Royal_Excel_Mouscron_logo.png',
+    name: 'Royal Mouscron',
+  },
+  {
+    logoUrl: 'https://upload.wikimedia.org/wikipedia/en/0/02/Waasland-Beveren_Logo.png',
+    name: 'Waasland-Beveren',
+  },
+  {
+    logoUrl: 'https://upload.wikimedia.org/wikipedia/en/c/c9/K.S.C._Lokeren_Oost-Vlaanderen_logo.svg',
+    name: 'Sporting Lokeren',
+  },
+  {
+    logoUrl: 'https://upload.wikimedia.org/wikipedia/en/d/d9/Paok2013.png',
+    name: 'PAOK FC',
+  },
+  {
+    logoUrl: 'https://upload.wikimedia.org/wikipedia/en/f/f1/Olympiacos_FC_logo.svg',
+    name: 'Olympiacos FC',
+  },
+  {
+    logoUrl: 'https://upload.wikimedia.org/wikipedia/en/e/e9/Atromitos.png',
+    name: 'Atromitos Athens',
+  },
+  {
+    logoUrl: 'https://upload.wikimedia.org/wikipedia/en/0/04/AEK_Athens_FC_logo.svg',
+    name: 'AEK Athens FC',
+  },
+  {
+    logoUrl: 'https://upload.wikimedia.org/wikipedia/en/5/5b/Panathinaikos-football-seal.png',
+    name: 'Panathinaikos Athens',
+  },
+  {
+    logoUrl: 'https://upload.wikimedia.org/wikipedia/en/b/b4/Arisfc-seal.png',
+    name: 'Aris Thessaloniki FC',
+  },
+  {
+    logoUrl: 'https://upload.wikimedia.org/wikipedia/en/1/1a/Xanthi_football_club.png',
+    name: 'AO XANTHI FC',
+  },
+  {
+    logoUrl: 'https://upload.wikimedia.org/wikipedia/en/7/70/Panionios_FC.png',
+    name: 'Panionios Athens',
+  },
+  {
+    logoUrl: 'https://upload.wikimedia.org/wikipedia/commons/6/67/Asteras_Tripolis.svg',
+    name: 'Asteras Tripolis',
+  },
+  {
+    logoUrl: 'https://upload.wikimedia.org/wikipedia/en/f/f2/Panetolikos_new_emblem.png',
+    name: 'Panaitolikos',
+  },
+  {
+    logoUrl: 'https://upload.wikimedia.org/wikipedia/en/e/eb/Athlitiki_Enosi_Larissa_F.C..png',
+    name: 'AE LARISSA FC',
+  },
+  {
+    logoUrl: 'https://upload.wikimedia.org/wikipedia/en/b/bf/New_Logo_of_the_Greek_football_club_%22Lamia_F.C.%22.png',
+    name: 'Lamia',
+  },
+  {
+    logoUrl: 'https://upload.wikimedia.org/wikipedia/en/2/22/PAS_Giannina_emblem.png',
+    name: 'PAS Giannina FC',
+  },
+  {
+    logoUrl: 'https://upload.wikimedia.org/wikipedia/en/4/45/OFI1925_Logo.png',
+    name: 'OFI Crete FC',
+  },
+  {
+    logoUrl: 'https://upload.wikimedia.org/wikipedia/en/d/d3/APO_Levadiakos_F.C._new_quality_logo.png',
+    name: 'APO LEVADEIAKOS FC',
+  },
+  {
+    logoUrl: 'https://upload.wikimedia.org/wikipedia/en/b/b8/Apollon_Smyrni_FC_emblem.png',
+    name: 'GS Apollon Smyrnis',
+  },
+  {
+    logoUrl: 'https://upload.wikimedia.org/wikipedia/commons/2/25/FC_Zenit_1_star_2015_logo.png',
+    name: 'FC Zenit St Petersburg',
+  },
+  {
+    logoUrl: 'https://upload.wikimedia.org/wikipedia/en/e/e7/FC_Krasnodar.png',
+    name: 'FC Krasnodar',
+  },
+  {
+    logoUrl: 'https://upload.wikimedia.org/wikipedia/en/2/26/PFK_CSKA_Logo.svg',
+    name: 'CSKA Moscow',
+  },
+  {
+    logoUrl: 'https://upload.wikimedia.org/wikipedia/en/9/93/FC_Spartak_Moscow_crest.svg',
+    name: 'FC Spartak Moscow',
+  },
+  {
+    logoUrl: 'https://upload.wikimedia.org/wikipedia/en/9/95/FC_Lokomotiv_Moscow.png',
+    name: 'FC Lokomotiv Moscow',
+  },
+  {
+    logoUrl: 'https://upload.wikimedia.org/wikipedia/en/b/bf/FC_Rostov_logo.png',
+    name: 'FC Rostov',
+  },
+  {
+    logoUrl: 'https://upload.wikimedia.org/wikipedia/en/2/2a/FC_Orenburg.png',
+    name: 'FC Orenburg',
+  },
+  {
+    logoUrl: 'https://upload.wikimedia.org/wikipedia/en/e/e7/FC_Ural_Sverdlovsk_Oblast.png',
+    name: 'FC Ural Yekaterinburg',
+  },
+  {
+    logoUrl: 'https://upload.wikimedia.org/wikipedia/en/c/c3/FC_Rubin_Kazan.png',
+    name: 'FC Rubin Kazan',
+  },
+  {
+    logoUrl: 'https://upload.wikimedia.org/wikipedia/en/d/d0/FC_Arsenal_Tula_logo.png',
+    name: 'FC Arsenal Tula',
+  },
+  {
+    logoUrl: 'https://upload.wikimedia.org/wikipedia/en/3/36/Akhmat_Grozny_logo.png',
+    name: 'Republican FC Akhmat Grozny',
+  },
+  {
+    logoUrl: 'https://upload.wikimedia.org/wikipedia/en/9/9f/FC_Krylia_Sovetov_Samara_logo.png',
+    name: 'FC Krylia Sovetov Samara',
+  },
+  {
+    logoUrl: 'https://upload.wikimedia.org/wikipedia/commons/6/67/DynamoMoskva.png',
+    name: 'FC Dinamo Moscow',
+  },
+  {
+    logoUrl: 'https://upload.wikimedia.org/wikipedia/en/9/9c/FC_Ufa_logo.png',
+    name: 'FC Ufa',
+  },
+  {
+    logoUrl: 'https://upload.wikimedia.org/wikipedia/en/3/36/FC_Anzhi_Makhachkala_logo.svg',
+    name: 'FC Anzhi Makhachkala',
+  },
+  {
+    logoUrl: 'https://upload.wikimedia.org/wikipedia/en/4/44/Logo_yenisey.jpg',
+    name: 'FK Yenisey Krasnoyarsk',
+  },
+  {
+    logoUrl: 'https://upload.wikimedia.org/wikipedia/en/a/a1/FC_Shakhtar_Donetsk.svg',
+    name: 'FC Shakhtar Donetsk',
+  },
+  {
+    logoUrl: 'https://upload.wikimedia.org/wikipedia/commons/d/df/FC_Dynamo_Kyiv_logo.svg',
+    name: 'FC Dynamo Kiev',
+  },
+  {
+    logoUrl: 'https://upload.wikimedia.org/wikipedia/en/3/35/FC_Oleksandriya.png',
+    name: 'FC Oleksandriya',
+  },
+  {
+    logoUrl: 'https://upload.wikimedia.org/wikipedia/en/1/18/FC_Zorya_Luhansk.png',
+    name: 'FC Zorya Lugansk',
+  },
+  {
+    logoUrl: 'https://upload.wikimedia.org/wikipedia/en/5/5f/FC_Vorskla_Poltava.png',
+    name: 'FC Vorskla Poltava',
+  },
+  {
+    logoUrl: 'https://upload.wikimedia.org/wikipedia/en/b/bc/FC_Mariupol_logo.png',
+    name: 'FC Mariupol',
+  },
+  {
+    logoUrl: 'https://upload.wikimedia.org/wikipedia/commons/8/8b/FC_Desna.png',
+    name: 'SFC Desna Chernihiv',
+  },
+  {
+    logoUrl: 'https://upload.wikimedia.org/wikipedia/en/1/1e/Fclvivlogo.png',
+    name: 'FC Lviv',
+  },
+  {
+    logoUrl: 'https://upload.wikimedia.org/wikipedia/en/5/5c/Olimpik_Donetsk.jpg',
+    name: 'FC Olimpik Donetsk',
+  },
+  {
+    logoUrl: 'https://upload.wikimedia.org/wikipedia/en/a/a3/FC_Karpaty_Lviv.svg',
+    name: 'Karpaty Lviv',
+  },
+  {
+    logoUrl: 'https://upload.wikimedia.org/wikipedia/en/7/77/Chornomorets_odesa_logo_uk.jpg',
+    name: 'FC Chernomorets Odessa',
+  },
+  {
+    logoUrl: 'https://upload.wikimedia.org/wikipedia/en/f/f8/FC_Arsenal-Kyiv_logo.png',
+    name: 'FC Arsenal Kiev',
+  },
+  {
+    logoUrl: 'https://upload.wikimedia.org/wikipedia/en/f/f1/FC_Porto.svg',
+    name: 'FC Porto',
+  },
+  {
+    logoUrl: 'https://upload.wikimedia.org/wikipedia/en/7/79/S.C._Braga_logo.svg',
+    name: 'Sporting Braga',
+  },
+  {
+    logoUrl: 'https://upload.wikimedia.org/wikipedia/en/a/a2/SL_Benfica_logo.svg',
+    name: 'Benfica Lisbon',
+  },
+  {
+    logoUrl: 'https://upload.wikimedia.org/wikipedia/en/e/e1/Sporting_Clube_de_Portugal_%28Logo%29.svg',
+    name: 'Sporting CP',
+  },
+  {
+    logoUrl: 'https://upload.wikimedia.org/wikipedia/en/d/d5/Vit%C3%B3ria_Guimar%C3%A3es.svg',
+    name: 'Vitoria Guimaraes',
+  },
+  {
+    logoUrl: 'https://upload.wikimedia.org/wikipedia/en/8/84/Rio_Ave_FC.png',
+    name: 'Rio Ave FC',
+  },
+  {
+    logoUrl: 'https://upload.wikimedia.org/wikipedia/en/2/2a/Os_Belenenses.png',
+    name: 'CF Os Belenenses',
+  },
+  {
+    logoUrl: 'https://upload.wikimedia.org/wikipedia/en/0/05/Vit%C3%B3ria_F.C._logo.png',
+    name: 'Vitoria Setubal',
+  },
+  {
+    logoUrl: 'https://upload.wikimedia.org/wikipedia/en/3/37/Moreirense_Futebol_Clube.png',
+    name: 'Moreirense FC',
+  },
+  {
+    logoUrl: 'https://upload.wikimedia.org/wikipedia/en/3/37/C.D._Santa_Clara_logo.svg',
+    name: 'CD Santa Clara',
+  },
+  {
+    logoUrl: 'https://upload.wikimedia.org/wikipedia/en/e/e9/Portimonense_Sporting_Clube.png',
+    name: 'Portimonense SC',
+  },
+  {
+    logoUrl: 'https://upload.wikimedia.org/wikipedia/en/9/96/C.D._Nacional.gif',
+    name: 'CD Nacional',
+  },
+  {
+    logoUrl: 'https://upload.wikimedia.org/wikipedia/en/5/51/CD_Aves_logo.png',
+    name: 'CD das Aves',
+  },
+  {
+    logoUrl: 'https://upload.wikimedia.org/wikipedia/en/6/67/Club_Sport_Mar%C3%ADtimo.png',
+    name: 'CS Maritimo Madeira',
+  },
+  {
+    logoUrl: 'https://upload.wikimedia.org/wikipedia/commons/f/fc/Emblema_CD_Tondela.png',
+    name: 'CD Tondela',
+  },
+  {
+    logoUrl: 'https://upload.wikimedia.org/wikipedia/en/4/40/Boavista_F.C._logo.svg',
+    name: 'BOAVISTA FC',
+  },
+  {
+    logoUrl: 'https://upload.wikimedia.org/wikipedia/en/2/2a/CD_Feirense.png',
+    name: 'CD Feirense',
+  },
+  {
+    logoUrl: 'https://upload.wikimedia.org/wikipedia/en/0/05/G_D_Chaves.png',
+    name: 'GD Chaves',
   },
 ];

@@ -1,6 +1,6 @@
 import axios, {AxiosResponse} from 'axios';
 import {action, observable} from 'mobx';
-import {IGroup, ITable, ITableProps, ITeam, OrderType, RangeType} from '../../@types';
+import {IGroup, ILogo, ITable, ITableProps, ITeam, OrderType, RangeType} from '../../@types';
 import {logos} from '../../content/logos';
 import {rangeData} from '../../helpers';
 
@@ -61,11 +61,13 @@ export class TableStore implements ITable {
   }
 
   private setLogos() {
-    this.table[0].team_standings.forEach((row: ITeam) => {
-      logos.forEach((logo) => {
-        if (logo.name === row.team.name) {
-          row.logo = logo.logoUrl;
-        }
+    this.table.forEach((table: IGroup) => {
+      table.team_standings.forEach((row: ITeam) => {
+        logos.forEach((logo: ILogo) => {
+          if (logo.name === row.team.name) {
+            row.logo = logo.logoUrl;
+          }
+        });
       });
     });
   }
