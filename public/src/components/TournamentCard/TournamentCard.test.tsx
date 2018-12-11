@@ -26,7 +26,6 @@ describe('TournamentCard', () => {
         <TournamentCard
           id='test_id'
           name='test_name'
-          img='test_img'
           classes={{img: 'card__img'}}
         />
       </MemoryRouter>);

@@ -1,13 +1,13 @@
 import {Button, Card, CardActions, CardContent, CardMedia, Theme, Typography, withStyles} from '@material-ui/core';
 import * as React from 'react';
 import {Link} from 'react-router-dom';
+import {tournamentsLogo} from '../../content/tournamentsLogo';
 import {dict} from '../../dict';
 
 interface IProps {
   classes?: any;
   country?: string;
   id: string;
-  img?: string;
   name: string;
 }
 
@@ -30,13 +30,16 @@ const TournamentCardElement = (props: IProps) => {
   const {classes} = props;
   const MyLink = (linkProps: any) => <Link to={`tournament/${props.id}`} {...linkProps}/>;
   const renderImage = () => {
-    return props.img ? (
+    const id  = props.id.split(':')[2];
+    const image = tournamentsLogo[id] ? tournamentsLogo[id] :
+      'http://www.merseyvolley.co.uk/MVL/wp-content/uploads/2017/04/icon_tournament.png';
+    return (
       <CardMedia
         className={classes.img}
-        image={props.img}
+        image={image}
         title={props.name}
       />
-    ) : undefined;
+    );
   };
 
   return (

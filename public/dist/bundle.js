@@ -81396,6 +81396,7 @@ Object.defineProperty(exports, "__esModule", { value: true });
 var core_1 = __webpack_require__(/*! @material-ui/core */ "./node_modules/@material-ui/core/index.es.js");
 var React = __webpack_require__(/*! react */ "./node_modules/react/index.js");
 var react_router_dom_1 = __webpack_require__(/*! react-router-dom */ "./node_modules/react-router-dom/es/index.js");
+var tournamentsLogo_1 = __webpack_require__(/*! ../../content/tournamentsLogo */ "./public/src/content/tournamentsLogo.ts");
 var dict_1 = __webpack_require__(/*! ../../dict */ "./public/src/dict/index.ts");
 var styles = function (_a) {
     var palette = _a.palette;
@@ -81418,7 +81419,10 @@ var TournamentCardElement = function (props) {
     var classes = props.classes;
     var MyLink = function (linkProps) { return React.createElement(react_router_dom_1.Link, __assign({ to: "tournament/" + props.id }, linkProps)); };
     var renderImage = function () {
-        return props.img ? (React.createElement(core_1.CardMedia, { className: classes.img, image: props.img, title: props.name })) : undefined;
+        var id = props.id.split(':')[2];
+        var image = tournamentsLogo_1.tournamentsLogo[id] ? tournamentsLogo_1.tournamentsLogo[id] :
+            'http://www.merseyvolley.co.uk/MVL/wp-content/uploads/2017/04/icon_tournament.png';
+        return (React.createElement(core_1.CardMedia, { className: classes.img, image: image, title: props.name }));
     };
     return (React.createElement(core_1.Card, null,
         renderImage(),
@@ -81475,7 +81479,7 @@ var TournamentListElement = mobx_react_1.observer(function (props) {
     var classes = props.classes, store = props.store;
     return store.isLoaded ? (React.createElement(core_1.Grid, { container: true, spacing: 16, className: classes.list }, store.list.map(function (item) {
         return (React.createElement(core_1.Grid, { key: item.id, item: true, xs: 12, sm: 6, md: 4, lg: 3 },
-            React.createElement(__1.TournamentCard, { country: item.category.name, id: item.id, img: item.img, name: item.name })));
+            React.createElement(__1.TournamentCard, { country: item.category.name, id: item.id, name: item.name })));
     }))) : React.createElement(__1.Loader, null);
 });
 exports.TournamentList = core_1.withStyles(styles)(TournamentListElement);
@@ -82479,6 +82483,40 @@ exports.logos = [
         name: 'GD Chaves',
     },
 ];
+
+
+/***/ }),
+
+/***/ "./public/src/content/tournamentsLogo.ts":
+/*!***********************************************!*\
+  !*** ./public/src/content/tournamentsLogo.ts ***!
+  \***********************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+Object.defineProperty(exports, "__esModule", { value: true });
+exports.tournamentsLogo = {
+    7: 'https://seeklogo.com/images/U/UEFA_Champions_League-logo-DD9AE0500D-seeklogo.com.png',
+    8: 'https://files.laliga.es/seccion_logos/laliga-v-300x300_2018.png',
+    17: 'https://www.premierleague.com/resources/ver/i/elements/premier-league-logo.svg',
+    23: 'https://upload.wikimedia.org/wikipedia/it/8/83/Serie_A_TIM_-_Logo_2018.svg',
+    34: 'https://vignette.wikia.nocookie.net/logopedia/images/f/fa/Ligue_1_logo.svg',
+    35: 'https://upload.wikimedia.org/wikipedia/en/d/df/Bundesliga_logo_%282017%29.svg',
+    37: 'https://upload.wikimedia.org/wikipedia/commons/0/0f/Eredivisie_nieuw_logo_2017-.svg',
+    38: 'https://upload.wikimedia.org/wikipedia/en/6/67/Belgianproleague.png',
+    52: 'https://upload.wikimedia.org/wikipedia/en/4/4f/S%C3%BCper_Lig_logo.svg',
+    185: 'https://upload.wikimedia.org/wikipedia/en/6/61/Super_League_Greece_official_logo.png',
+    203: 'https://upload.wikimedia.org/wikipedia/ru/9/92/Russian_Premier_League_Logo.png',
+    218: 'https://upload.wikimedia.org/wikipedia/commons/thumb/e/e9/' +
+        '%D0%9E%D1%84%D1%96%D1%86%D1%96%D0%B9%D0%BD%D0%B0_%D0%B5%D0%BC%D0%B1%D0%BB%D0%B5%D0%BC%D0%B0' +
+        '_%D0%9F%D1%80%D0%B5%D0%BC%27%D1%94%D1%80-%D0%9B%D1%96%D0%B3%D0%B8.png/' +
+        '341px-%D0%9E%D1%84%D1%96%D1%86%D1%96%D0%B9%D0%BD%D0%B0_%D0%B5%D0%BC%D0%B1%' +
+        'D0%BB%D0%B5%D0%BC%D0%B0_%D0%9F%D1%80%D0%B5%D0%BC%27%D1%94%D1%80-%D0%9B%D1%96%D0%B3%D0%B8.png',
+    238: 'https://upload.wikimedia.org/wikipedia/commons/0/0e/Liga_NOS_logo.png',
+    679: 'https://upload.wikimedia.org/wikipedia/en/0/03/Europa_League.svg',
+};
 
 
 /***/ }),
