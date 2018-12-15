@@ -81391,10 +81391,10 @@ var styles = {
 };
 exports.TeamLogo = core_1.withStyles(styles)(function (_a) {
     var classes = _a.classes, teamName = _a.teamName, modClass = _a.modClass;
-    if (teamName in logos_1.logos) {
-        return (React.createElement(core_1.ListItemIcon, { className: modClass },
-            React.createElement(core_1.Avatar, { src: logos_1.logos[teamName], className: classes.logo })));
-    }
+    var src = teamName in logos_1.logos ? logos_1.logos[teamName] :
+        'https://cdn2.iconfinder.com/data/icons/sport-items-2/512/football_soccer_badge_shield_ball_heraldic-128.png';
+    return (React.createElement(core_1.ListItemIcon, { className: modClass },
+        React.createElement(core_1.Avatar, { src: src, className: classes.logo })));
 });
 
 
