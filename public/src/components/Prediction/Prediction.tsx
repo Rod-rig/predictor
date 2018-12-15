@@ -13,24 +13,33 @@ import {
 } from '@material-ui/core';
 import {observer} from 'mobx-react';
 import * as React from 'react';
-import {Loader, PredictionFilter} from '../';
+import {Loader, PredictionFilter, TeamLogo} from '../';
 import {IPredictionStore, ISportEvent} from '../../@types';
 import {dict} from '../../dict';
 import {userStore} from '../../stores';
 
 const styles = ({palette, spacing}: Theme) => createStyles({
   away: {
-    width: '100%',
+    '& > span': {
+      'align-items': 'center',
+      'display': 'flex',
+      'justify-content': 'flex-start',
+    },
+    'width': '100%',
   },
   btnWrap: {
     marginBottom: spacing.unit,
     textAlign: 'center',
   },
   home: {
+    '& > span': {
+      'align-items': 'center',
+      'display': 'flex',
+      'justify-content': 'flex-end',
+    },
     '&:first-child': {
       paddingLeft: spacing.unit * 2,
     },
-    'textAlign': 'right',
     'width': '100%',
   },
   input: {
@@ -39,6 +48,10 @@ const styles = ({palette, spacing}: Theme) => createStyles({
   },
   inputWrap: {
     fontSize: '1.25rem',
+  },
+  logo: {
+    marginLeft: spacing.unit * 2,
+    marginRight: 0,
   },
   noMatchesMsg: {
     margin: spacing.unit,
@@ -77,6 +90,7 @@ export const Prediction = withStyles(styles)(observer((props: IProps) => {
                   <ListItem disableGutters={true} divider={true} key={item.id}>
                     <ListItemText classes={{root: classes.home}}>
                       <InputLabel htmlFor={item.competitors[0].id}>{item.competitors[0].name}</InputLabel>
+                      <TeamLogo teamName={item.competitors[0].name} modClass={classes.logo} />
                     </ListItemText>
                     <div className={classes.score}>
                       <Input
@@ -95,6 +109,7 @@ export const Prediction = withStyles(styles)(observer((props: IProps) => {
                       />
                     </div>
                     <ListItemText classes={{root: classes.away}}>
+                      <TeamLogo teamName={item.competitors[1].name} />
                       <InputLabel htmlFor={item.competitors[1].id}>{item.competitors[1].name}</InputLabel>
                     </ListItemText>
                   </ListItem>

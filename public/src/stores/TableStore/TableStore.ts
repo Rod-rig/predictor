@@ -1,7 +1,6 @@
 import axios, {AxiosResponse} from 'axios';
 import {action, observable} from 'mobx';
-import {IGroup, ILogo, ITable, ITableProps, ITeam, OrderType, RangeType} from '../../@types';
-import {logos} from '../../content/logos';
+import {IGroup, ITable, ITableProps, OrderType, RangeType} from '../../@types';
 import {rangeData} from '../../helpers';
 
 export class TableStore implements ITable {
@@ -60,18 +59,6 @@ export class TableStore implements ITable {
     this.table[index].sortName = sortName;
   }
 
-  private setLogos() {
-    this.table.forEach((table: IGroup) => {
-      table.team_standings.forEach((row: ITeam) => {
-        logos.forEach((logo: ILogo) => {
-          if (logo.name === row.team.name) {
-            row.logo = logo.logoUrl;
-          }
-        });
-      });
-    });
-  }
-
   private fetchTable() {
     axios.get(this.url)
       .then((res: AxiosResponse) => {
@@ -85,7 +72,6 @@ export class TableStore implements ITable {
           });
         }
         this.title = tournament.name;
-        this.setLogos();
         this.isLoaded = true;
       });
   }

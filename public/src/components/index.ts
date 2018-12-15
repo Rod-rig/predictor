@@ -17,5 +17,6 @@ export * from './Sidebar';
 export * from './Stats';
 export * from './TableHeadView';
 export * from './TableView';
+export * from './TeamLogo';
 export * from './TournamentCard';
 export * from './TournamentList';
