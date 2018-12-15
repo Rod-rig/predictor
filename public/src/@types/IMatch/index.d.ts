@@ -79,4 +79,5 @@ export interface IPredictionStore {
   handleSubmit(e: Event): void;
   handleChange(index: number, compIndex: number, e: any): void;
   setCurrentDate(date: string): void;
+  closeSuccessMsg(): void;
 }

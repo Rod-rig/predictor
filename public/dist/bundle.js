@@ -34828,6 +34828,38 @@ exports.default = _default;
 
 /***/ }),
 
+/***/ "./node_modules/@material-ui/icons/Done.js":
+/*!*************************************************!*\
+  !*** ./node_modules/@material-ui/icons/Done.js ***!
+  \*************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+var _interopRequireDefault = __webpack_require__(/*! @babel/runtime/helpers/interopRequireDefault */ "./node_modules/@material-ui/icons/node_modules/@babel/runtime/helpers/interopRequireDefault.js");
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.default = void 0;
+
+var _react = _interopRequireDefault(__webpack_require__(/*! react */ "./node_modules/react/index.js"));
+
+var _createSvgIcon = _interopRequireDefault(__webpack_require__(/*! ./utils/createSvgIcon */ "./node_modules/@material-ui/icons/utils/createSvgIcon.js"));
+
+var _default = (0, _createSvgIcon.default)(_react.default.createElement(_react.default.Fragment, null, _react.default.createElement("path", {
+  fill: "none",
+  d: "M0 0h24v24H0z"
+}), _react.default.createElement("path", {
+  d: "M9 16.2L4.8 12l-1.4 1.4L9 19 21 7l-1.4-1.4L9 16.2z"
+})), 'Done');
+
+exports.default = _default;
+
+/***/ }),
+
 /***/ "./node_modules/@material-ui/icons/Error.js":
 /*!**************************************************!*\
   !*** ./node_modules/@material-ui/icons/Error.js ***!
@@ -80472,6 +80504,7 @@ var React = __webpack_require__(/*! react */ "./node_modules/react/index.js");
 var __1 = __webpack_require__(/*! ../ */ "./public/src/components/index.ts");
 var dict_1 = __webpack_require__(/*! ../../dict */ "./public/src/dict/index.ts");
 var stores_1 = __webpack_require__(/*! ../../stores */ "./public/src/stores/index.ts");
+var PredictionMessage_1 = __webpack_require__(/*! ./PredictionMessage */ "./public/src/components/Prediction/PredictionMessage.tsx");
 var styles = function (_a) {
     var palette = _a.palette, spacing = _a.spacing;
     return core_1.createStyles({
@@ -80525,9 +80558,6 @@ var styles = function (_a) {
 };
 exports.Prediction = core_1.withStyles(styles)(mobx_react_1.observer(function (props) {
     var classes = props.classes, store = props.store;
-    if (store.isSuccessSubmit) {
-        return React.createElement("div", null, "Successssszzzzzzzzzzzzzz!");
-    }
     if (store.isLoaded && stores_1.userStore.isLoggedIn !== undefined) {
         return (React.createElement("form", { autoComplete: 'off', onSubmit: store.handleSubmit.bind(store) },
             React.createElement(__1.PredictionFilter, { store: store }),
@@ -80546,12 +80576,68 @@ exports.Prediction = core_1.withStyles(styles)(mobx_react_1.observer(function (p
                             React.createElement(core_1.InputLabel, { htmlFor: item.competitors[1].id }, item.competitors[1].name))));
                 })),
                 React.createElement("div", { className: classes.btnWrap },
-                    React.createElement(core_1.Button, { type: 'submit', variant: 'contained', color: 'secondary' }, dict_1.dict.submit_btn_text)))) : (React.createElement(core_1.Typography, { className: classes.noMatchesMsg, variant: 'body1' }, dict_1.dict.noAvailablePredictionMatches))));
+                    React.createElement(core_1.Button, { type: 'submit', variant: 'contained', color: 'secondary' }, dict_1.dict.submit_btn_text)),
+                React.createElement(PredictionMessage_1.PredictionMessage, { open: store.isSuccessSubmit, handleClose: store.closeSuccessMsg }))) : (React.createElement(core_1.Typography, { className: classes.noMatchesMsg, variant: 'body1' }, dict_1.dict.noAvailablePredictionMatches))));
     }
     else {
         return React.createElement(__1.Loader, null);
     }
 }));
+
+
+/***/ }),
+
+/***/ "./public/src/components/Prediction/PredictionMessage.tsx":
+/*!****************************************************************!*\
+  !*** ./public/src/components/Prediction/PredictionMessage.tsx ***!
+  \****************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+Object.defineProperty(exports, "__esModule", { value: true });
+var core_1 = __webpack_require__(/*! @material-ui/core */ "./node_modules/@material-ui/core/index.es.js");
+var colors_1 = __webpack_require__(/*! @material-ui/core/colors */ "./node_modules/@material-ui/core/colors/index.js");
+var Done_1 = __webpack_require__(/*! @material-ui/icons/Done */ "./node_modules/@material-ui/icons/Done.js");
+var React = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+var dict_1 = __webpack_require__(/*! ../../dict */ "./public/src/dict/index.ts");
+var styles = function (_a) {
+    var palette = _a.palette;
+    return core_1.createStyles({
+        btn: {
+            color: palette.common.white,
+        },
+        btnWrap: {
+            justifyContent: 'center',
+        },
+        dialog: {
+            backgroundColor: colors_1.green[600],
+        },
+        icon: {
+            color: palette.common.white,
+            display: 'block',
+            fontSize: 100,
+            margin: 'auto',
+        },
+        text: {
+            color: palette.common.white,
+            fontSize: '2.25rem',
+            textTransform: 'uppercase',
+        },
+    });
+};
+exports.PredictionMessage = core_1.withStyles(styles)(function (props) {
+    var classes = props.classes, handleClose = props.handleClose, open = props.open;
+    return (React.createElement(core_1.Dialog, { classes: {
+            paper: classes.dialog,
+        }, open: open, keepMounted: true, onClose: handleClose },
+        React.createElement(core_1.DialogContent, null,
+            React.createElement(Done_1.default, { className: classes.icon }),
+            React.createElement(core_1.DialogContentText, { className: classes.text }, dict_1.dict.success)),
+        React.createElement(core_1.DialogActions, { className: classes.btnWrap },
+            React.createElement(core_1.Button, { className: classes.btn, onClick: handleClose }, dict_1.dict.continueText))));
+});
 
 
 /***/ }),
@@ -81864,6 +81950,7 @@ exports.tournamentsLogo = {
 
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.dict = {
+    continueText: 'continue',
     draw: 'draw',
     email: 'Email',
     fixtures: 'Fixtures',
@@ -81889,6 +81976,7 @@ exports.dict = {
     results: 'Results',
     sidebar_menu_prediction: 'Predictions',
     submit_btn_text: 'Submit',
+    success: 'Success',
     table: 'Table',
     team: 'team',
     tournament_card_more: 'Learn more',
@@ -82436,6 +82524,10 @@ var PredictionStore = /** @class */ (function () {
     PredictionStore.prototype.setCurrentDate = function (date) {
         this.currentDate = date;
     };
+    PredictionStore.prototype.closeSuccessMsg = function () {
+        this.fetchMatches();
+        this.isSuccessSubmit = false;
+    };
     PredictionStore.prototype.filterMatches = function (matches) {
         var _this = this;
         return matches.filter(function (match) {
@@ -82457,6 +82549,9 @@ var PredictionStore = /** @class */ (function () {
     __decorate([
         mobx_1.observable
     ], PredictionStore.prototype, "currentDate", void 0);
+    __decorate([
+        mobx_1.action.bound
+    ], PredictionStore.prototype, "closeSuccessMsg", null);
     return PredictionStore;
 }());
 exports.PredictionStore = PredictionStore;

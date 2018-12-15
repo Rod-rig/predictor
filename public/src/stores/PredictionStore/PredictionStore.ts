@@ -1,5 +1,5 @@
 import axios, {AxiosResponse} from 'axios';
-import {computed, observable} from 'mobx';
+import {action, computed, observable} from 'mobx';
 import {OutputParams, parse} from 'query-string';
 import {userStore} from '../';
 import {IPredictionStore, ISportEvent} from '../../@types';
@@ -64,6 +64,12 @@ export class PredictionStore implements IPredictionStore {
 
   public setCurrentDate(date: string) {
     this.currentDate = date;
+  }
+
+  @action.bound
+  public closeSuccessMsg() {
+    this.fetchMatches();
+    this.isSuccessSubmit = false;
   }
 
   private filterMatches(matches: ISportEvent[]) {

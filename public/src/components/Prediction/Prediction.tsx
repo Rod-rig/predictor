@@ -17,6 +17,7 @@ import {Loader, PredictionFilter, TeamLogo} from '../';
 import {IPredictionStore, ISportEvent} from '../../@types';
 import {dict} from '../../dict';
 import {userStore} from '../../stores';
+import {PredictionMessage} from './PredictionMessage';
 
 const styles = ({palette, spacing}: Theme) => createStyles({
   away: {
@@ -74,10 +75,6 @@ interface IProps extends WithStyles<typeof styles> {
 export const Prediction = withStyles(styles)(observer((props: IProps) => {
   const {classes, store} = props;
 
-  if (store.isSuccessSubmit) {
-    return <div>Successssszzzzzzzzzzzzzz!</div>;
-  }
-
   if (store.isLoaded && userStore.isLoggedIn !== undefined) {
     return (
       <form autoComplete='off' onSubmit={store.handleSubmit.bind(store)}>
@@ -119,6 +116,10 @@ export const Prediction = withStyles(styles)(observer((props: IProps) => {
             <div className={classes.btnWrap}>
               <Button type='submit' variant='contained' color='secondary'>{dict.submit_btn_text}</Button>
             </div>
+            <PredictionMessage
+              open={store.isSuccessSubmit}
+              handleClose={store.closeSuccessMsg}
+            />
           </React.Fragment>
         ) : (
           <Typography className={classes.noMatchesMsg} variant='body1'>{dict.noAvailablePredictionMatches}</Typography>

@@ -1,4 +1,5 @@
 export interface IDict {
+  continueText: string;
   draw: string;
   email: string;
   fixtures: string;
@@ -24,6 +25,7 @@ export interface IDict {
   results: string;
   sidebar_menu_prediction: string;
   submit_btn_text: string;
+  success: string;
   table: string;
   team: string;
   tournament_card_more: string;
@@ -31,6 +33,7 @@ export interface IDict {
 }
 
 export const dict: IDict = {
+  continueText: 'continue',
   draw: 'draw',
   email: 'Email',
   fixtures: 'Fixtures',
@@ -56,6 +59,7 @@ export const dict: IDict = {
   results: 'Results',
   sidebar_menu_prediction: 'Predictions',
   submit_btn_text: 'Submit',
+  success: 'Success',
   table: 'Table',
   team: 'team',
   tournament_card_more: 'Learn more',
