@@ -1,4 +1,5 @@
 import {Button, createStyles, Theme, withStyles} from '@material-ui/core';
+import {ButtonProps} from "@material-ui/core/Button";
 import * as React from 'react';
 import {Link, withRouter} from 'react-router-dom';
 import {dict} from '../../dict';
@@ -30,7 +31,7 @@ export const Nav = compose(withStyles(styles), withRouter)((props?: any) => {
   const FixturesLink = (linkProps: any) => <Link to={`/fixtures/${id}`} {...linkProps}/>;
   const ResultsLink = (linkProps: any) => <Link to={`/results/${id}`} {...linkProps}/>;
   const PredictionsLink = (linkProps: any) => <Link to={`/predictions?tournament_id=${id}`} {...linkProps}/>;
-  const renderBtn = (comp: React.ReactType, text: string) => (
+  const renderBtn = (comp: React.ReactType<ButtonProps>, text: string) => (
     <Button
       size='small'
       className={classes.containedSecondary}

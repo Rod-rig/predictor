@@ -1,6 +1,6 @@
 {
   "name": "predictor",
-  "version": "0.2.64",
+  "version": "0.2.65",
   "main": "public/src/index.tsx",
   "license": "MIT",
   "scripts": {
@@ -92,7 +92,7 @@
     "@types/react-router-dom": "^4.3.1",
     "@types/react-test-renderer": "^16.0.3",
     "axios": "^0.18.0",
-    "bcrypt": "^3.0.2",
+    "bcrypt": "^2.0.1",
     "body-parser": "^1.18.3",
     "cookie-parser": "^1.4.3",
     "dotenv": "^6.1.0",
