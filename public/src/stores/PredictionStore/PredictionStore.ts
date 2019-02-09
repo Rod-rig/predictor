@@ -11,6 +11,7 @@ export class PredictionStore implements IPredictionStore {
   }
   @observable public matches: ISportEvent[] = [];
   @observable public isLoaded: boolean = false;
+  @observable public isFetched: boolean = false;
   @observable public isSuccessSubmit: boolean = false;
   @observable public currentDate: string;
   public dates: string[];
@@ -49,11 +50,12 @@ export class PredictionStore implements IPredictionStore {
 
   public fetchMatches() {
     const tournamentId = this.filter ? this.filter.tournament_id : undefined;
-    this.isLoaded = false;
+    this.isFetched = false;
     axios.get(this.apiPredictionUrl)
       .then((res: AxiosResponse) => {
         this.matches = tournamentId ? this.filterMatches(res.data) : res.data.sort(sortByTournamentId);
-        this.isLoaded = true;
+        this.isLoaded = this.isLoaded ? this.isLoaded : true;
+        this.isFetched = true;
       })
       .catch(({response}) => {
         if (response.status === 403) {

@@ -16,6 +16,7 @@ describe('PredictionFilter', () => {
         fetchMatches: fetchMock,
         handleChange: () => ({}),
         handleSubmit: () => ({}),
+        isFetched: true,
         isLoaded: true,
         isSuccessSubmit: false,
         matches: [],

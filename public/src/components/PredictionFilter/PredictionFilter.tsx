@@ -68,7 +68,7 @@ export const PredictionFilter = withStyles(styles)(observer(class extends React.
           </FormControl>
           <Button className={classes.btn} size='small' onClick={refreshMatches} variant='contained' color='secondary'>
             <FilterList className={classes.btnIcon}/>
-            {dict.prediction_filter_btn}
+            {dict.prediction_submit_btn}
           </Button>
         </div>
       </div>

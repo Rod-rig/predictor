@@ -22,6 +22,7 @@ describe('PredictionForm', () => {
           fetchMatches: fetchMatchesMock,
           handleChange: handleChangeMock,
           handleSubmit: handleSubmitMock,
+          isFetched: true,
           isLoaded,
           isSuccessSubmit,
           matches: data,

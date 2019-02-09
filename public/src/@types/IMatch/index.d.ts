@@ -73,6 +73,7 @@ export interface IPredictionStore {
   dates: string[];
   filter?: any;
   isLoaded: boolean;
+  isFetched: boolean;
   isSuccessSubmit: boolean;
   matches: ISportEvent[];
   fetchMatches(): void;

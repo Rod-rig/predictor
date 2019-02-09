@@ -77,54 +77,66 @@ export const Prediction = withStyles(styles)(observer((props: IProps) => {
 
   if (store.isLoaded && userStore.isLoggedIn !== undefined) {
     return (
-      <form autoComplete='off' onSubmit={store.handleSubmit.bind(store)}>
+      <React.Fragment>
         <PredictionFilter store={store}/>
-        {store.matches.length > 0 ? (
-          <React.Fragment>
-            <List>
-              {store.matches.map((item: ISportEvent, index: number) => {
-                return (
-                  <ListItem disableGutters={true} divider={true} key={item.id}>
-                    <ListItemText classes={{root: classes.home}}>
-                      <InputLabel htmlFor={item.competitors[0].id}>{item.competitors[0].name}</InputLabel>
-                      <TeamLogo teamName={item.competitors[0].name} modClass={classes.logo} />
-                    </ListItemText>
-                    <div className={classes.score}>
-                      <Input
-                        classes={{input: classes.input, root: classes.inputWrap, underline: classes.underline}}
-                        id={item.competitors[0].id}
-                        name={item.competitors[0].name}
-                        onChange={store.handleChange.bind(store, index, 0)}
-                        autoFocus={index === 0}
-                      />
-                      <div>:</div>
-                      <Input
-                        classes={{input: classes.input, root: classes.inputWrap, underline: classes.underline}}
-                        id={item.competitors[1].id}
-                        name={item.competitors[1].name}
-                        onChange={store.handleChange.bind(store, index, 1)}
-                      />
-                    </div>
-                    <ListItemText classes={{root: classes.away}}>
-                      <TeamLogo teamName={item.competitors[1].name} />
-                      <InputLabel htmlFor={item.competitors[1].id}>{item.competitors[1].name}</InputLabel>
-                    </ListItemText>
-                  </ListItem>
-                );
-              })}
-            </List>
-            <div className={classes.btnWrap}>
-              <Button type='submit' variant='contained' color='secondary'>{dict.submit_btn_text}</Button>
-            </div>
-            <PredictionMessage
-              open={store.isSuccessSubmit}
-              handleClose={store.closeSuccessMsg}
-            />
-          </React.Fragment>
+        {store.isFetched ? (
+          <form autoComplete='off' onSubmit={store.handleSubmit.bind(store)}>
+            {store.matches.length > 0 ? (
+              <React.Fragment>
+                <List>
+                  {store.matches.map((item: ISportEvent, index: number) => {
+                    return (
+                      <ListItem disableGutters={true} divider={true} key={item.id}>
+                        <ListItemText classes={{root: classes.home}}>
+                          <InputLabel htmlFor={item.competitors[0].id}>{item.competitors[0].name}</InputLabel>
+                          <TeamLogo teamName={item.competitors[0].name} modClass={classes.logo}/>
+                        </ListItemText>
+                        <div className={classes.score}>
+                          <Input
+                            classes={{input: classes.input, root: classes.inputWrap, underline: classes.underline}}
+                            id={item.competitors[0].id}
+                            name={item.competitors[0].name}
+                            onChange={store.handleChange.bind(store, index, 0)}
+                            autoFocus={index === 0}
+                          />
+                          <div>:</div>
+                          <Input
+                            classes={{input: classes.input, root: classes.inputWrap, underline: classes.underline}}
+                            id={item.competitors[1].id}
+                            name={item.competitors[1].name}
+                            onChange={store.handleChange.bind(store, index, 1)}
+                          />
+                        </div>
+                        <ListItemText classes={{root: classes.away}}>
+                          <TeamLogo teamName={item.competitors[1].name}/>
+                          <InputLabel htmlFor={item.competitors[1].id}>{item.competitors[1].name}</InputLabel>
+                        </ListItemText>
+                      </ListItem>
+                    );
+                  })}
+                </List>
+                <div className={classes.btnWrap}>
+                  <Button type='submit' variant='contained' color='secondary'>{dict.submit_btn_text}</Button>
+                </div>
+                <PredictionMessage
+                  open={store.isSuccessSubmit}
+                  handleClose={store.closeSuccessMsg}
+                />
+              </React.Fragment>
+            ) : (
+              <Typography
+                className={classes.noMatchesMsg}
+                variant='body1'
+              >
+                {dict.noAvailablePredictionMatches}
+              </Typography>
+            )}
+          </form>
         ) : (
-          <Typography className={classes.noMatchesMsg} variant='body1'>{dict.noAvailablePredictionMatches}</Typography>
+          <Loader/>
         )}
-      </form>
+      </React.Fragment>
+
     );
   } else {
     return <Loader/>;

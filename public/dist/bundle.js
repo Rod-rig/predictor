@@ -83109,9 +83109,9 @@ var styles = function (_a) {
 exports.Prediction = core_1.withStyles(styles)(mobx_react_1.observer(function (props) {
     var classes = props.classes, store = props.store;
     if (store.isLoaded && stores_1.userStore.isLoggedIn !== undefined) {
-        return (React.createElement("form", { autoComplete: 'off', onSubmit: store.handleSubmit.bind(store) },
+        return (React.createElement(React.Fragment, null,
             React.createElement(__1.PredictionFilter, { store: store }),
-            store.matches.length > 0 ? (React.createElement(React.Fragment, null,
+            store.isFetched ? (React.createElement("form", { autoComplete: 'off', onSubmit: store.handleSubmit.bind(store) }, store.matches.length > 0 ? (React.createElement(React.Fragment, null,
                 React.createElement(core_1.List, null, store.matches.map(function (item, index) {
                     return (React.createElement(core_1.ListItem, { disableGutters: true, divider: true, key: item.id },
                         React.createElement(core_1.ListItemText, { classes: { root: classes.home } },
@@ -83127,7 +83127,7 @@ exports.Prediction = core_1.withStyles(styles)(mobx_react_1.observer(function (p
                 })),
                 React.createElement("div", { className: classes.btnWrap },
                     React.createElement(core_1.Button, { type: 'submit', variant: 'contained', color: 'secondary' }, dict_1.dict.submit_btn_text)),
-                React.createElement(PredictionMessage_1.PredictionMessage, { open: store.isSuccessSubmit, handleClose: store.closeSuccessMsg }))) : (React.createElement(core_1.Typography, { className: classes.noMatchesMsg, variant: 'body1' }, dict_1.dict.noAvailablePredictionMatches))));
+                React.createElement(PredictionMessage_1.PredictionMessage, { open: store.isSuccessSubmit, handleClose: store.closeSuccessMsg }))) : (React.createElement(core_1.Typography, { className: classes.noMatchesMsg, variant: 'body1' }, dict_1.dict.noAvailablePredictionMatches)))) : (React.createElement(__1.Loader, null))));
     }
     else {
         return React.createElement(__1.Loader, null);
@@ -83284,7 +83284,7 @@ exports.PredictionFilter = core_1.withStyles(styles)(mobx_react_1.observer(/** @
                     }))),
                 React.createElement(core_1.Button, { className: classes.btn, size: 'small', onClick: refreshMatches, variant: 'contained', color: 'secondary' },
                     React.createElement(FilterList_1.default, { className: classes.btnIcon }),
-                    dict_1.dict.prediction_filter_btn))));
+                    dict_1.dict.prediction_submit_btn))));
     };
     return class_1;
 }(React.Component))));
@@ -84520,7 +84520,7 @@ exports.dict = {
     played: 'played',
     points: 'points',
     prediction: 'Prediction',
-    prediction_filter_btn: 'Filter',
+    prediction_submit_btn: 'Show',
     rank: 'rank',
     register: 'Register',
     results: 'Results',
@@ -85021,6 +85021,7 @@ var PredictionStore = /** @class */ (function () {
     function PredictionStore(props) {
         this.matches = [];
         this.isLoaded = false;
+        this.isFetched = false;
         this.isSuccessSubmit = false;
         this.filter = props ? query_string_1.parse(props.filter) : undefined;
         this.dates = helpers_1.getFutureDates();
@@ -85058,11 +85059,12 @@ var PredictionStore = /** @class */ (function () {
     PredictionStore.prototype.fetchMatches = function () {
         var _this = this;
         var tournamentId = this.filter ? this.filter.tournament_id : undefined;
-        this.isLoaded = false;
+        this.isFetched = false;
         axios_1.default.get(this.apiPredictionUrl)
             .then(function (res) {
             _this.matches = tournamentId ? _this.filterMatches(res.data) : res.data.sort(helpers_1.sortByTournamentId);
-            _this.isLoaded = true;
+            _this.isLoaded = _this.isLoaded ? _this.isLoaded : true;
+            _this.isFetched = true;
         })
             .catch(function (_a) {
             var response = _a.response;
@@ -85093,6 +85095,9 @@ var PredictionStore = /** @class */ (function () {
     __decorate([
         mobx_1.observable
     ], PredictionStore.prototype, "isLoaded", void 0);
+    __decorate([
+        mobx_1.observable
+    ], PredictionStore.prototype, "isFetched", void 0);
     __decorate([
         mobx_1.observable
     ], PredictionStore.prototype, "isSuccessSubmit", void 0);

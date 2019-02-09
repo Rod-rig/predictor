@@ -19,7 +19,7 @@ export interface IDict {
   played: string;
   points: string;
   prediction: string;
-  prediction_filter_btn: string;
+  prediction_submit_btn: string;
   rank: string;
   register: string;
   results: string;
@@ -53,7 +53,7 @@ export const dict: IDict = {
   played: 'played',
   points: 'points',
   prediction: 'Prediction',
-  prediction_filter_btn: 'Filter',
+  prediction_submit_btn: 'Show',
   rank: 'rank',
   register: 'Register',
   results: 'Results',
