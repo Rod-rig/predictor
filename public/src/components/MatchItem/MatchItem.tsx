@@ -1,5 +1,6 @@
-import {Avatar, ListItem, ListItemIcon, ListItemText, Theme, withStyles} from '@material-ui/core';
+import {ListItem, ListItemText, Theme, withStyles} from '@material-ui/core';
 import * as React from 'react';
+import {TeamLogo} from '../';
 
 const decorate = withStyles(({palette, spacing, typography}: Theme) => ({
   dash: {
@@ -7,16 +8,8 @@ const decorate = withStyles(({palette, spacing, typography}: Theme) => ({
     marginRight: spacing.unit / 2,
   },
   icon: {
-    borderRadius: 0,
     marginLeft: spacing.unit * 2,
     marginRight: 0,
-  },
-  logo: {
-    '& img': {
-      'object-fit': 'contain',
-    },
-    'height': '1.25em',
-    'width': '1.25em',
   },
   right: {
     justifyContent: 'flex-end',
@@ -36,14 +29,6 @@ const decorate = withStyles(({palette, spacing, typography}: Theme) => ({
     flexBasis: '40%',
   },
 }));
-
-const renderLogo = (logo: string, classesLogo: any, classesIcon?: any) => {
-  return logo ? (
-    <ListItemIcon className={classesIcon ? classesIcon : ''}>
-      <Avatar src={logo} className={classesLogo}/>
-    </ListItemIcon>
-  ) : null;
-};
 
 const renderScore = (homeScore: number, awayScore: number, classes: any): JSX.Element => (
   <div className={classes.score}>
@@ -69,11 +54,9 @@ export const MatchItem = decorate((props: {
   homeTeam: string;
 }) => {
   const {
-    awayLogo,
     awayScore,
     awayTeam,
     classes,
-    homeLogo,
     homeScore,
     homeTeam,
   } = props;
@@ -81,13 +64,13 @@ export const MatchItem = decorate((props: {
     <ListItem button={true} divider={true}>
       <ListItemText className={`${classes.text} ${classes.right}`} disableTypography={true}>
         <div>{homeTeam}</div>
-        {renderLogo(homeLogo, classes.logo, classes.icon)}
+        <TeamLogo teamName={homeTeam} modClass={classes.icon} />
       </ListItemText>
 
       {!isNaN(props.homeScore) ? renderScore(homeScore, awayScore, classes) : renderEmptyScore(classes)}
 
       <ListItemText className={classes.text} disableTypography={true}>
-        {renderLogo(awayLogo, classes.logo)}
+        <TeamLogo teamName={awayTeam} />
         <div>{awayTeam}</div>
       </ListItemText>
     </ListItem>

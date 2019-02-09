@@ -21,7 +21,6 @@ const TournamentListElement = observer((props: any) => {
             <TournamentCard
               country={item.category.name}
               id={item.id}
-              img={item.img}
               name={item.name}
             />
           </Grid>

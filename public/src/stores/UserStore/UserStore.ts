@@ -2,7 +2,7 @@ import axios, {AxiosResponse} from 'axios';
 import {action, observable} from 'mobx';
 
 class UserStore {
-  @observable public isLoggedIn: boolean;
+  @observable public isLoggedIn: boolean | undefined;
   @observable public name: string;
 
   constructor() {
@@ -21,7 +21,7 @@ class UserStore {
   public logout() {
     axios.get('/logout').then(() => {
       this.isLoggedIn = false;
-      delete this.name;
+      this.name = '';
     });
   }
 }

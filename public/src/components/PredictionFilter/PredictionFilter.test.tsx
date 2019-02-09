@@ -10,6 +10,7 @@ describe('PredictionFilter', () => {
   const predictionFilter = (
     <PredictionFilter
       store={{
+        closeSuccessMsg: jest.fn(),
         currentDate: 'date',
         dates: ['Berlin', 'Rome', 'Paris', 'London'],
         fetchMatches: fetchMock,

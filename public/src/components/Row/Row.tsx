@@ -1,8 +1,8 @@
-import {/*Avatar,*/ TableCell, TableRow, withStyles} from '@material-ui/core';
+import {TableCell, TableRow, withStyles} from '@material-ui/core';
 import * as React from 'react';
+import {TeamLogo} from '../';
 
 export interface IRow {
-  logo?: string;
   [index: string]: any;
 }
 
@@ -105,12 +105,6 @@ const decorate = withStyles(({breakpoints, palette, spacing}) => ({
   },
 }));
 
-// const renderAvatar = (logo: string, altText: string, className: string) => {
-//   return logo ? (
-//     <Avatar src={logo} alt={altText + '\'s logo'} className={className}/>
-//   ) : undefined;
-// };
-
 const highlightCell = (stage: string) => {
   if (stage === 'Champions League' || stage === 'Champions League Qualification' || stage === 'Relegation') {
     return 'edge';
@@ -147,7 +141,7 @@ export const Row = decorate((props: IProps) => {
             return (
               <TableCell key={i} padding='checkbox' className={`${classes.cell} ${classes.teamName}`}>
                 <div className={classes.info}>
-                  {/*{renderAvatar(row.logo, row[val], classes.img)}*/}
+                  <TeamLogo teamName={row.team.name} modClass={row.img}/>
                   <span className={classes.team}>{row.team.name}</span>
                   {/*<span className={classes.shortName}>{row.shortName}</span>*/}
                 </div>

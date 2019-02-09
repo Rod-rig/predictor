@@ -1,10 +1,14 @@
 import axios, {AxiosResponse} from 'axios';
-import {computed, observable} from 'mobx';
+import {action, computed, observable} from 'mobx';
 import {OutputParams, parse} from 'query-string';
+import {userStore} from '../';
 import {IPredictionStore, ISportEvent} from '../../@types';
-import {getFutureDates} from '../../helpers';
+import {getFutureDates, sortByTournamentId} from '../../helpers';
 
 export class PredictionStore implements IPredictionStore {
+  @computed get apiPredictionUrl() {
+    return `/available-predictions/${this.currentDate}`;
+  }
   @observable public matches: ISportEvent[] = [];
   @observable public isLoaded: boolean = false;
   @observable public isSuccessSubmit: boolean = false;
@@ -19,10 +23,6 @@ export class PredictionStore implements IPredictionStore {
     this.dates = getFutureDates();
     this.currentDate = this.dates[0];
     this.fetchMatches();
-  }
-
-  @computed get apiPredictionUrl() {
-    return `/available-predictions/${this.currentDate}`;
   }
 
   public handleSubmit(e: Event): void {
@@ -49,16 +49,27 @@ export class PredictionStore implements IPredictionStore {
 
   public fetchMatches() {
     const tournamentId = this.filter ? this.filter.tournament_id : undefined;
-    this.isLoaded ? this.isLoaded = false : this.isLoaded = true;
+    this.isLoaded = false;
     axios.get(this.apiPredictionUrl)
       .then((res: AxiosResponse) => {
-        this.matches = tournamentId ? this.filterMatches(res.data) : res.data;
+        this.matches = tournamentId ? this.filterMatches(res.data) : res.data.sort(sortByTournamentId);
         this.isLoaded = true;
+      })
+      .catch(({response}) => {
+        if (response.status === 403) {
+          userStore.logout();
+        }
       });
   }
 
   public setCurrentDate(date: string) {
     this.currentDate = date;
+  }
+
+  @action.bound
+  public closeSuccessMsg() {
+    this.fetchMatches();
+    this.isSuccessSubmit = false;
   }
 
   private filterMatches(matches: ISportEvent[]) {

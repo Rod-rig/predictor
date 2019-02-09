@@ -8,6 +8,7 @@ import {userStore} from '../../stores';
 
 describe('PredictionForm', () => {
   const createPrediction = (isLoaded: boolean, data: ISportEvent[], isSuccessSubmit: boolean) => {
+    const closeSuccessMsgMock = jest.fn();
     const fetchMatchesMock = jest.fn();
     const handleChangeMock = jest.fn();
     const handleSubmitMock = jest.fn();
@@ -15,6 +16,7 @@ describe('PredictionForm', () => {
     return (
       <Prediction
         store={{
+          closeSuccessMsg: closeSuccessMsgMock,
           currentDate: '',
           dates: [],
           fetchMatches: fetchMatchesMock,
