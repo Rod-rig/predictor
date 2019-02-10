@@ -47,7 +47,9 @@
     "transform": {
       "^.+\\.tsx?$": "ts-jest"
     },
-    "setupTestFrameworkScriptFile": "<rootDir>/jest.config.js",
+    "setupFilesAfterEnv": [
+      "<rootDir>/jest.config.js"
+    ],
     "coverageThreshold": {
       "global": {
         "branches": 80,

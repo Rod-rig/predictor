@@ -12,7 +12,7 @@ describe('Row', () => {
     const tree = renderer
       .create(
         <Table>
-          {teams.map((team) => (<Row row={team} chars={chars}/>))}
+          {teams.map((team, i) => (<Row key={i} row={team} chars={chars}/>))}
         </Table>)
       .toJSON();
     expect(tree).toMatchSnapshot();

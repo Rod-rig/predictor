@@ -15,7 +15,7 @@ describe('TournamentCard', () => {
       </MemoryRouter>);
     const link = card.find('Link');
     expect(card.length).toBeGreaterThanOrEqual(1);
-    expect(card.find('CardMedia')).toHaveLength(0);
+    expect(card.find('CardMedia')).toHaveLength(1);
     expect(link).toHaveLength(1);
     expect(link.prop('to')).toEqual('tournament/premier-league');
   });

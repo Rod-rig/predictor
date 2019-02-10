@@ -136,7 +136,6 @@ export const Prediction = withStyles(styles)(observer((props: IProps) => {
           <Loader/>
         )}
       </React.Fragment>
-
     );
   } else {
     return <Loader/>;

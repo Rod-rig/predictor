@@ -21,6 +21,12 @@ const styles = ({palette, spacing, typography}: Theme) => createStyles({
 
 export const LoginSnackbar = withStyles(styles)(observer((props: any) => {
   const {classes} = props;
+  const message = (
+    <div className={classes.msg}>
+      <ErrorIcon/>
+      <span className={classes.text}>{dict.login_error_msg}</span>
+    </div>
+  );
   return (
     <Snackbar
       anchorOrigin={{
@@ -31,15 +37,7 @@ export const LoginSnackbar = withStyles(styles)(observer((props: any) => {
       onClose={loginStore.toggleSnackbar}
       open={loginStore.isSnackbarOpen}
     >
-      <SnackbarContent
-        className={classes.error}
-        message={
-          <div className={classes.msg}>
-            <ErrorIcon/>
-            <span className={classes.text}>{dict.login_error_msg}</span>
-          </div>
-        }
-      />
+      <SnackbarContent className={classes.error} message={message}/>
     </Snackbar>
   );
 }));

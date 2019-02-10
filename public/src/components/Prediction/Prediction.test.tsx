@@ -1,10 +1,12 @@
 import {mount} from 'enzyme';
 import * as React from 'react';
+import * as ReactDOM from 'react-dom';
 import * as renderer from 'react-test-renderer';
 import {Loader, Prediction} from '../';
 import {ISportEvent} from '../../@types';
 import {scheduleMock} from '../../__mocks__';
 import {userStore} from '../../stores';
+import {PredictionMessage} from './PredictionMessage';
 
 describe('PredictionForm', () => {
   const createPrediction = (isLoaded: boolean, data: ISportEvent[], isSuccessSubmit: boolean) => {
@@ -39,17 +41,12 @@ describe('PredictionForm', () => {
   });
 
   it('should render success message after form submit', () => {
-    const wrapper = mount(createPrediction(true, [], true));
-    expect(wrapper.find('div')).toHaveLength(1);
-  });
-
-  it('should render correctly', () => {
-    const tree = renderer.create(comp).toJSON();
-    expect(tree).toMatchSnapshot();
+    const wrapper = mount(createPrediction(true, scheduleMock, true));
+    expect(wrapper.find(PredictionMessage)).toHaveLength(1);
   });
 
   it('should show message for not logged in user', () => {
-    userStore.isLoggedIn = false;
+    userStore.isLoggedIn = undefined;
     const wrapper = mount(comp);
     expect(wrapper.find('div')).toHaveLength(1);
   });
