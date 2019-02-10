@@ -10,6 +10,7 @@ describe('DataRetriever', () => {
 
   it('should create new instance', () => {
     expect(object).toBeInstanceOf(DataRetriever);
+    expect(array).toBeInstanceOf(DataRetriever);
   });
 
   it('should get data(object)', () => {

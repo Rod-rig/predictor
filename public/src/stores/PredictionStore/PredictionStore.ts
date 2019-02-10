@@ -57,11 +57,16 @@ export class PredictionStore implements IPredictionStore {
         this.isLoaded = this.isLoaded ? this.isLoaded : true;
         this.isFetched = true;
       })
-      .catch(({response}) => {
-        if (response.status === 403) {
-          userStore.logout();
-        }
-      });
+      /* istanbul ignore next */
+      .catch(
+        /* istanbul ignore next */
+        ({response}) => {
+          /* istanbul ignore next */
+          if (response.status === 403) {
+            userStore.logout();
+          }
+        },
+      );
   }
 
   public setCurrentDate(date: string) {

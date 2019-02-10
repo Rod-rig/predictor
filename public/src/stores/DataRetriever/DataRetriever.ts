@@ -19,10 +19,15 @@ export class DataRetriever implements IRetriever {
         this.data = Array.isArray(res.data) ? [...res.data] : {...res.data};
         this.isLoaded = true;
       })
-      .catch(({response}) => {
-        if (response.status === 403) {
-          userStore.logout();
-        }
-      });
+      /* istanbul ignore next */
+      .catch(
+        /* istanbul ignore next */
+        ({response}) => {
+          /* istanbul ignore next */
+          if (response.status === 403) {
+            userStore.logout();
+          }
+        },
+      );
   }
 }

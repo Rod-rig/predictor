@@ -49,4 +49,9 @@ describe('PredictionStore', () => {
     submitSpy();
     expect(submitSpy.mock.calls).toHaveLength(1);
   });
+
+  it('should close succes msg modal', () => {
+    mockStore.closeSuccessMsg();
+    expect(mockStore.isSuccessSubmit).toBeFalsy();
+  });
 });
