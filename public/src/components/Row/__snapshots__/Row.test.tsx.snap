@@ -14,6 +14,18 @@ exports[`Row should render correctly 1`] = `
       <div
         className="Component-info-8"
       >
+        <div
+          className="MuiListItemIcon-root-34"
+        >
+          <div
+            className="MuiAvatar-root-35 Component-logo-33"
+          >
+            <img
+              className="MuiAvatar-img-37"
+              src="https://cdn2.iconfinder.com/data/icons/sport-items-2/512/football_soccer_badge_shield_ball_heraldic-128.png"
+            />
+          </div>
+        </div>
         <span>
           Arsenal
         </span>
@@ -90,6 +102,18 @@ exports[`Row should render correctly 1`] = `
       <div
         className="Component-info-8"
       >
+        <div
+          className="MuiListItemIcon-root-34"
+        >
+          <div
+            className="MuiAvatar-root-35 Component-logo-33"
+          >
+            <img
+              className="MuiAvatar-img-37"
+              src="https://upload.wikimedia.org/wikipedia/en/e/e5/AFC_Bournemouth_%282013%29.svg"
+            />
+          </div>
+        </div>
         <span>
           AFC Bournemouth
         </span>
@@ -166,6 +190,18 @@ exports[`Row should render correctly 1`] = `
       <div
         className="Component-info-8"
       >
+        <div
+          className="MuiListItemIcon-root-34"
+        >
+          <div
+            className="MuiAvatar-root-35 Component-logo-33"
+          >
+            <img
+              className="MuiAvatar-img-37"
+              src="https://upload.wikimedia.org/wikipedia/en/f/fd/Brighton_%26_Hove_Albion_logo.svg"
+            />
+          </div>
+        </div>
         <span>
           Brighton & Hove Albion FC
         </span>
@@ -242,6 +278,18 @@ exports[`Row should render correctly 1`] = `
       <div
         className="Component-info-8"
       >
+        <div
+          className="MuiListItemIcon-root-34"
+        >
+          <div
+            className="MuiAvatar-root-35 Component-logo-33"
+          >
+            <img
+              className="MuiAvatar-img-37"
+              src="https://cdn2.iconfinder.com/data/icons/sport-items-2/512/football_soccer_badge_shield_ball_heraldic-128.png"
+            />
+          </div>
+        </div>
         <span>
           Leeds United
         </span>
@@ -318,6 +366,18 @@ exports[`Row should render correctly 1`] = `
       <div
         className="Component-info-8"
       >
+        <div
+          className="MuiListItemIcon-root-34"
+        >
+          <div
+            className="MuiAvatar-root-35 Component-logo-33"
+          >
+            <img
+              className="MuiAvatar-img-37"
+              src="https://cdn2.iconfinder.com/data/icons/sport-items-2/512/football_soccer_badge_shield_ball_heraldic-128.png"
+            />
+          </div>
+        </div>
         <span>
           Everton
         </span>
@@ -394,6 +454,18 @@ exports[`Row should render correctly 1`] = `
       <div
         className="Component-info-8"
       >
+        <div
+          className="MuiListItemIcon-root-34"
+        >
+          <div
+            className="MuiAvatar-root-35 Component-logo-33"
+          >
+            <img
+              className="MuiAvatar-img-37"
+              src="https://cdn2.iconfinder.com/data/icons/sport-items-2/512/football_soccer_badge_shield_ball_heraldic-128.png"
+            />
+          </div>
+        </div>
         <span>
           Burnley
         </span>

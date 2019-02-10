@@ -9,23 +9,24 @@ exports[`PredictionFilter should render correctly 1`] = `
       className="MuiFormControl-root-5 class_1-control-3"
     >
       <label
-        className="MuiFormLabel-root-16 MuiFormLabel-filled-20 MuiInputLabel-root-9 MuiInputLabel-formControl-10 MuiInputLabel-animated-13 MuiInputLabel-shrink-12"
+        className="MuiFormLabel-root-20 MuiFormLabel-filled-24 MuiInputLabel-root-9 MuiInputLabel-formControl-14 MuiInputLabel-animated-17 MuiInputLabel-shrink-16"
         data-shrink={true}
         htmlFor="date"
       >
         Date
       </label>
       <div
-        className="MuiInputBase-root-43 MuiInput-root-30 MuiInput-underline-34 MuiInputBase-formControl-44 MuiInput-formControl-31"
+        className="MuiInputBase-root-47 MuiInput-root-34 MuiInput-underline-38 MuiInputBase-formControl-48 MuiInput-formControl-35"
         onClick={[Function]}
       >
         <div
-          className="MuiSelect-root-23"
+          className="MuiSelect-root-27"
         >
           <div
             aria-haspopup="true"
             aria-pressed="false"
-            className="MuiSelect-select-24 MuiSelect-selectMenu-27 MuiInputBase-input-53 MuiInput-input-38"
+            className="MuiSelect-select-28 MuiSelect-selectMenu-31 MuiInputBase-input-57 MuiInput-input-42"
+            id="select-date"
             onBlur={[Function]}
             onClick={[Function]}
             onFocus={[Function]}
@@ -49,7 +50,7 @@ exports[`PredictionFilter should render correctly 1`] = `
           />
           <svg
             aria-hidden="true"
-            className="MuiSvgIcon-root-60 MuiSelect-icon-29"
+            className="MuiSvgIcon-root-64 MuiSelect-icon-33"
             focusable="false"
             role="presentation"
             viewBox="0 0 24 24"
@@ -62,10 +63,11 @@ exports[`PredictionFilter should render correctly 1`] = `
       </div>
     </div>
     <button
-      className="MuiButtonBase-root-99 MuiButton-root-73 MuiButton-contained-84 MuiButton-containedSecondary-86 MuiButton-raised-87 MuiButton-raisedSecondary-89 MuiButton-sizeSmall-96 class_1-btn-1"
+      className="MuiButtonBase-root-103 MuiButton-root-77 MuiButton-contained-88 MuiButton-containedSecondary-90 MuiButton-raised-91 MuiButton-raisedSecondary-93 MuiButton-sizeSmall-100 class_1-btn-1"
       disabled={false}
       onBlur={[Function]}
       onClick={[Function]}
+      onContextMenu={[Function]}
       onFocus={[Function]}
       onKeyDown={[Function]}
       onKeyUp={[Function]}
@@ -79,11 +81,11 @@ exports[`PredictionFilter should render correctly 1`] = `
       type="button"
     >
       <span
-        className="MuiButton-label-74"
+        className="MuiButton-label-78"
       >
         <svg
           aria-hidden="true"
-          className="MuiSvgIcon-root-60 class_1-btnIcon-2"
+          className="MuiSvgIcon-root-64 class_1-btnIcon-2"
           focusable="false"
           role="presentation"
           viewBox="0 0 24 24"
@@ -96,10 +98,10 @@ exports[`PredictionFilter should render correctly 1`] = `
             fill="none"
           />
         </svg>
-        Filter
+        Show
       </span>
       <span
-        className="MuiTouchRipple-root-102"
+        className="MuiTouchRipple-root-106"
       />
     </button>
   </div>

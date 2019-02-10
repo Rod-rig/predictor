@@ -13,6 +13,7 @@ exports[`Header should render correctly 1`] = `
       disabled={false}
       onBlur={[Function]}
       onClick={[Function]}
+      onContextMenu={[Function]}
       onFocus={[Function]}
       onKeyDown={[Function]}
       onKeyUp={[Function]}
@@ -45,7 +46,7 @@ exports[`Header should render correctly 1`] = `
         </svg>
       </span>
       <span
-        className="MuiTouchRipple-root-104"
+        className="MuiTouchRipple-root-105"
       />
     </button>
     <div
@@ -70,6 +71,7 @@ exports[`Header should render correctly 1`] = `
         disabled={false}
         onBlur={[Function]}
         onClick={[Function]}
+        onContextMenu={[Function]}
         onFocus={[Function]}
         onKeyDown={[Function]}
         onKeyUp={[Function]}
@@ -102,7 +104,7 @@ exports[`Header should render correctly 1`] = `
           </svg>
         </span>
         <span
-          className="MuiTouchRipple-root-104"
+          className="MuiTouchRipple-root-105"
         />
       </button>
     </div>

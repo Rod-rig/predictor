@@ -2,7 +2,7 @@
 
 exports[`Stats should render empty stats comp correctly 1`] = `
 <div
-  className="MuiCircularProgress-root-35 Component-root-34 MuiCircularProgress-colorPrimary-38 MuiCircularProgress-indeterminate-37"
+  className="MuiCircularProgress-root-40 Component-root-39 MuiCircularProgress-colorPrimary-43 MuiCircularProgress-indeterminate-42"
   role="progressbar"
   style={
     Object {
@@ -12,11 +12,11 @@ exports[`Stats should render empty stats comp correctly 1`] = `
   }
 >
   <svg
-    className="MuiCircularProgress-svg-40"
+    className="MuiCircularProgress-svg-45"
     viewBox="22 22 44 44"
   >
     <circle
-      className="MuiCircularProgress-circle-41 MuiCircularProgress-circleIndeterminate-43"
+      className="MuiCircularProgress-circle-46 MuiCircularProgress-circleIndeterminate-48"
       cx={44}
       cy={44}
       fill="none"
@@ -31,8 +31,9 @@ exports[`Stats should render empty stats comp correctly 1`] = `
 exports[`Stats should render stats correctly 1`] = `
 <div>
   <div
-    className="MuiButtonBase-root-18 MuiListItem-root-7 MuiListItem-default-10 MuiListItem-gutters-14 MuiListItem-divider-13 MuiListItem-button-15"
+    className="MuiButtonBase-root-18 MuiListItem-root-6 MuiListItem-default-9 MuiListItem-gutters-14 MuiListItem-divider-13 MuiListItem-button-15"
     onBlur={[Function]}
+    onContextMenu={[Function]}
     onFocus={[Function]}
     onKeyDown={[Function]}
     onKeyUp={[Function]}
@@ -46,14 +47,26 @@ exports[`Stats should render stats correctly 1`] = `
     tabIndex="0"
   >
     <div
-      className="MuiListItemText-root-21 Component-text-6 Component-right-4"
+      className="MuiListItemText-root-21 Component-text-5 Component-right-3"
     >
       <div>
         Newcastle United
       </div>
+      <div
+        className="MuiListItemIcon-root-28 Component-icon-2"
+      >
+        <div
+          className="MuiAvatar-root-29 Component-logo-27"
+        >
+          <img
+            className="MuiAvatar-img-31"
+            src="https://upload.wikimedia.org/wikipedia/en/5/56/Newcastle_United_Logo.svg"
+          />
+        </div>
+      </div>
     </div>
     <div
-      className="Component-score-5"
+      className="Component-score-4"
     >
       <div>
         2
@@ -68,19 +81,32 @@ exports[`Stats should render stats correctly 1`] = `
       </div>
     </div>
     <div
-      className="MuiListItemText-root-21 Component-text-6"
+      className="MuiListItemText-root-21 Component-text-5"
     >
+      <div
+        className="MuiListItemIcon-root-28"
+      >
+        <div
+          className="MuiAvatar-root-29 Component-logo-27"
+        >
+          <img
+            className="MuiAvatar-img-31"
+            src="https://upload.wikimedia.org/wikipedia/en/b/b4/Tottenham_Hotspur.svg"
+          />
+        </div>
+      </div>
       <div>
         Tottenham Hotspur
       </div>
     </div>
     <span
-      className="MuiTouchRipple-root-27"
+      className="MuiTouchRipple-root-32"
     />
   </div>
   <div
-    className="MuiButtonBase-root-18 MuiListItem-root-7 MuiListItem-default-10 MuiListItem-gutters-14 MuiListItem-divider-13 MuiListItem-button-15"
+    className="MuiButtonBase-root-18 MuiListItem-root-6 MuiListItem-default-9 MuiListItem-gutters-14 MuiListItem-divider-13 MuiListItem-button-15"
     onBlur={[Function]}
+    onContextMenu={[Function]}
     onFocus={[Function]}
     onKeyDown={[Function]}
     onKeyUp={[Function]}
@@ -94,14 +120,26 @@ exports[`Stats should render stats correctly 1`] = `
     tabIndex="0"
   >
     <div
-      className="MuiListItemText-root-21 Component-text-6 Component-right-4"
+      className="MuiListItemText-root-21 Component-text-5 Component-right-3"
     >
       <div>
         Liverpool FC
       </div>
+      <div
+        className="MuiListItemIcon-root-28 Component-icon-2"
+      >
+        <div
+          className="MuiAvatar-root-29 Component-logo-27"
+        >
+          <img
+            className="MuiAvatar-img-31"
+            src="https://upload.wikimedia.org/wikipedia/en/0/0c/Liverpool_FC.svg"
+          />
+        </div>
+      </div>
     </div>
     <div
-      className="Component-score-5"
+      className="Component-score-4"
     >
       <div>
         1
@@ -116,19 +154,32 @@ exports[`Stats should render stats correctly 1`] = `
       </div>
     </div>
     <div
-      className="MuiListItemText-root-21 Component-text-6"
+      className="MuiListItemText-root-21 Component-text-5"
     >
+      <div
+        className="MuiListItemIcon-root-28"
+      >
+        <div
+          className="MuiAvatar-root-29 Component-logo-27"
+        >
+          <img
+            className="MuiAvatar-img-31"
+            src="https://upload.wikimedia.org/wikipedia/en/c/c2/West_Ham_United_FC_logo.svg"
+          />
+        </div>
+      </div>
       <div>
         West Ham United
       </div>
     </div>
     <span
-      className="MuiTouchRipple-root-27"
+      className="MuiTouchRipple-root-32"
     />
   </div>
   <div
-    className="MuiButtonBase-root-18 MuiListItem-root-7 MuiListItem-default-10 MuiListItem-gutters-14 MuiListItem-divider-13 MuiListItem-button-15"
+    className="MuiButtonBase-root-18 MuiListItem-root-6 MuiListItem-default-9 MuiListItem-gutters-14 MuiListItem-divider-13 MuiListItem-button-15"
     onBlur={[Function]}
+    onContextMenu={[Function]}
     onFocus={[Function]}
     onKeyDown={[Function]}
     onKeyUp={[Function]}
@@ -142,14 +193,26 @@ exports[`Stats should render stats correctly 1`] = `
     tabIndex="0"
   >
     <div
-      className="MuiListItemText-root-21 Component-text-6 Component-right-4"
+      className="MuiListItemText-root-21 Component-text-5 Component-right-3"
     >
       <div>
         Wolverhampton Wanderers
       </div>
+      <div
+        className="MuiListItemIcon-root-28 Component-icon-2"
+      >
+        <div
+          className="MuiAvatar-root-29 Component-logo-27"
+        >
+          <img
+            className="MuiAvatar-img-31"
+            src="https://upload.wikimedia.org/wikipedia/en/f/fc/Wolverhampton_Wanderers.svg"
+          />
+        </div>
+      </div>
     </div>
     <div
-      className="Component-score-5"
+      className="Component-score-4"
     >
       <div>
         6
@@ -164,19 +227,32 @@ exports[`Stats should render stats correctly 1`] = `
       </div>
     </div>
     <div
-      className="MuiListItemText-root-21 Component-text-6"
+      className="MuiListItemText-root-21 Component-text-5"
     >
+      <div
+        className="MuiListItemIcon-root-28"
+      >
+        <div
+          className="MuiAvatar-root-29 Component-logo-27"
+        >
+          <img
+            className="MuiAvatar-img-31"
+            src="https://upload.wikimedia.org/wikipedia/en/e/eb/Manchester_City_FC_badge.svg"
+          />
+        </div>
+      </div>
       <div>
         Manchester City
       </div>
     </div>
     <span
-      className="MuiTouchRipple-root-27"
+      className="MuiTouchRipple-root-32"
     />
   </div>
   <div
-    className="MuiButtonBase-root-18 MuiListItem-root-7 MuiListItem-default-10 MuiListItem-gutters-14 MuiListItem-divider-13 MuiListItem-button-15"
+    className="MuiButtonBase-root-18 MuiListItem-root-6 MuiListItem-default-9 MuiListItem-gutters-14 MuiListItem-divider-13 MuiListItem-button-15"
     onBlur={[Function]}
+    onContextMenu={[Function]}
     onFocus={[Function]}
     onKeyDown={[Function]}
     onKeyUp={[Function]}
@@ -190,14 +266,26 @@ exports[`Stats should render stats correctly 1`] = `
     tabIndex="0"
   >
     <div
-      className="MuiListItemText-root-21 Component-text-6 Component-right-4"
+      className="MuiListItemText-root-21 Component-text-5 Component-right-3"
     >
       <div>
         Cardiff City
       </div>
+      <div
+        className="MuiListItemIcon-root-28 Component-icon-2"
+      >
+        <div
+          className="MuiAvatar-root-29 Component-logo-27"
+        >
+          <img
+            className="MuiAvatar-img-31"
+            src="https://upload.wikimedia.org/wikipedia/en/3/3c/Cardiff_City_crest.svg"
+          />
+        </div>
+      </div>
     </div>
     <div
-      className="Component-score-5"
+      className="Component-score-4"
     >
       <div>
         1
@@ -212,14 +300,26 @@ exports[`Stats should render stats correctly 1`] = `
       </div>
     </div>
     <div
-      className="MuiListItemText-root-21 Component-text-6"
+      className="MuiListItemText-root-21 Component-text-5"
     >
+      <div
+        className="MuiListItemIcon-root-28"
+      >
+        <div
+          className="MuiAvatar-root-29 Component-logo-27"
+        >
+          <img
+            className="MuiAvatar-img-31"
+            src="https://upload.wikimedia.org/wikipedia/en/e/eb/Fulham_FC_%28shield%29.svg"
+          />
+        </div>
+      </div>
       <div>
         Fulham FC
       </div>
     </div>
     <span
-      className="MuiTouchRipple-root-27"
+      className="MuiTouchRipple-root-32"
     />
   </div>
 </div>
