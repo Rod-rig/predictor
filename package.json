@@ -75,7 +75,8 @@
   },
   "lint-staged": {
     "*.{js,json,css,md}": [
-      "prettier --write"
+      "prettier --write",
+      "git add"
     ]
   },
   "devDependencies": {
