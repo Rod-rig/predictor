@@ -18,7 +18,7 @@ class RegistrationStore implements IRegistration {
   @action.bound
   public handleSubmit(event: Event) {
     event.preventDefault();
-    axios.post('/users', this.user).then(() => {
+    axios.post('/register', this.user).then(() => {
       userStore.isLoggedIn = true;
       userStore.name = this.user.name;
     });

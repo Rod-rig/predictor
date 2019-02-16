@@ -1,12 +1,25 @@
-const mongoose = require('mongoose');
+const mongoose = require("mongoose");
+const validator = require("validator");
+const msg = require("../messages");
 
 const UserSchema = new mongoose.Schema({
-  email: String,
-  name: String,
+  email: {
+    type: String,
+    unique: true,
+    lowercase: true,
+    trim: true,
+    validate: [validator.isEmail, msg.emailValidationErr],
+    required: msg.emailRequired,
+  },
+  name: {
+    type: String,
+    required: msg.nameRequired,
+    trim: true,
+  },
   password: String,
   predictions: Array,
 });
 
-const User = mongoose.model('User', UserSchema);
+const User = mongoose.model("User", UserSchema);
 
 module.exports = User;

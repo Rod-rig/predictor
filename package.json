@@ -1,6 +1,6 @@
 {
   "name": "predictor",
-  "version": "0.3.15",
+  "version": "0.3.16",
   "main": "public/src/index.tsx",
   "license": "MIT",
   "scripts": {
@@ -68,6 +68,9 @@
       "node"
     ]
   },
+  "prettier": {
+    "trailingComma": "all"
+  },
   "husky": {
     "hooks": {
       "pre-commit": "lint-staged"
@@ -124,6 +127,7 @@
     "react-dom": "^16.8.1",
     "react-router-dom": "^4.3.1",
     "react-test-renderer": "^16.8.1",
-    "uuid": "^3.3.2"
+    "uuid": "^3.3.2",
+    "validator": "^10.11.0"
   }
 }
