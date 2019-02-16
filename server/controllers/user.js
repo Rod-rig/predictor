@@ -73,3 +73,12 @@ exports.register = (req, res, next) => {
     User.create(user, next);
   });
 };
+
+exports.isUniqueUser = (req, res, next) => {
+  const { name, email } = req.body;
+  User.find({ $or: [{ name }, { email }] }, (err, users) => {
+    console.log(users);
+    if (err || users.length >= 1) return res.status(500).send(msg.userExists);
+    next();
+  });
+};

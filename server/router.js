@@ -18,7 +18,12 @@ module.exports = app => {
   app.post("/login", userController.login);
   app.get("/logout", userController.logout);
   app.get("/is-logged-in", userController.isLoggedIn);
-  app.post("/register", userController.register, userController.login);
+  app.post(
+    "/register",
+    userController.isUniqueUser,
+    userController.register,
+    userController.login,
+  );
 
   //predictions
   app.get("/predictions", userController.verify, predictionController.all);

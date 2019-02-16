@@ -8,4 +8,5 @@ module.exports = {
   emailValidationErr: "Invalid email address",
   emailRequired: "Please add your email address",
   nameRequired: "Please add your name",
+  userExists: "User with these credentials is already registered",
 };
