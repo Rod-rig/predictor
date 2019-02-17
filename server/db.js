@@ -1,7 +1,7 @@
-const mongoose = require('mongoose');
+const mongoose = require("mongoose");
 
 let state = {
-  db: null
+  db: null,
 };
 
 module.exports.connect = (url, done) => {
@@ -9,12 +9,13 @@ module.exports.connect = (url, done) => {
     done();
   }
 
-  mongoose.connect(url, {useNewUrlParser: true, dbName: process.env.DB_NAME})
+  mongoose
+    .connect(url, { useNewUrlParser: true, dbName: process.env.DB_NAME })
     .then(() => {
       state.db = process.env.DB_NAME;
       done();
     })
-    .catch((err) => done(err));
+    .catch(err => done(err));
 };
 
 module.exports.get = () => {

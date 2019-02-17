@@ -1,6 +1,6 @@
-const config = require('./webpack.common.config');
+const config = require("./webpack.common.config");
 
 module.exports = Object.assign({}, config, {
-  mode: 'development',
-  devtool: 'source-map'
+  mode: "development",
+  devtool: "source-map",
 });

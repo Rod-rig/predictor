@@ -1,27 +1,27 @@
-const path = require('path');
+const path = require("path");
 
 module.exports = {
-  entry: './public/src/index.tsx',
+  entry: "./public/src/index.tsx",
   output: {
-    path: path.resolve(__dirname, './public/dist'),
-    filename: 'bundle.js',
-    publicPath: '/dist'
+    path: path.resolve(__dirname, "./public/dist"),
+    filename: "bundle.js",
+    publicPath: "/dist",
   },
   module: {
     rules: [
       {
         test: /\.tsx?$/,
-        loader: 'ts-loader',
+        loader: "ts-loader",
       },
       {
-        enforce: 'pre',
+        enforce: "pre",
         test: /\.js$/,
-        loader: 'source-map-loader'
-      }
-    ]
+        loader: "source-map-loader",
+      },
+    ],
   },
   resolve: {
-    extensions: ['.ts', '.tsx', '.js', '.json'],
-    modules: ['node_modules']
-  }
+    extensions: [".ts", ".tsx", ".js", ".json"],
+    modules: ["node_modules"],
+  },
 };

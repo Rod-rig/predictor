@@ -1,5 +1,6 @@
 .idea/
 .vscode/
 coverage/
+data/
 public/dist/
 node_modules/

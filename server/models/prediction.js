@@ -1,4 +1,4 @@
-const mongoose = require('mongoose');
+const mongoose = require("mongoose");
 
 const PredictionSchema = new mongoose.Schema({
   id: String,
@@ -8,6 +8,6 @@ const PredictionSchema = new mongoose.Schema({
   homeTeam: String,
 });
 
-const Prediction = mongoose.model('Prediction', PredictionSchema);
+const Prediction = mongoose.model("Prediction", PredictionSchema);
 
 module.exports = Prediction;

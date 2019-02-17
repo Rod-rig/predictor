@@ -1,7 +1,7 @@
-const tournamentListMock = require('../config/mocks/tournamentListMock');
-const tableMock = require('../config/mocks/tableMock');
-const resultsMock = require('../config/mocks/resultsMock');
-const scheduleMock = require('../config/mocks/scheduleMock');
+const tournamentListMock = require("../config/mocks/tournamentListMock");
+const tableMock = require("../config/mocks/tableMock");
+const resultsMock = require("../config/mocks/resultsMock");
+const scheduleMock = require("../config/mocks/scheduleMock");
 
 module.exports.getAllTournaments = (req, res) => {
   res.status(200).send(tournamentListMock);
@@ -16,5 +16,5 @@ module.exports.getResults = (req, res) => {
 };
 
 module.exports.getSchedule = (req, res) => {
-  res.status(200).send({sport_events: scheduleMock});
+  res.status(200).send({ sport_events: scheduleMock });
 };
