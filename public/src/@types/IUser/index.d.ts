@@ -12,7 +12,7 @@ export interface IUser {
 export interface ILogin {
   handleChange: (field: keyof IUser, event: any) => void;
   handleSubmit: (event: any) => void;
-  isSnackbarOpen: boolean;
+  hasError: boolean;
   user: IUser;
 }
 
@@ -24,5 +24,6 @@ export interface IRegistrationProps {
 export interface IRegistration {
   handleChange: (field: keyof IUser, event: any) => void;
   handleSubmit: (event: any) => void;
+  hasError: boolean;
   user: IUser;
 }

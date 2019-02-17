@@ -1,18 +1,18 @@
-import axios from 'axios';
-import {action, observable} from 'mobx';
-import {ILogin, IUser} from '../../@types';
-import {userStore} from '../UserStore';
+import axios from "axios";
+import { action, observable } from "mobx";
+import { ILogin, IUser } from "../../@types";
+import { userStore } from "../UserStore";
 
 class LoginStore implements ILogin {
-  @observable public isSnackbarOpen: boolean = false;
+  @observable public hasError: boolean = false;
   @observable public user: IUser = {
-    name: '',
-    password: '',
+    name: "",
+    password: "",
   };
 
   @action.bound
-  public toggleSnackbar() {
-    this.isSnackbarOpen = !this.isSnackbarOpen;
+  public closeSnackbar() {
+    this.hasError = false;
   }
 
   @action.bound
@@ -23,13 +23,16 @@ class LoginStore implements ILogin {
   @action.bound
   public handleSubmit(event: any) {
     event.preventDefault();
-    axios.post('/login', this.user).then(() => {
-      userStore.isLoggedIn = true;
-      userStore.name = this.user.name;
-      this.isSnackbarOpen = false;
-    }).catch(() => {
-      this.isSnackbarOpen = true;
-    });
+    axios
+      .post("/login", this.user)
+      .then(() => {
+        userStore.isLoggedIn = true;
+        userStore.name = this.user.name;
+        this.hasError = false;
+      })
+      .catch(() => {
+        this.hasError = true;
+      });
   }
 }
 
