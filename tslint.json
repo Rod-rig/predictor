@@ -1,17 +1,6 @@
 {
-  "defaultSeverity": "warning",
-  "extends": [
-    "tslint:latest",
-    "tslint-react"
-  ],
-  "jsRules": {
-    "quotemark": false
-  },
+  "extends": ["tslint:latest", "tslint-react", "tslint-config-prettier"],
   "rules": {
-    "quotemark": false,
-    "jsx-no-multiline-js": false,
-    "no-var-requires": false,
-    "no-submodule-imports": ["material-ui"]
-  },
-  "rulesDirectory": []
+    "no-submodule-imports": [true, "@material-ui"]
+  }
 }

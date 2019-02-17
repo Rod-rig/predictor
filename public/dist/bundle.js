@@ -83523,11 +83523,11 @@ exports.Login = core_1.withStyles(styles)(mobx_react_1.observer(/** @class */ (f
     class_1.prototype.render = function () {
         var _a = this.props, classes = _a.classes, store = _a.store;
         return !stores_1.userStore.isLoggedIn ? (React.createElement(core_1.Paper, { classes: { root: classes.paper } },
-            React.createElement("form", { onSubmit: store.handleSubmit, autoComplete: 'off' },
-                React.createElement(core_1.TextField, { id: 'name', required: true, fullWidth: true, label: dict_1.dict.name, value: store.user.name, onChange: store.handleChange.bind(this, 'name'), margin: 'normal', autoFocus: true }),
-                React.createElement(core_1.TextField, { id: 'password', required: true, fullWidth: true, label: dict_1.dict.password, value: store.user.password, onChange: store.handleChange.bind(this, 'password'), margin: 'normal', type: 'password' }),
-                React.createElement(core_1.Button, { disabled: store.user.name.length < 1 || store.user.password.length < 1, type: 'submit', variant: 'contained', color: 'secondary' }, dict_1.dict.login)),
-            React.createElement(__1.Message, { onClose: stores_1.loginStore.closeSnackbar, open: stores_1.loginStore.hasError, text: dict_1.dict.login_error_msg }))) : (React.createElement(react_router_dom_1.Redirect, { to: '/' }));
+            React.createElement("form", { onSubmit: store.handleSubmit, autoComplete: "off" },
+                React.createElement(core_1.TextField, { id: "name", required: true, fullWidth: true, label: dict_1.dict.name, value: store.user.name, onChange: store.handleChange.bind(this, "name"), margin: "normal", autoFocus: true }),
+                React.createElement(core_1.TextField, { id: "password", required: true, fullWidth: true, label: dict_1.dict.password, value: store.user.password, onChange: store.handleChange.bind(this, "password"), margin: "normal", type: "password" }),
+                React.createElement(core_1.Button, { disabled: store.user.name.length < 1 || store.user.password.length < 1, type: "submit", variant: "contained", color: "secondary" }, dict_1.dict.login)),
+            React.createElement(__1.Message, { onClose: stores_1.loginStore.closeSnackbar, open: stores_1.loginStore.hasError, text: dict_1.dict.login_error_msg }))) : (React.createElement(react_router_dom_1.Redirect, { to: "/" }));
     };
     return class_1;
 }(React.Component))));
@@ -83821,8 +83821,8 @@ var styles = function (_a) {
             backgroundColor: palette.error.dark,
         },
         msg: {
-            alignItems: 'center',
-            display: 'flex',
+            alignItems: "center",
+            display: "flex",
         },
         text: {
             fontSize: typography.subtitle1.fontSize,
@@ -83836,8 +83836,8 @@ exports.Message = core_1.withStyles(styles)(function (props) {
         React.createElement(Error_1.default, null),
         React.createElement("span", { className: classes.text }, text)));
     return (React.createElement(core_1.Snackbar, { anchorOrigin: {
-            horizontal: 'left',
-            vertical: 'bottom',
+            horizontal: "left",
+            vertical: "bottom",
         }, autoHideDuration: 3000, onClose: onClose, open: open },
         React.createElement(core_1.SnackbarContent, { className: classes.error, message: message })));
 });
@@ -84454,12 +84454,12 @@ exports.Registration = core_1.withStyles(styles)(mobx_react_1.observer(/** @clas
         var _a = this.props, classes = _a.classes, store = _a.store;
         var _b = store.user, email = _b.email, name = _b.name, password = _b.password;
         return !stores_1.userStore.isLoggedIn ? (React.createElement(core_1.Paper, { classes: { root: classes.paper } },
-            React.createElement("form", { onSubmit: store.handleSubmit, autoComplete: 'off' },
-                React.createElement(core_1.TextField, { id: 'name', required: true, fullWidth: true, label: dict_1.dict.name, value: name, onChange: store.handleChange.bind(this, 'name'), margin: 'normal', autoFocus: true }),
-                React.createElement(core_1.TextField, { id: 'email', required: true, fullWidth: true, label: dict_1.dict.email, value: email, onChange: store.handleChange.bind(this, 'email'), margin: 'normal', type: 'email' }),
-                React.createElement(core_1.TextField, { id: 'password', required: true, fullWidth: true, label: dict_1.dict.password, value: password, onChange: store.handleChange.bind(this, 'password'), margin: 'normal', type: 'password' }),
-                React.createElement(core_1.Button, { disabled: email.length < 1 || name.length < 1 || password.length < 1, type: 'submit', variant: 'contained', color: 'secondary' }, dict_1.dict.register)),
-            React.createElement(__1.Message, { onClose: stores_1.registrationStore.closeSnackbar, open: stores_1.registrationStore.hasError, text: dict_1.dict.registrationError }))) : (React.createElement(react_router_dom_1.Redirect, { to: '/' }));
+            React.createElement("form", { onSubmit: store.handleSubmit, autoComplete: "off" },
+                React.createElement(core_1.TextField, { id: "name", required: true, fullWidth: true, label: dict_1.dict.name, value: name, onChange: store.handleChange.bind(this, "name"), margin: "normal", autoFocus: true }),
+                React.createElement(core_1.TextField, { id: "email", required: true, fullWidth: true, label: dict_1.dict.email, value: email, onChange: store.handleChange.bind(this, "email"), margin: "normal", type: "email" }),
+                React.createElement(core_1.TextField, { id: "password", required: true, fullWidth: true, label: dict_1.dict.password, value: password, onChange: store.handleChange.bind(this, "password"), margin: "normal", type: "password" }),
+                React.createElement(core_1.Button, { disabled: email.length < 1 || name.length < 1 || password.length < 1, type: "submit", variant: "contained", color: "secondary" }, dict_1.dict.register)),
+            React.createElement(__1.Message, { onClose: stores_1.registrationStore.closeSnackbar, open: stores_1.registrationStore.hasError, text: dict_1.dict.registrationError }))) : (React.createElement(react_router_dom_1.Redirect, { to: "/" }));
     };
     return class_1;
 }(React.Component))));
@@ -85507,38 +85507,38 @@ exports.tournamentsLogo = {
 
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.dict = {
-    continueText: 'continue',
-    draw: 'draw',
-    email: 'Email',
-    fixtures: 'Fixtures',
-    goal_diff: 'GD',
-    goals_against: 'GA',
-    goals_for: 'GF',
-    header_menu_account_link: 'My account',
-    header_menu_stat_link: 'My stats',
-    login: 'Login',
-    login_error_msg: 'Wrong credentials',
-    logout: 'Logout',
-    loss: 'loss',
-    name: 'Name',
-    noAvailablePredictionMatches: 'No available matches for predictions on this date. Please choose another date.',
-    notFoundText: 'Not found',
-    password: 'Password',
-    played: 'played',
-    points: 'points',
-    prediction: 'Prediction',
-    prediction_submit_btn: 'Show',
-    rank: 'rank',
-    register: 'Register',
-    registrationError: 'User with these credentials is already registered',
-    results: 'Results',
-    sidebar_menu_prediction: 'Predictions',
-    submit_btn_text: 'Submit',
-    success: 'Success',
-    table: 'Table',
-    team: 'team',
-    tournament_card_more: 'Learn more',
-    win: 'win',
+    continueText: "continue",
+    draw: "draw",
+    email: "Email",
+    fixtures: "Fixtures",
+    goal_diff: "GD",
+    goals_against: "GA",
+    goals_for: "GF",
+    header_menu_account_link: "My account",
+    header_menu_stat_link: "My stats",
+    login: "Login",
+    login_error_msg: "Wrong credentials",
+    logout: "Logout",
+    loss: "loss",
+    name: "Name",
+    noAvailablePredictionMatches: "No available matches for predictions on this date. Please choose another date.",
+    notFoundText: "Not found",
+    password: "Password",
+    played: "played",
+    points: "points",
+    prediction: "Prediction",
+    prediction_submit_btn: "Show",
+    rank: "rank",
+    register: "Register",
+    registrationError: "User with these credentials is already registered",
+    results: "Results",
+    sidebar_menu_prediction: "Predictions",
+    submit_btn_text: "Submit",
+    success: "Success",
+    table: "Table",
+    team: "team",
+    tournament_card_more: "Learn more",
+    win: "win",
 };
 
 
@@ -85947,8 +85947,8 @@ var LoginStore = /** @class */ (function () {
     function LoginStore() {
         this.hasError = false;
         this.user = {
-            name: '',
-            password: '',
+            name: "",
+            password: "",
         };
     }
     LoginStore.prototype.closeSnackbar = function () {
@@ -85960,11 +85960,14 @@ var LoginStore = /** @class */ (function () {
     LoginStore.prototype.handleSubmit = function (event) {
         var _this = this;
         event.preventDefault();
-        axios_1.default.post('/login', this.user).then(function () {
+        axios_1.default
+            .post("/login", this.user)
+            .then(function () {
             UserStore_1.userStore.isLoggedIn = true;
             UserStore_1.userStore.name = _this.user.name;
             _this.hasError = false;
-        }).catch(function () {
+        })
+            .catch(function () {
             _this.hasError = true;
         });
     };
@@ -86171,9 +86174,9 @@ var RegistrationStore = /** @class */ (function () {
     function RegistrationStore() {
         this.hasError = false;
         this.user = {
-            email: '',
-            name: '',
-            password: '',
+            email: "",
+            name: "",
+            password: "",
         };
     }
     RegistrationStore.prototype.closeSnackbar = function () {
@@ -86185,11 +86188,14 @@ var RegistrationStore = /** @class */ (function () {
     RegistrationStore.prototype.handleSubmit = function (event) {
         var _this = this;
         event.preventDefault();
-        axios_1.default.post('/register', this.user).then(function () {
+        axios_1.default
+            .post("/register", this.user)
+            .then(function () {
             UserStore_1.userStore.isLoggedIn = true;
             UserStore_1.userStore.name = _this.user.name;
             _this.hasError = false;
-        }).catch(function () {
+        })
+            .catch(function () {
             _this.hasError = true;
         });
     };
