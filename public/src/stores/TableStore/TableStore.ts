@@ -1,7 +1,13 @@
-import axios, {AxiosResponse} from 'axios';
-import {action, observable} from 'mobx';
-import {IGroup, ITable, ITableProps, OrderType, RangeType} from '../../@types';
-import {rangeData} from '../../helpers';
+import axios, { AxiosResponse } from "axios";
+import { action, observable } from "mobx";
+import {
+  IGroup,
+  ITable,
+  ITableProps,
+  OrderType,
+  RangeType,
+} from "../../@types";
+import { rangeData } from "../../helpers";
 
 export class TableStore implements ITable {
   public id: string;
@@ -27,9 +33,9 @@ export class TableStore implements ITable {
   public sortHandler(index: number, sortName: string) {
     let newOrder: OrderType;
     if (this.table[index].order) {
-      newOrder = this.table[index].order === 'asc' ? 'desc' : 'asc';
+      newOrder = this.table[index].order === "asc" ? "desc" : "asc";
     } else {
-      newOrder = this.order ? this.order : 'asc';
+      newOrder = this.order ? this.order : "asc";
       this.table[index].order = newOrder;
     }
     this.setSort(index, sortName);
@@ -40,8 +46,9 @@ export class TableStore implements ITable {
   @action.bound
   private sortTable(index: number, order: OrderType, sortName: string) {
     this.table[index].team_standings = this.table[index].team_standings
-      .slice().sort((a: any, b: any) => {
-        if (order === 'asc') {
+      .slice()
+      .sort((a: any, b: any) => {
+        if (order === "asc") {
           return a[sortName] - b[sortName];
         } else {
           return b[sortName] - a[sortName];
@@ -60,19 +67,25 @@ export class TableStore implements ITable {
   }
 
   private fetchTable() {
-    axios.get(this.url)
-      .then((res: AxiosResponse) => {
-        const {standings, tournament} = res.data;
-        this.table = this.range && standings[0].groups.length === 1 ?
-          [...rangeData(standings[0].groups[0].team_standings, this.range[0], this.range[1])] :
-          [...standings[0].groups];
-        if (this.sortName) {
-          this.table.forEach((item, index) => {
-            this.sortHandler(index, this.sortName);
-          });
-        }
-        this.title = tournament.name;
-        this.isLoaded = true;
-      });
+    axios.get(this.url).then((res: AxiosResponse) => {
+      const { standings, tournament } = res.data;
+      this.table =
+        this.range && standings[0].groups.length === 1
+          ? [
+              ...rangeData(
+                standings[0].groups[0].team_standings,
+                this.range[0],
+                this.range[1],
+              ),
+            ]
+          : [...standings[0].groups];
+      if (this.sortName) {
+        this.table.forEach((item, index) => {
+          this.sortHandler(index, this.sortName);
+        });
+      }
+      this.title = tournament.name;
+      this.isLoaded = true;
+    });
   }
 }

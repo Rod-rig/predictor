@@ -1,11 +1,11 @@
-import {mount} from 'enzyme';
-import * as React from 'react';
-import * as renderer from 'react-test-renderer';
-import {Loader, MatchList} from '../';
-import {matchListMock} from '../../__mocks__';
+import { mount } from "enzyme";
+import * as React from "react";
+import * as renderer from "react-test-renderer";
+import { Loader, MatchList } from "../";
+import { matchListMock } from "../../__mocks__";
 
-describe('MatchList', () => {
-  it('should render loader', () => {
+describe("MatchList", () => {
+  it("should render loader", () => {
     const notRenderedComp = mount(
       <MatchList
         store={{
@@ -13,13 +13,14 @@ describe('MatchList', () => {
             results: undefined,
           },
           isLoaded: false,
-          url: 'test',
+          url: "test",
         }}
-      />);
+      />,
+    );
     expect(notRenderedComp.find(Loader)).toHaveLength(1);
   });
 
-  it('should render correctly', () => {
+  it("should render correctly", () => {
     const comp = (
       <MatchList
         store={{
@@ -27,9 +28,10 @@ describe('MatchList', () => {
             results: matchListMock.results,
           },
           isLoaded: true,
-          url: 'test',
+          url: "test",
         }}
-      />);
+      />
+    );
     const tree = renderer.create(comp).toJSON();
     expect(tree).toMatchSnapshot();
   });

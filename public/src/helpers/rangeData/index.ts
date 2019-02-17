@@ -1,1 +1,1 @@
-export * from './rangeData';
+export * from "./rangeData";

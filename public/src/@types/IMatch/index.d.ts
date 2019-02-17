@@ -1,4 +1,4 @@
-import {ISeason, ITournament} from '../';
+import { ISeason, ITournament } from "../";
 
 interface ICompetitor {
   abbreviation: string;
@@ -33,9 +33,9 @@ interface ISportEvent {
     name?: string;
     number?: number;
     type: string;
-    group?: string,
+    group?: string;
     other_match_id?: string;
-    tournament_match_number?: number,
+    tournament_match_number?: number;
   };
   venue: IVenue;
 }

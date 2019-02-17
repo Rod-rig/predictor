@@ -1,5 +1,5 @@
-import axios, {AxiosResponse} from 'axios';
-import {action, observable} from 'mobx';
+import axios, { AxiosResponse } from "axios";
+import { action, observable } from "mobx";
 
 class UserStore {
   @observable public isLoggedIn: boolean | undefined;
@@ -11,7 +11,7 @@ class UserStore {
 
   @action.bound
   public fetchUser() {
-    axios.get('/is-logged-in').then((response: AxiosResponse) => {
+    axios.get("/is-logged-in").then((response: AxiosResponse) => {
       this.isLoggedIn = response.data.isLoggedIn;
       this.name = response.data.name;
     });
@@ -19,9 +19,9 @@ class UserStore {
 
   @action.bound
   public logout() {
-    axios.get('/logout').then(() => {
+    axios.get("/logout").then(() => {
       this.isLoggedIn = false;
-      this.name = '';
+      this.name = "";
     });
   }
 }

@@ -1,1 +1,1 @@
-export * from './sortByTournamentId';
+export * from "./sortByTournamentId";

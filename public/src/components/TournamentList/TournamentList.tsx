@@ -1,18 +1,18 @@
-import {Grid, withStyles} from '@material-ui/core';
-import {observer} from 'mobx-react';
-import * as React from 'react';
-import {Loader, TournamentCard} from '../';
-import {ITournament} from '../../@types';
+import { Grid, withStyles } from "@material-ui/core";
+import { observer } from "mobx-react";
+import * as React from "react";
+import { Loader, TournamentCard } from "../";
+import { ITournament } from "../../@types";
 
 const styles = {
   list: {
     margin: 0,
-    width: '100%',
+    width: "100%",
   },
 };
 
 const TournamentListElement = observer((props: any) => {
-  const {classes, store} = props;
+  const { classes, store } = props;
   return store.isLoaded ? (
     <Grid container={true} spacing={16} className={classes.list}>
       {store.list.map((item: ITournament) => {
@@ -27,7 +27,9 @@ const TournamentListElement = observer((props: any) => {
         );
       })}
     </Grid>
-  ) : <Loader/>;
+  ) : (
+    <Loader />
+  );
 });
 
 export const TournamentList = withStyles(styles)(TournamentListElement);

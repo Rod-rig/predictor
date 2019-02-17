@@ -1,9 +1,9 @@
-import axios, {AxiosResponse} from 'axios';
-import {action, computed, observable} from 'mobx';
-import {OutputParams, parse} from 'query-string';
-import {userStore} from '../';
-import {IPredictionStore, ISportEvent} from '../../@types';
-import {getFutureDates, sortByTournamentId} from '../../helpers';
+import axios, { AxiosResponse } from "axios";
+import { action, computed, observable } from "mobx";
+import { OutputParams, parse } from "query-string";
+import { userStore } from "../";
+import { IPredictionStore, ISportEvent } from "../../@types";
+import { getFutureDates, sortByTournamentId } from "../../helpers";
 
 export class PredictionStore implements IPredictionStore {
   @computed get apiPredictionUrl() {
@@ -17,9 +17,7 @@ export class PredictionStore implements IPredictionStore {
   public dates: string[];
   public filter: OutputParams;
 
-  constructor(props?: {
-    filter: string;
-  }) {
+  constructor(props?: { filter: string }) {
     this.filter = props ? parse(props.filter) : undefined;
     this.dates = getFutureDates();
     this.currentDate = this.dates[0];
@@ -28,18 +26,23 @@ export class PredictionStore implements IPredictionStore {
 
   public handleSubmit(e: Event): void {
     e.preventDefault();
-    const validatedMatches = this.matches.filter((match: ISportEvent) => {
-      return match.competitors[0].userPrediction >= 0 && match.competitors[1].userPrediction >= 0;
-    }).map((match) => {
-      return {
-        awayScore: match.competitors[1].userPrediction,
-        awayTeam: match.competitors[1].name,
-        homeScore: match.competitors[0].userPrediction,
-        homeTeam: match.competitors[0].name,
-        id: match.id,
-      };
-    });
-    axios.post('/predictions', validatedMatches).then(() => {
+    const validatedMatches = this.matches
+      .filter((match: ISportEvent) => {
+        return (
+          match.competitors[0].userPrediction >= 0 &&
+          match.competitors[1].userPrediction >= 0
+        );
+      })
+      .map(match => {
+        return {
+          awayScore: match.competitors[1].userPrediction,
+          awayTeam: match.competitors[1].name,
+          homeScore: match.competitors[0].userPrediction,
+          homeTeam: match.competitors[0].name,
+          id: match.id,
+        };
+      });
+    axios.post("/predictions", validatedMatches).then(() => {
       this.isSuccessSubmit = true;
     });
   }
@@ -51,16 +54,19 @@ export class PredictionStore implements IPredictionStore {
   public fetchMatches() {
     const tournamentId = this.filter ? this.filter.tournament_id : undefined;
     this.isFetched = false;
-    axios.get(this.apiPredictionUrl)
+    axios
+      .get(this.apiPredictionUrl)
       .then((res: AxiosResponse) => {
-        this.matches = tournamentId ? this.filterMatches(res.data) : res.data.sort(sortByTournamentId);
+        this.matches = tournamentId
+          ? this.filterMatches(res.data)
+          : res.data.sort(sortByTournamentId);
         this.isLoaded = this.isLoaded ? this.isLoaded : true;
         this.isFetched = true;
       })
       /* istanbul ignore next */
       .catch(
         /* istanbul ignore next */
-        ({response}) => {
+        ({ response }) => {
           /* istanbul ignore next */
           if (response.status === 403) {
             userStore.logout();

@@ -1,1 +1,1 @@
-export * from './MatchItem';
+export * from "./MatchItem";

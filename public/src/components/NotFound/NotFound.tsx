@@ -1,6 +1,4 @@
-import * as React from 'react';
-import {dict} from '../../dict';
+import * as React from "react";
+import { dict } from "../../dict";
 
-export const NotFound = () => (
-  <div>{dict.notFoundText}</div>
-);
+export const NotFound = () => <div>{dict.notFoundText}</div>;

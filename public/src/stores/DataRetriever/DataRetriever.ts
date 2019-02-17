@@ -1,7 +1,7 @@
-import axios, {AxiosResponse} from 'axios';
-import {observable} from 'mobx';
-import {IRetriever, IRetrieverProps} from '../../@types';
-import {userStore} from '../UserStore';
+import axios, { AxiosResponse } from "axios";
+import { observable } from "mobx";
+import { IRetriever, IRetrieverProps } from "../../@types";
+import { userStore } from "../UserStore";
 
 export class DataRetriever implements IRetriever {
   public url: string;
@@ -14,15 +14,16 @@ export class DataRetriever implements IRetriever {
   }
 
   private fetchList() {
-    axios.get(this.url)
+    axios
+      .get(this.url)
       .then((res: AxiosResponse) => {
-        this.data = Array.isArray(res.data) ? [...res.data] : {...res.data};
+        this.data = Array.isArray(res.data) ? [...res.data] : { ...res.data };
         this.isLoaded = true;
       })
       /* istanbul ignore next */
       .catch(
         /* istanbul ignore next */
-        ({response}) => {
+        ({ response }) => {
           /* istanbul ignore next */
           if (response.status === 403) {
             userStore.logout();

@@ -1,4 +1,4 @@
-export type OrderType = 'asc' | 'desc';
+export type OrderType = "asc" | "desc";
 
 export type RangeType = number[] | null;
 
@@ -30,14 +30,14 @@ export interface ITeam {
 
 interface IGroup {
   name?: string;
-  sortName?: string;  // not from api
-  order?: OrderType;  // not from api
+  sortName?: string; // not from api
+  order?: OrderType; // not from api
   team_standings: ITeam[];
 }
 
 interface IStanding {
   tie_break_rule: string;
-  type: 'total' | 'home' | 'away';
+  type: "total" | "home" | "away";
   groups: IGroup[];
 }
 

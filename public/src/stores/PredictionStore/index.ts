@@ -1,1 +1,1 @@
-export * from './PredictionStore';
+export * from "./PredictionStore";

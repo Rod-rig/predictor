@@ -1,1 +1,1 @@
-export * from './DataRetriever';
+export * from "./DataRetriever";

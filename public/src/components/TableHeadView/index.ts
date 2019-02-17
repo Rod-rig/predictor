@@ -1,1 +1,1 @@
-export * from './TableHeadView';
+export * from "./TableHeadView";

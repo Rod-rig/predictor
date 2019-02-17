@@ -3,7 +3,20 @@ export const getFutureDates = (date: Date = new Date()): string[] => {
   let year = date.getFullYear();
   let month = date.getMonth();
   let day = date.getDate();
-  const monthsDurations = [31, year % 4 === 0 ? 29 : 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31];
+  const monthsDurations = [
+    31,
+    year % 4 === 0 ? 29 : 28,
+    31,
+    30,
+    31,
+    30,
+    31,
+    31,
+    30,
+    31,
+    30,
+    31,
+  ];
 
   for (let i = 0; i < 7; i++) {
     if (day > monthsDurations[month]) {
