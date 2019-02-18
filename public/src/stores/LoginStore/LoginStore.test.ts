@@ -19,6 +19,11 @@ describe("LoginStore", () => {
     expect(loginStore.user.name).toBe("user");
   });
 
+  it("should close snackbar", () => {
+    loginStore.closeSnackbar();
+    expect(loginStore.hasError).toBeFalsy();
+  });
+
   it("should submit form with correct creds", () => {
     loginStore.user.name = "test";
     loginStore.handleSubmit({ preventDefault: jest.fn() });

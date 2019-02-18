@@ -32,4 +32,9 @@ describe("RegistrationStore", () => {
     expect(submitSpy.mock.calls).toHaveLength(1);
     expect(registrationStore.user.name).toBe("user");
   });
+
+  it("should close snackbar", () => {
+    registrationStore.closeSnackbar();
+    expect(registrationStore.hasError).toBeFalsy();
+  });
 });

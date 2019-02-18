@@ -83141,13 +83141,13 @@ var React = __webpack_require__(/*! react */ "./node_modules/react/index.js");
 var stores_1 = __webpack_require__(/*! ../../stores */ "./public/src/stores/index.ts");
 var styles = function (theme) { return ({
     account: {
-        alignItems: 'center',
-        display: 'flex',
+        alignItems: "center",
+        display: "flex",
         padding: theme.spacing.unit,
     },
     icon: {
-        height: '4em',
-        width: '4em',
+        height: "4em",
+        width: "4em",
     },
 }); };
 exports.Account = core_1.withStyles(styles)(mobx_react_1.observer(function (props) {
@@ -83259,8 +83259,8 @@ var AccountCircle_1 = __webpack_require__(/*! @material-ui/icons/AccountCircle *
 var React = __webpack_require__(/*! react */ "./node_modules/react/index.js");
 var react_router_dom_1 = __webpack_require__(/*! react-router-dom */ "./node_modules/react-router-dom/es/index.js");
 var dict_1 = __webpack_require__(/*! ../../dict */ "./public/src/dict/index.ts");
-var AccountLink = function (props) { return React.createElement(react_router_dom_1.Link, __assign({ to: '/account' }, props)); };
-var StatLink = function (props) { return React.createElement(react_router_dom_1.Link, __assign({ to: '/stats' }, props)); };
+var AccountLink = function (props) { return React.createElement(react_router_dom_1.Link, __assign({ to: "/account" }, props)); };
+var StatLink = function (props) { return React.createElement(react_router_dom_1.Link, __assign({ to: "/stats" }, props)); };
 var AccountMenu = /** @class */ (function (_super) {
     __extends(AccountMenu, _super);
     function AccountMenu(props) {
@@ -83285,11 +83285,11 @@ var AccountMenu = /** @class */ (function (_super) {
             React.createElement(core_1.IconButton, { onClick: this.openMenu, color: "inherit" },
                 React.createElement(AccountCircle_1.default, null)),
             React.createElement(core_1.Menu, { anchorEl: anchor, anchorOrigin: {
-                    horizontal: 'right',
-                    vertical: 'top',
+                    horizontal: "right",
+                    vertical: "top",
                 }, transformOrigin: {
-                    horizontal: 'right',
-                    vertical: 'top',
+                    horizontal: "right",
+                    vertical: "top",
                 }, open: open, onClose: this.closeMenu },
                 React.createElement(core_1.MenuItem, { disabled: true, divider: true },
                     React.createElement("em", null, this.props.userName)),
@@ -83354,29 +83354,29 @@ var styles = function (_a) {
         header: (_b = {
                 marginBottom: spacing.unit
             },
-            _b[breakpoints.up('lg')] = {
+            _b[breakpoints.up("lg")] = {
                 marginBottom: spacing.unit * 3,
             },
             _b),
         headerBtn: (_c = {},
-            _c[breakpoints.down('xs')] = {
+            _c[breakpoints.down("xs")] = {
                 paddingLeft: spacing.unit,
                 paddingRight: spacing.unit,
             },
             _c),
         toolbar: (_d = {},
-            _d[breakpoints.down('xs')] = {
+            _d[breakpoints.down("xs")] = {
                 paddingLeft: spacing.unit,
                 paddingRight: spacing.unit,
             },
             _d),
         user: {
-            marginLeft: 'auto',
+            marginLeft: "auto",
         },
     });
 };
-var LoginLink = function (props) { return React.createElement(react_router_dom_1.Link, __assign({ to: '/login' }, props)); };
-var RegLink = function (props) { return React.createElement(react_router_dom_1.Link, __assign({ to: '/registration' }, props)); };
+var LoginLink = function (props) { return React.createElement(react_router_dom_1.Link, __assign({ to: "/login" }, props)); };
+var RegLink = function (props) { return React.createElement(react_router_dom_1.Link, __assign({ to: "/registration" }, props)); };
 exports.Header = core_1.withStyles(styles)(mobx_react_1.observer(/** @class */ (function (_super) {
     __extends(class_1, _super);
     function class_1() {
@@ -83394,14 +83394,14 @@ exports.Header = core_1.withStyles(styles)(mobx_react_1.observer(/** @class */ (
     class_1.prototype.render = function () {
         var classes = this.props.classes;
         return (React.createElement(React.Fragment, null,
-            React.createElement(core_1.AppBar, { position: 'static', className: classes.header },
+            React.createElement(core_1.AppBar, { position: "static", className: classes.header },
                 React.createElement(core_1.Toolbar, { className: classes.toolbar },
-                    React.createElement(core_1.IconButton, { onClick: this.toggleSidebar.bind(this, true), color: 'inherit', "aria-label": 'Menu' },
+                    React.createElement(core_1.IconButton, { onClick: this.toggleSidebar.bind(this, true), color: "inherit", "aria-label": "Menu" },
                         React.createElement(Menu_1.default, null)),
                     React.createElement(__1.Logo, null),
                     React.createElement("div", { className: classes.user }, stores_1.userStore.isLoggedIn ? (React.createElement(AccountMenu_1.AccountMenu, { userName: stores_1.userStore.name, logout: stores_1.userStore.logout })) : (React.createElement(React.Fragment, null,
-                        React.createElement(core_1.Button, { className: classes.headerBtn, component: RegLink, color: 'inherit' }, dict_1.dict.register),
-                        React.createElement(core_1.Button, { className: classes.headerBtn, component: LoginLink, color: 'inherit' }, dict_1.dict.login)))))),
+                        React.createElement(core_1.Button, { className: classes.headerBtn, component: RegLink, color: "inherit" }, dict_1.dict.register),
+                        React.createElement(core_1.Button, { className: classes.headerBtn, component: LoginLink, color: "inherit" }, dict_1.dict.login)))))),
             React.createElement(__1.Sidebar, { isOpen: this.state.isSidebarOpen, toggleHandler: this.toggleSidebar.bind(this, false) })));
     };
     return class_1;
@@ -83445,11 +83445,11 @@ var styles = function (_a) {
     var spacing = _a.spacing;
     return core_1.createStyles({
         root: {
-            left: '50%',
-            marginLeft: -5 * spacing.unit / 2,
-            marginTop: -5 * spacing.unit / 2,
-            position: 'absolute',
-            top: '50%',
+            left: "50%",
+            marginLeft: (-5 * spacing.unit) / 2,
+            marginTop: (-5 * spacing.unit) / 2,
+            position: "absolute",
+            top: "50%",
         },
     });
 };
@@ -83571,13 +83571,13 @@ var styles = function (_a) {
     var _b;
     return ({
         img: {
-            display: 'block',
-            maxWidth: '100%',
+            display: "block",
+            maxWidth: "100%",
         },
         logo: (_b = {
                 maxWidth: 100
             },
-            _b[breakpoints.up('sm')] = {
+            _b[breakpoints.up("sm")] = {
                 maxWidth: 147,
             },
             _b),
@@ -83586,8 +83586,8 @@ var styles = function (_a) {
 var LogoElement = function (props) {
     var classes = props.classes;
     return (React.createElement("div", { className: classes.logo },
-        React.createElement(react_router_dom_1.Link, { to: '/' },
-            React.createElement("img", { className: classes.img, src: 'src/images/logo.svg', alt: 'logo' }))));
+        React.createElement(react_router_dom_1.Link, { to: "/" },
+            React.createElement("img", { className: classes.img, src: "src/images/logo.svg", alt: "logo" }))));
 };
 exports.Logo = core_1.withStyles(styles)(LogoElement);
 
@@ -83637,21 +83637,21 @@ var decorate = core_1.withStyles(function (_a) {
             marginRight: 0,
         },
         right: {
-            justifyContent: 'flex-end',
+            justifyContent: "flex-end",
         },
         score: {
             backgroundColor: palette.primary.main,
             color: palette.primary.contrastText,
-            display: 'flex',
+            display: "flex",
             fontSize: typography.pxToRem(20),
-            justifyContent: 'center',
+            justifyContent: "center",
             lineHeight: typography.pxToRem(20 * 1.5),
             width: typography.pxToRem(20 * 3),
         },
         text: {
-            alignItems: 'center',
-            display: 'flex',
-            flexBasis: '40%',
+            alignItems: "center",
+            display: "flex",
+            flexBasis: "40%",
         },
     });
 });
@@ -83667,7 +83667,9 @@ exports.MatchItem = decorate(function (props) {
         React.createElement(core_1.ListItemText, { className: classes.text + " " + classes.right, disableTypography: true },
             React.createElement("div", null, homeTeam),
             React.createElement(__1.TeamLogo, { teamName: homeTeam, modClass: classes.icon })),
-        !isNaN(props.homeScore) ? renderScore(homeScore, awayScore, classes) : renderEmptyScore(classes),
+        !isNaN(props.homeScore)
+            ? renderScore(homeScore, awayScore, classes)
+            : renderEmptyScore(classes),
         React.createElement(core_1.ListItemText, { className: classes.text, disableTypography: true },
             React.createElement(__1.TeamLogo, { teamName: awayTeam }),
             React.createElement("div", null, awayTeam))));
@@ -83739,11 +83741,11 @@ var styles = function (_a) {
         round: (_b = {
                 marginBottom: spacing.unit
             },
-            _b[breakpoints.up('lg')] = {
+            _b[breakpoints.up("lg")] = {
                 margin: "0 " + spacing.unit * 3 + "px " + spacing.unit * 3 + "px",
             },
             _b),
-        title: __assign({}, typography.body1, (_c = { padding: spacing.unit + "px" }, _c[breakpoints.up('lg')] = {
+        title: __assign({}, typography.body1, (_c = { padding: spacing.unit + "px" }, _c[breakpoints.up("lg")] = {
             padding: spacing.unit + "px " + spacing.unit * 4 + "px",
         }, _c)),
     });
@@ -83766,7 +83768,9 @@ exports.MatchList = core_1.withStyles(styles)(mobx_react_1.observer(/** @class *
                 round: item.sport_event.tournament_round.number,
             };
             group.push(React.createElement(__1.MatchItem, __assign({ key: stat.id }, stat)));
-            if (!list[index + 1] || stat.round !== list[index + 1].sport_event.tournament_round.number) {
+            if (!list[index + 1] ||
+                stat.round !==
+                    list[index + 1].sport_event.tournament_round.number) {
                 var round = (React.createElement(React.Fragment, { key: stat.id },
                     React.createElement("div", { className: classes.title },
                         "Round ",
@@ -83888,21 +83892,23 @@ var core_1 = __webpack_require__(/*! @material-ui/core */ "./node_modules/@mater
 var React = __webpack_require__(/*! react */ "./node_modules/react/index.js");
 var react_router_dom_1 = __webpack_require__(/*! react-router-dom */ "./node_modules/react-router-dom/es/index.js");
 var dict_1 = __webpack_require__(/*! ../../dict */ "./public/src/dict/index.ts");
-var styles = function (theme) { return core_1.createStyles({
-    containedSecondary: {
-        marginRight: theme.spacing.unit,
-        textTransform: 'none',
-    },
-    link: {
-        color: theme.palette.primary.contrastText,
-        fontSize: theme.typography.fontSize,
-        textDecoration: 'none',
-    },
-    title: {
-        display: 'inline-block',
-        marginLeft: theme.spacing.unit * 2,
-    },
-}); };
+var styles = function (theme) {
+    return core_1.createStyles({
+        containedSecondary: {
+            marginRight: theme.spacing.unit,
+            textTransform: "none",
+        },
+        link: {
+            color: theme.palette.primary.contrastText,
+            fontSize: theme.typography.fontSize,
+            textDecoration: "none",
+        },
+        title: {
+            display: "inline-block",
+            marginLeft: theme.spacing.unit * 2,
+        },
+    });
+};
 var compose = function () {
     var funcs = [];
     for (var _i = 0; _i < arguments.length; _i++) {
@@ -83919,11 +83925,11 @@ var compose = function () {
 exports.Nav = compose(core_1.withStyles(styles), react_router_dom_1.withRouter)(function (props) {
     var classes = props.classes, match = props.match;
     var id = match.params.id;
-    var TableLink = function (linkProps) { return React.createElement(react_router_dom_1.Link, __assign({ to: "/tournament/" + id }, linkProps)); };
-    var FixturesLink = function (linkProps) { return React.createElement(react_router_dom_1.Link, __assign({ to: "/fixtures/" + id }, linkProps)); };
-    var ResultsLink = function (linkProps) { return React.createElement(react_router_dom_1.Link, __assign({ to: "/results/" + id }, linkProps)); };
-    var PredictionsLink = function (linkProps) { return React.createElement(react_router_dom_1.Link, __assign({ to: "/predictions?tournament_id=" + id }, linkProps)); };
-    var renderBtn = function (comp, text) { return (React.createElement(core_1.Button, { size: 'small', className: classes.containedSecondary, component: comp, variant: 'contained', color: 'secondary' }, text)); };
+    var TableLink = function (linkProps) { return (React.createElement(react_router_dom_1.Link, __assign({ to: "/tournament/" + id }, linkProps))); };
+    var FixturesLink = function (linkProps) { return (React.createElement(react_router_dom_1.Link, __assign({ to: "/fixtures/" + id }, linkProps))); };
+    var ResultsLink = function (linkProps) { return (React.createElement(react_router_dom_1.Link, __assign({ to: "/results/" + id }, linkProps))); };
+    var PredictionsLink = function (linkProps) { return (React.createElement(react_router_dom_1.Link, __assign({ to: "/predictions?tournament_id=" + id }, linkProps))); };
+    var renderBtn = function (comp, text) { return (React.createElement(core_1.Button, { size: "small", className: classes.containedSecondary, component: comp, variant: "contained", color: "secondary" }, text)); };
     return (React.createElement(React.Fragment, null,
         renderBtn(TableLink, dict_1.dict.table),
         renderBtn(FixturesLink, dict_1.dict.fixtures),
@@ -83964,7 +83970,7 @@ __export(__webpack_require__(/*! ./Nav */ "./public/src/components/Nav/Nav.tsx")
 Object.defineProperty(exports, "__esModule", { value: true });
 var React = __webpack_require__(/*! react */ "./node_modules/react/index.js");
 var dict_1 = __webpack_require__(/*! ../../dict */ "./public/src/dict/index.ts");
-exports.NotFound = function () { return (React.createElement("div", null, dict_1.dict.notFoundText)); };
+exports.NotFound = function () { return React.createElement("div", null, dict_1.dict.notFoundText); };
 
 
 /***/ }),
@@ -84002,17 +84008,17 @@ var React = __webpack_require__(/*! react */ "./node_modules/react/index.js");
 var theme = core_1.createMuiTheme({
     palette: {
         background: {
-            default: '#f2f2f2',
+            default: "#f2f2f2",
         },
         primary: {
-            dark: '#1a0018',
-            light: '#652d67',
-            main: '#38003C',
+            dark: "#1a0018",
+            light: "#652d67",
+            main: "#38003C",
         },
         secondary: {
-            dark: '#af002a',
-            light: '#ff577e',
-            main: '#E90052',
+            dark: "#af002a",
+            light: "#ff577e",
+            main: "#E90052",
         },
     },
     typography: {
@@ -84063,34 +84069,34 @@ var styles = function (_a) {
     var palette = _a.palette, spacing = _a.spacing;
     return core_1.createStyles({
         away: {
-            '& > span': {
-                'align-items': 'center',
-                'display': 'flex',
-                'justify-content': 'flex-start',
+            "& > span": {
+                "align-items": "center",
+                display: "flex",
+                "justify-content": "flex-start",
             },
-            'width': '100%',
+            width: "100%",
         },
         btnWrap: {
             marginBottom: spacing.unit,
-            textAlign: 'center',
+            textAlign: "center",
         },
         home: {
-            '& > span': {
-                'align-items': 'center',
-                'display': 'flex',
-                'justify-content': 'flex-end',
+            "& > span": {
+                "align-items": "center",
+                display: "flex",
+                "justify-content": "flex-end",
             },
-            '&:first-child': {
+            "&:first-child": {
                 paddingLeft: spacing.unit * 2,
             },
-            'width': '100%',
+            width: "100%",
         },
         input: {
-            textAlign: 'center',
-            width: '3rem',
+            textAlign: "center",
+            width: "3rem",
         },
         inputWrap: {
-            fontSize: '1.25rem',
+            fontSize: "1.25rem",
         },
         logo: {
             marginLeft: spacing.unit * 2,
@@ -84100,11 +84106,11 @@ var styles = function (_a) {
             margin: spacing.unit,
         },
         score: {
-            alignItems: 'center',
-            display: 'flex',
+            alignItems: "center",
+            display: "flex",
         },
         underline: {
-            '&:after': {
+            "&:after": {
                 borderBottomColor: palette.secondary.main,
             },
         },
@@ -84115,23 +84121,31 @@ exports.Prediction = core_1.withStyles(styles)(mobx_react_1.observer(function (p
     if (store.isLoaded && stores_1.userStore.isLoggedIn !== undefined) {
         return (React.createElement(React.Fragment, null,
             React.createElement(__1.PredictionFilter, { store: store }),
-            store.isFetched ? (React.createElement("form", { autoComplete: 'off', onSubmit: store.handleSubmit.bind(store) }, store.matches.length > 0 ? (React.createElement(React.Fragment, null,
+            store.isFetched ? (React.createElement("form", { autoComplete: "off", onSubmit: store.handleSubmit.bind(store) }, store.matches.length > 0 ? (React.createElement(React.Fragment, null,
                 React.createElement(core_1.List, null, store.matches.map(function (item, index) {
                     return (React.createElement(core_1.ListItem, { disableGutters: true, divider: true, key: item.id },
                         React.createElement(core_1.ListItemText, { classes: { root: classes.home } },
                             React.createElement(core_1.InputLabel, { htmlFor: item.competitors[0].id }, item.competitors[0].name),
                             React.createElement(__1.TeamLogo, { teamName: item.competitors[0].name, modClass: classes.logo })),
                         React.createElement("div", { className: classes.score },
-                            React.createElement(core_1.Input, { classes: { input: classes.input, root: classes.inputWrap, underline: classes.underline }, id: item.competitors[0].id, name: item.competitors[0].name, onChange: store.handleChange.bind(store, index, 0), autoFocus: index === 0 }),
+                            React.createElement(core_1.Input, { classes: {
+                                    input: classes.input,
+                                    root: classes.inputWrap,
+                                    underline: classes.underline,
+                                }, id: item.competitors[0].id, name: item.competitors[0].name, onChange: store.handleChange.bind(store, index, 0), autoFocus: index === 0 }),
                             React.createElement("div", null, ":"),
-                            React.createElement(core_1.Input, { classes: { input: classes.input, root: classes.inputWrap, underline: classes.underline }, id: item.competitors[1].id, name: item.competitors[1].name, onChange: store.handleChange.bind(store, index, 1) })),
+                            React.createElement(core_1.Input, { classes: {
+                                    input: classes.input,
+                                    root: classes.inputWrap,
+                                    underline: classes.underline,
+                                }, id: item.competitors[1].id, name: item.competitors[1].name, onChange: store.handleChange.bind(store, index, 1) })),
                         React.createElement(core_1.ListItemText, { classes: { root: classes.away } },
                             React.createElement(__1.TeamLogo, { teamName: item.competitors[1].name }),
                             React.createElement(core_1.InputLabel, { htmlFor: item.competitors[1].id }, item.competitors[1].name))));
                 })),
                 React.createElement("div", { className: classes.btnWrap },
-                    React.createElement(core_1.Button, { type: 'submit', variant: 'contained', color: 'secondary' }, dict_1.dict.submit_btn_text)),
-                React.createElement(PredictionMessage_1.PredictionMessage, { open: store.isSuccessSubmit, handleClose: store.closeSuccessMsg }))) : (React.createElement(core_1.Typography, { className: classes.noMatchesMsg, variant: 'body1' }, dict_1.dict.noAvailablePredictionMatches)))) : (React.createElement(__1.Loader, null))));
+                    React.createElement(core_1.Button, { type: "submit", variant: "contained", color: "secondary" }, dict_1.dict.submit_btn_text)),
+                React.createElement(PredictionMessage_1.PredictionMessage, { open: store.isSuccessSubmit, handleClose: store.closeSuccessMsg }))) : (React.createElement(core_1.Typography, { className: classes.noMatchesMsg, variant: "body1" }, dict_1.dict.noAvailablePredictionMatches)))) : (React.createElement(__1.Loader, null))));
     }
     else {
         return React.createElement(__1.Loader, null);
@@ -84163,21 +84177,21 @@ var styles = function (_a) {
             color: palette.common.white,
         },
         btnWrap: {
-            justifyContent: 'center',
+            justifyContent: "center",
         },
         dialog: {
             backgroundColor: colors_1.green[600],
         },
         icon: {
             color: palette.common.white,
-            display: 'block',
+            display: "block",
             fontSize: 100,
-            margin: 'auto',
+            margin: "auto",
         },
         text: {
             color: palette.common.white,
-            fontSize: '2.25rem',
-            textTransform: 'uppercase',
+            fontSize: "2.25rem",
+            textTransform: "uppercase",
         },
     });
 };
@@ -84254,11 +84268,11 @@ var styles = function (_a) {
         },
         control: {
             margin: spacing.unit,
-            width: '20%',
+            width: "20%",
         },
         wrap: {
-            alignItems: 'center',
-            display: 'flex',
+            alignItems: "center",
+            display: "flex",
         },
     });
 };
@@ -84278,15 +84292,18 @@ exports.PredictionFilter = core_1.withStyles(styles)(mobx_react_1.observer(/** @
         return (React.createElement("div", null,
             React.createElement("div", { className: classes.wrap },
                 React.createElement(core_1.FormControl, { className: classes.control },
-                    React.createElement(core_1.InputLabel, { htmlFor: 'date' }, "Date"),
+                    React.createElement(core_1.InputLabel, { htmlFor: "date" }, "Date"),
                     React.createElement(core_1.Select, { value: store.currentDate, onChange: handleChange, inputProps: {
-                            id: 'date',
-                            name: 'date',
+                            id: "date",
+                            name: "date",
                         } }, store.dates.map(function (item) {
-                        var date = item.split('-').reverse().join('.');
-                        return React.createElement(core_1.MenuItem, { key: item, value: item }, date);
+                        var date = item
+                            .split("-")
+                            .reverse()
+                            .join(".");
+                        return (React.createElement(core_1.MenuItem, { key: item, value: item }, date));
                     }))),
-                React.createElement(core_1.Button, { className: classes.btn, size: 'small', onClick: refreshMatches, variant: 'contained', color: 'secondary' },
+                React.createElement(core_1.Button, { className: classes.btn, size: "small", onClick: refreshMatches, variant: "contained", color: "secondary" },
                     React.createElement(FilterList_1.default, { className: classes.btnIcon }),
                     dict_1.dict.prediction_submit_btn))));
     };
@@ -84374,7 +84391,7 @@ exports.PrivateRoute = mobx_react_1.observer(/** @class */ (function (_super) {
             return React.createElement(react_router_dom_1.Route, { render: renderComponent });
         }
         else if (stores_1.userStore.isLoggedIn === false) {
-            var renderRedirect = function () { return React.createElement(react_router_dom_1.Redirect, { to: '/login' }); };
+            var renderRedirect = function () { return React.createElement(react_router_dom_1.Redirect, { to: "/login" }); };
             return React.createElement(react_router_dom_1.Route, { render: renderRedirect });
         }
         else {
@@ -84514,65 +84531,65 @@ var decorate = core_1.withStyles(function (_a) {
     var _b, _c, _d, _e, _f, _g, _h, _j, _k;
     return ({
         cell: (_b = {
-                '&:last-child': (_c = {},
-                    _c[breakpoints.down('sm')] = {
+                "&:last-child": (_c = {},
+                    _c[breakpoints.down("sm")] = {
                         paddingRight: 0.75 * spacing.unit,
                     },
                     _c),
-                'text-align': 'center'
+                "text-align": "center"
             },
-            _b[breakpoints.down('sm')] = {
+            _b[breakpoints.down("sm")] = {
                 paddingLeft: 0.75 * spacing.unit,
                 paddingRight: 0.75 * spacing.unit,
             },
             _b),
         draw: (_d = {},
-            _d[breakpoints.down('xs')] = {
-                display: 'none',
+            _d[breakpoints.down("xs")] = {
+                display: "none",
             },
             _d),
         edge: {
-            '& td': {
+            "& td": {
                 borderColor: palette.grey[50],
             },
-            'backgroundColor': palette.grey[300],
+            backgroundColor: palette.grey[300],
         },
         goals_against: (_e = {},
-            _e[breakpoints.down('sm')] = {
-                display: 'none',
+            _e[breakpoints.down("sm")] = {
+                display: "none",
             },
             _e),
         goals_for: (_f = {},
-            _f[breakpoints.down('sm')] = {
-                display: 'none',
+            _f[breakpoints.down("sm")] = {
+                display: "none",
             },
             _f),
         img: {
-            '& img': {
-                'object-fit': 'contain',
+            "& img": {
+                "object-fit": "contain",
             },
-            'border-radius': 0,
-            'display': 'inline-block',
-            'height': 25,
-            'marginRight': 5,
-            'verticalAlign': 'middle',
-            'width': 25,
+            "border-radius": 0,
+            display: "inline-block",
+            height: 25,
+            marginRight: 5,
+            verticalAlign: "middle",
+            width: 25,
         },
         info: {
-            alignItems: 'center',
-            display: 'flex',
+            alignItems: "center",
+            display: "flex",
         },
         loss: (_g = {},
-            _g[breakpoints.down('xs')] = {
-                display: 'none',
+            _g[breakpoints.down("xs")] = {
+                display: "none",
             },
             _g),
         middle: {
             backgroundColor: palette.grey[200],
         },
         played: (_h = {},
-            _h[breakpoints.down('sm')] = {
-                display: 'none',
+            _h[breakpoints.down("sm")] = {
+                display: "none",
             },
             _h),
         row: {
@@ -84590,47 +84607,51 @@ var decorate = core_1.withStyles(function (_a) {
         //   },
         // },
         teamName: (_j = {
-                'text-align': 'left'
+                "text-align": "left"
             },
-            _j[breakpoints.down('xs')] = {
-                width: '100%',
+            _j[breakpoints.down("xs")] = {
+                width: "100%",
             },
             _j),
         top: {
             backgroundColor: palette.grey[400],
         },
         win: (_k = {},
-            _k[breakpoints.down('xs')] = {
-                display: 'none',
+            _k[breakpoints.down("xs")] = {
+                display: "none",
             },
             _k),
     });
 });
 var highlightCell = function (stage) {
-    if (stage === 'Champions League' || stage === 'Champions League Qualification' || stage === 'Relegation') {
-        return 'edge';
+    if (stage === "Champions League" ||
+        stage === "Champions League Qualification" ||
+        stage === "Relegation") {
+        return "edge";
     }
-    else if (stage === 'Europa League' || stage === 'Europa League Qualification' || stage === 'Playoffs') {
-        return 'middle';
+    else if (stage === "Europa League" ||
+        stage === "Europa League Qualification" ||
+        stage === "Playoffs") {
+        return "middle";
     }
     else {
-        return 'row';
+        return "row";
     }
 };
 exports.Row = decorate(function (props) {
     var classes = props.classes, row = props.row;
     var rowClass = highlightCell(row.current_outcome);
-    var topClass = row.rank === 1 && row.current_outcome !== 'Playoffs' ? classes.top : '';
+    var topClass = row.rank === 1 && row.current_outcome !== "Playoffs" ? classes.top : "";
     var rowProps = {
         className: classes[rowClass] + " " + topClass,
         hover: !row.current_outcome,
     };
     return (React.createElement(core_1.TableRow, __assign({}, rowProps), props.chars.map(function (val, i) {
-        if (val !== 'team') {
-            return (React.createElement(core_1.TableCell, { key: i, padding: 'checkbox', className: classes.cell + " " + (classes[val] ? classes[val] : '') }, row[val]));
+        if (val !== "team") {
+            return (React.createElement(core_1.TableCell, { key: i, padding: "checkbox", className: classes.cell + " " + (classes[val] ? classes[val] : "") }, row[val]));
         }
         else {
-            return (React.createElement(core_1.TableCell, { key: i, padding: 'checkbox', className: classes.cell + " " + classes.teamName },
+            return (React.createElement(core_1.TableCell, { key: i, padding: "checkbox", className: classes.cell + " " + classes.teamName },
                 React.createElement("div", { className: classes.info },
                     React.createElement(__1.TeamLogo, { teamName: row.team.name, modClass: row.img }),
                     React.createElement("span", { className: classes.team }, row.team.name))));
@@ -84685,10 +84706,10 @@ var OpenWith_1 = __webpack_require__(/*! @material-ui/icons/OpenWith */ "./node_
 var React = __webpack_require__(/*! react */ "./node_modules/react/index.js");
 var react_router_dom_1 = __webpack_require__(/*! react-router-dom */ "./node_modules/react-router-dom/es/index.js");
 var dict_1 = __webpack_require__(/*! ../../dict */ "./public/src/dict/index.ts");
-var SidebarLink = function (props) { return React.createElement(react_router_dom_1.Link, __assign({ to: '/predictions' }, props)); };
+var SidebarLink = function (props) { return React.createElement(react_router_dom_1.Link, __assign({ to: "/predictions" }, props)); };
 exports.Sidebar = function (props) { return (React.createElement(core_1.Drawer, { open: props.isOpen, onClose: props.toggleHandler },
     React.createElement("div", { onClick: props.toggleHandler, onKeyDown: props.toggleHandler },
-        React.createElement(core_1.List, { component: 'nav' },
+        React.createElement(core_1.List, { component: "nav" },
             React.createElement(core_1.ListItem, { component: SidebarLink, button: true },
                 React.createElement(core_1.ListItemIcon, null,
                     React.createElement(OpenWith_1.default, null)),
@@ -84749,8 +84770,8 @@ exports.Stats = mobx_react_1.observer(/** @class */ (function (_super) {
     class_1.prototype.render = function () {
         var store = this.props.store;
         return store.isLoaded ? (React.createElement("div", null, store.data.map(function (item) {
-            return (React.createElement(__1.MatchItem, { key: item.awayTeam + ' ' + item.homeTeam, awayTeam: item.awayTeam, homeTeam: item.homeTeam, homeScore: item.homeScore, awayScore: item.awayScore }));
-        }))) : React.createElement(__1.Loader, null);
+            return (React.createElement(__1.MatchItem, { key: item.awayTeam + " " + item.homeTeam, awayTeam: item.awayTeam, homeTeam: item.homeTeam, homeScore: item.homeScore, awayScore: item.awayScore }));
+        }))) : (React.createElement(__1.Loader, null));
     };
     return class_1;
 }(React.Component)));
@@ -84795,70 +84816,70 @@ var decorate = core_1.withStyles(function (_a) {
     var _b, _c, _d, _e, _f, _g, _h, _j, _k;
     return ({
         cell: (_b = {
-                '& svg': {
+                "& svg": {
                     margin: -spacing.unit + "px 0 0",
-                    position: 'absolute',
+                    position: "absolute",
                     right: -2 * spacing.unit,
-                    top: '50%',
+                    top: "50%",
                 },
-                '&:last-child': (_c = {},
-                    _c[breakpoints.down('sm')] = {
+                "&:last-child": (_c = {},
+                    _c[breakpoints.down("sm")] = {
                         paddingRight: 0.75 * spacing.unit,
                     },
                     _c),
-                'min-width': 90,
-                'text-align': 'center'
+                "min-width": 90,
+                "text-align": "center"
             },
-            _b[breakpoints.down('sm')] = {
+            _b[breakpoints.down("sm")] = {
                 minWidth: 80,
                 paddingLeft: 0.75 * spacing.unit,
                 paddingRight: 0.75 * spacing.unit,
             },
-            _b[breakpoints.down('xs')] = {
+            _b[breakpoints.down("xs")] = {
                 minWidth: 70,
                 paddingRight: 0.75 * spacing.unit,
             },
             _b),
         draw: (_d = {},
-            _d[breakpoints.down('xs')] = {
-                display: 'none',
+            _d[breakpoints.down("xs")] = {
+                display: "none",
             },
             _d),
         goals_against: (_e = {},
-            _e[breakpoints.down('sm')] = {
-                display: 'none',
+            _e[breakpoints.down("sm")] = {
+                display: "none",
             },
             _e),
         goals_for: (_f = {},
-            _f[breakpoints.down('sm')] = {
-                display: 'none',
+            _f[breakpoints.down("sm")] = {
+                display: "none",
             },
             _f),
         loss: (_g = {},
-            _g[breakpoints.down('xs')] = {
-                display: 'none',
+            _g[breakpoints.down("xs")] = {
+                display: "none",
             },
             _g),
         played: (_h = {},
-            _h[breakpoints.down('sm')] = {
-                display: 'none',
+            _h[breakpoints.down("sm")] = {
+                display: "none",
             },
             _h),
         rank: {
             width: 80,
         },
         team: (_j = {
-                'min-width': 0,
-                'text-align': 'left',
-                'width': '100%'
+                "min-width": 0,
+                "text-align": "left",
+                width: "100%"
             },
-            _j[breakpoints.down('xs')] = {
+            _j[breakpoints.down("xs")] = {
                 width: 70,
             },
             _j),
         win: (_k = {},
-            _k[breakpoints.down('xs')] = {
-                display: 'none',
+            _k[breakpoints.down("xs")] = {
+                display: "none",
             },
             _k),
     });
@@ -84867,9 +84888,9 @@ exports.TableHeadView = decorate(function (props) {
     var chars = props.chars, classes = props.classes, order = props.order, sortName = props.sortName, sortHandle = props.sortHandle;
     return (React.createElement(core_1.TableHead, null,
         React.createElement(core_1.TableRow, null, chars.map(function (name, index) {
-            return React.createElement(core_1.TableCell, { key: index, sortDirection: order === 'asc' ? 'desc' : 'asc', padding: 'checkbox', className: classes.cell + " " + (classes[name] ? classes[name] : ''), variant: 'head' },
-                React.createElement(core_1.Tooltip, { title: 'Sort', enterDelay: 300 },
-                    React.createElement(core_1.TableSortLabel, { active: sortName === name, direction: order, onClick: sortHandle.bind(_this, name) }, dict_1.dict[name])));
+            return (React.createElement(core_1.TableCell, { key: index, sortDirection: order === "asc" ? "desc" : "asc", padding: "checkbox", className: classes.cell + " " + (classes[name] ? classes[name] : ""), variant: "head" },
+                React.createElement(core_1.Tooltip, { title: "Sort", enterDelay: 300 },
+                    React.createElement(core_1.TableSortLabel, { active: sortName === name, direction: order, onClick: sortHandle.bind(_this, name) }, dict_1.dict[name]))));
         }))));
 });
 
@@ -84936,29 +84957,30 @@ var styles = function (_a) {
     var breakpoints = _a.breakpoints, palette = _a.palette, spacing = _a.spacing, typography = _a.typography;
     var _b, _c, _d;
     return core_1.createStyles({
-        group: __assign({}, typography.title, { backgroundColor: palette.secondary.main, color: palette.common.white, fontSize: '', padding: spacing.unit * 2 + "px " + spacing.unit * 3 + "px" }),
+        group: __assign({}, typography.title, { backgroundColor: palette.secondary.main, color: palette.common.white, fontSize: "", padding: spacing.unit * 2 + "px " + spacing.unit * 3 + "px" }),
         header: (_b = {
                 backgroundColor: palette.primary.main,
                 color: palette.primary.contrastText,
                 padding: spacing.unit
             },
-            _b[breakpoints.up('lg')] = {
+            _b[breakpoints.up("lg")] = {
                 margin: "0 " + spacing.unit * 3 + "px",
-                padding: spacing.unit + "px " + spacing.unit * 3 + "px " + spacing.unit * 3 + "px",
+                padding: spacing.unit + "px " + spacing.unit * 3 + "px " + spacing.unit *
+                    3 + "px",
             },
             _b),
         paper: (_c = {
                 marginBottom: spacing.unit
             },
-            _c[breakpoints.up('lg')] = {
+            _c[breakpoints.up("lg")] = {
                 margin: "0 " + spacing.unit * 3 + "px " + spacing.unit * 3 + "px",
             },
             _c),
         title: (_d = {
-                margin: '0.35em 0'
+                margin: "0.35em 0"
             },
-            _d[breakpoints.up('sm')] = {
-                fontSize: '3.5em',
+            _d[breakpoints.up("sm")] = {
+                fontSize: "3.5em",
             },
             _d),
     });
@@ -84972,13 +84994,13 @@ exports.TableView = core_1.withStyles(styles)(mobx_react_1.observer(/** @class *
         var _a = this.props, classes = _a.classes, store = _a.store;
         return store.isLoaded ? (React.createElement(React.Fragment, null,
             React.createElement("div", { className: classes.header },
-                store.title && React.createElement(core_1.Typography, { variant: 'h4', className: classes.title, color: 'inherit' }, store.title),
+                store.title && (React.createElement(core_1.Typography, { variant: "h4", className: classes.title, color: "inherit" }, store.title)),
                 React.createElement(__1.Nav, null)),
             store.table.map(function (group, key) {
                 return (React.createElement(core_1.Paper, { key: key, className: classes.paper },
-                    group.name && React.createElement("div", { className: classes.group },
+                    group.name && (React.createElement("div", { className: classes.group },
                         "Group ",
-                        group.name),
+                        group.name)),
                     React.createElement(core_1.Table, null,
                         React.createElement(__1.TableHeadView, { order: store.table[key].order, sortName: store.table[key].sortName, sortHandle: store.sortHandler.bind(store, key), chars: store.chars }),
                         React.createElement(core_1.TableBody, null, group.team_standings.map(function (row, index) { return (React.createElement(__1.Row, { key: index, row: row, chars: store.chars })); })))));
@@ -85023,18 +85045,19 @@ var React = __webpack_require__(/*! react */ "./node_modules/react/index.js");
 var logos_1 = __webpack_require__(/*! ../../content/logos */ "./public/src/content/logos.ts");
 var styles = {
     logo: {
-        '& img': {
-            'object-fit': 'contain',
+        "& img": {
+            "object-fit": "contain",
         },
-        'border-radius': 0,
-        'height': '1.25em',
-        'width': '1.25em',
+        "border-radius": 0,
+        height: "1.25em",
+        width: "1.25em",
     },
 };
 exports.TeamLogo = core_1.withStyles(styles)(function (_a) {
     var classes = _a.classes, teamName = _a.teamName, modClass = _a.modClass;
-    var src = teamName in logos_1.logos ? logos_1.logos[teamName] :
-        'https://cdn2.iconfinder.com/data/icons/sport-items-2/512/football_soccer_badge_shield_ball_heraldic-128.png';
+    var src = teamName in logos_1.logos
+        ? logos_1.logos[teamName]
+        : "https://cdn2.iconfinder.com/data/icons/sport-items-2/512/football_soccer_badge_shield_ball_heraldic-128.png";
     return (React.createElement(core_1.ListItemIcon, { className: modClass },
         React.createElement(core_1.Avatar, { src: src, className: classes.logo })));
 });
@@ -85093,32 +85116,33 @@ var styles = function (_a) {
             color: palette.text.secondary,
         },
         h2: {
-            'overflow': 'hidden',
-            'text-overflow': 'ellipsis',
-            'white-space': 'nowrap',
+            overflow: "hidden",
+            "text-overflow": "ellipsis",
+            "white-space": "nowrap",
         },
         img: {
-            backgroundSize: 'contain',
-            height: '300px',
+            backgroundSize: "contain",
+            height: "300px",
         },
     });
 };
 var TournamentCardElement = function (props) {
     var classes = props.classes;
-    var MyLink = function (linkProps) { return React.createElement(react_router_dom_1.Link, __assign({ to: "tournament/" + props.id }, linkProps)); };
+    var MyLink = function (linkProps) { return (React.createElement(react_router_dom_1.Link, __assign({ to: "tournament/" + props.id }, linkProps))); };
     var renderImage = function () {
-        var id = props.id.split(':')[2];
-        var image = tournamentsLogo_1.tournamentsLogo[id] ? tournamentsLogo_1.tournamentsLogo[id] :
-            'http://www.merseyvolley.co.uk/MVL/wp-content/uploads/2017/04/icon_tournament.png';
+        var id = props.id.split(":")[2];
+        var image = tournamentsLogo_1.tournamentsLogo[id]
+            ? tournamentsLogo_1.tournamentsLogo[id]
+            : "http://www.merseyvolley.co.uk/MVL/wp-content/uploads/2017/04/icon_tournament.png";
         return (React.createElement(core_1.CardMedia, { className: classes.img, image: image, title: props.name }));
     };
     return (React.createElement(core_1.Card, null,
         renderImage(),
         React.createElement(core_1.CardContent, null,
-            React.createElement(core_1.Typography, { className: classes.h2, variant: 'h5', component: 'h2' }, props.name),
-            React.createElement(core_1.Typography, { className: classes.caption, variant: 'caption' }, props.country)),
+            React.createElement(core_1.Typography, { className: classes.h2, variant: "h5", component: "h2" }, props.name),
+            React.createElement(core_1.Typography, { className: classes.caption, variant: "caption" }, props.country)),
         React.createElement(core_1.CardActions, null,
-            React.createElement(core_1.Button, { component: MyLink, size: 'small', color: 'primary' }, dict_1.dict.tournament_card_more))));
+            React.createElement(core_1.Button, { component: MyLink, size: "small", color: "primary" }, dict_1.dict.tournament_card_more))));
 };
 exports.TournamentCard = core_1.withStyles(styles)(TournamentCardElement);
 
@@ -85160,7 +85184,7 @@ var __1 = __webpack_require__(/*! ../ */ "./public/src/components/index.ts");
 var styles = {
     list: {
         margin: 0,
-        width: '100%',
+        width: "100%",
     },
 };
 var TournamentListElement = mobx_react_1.observer(function (props) {
@@ -85168,7 +85192,7 @@ var TournamentListElement = mobx_react_1.observer(function (props) {
     return store.isLoaded ? (React.createElement(core_1.Grid, { container: true, spacing: 16, className: classes.list }, store.list.map(function (item) {
         return (React.createElement(core_1.Grid, { key: item.id, item: true, xs: 12, sm: 6, md: 4, lg: 3 },
             React.createElement(__1.TournamentCard, { country: item.category.name, id: item.id, name: item.name })));
-    }))) : React.createElement(__1.Loader, null);
+    }))) : (React.createElement(__1.Loader, null));
 });
 exports.TournamentList = core_1.withStyles(styles)(TournamentListElement);
 
@@ -85244,219 +85268,219 @@ __export(__webpack_require__(/*! ./TournamentList */ "./public/src/components/To
 
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.logos = {
-    'Manchester City': 'https://upload.wikimedia.org/wikipedia/en/e/eb/Manchester_City_FC_badge.svg',
-    'Liverpool FC': 'https://upload.wikimedia.org/wikipedia/en/0/0c/Liverpool_FC.svg',
-    'Tottenham Hotspur': 'https://upload.wikimedia.org/wikipedia/en/b/b4/Tottenham_Hotspur.svg',
-    'Chelsea FC': 'https://upload.wikimedia.org/wikipedia/en/c/cc/Chelsea_FC.svg',
-    'Arsenal FC': 'https://upload.wikimedia.org/wikipedia/en/5/53/Arsenal_FC.svg',
-    'Everton FC': 'https://upload.wikimedia.org/wikipedia/en/7/7c/Everton_FC_logo.svg',
-    'AFC Bournemouth': 'https://upload.wikimedia.org/wikipedia/en/e/e5/AFC_Bournemouth_%282013%29.svg',
-    'Manchester United': 'https://upload.wikimedia.org/wikipedia/en/7/7a/Manchester_United_FC_crest.svg',
-    'Leicester City': 'https://upload.wikimedia.org/wikipedia/en/2/2d/Leicester_City_crest.svg',
-    'Brighton & Hove Albion FC': 'https://upload.wikimedia.org/wikipedia/en/f/fd/Brighton_%26_Hove_Albion_logo.svg',
-    'Watford FC': 'https://upload.wikimedia.org/wikipedia/en/e/e2/Watford.svg',
-    'Wolverhampton Wanderers': 'https://upload.wikimedia.org/wikipedia/en/f/fc/Wolverhampton_Wanderers.svg',
-    'West Ham United': 'https://upload.wikimedia.org/wikipedia/en/c/c2/West_Ham_United_FC_logo.svg',
-    'Newcastle United': 'https://upload.wikimedia.org/wikipedia/en/5/56/Newcastle_United_Logo.svg',
-    'Crystal Palace': 'https://upload.wikimedia.org/wikipedia/en/0/0c/Crystal_Palace_FC_logo.svg',
-    'Cardiff City': 'https://upload.wikimedia.org/wikipedia/en/3/3c/Cardiff_City_crest.svg',
-    'Huddersfield Town': 'https://upload.wikimedia.org/wikipedia/en/5/5a/Huddersfield_Town_A.F.C._logo.svg',
-    'Southampton FC': 'https://upload.wikimedia.org/wikipedia/en/c/c9/FC_Southampton.svg',
-    'Burnley FC': 'https://upload.wikimedia.org/wikipedia/en/6/62/Burnley_F.C._Logo.svg',
-    'Fulham FC': 'https://upload.wikimedia.org/wikipedia/en/e/eb/Fulham_FC_%28shield%29.svg',
-    'FC Barcelona': 'https://upload.wikimedia.org/wikipedia/en/4/47/FC_Barcelona_%28crest%29.svg',
-    'Sevilla FC': 'https://upload.wikimedia.org/wikipedia/en/8/86/Sevilla_cf_200px.png',
-    'Atletico Madrid': 'https://upload.wikimedia.org/wikipedia/en/f/f4/Atletico_Madrid_2017_logo.svg',
-    'Deportivo Alaves Sad': 'https://upload.wikimedia.org/wikipedia/en/2/2e/Deportivo_Alaves_logo.svg',
-    'Real Madrid': 'https://upload.wikimedia.org/wikipedia/en/5/56/Real_Madrid_CF.svg',
-    'Getafe CF': 'https://upload.wikimedia.org/wikipedia/en/7/7f/Getafe_logo.png',
-    'UD Levante': 'https://upload.wikimedia.org/wikipedia/en/7/7b/Levante_Uni%C3%B3n_Deportiva%2C_S.A.D._logo.svg',
-    'Espanyol Barcelona': 'https://upload.wikimedia.org/wikipedia/en/d/d6/Rcd_espanyol_logo.svg',
-    'Girona FC': 'https://upload.wikimedia.org/wikipedia/en/9/90/For_article_Girona_FC.svg',
-    'Celta de Vigo': 'https://upload.wikimedia.org/wikipedia/en/1/12/RC_Celta_de_Vigo_logo.svg',
-    'Real Sociedad': 'https://upload.wikimedia.org/wikipedia/en/f/f1/Real_Sociedad_logo.svg',
-    'Real Betis Balompie': 'https://upload.wikimedia.org/wikipedia/en/1/13/Real_betis_logo.svg',
-    'Valencia CF': 'https://upload.wikimedia.org/wikipedia/en/c/ce/Valenciacf.svg',
-    'SD Eibar': 'https://upload.wikimedia.org/wikipedia/en/3/3b/SD_Eibar_logo_2016.svg',
-    'Real Valladolid': 'https://upload.wikimedia.org/wikipedia/en/6/6e/Real_Valladolid_Logo.svg',
-    'CD Leganes': 'https://upload.wikimedia.org/wikipedia/en/0/02/Club_Deportivo_Legan%C3%A9s.png',
-    'Villarreal CF': 'https://upload.wikimedia.org/wikipedia/en/7/70/Villarreal_CF_logo.svg',
-    'Athletic Bilbao': 'https://upload.wikimedia.org/wikipedia/en/9/98/Club_Athletic_Bilbao_logo.svg',
-    'Rayo Vallecano': 'https://upload.wikimedia.org/wikipedia/commons/a/a5/EscudoRayo.svg',
-    'SD Huesca': 'https://upload.wikimedia.org/wikipedia/en/1/11/Sd_huesca.png',
-    'Borussia Dortmund': 'https://upload.wikimedia.org/wikipedia/commons/6/67/Borussia_Dortmund_logo.svg',
-    'Bayern Munich': 'https://upload.wikimedia.org/wikipedia/commons/1/1b/FC_Bayern_M%C3%BCnchen_logo_%282017%29.svg',
-    'Monchengladbach': 'https://upload.wikimedia.org/wikipedia/commons/8/81/Borussia_M%C3%B6nchengladbach_logo.svg',
-    'RB Leipzig': 'https://upload.wikimedia.org/wikipedia/en/0/04/RB_Leipzig_2014_logo.svg',
-    'Eintracht Frankfurt': 'https://upload.wikimedia.org/wikipedia/commons/0/04/Eintracht_Frankfurt_Logo.svg',
-    'Hertha BSC': 'https://upload.wikimedia.org/wikipedia/commons/8/81/Hertha_BSC_Logo_2012.svg',
-    '1899 Hoffenheim': 'https://upload.wikimedia.org/wikipedia/commons/e/e7/Logo_TSG_Hoffenheim.svg',
-    'Werder Bremen': 'https://upload.wikimedia.org/wikipedia/commons/b/be/SV-Werder-Bremen-Logo.svg',
-    'VfL Wolfsburg': 'https://upload.wikimedia.org/wikipedia/commons/f/f3/Logo-VfL-Wolfsburg.svg',
-    '1. FSV Mainz 05': 'https://upload.wikimedia.org/wikipedia/commons/9/9e/Logo_Mainz_05.svg',
-    'Bayer Leverkusen': 'https://upload.wikimedia.org/wikipedia/en/5/59/Bayer_04_Leverkusen_logo.svg',
-    'SC Freiburg': 'https://upload.wikimedia.org/wikipedia/en/6/6d/SC_Freiburg_logo.svg',
-    'FC Schalke 04': 'https://upload.wikimedia.org/wikipedia/commons/6/6d/FC_Schalke_04_Logo.svg',
-    'FC Augsburg': 'https://upload.wikimedia.org/wikipedia/en/c/c5/FC_Augsburg_logo.svg',
-    'VfB Stuttgart': 'https://upload.wikimedia.org/wikipedia/commons/e/eb/VfB_Stuttgart_1893_Logo.svg',
-    '1 FC Nuremberg': 'https://upload.wikimedia.org/wikipedia/commons/f/fa/1._FC_N%C3%BCrnberg_logo.svg',
-    'Hannover 96': 'https://upload.wikimedia.org/wikipedia/commons/c/cd/Hannover_96_Logo.svg',
-    'Fortuna Dusseldorf': 'https://upload.wikimedia.org/wikipedia/commons/9/94/Fortuna_D%C3%BCsseldorf.svg',
-    'Paris Saint-Germain': 'https://upload.wikimedia.org/wikipedia/en/a/a7/Paris_Saint-Germain_F.C..svg',
-    'Lille OSC': 'https://upload.wikimedia.org/wikipedia/en/6/6f/Lille_OSC_2018_logo.png',
-    'Montpellier HSC': 'https://upload.wikimedia.org/wikipedia/en/a/a8/Montpellier_HSC_logo.svg',
-    'Olympique Lyon': 'https://upload.wikimedia.org/wikipedia/en/c/c6/Olympique_Lyonnais.svg',
-    'Olympique Marseille': 'https://upload.wikimedia.org/wikipedia/commons/d/d8/Olympique_Marseille_logo.svg',
-    'AS Saint Etienne': 'https://upload.wikimedia.org/wikipedia/commons/2/2c/Logo_AS_Saint-%C3%89tienne.svg',
-    'OGC Nice': 'https://upload.wikimedia.org/wikipedia/en/2/2e/OGC_Nice_logo.svg',
-    'Olympique Nimes': 'https://upload.wikimedia.org/wikipedia/commons/d/d7/LogoNO-2018.png',
-    'Racing Strasbourg': 'https://upload.wikimedia.org/wikipedia/en/8/80/Racing_Club_de_Strasbourg_logo.svg',
-    'FC Girondins Bordeaux': 'https://upload.wikimedia.org/wikipedia/en/1/11/FC_Girondins_de_Bordeaux_logo.svg',
-    'Stade Reims': 'https://upload.wikimedia.org/wikipedia/en/c/cb/Stade_de_Reims.png',
-    'FC Nantes': 'https://upload.wikimedia.org/wikipedia/en/2/2b/FC_Nantes_logo.svg',
-    'Stade Rennes': 'https://upload.wikimedia.org/wikipedia/en/9/9e/Stade_Rennais_FC.svg',
-    'SCO Angers': 'https://upload.wikimedia.org/wikipedia/en/d/d4/Angers_SCO_logo.svg',
-    'Toulouse FC': 'https://upload.wikimedia.org/wikipedia/en/f/f5/Toulouse_FC_2018_logo.png',
-    'Dijon FCO': 'https://upload.wikimedia.org/wikipedia/en/f/f7/Dijon_FCO_logo.svg',
-    'SM Caen': 'https://upload.wikimedia.org/wikipedia/en/a/aa/SM_Caen_2016_logo.svg',
-    'AS Monaco': 'https://upload.wikimedia.org/wikipedia/en/b/ba/AS_Monaco_FC.svg',
-    'SC Amiens': 'https://upload.wikimedia.org/wikipedia/en/f/f6/Amiens_SC_Logo.svg',
-    'EA Guingamp': 'https://upload.wikimedia.org/wikipedia/en/1/12/EA_Guingamp_logo.svg',
-    'Juventus Turin': 'https://upload.wikimedia.org/wikipedia/commons/1/15/Juventus_FC_2017_logo.svg',
-    'SSC Napoli': 'https://upload.wikimedia.org/wikipedia/commons/2/28/S.S.C._Napoli_logo.svg',
-    'Inter Milan': 'https://upload.wikimedia.org/wikipedia/en/0/0b/Inter_Milan.svg',
-    'AC Milan': 'https://upload.wikimedia.org/wikipedia/commons/d/d0/Logo_of_AC_Milan.svg',
-    'Lazio Roma': 'https://upload.wikimedia.org/wikipedia/en/e/e4/SS_Lazio.svg',
-    'FC Torino': 'https://upload.wikimedia.org/wikipedia/en/2/2e/Torino_FC_Logo.svg',
-    'AS Roma': 'https://upload.wikimedia.org/wikipedia/en/f/f7/AS_Roma_logo_%282017%29.svg',
-    'US Sassuolo': 'https://upload.wikimedia.org/wikipedia/en/1/1c/US_Sassuolo_Calcio_logo.svg',
-    'Parma Calcio 1913 S.r.l.': 'https://upload.wikimedia.org/wikipedia/commons/4/4a/ParmaCalcio1913_logo-400x400.png',
-    'Sampdoria Genoa': 'https://upload.wikimedia.org/wikipedia/en/d/d2/U.C._Sampdoria_logo.svg',
-    'Atalanta Bergamasca': 'https://upload.wikimedia.org/wikipedia/en/6/66/AtalantaBC.svg',
-    'ACF Fiorentina': 'https://upload.wikimedia.org/wikipedia/en/b/ba/ACF_Fiorentina_2.svg',
-    'Cagliari Calcio': 'https://upload.wikimedia.org/wikipedia/en/6/61/Cagliari_Calcio_1920.svg',
-    'Genoa FC': 'https://upload.wikimedia.org/wikipedia/en/4/4e/Genoa_cfc.png',
-    'Spal 2013': 'https://upload.wikimedia.org/wikipedia/en/3/3c/Spal2013_logo.svg',
-    'Udinese Calcio': 'https://upload.wikimedia.org/wikipedia/en/f/f2/Udinese_calcio.png',
-    'FC Empoli': 'https://upload.wikimedia.org/wikipedia/en/a/a3/Empoli_FC_1920.png',
-    'Bologna FC': 'https://upload.wikimedia.org/wikipedia/en/d/db/Bologna_F.C._1909_logo.png',
-    'Frosinone Calcio': 'https://upload.wikimedia.org/wikipedia/en/6/64/Frosinone_Calcio_logo.png',
-    'AC Chievo Verona': 'https://upload.wikimedia.org/wikipedia/en/4/4a/Chievo-verona-logo.png',
-    'PSV Eindhoven': 'https://upload.wikimedia.org/wikipedia/en/0/05/PSV_Eindhoven.svg',
-    'Ajax Amsterdam': 'https://upload.wikimedia.org/wikipedia/en/7/79/Ajax_Amsterdam.svg',
-    'Feyenoord Rotterdam': 'https://upload.wikimedia.org/wikipedia/en/e/e3/Feyenoord_logo.svg',
-    'Heracles Almelo': 'https://upload.wikimedia.org/wikipedia/en/5/56/Heracles_Almelo_logo.jpg',
-    'FC Utrecht': 'https://upload.wikimedia.org/wikipedia/commons/9/92/FC_Utrecht.png',
-    'Vitesse Arnhem': 'https://upload.wikimedia.org/wikipedia/en/9/93/Vitesse_logo.svg',
-    'AZ Alkmaar': 'https://upload.wikimedia.org/wikipedia/commons/e/e0/AZ_Alkmaar.svg',
-    'SC Heerenveen': 'https://upload.wikimedia.org/wikipedia/en/d/da/Heerenveen.png',
-    'VVV Venlo': 'https://upload.wikimedia.org/wikipedia/en/6/60/VVV-Venlo_logo.svg',
-    'Fortuna Sittard': 'https://upload.wikimedia.org/wikipedia/en/2/2d/Fortuna_Sittard_logo.svg',
-    'Willem II Tilburg': 'https://upload.wikimedia.org/wikipedia/en/f/fb/Willem_II.png',
-    'ADO Den Haag': 'https://upload.wikimedia.org/wikipedia/en/a/ad/ADO_Den_Haag_logo.svg',
-    'SBV Excelsior': 'https://upload.wikimedia.org/wikipedia/en/f/f5/SBV_Excelsior_logo.png',
-    'PEC Zwolle': 'https://upload.wikimedia.org/wikipedia/en/f/f1/PEC_Zwolle_logo.jpg',
-    'FC Emmen': 'https://upload.wikimedia.org/wikipedia/en/8/83/FC_Emmen_logo.svg',
-    'FC Groningen': 'https://upload.wikimedia.org/wikipedia/en/b/b0/FC_Groningen.png',
-    'De Graafschap': 'https://upload.wikimedia.org/wikipedia/commons/2/28/VBV_De_Graafschap_Doetinchem.svg',
-    'NAC Breda': 'https://upload.wikimedia.org/wikipedia/commons/c/c9/Logo_NAC_Breda.png',
-    'Basaksehir FK': 'https://upload.wikimedia.org/wikipedia/en/3/32/Ba%C5%9Fak%C5%9Fehir_FK_Logo.png',
-    'Kasimpasa': 'https://upload.wikimedia.org/wikipedia/en/0/0d/Kasimpasa.png',
-    'Besiktas': 'https://upload.wikimedia.org/wikipedia/en/7/7b/Besiktas_JK.svg',
-    'Galatasaray': 'https://upload.wikimedia.org/wikipedia/en/3/31/Galatasaray_Star_Logo.svg',
-    'Antalyaspor': 'https://upload.wikimedia.org/wikipedia/en/9/97/Antalyasporlogo.png',
-    'Yeni Malatyaspor': 'https://upload.wikimedia.org/wikipedia/en/7/7c/YeniMalatyaspor.png',
-    'Trabzonspor': 'https://upload.wikimedia.org/wikipedia/en/7/70/Trabzonspor.png',
-    'Atiker Konyaspor 1922': 'https://upload.wikimedia.org/wikipedia/en/4/41/Konyaspor_1922.png',
-    'Ankaragucu': 'https://upload.wikimedia.org/wikipedia/en/7/77/Ankaragucu.png',
-    'Bursaspor': 'https://upload.wikimedia.org/wikipedia/en/0/01/Bursaspor.png',
-    'Goztepe': 'https://upload.wikimedia.org/wikipedia/en/5/5b/G%C3%B6ztepe_logo.png',
-    'Sivasspor': 'https://upload.wikimedia.org/wikipedia/en/8/80/Sivasspor.png',
-    'Alanyaspor': 'https://upload.wikimedia.org/wikipedia/en/6/66/Alanyaspor.png',
-    'Buyuksehir Belediye Erzurumspor': 'https://upload.wikimedia.org/wikipedia/en/2/26/' +
-        'B%C3%BCy%C3%BCk%C5%9Fehir_Belediye_Erzurumspor_logo.png',
-    'Fenerbahce': 'https://upload.wikimedia.org/wikipedia/en/3/39/Fenerbah%C3%A7e.svg',
-    'Akhisar Bld Spor': 'https://upload.wikimedia.org/wikipedia/en/c/c2/Akhisar_Belediye_Logo.png',
-    'Kayserispor': 'https://upload.wikimedia.org/wikipedia/en/8/89/KayserisporNew.png',
-    'Caykur Rizespor': 'https://upload.wikimedia.org/wikipedia/en/5/57/Caykur_Rize_Spor_Logo.png',
-    'KRC Genk': 'https://upload.wikimedia.org/wikipedia/commons/f/f6/KRC_Genk_Logo_2016.svg',
-    'Club Brugge': 'https://upload.wikimedia.org/wikipedia/en/d/d0/Club_Brugge_KV_logo.svg',
-    'Royal Antwerp FC': 'https://upload.wikimedia.org/wikipedia/en/7/76/Royal_Antwerp_Football_Club_Official_Logo.png',
-    'St. Truidense VV': 'https://upload.wikimedia.org/wikipedia/en/f/f1/K._Sint-Truidense_V.V._logo.png',
-    'RSC Anderlecht': 'https://upload.wikimedia.org/wikipedia/en/7/71/RSC_Anderlecht_logo.svg',
-    'Standard Liege': 'https://upload.wikimedia.org/wikipedia/en/7/7c/Royal_Standard_de_Liege.svg',
-    'Royal Charleroi SC': 'https://upload.wikimedia.org/wikipedia/en/e/e1/Royal_Charleroi_Sporting_Club_logo.svg',
-    'KAA Gent': 'https://upload.wikimedia.org/wikipedia/en/f/f4/KAA_Gent_logo.svg',
-    'KV Kortrijk': 'https://upload.wikimedia.org/wikipedia/en/7/7b/KV_Kortrijk_Logo_2016.png',
-    'Cercle Brugge': 'https://upload.wikimedia.org/wikipedia/en/7/7c/Cercle_Brugge_KSV_logo.svg',
-    'KV Oostende': 'https://upload.wikimedia.org/wikipedia/en/e/e3/K.V._Oostende_logo.svg',
-    'AS Eupen': 'https://upload.wikimedia.org/wikipedia/en/d/d9/Kas_Eupen_Logo.png',
-    'SV Zulte Waregem': 'https://upload.wikimedia.org/wikipedia/en/c/cf/Zulte-Waregem_Logo.png',
-    'Royal Mouscron': 'https://upload.wikimedia.org/wikipedia/en/4/4e/Royal_Excel_Mouscron_logo.png',
-    'Waasland-Beveren': 'https://upload.wikimedia.org/wikipedia/en/0/02/Waasland-Beveren_Logo.png',
-    'Sporting Lokeren': 'https://upload.wikimedia.org/wikipedia/en/c/c9/K.S.C._Lokeren_Oost-Vlaanderen_logo.svg',
-    'PAOK FC': 'https://upload.wikimedia.org/wikipedia/en/d/d9/Paok2013.png',
-    'Olympiacos FC': 'https://upload.wikimedia.org/wikipedia/en/f/f1/Olympiacos_FC_logo.svg',
-    'Atromitos Athens': 'https://upload.wikimedia.org/wikipedia/en/e/e9/Atromitos.png',
-    'AEK Athens FC': 'https://upload.wikimedia.org/wikipedia/en/0/04/AEK_Athens_FC_logo.svg',
-    'Panathinaikos Athens': 'https://upload.wikimedia.org/wikipedia/en/5/5b/Panathinaikos-football-seal.png',
-    'Aris Thessaloniki FC': 'https://upload.wikimedia.org/wikipedia/en/b/b4/Arisfc-seal.png',
-    'AO Xanthi FC': 'https://upload.wikimedia.org/wikipedia/en/1/1a/Xanthi_football_club.png',
-    'Panionios Athens': 'https://upload.wikimedia.org/wikipedia/en/7/70/Panionios_FC.png',
-    'Asteras Tripolis': 'https://upload.wikimedia.org/wikipedia/commons/6/67/Asteras_Tripolis.svg',
-    'Panaitolikos': 'https://upload.wikimedia.org/wikipedia/en/f/f2/Panetolikos_new_emblem.png',
-    'AE Larissa FC': 'https://upload.wikimedia.org/wikipedia/en/e/eb/Athlitiki_Enosi_Larissa_F.C..png',
-    'Lamia': 'https://upload.wikimedia.org/wikipedia/en/b/bf/New_Logo_of_the_Greek_football_club_%22Lamia_F.C.%22.png',
-    'PAS Giannina FC': 'https://upload.wikimedia.org/wikipedia/en/2/22/PAS_Giannina_emblem.png',
-    'OFI Crete FC': 'https://upload.wikimedia.org/wikipedia/en/4/45/OFI1925_Logo.png',
-    'Apo Levadeiakos FC': 'https://upload.wikimedia.org/wikipedia/en/d/d3/APO_Levadiakos_F.C._new_quality_logo.png',
-    'GS Apollon Smyrnis': 'https://upload.wikimedia.org/wikipedia/en/b/b8/Apollon_Smyrni_FC_emblem.png',
-    'FC Zenit St Petersburg': 'https://upload.wikimedia.org/wikipedia/commons/2/25/FC_Zenit_1_star_2015_logo.png',
-    'FC Krasnodar': 'https://upload.wikimedia.org/wikipedia/en/e/e7/FC_Krasnodar.png',
-    'CSKA Moscow': 'https://upload.wikimedia.org/wikipedia/en/2/26/PFK_CSKA_Logo.svg',
-    'FC Spartak Moscow': 'https://upload.wikimedia.org/wikipedia/en/9/93/FC_Spartak_Moscow_crest.svg',
-    'FC Lokomotiv Moscow': 'https://upload.wikimedia.org/wikipedia/en/9/95/FC_Lokomotiv_Moscow.png',
-    'FC Rostov': 'https://upload.wikimedia.org/wikipedia/en/b/bf/FC_Rostov_logo.png',
-    'FC Orenburg': 'https://upload.wikimedia.org/wikipedia/en/2/2a/FC_Orenburg.png',
-    'FC Ural Yekaterinburg': 'https://upload.wikimedia.org/wikipedia/en/e/e7/FC_Ural_Sverdlovsk_Oblast.png',
-    'FC Rubin Kazan': 'https://upload.wikimedia.org/wikipedia/en/c/c3/FC_Rubin_Kazan.png',
-    'FC Arsenal Tula': 'https://upload.wikimedia.org/wikipedia/en/d/d0/FC_Arsenal_Tula_logo.png',
-    'Republican FC Akhmat Grozny': 'https://upload.wikimedia.org/wikipedia/en/3/36/Akhmat_Grozny_logo.png',
-    'FC Krylia Sovetov Samara': 'https://upload.wikimedia.org/wikipedia/en/9/9f/FC_Krylia_Sovetov_Samara_logo.png',
-    'FC Dinamo Moscow': 'https://upload.wikimedia.org/wikipedia/commons/6/67/DynamoMoskva.png',
-    'FC Ufa': 'https://upload.wikimedia.org/wikipedia/en/9/9c/FC_Ufa_logo.png',
-    'FC Anzhi Makhachkala': 'https://upload.wikimedia.org/wikipedia/en/3/36/FC_Anzhi_Makhachkala_logo.svg',
-    'FK Yenisey Krasnoyarsk': 'https://upload.wikimedia.org/wikipedia/en/4/44/Logo_yenisey.jpg',
-    'FC Shakhtar Donetsk': 'https://upload.wikimedia.org/wikipedia/en/a/a1/FC_Shakhtar_Donetsk.svg',
-    'FC Dynamo Kiev': 'https://upload.wikimedia.org/wikipedia/commons/d/df/FC_Dynamo_Kyiv_logo.svg',
-    'FC Oleksandriya': 'https://upload.wikimedia.org/wikipedia/en/3/35/FC_Oleksandriya.png',
-    'FC Zorya Lugansk': 'https://upload.wikimedia.org/wikipedia/en/1/18/FC_Zorya_Luhansk.png',
-    'FC Vorskla Poltava': 'https://upload.wikimedia.org/wikipedia/en/5/5f/FC_Vorskla_Poltava.png',
-    'FC Mariupol': 'https://upload.wikimedia.org/wikipedia/en/b/bc/FC_Mariupol_logo.png',
-    'SFC Desna Chernihiv': 'https://upload.wikimedia.org/wikipedia/commons/8/8b/FC_Desna.png',
-    'FC Lviv': 'https://upload.wikimedia.org/wikipedia/en/1/1e/Fclvivlogo.png',
-    'FC Olimpik Donetsk': 'https://upload.wikimedia.org/wikipedia/en/5/5c/Olimpik_Donetsk.jpg',
-    'Karpaty Lviv': 'https://upload.wikimedia.org/wikipedia/en/a/a3/FC_Karpaty_Lviv.svg',
-    'FC Chernomorets Odessa': 'https://upload.wikimedia.org/wikipedia/en/7/77/Chornomorets_odesa_logo_uk.jpg',
-    'FC Arsenal Kiev': 'https://upload.wikimedia.org/wikipedia/en/f/f8/FC_Arsenal-Kyiv_logo.png',
-    'FC Porto': 'https://upload.wikimedia.org/wikipedia/en/f/f1/FC_Porto.svg',
-    'Sporting Braga': 'https://upload.wikimedia.org/wikipedia/en/7/79/S.C._Braga_logo.svg',
-    'Benfica Lisbon': 'https://upload.wikimedia.org/wikipedia/en/a/a2/SL_Benfica_logo.svg',
-    'Sporting CP': 'https://upload.wikimedia.org/wikipedia/en/e/e1/Sporting_Clube_de_Portugal_%28Logo%29.svg',
-    'Vitoria Guimaraes': 'https://upload.wikimedia.org/wikipedia/en/d/d5/Vit%C3%B3ria_Guimar%C3%A3es.svg',
-    'Rio Ave FC': 'https://upload.wikimedia.org/wikipedia/en/8/84/Rio_Ave_FC.png',
-    'CF Os Belenenses': 'https://upload.wikimedia.org/wikipedia/en/2/2a/Os_Belenenses.png',
-    'Vitoria Setubal': 'https://upload.wikimedia.org/wikipedia/en/0/05/Vit%C3%B3ria_F.C._logo.png',
-    'Moreirense FC': 'https://upload.wikimedia.org/wikipedia/en/3/37/Moreirense_Futebol_Clube.png',
-    'CD Santa Clara': 'https://upload.wikimedia.org/wikipedia/en/3/37/C.D._Santa_Clara_logo.svg',
-    'Portimonense SC': 'https://upload.wikimedia.org/wikipedia/en/e/e9/Portimonense_Sporting_Clube.png',
-    'CD Nacional': 'https://upload.wikimedia.org/wikipedia/en/9/96/C.D._Nacional.gif',
-    'CD das Aves': 'https://upload.wikimedia.org/wikipedia/en/5/51/CD_Aves_logo.png',
-    'CS Maritimo Madeira': 'https://upload.wikimedia.org/wikipedia/en/6/67/Club_Sport_Mar%C3%ADtimo.png',
-    'CD Tondela': 'https://upload.wikimedia.org/wikipedia/commons/f/fc/Emblema_CD_Tondela.png',
-    'Boavista FC': 'https://upload.wikimedia.org/wikipedia/en/4/40/Boavista_F.C._logo.svg',
-    'CD Feirense': 'https://upload.wikimedia.org/wikipedia/en/2/2a/CD_Feirense.png',
-    'GD Chaves': 'https://upload.wikimedia.org/wikipedia/en/0/05/G_D_Chaves.png',
+    "Manchester City": "https://upload.wikimedia.org/wikipedia/en/e/eb/Manchester_City_FC_badge.svg",
+    "Liverpool FC": "https://upload.wikimedia.org/wikipedia/en/0/0c/Liverpool_FC.svg",
+    "Tottenham Hotspur": "https://upload.wikimedia.org/wikipedia/en/b/b4/Tottenham_Hotspur.svg",
+    "Chelsea FC": "https://upload.wikimedia.org/wikipedia/en/c/cc/Chelsea_FC.svg",
+    "Arsenal FC": "https://upload.wikimedia.org/wikipedia/en/5/53/Arsenal_FC.svg",
+    "Everton FC": "https://upload.wikimedia.org/wikipedia/en/7/7c/Everton_FC_logo.svg",
+    "AFC Bournemouth": "https://upload.wikimedia.org/wikipedia/en/e/e5/AFC_Bournemouth_%282013%29.svg",
+    "Manchester United": "https://upload.wikimedia.org/wikipedia/en/7/7a/Manchester_United_FC_crest.svg",
+    "Leicester City": "https://upload.wikimedia.org/wikipedia/en/2/2d/Leicester_City_crest.svg",
+    "Brighton & Hove Albion FC": "https://upload.wikimedia.org/wikipedia/en/f/fd/Brighton_%26_Hove_Albion_logo.svg",
+    "Watford FC": "https://upload.wikimedia.org/wikipedia/en/e/e2/Watford.svg",
+    "Wolverhampton Wanderers": "https://upload.wikimedia.org/wikipedia/en/f/fc/Wolverhampton_Wanderers.svg",
+    "West Ham United": "https://upload.wikimedia.org/wikipedia/en/c/c2/West_Ham_United_FC_logo.svg",
+    "Newcastle United": "https://upload.wikimedia.org/wikipedia/en/5/56/Newcastle_United_Logo.svg",
+    "Crystal Palace": "https://upload.wikimedia.org/wikipedia/en/0/0c/Crystal_Palace_FC_logo.svg",
+    "Cardiff City": "https://upload.wikimedia.org/wikipedia/en/3/3c/Cardiff_City_crest.svg",
+    "Huddersfield Town": "https://upload.wikimedia.org/wikipedia/en/5/5a/Huddersfield_Town_A.F.C._logo.svg",
+    "Southampton FC": "https://upload.wikimedia.org/wikipedia/en/c/c9/FC_Southampton.svg",
+    "Burnley FC": "https://upload.wikimedia.org/wikipedia/en/6/62/Burnley_F.C._Logo.svg",
+    "Fulham FC": "https://upload.wikimedia.org/wikipedia/en/e/eb/Fulham_FC_%28shield%29.svg",
+    "FC Barcelona": "https://upload.wikimedia.org/wikipedia/en/4/47/FC_Barcelona_%28crest%29.svg",
+    "Sevilla FC": "https://upload.wikimedia.org/wikipedia/en/8/86/Sevilla_cf_200px.png",
+    "Atletico Madrid": "https://upload.wikimedia.org/wikipedia/en/f/f4/Atletico_Madrid_2017_logo.svg",
+    "Deportivo Alaves Sad": "https://upload.wikimedia.org/wikipedia/en/2/2e/Deportivo_Alaves_logo.svg",
+    "Real Madrid": "https://upload.wikimedia.org/wikipedia/en/5/56/Real_Madrid_CF.svg",
+    "Getafe CF": "https://upload.wikimedia.org/wikipedia/en/7/7f/Getafe_logo.png",
+    "UD Levante": "https://upload.wikimedia.org/wikipedia/en/7/7b/Levante_Uni%C3%B3n_Deportiva%2C_S.A.D._logo.svg",
+    "Espanyol Barcelona": "https://upload.wikimedia.org/wikipedia/en/d/d6/Rcd_espanyol_logo.svg",
+    "Girona FC": "https://upload.wikimedia.org/wikipedia/en/9/90/For_article_Girona_FC.svg",
+    "Celta de Vigo": "https://upload.wikimedia.org/wikipedia/en/1/12/RC_Celta_de_Vigo_logo.svg",
+    "Real Sociedad": "https://upload.wikimedia.org/wikipedia/en/f/f1/Real_Sociedad_logo.svg",
+    "Real Betis Balompie": "https://upload.wikimedia.org/wikipedia/en/1/13/Real_betis_logo.svg",
+    "Valencia CF": "https://upload.wikimedia.org/wikipedia/en/c/ce/Valenciacf.svg",
+    "SD Eibar": "https://upload.wikimedia.org/wikipedia/en/3/3b/SD_Eibar_logo_2016.svg",
+    "Real Valladolid": "https://upload.wikimedia.org/wikipedia/en/6/6e/Real_Valladolid_Logo.svg",
+    "CD Leganes": "https://upload.wikimedia.org/wikipedia/en/0/02/Club_Deportivo_Legan%C3%A9s.png",
+    "Villarreal CF": "https://upload.wikimedia.org/wikipedia/en/7/70/Villarreal_CF_logo.svg",
+    "Athletic Bilbao": "https://upload.wikimedia.org/wikipedia/en/9/98/Club_Athletic_Bilbao_logo.svg",
+    "Rayo Vallecano": "https://upload.wikimedia.org/wikipedia/commons/a/a5/EscudoRayo.svg",
+    "SD Huesca": "https://upload.wikimedia.org/wikipedia/en/1/11/Sd_huesca.png",
+    "Borussia Dortmund": "https://upload.wikimedia.org/wikipedia/commons/6/67/Borussia_Dortmund_logo.svg",
+    "Bayern Munich": "https://upload.wikimedia.org/wikipedia/commons/1/1b/FC_Bayern_M%C3%BCnchen_logo_%282017%29.svg",
+    Monchengladbach: "https://upload.wikimedia.org/wikipedia/commons/8/81/Borussia_M%C3%B6nchengladbach_logo.svg",
+    "RB Leipzig": "https://upload.wikimedia.org/wikipedia/en/0/04/RB_Leipzig_2014_logo.svg",
+    "Eintracht Frankfurt": "https://upload.wikimedia.org/wikipedia/commons/0/04/Eintracht_Frankfurt_Logo.svg",
+    "Hertha BSC": "https://upload.wikimedia.org/wikipedia/commons/8/81/Hertha_BSC_Logo_2012.svg",
+    "1899 Hoffenheim": "https://upload.wikimedia.org/wikipedia/commons/e/e7/Logo_TSG_Hoffenheim.svg",
+    "Werder Bremen": "https://upload.wikimedia.org/wikipedia/commons/b/be/SV-Werder-Bremen-Logo.svg",
+    "VfL Wolfsburg": "https://upload.wikimedia.org/wikipedia/commons/f/f3/Logo-VfL-Wolfsburg.svg",
+    "1. FSV Mainz 05": "https://upload.wikimedia.org/wikipedia/commons/9/9e/Logo_Mainz_05.svg",
+    "Bayer Leverkusen": "https://upload.wikimedia.org/wikipedia/en/5/59/Bayer_04_Leverkusen_logo.svg",
+    "SC Freiburg": "https://upload.wikimedia.org/wikipedia/en/6/6d/SC_Freiburg_logo.svg",
+    "FC Schalke 04": "https://upload.wikimedia.org/wikipedia/commons/6/6d/FC_Schalke_04_Logo.svg",
+    "FC Augsburg": "https://upload.wikimedia.org/wikipedia/en/c/c5/FC_Augsburg_logo.svg",
+    "VfB Stuttgart": "https://upload.wikimedia.org/wikipedia/commons/e/eb/VfB_Stuttgart_1893_Logo.svg",
+    "1 FC Nuremberg": "https://upload.wikimedia.org/wikipedia/commons/f/fa/1._FC_N%C3%BCrnberg_logo.svg",
+    "Hannover 96": "https://upload.wikimedia.org/wikipedia/commons/c/cd/Hannover_96_Logo.svg",
+    "Fortuna Dusseldorf": "https://upload.wikimedia.org/wikipedia/commons/9/94/Fortuna_D%C3%BCsseldorf.svg",
+    "Paris Saint-Germain": "https://upload.wikimedia.org/wikipedia/en/a/a7/Paris_Saint-Germain_F.C..svg",
+    "Lille OSC": "https://upload.wikimedia.org/wikipedia/en/6/6f/Lille_OSC_2018_logo.png",
+    "Montpellier HSC": "https://upload.wikimedia.org/wikipedia/en/a/a8/Montpellier_HSC_logo.svg",
+    "Olympique Lyon": "https://upload.wikimedia.org/wikipedia/en/c/c6/Olympique_Lyonnais.svg",
+    "Olympique Marseille": "https://upload.wikimedia.org/wikipedia/commons/d/d8/Olympique_Marseille_logo.svg",
+    "AS Saint Etienne": "https://upload.wikimedia.org/wikipedia/commons/2/2c/Logo_AS_Saint-%C3%89tienne.svg",
+    "OGC Nice": "https://upload.wikimedia.org/wikipedia/en/2/2e/OGC_Nice_logo.svg",
+    "Olympique Nimes": "https://upload.wikimedia.org/wikipedia/commons/d/d7/LogoNO-2018.png",
+    "Racing Strasbourg": "https://upload.wikimedia.org/wikipedia/en/8/80/Racing_Club_de_Strasbourg_logo.svg",
+    "FC Girondins Bordeaux": "https://upload.wikimedia.org/wikipedia/en/1/11/FC_Girondins_de_Bordeaux_logo.svg",
+    "Stade Reims": "https://upload.wikimedia.org/wikipedia/en/c/cb/Stade_de_Reims.png",
+    "FC Nantes": "https://upload.wikimedia.org/wikipedia/en/2/2b/FC_Nantes_logo.svg",
+    "Stade Rennes": "https://upload.wikimedia.org/wikipedia/en/9/9e/Stade_Rennais_FC.svg",
+    "SCO Angers": "https://upload.wikimedia.org/wikipedia/en/d/d4/Angers_SCO_logo.svg",
+    "Toulouse FC": "https://upload.wikimedia.org/wikipedia/en/f/f5/Toulouse_FC_2018_logo.png",
+    "Dijon FCO": "https://upload.wikimedia.org/wikipedia/en/f/f7/Dijon_FCO_logo.svg",
+    "SM Caen": "https://upload.wikimedia.org/wikipedia/en/a/aa/SM_Caen_2016_logo.svg",
+    "AS Monaco": "https://upload.wikimedia.org/wikipedia/en/b/ba/AS_Monaco_FC.svg",
+    "SC Amiens": "https://upload.wikimedia.org/wikipedia/en/f/f6/Amiens_SC_Logo.svg",
+    "EA Guingamp": "https://upload.wikimedia.org/wikipedia/en/1/12/EA_Guingamp_logo.svg",
+    "Juventus Turin": "https://upload.wikimedia.org/wikipedia/commons/1/15/Juventus_FC_2017_logo.svg",
+    "SSC Napoli": "https://upload.wikimedia.org/wikipedia/commons/2/28/S.S.C._Napoli_logo.svg",
+    "Inter Milan": "https://upload.wikimedia.org/wikipedia/en/0/0b/Inter_Milan.svg",
+    "AC Milan": "https://upload.wikimedia.org/wikipedia/commons/d/d0/Logo_of_AC_Milan.svg",
+    "Lazio Roma": "https://upload.wikimedia.org/wikipedia/en/e/e4/SS_Lazio.svg",
+    "FC Torino": "https://upload.wikimedia.org/wikipedia/en/2/2e/Torino_FC_Logo.svg",
+    "AS Roma": "https://upload.wikimedia.org/wikipedia/en/f/f7/AS_Roma_logo_%282017%29.svg",
+    "US Sassuolo": "https://upload.wikimedia.org/wikipedia/en/1/1c/US_Sassuolo_Calcio_logo.svg",
+    "Parma Calcio 1913 S.r.l.": "https://upload.wikimedia.org/wikipedia/commons/4/4a/ParmaCalcio1913_logo-400x400.png",
+    "Sampdoria Genoa": "https://upload.wikimedia.org/wikipedia/en/d/d2/U.C._Sampdoria_logo.svg",
+    "Atalanta Bergamasca": "https://upload.wikimedia.org/wikipedia/en/6/66/AtalantaBC.svg",
+    "ACF Fiorentina": "https://upload.wikimedia.org/wikipedia/en/b/ba/ACF_Fiorentina_2.svg",
+    "Cagliari Calcio": "https://upload.wikimedia.org/wikipedia/en/6/61/Cagliari_Calcio_1920.svg",
+    "Genoa FC": "https://upload.wikimedia.org/wikipedia/en/4/4e/Genoa_cfc.png",
+    "Spal 2013": "https://upload.wikimedia.org/wikipedia/en/3/3c/Spal2013_logo.svg",
+    "Udinese Calcio": "https://upload.wikimedia.org/wikipedia/en/f/f2/Udinese_calcio.png",
+    "FC Empoli": "https://upload.wikimedia.org/wikipedia/en/a/a3/Empoli_FC_1920.png",
+    "Bologna FC": "https://upload.wikimedia.org/wikipedia/en/d/db/Bologna_F.C._1909_logo.png",
+    "Frosinone Calcio": "https://upload.wikimedia.org/wikipedia/en/6/64/Frosinone_Calcio_logo.png",
+    "AC Chievo Verona": "https://upload.wikimedia.org/wikipedia/en/4/4a/Chievo-verona-logo.png",
+    "PSV Eindhoven": "https://upload.wikimedia.org/wikipedia/en/0/05/PSV_Eindhoven.svg",
+    "Ajax Amsterdam": "https://upload.wikimedia.org/wikipedia/en/7/79/Ajax_Amsterdam.svg",
+    "Feyenoord Rotterdam": "https://upload.wikimedia.org/wikipedia/en/e/e3/Feyenoord_logo.svg",
+    "Heracles Almelo": "https://upload.wikimedia.org/wikipedia/en/5/56/Heracles_Almelo_logo.jpg",
+    "FC Utrecht": "https://upload.wikimedia.org/wikipedia/commons/9/92/FC_Utrecht.png",
+    "Vitesse Arnhem": "https://upload.wikimedia.org/wikipedia/en/9/93/Vitesse_logo.svg",
+    "AZ Alkmaar": "https://upload.wikimedia.org/wikipedia/commons/e/e0/AZ_Alkmaar.svg",
+    "SC Heerenveen": "https://upload.wikimedia.org/wikipedia/en/d/da/Heerenveen.png",
+    "VVV Venlo": "https://upload.wikimedia.org/wikipedia/en/6/60/VVV-Venlo_logo.svg",
+    "Fortuna Sittard": "https://upload.wikimedia.org/wikipedia/en/2/2d/Fortuna_Sittard_logo.svg",
+    "Willem II Tilburg": "https://upload.wikimedia.org/wikipedia/en/f/fb/Willem_II.png",
+    "ADO Den Haag": "https://upload.wikimedia.org/wikipedia/en/a/ad/ADO_Den_Haag_logo.svg",
+    "SBV Excelsior": "https://upload.wikimedia.org/wikipedia/en/f/f5/SBV_Excelsior_logo.png",
+    "PEC Zwolle": "https://upload.wikimedia.org/wikipedia/en/f/f1/PEC_Zwolle_logo.jpg",
+    "FC Emmen": "https://upload.wikimedia.org/wikipedia/en/8/83/FC_Emmen_logo.svg",
+    "FC Groningen": "https://upload.wikimedia.org/wikipedia/en/b/b0/FC_Groningen.png",
+    "De Graafschap": "https://upload.wikimedia.org/wikipedia/commons/2/28/VBV_De_Graafschap_Doetinchem.svg",
+    "NAC Breda": "https://upload.wikimedia.org/wikipedia/commons/c/c9/Logo_NAC_Breda.png",
+    "Basaksehir FK": "https://upload.wikimedia.org/wikipedia/en/3/32/Ba%C5%9Fak%C5%9Fehir_FK_Logo.png",
+    Kasimpasa: "https://upload.wikimedia.org/wikipedia/en/0/0d/Kasimpasa.png",
+    Besiktas: "https://upload.wikimedia.org/wikipedia/en/7/7b/Besiktas_JK.svg",
+    Galatasaray: "https://upload.wikimedia.org/wikipedia/en/3/31/Galatasaray_Star_Logo.svg",
+    Antalyaspor: "https://upload.wikimedia.org/wikipedia/en/9/97/Antalyasporlogo.png",
+    "Yeni Malatyaspor": "https://upload.wikimedia.org/wikipedia/en/7/7c/YeniMalatyaspor.png",
+    Trabzonspor: "https://upload.wikimedia.org/wikipedia/en/7/70/Trabzonspor.png",
+    "Atiker Konyaspor 1922": "https://upload.wikimedia.org/wikipedia/en/4/41/Konyaspor_1922.png",
+    Ankaragucu: "https://upload.wikimedia.org/wikipedia/en/7/77/Ankaragucu.png",
+    Bursaspor: "https://upload.wikimedia.org/wikipedia/en/0/01/Bursaspor.png",
+    Goztepe: "https://upload.wikimedia.org/wikipedia/en/5/5b/G%C3%B6ztepe_logo.png",
+    Sivasspor: "https://upload.wikimedia.org/wikipedia/en/8/80/Sivasspor.png",
+    Alanyaspor: "https://upload.wikimedia.org/wikipedia/en/6/66/Alanyaspor.png",
+    "Buyuksehir Belediye Erzurumspor": "https://upload.wikimedia.org/wikipedia/en/2/26/" +
+        "B%C3%BCy%C3%BCk%C5%9Fehir_Belediye_Erzurumspor_logo.png",
+    Fenerbahce: "https://upload.wikimedia.org/wikipedia/en/3/39/Fenerbah%C3%A7e.svg",
+    "Akhisar Bld Spor": "https://upload.wikimedia.org/wikipedia/en/c/c2/Akhisar_Belediye_Logo.png",
+    Kayserispor: "https://upload.wikimedia.org/wikipedia/en/8/89/KayserisporNew.png",
+    "Caykur Rizespor": "https://upload.wikimedia.org/wikipedia/en/5/57/Caykur_Rize_Spor_Logo.png",
+    "KRC Genk": "https://upload.wikimedia.org/wikipedia/commons/f/f6/KRC_Genk_Logo_2016.svg",
+    "Club Brugge": "https://upload.wikimedia.org/wikipedia/en/d/d0/Club_Brugge_KV_logo.svg",
+    "Royal Antwerp FC": "https://upload.wikimedia.org/wikipedia/en/7/76/Royal_Antwerp_Football_Club_Official_Logo.png",
+    "St. Truidense VV": "https://upload.wikimedia.org/wikipedia/en/f/f1/K._Sint-Truidense_V.V._logo.png",
+    "RSC Anderlecht": "https://upload.wikimedia.org/wikipedia/en/7/71/RSC_Anderlecht_logo.svg",
+    "Standard Liege": "https://upload.wikimedia.org/wikipedia/en/7/7c/Royal_Standard_de_Liege.svg",
+    "Royal Charleroi SC": "https://upload.wikimedia.org/wikipedia/en/e/e1/Royal_Charleroi_Sporting_Club_logo.svg",
+    "KAA Gent": "https://upload.wikimedia.org/wikipedia/en/f/f4/KAA_Gent_logo.svg",
+    "KV Kortrijk": "https://upload.wikimedia.org/wikipedia/en/7/7b/KV_Kortrijk_Logo_2016.png",
+    "Cercle Brugge": "https://upload.wikimedia.org/wikipedia/en/7/7c/Cercle_Brugge_KSV_logo.svg",
+    "KV Oostende": "https://upload.wikimedia.org/wikipedia/en/e/e3/K.V._Oostende_logo.svg",
+    "AS Eupen": "https://upload.wikimedia.org/wikipedia/en/d/d9/Kas_Eupen_Logo.png",
+    "SV Zulte Waregem": "https://upload.wikimedia.org/wikipedia/en/c/cf/Zulte-Waregem_Logo.png",
+    "Royal Mouscron": "https://upload.wikimedia.org/wikipedia/en/4/4e/Royal_Excel_Mouscron_logo.png",
+    "Waasland-Beveren": "https://upload.wikimedia.org/wikipedia/en/0/02/Waasland-Beveren_Logo.png",
+    "Sporting Lokeren": "https://upload.wikimedia.org/wikipedia/en/c/c9/K.S.C._Lokeren_Oost-Vlaanderen_logo.svg",
+    "PAOK FC": "https://upload.wikimedia.org/wikipedia/en/d/d9/Paok2013.png",
+    "Olympiacos FC": "https://upload.wikimedia.org/wikipedia/en/f/f1/Olympiacos_FC_logo.svg",
+    "Atromitos Athens": "https://upload.wikimedia.org/wikipedia/en/e/e9/Atromitos.png",
+    "AEK Athens FC": "https://upload.wikimedia.org/wikipedia/en/0/04/AEK_Athens_FC_logo.svg",
+    "Panathinaikos Athens": "https://upload.wikimedia.org/wikipedia/en/5/5b/Panathinaikos-football-seal.png",
+    "Aris Thessaloniki FC": "https://upload.wikimedia.org/wikipedia/en/b/b4/Arisfc-seal.png",
+    "AO Xanthi FC": "https://upload.wikimedia.org/wikipedia/en/1/1a/Xanthi_football_club.png",
+    "Panionios Athens": "https://upload.wikimedia.org/wikipedia/en/7/70/Panionios_FC.png",
+    "Asteras Tripolis": "https://upload.wikimedia.org/wikipedia/commons/6/67/Asteras_Tripolis.svg",
+    Panaitolikos: "https://upload.wikimedia.org/wikipedia/en/f/f2/Panetolikos_new_emblem.png",
+    "AE Larissa FC": "https://upload.wikimedia.org/wikipedia/en/e/eb/Athlitiki_Enosi_Larissa_F.C..png",
+    Lamia: "https://upload.wikimedia.org/wikipedia/en/b/bf/New_Logo_of_the_Greek_football_club_%22Lamia_F.C.%22.png",
+    "PAS Giannina FC": "https://upload.wikimedia.org/wikipedia/en/2/22/PAS_Giannina_emblem.png",
+    "OFI Crete FC": "https://upload.wikimedia.org/wikipedia/en/4/45/OFI1925_Logo.png",
+    "Apo Levadeiakos FC": "https://upload.wikimedia.org/wikipedia/en/d/d3/APO_Levadiakos_F.C._new_quality_logo.png",
+    "GS Apollon Smyrnis": "https://upload.wikimedia.org/wikipedia/en/b/b8/Apollon_Smyrni_FC_emblem.png",
+    "FC Zenit St Petersburg": "https://upload.wikimedia.org/wikipedia/commons/2/25/FC_Zenit_1_star_2015_logo.png",
+    "FC Krasnodar": "https://upload.wikimedia.org/wikipedia/en/e/e7/FC_Krasnodar.png",
+    "CSKA Moscow": "https://upload.wikimedia.org/wikipedia/en/2/26/PFK_CSKA_Logo.svg",
+    "FC Spartak Moscow": "https://upload.wikimedia.org/wikipedia/en/9/93/FC_Spartak_Moscow_crest.svg",
+    "FC Lokomotiv Moscow": "https://upload.wikimedia.org/wikipedia/en/9/95/FC_Lokomotiv_Moscow.png",
+    "FC Rostov": "https://upload.wikimedia.org/wikipedia/en/b/bf/FC_Rostov_logo.png",
+    "FC Orenburg": "https://upload.wikimedia.org/wikipedia/en/2/2a/FC_Orenburg.png",
+    "FC Ural Yekaterinburg": "https://upload.wikimedia.org/wikipedia/en/e/e7/FC_Ural_Sverdlovsk_Oblast.png",
+    "FC Rubin Kazan": "https://upload.wikimedia.org/wikipedia/en/c/c3/FC_Rubin_Kazan.png",
+    "FC Arsenal Tula": "https://upload.wikimedia.org/wikipedia/en/d/d0/FC_Arsenal_Tula_logo.png",
+    "Republican FC Akhmat Grozny": "https://upload.wikimedia.org/wikipedia/en/3/36/Akhmat_Grozny_logo.png",
+    "FC Krylia Sovetov Samara": "https://upload.wikimedia.org/wikipedia/en/9/9f/FC_Krylia_Sovetov_Samara_logo.png",
+    "FC Dinamo Moscow": "https://upload.wikimedia.org/wikipedia/commons/6/67/DynamoMoskva.png",
+    "FC Ufa": "https://upload.wikimedia.org/wikipedia/en/9/9c/FC_Ufa_logo.png",
+    "FC Anzhi Makhachkala": "https://upload.wikimedia.org/wikipedia/en/3/36/FC_Anzhi_Makhachkala_logo.svg",
+    "FK Yenisey Krasnoyarsk": "https://upload.wikimedia.org/wikipedia/en/4/44/Logo_yenisey.jpg",
+    "FC Shakhtar Donetsk": "https://upload.wikimedia.org/wikipedia/en/a/a1/FC_Shakhtar_Donetsk.svg",
+    "FC Dynamo Kiev": "https://upload.wikimedia.org/wikipedia/commons/d/df/FC_Dynamo_Kyiv_logo.svg",
+    "FC Oleksandriya": "https://upload.wikimedia.org/wikipedia/en/3/35/FC_Oleksandriya.png",
+    "FC Zorya Lugansk": "https://upload.wikimedia.org/wikipedia/en/1/18/FC_Zorya_Luhansk.png",
+    "FC Vorskla Poltava": "https://upload.wikimedia.org/wikipedia/en/5/5f/FC_Vorskla_Poltava.png",
+    "FC Mariupol": "https://upload.wikimedia.org/wikipedia/en/b/bc/FC_Mariupol_logo.png",
+    "SFC Desna Chernihiv": "https://upload.wikimedia.org/wikipedia/commons/8/8b/FC_Desna.png",
+    "FC Lviv": "https://upload.wikimedia.org/wikipedia/en/1/1e/Fclvivlogo.png",
+    "FC Olimpik Donetsk": "https://upload.wikimedia.org/wikipedia/en/5/5c/Olimpik_Donetsk.jpg",
+    "Karpaty Lviv": "https://upload.wikimedia.org/wikipedia/en/a/a3/FC_Karpaty_Lviv.svg",
+    "FC Chernomorets Odessa": "https://upload.wikimedia.org/wikipedia/en/7/77/Chornomorets_odesa_logo_uk.jpg",
+    "FC Arsenal Kiev": "https://upload.wikimedia.org/wikipedia/en/f/f8/FC_Arsenal-Kyiv_logo.png",
+    "FC Porto": "https://upload.wikimedia.org/wikipedia/en/f/f1/FC_Porto.svg",
+    "Sporting Braga": "https://upload.wikimedia.org/wikipedia/en/7/79/S.C._Braga_logo.svg",
+    "Benfica Lisbon": "https://upload.wikimedia.org/wikipedia/en/a/a2/SL_Benfica_logo.svg",
+    "Sporting CP": "https://upload.wikimedia.org/wikipedia/en/e/e1/Sporting_Clube_de_Portugal_%28Logo%29.svg",
+    "Vitoria Guimaraes": "https://upload.wikimedia.org/wikipedia/en/d/d5/Vit%C3%B3ria_Guimar%C3%A3es.svg",
+    "Rio Ave FC": "https://upload.wikimedia.org/wikipedia/en/8/84/Rio_Ave_FC.png",
+    "CF Os Belenenses": "https://upload.wikimedia.org/wikipedia/en/2/2a/Os_Belenenses.png",
+    "Vitoria Setubal": "https://upload.wikimedia.org/wikipedia/en/0/05/Vit%C3%B3ria_F.C._logo.png",
+    "Moreirense FC": "https://upload.wikimedia.org/wikipedia/en/3/37/Moreirense_Futebol_Clube.png",
+    "CD Santa Clara": "https://upload.wikimedia.org/wikipedia/en/3/37/C.D._Santa_Clara_logo.svg",
+    "Portimonense SC": "https://upload.wikimedia.org/wikipedia/en/e/e9/Portimonense_Sporting_Clube.png",
+    "CD Nacional": "https://upload.wikimedia.org/wikipedia/en/9/96/C.D._Nacional.gif",
+    "CD das Aves": "https://upload.wikimedia.org/wikipedia/en/5/51/CD_Aves_logo.png",
+    "CS Maritimo Madeira": "https://upload.wikimedia.org/wikipedia/en/6/67/Club_Sport_Mar%C3%ADtimo.png",
+    "CD Tondela": "https://upload.wikimedia.org/wikipedia/commons/f/fc/Emblema_CD_Tondela.png",
+    "Boavista FC": "https://upload.wikimedia.org/wikipedia/en/4/40/Boavista_F.C._logo.svg",
+    "CD Feirense": "https://upload.wikimedia.org/wikipedia/en/2/2a/CD_Feirense.png",
+    "GD Chaves": "https://upload.wikimedia.org/wikipedia/en/0/05/G_D_Chaves.png",
 };
 
 
@@ -85473,24 +85497,24 @@ exports.logos = {
 
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.tournamentsLogo = {
-    7: 'https://seeklogo.com/images/U/UEFA_Champions_League-logo-DD9AE0500D-seeklogo.com.png',
-    8: 'https://files.laliga.es/seccion_logos/laliga-v-300x300_2018.png',
-    17: 'https://www.premierleague.com/resources/ver/i/elements/premier-league-logo.svg',
-    23: 'https://upload.wikimedia.org/wikipedia/it/8/83/Serie_A_TIM_-_Logo_2018.svg',
-    34: 'https://vignette.wikia.nocookie.net/logopedia/images/f/fa/Ligue_1_logo.svg',
-    35: 'https://upload.wikimedia.org/wikipedia/en/d/df/Bundesliga_logo_%282017%29.svg',
-    37: 'https://upload.wikimedia.org/wikipedia/commons/0/0f/Eredivisie_nieuw_logo_2017-.svg',
-    38: 'https://upload.wikimedia.org/wikipedia/en/6/67/Belgianproleague.png',
-    52: 'https://upload.wikimedia.org/wikipedia/en/4/4f/S%C3%BCper_Lig_logo.svg',
-    185: 'https://upload.wikimedia.org/wikipedia/en/6/61/Super_League_Greece_official_logo.png',
-    203: 'https://upload.wikimedia.org/wikipedia/ru/9/92/Russian_Premier_League_Logo.png',
-    218: 'https://upload.wikimedia.org/wikipedia/commons/thumb/e/e9/' +
-        '%D0%9E%D1%84%D1%96%D1%86%D1%96%D0%B9%D0%BD%D0%B0_%D0%B5%D0%BC%D0%B1%D0%BB%D0%B5%D0%BC%D0%B0' +
-        '_%D0%9F%D1%80%D0%B5%D0%BC%27%D1%94%D1%80-%D0%9B%D1%96%D0%B3%D0%B8.png/' +
-        '341px-%D0%9E%D1%84%D1%96%D1%86%D1%96%D0%B9%D0%BD%D0%B0_%D0%B5%D0%BC%D0%B1%' +
-        'D0%BB%D0%B5%D0%BC%D0%B0_%D0%9F%D1%80%D0%B5%D0%BC%27%D1%94%D1%80-%D0%9B%D1%96%D0%B3%D0%B8.png',
-    238: 'https://upload.wikimedia.org/wikipedia/commons/0/0e/Liga_NOS_logo.png',
-    679: 'https://upload.wikimedia.org/wikipedia/en/0/03/Europa_League.svg',
+    7: "https://seeklogo.com/images/U/UEFA_Champions_League-logo-DD9AE0500D-seeklogo.com.png",
+    8: "https://files.laliga.es/seccion_logos/laliga-v-300x300_2018.png",
+    17: "https://www.premierleague.com/resources/ver/i/elements/premier-league-logo.svg",
+    23: "https://upload.wikimedia.org/wikipedia/it/8/83/Serie_A_TIM_-_Logo_2018.svg",
+    34: "https://vignette.wikia.nocookie.net/logopedia/images/f/fa/Ligue_1_logo.svg",
+    35: "https://upload.wikimedia.org/wikipedia/en/d/df/Bundesliga_logo_%282017%29.svg",
+    37: "https://upload.wikimedia.org/wikipedia/commons/0/0f/Eredivisie_nieuw_logo_2017-.svg",
+    38: "https://upload.wikimedia.org/wikipedia/en/6/67/Belgianproleague.png",
+    52: "https://upload.wikimedia.org/wikipedia/en/4/4f/S%C3%BCper_Lig_logo.svg",
+    185: "https://upload.wikimedia.org/wikipedia/en/6/61/Super_League_Greece_official_logo.png",
+    203: "https://upload.wikimedia.org/wikipedia/ru/9/92/Russian_Premier_League_Logo.png",
+    218: "https://upload.wikimedia.org/wikipedia/commons/thumb/e/e9/" +
+        "%D0%9E%D1%84%D1%96%D1%86%D1%96%D0%B9%D0%BD%D0%B0_%D0%B5%D0%BC%D0%B1%D0%BB%D0%B5%D0%BC%D0%B0" +
+        "_%D0%9F%D1%80%D0%B5%D0%BC%27%D1%94%D1%80-%D0%9B%D1%96%D0%B3%D0%B8.png/" +
+        "341px-%D0%9E%D1%84%D1%96%D1%86%D1%96%D0%B9%D0%BD%D0%B0_%D0%B5%D0%BC%D0%B1%" +
+        "D0%BB%D0%B5%D0%BC%D0%B0_%D0%9F%D1%80%D0%B5%D0%BC%27%D1%94%D1%80-%D0%9B%D1%96%D0%B3%D0%B8.png",
+    238: "https://upload.wikimedia.org/wikipedia/commons/0/0e/Liga_NOS_logo.png",
+    679: "https://upload.wikimedia.org/wikipedia/en/0/03/Europa_League.svg",
 };
 
 
@@ -85578,7 +85602,20 @@ exports.getFutureDates = function (date) {
     var year = date.getFullYear();
     var month = date.getMonth();
     var day = date.getDate();
-    var monthsDurations = [31, year % 4 === 0 ? 29 : 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31];
+    var monthsDurations = [
+        31,
+        year % 4 === 0 ? 29 : 28,
+        31,
+        30,
+        31,
+        30,
+        31,
+        31,
+        30,
+        31,
+        30,
+        31,
+    ];
     for (var i = 0; i < 7; i++) {
         if (day > monthsDurations[month]) {
             month = (month + 1) % 12;
@@ -85675,9 +85712,11 @@ exports.rangeData = function (data, from, to) {
     }
     from = from > 0 ? from - 1 : 0;
     to = to < dataSize ? to : dataSize;
-    return [{
+    return [
+        {
             team_standings: data.slice(from, to),
-        }];
+        },
+    ];
 };
 
 
@@ -85713,7 +85752,7 @@ __export(__webpack_require__(/*! ./sortByTournamentId */ "./public/src/helpers/s
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.getTournamentId = function (_a) {
     var tournament = _a.tournament;
-    return Number(tournament.id.split(':')[2]);
+    return Number(tournament.id.split(":")[2]);
 };
 exports.sortByTournamentId = function (a, b) {
     return exports.getTournamentId(a) - exports.getTournamentId(b);
@@ -85735,7 +85774,7 @@ Object.defineProperty(exports, "__esModule", { value: true });
 var React = __webpack_require__(/*! react */ "./node_modules/react/index.js");
 var ReactDOM = __webpack_require__(/*! react-dom */ "./node_modules/react-dom/index.js");
 var App_1 = __webpack_require__(/*! ./components/App/App */ "./public/src/components/App/App.tsx");
-ReactDOM.render(React.createElement(App_1.App, null), document.getElementById('root'));
+ReactDOM.render(React.createElement(App_1.App, null), document.getElementById("root"));
 
 
 /***/ }),
@@ -85764,11 +85803,21 @@ Object.defineProperty(exports, "__esModule", { value: true });
 var React = __webpack_require__(/*! react */ "./node_modules/react/index.js");
 var components_1 = __webpack_require__(/*! ./components */ "./public/src/components/index.ts");
 var stores_1 = __webpack_require__(/*! ./stores */ "./public/src/stores/index.ts");
-var tournamentList = function () { return React.createElement(components_1.TournamentList, { store: new stores_1.TournamentListStore() }); };
+var tournamentList = function () { return (React.createElement(components_1.TournamentList, { store: new stores_1.TournamentListStore() })); };
 /* istanbul ignore next */
 var table = function (props) { return (React.createElement(components_1.TableView, { store: new stores_1.TableStore({
-        chars: ['rank', 'team', 'played', 'win', 'draw', 'loss', 'goals_for',
-            'goals_against', 'goal_diff', 'points'],
+        chars: [
+            "rank",
+            "team",
+            "played",
+            "win",
+            "draw",
+            "loss",
+            "goals_for",
+            "goals_against",
+            "goal_diff",
+            "points",
+        ],
         id: props.match.params.id,
     }) })); };
 /* istanbul ignore next */
@@ -85787,49 +85836,49 @@ var login = function () { return React.createElement(components_1.Login, { store
 var registration = function () { return React.createElement(components_1.Registration, { store: stores_1.registrationStore }); };
 /* istanbul ignore next */
 var stats = function (props) { return (React.createElement(components_1.Stats, __assign({ store: new stores_1.DataRetriever({
-        url: '/predictions',
+        url: "/predictions",
     }) }, props))); };
 exports.routes = [
     {
         component: tournamentList,
         exact: true,
-        path: '/',
+        path: "/",
     },
     {
         component: login,
         exact: true,
-        path: '/login',
+        path: "/login",
     },
     {
         component: registration,
-        path: '/registration',
+        path: "/registration",
     },
     {
         component: table,
-        path: '/tournament/:id',
+        path: "/tournament/:id",
     },
     {
         component: results,
-        path: '/results/:id',
+        path: "/results/:id",
     },
     {
         component: fixtures,
-        path: '/fixtures/:id',
+        path: "/fixtures/:id",
     },
     {
         component: predictions,
         isProtected: true,
-        path: '/predictions',
+        path: "/predictions",
     },
     {
         component: components_1.Account,
         isProtected: true,
-        path: '/account',
+        path: "/account",
     },
     {
         component: stats,
         isProtected: true,
-        path: '/stats',
+        path: "/stats",
     },
     {
         component: components_1.NotFound,
@@ -85877,7 +85926,8 @@ var DataRetriever = /** @class */ (function () {
     }
     DataRetriever.prototype.fetchList = function () {
         var _this = this;
-        axios_1.default.get(this.url)
+        axios_1.default
+            .get(this.url)
             .then(function (res) {
             _this.data = Array.isArray(res.data) ? res.data.slice() : __assign({}, res.data);
             _this.isLoaded = true;
@@ -86053,9 +86103,12 @@ var PredictionStore = /** @class */ (function () {
     PredictionStore.prototype.handleSubmit = function (e) {
         var _this = this;
         e.preventDefault();
-        var validatedMatches = this.matches.filter(function (match) {
-            return match.competitors[0].userPrediction >= 0 && match.competitors[1].userPrediction >= 0;
-        }).map(function (match) {
+        var validatedMatches = this.matches
+            .filter(function (match) {
+            return (match.competitors[0].userPrediction >= 0 &&
+                match.competitors[1].userPrediction >= 0);
+        })
+            .map(function (match) {
             return {
                 awayScore: match.competitors[1].userPrediction,
                 awayTeam: match.competitors[1].name,
@@ -86064,7 +86117,7 @@ var PredictionStore = /** @class */ (function () {
                 id: match.id,
             };
         });
-        axios_1.default.post('/predictions', validatedMatches).then(function () {
+        axios_1.default.post("/predictions", validatedMatches).then(function () {
             _this.isSuccessSubmit = true;
         });
     };
@@ -86075,9 +86128,12 @@ var PredictionStore = /** @class */ (function () {
         var _this = this;
         var tournamentId = this.filter ? this.filter.tournament_id : undefined;
         this.isFetched = false;
-        axios_1.default.get(this.apiPredictionUrl)
+        axios_1.default
+            .get(this.apiPredictionUrl)
             .then(function (res) {
-            _this.matches = tournamentId ? _this.filterMatches(res.data) : res.data.sort(helpers_1.sortByTournamentId);
+            _this.matches = tournamentId
+                ? _this.filterMatches(res.data)
+                : res.data.sort(helpers_1.sortByTournamentId);
             _this.isLoaded = _this.isLoaded ? _this.isLoaded : true;
             _this.isFetched = true;
         })
@@ -86272,10 +86328,10 @@ var TableStore = /** @class */ (function () {
     TableStore.prototype.sortHandler = function (index, sortName) {
         var newOrder;
         if (this.table[index].order) {
-            newOrder = this.table[index].order === 'asc' ? 'desc' : 'asc';
+            newOrder = this.table[index].order === "asc" ? "desc" : "asc";
         }
         else {
-            newOrder = this.order ? this.order : 'asc';
+            newOrder = this.order ? this.order : "asc";
             this.table[index].order = newOrder;
         }
         this.setSort(index, sortName);
@@ -86284,8 +86340,9 @@ var TableStore = /** @class */ (function () {
     };
     TableStore.prototype.sortTable = function (index, order, sortName) {
         this.table[index].team_standings = this.table[index].team_standings
-            .slice().sort(function (a, b) {
-            if (order === 'asc') {
+            .slice()
+            .sort(function (a, b) {
+            if (order === "asc") {
                 return a[sortName] - b[sortName];
             }
             else {
@@ -86301,10 +86358,11 @@ var TableStore = /** @class */ (function () {
     };
     TableStore.prototype.fetchTable = function () {
         var _this = this;
-        axios_1.default.get(this.url)
-            .then(function (res) {
+        axios_1.default.get(this.url).then(function (res) {
             var _a = res.data, standings = _a.standings, tournament = _a.tournament;
-            _this.table = _this.range && standings[0].groups.length === 1 ? helpers_1.rangeData(standings[0].groups[0].team_standings, _this.range[0], _this.range[1]).slice() : standings[0].groups.slice();
+            _this.table =
+                _this.range && standings[0].groups.length === 1
+                    ? helpers_1.rangeData(standings[0].groups[0].team_standings, _this.range[0], _this.range[1]).slice() : standings[0].groups.slice();
             if (_this.sortName) {
                 _this.table.forEach(function (item, index) {
                     _this.sortHandler(index, _this.sortName);
@@ -86389,7 +86447,7 @@ var TournamentListStore = /** @class */ (function () {
     }
     TournamentListStore.prototype.fetchList = function () {
         var _this = this;
-        axios_1.default.get('/api/tournaments').then(function (res) {
+        axios_1.default.get("/api/tournaments").then(function (res) {
             _this.list = res.data.tournaments;
             _this.isLoaded = true;
         });
@@ -86449,16 +86507,16 @@ var UserStore = /** @class */ (function () {
     }
     UserStore.prototype.fetchUser = function () {
         var _this = this;
-        axios_1.default.get('/is-logged-in').then(function (response) {
+        axios_1.default.get("/is-logged-in").then(function (response) {
             _this.isLoggedIn = response.data.isLoggedIn;
             _this.name = response.data.name;
         });
     };
     UserStore.prototype.logout = function () {
         var _this = this;
-        axios_1.default.get('/logout').then(function () {
+        axios_1.default.get("/logout").then(function () {
             _this.isLoggedIn = false;
-            _this.name = '';
+            _this.name = "";
         });
     };
     __decorate([

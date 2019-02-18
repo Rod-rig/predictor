@@ -23,25 +23,32 @@ const styles = ({ palette, spacing, typography }: Theme) =>
     },
   });
 
-export const Message = withStyles(styles)((props: any) => {
-  const { classes, open, onClose, text } = props;
-  const message = (
-    <div className={classes.msg}>
-      <ErrorIcon />
-      <span className={classes.text}>{text}</span>
-    </div>
-  );
-  return (
-    <Snackbar
-      anchorOrigin={{
-        horizontal: "left",
-        vertical: "bottom",
-      }}
-      autoHideDuration={3000}
-      onClose={onClose}
-      open={open}
-    >
-      <SnackbarContent className={classes.error} message={message} />
-    </Snackbar>
-  );
-});
+export const Message = withStyles(styles)(
+  (props: {
+    classes: any;
+    open: boolean;
+    onClose: () => void;
+    text: string;
+  }) => {
+    const { classes, open, onClose, text } = props;
+    const message = (
+      <div className={classes.msg}>
+        <ErrorIcon />
+        <span className={classes.text}>{text}</span>
+      </div>
+    );
+    return (
+      <Snackbar
+        anchorOrigin={{
+          horizontal: "left",
+          vertical: "bottom",
+        }}
+        autoHideDuration={3000}
+        onClose={onClose}
+        open={open}
+      >
+        <SnackbarContent className={classes.error} message={message} />
+      </Snackbar>
+    );
+  },
+);
