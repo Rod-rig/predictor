@@ -10,6 +10,7 @@ export interface IUser {
 }
 
 export interface ILogin {
+  closeSnackbar: () => void;
   handleChange: (field: keyof IUser, event: any) => void;
   handleSubmit: (event: any) => void;
   hasError: boolean;
@@ -22,6 +23,7 @@ export interface IRegistrationProps {
 }
 
 export interface IRegistration {
+  closeSnackbar: () => void;
   handleChange: (field: keyof IUser, event: any) => void;
   handleSubmit: (event: any) => void;
   hasError: boolean;

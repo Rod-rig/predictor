@@ -31,7 +31,10 @@ export default {
   post: jest.fn((url: string, data: any) => {
     if (url === "/login" && data.name === "test") {
       return Promise.resolve({ data: { name: data.name } });
-    } else if (url === "/predictions" || url === "/register") {
+    } else if (
+      url === "/predictions" ||
+      (url === "/register" && data.name === "test")
+    ) {
       return Promise.resolve();
     } else {
       return Promise.reject({ error: "No such url" });

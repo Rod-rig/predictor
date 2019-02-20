@@ -1,39 +1,43 @@
+import { ILogin } from "../../@types";
 import { loginStore } from "./LoginStore";
 
 describe("LoginStore", () => {
+  let store: ILogin;
   beforeEach(() => {
-    loginStore.user = {
-      name: "",
-      password: "",
-    };
+    store = Object.assign(
+      Object.create(Object.getPrototypeOf(loginStore)),
+      loginStore,
+    );
   });
 
   it("should have correct initial fields", () => {
-    expect(loginStore.user.name).toBe("");
-    expect(loginStore.user.password).toBe("");
-    expect(loginStore.hasError).toBeFalsy();
+    expect(store.user.name).toBe("");
+    expect(store.user.password).toBe("");
+    expect(store.hasError).toBeFalsy();
   });
 
   it("should change login fields", () => {
-    loginStore.handleChange("name", { target: { value: "user" } });
-    expect(loginStore.user.name).toBe("user");
+    store.handleChange("name", { target: { value: "user" } });
+    store.handleChange("password", { target: { value: "password" } });
+    expect(store.user.name).toBe("user");
+    expect(store.user.password).toBe("password");
   });
 
   it("should close snackbar", () => {
-    loginStore.closeSnackbar();
-    expect(loginStore.hasError).toBeFalsy();
+    store.closeSnackbar();
+    expect(store.hasError).toBeFalsy();
   });
 
   it("should submit form with correct creds", () => {
-    loginStore.user.name = "test";
-    loginStore.handleSubmit({ preventDefault: jest.fn() });
-    expect(loginStore.user.name).toBe("test");
-    expect(loginStore.hasError).toBeFalsy();
+    store.handleChange("name", { target: { value: "test" } });
+    store.handleSubmit({ preventDefault: jest.fn() });
+    expect(store.user.name).toBe("test");
+    expect(store.hasError).toBeFalsy();
   });
 
   it("should submit form with wrong creds", () => {
-    loginStore.user.name = "user";
-    loginStore.handleSubmit({ preventDefault: jest.fn() });
-    expect(loginStore.user.name).toBe("user");
+    store.handleChange("name", { target: { value: "user" } });
+    store.handleSubmit({ preventDefault: jest.fn() });
+    expect(store.user.name).toBe("user");
   });
 });
