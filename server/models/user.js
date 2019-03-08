@@ -17,7 +17,12 @@ const UserSchema = new mongoose.Schema({
     trim: true,
   },
   password: String,
-  predictions: Array,
+  predictions: [
+    {
+      type: mongoose.Schema.Types.ObjectId,
+      ref: "Prediction",
+    },
+  ],
 });
 
 const User = mongoose.model("User", UserSchema);

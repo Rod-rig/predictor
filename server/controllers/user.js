@@ -35,11 +35,16 @@ exports.all = (req, res) => {
 };
 
 exports.getById = (req, res) => {
-  User.findById(req.params.id, (err, user) => {
-    if (err) return res.status(500).send(msg.userRequestErrMsg);
-    if (!user) return res.status(404).send(msg.notFoundUserMsg);
-    res.status(200).send(user);
-  });
+  User.findById(req.params.id)
+    .populate("predictions")
+    .exec()
+    .then(user => {
+      if (!user) return res.status(404).send(msg.notFoundUserMsg);
+      res.status(200).send(user);
+    })
+    .catch(err => {
+      res.status(500).send(err);
+    });
 };
 
 exports.login = (req, res) => {
@@ -50,7 +55,7 @@ exports.login = (req, res) => {
       if (isMatch) {
         req.session.isLoggedIn = true;
         req.session.name = user.name;
-        res.status(200).send(user.name);
+        res.sendStatus(200);
       } else {
         res.status(500).send(msg.allUsersRequestErrMsg);
       }
