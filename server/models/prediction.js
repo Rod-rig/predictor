@@ -17,6 +17,14 @@ const PredictionSchema = new mongoose.Schema({
     type: String,
     required: true,
   },
+  awayTeam: {
+    type: String,
+    required: true,
+  },
+  homeTeam: {
+    type: String,
+    required: true,
+  },
   users: [
     {
       userId: {
@@ -28,16 +36,8 @@ const PredictionSchema = new mongoose.Schema({
         type: Number,
         required: true,
       },
-      awayTeam: {
-        type: String,
-        required: true,
-      },
       homeScore: {
         type: Number,
-        required: true,
-      },
-      homeTeam: {
-        type: String,
         required: true,
       },
       created: {
