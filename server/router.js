@@ -44,7 +44,7 @@ module.exports = app => {
     /*userController.verify,*/ predictionController.create,
   );
   //put
-  app.put("/predictions/:matchId", predictionController.update);
+  app.put("/predictions", predictionController.update);
   //delete
   app.delete("/predictions/:matchId", predictionController.delete);
 };

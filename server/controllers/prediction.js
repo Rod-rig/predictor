@@ -112,16 +112,21 @@ exports.create = (req, res) => {
 };
 
 exports.update = (req, res) => {
-  const { homeScore, awayScore } = req.body;
-  Prediction.findOneAndUpdate(
-    { matchId: req.params.matchId },
-    {
-      homeScore,
-      awayScore,
-    },
-  )
-    .then(() => {
-      res.sendStatus(204);
+  const { payload, userId } = req.body;
+  const query = collectQuery(payload, "matchId");
+  Prediction.find({
+    $or: query,
+  })
+    .then(predictions => {
+      predictions.forEach((prediction, index) => {
+        const userPrediction = prediction.users.find(
+          item => item.userId.toString() === userId,
+        );
+        userPrediction.awayScore = payload[index].awayScore;
+        userPrediction.homeScore = payload[index].homeScore;
+        prediction.save();
+      });
+      res.status(200).send(predictions);
     })
     .catch(err => {
       res.status(500).send(err);
