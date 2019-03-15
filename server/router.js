@@ -46,5 +46,5 @@ module.exports = app => {
   //put
   app.put("/predictions", predictionController.update);
   //delete
-  app.delete("/predictions/:matchId", predictionController.delete);
+  app.delete("/predictions/:id", predictionController.delete);
 };

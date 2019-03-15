@@ -134,7 +134,31 @@ exports.update = (req, res) => {
 };
 
 exports.delete = (req, res) => {
-  Prediction.findByIdAndDelete(req.params.matchId)
+  const { id } = req.params;
+  const { userId } = req.body;
+  Prediction.findById(id)
+    .then(prediction => {
+      const index =
+        prediction &&
+        prediction.users.findIndex(user => user.userId.toString() === userId);
+      if (index > -1) {
+        prediction.users.splice(index, 1);
+        return prediction.save();
+      }
+      throw new Error();
+    })
+    .then(() => {
+      return User.findById(userId);
+    })
+    .then(user => {
+      const index =
+        user && user.predictions.findIndex(item => item.toString() === id);
+      if (index > -1) {
+        user.predictions.splice(index, 1);
+        return user.save();
+      }
+      throw new Error();
+    })
     .then(() => {
       res.sendStatus(204);
     })
