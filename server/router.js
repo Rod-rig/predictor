@@ -24,6 +24,8 @@ module.exports = app => {
     userCtrl.register,
     userCtrl.login,
   );
+  app.put("/users/:id");
+  app.delete("/users/:id", userCtrl.deleteUser);
 
   //predictions
   app.get("/predictions", userCtrl.verify, predictionCtrl.all);

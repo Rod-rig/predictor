@@ -55,19 +55,21 @@ exports.getUserById = (req, res) => {
 };
 
 exports.login = (req, res) => {
-  User.findOne({ name: req.body.name }, (err, user) => {
-    if (err || user === null)
-      return res.status(500).send(msg.allUsersRequestErrMsg);
-    bcrypt.compare(req.body.password, user.password).then(isMatch => {
-      if (isMatch) {
-        req.session.isLoggedIn = true;
-        req.session.name = user.name;
-        res.sendStatus(200);
-      } else {
-        res.status(500).send(msg.allUsersRequestErrMsg);
-      }
+  User.findOne({ name: req.body.name })
+    .then(user => {
+      bcrypt.compare(req.body.password, user.password).then(isMatch => {
+        if (isMatch) {
+          req.session.isLoggedIn = true;
+          req.session.name = user.name;
+          res.sendStatus(200);
+        } else {
+          throw new Error();
+        }
+      });
+    })
+    .catch(err => {
+      res.status(401).send(err);
     });
-  });
 };
 
 exports.logout = (req, res) => {
@@ -88,9 +90,25 @@ exports.register = (req, res, next) => {
 
 exports.isUniqueUser = (req, res, next) => {
   const { name, email } = req.body;
-  User.find({ $or: [{ name }, { email }] }, (err, users) => {
-    console.log(users);
-    if (err || users.length >= 1) return res.status(500).send(msg.userExists);
-    next();
-  });
+  User.find({ $or: [{ name }, { email }] })
+    .then(users => {
+      if (users.length >= 1) {
+        throw new Error();
+      }
+      next();
+    })
+    .catch(err => {
+      res.status(401).send(err);
+    });
+};
+
+exports.deleteUser = (req, res) => {
+  const { id } = req.params;
+  User.deleteOne({ _id: id })
+    .then(() => {
+      res.sendStatus(204);
+    })
+    .catch(err => {
+      res.status(404).send(err);
+    });
 };
