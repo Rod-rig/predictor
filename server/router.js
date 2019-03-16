@@ -1,50 +1,34 @@
-const userController = require("./controllers/user");
-const predictionController = require("./controllers/prediction");
-const apiController =
-  process.env.NODE_ENV === "development"
-    ? require("./controllers/devApi")
-    : require("./controllers/api");
+const userCtrl = require("./controllers/user");
+const predictionCtrl = require("./controllers/prediction");
+const isDevMode = require("./helpers/is-dev-mode");
+const apiCtrl = isDevMode
+  ? require("./controllers/devApi")
+  : require("./controllers/api");
 
 module.exports = app => {
   //api
-  app.get("/api/tournaments", apiController.getAllTournaments);
-  app.get("/api/standings/:id", apiController.getStandings);
-  app.get("/api/results/:id", apiController.getResults);
-  app.get("/api/schedule/:date", apiController.getSchedule);
+  app.get("/api/tournaments", apiCtrl.getAllTournaments);
+  app.get("/api/standings/:id", apiCtrl.getStandings);
+  app.get("/api/results/:id", apiCtrl.getResults);
+  app.get("/api/schedule/:date", apiCtrl.getSchedule);
 
   //users
-  app.get("/users", /*userController.verifyIsAdmin,*/ userController.all);
-  app.get(
-    "/users/:id",
-    /*userController.verifyIsAdmin,*/ userController.getById,
-  );
-  app.post("/login", userController.login);
-  app.get("/logout", userController.logout);
-  app.get("/is-logged-in", userController.isLoggedIn);
+  app.get("/users", userCtrl.verifyIsAdmin, userCtrl.getAllUsers);
+  app.get("/users/:id", userCtrl.verifyIsAdmin, userCtrl.getUserById);
+  app.post("/login", userCtrl.login);
+  app.get("/logout", userCtrl.logout);
+  app.get("/current-user", userCtrl.getCurrentUser);
   app.post(
     "/register",
-    userController.isUniqueUser,
-    userController.register,
-    userController.login,
+    userCtrl.isUniqueUser,
+    userCtrl.register,
+    userCtrl.login,
   );
 
   //predictions
-  app.get("/predictions", /*userController.verify,*/ predictionController.all);
-  app.get(
-    "/predictions/:userId",
-    /*userController.verify,*/ predictionController.getByUserId,
-  );
-  // app.get(
-  //   "/available-predictions/:date",
-  //   userController.verify,
-  //   predictionController.getAvailablePredictions,
-  // );
-  app.post(
-    "/predictions",
-    /*userController.verify,*/ predictionController.create,
-  );
-  //put
-  app.put("/predictions", predictionController.update);
-  //delete
-  app.delete("/predictions/:id", predictionController.delete);
+  app.get("/predictions", userCtrl.verify, predictionCtrl.all);
+  app.get("/predictions/:userId", userCtrl.verify, predictionCtrl.getByUserId);
+  app.post("/predictions", userCtrl.verify, predictionCtrl.create);
+  app.put("/predictions", predictionCtrl.update);
+  app.delete("/predictions/:id", predictionCtrl.delete);
 };

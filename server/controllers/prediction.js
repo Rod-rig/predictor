@@ -21,31 +21,6 @@ exports.getByUserId = (req, res) => {
     });
 };
 
-// module.exports.getAvailablePredictions = (req, res) => {
-//   axios
-//     .get(
-//       `${process.env.BASE_URL}:${process.env.PORT}/api/schedule/${
-//         req.params.date
-//         }`,
-//     )
-//     .then(response => {
-//       User.findOne({ name: req.session.name }, (err, user) => {
-//         if (err) return res.status(500).send("Cannot get all predictions");
-//         const sportEvents = response.data["sport_events"];
-//         const ids = user.predictions.map(prediction => {
-//           return prediction.id;
-//         });
-//         const availablePredictions = sportEvents.filter(match => {
-//           return ids.indexOf(match.id) === -1;
-//         });
-//         res.status(200).send(availablePredictions);
-//       });
-//     })
-//     .catch(err => {
-//       res.status(500).send(err);
-//     });
-// };
-
 const collectQuery = (body, field) => {
   return body.map(item => ({
     [field]: item[field],

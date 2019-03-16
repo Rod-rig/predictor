@@ -10,7 +10,11 @@ module.exports.connect = (url, done) => {
   }
 
   mongoose
-    .connect(url, { useNewUrlParser: true, dbName: process.env.DB_NAME })
+    .connect(url, {
+      useCreateIndex: true,
+      useNewUrlParser: true,
+      dbName: process.env.DB_NAME,
+    })
     .then(() => {
       state.db = process.env.DB_NAME;
       done();

@@ -1,8 +1,9 @@
 const bcrypt = require("bcrypt");
 const User = require("../models/user");
 const msg = require("../messages/index");
+const isDevMode = require("../helpers/is-dev-mode");
 
-exports.isLoggedIn = (req, res) => {
+exports.getCurrentUser = (req, res) => {
   res.status(200).send({
     isLoggedIn: req.session.isLoggedIn ? req.session.isLoggedIn : false,
     name: req.session.name ? req.session.name : null,
@@ -10,7 +11,7 @@ exports.isLoggedIn = (req, res) => {
 };
 
 exports.verify = (req, res, next) => {
-  if (req.session.isLoggedIn) {
+  if (req.session.isLoggedIn || isDevMode) {
     next();
   } else {
     res.status(403).send(msg.notVerifiedUserErrMsg);
@@ -18,23 +19,29 @@ exports.verify = (req, res, next) => {
 };
 
 exports.verifyIsAdmin = (req, res, next) => {
-  User.findOne({ role: "admin" }, (err, user) => {
-    if (req.session.isLoggedIn && user.name === req.session.name) {
-      next();
-    } else {
-      res.status(403).send(msg.notAdminErrMsg);
-    }
-  });
+  User.findOne({ role: "admin" })
+    .then(user => {
+      const { isLoggedIn, name } = req.session;
+      if ((isLoggedIn && user.name === name) || isDevMode) {
+        next();
+      } else {
+        throw new Error();
+      }
+    })
+    .catch(() => {
+      res.sendStatus(401);
+    });
 };
 
-exports.all = (req, res) => {
-  User.find({}, (err, users) => {
-    if (err) return res.status(500).send(msg.allUsersRequestErrMsg);
-    res.status(200).send(users);
-  });
+exports.getAllUsers = (req, res) => {
+  User.find()
+    .then(users => res.status(200).send(users))
+    .catch(() => {
+      res.sendStatus(404);
+    });
 };
 
-exports.getById = (req, res) => {
+exports.getUserById = (req, res) => {
   User.findById(req.params.id)
     .populate("predictions")
     .exec()
