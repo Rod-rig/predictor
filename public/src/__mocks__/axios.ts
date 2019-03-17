@@ -20,7 +20,7 @@ export default {
       return Promise.resolve({ data: scheduleMock });
     } else if (url === "/predictions") {
       return Promise.resolve({ data: predictions });
-    } else if (url === "/is-logged-in") {
+    } else if (url === "/current-user") {
       return Promise.resolve({ data: userMock });
     } else if (url === "/logout") {
       return Promise.resolve();

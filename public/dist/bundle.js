@@ -86507,7 +86507,7 @@ var UserStore = /** @class */ (function () {
     }
     UserStore.prototype.fetchUser = function () {
         var _this = this;
-        axios_1.default.get("/is-logged-in").then(function (response) {
+        axios_1.default.get("/current-user").then(function (response) {
             _this.isLoggedIn = response.data.isLoggedIn;
             _this.name = response.data.name;
         });

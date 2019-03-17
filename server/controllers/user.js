@@ -4,9 +4,11 @@ const msg = require("../messages/index");
 const isDevMode = require("../helpers/is-dev-mode");
 
 exports.getCurrentUser = (req, res) => {
+  const { isLoggedIn, name, userId } = req.session;
   res.status(200).send({
-    isLoggedIn: req.session.isLoggedIn ? req.session.isLoggedIn : false,
-    name: req.session.name ? req.session.name : null,
+    isLoggedIn: isLoggedIn ? isLoggedIn : false,
+    name: name ? name : null,
+    id: userId ? userId : null,
   });
 };
 
@@ -46,7 +48,7 @@ exports.getUserById = (req, res) => {
     .populate("predictions")
     .exec()
     .then(user => {
-      if (!user) return res.status(404).send(msg.notFoundUserMsg);
+      if (!user) return res.sendStatus(404);
       res.status(200).send(user);
     })
     .catch(err => {
@@ -61,14 +63,14 @@ exports.login = (req, res) => {
         if (isMatch) {
           req.session.isLoggedIn = true;
           req.session.name = user.name;
-          res.sendStatus(200);
-        } else {
-          throw new Error();
+          req.session.userId = user._id;
+          return res.sendStatus(200);
         }
+        return res.sendStatus(401);
       });
     })
     .catch(err => {
-      res.status(401).send(err);
+      res.status(404).send(err);
     });
 };
 
@@ -104,11 +106,32 @@ exports.isUniqueUser = (req, res, next) => {
 
 exports.deleteUser = (req, res) => {
   const { id } = req.params;
-  User.deleteOne({ _id: id })
+  User.findOneAndRemove({ _id: id })
     .then(() => {
       res.sendStatus(204);
     })
     .catch(err => {
       res.status(404).send(err);
+    });
+};
+
+exports.updateUser = (req, res) => {
+  const { id } = req.params;
+  const { name, email } = req.body;
+  User.findById(id)
+    .then(user => {
+      if (name) {
+        user.name = name;
+      }
+      if (email) {
+        user.email = email;
+      }
+      return user.save();
+    })
+    .then(() => {
+      res.sendStatus(204);
+    })
+    .catch(() => {
+      res.sendStatus(404);
     });
 };

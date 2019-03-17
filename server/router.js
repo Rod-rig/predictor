@@ -24,7 +24,7 @@ module.exports = app => {
     userCtrl.register,
     userCtrl.login,
   );
-  app.put("/users/:id");
+  app.put("/users/:id", userCtrl.updateUser);
   app.delete("/users/:id", userCtrl.deleteUser);
 
   //predictions

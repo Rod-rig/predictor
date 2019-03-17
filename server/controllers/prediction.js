@@ -1,5 +1,6 @@
 const Prediction = require("../models/prediction");
 const User = require("../models/user");
+const createQuery = require("../helpers/createQueryFromReq");
 
 exports.all = (req, res) => {
   Prediction.find()
@@ -21,15 +22,9 @@ exports.getByUserId = (req, res) => {
     });
 };
 
-const collectQuery = (body, field) => {
-  return body.map(item => ({
-    [field]: item[field],
-  }));
-};
-
 exports.create = (req, res) => {
   const { payload, userId } = req.body;
-  const query = collectQuery(payload, "matchId");
+  const query = createQuery(payload, "matchId");
   let predictionIds = [];
   Prediction.find({ $or: query })
     .then(findedPrediction => {
@@ -88,7 +83,7 @@ exports.create = (req, res) => {
 
 exports.update = (req, res) => {
   const { payload, userId } = req.body;
-  const query = collectQuery(payload, "matchId");
+  const query = createQuery(payload, "matchId");
   Prediction.find({
     $or: query,
   })
@@ -101,7 +96,7 @@ exports.update = (req, res) => {
         userPrediction.homeScore = payload[index].homeScore;
         prediction.save();
       });
-      res.status(200).send(predictions);
+      res.sendStatus(204);
     })
     .catch(err => {
       res.status(500).send(err);

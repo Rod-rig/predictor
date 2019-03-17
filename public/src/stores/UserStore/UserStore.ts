@@ -11,7 +11,7 @@ class UserStore {
 
   @action.bound
   public fetchUser() {
-    axios.get("/is-logged-in").then((response: AxiosResponse) => {
+    axios.get("/current-user").then((response: AxiosResponse) => {
       this.isLoggedIn = response.data.isLoggedIn;
       this.name = response.data.name;
     });
