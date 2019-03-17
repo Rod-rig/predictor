@@ -1,8 +1,8 @@
 const Prediction = require("../models/prediction");
 const User = require("../models/user");
-const createQuery = require("../helpers/createQueryFromReq");
+const { createQuery } = require("../helpers/createQueryFromReq");
 
-exports.all = (req, res) => {
+exports.getAllPredictions = (req, res) => {
   Prediction.find()
     .then(prediction => {
       res.status(200).send(prediction);
@@ -12,13 +12,14 @@ exports.all = (req, res) => {
     });
 };
 
-exports.getByUserId = (req, res) => {
-  Prediction.find({ userId: req.params.userId })
-    .then(prediction => {
-      res.status(200).send(prediction);
+exports.getPredictionsByUserId = (req, res) => {
+  const { userId } = req.params;
+  Prediction.find({ "users.userId": userId })
+    .then(predictions => {
+      res.status(200).send(predictions);
     })
     .catch(err => {
-      res.status(500).send(err);
+      res.status(404).send(err);
     });
 };
 

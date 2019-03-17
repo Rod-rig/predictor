@@ -28,8 +28,12 @@ module.exports = app => {
   app.delete("/users/:id", userCtrl.deleteUser);
 
   //predictions
-  app.get("/predictions", userCtrl.verify, predictionCtrl.all);
-  app.get("/predictions/:userId", userCtrl.verify, predictionCtrl.getByUserId);
+  app.get("/predictions", userCtrl.verify, predictionCtrl.getAllPredictions);
+  app.get(
+    "/predictions/:userId",
+    userCtrl.verify,
+    predictionCtrl.getPredictionsByUserId,
+  );
   app.post("/predictions", userCtrl.verify, predictionCtrl.create);
   app.put("/predictions", predictionCtrl.update);
   app.delete("/predictions/:id", predictionCtrl.delete);
