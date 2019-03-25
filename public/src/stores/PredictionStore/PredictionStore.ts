@@ -7,7 +7,7 @@ import { getFutureDates, sortByTournamentId } from "../../helpers";
 
 export class PredictionStore implements IPredictionStore {
   @computed get apiPredictionUrl() {
-    return `/available-predictions/${this.currentDate}`;
+    return `/available-events/${this.currentDate}`;
   }
   @observable public matches: ISportEvent[] = [];
   @observable public isLoaded: boolean = false;

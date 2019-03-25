@@ -11,6 +11,7 @@ describe("Login", () => {
     <MemoryRouter>
       <Login
         store={{
+          closeSnackbar: jest.fn(),
           handleChange: changeMock,
           handleSubmit: submitMock,
           hasError: false,

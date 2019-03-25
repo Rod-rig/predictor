@@ -1,7 +1,7 @@
 const userCtrl = require("./controllers/user");
 const predictionCtrl = require("./controllers/prediction");
-const isDevMode = require("./helpers/is-dev-mode");
-const apiCtrl = isDevMode
+const { isDevMode } = require("./helpers/is-dev-mode");
+const apiCtrl = isDevMode()
   ? require("./controllers/devApi")
   : require("./controllers/api");
 
@@ -14,7 +14,7 @@ module.exports = app => {
 
   //users
   app.get("/users", userCtrl.verifyIsAdmin, userCtrl.getAllUsers);
-  app.get("/users/:id", userCtrl.verifyIsAdmin, userCtrl.getUserById);
+  app.get("/users/:id", userCtrl.verify, userCtrl.getUserById);
   app.post("/login", userCtrl.login);
   app.get("/logout", userCtrl.logout);
   app.get("/current-user", userCtrl.getCurrentUser);
@@ -33,6 +33,11 @@ module.exports = app => {
     "/predictions/:userId",
     userCtrl.verify,
     predictionCtrl.getPredictionsByUserId,
+  );
+  app.get(
+    "/available-events/:date",
+    userCtrl.verify,
+    predictionCtrl.getAvailableEvents,
   );
   app.post("/predictions", userCtrl.verify, predictionCtrl.create);
   app.put("/predictions", predictionCtrl.update);

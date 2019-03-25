@@ -1,19 +1,19 @@
 const bcrypt = require("bcrypt");
 const User = require("../models/user");
 const msg = require("../messages/index");
-const isDevMode = require("../helpers/is-dev-mode");
+const { isDevMode } = require("../helpers/is-dev-mode");
 
 exports.getCurrentUser = (req, res) => {
   const { isLoggedIn, name, userId } = req.session;
   res.status(200).send({
+    id: userId ? userId : null,
     isLoggedIn: isLoggedIn ? isLoggedIn : false,
     name: name ? name : null,
-    id: userId ? userId : null,
   });
 };
 
 exports.verify = (req, res, next) => {
-  if (req.session.isLoggedIn || isDevMode) {
+  if (req.session.isLoggedIn || isDevMode()) {
     next();
   } else {
     res.status(403).send(msg.notVerifiedUserErrMsg);
@@ -24,7 +24,7 @@ exports.verifyIsAdmin = (req, res, next) => {
   User.findOne({ role: "admin" })
     .then(user => {
       const { isLoggedIn, name } = req.session;
-      if ((isLoggedIn && user.name === name) || isDevMode) {
+      if ((isLoggedIn && user.name === name) || isDevMode()) {
         next();
       } else {
         throw new Error();
@@ -48,7 +48,9 @@ exports.getUserById = (req, res) => {
     .populate("predictions")
     .exec()
     .then(user => {
-      if (!user) return res.sendStatus(404);
+      if (!user) {
+        return res.sendStatus(404);
+      }
       res.status(200).send(user);
     })
     .catch(err => {

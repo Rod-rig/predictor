@@ -1,6 +1,7 @@
 const Prediction = require("../models/prediction");
 const User = require("../models/user");
-const { createQuery } = require("../helpers/createQueryFromReq");
+const { createQuery } = require("../helpers/create-query-from-req");
+const axios = require("axios");
 
 exports.getAllPredictions = (req, res) => {
   Prediction.find()
@@ -18,6 +19,39 @@ exports.getPredictionsByUserId = (req, res) => {
     .then(predictions => {
       res.status(200).send(predictions);
     })
+    .catch(err => {
+      res.status(404).send(err);
+    });
+};
+
+module.exports.getAvailableEvents = (req, res) => {
+  const { BASE_URL, PORT } = process.env;
+
+  const getSchedule = () => {
+    const { date } = req.params;
+    const url = `${BASE_URL}:${PORT}/api/schedule/${date}`;
+    return axios.get(url);
+  };
+
+  const getUser = () => {
+    const { userId } = req.session;
+    const url = `${BASE_URL}:${PORT}/users/${userId}`;
+    return axios.get(url);
+  };
+
+  axios
+    .all([getSchedule(), getUser()])
+    .then(
+      axios.spread(({ data: schedule }, { data: user }) => {
+        const userPredictionIds = user.predictions.map(prediction => {
+          return prediction.matchId;
+        });
+        const availableEvents = schedule.sport_events.filter(event => {
+          return userPredictionIds.indexOf(event.id) === -1;
+        });
+        res.status(200).send(availableEvents);
+      }),
+    )
     .catch(err => {
       res.status(404).send(err);
     });
@@ -41,9 +75,9 @@ exports.create = (req, res) => {
           tournamentId,
         } = prediction;
         const userPrediction = {
-          userId,
           awayScore,
           homeScore,
+          userId,
         };
         const existedPrediction = findedPrediction.find(
           item => item.matchId === matchId,
@@ -54,12 +88,12 @@ exports.create = (req, res) => {
           predictionIds.push(existedPrediction._id);
         } else {
           const newPrediction = new Prediction({
+            awayTeam,
+            homeTeam,
             matchId,
             scheduled,
             seasonId,
             tournamentId,
-            awayTeam,
-            homeTeam,
             users: [userPrediction],
           });
           newPrediction.save();
