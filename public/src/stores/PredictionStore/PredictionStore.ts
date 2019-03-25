@@ -26,7 +26,7 @@ export class PredictionStore implements IPredictionStore {
 
   public handleSubmit(e: Event): void {
     e.preventDefault();
-    const validatedMatches = this.matches
+    const payload = this.matches
       .filter((match: ISportEvent) => {
         return (
           match.competitors[0].userPrediction >= 0 &&
@@ -39,10 +39,13 @@ export class PredictionStore implements IPredictionStore {
           awayTeam: match.competitors[1].name,
           homeScore: match.competitors[0].userPrediction,
           homeTeam: match.competitors[0].name,
-          id: match.id,
+          matchId: match.id,
+          scheduled: match.scheduled,
+          seasonId: match.season.id,
+          tournamentId: match.tournament.id,
         };
       });
-    axios.post("/predictions", validatedMatches).then(() => {
+    axios.post("/predictions", { payload }).then(() => {
       this.isSuccessSubmit = true;
     });
   }

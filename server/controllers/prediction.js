@@ -58,7 +58,8 @@ module.exports.getAvailableEvents = (req, res) => {
 };
 
 exports.create = (req, res) => {
-  const { payload, userId } = req.body;
+  const { payload } = req.body;
+  const { userId } = req.session;
   const query = createQuery(payload, "matchId");
   let predictionIds = [];
   Prediction.find({ $or: query })
