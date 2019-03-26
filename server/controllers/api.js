@@ -9,7 +9,7 @@ module.exports.getAllTournaments = (req, res) => {
       res.status(200).send(response.data);
     })
     .catch(err => {
-      console.log(err);
+      res.status(404).send(err);
     });
 };
 
@@ -48,6 +48,6 @@ module.exports.getSchedule = (req, res) => {
       res.status(200).send(response.data);
     })
     .catch(err => {
-      console.log(err);
+      res.status(404).send(err);
     });
 };
