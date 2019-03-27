@@ -86146,8 +86146,13 @@ var PredictionStore = /** @class */ (function () {
         function (_a) {
             var response = _a.response;
             /* istanbul ignore next */
-            if (response.status === 404) {
+            if (response.status === 403) {
                 __1.userStore.logout();
+            }
+            if (response.status === 404) {
+                _this.isLoaded = true;
+                _this.isFetched = true;
+                _this.matches = [];
             }
         });
     };

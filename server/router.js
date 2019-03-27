@@ -14,7 +14,7 @@ module.exports = app => {
 
   //users
   app.get("/users", userCtrl.verifyIsAdmin, userCtrl.getAllUsers);
-  app.get("/users/:id", userCtrl.verify, userCtrl.getUserById);
+  app.get("/users/:id", userCtrl.getUserById);
   app.post("/login", userCtrl.login);
   app.get("/logout", userCtrl.logout);
   app.get("/current-user", userCtrl.getCurrentUser);

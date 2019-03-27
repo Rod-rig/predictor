@@ -74,6 +74,11 @@ export class PredictionStore implements IPredictionStore {
           if (response.status === 403) {
             userStore.logout();
           }
+          if (response.status === 404) {
+            this.isLoaded = true;
+            this.isFetched = true;
+            this.matches = [];
+          }
         },
       );
   }

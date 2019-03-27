@@ -48,6 +48,6 @@ module.exports.getSchedule = (req, res) => {
       res.status(200).send(response.data);
     })
     .catch(err => {
-      res.status(404).send(err);
+      res.status(404).send(err.data);
     });
 };
