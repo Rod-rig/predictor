@@ -1,10 +1,15 @@
 const Prediction = require("../models/prediction");
 const axios = require("axios");
 
-exports.updateDb = () => {
+const today = new Date();
+const yesterday = new Date(today.setDate(today.getDate() - 1))
+  .toISOString()
+  .split("T")[0];
+
+exports.updateStatuses = () => {
   const { BASE_URL, PORT } = process.env;
   axios
-    .get(`${BASE_URL}:${PORT}/api/daily-results/2018-09-01`)
+    .get(`${BASE_URL}:${PORT}/api/daily-results/${yesterday}`)
     .then(({ data }) => data)
     .then(({ results }) => {
       const query = results.map(res => {
@@ -36,12 +41,13 @@ exports.updateDb = () => {
             prediction.save();
             console.log(`predictions for ${prediction.matchId} were saved!`);
           });
+          console.log("Update status cron ended");
         })
         .catch(err => {
-          console.log(err.data);
+          console.log(err);
         });
     })
     .catch(err => {
-      console.log(err.data);
+      console.log(err);
     });
 };
