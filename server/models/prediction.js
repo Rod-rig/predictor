@@ -40,6 +40,11 @@ const PredictionSchema = new mongoose.Schema({
         type: Number,
         required: true,
       },
+      status: {
+        type: Number,
+        required: true,
+        default: -1,
+      },
       created: {
         type: Date,
         default: Date.now,

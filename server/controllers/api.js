@@ -25,11 +25,23 @@ module.exports.getStandings = (req, res) => {
     });
 };
 
-module.exports.getResults = (req, res) => {
+module.exports.getResultsByTournamentId = (req, res) => {
   axios
     .get(
       `${apiUrl}/en/tournaments/${
         req.params.id
+      }/results.json?api_key=${apiKey}`,
+    )
+    .then(response => {
+      res.status(200).send(response.data);
+    });
+};
+
+module.exports.getResultsByDate = (req, res) => {
+  axios
+    .get(
+      `${apiUrl}/en/schedules/${
+        req.params.date
       }/results.json?api_key=${apiKey}`,
     )
     .then(response => {

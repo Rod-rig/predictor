@@ -9,7 +9,8 @@ module.exports = app => {
   //api
   app.get("/api/tournaments", apiCtrl.getAllTournaments);
   app.get("/api/standings/:id", apiCtrl.getStandings);
-  app.get("/api/results/:id", apiCtrl.getResults);
+  app.get("/api/results/:id", apiCtrl.getResultsByTournamentId);
+  app.get("/api/daily-results/:date", apiCtrl.getResultsByDate);
   app.get("/api/schedule/:date", apiCtrl.getSchedule);
 
   //users

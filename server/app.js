@@ -11,6 +11,7 @@ const bodyParser = require("body-parser");
 // const webpackConfig = require('../webpack.dev.config.js');
 const router = require("./router");
 const db = require("./db");
+const { updateDb } = require("./crons/update-db");
 
 const app = express();
 app.use(morgan("combined"));
@@ -39,6 +40,9 @@ db.connect(process.env.DB_URL, err => {
   router(app);
   app.listen(process.env.PORT, () => {
     console.log("server started");
+
+    // const CronJob = require("cron").CronJob;
+    // const cron = new CronJob("29 51 23 * * *", updateDb, null, true, "Europe/Kiev");
   });
 });
 
