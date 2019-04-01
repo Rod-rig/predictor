@@ -66,6 +66,7 @@ export interface IPredictionMatch {
   homeTeam: string;
   homeScore: number;
   awayScore: number;
+  status?: number;
 }
 
 export interface IPredictionStore {

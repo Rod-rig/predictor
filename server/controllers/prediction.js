@@ -14,10 +14,22 @@ exports.getAllPredictions = (req, res) => {
 };
 
 exports.getPredictionsByUserId = (req, res) => {
-  const { userId } = req.params;
+  const { userId } = req.session;
   Prediction.find({ "users.userId": userId })
     .then(predictions => {
-      res.status(200).send(predictions);
+      const pred = predictions.map(p => {
+        const userPrediction = p.users.find(
+          u => u.userId.toString() === userId,
+        );
+        return {
+          awayScore: userPrediction.awayScore,
+          awayTeam: p.awayTeam,
+          homeScore: userPrediction.homeScore,
+          homeTeam: p.homeTeam,
+          status: userPrediction.status,
+        };
+      });
+      res.status(200).send(pred);
     })
     .catch(err => {
       res.status(404).send(err);

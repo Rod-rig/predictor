@@ -83662,7 +83662,7 @@ var renderScore = function (homeScore, awayScore, classes) { return (React.creat
 var renderEmptyScore = function (classes) { return (React.createElement("div", { className: classes.score },
     React.createElement("div", { className: classes.dash }, ":"))); };
 exports.MatchItem = decorate(function (props) {
-    var awayScore = props.awayScore, awayTeam = props.awayTeam, classes = props.classes, homeScore = props.homeScore, homeTeam = props.homeTeam;
+    var awayScore = props.awayScore, awayTeam = props.awayTeam, classes = props.classes, homeScore = props.homeScore, homeTeam = props.homeTeam, status = props.status;
     return (React.createElement(core_1.ListItem, { button: true, divider: true },
         React.createElement(core_1.ListItemText, { className: classes.text + " " + classes.right, disableTypography: true },
             React.createElement("div", null, homeTeam),
@@ -83672,7 +83672,10 @@ exports.MatchItem = decorate(function (props) {
             : renderEmptyScore(classes),
         React.createElement(core_1.ListItemText, { className: classes.text, disableTypography: true },
             React.createElement(__1.TeamLogo, { teamName: awayTeam }),
-            React.createElement("div", null, awayTeam))));
+            React.createElement("div", null,
+                awayTeam,
+                " ",
+                status))));
 });
 
 
@@ -84770,7 +84773,7 @@ exports.Stats = mobx_react_1.observer(/** @class */ (function (_super) {
     class_1.prototype.render = function () {
         var store = this.props.store;
         return store.isLoaded ? (React.createElement("div", null, store.data.map(function (item) {
-            return (React.createElement(__1.MatchItem, { key: item.awayTeam + " " + item.homeTeam, awayTeam: item.awayTeam, homeTeam: item.homeTeam, homeScore: item.homeScore, awayScore: item.awayScore }));
+            return (React.createElement(__1.MatchItem, { key: item.awayTeam + " " + item.homeTeam, awayTeam: item.awayTeam, homeTeam: item.homeTeam, homeScore: item.homeScore, awayScore: item.awayScore, status: item.status }));
         }))) : (React.createElement(__1.Loader, null));
     };
     return class_1;

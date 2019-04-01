@@ -22,6 +22,7 @@ export const Stats = observer(
                 homeTeam={item.homeTeam}
                 homeScore={item.homeScore}
                 awayScore={item.awayScore}
+                status={item.status}
               />
             );
           })}

@@ -29,9 +29,13 @@ module.exports = app => {
   app.delete("/users/:id", userCtrl.deleteUser);
 
   //predictions
-  app.get("/predictions", userCtrl.verify, predictionCtrl.getAllPredictions);
   app.get(
-    "/predictions/:userId",
+    "/predictions/all",
+    userCtrl.verifyIsAdmin,
+    predictionCtrl.getAllPredictions,
+  );
+  app.get(
+    "/predictions",
     userCtrl.verify,
     predictionCtrl.getPredictionsByUserId,
   );

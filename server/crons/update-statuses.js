@@ -41,7 +41,7 @@ exports.updateStatuses = () => {
             prediction.save();
             console.log(`predictions for ${prediction.matchId} were saved!`);
           });
-          console.log("Update status cron ended");
+          console.log("Update status cron finished successfully");
         })
         .catch(err => {
           console.log(err);

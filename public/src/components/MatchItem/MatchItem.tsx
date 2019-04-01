@@ -57,8 +57,9 @@ export const MatchItem = decorate(
     homeLogo?: string;
     homeScore?: number;
     homeTeam: string;
+    status?: number;
   }) => {
-    const { awayScore, awayTeam, classes, homeScore, homeTeam } = props;
+    const { awayScore, awayTeam, classes, homeScore, homeTeam, status } = props;
     return (
       <ListItem button={true} divider={true}>
         <ListItemText
