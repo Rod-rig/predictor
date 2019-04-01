@@ -83623,6 +83623,7 @@ __export(__webpack_require__(/*! ./Logo */ "./public/src/components/Logo/Logo.ts
 
 Object.defineProperty(exports, "__esModule", { value: true });
 var core_1 = __webpack_require__(/*! @material-ui/core */ "./node_modules/@material-ui/core/index.es.js");
+var colors_1 = __webpack_require__(/*! @material-ui/core/colors */ "./node_modules/@material-ui/core/colors/index.js");
 var React = __webpack_require__(/*! react */ "./node_modules/react/index.js");
 var __1 = __webpack_require__(/*! ../ */ "./public/src/components/index.ts");
 var decorate = core_1.withStyles(function (_a) {
@@ -83632,15 +83633,23 @@ var decorate = core_1.withStyles(function (_a) {
             marginLeft: spacing.unit / 2,
             marginRight: spacing.unit / 2,
         },
+        default: {
+            backgroundColor: palette.primary.main,
+        },
+        green: {
+            backgroundColor: colors_1.green[600],
+        },
         icon: {
             marginLeft: spacing.unit * 2,
             marginRight: 0,
+        },
+        red: {
+            backgroundColor: palette.error.dark,
         },
         right: {
             justifyContent: "flex-end",
         },
         score: {
-            backgroundColor: palette.primary.main,
             color: palette.primary.contrastText,
             display: "flex",
             fontSize: typography.pxToRem(20),
@@ -83655,10 +83664,13 @@ var decorate = core_1.withStyles(function (_a) {
         },
     });
 });
-var renderScore = function (homeScore, awayScore, classes) { return (React.createElement("div", { className: classes.score },
-    React.createElement("div", null, homeScore),
-    React.createElement("div", { className: classes.dash }, ":"),
-    React.createElement("div", null, awayScore))); };
+var renderScore = function (homeScore, awayScore, status, classes) {
+    var statusClassName = status === 1 ? classes.green : status === 0 ? classes.red : classes.default;
+    return (React.createElement("div", { className: classes.score + " " + statusClassName },
+        React.createElement("div", null, homeScore),
+        React.createElement("div", { className: classes.dash }, ":"),
+        React.createElement("div", null, awayScore)));
+};
 var renderEmptyScore = function (classes) { return (React.createElement("div", { className: classes.score },
     React.createElement("div", { className: classes.dash }, ":"))); };
 exports.MatchItem = decorate(function (props) {
@@ -83668,14 +83680,11 @@ exports.MatchItem = decorate(function (props) {
             React.createElement("div", null, homeTeam),
             React.createElement(__1.TeamLogo, { teamName: homeTeam, modClass: classes.icon })),
         !isNaN(props.homeScore)
-            ? renderScore(homeScore, awayScore, classes)
+            ? renderScore(homeScore, awayScore, status, classes)
             : renderEmptyScore(classes),
         React.createElement(core_1.ListItemText, { className: classes.text, disableTypography: true },
             React.createElement(__1.TeamLogo, { teamName: awayTeam }),
-            React.createElement("div", null,
-                awayTeam,
-                " ",
-                status))));
+            React.createElement("div", null, awayTeam))));
 });
 
 

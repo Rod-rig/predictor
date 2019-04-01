@@ -1,4 +1,5 @@
 import { ListItem, ListItemText, Theme, withStyles } from "@material-ui/core";
+import { green } from "@material-ui/core/colors";
 import * as React from "react";
 import { TeamLogo } from "../";
 
@@ -7,15 +8,23 @@ const decorate = withStyles(({ palette, spacing, typography }: Theme) => ({
     marginLeft: spacing.unit / 2,
     marginRight: spacing.unit / 2,
   },
+  default: {
+    backgroundColor: palette.primary.main,
+  },
+  green: {
+    backgroundColor: green[600],
+  },
   icon: {
     marginLeft: spacing.unit * 2,
     marginRight: 0,
+  },
+  red: {
+    backgroundColor: palette.error.dark,
   },
   right: {
     justifyContent: "flex-end",
   },
   score: {
-    backgroundColor: palette.primary.main,
     color: palette.primary.contrastText,
     display: "flex",
     fontSize: typography.pxToRem(20),
@@ -33,14 +42,19 @@ const decorate = withStyles(({ palette, spacing, typography }: Theme) => ({
 const renderScore = (
   homeScore: number,
   awayScore: number,
+  status: number,
   classes: any,
-): JSX.Element => (
-  <div className={classes.score}>
-    <div>{homeScore}</div>
-    <div className={classes.dash}>:</div>
-    <div>{awayScore}</div>
-  </div>
-);
+): JSX.Element => {
+  const statusClassName =
+    status === 1 ? classes.green : status === 0 ? classes.red : classes.default;
+  return (
+    <div className={`${classes.score} ${statusClassName}`}>
+      <div>{homeScore}</div>
+      <div className={classes.dash}>:</div>
+      <div>{awayScore}</div>
+    </div>
+  );
+};
 
 const renderEmptyScore = (classes: any): JSX.Element => (
   <div className={classes.score}>
@@ -71,7 +85,7 @@ export const MatchItem = decorate(
         </ListItemText>
 
         {!isNaN(props.homeScore)
-          ? renderScore(homeScore, awayScore, classes)
+          ? renderScore(homeScore, awayScore, status, classes)
           : renderEmptyScore(classes)}
 
         <ListItemText className={classes.text} disableTypography={true}>
