@@ -14,7 +14,7 @@ exports[`MatchList should render correctly 1`] = `
     className="MuiPaper-root-18 MuiPaper-elevation2-22 MuiPaper-rounded-19 class_1-round-1"
   >
     <div
-      className="MuiButtonBase-root-62 MuiListItem-root-50 MuiListItem-default-53 MuiListItem-gutters-58 MuiListItem-divider-57 MuiListItem-button-59"
+      className="MuiButtonBase-root-65 MuiListItem-root-53 MuiListItem-default-56 MuiListItem-gutters-61 MuiListItem-divider-60 MuiListItem-button-62"
       onBlur={[Function]}
       onContextMenu={[Function]}
       onFocus={[Function]}
@@ -30,26 +30,26 @@ exports[`MatchList should render correctly 1`] = `
       tabIndex="0"
     >
       <div
-        className="MuiListItemText-root-65 Component-text-49 Component-right-47"
+        className="MuiListItemText-root-68 Component-text-52 Component-right-50"
       >
         <div>
           Russia
         </div>
         <div
-          className="MuiListItemIcon-root-72 Component-icon-46"
+          className="MuiListItemIcon-root-75 Component-icon-48"
         >
           <div
-            className="MuiAvatar-root-73 Component-logo-71"
+            className="MuiAvatar-root-76 Component-logo-74"
           >
             <img
-              className="MuiAvatar-img-75"
+              className="MuiAvatar-img-78"
               src="https://cdn2.iconfinder.com/data/icons/sport-items-2/512/football_soccer_badge_shield_ball_heraldic-128.png"
             />
           </div>
         </div>
       </div>
       <div
-        className="Component-score-48"
+        className="Component-score-51 Component-default-46"
       >
         <div>
           0
@@ -64,16 +64,16 @@ exports[`MatchList should render correctly 1`] = `
         </div>
       </div>
       <div
-        className="MuiListItemText-root-65 Component-text-49"
+        className="MuiListItemText-root-68 Component-text-52"
       >
         <div
-          className="MuiListItemIcon-root-72"
+          className="MuiListItemIcon-root-75"
         >
           <div
-            className="MuiAvatar-root-73 Component-logo-71"
+            className="MuiAvatar-root-76 Component-logo-74"
           >
             <img
-              className="MuiAvatar-img-75"
+              className="MuiAvatar-img-78"
               src="https://cdn2.iconfinder.com/data/icons/sport-items-2/512/football_soccer_badge_shield_ball_heraldic-128.png"
             />
           </div>
@@ -83,11 +83,11 @@ exports[`MatchList should render correctly 1`] = `
         </div>
       </div>
       <span
-        className="MuiTouchRipple-root-76"
+        className="MuiTouchRipple-root-79"
       />
     </div>
     <div
-      className="MuiButtonBase-root-62 MuiListItem-root-50 MuiListItem-default-53 MuiListItem-gutters-58 MuiListItem-divider-57 MuiListItem-button-59"
+      className="MuiButtonBase-root-65 MuiListItem-root-53 MuiListItem-default-56 MuiListItem-gutters-61 MuiListItem-divider-60 MuiListItem-button-62"
       onBlur={[Function]}
       onContextMenu={[Function]}
       onFocus={[Function]}
@@ -103,26 +103,26 @@ exports[`MatchList should render correctly 1`] = `
       tabIndex="0"
     >
       <div
-        className="MuiListItemText-root-65 Component-text-49 Component-right-47"
+        className="MuiListItemText-root-68 Component-text-52 Component-right-50"
       >
         <div>
           Sweden
         </div>
         <div
-          className="MuiListItemIcon-root-72 Component-icon-46"
+          className="MuiListItemIcon-root-75 Component-icon-48"
         >
           <div
-            className="MuiAvatar-root-73 Component-logo-71"
+            className="MuiAvatar-root-76 Component-logo-74"
           >
             <img
-              className="MuiAvatar-img-75"
+              className="MuiAvatar-img-78"
               src="https://cdn2.iconfinder.com/data/icons/sport-items-2/512/football_soccer_badge_shield_ball_heraldic-128.png"
             />
           </div>
         </div>
       </div>
       <div
-        className="Component-score-48"
+        className="Component-score-51 Component-default-46"
       >
         <div>
           1
@@ -137,16 +137,16 @@ exports[`MatchList should render correctly 1`] = `
         </div>
       </div>
       <div
-        className="MuiListItemText-root-65 Component-text-49"
+        className="MuiListItemText-root-68 Component-text-52"
       >
         <div
-          className="MuiListItemIcon-root-72"
+          className="MuiListItemIcon-root-75"
         >
           <div
-            className="MuiAvatar-root-73 Component-logo-71"
+            className="MuiAvatar-root-76 Component-logo-74"
           >
             <img
-              className="MuiAvatar-img-75"
+              className="MuiAvatar-img-78"
               src="https://cdn2.iconfinder.com/data/icons/sport-items-2/512/football_soccer_badge_shield_ball_heraldic-128.png"
             />
           </div>
@@ -156,7 +156,7 @@ exports[`MatchList should render correctly 1`] = `
         </div>
       </div>
       <span
-        className="MuiTouchRipple-root-76"
+        className="MuiTouchRipple-root-79"
       />
     </div>
   </div>
@@ -170,7 +170,7 @@ exports[`MatchList should render correctly 1`] = `
     className="MuiPaper-root-18 MuiPaper-elevation2-22 MuiPaper-rounded-19 class_1-round-1"
   >
     <div
-      className="MuiButtonBase-root-62 MuiListItem-root-50 MuiListItem-default-53 MuiListItem-gutters-58 MuiListItem-divider-57 MuiListItem-button-59"
+      className="MuiButtonBase-root-65 MuiListItem-root-53 MuiListItem-default-56 MuiListItem-gutters-61 MuiListItem-divider-60 MuiListItem-button-62"
       onBlur={[Function]}
       onContextMenu={[Function]}
       onFocus={[Function]}
@@ -186,26 +186,26 @@ exports[`MatchList should render correctly 1`] = `
       tabIndex="0"
     >
       <div
-        className="MuiListItemText-root-65 Component-text-49 Component-right-47"
+        className="MuiListItemText-root-68 Component-text-52 Component-right-50"
       >
         <div>
           Egypt
         </div>
         <div
-          className="MuiListItemIcon-root-72 Component-icon-46"
+          className="MuiListItemIcon-root-75 Component-icon-48"
         >
           <div
-            className="MuiAvatar-root-73 Component-logo-71"
+            className="MuiAvatar-root-76 Component-logo-74"
           >
             <img
-              className="MuiAvatar-img-75"
+              className="MuiAvatar-img-78"
               src="https://cdn2.iconfinder.com/data/icons/sport-items-2/512/football_soccer_badge_shield_ball_heraldic-128.png"
             />
           </div>
         </div>
       </div>
       <div
-        className="Component-score-48"
+        className="Component-score-51 Component-default-46"
       >
         <div>
           0
@@ -220,16 +220,16 @@ exports[`MatchList should render correctly 1`] = `
         </div>
       </div>
       <div
-        className="MuiListItemText-root-65 Component-text-49"
+        className="MuiListItemText-root-68 Component-text-52"
       >
         <div
-          className="MuiListItemIcon-root-72"
+          className="MuiListItemIcon-root-75"
         >
           <div
-            className="MuiAvatar-root-73 Component-logo-71"
+            className="MuiAvatar-root-76 Component-logo-74"
           >
             <img
-              className="MuiAvatar-img-75"
+              className="MuiAvatar-img-78"
               src="https://cdn2.iconfinder.com/data/icons/sport-items-2/512/football_soccer_badge_shield_ball_heraldic-128.png"
             />
           </div>
@@ -239,7 +239,7 @@ exports[`MatchList should render correctly 1`] = `
         </div>
       </div>
       <span
-        className="MuiTouchRipple-root-76"
+        className="MuiTouchRipple-root-79"
       />
     </div>
   </div>
