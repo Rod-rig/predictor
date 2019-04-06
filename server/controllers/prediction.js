@@ -37,17 +37,17 @@ exports.getPredictionsByUserId = (req, res) => {
 };
 
 module.exports.getAvailableEvents = (req, res) => {
-  const { BASE_URL, PORT } = process.env;
+  const { BASE_URL } = process.env;
 
   const getSchedule = () => {
     const { date } = req.params;
-    const url = `${BASE_URL}:${PORT}/api/schedule/${date}`;
+    const url = `${BASE_URL}/api/schedule/${date}`;
     return axios.get(url);
   };
 
   const getUser = () => {
     const { userId } = req.session;
-    const url = `${BASE_URL}:${PORT}/users/${userId}`;
+    const url = `${BASE_URL}/users/${userId}`;
     return axios.get(url);
   };
 

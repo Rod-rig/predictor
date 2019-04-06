@@ -7,9 +7,9 @@ const yesterday = new Date(today.setDate(today.getDate() - 1))
   .split("T")[0];
 
 exports.updateStatuses = () => {
-  const { BASE_URL, PORT } = process.env;
+  const { BASE_URL } = process.env;
   axios
-    .get(`${BASE_URL}:${PORT}/api/daily-results/${yesterday}`)
+    .get(`${BASE_URL}/api/daily-results/${yesterday}`)
     .then(({ data }) => data)
     .then(({ results }) => {
       const query = results.map(res => {
