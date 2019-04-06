@@ -70,6 +70,7 @@ export interface IPredictionMatch {
 }
 
 export interface IPredictionStore {
+  buttonWasClicked?: boolean;
   currentDate: string;
   dates: string[];
   filter?: any;

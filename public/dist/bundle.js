@@ -84092,6 +84092,9 @@ var styles = function (_a) {
             marginBottom: spacing.unit,
             textAlign: "center",
         },
+        circle: {
+            marginRight: spacing.unit,
+        },
         home: {
             "& > span": {
                 "align-items": "center",
@@ -84130,11 +84133,12 @@ var styles = function (_a) {
 };
 exports.Prediction = core_1.withStyles(styles)(mobx_react_1.observer(function (props) {
     var classes = props.classes, store = props.store;
-    if (store.isLoaded && stores_1.userStore.isLoggedIn !== undefined) {
+    var buttonWasClicked = store.buttonWasClicked, isFetched = store.isFetched, isLoaded = store.isLoaded, matches = store.matches, handleChange = store.handleChange, handleSubmit = store.handleSubmit, closeSuccessMsg = store.closeSuccessMsg, isSuccessSubmit = store.isSuccessSubmit;
+    if (isLoaded && stores_1.userStore.isLoggedIn !== undefined) {
         return (React.createElement(React.Fragment, null,
             React.createElement(__1.PredictionFilter, { store: store }),
-            store.isFetched ? (React.createElement("form", { autoComplete: "off", onSubmit: store.handleSubmit.bind(store) }, store.matches.length > 0 ? (React.createElement(React.Fragment, null,
-                React.createElement(core_1.List, null, store.matches.map(function (item, index) {
+            isFetched ? (React.createElement("form", { autoComplete: "off", onSubmit: handleSubmit.bind(store) }, matches.length > 0 ? (React.createElement(React.Fragment, null,
+                React.createElement(core_1.List, null, matches.map(function (item, index) {
                     return (React.createElement(core_1.ListItem, { disableGutters: true, divider: true, key: item.id },
                         React.createElement(core_1.ListItemText, { classes: { root: classes.home } },
                             React.createElement(core_1.InputLabel, { htmlFor: item.competitors[0].id }, item.competitors[0].name),
@@ -84144,20 +84148,22 @@ exports.Prediction = core_1.withStyles(styles)(mobx_react_1.observer(function (p
                                     input: classes.input,
                                     root: classes.inputWrap,
                                     underline: classes.underline,
-                                }, id: item.competitors[0].id, name: item.competitors[0].name, onChange: store.handleChange.bind(store, index, 0), autoFocus: index === 0 }),
+                                }, id: item.competitors[0].id, name: item.competitors[0].name, onChange: handleChange.bind(store, index, 0), autoFocus: index === 0 }),
                             React.createElement("div", null, ":"),
                             React.createElement(core_1.Input, { classes: {
                                     input: classes.input,
                                     root: classes.inputWrap,
                                     underline: classes.underline,
-                                }, id: item.competitors[1].id, name: item.competitors[1].name, onChange: store.handleChange.bind(store, index, 1) })),
+                                }, id: item.competitors[1].id, name: item.competitors[1].name, onChange: handleChange.bind(store, index, 1) })),
                         React.createElement(core_1.ListItemText, { classes: { root: classes.away } },
                             React.createElement(__1.TeamLogo, { teamName: item.competitors[1].name }),
                             React.createElement(core_1.InputLabel, { htmlFor: item.competitors[1].id }, item.competitors[1].name))));
                 })),
                 React.createElement("div", { className: classes.btnWrap },
-                    React.createElement(core_1.Button, { type: "submit", variant: "contained", color: "secondary" }, dict_1.dict.submit_btn_text)),
-                React.createElement(PredictionMessage_1.PredictionMessage, { open: store.isSuccessSubmit, handleClose: store.closeSuccessMsg }))) : (React.createElement(core_1.Typography, { className: classes.noMatchesMsg, variant: "body1" }, dict_1.dict.noAvailablePredictionMatches)))) : (React.createElement(__1.Loader, null))));
+                    React.createElement(core_1.Button, { disabled: buttonWasClicked && !isSuccessSubmit, type: "submit", variant: "contained", color: "secondary" },
+                        buttonWasClicked && !isSuccessSubmit ? (React.createElement(core_1.CircularProgress, { className: classes.circle, size: 20, color: "inherit" })) : (""),
+                        dict_1.dict.submit_btn_text)),
+                React.createElement(PredictionMessage_1.PredictionMessage, { open: isSuccessSubmit, handleClose: closeSuccessMsg }))) : (React.createElement(core_1.Typography, { className: classes.noMatchesMsg, variant: "body1" }, dict_1.dict.noAvailablePredictionMatches)))) : (React.createElement(__1.Loader, null))));
     }
     else {
         return React.createElement(__1.Loader, null);
@@ -86094,12 +86100,32 @@ var mobx_1 = __webpack_require__(/*! mobx */ "./node_modules/mobx/lib/mobx.modul
 var query_string_1 = __webpack_require__(/*! query-string */ "./node_modules/query-string/index.js");
 var __1 = __webpack_require__(/*! ../ */ "./public/src/stores/index.ts");
 var helpers_1 = __webpack_require__(/*! ../../helpers */ "./public/src/helpers/index.ts");
+var createPayload = function (matches) {
+    return matches
+        .filter(function (match) {
+        return (match.competitors[0].userPrediction >= 0 &&
+            match.competitors[1].userPrediction >= 0);
+    })
+        .map(function (match) {
+        return {
+            awayScore: match.competitors[1].userPrediction,
+            awayTeam: match.competitors[1].name,
+            homeScore: match.competitors[0].userPrediction,
+            homeTeam: match.competitors[0].name,
+            matchId: match.id,
+            scheduled: match.scheduled,
+            seasonId: match.season.id,
+            tournamentId: match.tournament.id,
+        };
+    });
+};
 var PredictionStore = /** @class */ (function () {
     function PredictionStore(props) {
         this.matches = [];
         this.isLoaded = false;
         this.isFetched = false;
         this.isSuccessSubmit = false;
+        this.buttonWasClicked = false;
         this.filter = props ? query_string_1.parse(props.filter) : undefined;
         this.dates = helpers_1.getFutureDates();
         this.currentDate = this.dates[0];
@@ -86115,25 +86141,20 @@ var PredictionStore = /** @class */ (function () {
     PredictionStore.prototype.handleSubmit = function (e) {
         var _this = this;
         e.preventDefault();
-        var payload = this.matches
-            .filter(function (match) {
-            return (match.competitors[0].userPrediction >= 0 &&
-                match.competitors[1].userPrediction >= 0);
-        })
-            .map(function (match) {
-            return {
-                awayScore: match.competitors[1].userPrediction,
-                awayTeam: match.competitors[1].name,
-                homeScore: match.competitors[0].userPrediction,
-                homeTeam: match.competitors[0].name,
-                matchId: match.id,
-                scheduled: match.scheduled,
-                seasonId: match.season.id,
-                tournamentId: match.tournament.id,
-            };
-        });
-        axios_1.default.post("/predictions", { payload: payload }).then(function () {
+        var payload = createPayload(this.matches);
+        if (payload.length < 1) {
+            return;
+        }
+        this.buttonWasClicked = true;
+        axios_1.default
+            .post("/predictions", { payload: payload })
+            .then(function () {
             _this.isSuccessSubmit = true;
+            _this.buttonWasClicked = false;
+        })
+            .catch(function () {
+            _this.isSuccessSubmit = false;
+            _this.buttonWasClicked = false;
         });
     };
     PredictionStore.prototype.handleChange = function (index, compIndex, e) {
@@ -86196,6 +86217,9 @@ var PredictionStore = /** @class */ (function () {
     __decorate([
         mobx_1.observable
     ], PredictionStore.prototype, "isSuccessSubmit", void 0);
+    __decorate([
+        mobx_1.observable
+    ], PredictionStore.prototype, "buttonWasClicked", void 0);
     __decorate([
         mobx_1.observable
     ], PredictionStore.prototype, "currentDate", void 0);

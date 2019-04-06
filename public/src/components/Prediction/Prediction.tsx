@@ -1,5 +1,6 @@
 import {
   Button,
+  CircularProgress,
   createStyles,
   Input,
   InputLabel,
@@ -32,6 +33,9 @@ const styles = ({ palette, spacing }: Theme) =>
     btnWrap: {
       marginBottom: spacing.unit,
       textAlign: "center",
+    },
+    circle: {
+      marginRight: spacing.unit,
     },
     home: {
       "& > span": {
@@ -76,17 +80,27 @@ interface IProps extends WithStyles<typeof styles> {
 export const Prediction = withStyles(styles)(
   observer((props: IProps) => {
     const { classes, store } = props;
+    const {
+      buttonWasClicked,
+      isFetched,
+      isLoaded,
+      matches,
+      handleChange,
+      handleSubmit,
+      closeSuccessMsg,
+      isSuccessSubmit,
+    } = store;
 
-    if (store.isLoaded && userStore.isLoggedIn !== undefined) {
+    if (isLoaded && userStore.isLoggedIn !== undefined) {
       return (
         <React.Fragment>
           <PredictionFilter store={store} />
-          {store.isFetched ? (
-            <form autoComplete="off" onSubmit={store.handleSubmit.bind(store)}>
-              {store.matches.length > 0 ? (
+          {isFetched ? (
+            <form autoComplete="off" onSubmit={handleSubmit.bind(store)}>
+              {matches.length > 0 ? (
                 <React.Fragment>
                   <List>
-                    {store.matches.map((item: ISportEvent, index: number) => {
+                    {matches.map((item: ISportEvent, index: number) => {
                       return (
                         <ListItem
                           disableGutters={true}
@@ -111,11 +125,7 @@ export const Prediction = withStyles(styles)(
                               }}
                               id={item.competitors[0].id}
                               name={item.competitors[0].name}
-                              onChange={store.handleChange.bind(
-                                store,
-                                index,
-                                0,
-                              )}
+                              onChange={handleChange.bind(store, index, 0)}
                               autoFocus={index === 0}
                             />
                             <div>:</div>
@@ -127,11 +137,7 @@ export const Prediction = withStyles(styles)(
                               }}
                               id={item.competitors[1].id}
                               name={item.competitors[1].name}
-                              onChange={store.handleChange.bind(
-                                store,
-                                index,
-                                1,
-                              )}
+                              onChange={handleChange.bind(store, index, 1)}
                             />
                           </div>
                           <ListItemText classes={{ root: classes.away }}>
@@ -145,13 +151,27 @@ export const Prediction = withStyles(styles)(
                     })}
                   </List>
                   <div className={classes.btnWrap}>
-                    <Button type="submit" variant="contained" color="secondary">
+                    <Button
+                      disabled={buttonWasClicked && !isSuccessSubmit}
+                      type="submit"
+                      variant="contained"
+                      color="secondary"
+                    >
+                      {buttonWasClicked && !isSuccessSubmit ? (
+                        <CircularProgress
+                          className={classes.circle}
+                          size={20}
+                          color="inherit"
+                        />
+                      ) : (
+                        ""
+                      )}
                       {dict.submit_btn_text}
                     </Button>
                   </div>
                   <PredictionMessage
-                    open={store.isSuccessSubmit}
-                    handleClose={store.closeSuccessMsg}
+                    open={isSuccessSubmit}
+                    handleClose={closeSuccessMsg}
                   />
                 </React.Fragment>
               ) : (
