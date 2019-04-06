@@ -25,7 +25,9 @@ export default {
     } else if (url === "/logout") {
       return Promise.resolve();
     } else {
-      return Promise.reject("No such url");
+      return Promise.reject({
+        response: { error: "No such url", status: 404 },
+      });
     }
   }),
   post: jest.fn((url: string, data: any) => {

@@ -1,3 +1,4 @@
+import { IPredictionStore } from "../../@types/IMatch";
 import { PredictionStore } from "./";
 
 describe("PredictionStore", () => {
@@ -46,18 +47,32 @@ describe("PredictionStore", () => {
     expect(mockStore.matches[0].competitors[1].userPrediction).toBe(1);
   });
 
-  it("should submit form", () => {
-    mockStore.handleChange(0, 0, { target: { value: "0" } });
-    mockStore.handleChange(0, 1, { target: { value: "1" } });
-    const submitSpy = jest.fn(
-      mockStore.handleSubmit.bind(mockStore, new Event("submit")),
-    );
-    submitSpy();
-    expect(submitSpy.mock.calls).toHaveLength(1);
-  });
-
-  it("should close succes msg modal", () => {
+  it("should close success msg modal", () => {
     mockStore.closeSuccessMsg();
     expect(mockStore.isSuccessSubmit).toBeFalsy();
+  });
+
+  describe("handleSubmit", () => {
+    let store: IPredictionStore;
+
+    beforeEach(() => {
+      store = new PredictionStore();
+    });
+
+    it("should not submit form", () => {
+      store.handleSubmit(new Event("submit"));
+      expect(store.buttonWasClicked).toBeFalsy();
+      expect(store.isSuccessSubmit).toBeFalsy();
+    });
+
+    it("should submit form", () => {
+      store.handleChange(0, 0, { target: { value: "0" } });
+      store.handleChange(0, 1, { target: { value: "1" } });
+      const submitSpy = jest.fn(
+        store.handleSubmit.bind(store, new Event("submit")),
+      );
+      submitSpy();
+      expect(submitSpy.mock.calls).toHaveLength(1);
+    });
   });
 });

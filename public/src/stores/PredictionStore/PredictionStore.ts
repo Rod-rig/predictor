@@ -62,10 +62,15 @@ export class PredictionStore implements IPredictionStore {
         this.isSuccessSubmit = true;
         this.buttonWasClicked = false;
       })
-      .catch(() => {
-        this.isSuccessSubmit = false;
-        this.buttonWasClicked = false;
-      });
+      /* istanbul ignore next */
+      .catch(
+        /* istanbul ignore next */
+        () => {
+          /* istanbul ignore next */
+          this.isSuccessSubmit = false;
+          this.buttonWasClicked = false;
+        },
+      );
   }
 
   public handleChange(index: number, compIndex: number, e: any): void {
