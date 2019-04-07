@@ -1,6 +1,6 @@
 {
   "name": "predictor",
-  "version": "0.3.34",
+  "version": "0.4.0",
   "main": "public/src/index.tsx",
   "license": "MIT",
   "scripts": {
@@ -14,7 +14,8 @@
     "start": "npm run server",
     "test": "jest --config package.json",
     "test:ci": "npm run test:coverage && cat ./coverage/lcov.info | ./node_modules/coveralls/bin/coveralls.js && rm -rf ./coverage",
-    "test:coverage": "jest --config package.json --coverage"
+    "test:coverage": "jest --config package.json --coverage",
+    "cron": "node server/crons"
   },
   "repository": {
     "type": "git",
@@ -115,7 +116,6 @@
     "bcrypt": "^3.0.2",
     "body-parser": "^1.18.3",
     "cookie-parser": "^1.4.3",
-    "cron": "^1.7.0",
     "dotenv": "^6.1.0",
     "enzyme": "^3.7.0",
     "enzyme-adapter-react-16": "^1.9.1",
