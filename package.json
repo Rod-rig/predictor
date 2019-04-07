@@ -1,13 +1,13 @@
 {
   "name": "predictor",
-  "version": "0.4.0",
+  "version": "0.4.1",
   "main": "public/src/index.tsx",
   "license": "MIT",
   "scripts": {
     "build": "webpack --config webpack.prod.config.js",
     "build:w": "webpack --config webpack.dev.config.js --watch",
     "lint": "npm run lint:js",
-    "lint:js": "tslint -t stylish 'public/src/**/*.{tsx,ts,js}'",
+    "lint:js": "tslint -t stylish -p tsconfig.json",
     "pretest": "npm run lint",
     "server": "node server/app.js",
     "server:dev": "nodemon server/app.js",

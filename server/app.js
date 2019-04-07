@@ -35,7 +35,9 @@ app.use(
 app.use(express.static("public"));
 
 db.connect(process.env.DB_URL, err => {
-  if (err) return console.error(err);
+  if (err) {
+    return console.error(err);
+  }
   router(app);
   app.listen(process.env.PORT, () => {
     console.log("Server started");
@@ -45,7 +47,9 @@ db.connect(process.env.DB_URL, err => {
 const shutdown = signal => {
   return err => {
     console.log(`${signal}...`);
-    if (err) console.error(err.stack || err);
+    if (err) {
+      console.error(err.stack || err);
+    }
     setTimeout(() => {
       mongoose.connection.close(() => {
         console.log("Mongoose default connection is disconnected");

@@ -2,5 +2,9 @@
   "extends": ["tslint:latest", "tslint-react", "tslint-config-prettier"],
   "rules": {
     "no-submodule-imports": [true, "@material-ui"]
+  },
+  "jsRules": {
+    "no-console": false,
+    "object-literal-sort-keys": false
   }
 }
