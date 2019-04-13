@@ -3,41 +3,70 @@ import { green } from "@material-ui/core/colors";
 import * as React from "react";
 import { TeamLogo } from "../";
 
-const decorate = withStyles(({ palette, spacing, typography }: Theme) => ({
-  dash: {
-    marginLeft: spacing.unit / 2,
-    marginRight: spacing.unit / 2,
-  },
-  default: {
-    backgroundColor: palette.primary.main,
-  },
-  green: {
-    backgroundColor: green[600],
-  },
-  icon: {
-    marginLeft: spacing.unit * 2,
-    marginRight: 0,
-  },
-  red: {
-    backgroundColor: palette.error.dark,
-  },
-  right: {
-    justifyContent: "flex-end",
-  },
-  score: {
-    color: palette.primary.contrastText,
-    display: "flex",
-    fontSize: typography.pxToRem(20),
-    justifyContent: "center",
-    lineHeight: typography.pxToRem(20 * 1.5),
-    width: typography.pxToRem(20 * 3),
-  },
-  text: {
-    alignItems: "center",
-    display: "flex",
-    flexBasis: "40%",
-  },
-}));
+const decorate = withStyles(
+  ({ breakpoints, palette, spacing, typography }: Theme) => ({
+    awayIcon: {
+      [breakpoints.down("xs")]: {
+        marginRight: spacing.unit,
+      },
+    },
+    dash: {
+      marginLeft: spacing.unit / 2,
+      marginRight: spacing.unit / 2,
+    },
+    default: {
+      backgroundColor: palette.primary.main,
+    },
+    green: {
+      backgroundColor: green[600],
+    },
+    guest: {
+      paddingRight: 0,
+      [breakpoints.down("xs")]: {
+        paddingLeft: spacing.unit,
+      },
+    },
+    home: {
+      justifyContent: "flex-end",
+      "text-align": "right",
+      [breakpoints.down("xs")]: {
+        paddingRight: spacing.unit,
+      },
+    },
+    homeIcon: {
+      marginLeft: spacing.unit * 2,
+      marginRight: 0,
+      [breakpoints.down("xs")]: {
+        marginLeft: spacing.unit,
+      },
+    },
+    matchItem: {
+      [breakpoints.down("xs")]: {
+        padding: spacing.unit,
+      },
+    },
+    red: {
+      backgroundColor: palette.error.dark,
+    },
+    score: {
+      color: palette.primary.contrastText,
+      display: "flex",
+      fontSize: typography.pxToRem(20),
+      justifyContent: "center",
+      lineHeight: typography.pxToRem(20 * 1.5),
+      width: typography.pxToRem(20 * 3),
+    },
+    text: {
+      alignItems: "center",
+      display: "flex",
+      flexBasis: "40%",
+      [breakpoints.down("xs")]: {
+        fontSize: typography.pxToRem(14),
+        "word-break": "break-word",
+      },
+    },
+  }),
+);
 
 const renderScore = (
   homeScore: number,
@@ -75,21 +104,24 @@ export const MatchItem = decorate(
   }) => {
     const { awayScore, awayTeam, classes, homeScore, homeTeam, status } = props;
     return (
-      <ListItem button={true} divider={true}>
+      <ListItem button={true} divider={true} className={classes.matchItem}>
         <ListItemText
-          className={`${classes.text} ${classes.right}`}
+          className={`${classes.text} ${classes.home}`}
           disableTypography={true}
         >
           <div>{homeTeam}</div>
-          <TeamLogo teamName={homeTeam} modClass={classes.icon} />
+          <TeamLogo teamName={homeTeam} modClass={classes.homeIcon} />
         </ListItemText>
 
         {!isNaN(props.homeScore)
           ? renderScore(homeScore, awayScore, status, classes)
           : renderEmptyScore(classes)}
 
-        <ListItemText className={classes.text} disableTypography={true}>
-          <TeamLogo teamName={awayTeam} />
+        <ListItemText
+          className={`${classes.text} ${classes.guest}`}
+          disableTypography={true}
+        >
+          <TeamLogo teamName={awayTeam} modClass={classes.awayIcon} />
           <div>{awayTeam}</div>
         </ListItemText>
       </ListItem>

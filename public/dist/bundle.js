@@ -83627,8 +83627,14 @@ var colors_1 = __webpack_require__(/*! @material-ui/core/colors */ "./node_modul
 var React = __webpack_require__(/*! react */ "./node_modules/react/index.js");
 var __1 = __webpack_require__(/*! ../ */ "./public/src/components/index.ts");
 var decorate = core_1.withStyles(function (_a) {
-    var palette = _a.palette, spacing = _a.spacing, typography = _a.typography;
+    var breakpoints = _a.breakpoints, palette = _a.palette, spacing = _a.spacing, typography = _a.typography;
+    var _b, _c, _d, _e, _f, _g;
     return ({
+        awayIcon: (_b = {},
+            _b[breakpoints.down("xs")] = {
+                marginRight: spacing.unit,
+            },
+            _b),
         dash: {
             marginLeft: spacing.unit / 2,
             marginRight: spacing.unit / 2,
@@ -83639,15 +83645,36 @@ var decorate = core_1.withStyles(function (_a) {
         green: {
             backgroundColor: colors_1.green[600],
         },
-        icon: {
-            marginLeft: spacing.unit * 2,
-            marginRight: 0,
-        },
+        guest: (_c = {
+                paddingRight: 0
+            },
+            _c[breakpoints.down("xs")] = {
+                paddingLeft: spacing.unit,
+            },
+            _c),
+        home: (_d = {
+                justifyContent: "flex-end",
+                "text-align": "right"
+            },
+            _d[breakpoints.down("xs")] = {
+                paddingRight: spacing.unit,
+            },
+            _d),
+        homeIcon: (_e = {
+                marginLeft: spacing.unit * 2,
+                marginRight: 0
+            },
+            _e[breakpoints.down("xs")] = {
+                marginLeft: spacing.unit,
+            },
+            _e),
+        matchItem: (_f = {},
+            _f[breakpoints.down("xs")] = {
+                padding: spacing.unit,
+            },
+            _f),
         red: {
             backgroundColor: palette.error.dark,
-        },
-        right: {
-            justifyContent: "flex-end",
         },
         score: {
             color: palette.primary.contrastText,
@@ -83657,11 +83684,16 @@ var decorate = core_1.withStyles(function (_a) {
             lineHeight: typography.pxToRem(20 * 1.5),
             width: typography.pxToRem(20 * 3),
         },
-        text: {
-            alignItems: "center",
-            display: "flex",
-            flexBasis: "40%",
-        },
+        text: (_g = {
+                alignItems: "center",
+                display: "flex",
+                flexBasis: "40%"
+            },
+            _g[breakpoints.down("xs")] = {
+                fontSize: typography.pxToRem(14),
+                "word-break": "break-word",
+            },
+            _g),
     });
 });
 var renderScore = function (homeScore, awayScore, status, classes) {
@@ -83675,15 +83707,15 @@ var renderEmptyScore = function (classes) { return (React.createElement("div", {
     React.createElement("div", { className: classes.dash }, ":"))); };
 exports.MatchItem = decorate(function (props) {
     var awayScore = props.awayScore, awayTeam = props.awayTeam, classes = props.classes, homeScore = props.homeScore, homeTeam = props.homeTeam, status = props.status;
-    return (React.createElement(core_1.ListItem, { button: true, divider: true },
-        React.createElement(core_1.ListItemText, { className: classes.text + " " + classes.right, disableTypography: true },
+    return (React.createElement(core_1.ListItem, { button: true, divider: true, className: classes.matchItem },
+        React.createElement(core_1.ListItemText, { className: classes.text + " " + classes.home, disableTypography: true },
             React.createElement("div", null, homeTeam),
-            React.createElement(__1.TeamLogo, { teamName: homeTeam, modClass: classes.icon })),
+            React.createElement(__1.TeamLogo, { teamName: homeTeam, modClass: classes.homeIcon })),
         !isNaN(props.homeScore)
             ? renderScore(homeScore, awayScore, status, classes)
             : renderEmptyScore(classes),
-        React.createElement(core_1.ListItemText, { className: classes.text, disableTypography: true },
-            React.createElement(__1.TeamLogo, { teamName: awayTeam }),
+        React.createElement(core_1.ListItemText, { className: classes.text + " " + classes.guest, disableTypography: true },
+            React.createElement(__1.TeamLogo, { teamName: awayTeam, modClass: classes.awayIcon }),
             React.createElement("div", null, awayTeam))));
 });
 
@@ -85061,15 +85093,24 @@ Object.defineProperty(exports, "__esModule", { value: true });
 var core_1 = __webpack_require__(/*! @material-ui/core */ "./node_modules/@material-ui/core/index.es.js");
 var React = __webpack_require__(/*! react */ "./node_modules/react/index.js");
 var logos_1 = __webpack_require__(/*! ../../content/logos */ "./public/src/content/logos.ts");
-var styles = {
-    logo: {
-        "& img": {
-            "object-fit": "contain",
-        },
-        "border-radius": 0,
-        height: "1.25em",
-        width: "1.25em",
-    },
+var styles = function (_a) {
+    var breakpoints = _a.breakpoints;
+    var _b;
+    return ({
+        logo: (_b = {
+                "& img": {
+                    "object-fit": "contain",
+                },
+                "border-radius": 0,
+                height: "1.25em",
+                width: "1.25em"
+            },
+            _b[breakpoints.down("xs")] = {
+                height: "1em",
+                width: "1em",
+            },
+            _b),
+    });
 };
 exports.TeamLogo = core_1.withStyles(styles)(function (_a) {
     var classes = _a.classes, teamName = _a.teamName, modClass = _a.modClass;

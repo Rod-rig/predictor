@@ -1,13 +1,14 @@
 import {
   Avatar,
   ListItemIcon,
+  Theme,
   WithStyles,
   withStyles,
 } from "@material-ui/core";
 import * as React from "react";
 import { logos } from "../../content/logos";
 
-const styles = {
+const styles = ({ breakpoints }: Theme) => ({
   logo: {
     "& img": {
       "object-fit": "contain",
@@ -15,8 +16,12 @@ const styles = {
     "border-radius": 0,
     height: "1.25em",
     width: "1.25em",
+    [breakpoints.down("xs")]: {
+      height: "1em",
+      width: "1em",
+    },
   },
-};
+});
 
 interface IProps extends WithStyles<typeof styles> {
   teamName: string;

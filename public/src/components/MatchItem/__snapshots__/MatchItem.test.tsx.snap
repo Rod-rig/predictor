@@ -2,7 +2,7 @@
 
 exports[`MatchItem should render future match correctly 1`] = `
 <div
-  className="MuiButtonBase-root-21 MuiListItem-root-9 MuiListItem-default-12 MuiListItem-gutters-17 MuiListItem-divider-16 MuiListItem-button-18"
+  className="MuiButtonBase-root-24 MuiListItem-root-12 MuiListItem-default-15 MuiListItem-gutters-20 MuiListItem-divider-19 MuiListItem-button-21 Component-matchItem-8"
   onBlur={[Function]}
   onContextMenu={[Function]}
   onFocus={[Function]}
@@ -18,44 +18,44 @@ exports[`MatchItem should render future match correctly 1`] = `
   tabIndex="0"
 >
   <div
-    className="MuiListItemText-root-24 Component-text-8 Component-right-6"
+    className="MuiListItemText-root-27 Component-text-11 Component-home-6"
   >
     <div>
       Test2
     </div>
     <div
-      className="MuiListItemIcon-root-31 Component-icon-4"
+      className="MuiListItemIcon-root-34 Component-homeIcon-7"
     >
       <div
-        className="MuiAvatar-root-32 Component-logo-30"
+        className="MuiAvatar-root-35 Component-logo-33"
       >
         <img
-          className="MuiAvatar-img-34"
+          className="MuiAvatar-img-37"
           src="https://cdn2.iconfinder.com/data/icons/sport-items-2/512/football_soccer_badge_shield_ball_heraldic-128.png"
         />
       </div>
     </div>
   </div>
   <div
-    className="Component-score-7"
+    className="Component-score-10"
   >
     <div
-      className="Component-dash-1"
+      className="Component-dash-2"
     >
       :
     </div>
   </div>
   <div
-    className="MuiListItemText-root-24 Component-text-8"
+    className="MuiListItemText-root-27 Component-text-11 Component-guest-5"
   >
     <div
-      className="MuiListItemIcon-root-31"
+      className="MuiListItemIcon-root-34 Component-awayIcon-1"
     >
       <div
-        className="MuiAvatar-root-32 Component-logo-30"
+        className="MuiAvatar-root-35 Component-logo-33"
       >
         <img
-          className="MuiAvatar-img-34"
+          className="MuiAvatar-img-37"
           src="https://cdn2.iconfinder.com/data/icons/sport-items-2/512/football_soccer_badge_shield_ball_heraldic-128.png"
         />
       </div>
@@ -65,14 +65,14 @@ exports[`MatchItem should render future match correctly 1`] = `
     </div>
   </div>
   <span
-    className="MuiTouchRipple-root-35"
+    className="MuiTouchRipple-root-38"
   />
 </div>
 `;
 
 exports[`MatchItem should render played match correctly 1`] = `
 <div
-  className="MuiButtonBase-root-21 MuiListItem-root-9 MuiListItem-default-12 MuiListItem-gutters-17 MuiListItem-divider-16 MuiListItem-button-18"
+  className="MuiButtonBase-root-24 MuiListItem-root-12 MuiListItem-default-15 MuiListItem-gutters-20 MuiListItem-divider-19 MuiListItem-button-21 Component-matchItem-8"
   onBlur={[Function]}
   onContextMenu={[Function]}
   onFocus={[Function]}
@@ -88,32 +88,32 @@ exports[`MatchItem should render played match correctly 1`] = `
   tabIndex="0"
 >
   <div
-    className="MuiListItemText-root-24 Component-text-8 Component-right-6"
+    className="MuiListItemText-root-27 Component-text-11 Component-home-6"
   >
     <div>
       Test2
     </div>
     <div
-      className="MuiListItemIcon-root-31 Component-icon-4"
+      className="MuiListItemIcon-root-34 Component-homeIcon-7"
     >
       <div
-        className="MuiAvatar-root-32 Component-logo-30"
+        className="MuiAvatar-root-35 Component-logo-33"
       >
         <img
-          className="MuiAvatar-img-34"
+          className="MuiAvatar-img-37"
           src="https://cdn2.iconfinder.com/data/icons/sport-items-2/512/football_soccer_badge_shield_ball_heraldic-128.png"
         />
       </div>
     </div>
   </div>
   <div
-    className="Component-score-7 Component-green-3"
+    className="Component-score-10 Component-green-4"
   >
     <div>
       2
     </div>
     <div
-      className="Component-dash-1"
+      className="Component-dash-2"
     >
       :
     </div>
@@ -122,16 +122,16 @@ exports[`MatchItem should render played match correctly 1`] = `
     </div>
   </div>
   <div
-    className="MuiListItemText-root-24 Component-text-8"
+    className="MuiListItemText-root-27 Component-text-11 Component-guest-5"
   >
     <div
-      className="MuiListItemIcon-root-31"
+      className="MuiListItemIcon-root-34 Component-awayIcon-1"
     >
       <div
-        className="MuiAvatar-root-32 Component-logo-30"
+        className="MuiAvatar-root-35 Component-logo-33"
       >
         <img
-          className="MuiAvatar-img-34"
+          className="MuiAvatar-img-37"
           src="https://cdn2.iconfinder.com/data/icons/sport-items-2/512/football_soccer_badge_shield_ball_heraldic-128.png"
         />
       </div>
@@ -141,14 +141,14 @@ exports[`MatchItem should render played match correctly 1`] = `
     </div>
   </div>
   <span
-    className="MuiTouchRipple-root-35"
+    className="MuiTouchRipple-root-38"
   />
 </div>
 `;
 
 exports[`MatchItem should render predicted wrong match correctly 1`] = `
 <div
-  className="MuiButtonBase-root-21 MuiListItem-root-9 MuiListItem-default-12 MuiListItem-gutters-17 MuiListItem-divider-16 MuiListItem-button-18"
+  className="MuiButtonBase-root-24 MuiListItem-root-12 MuiListItem-default-15 MuiListItem-gutters-20 MuiListItem-divider-19 MuiListItem-button-21 Component-matchItem-8"
   onBlur={[Function]}
   onContextMenu={[Function]}
   onFocus={[Function]}
@@ -164,32 +164,32 @@ exports[`MatchItem should render predicted wrong match correctly 1`] = `
   tabIndex="0"
 >
   <div
-    className="MuiListItemText-root-24 Component-text-8 Component-right-6"
+    className="MuiListItemText-root-27 Component-text-11 Component-home-6"
   >
     <div>
       Test2
     </div>
     <div
-      className="MuiListItemIcon-root-31 Component-icon-4"
+      className="MuiListItemIcon-root-34 Component-homeIcon-7"
     >
       <div
-        className="MuiAvatar-root-32 Component-logo-30"
+        className="MuiAvatar-root-35 Component-logo-33"
       >
         <img
-          className="MuiAvatar-img-34"
+          className="MuiAvatar-img-37"
           src="https://cdn2.iconfinder.com/data/icons/sport-items-2/512/football_soccer_badge_shield_ball_heraldic-128.png"
         />
       </div>
     </div>
   </div>
   <div
-    className="Component-score-7 Component-red-5"
+    className="Component-score-10 Component-red-9"
   >
     <div>
       2
     </div>
     <div
-      className="Component-dash-1"
+      className="Component-dash-2"
     >
       :
     </div>
@@ -198,16 +198,16 @@ exports[`MatchItem should render predicted wrong match correctly 1`] = `
     </div>
   </div>
   <div
-    className="MuiListItemText-root-24 Component-text-8"
+    className="MuiListItemText-root-27 Component-text-11 Component-guest-5"
   >
     <div
-      className="MuiListItemIcon-root-31"
+      className="MuiListItemIcon-root-34 Component-awayIcon-1"
     >
       <div
-        className="MuiAvatar-root-32 Component-logo-30"
+        className="MuiAvatar-root-35 Component-logo-33"
       >
         <img
-          className="MuiAvatar-img-34"
+          className="MuiAvatar-img-37"
           src="https://cdn2.iconfinder.com/data/icons/sport-items-2/512/football_soccer_badge_shield_ball_heraldic-128.png"
         />
       </div>
@@ -217,7 +217,7 @@ exports[`MatchItem should render predicted wrong match correctly 1`] = `
     </div>
   </div>
   <span
-    className="MuiTouchRipple-root-35"
+    className="MuiTouchRipple-root-38"
   />
 </div>
 `;
