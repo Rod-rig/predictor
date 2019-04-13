@@ -20,9 +20,13 @@ interface IProps {
   name: string;
 }
 
-const styles = ({ palette }: Theme) => ({
+const styles = ({ palette, spacing }: Theme) => ({
   caption: {
     color: palette.text.secondary,
+  },
+  content: {
+    paddingBottom: 0,
+    paddingTop: spacing.unit * 2,
   },
   h2: {
     overflow: "hidden",
@@ -53,7 +57,7 @@ const TournamentCardElement = (props: IProps) => {
   return (
     <Card>
       {renderImage()}
-      <CardContent>
+      <CardContent className={classes.content}>
         <Typography className={classes.h2} variant="h5" component="h2">
           {props.name}
         </Typography>
