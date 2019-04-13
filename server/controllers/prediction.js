@@ -41,13 +41,13 @@ module.exports.getAvailableEvents = (req, res) => {
 
   const getSchedule = () => {
     const { date } = req.params;
-    const url = `${BASE_URL}api/schedule/${date}`;
+    const url = `${BASE_URL}/api/schedule/${date}`;
     return axios.get(url);
   };
 
   const getUser = () => {
     const { userId } = req.session;
-    const url = `${BASE_URL}users/${userId}`;
+    const url = `${BASE_URL}/users/${userId}`;
     return axios.get(url);
   };
 
