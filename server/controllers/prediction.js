@@ -59,7 +59,10 @@ module.exports.getAvailableEvents = (req, res) => {
           return prediction.matchId;
         });
         const availableEvents = schedule.sport_events.filter(event => {
-          return userPredictionIds.indexOf(event.id) === -1;
+          return (
+            userPredictionIds.indexOf(event.id) === -1 &&
+            event.status === "not_started"
+          );
         });
         res.status(200).send(availableEvents);
       }),
