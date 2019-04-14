@@ -10,6 +10,7 @@ import {
 import Notifications from "@material-ui/icons/Notifications";
 import * as React from "react";
 import { Link as RouterLink } from "react-router-dom";
+import { dict } from "../../dict";
 
 const MainLink = (props: any) => <RouterLink to="/" {...props} />;
 const PredictionLink = (props: any) => (
@@ -44,17 +45,17 @@ export const EmptyStats = withStyles(styles)((props: IProps) => {
     <Paper className={classes.paper}>
       <Notifications color="primary" fontSize="large" />
       <Typography variant="h4" gutterBottom={true}>
-        No statistics
+        {dict.empty_stat_title}
       </Typography>
       <Typography variant="body1" gutterBottom={true}>
-        Looks like you have no predictions yet
+        {dict.empty_stat_descr}
       </Typography>
       <div className={classes.links}>
         <Link color="secondary" component={MainLink}>
-          Go to main page
+          {dict.go_to_main_page_link}
         </Link>
         <Link color="secondary" component={PredictionLink}>
-          Make predictions
+          {dict.go_to_predictions_page_link}
         </Link>
       </div>
     </Paper>

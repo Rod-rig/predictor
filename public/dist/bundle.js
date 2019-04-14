@@ -84040,10 +84040,50 @@ __export(__webpack_require__(/*! ./Nav */ "./public/src/components/Nav/Nav.tsx")
 
 "use strict";
 
+var __assign = (this && this.__assign) || function () {
+    __assign = Object.assign || function(t) {
+        for (var s, i = 1, n = arguments.length; i < n; i++) {
+            s = arguments[i];
+            for (var p in s) if (Object.prototype.hasOwnProperty.call(s, p))
+                t[p] = s[p];
+        }
+        return t;
+    };
+    return __assign.apply(this, arguments);
+};
 Object.defineProperty(exports, "__esModule", { value: true });
+var core_1 = __webpack_require__(/*! @material-ui/core */ "./node_modules/@material-ui/core/index.es.js");
 var React = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+var react_router_dom_1 = __webpack_require__(/*! react-router-dom */ "./node_modules/react-router-dom/es/index.js");
 var dict_1 = __webpack_require__(/*! ../../dict */ "./public/src/dict/index.ts");
-exports.NotFound = function () { return React.createElement("div", null, dict_1.dict.notFoundText); };
+var MainLink = function (props) { return React.createElement(react_router_dom_1.Link, __assign({ to: "/" }, props)); };
+var styles = function (_a) {
+    var breakpoints = _a.breakpoints, spacing = _a.spacing;
+    var _b;
+    return core_1.createStyles({
+        paper: (_b = {
+                margin: "auto",
+                padding: spacing.unit * 2,
+                "text-align": "center",
+                width: "320px"
+            },
+            _b[breakpoints.up("sm")] = {
+                left: "50%",
+                position: "absolute",
+                top: "50%",
+                transform: "translate(-50%, -50%);",
+            },
+            _b),
+    });
+};
+exports.NotFound = core_1.withStyles(styles)(function (props) {
+    var classes = props.classes;
+    return (React.createElement(core_1.Paper, { className: classes.paper },
+        React.createElement(core_1.Typography, { variant: "h4", gutterBottom: true }, dict_1.dict.not_found_title),
+        React.createElement(core_1.Typography, { variant: "body1", gutterBottom: true }, dict_1.dict.not_found_descr),
+        React.createElement("div", null,
+            React.createElement(core_1.Link, { color: "secondary", component: MainLink }, dict_1.dict.go_to_main_page_link))));
+});
 
 
 /***/ }),
@@ -84224,7 +84264,7 @@ exports.Prediction = core_1.withStyles(styles)(mobx_react_1.observer(function (p
                     React.createElement(core_1.Button, { disabled: buttonWasClicked && !isSuccessSubmit, type: "submit", variant: "contained", color: "secondary" },
                         buttonWasClicked && !isSuccessSubmit ? (React.createElement(core_1.CircularProgress, { className: classes.circle, size: 20, color: "inherit" })) : (""),
                         dict_1.dict.submit_btn_text)),
-                React.createElement(PredictionMessage_1.PredictionMessage, { open: isSuccessSubmit, handleClose: closeSuccessMsg }))) : (React.createElement(core_1.Typography, { className: classes.noMatchesMsg, variant: "body1" }, dict_1.dict.noAvailablePredictionMatches)))) : (React.createElement(__1.Loader, null))));
+                React.createElement(PredictionMessage_1.PredictionMessage, { open: isSuccessSubmit, handleClose: closeSuccessMsg }))) : (React.createElement(core_1.Typography, { className: classes.noMatchesMsg, variant: "body1" }, dict_1.dict.no_available_prediction_matches)))) : (React.createElement(__1.Loader, null))));
     }
     else {
         return React.createElement(__1.Loader, null);
@@ -84283,7 +84323,7 @@ exports.PredictionMessage = core_1.withStyles(styles)(function (props) {
             React.createElement(Done_1.default, { className: classes.icon }),
             React.createElement(core_1.DialogContentText, { className: classes.text }, dict_1.dict.success)),
         React.createElement(core_1.DialogActions, { className: classes.btnWrap },
-            React.createElement(core_1.Button, { className: classes.btn, onClick: handleClose }, dict_1.dict.continueText))));
+            React.createElement(core_1.Button, { className: classes.btn, onClick: handleClose }, dict_1.dict.continue_text))));
 });
 
 
@@ -84555,7 +84595,7 @@ exports.Registration = core_1.withStyles(styles)(mobx_react_1.observer(/** @clas
                 React.createElement(core_1.TextField, { id: "email", required: true, fullWidth: true, label: dict_1.dict.email, value: email, onChange: store.handleChange.bind(this, "email"), margin: "normal", type: "email" }),
                 React.createElement(core_1.TextField, { id: "password", required: true, fullWidth: true, label: dict_1.dict.password, value: password, onChange: store.handleChange.bind(this, "password"), margin: "normal", type: "password" }),
                 React.createElement(core_1.Button, { disabled: email.length < 1 || name.length < 1 || password.length < 1, type: "submit", variant: "contained", color: "secondary" }, dict_1.dict.register)),
-            React.createElement(__1.Message, { onClose: stores_1.registrationStore.closeSnackbar, open: stores_1.registrationStore.hasError, text: dict_1.dict.registrationError }))) : (React.createElement(react_router_dom_1.Redirect, { to: "/" }));
+            React.createElement(__1.Message, { onClose: stores_1.registrationStore.closeSnackbar, open: stores_1.registrationStore.hasError, text: dict_1.dict.registration_error }))) : (React.createElement(react_router_dom_1.Redirect, { to: "/" }));
     };
     return class_1;
 }(React.Component))));
@@ -84840,6 +84880,7 @@ var core_1 = __webpack_require__(/*! @material-ui/core */ "./node_modules/@mater
 var Notifications_1 = __webpack_require__(/*! @material-ui/icons/Notifications */ "./node_modules/@material-ui/icons/Notifications.js");
 var React = __webpack_require__(/*! react */ "./node_modules/react/index.js");
 var react_router_dom_1 = __webpack_require__(/*! react-router-dom */ "./node_modules/react-router-dom/es/index.js");
+var dict_1 = __webpack_require__(/*! ../../dict */ "./public/src/dict/index.ts");
 var MainLink = function (props) { return React.createElement(react_router_dom_1.Link, __assign({ to: "/" }, props)); };
 var PredictionLink = function (props) { return (React.createElement(react_router_dom_1.Link, __assign({ to: "/predictions" }, props))); };
 var styles = function (_a) {
@@ -84851,7 +84892,7 @@ var styles = function (_a) {
             "justify-content": "space-between",
         },
         paper: (_b = {
-                margin: 'auto',
+                margin: "auto",
                 padding: spacing.unit * 2,
                 "text-align": "center",
                 width: "320px"
@@ -84869,11 +84910,11 @@ exports.EmptyStats = core_1.withStyles(styles)(function (props) {
     var classes = props.classes;
     return (React.createElement(core_1.Paper, { className: classes.paper },
         React.createElement(Notifications_1.default, { color: "primary", fontSize: "large" }),
-        React.createElement(core_1.Typography, { variant: "h4", gutterBottom: true }, "No statistics"),
-        React.createElement(core_1.Typography, { variant: "body1", gutterBottom: true }, "Looks like you have no predictions yet"),
+        React.createElement(core_1.Typography, { variant: "h4", gutterBottom: true }, dict_1.dict.empty_stat_title),
+        React.createElement(core_1.Typography, { variant: "body1", gutterBottom: true }, dict_1.dict.empty_stat_descr),
         React.createElement("div", { className: classes.links },
-            React.createElement(core_1.Link, { color: "secondary", component: MainLink }, "Go to main page"),
-            React.createElement(core_1.Link, { color: "secondary", component: PredictionLink }, "Make predictions"))));
+            React.createElement(core_1.Link, { color: "secondary", component: MainLink }, dict_1.dict.go_to_main_page_link),
+            React.createElement(core_1.Link, { color: "secondary", component: PredictionLink }, dict_1.dict.go_to_predictions_page_link))));
 });
 
 
@@ -85690,10 +85731,14 @@ exports.tournamentsLogo = {
 
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.dict = {
-    continueText: "continue",
+    continue_text: "continue",
     draw: "draw",
     email: "Email",
+    empty_stat_descr: "Looks like you have no predictions yet",
+    empty_stat_title: "No statistics",
     fixtures: "Fixtures",
+    go_to_main_page_link: "Go to main page",
+    go_to_predictions_page_link: "Make predictions",
     goal_diff: "GD",
     goals_against: "GA",
     goals_for: "GF",
@@ -85704,8 +85749,9 @@ exports.dict = {
     logout: "Logout",
     loss: "loss",
     name: "Name",
-    noAvailablePredictionMatches: "No available matches for predictions on this date. Please choose another date.",
-    notFoundText: "Not found",
+    no_available_prediction_matches: "No available matches for predictions on this date. Please choose another date.",
+    not_found_descr: "Looks like you've followed a broken link or entered a URL that doesn't exist on this site.",
+    not_found_title: "Page Not Found",
     password: "Password",
     played: "played",
     points: "points",
@@ -85713,7 +85759,7 @@ exports.dict = {
     prediction_submit_btn: "Show",
     rank: "rank",
     register: "Register",
-    registrationError: "User with these credentials is already registered",
+    registration_error: "User with these credentials is already registered",
     results: "Results",
     sidebar_menu_prediction: "Predictions",
     submit_btn_text: "Submit",

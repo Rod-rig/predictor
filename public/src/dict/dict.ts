@@ -1,8 +1,12 @@
 export interface IDict {
-  continueText: string;
+  continue_text: string;
   draw: string;
   email: string;
+  empty_stat_descr: string;
+  empty_stat_title: string;
   fixtures: string;
+  go_to_main_page_link: string;
+  go_to_predictions_page_link: string;
   goal_diff: string;
   goals_against: string;
   goals_for: string;
@@ -13,8 +17,9 @@ export interface IDict {
   logout: string;
   loss: string;
   name: string;
-  noAvailablePredictionMatches: string;
-  notFoundText: string;
+  no_available_prediction_matches: string;
+  not_found_descr: string;
+  not_found_title: string;
   password: string;
   played: string;
   points: string;
@@ -22,7 +27,7 @@ export interface IDict {
   prediction_submit_btn: string;
   rank: string;
   register: string;
-  registrationError: string;
+  registration_error: string;
   results: string;
   sidebar_menu_prediction: string;
   submit_btn_text: string;
@@ -34,10 +39,14 @@ export interface IDict {
 }
 
 export const dict: IDict = {
-  continueText: "continue",
+  continue_text: "continue",
   draw: "draw",
   email: "Email",
+  empty_stat_descr: "Looks like you have no predictions yet",
+  empty_stat_title: "No statistics",
   fixtures: "Fixtures",
+  go_to_main_page_link: "Go to main page",
+  go_to_predictions_page_link: "Make predictions",
   goal_diff: "GD",
   goals_against: "GA",
   goals_for: "GF",
@@ -48,9 +57,11 @@ export const dict: IDict = {
   logout: "Logout",
   loss: "loss",
   name: "Name",
-  noAvailablePredictionMatches:
+  no_available_prediction_matches:
     "No available matches for predictions on this date. Please choose another date.",
-  notFoundText: "Not found",
+  not_found_descr:
+    "Looks like you've followed a broken link or entered a URL that doesn't exist on this site.",
+  not_found_title: "Page Not Found",
   password: "Password",
   played: "played",
   points: "points",
@@ -58,7 +69,7 @@ export const dict: IDict = {
   prediction_submit_btn: "Show",
   rank: "rank",
   register: "Register",
-  registrationError: "User with these credentials is already registered",
+  registration_error: "User with these credentials is already registered",
   results: "Results",
   sidebar_menu_prediction: "Predictions",
   submit_btn_text: "Submit",

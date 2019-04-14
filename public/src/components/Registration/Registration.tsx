@@ -75,7 +75,7 @@ export const Registration = withStyles(styles)(
             <Message
               onClose={registrationStore.closeSnackbar}
               open={registrationStore.hasError}
-              text={dict.registrationError}
+              text={dict.registration_error}
             />
           </Paper>
         ) : (

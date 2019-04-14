@@ -176,7 +176,7 @@ export const Prediction = withStyles(styles)(
                 </React.Fragment>
               ) : (
                 <Typography className={classes.noMatchesMsg} variant="body1">
-                  {dict.noAvailablePredictionMatches}
+                  {dict.no_available_prediction_matches}
                 </Typography>
               )}
             </form>

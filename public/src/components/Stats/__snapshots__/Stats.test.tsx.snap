@@ -30,6 +30,7 @@ exports[`Stats should render empty stats comp correctly 1`] = `
 
 exports[`Stats should render stats correctly 1`] = `
 <div>
+  
   <div
     className="MuiButtonBase-root-24 MuiListItem-root-12 MuiListItem-default-15 MuiListItem-gutters-20 MuiListItem-divider-19 MuiListItem-button-21 Component-matchItem-8"
     onBlur={[Function]}

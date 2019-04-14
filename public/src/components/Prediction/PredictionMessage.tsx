@@ -62,7 +62,7 @@ export const PredictionMessage = withStyles(styles)((props: IProps) => {
       </DialogContent>
       <DialogActions className={classes.btnWrap}>
         <Button className={classes.btn} onClick={handleClose}>
-          {dict.continueText}
+          {dict.continue_text}
         </Button>
       </DialogActions>
     </Dialog>
