@@ -2,6 +2,7 @@ import { observer } from "mobx-react";
 import * as React from "react";
 import { Loader, MatchItem } from "../";
 import { IPredictionMatch, IRetriever } from "../../@types";
+import { EmptyStats } from "./EmptyStats";
 
 export const Stats = observer(
   class extends React.Component<
@@ -14,6 +15,7 @@ export const Stats = observer(
       const { store } = this.props;
       return store.isLoaded ? (
         <div>
+          {store.data.length < 1 ? <EmptyStats /> : ""}
           {store.data.map((item: IPredictionMatch) => {
             return (
               <MatchItem

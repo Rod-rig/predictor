@@ -36235,6 +36235,35 @@ exports.default = _default;
 
 /***/ }),
 
+/***/ "./node_modules/@material-ui/icons/Notifications.js":
+/*!**********************************************************!*\
+  !*** ./node_modules/@material-ui/icons/Notifications.js ***!
+  \**********************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+var _interopRequireDefault = __webpack_require__(/*! @babel/runtime/helpers/interopRequireDefault */ "./node_modules/@babel/runtime/helpers/interopRequireDefault.js");
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.default = void 0;
+
+var _react = _interopRequireDefault(__webpack_require__(/*! react */ "./node_modules/react/index.js"));
+
+var _createSvgIcon = _interopRequireDefault(__webpack_require__(/*! ./utils/createSvgIcon */ "./node_modules/@material-ui/icons/utils/createSvgIcon.js"));
+
+var _default = (0, _createSvgIcon.default)(_react.default.createElement(_react.default.Fragment, null, _react.default.createElement("path", {
+  d: "M12 22c1.1 0 2-.9 2-2h-4c0 1.1.89 2 2 2zm6-6v-5c0-3.07-1.64-5.64-4.5-6.32V4c0-.83-.67-1.5-1.5-1.5s-1.5.67-1.5 1.5v.68C7.63 5.36 6 7.92 6 11v5l-2 2v1h16v-1l-2-2z"
+})), 'Notifications');
+
+exports.default = _default;
+
+/***/ }),
+
 /***/ "./node_modules/@material-ui/icons/OpenWith.js":
 /*!*****************************************************!*\
   !*** ./node_modules/@material-ui/icons/OpenWith.js ***!
@@ -84786,6 +84815,70 @@ __export(__webpack_require__(/*! ./Sidebar */ "./public/src/components/Sidebar/S
 
 /***/ }),
 
+/***/ "./public/src/components/Stats/EmptyStats.tsx":
+/*!****************************************************!*\
+  !*** ./public/src/components/Stats/EmptyStats.tsx ***!
+  \****************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+var __assign = (this && this.__assign) || function () {
+    __assign = Object.assign || function(t) {
+        for (var s, i = 1, n = arguments.length; i < n; i++) {
+            s = arguments[i];
+            for (var p in s) if (Object.prototype.hasOwnProperty.call(s, p))
+                t[p] = s[p];
+        }
+        return t;
+    };
+    return __assign.apply(this, arguments);
+};
+Object.defineProperty(exports, "__esModule", { value: true });
+var core_1 = __webpack_require__(/*! @material-ui/core */ "./node_modules/@material-ui/core/index.es.js");
+var Notifications_1 = __webpack_require__(/*! @material-ui/icons/Notifications */ "./node_modules/@material-ui/icons/Notifications.js");
+var React = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+var react_router_dom_1 = __webpack_require__(/*! react-router-dom */ "./node_modules/react-router-dom/es/index.js");
+var MainLink = function (props) { return React.createElement(react_router_dom_1.Link, __assign({ to: "/" }, props)); };
+var PredictionLink = function (props) { return (React.createElement(react_router_dom_1.Link, __assign({ to: "/predictions" }, props))); };
+var styles = function (_a) {
+    var breakpoints = _a.breakpoints, spacing = _a.spacing;
+    var _b;
+    return core_1.createStyles({
+        links: {
+            display: "flex",
+            "justify-content": "space-between",
+        },
+        paper: (_b = {
+                margin: 'auto',
+                padding: spacing.unit * 2,
+                "text-align": "center",
+                width: "320px"
+            },
+            _b[breakpoints.up("sm")] = {
+                left: "50%",
+                position: "absolute",
+                top: "50%",
+                transform: "translate(-50%, -50%);",
+            },
+            _b),
+    });
+};
+exports.EmptyStats = core_1.withStyles(styles)(function (props) {
+    var classes = props.classes;
+    return (React.createElement(core_1.Paper, { className: classes.paper },
+        React.createElement(Notifications_1.default, { color: "primary", fontSize: "large" }),
+        React.createElement(core_1.Typography, { variant: "h4", gutterBottom: true }, "No statistics"),
+        React.createElement(core_1.Typography, { variant: "body1", gutterBottom: true }, "Looks like you have no predictions yet"),
+        React.createElement("div", { className: classes.links },
+            React.createElement(core_1.Link, { color: "secondary", component: MainLink }, "Go to main page"),
+            React.createElement(core_1.Link, { color: "secondary", component: PredictionLink }, "Make predictions"))));
+});
+
+
+/***/ }),
+
 /***/ "./public/src/components/Stats/Stats.tsx":
 /*!***********************************************!*\
   !*** ./public/src/components/Stats/Stats.tsx ***!
@@ -84812,6 +84905,7 @@ Object.defineProperty(exports, "__esModule", { value: true });
 var mobx_react_1 = __webpack_require__(/*! mobx-react */ "./node_modules/mobx-react/index.module.js");
 var React = __webpack_require__(/*! react */ "./node_modules/react/index.js");
 var __1 = __webpack_require__(/*! ../ */ "./public/src/components/index.ts");
+var EmptyStats_1 = __webpack_require__(/*! ./EmptyStats */ "./public/src/components/Stats/EmptyStats.tsx");
 exports.Stats = mobx_react_1.observer(/** @class */ (function (_super) {
     __extends(class_1, _super);
     function class_1() {
@@ -84819,9 +84913,11 @@ exports.Stats = mobx_react_1.observer(/** @class */ (function (_super) {
     }
     class_1.prototype.render = function () {
         var store = this.props.store;
-        return store.isLoaded ? (React.createElement("div", null, store.data.map(function (item) {
-            return (React.createElement(__1.MatchItem, { key: item.awayTeam + " " + item.homeTeam, awayTeam: item.awayTeam, homeTeam: item.homeTeam, homeScore: item.homeScore, awayScore: item.awayScore, status: item.status }));
-        }))) : (React.createElement(__1.Loader, null));
+        return store.isLoaded ? (React.createElement("div", null,
+            store.data.length < 1 ? React.createElement(EmptyStats_1.EmptyStats, null) : "",
+            store.data.map(function (item) {
+                return (React.createElement(__1.MatchItem, { key: item.awayTeam + " " + item.homeTeam, awayTeam: item.awayTeam, homeTeam: item.homeTeam, homeScore: item.homeScore, awayScore: item.awayScore, status: item.status }));
+            }))) : (React.createElement(__1.Loader, null));
     };
     return class_1;
 }(React.Component)));
