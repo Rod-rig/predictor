@@ -84947,6 +84947,7 @@ var mobx_react_1 = __webpack_require__(/*! mobx-react */ "./node_modules/mobx-re
 var React = __webpack_require__(/*! react */ "./node_modules/react/index.js");
 var __1 = __webpack_require__(/*! ../ */ "./public/src/components/index.ts");
 var EmptyStats_1 = __webpack_require__(/*! ./EmptyStats */ "./public/src/components/Stats/EmptyStats.tsx");
+var StatsInfo_1 = __webpack_require__(/*! ./StatsInfo */ "./public/src/components/Stats/StatsInfo.tsx");
 exports.Stats = mobx_react_1.observer(/** @class */ (function (_super) {
     __extends(class_1, _super);
     function class_1() {
@@ -84954,14 +84955,60 @@ exports.Stats = mobx_react_1.observer(/** @class */ (function (_super) {
     }
     class_1.prototype.render = function () {
         var store = this.props.store;
-        return store.isLoaded ? (React.createElement("div", null,
-            store.data.length < 1 ? React.createElement(EmptyStats_1.EmptyStats, null) : "",
+        return store.isLoaded ? (store.data.length < 1 ? (React.createElement(EmptyStats_1.EmptyStats, null)) : (React.createElement(React.Fragment, null,
+            React.createElement(StatsInfo_1.StatsInfo, null),
             store.data.map(function (item) {
                 return (React.createElement(__1.MatchItem, { key: item.awayTeam + " " + item.homeTeam, awayTeam: item.awayTeam, homeTeam: item.homeTeam, homeScore: item.homeScore, awayScore: item.awayScore, status: item.status }));
-            }))) : (React.createElement(__1.Loader, null));
+            })))) : (React.createElement(__1.Loader, null));
     };
     return class_1;
 }(React.Component)));
+
+
+/***/ }),
+
+/***/ "./public/src/components/Stats/StatsInfo.tsx":
+/*!***************************************************!*\
+  !*** ./public/src/components/Stats/StatsInfo.tsx ***!
+  \***************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+Object.defineProperty(exports, "__esModule", { value: true });
+var core_1 = __webpack_require__(/*! @material-ui/core */ "./node_modules/@material-ui/core/index.es.js");
+var React = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+var styles = function (_a) {
+    var spacing = _a.spacing;
+    return core_1.createStyles({
+        paper: {
+            padding: spacing.unit * 2 + "px " + spacing.unit + "px",
+            "text-align": "center",
+            width: "100%",
+        },
+        wrapper: {
+            display: "flex",
+            flexWrap: "nowrap",
+        },
+    });
+};
+exports.StatsInfo = core_1.withStyles(styles)(function (props) {
+    var classes = props.classes;
+    return (React.createElement("div", { className: classes.wrapper },
+        React.createElement(core_1.Paper, { className: classes.paper },
+            React.createElement("div", null, "lorem query"),
+            React.createElement("div", null, "1")),
+        React.createElement(core_1.Paper, { className: classes.paper },
+            React.createElement("div", null, "lorem query"),
+            React.createElement("div", null, "3")),
+        React.createElement(core_1.Paper, { className: classes.paper },
+            React.createElement("div", null, "lorem query"),
+            React.createElement("div", null, "12")),
+        React.createElement(core_1.Paper, { className: classes.paper },
+            React.createElement("div", null, "lorem query"),
+            React.createElement("div", null, "8"))));
+});
 
 
 /***/ }),
