@@ -25,6 +25,10 @@ export interface IDict {
   points: string;
   prediction: string;
   prediction_submit_btn: string;
+  predictions_correct: string;
+  predictions_pending: string;
+  predictions_success: string;
+  predictions_total: string;
   rank: string;
   register: string;
   registration_error: string;
@@ -67,6 +71,10 @@ export const dict: IDict = {
   points: "points",
   prediction: "Prediction",
   prediction_submit_btn: "Show",
+  predictions_correct: "Predicted correctly",
+  predictions_pending: "Predictions pending",
+  predictions_success: "Predictions success %",
+  predictions_total: "Total predictions",
   rank: "rank",
   register: "Register",
   registration_error: "User with these credentials is already registered",

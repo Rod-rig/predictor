@@ -84979,35 +84979,52 @@ exports.Stats = mobx_react_1.observer(/** @class */ (function (_super) {
 Object.defineProperty(exports, "__esModule", { value: true });
 var core_1 = __webpack_require__(/*! @material-ui/core */ "./node_modules/@material-ui/core/index.es.js");
 var React = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+var dict_1 = __webpack_require__(/*! ../../dict */ "./public/src/dict/index.ts");
 var styles = function (_a) {
-    var spacing = _a.spacing;
+    var breakpoints = _a.breakpoints, spacing = _a.spacing, typography = _a.typography;
+    var _b, _c;
     return core_1.createStyles({
-        paper: {
-            padding: spacing.unit * 2 + "px " + spacing.unit + "px",
-            "text-align": "center",
-            width: "100%",
+        number: {
+            fontSize: typography.fontSize * 2,
         },
-        wrapper: {
-            display: "flex",
-            flexWrap: "nowrap",
+        paper: (_b = {
+                padding: spacing.unit * 2 + "px " + spacing.unit + "px",
+                "text-align": "center",
+                width: "50%"
+            },
+            _b[breakpoints.up("sm")] = {
+                width: "100%",
+            },
+            _b),
+        text: {
+            fontSize: typography.fontSize,
         },
+        wrapper: (_c = {
+                display: "flex",
+                flexWrap: "wrap",
+                marginBottom: spacing.unit
+            },
+            _c[breakpoints.up("sm")] = {
+                flexWrap: "nowrap",
+            },
+            _c),
     });
 };
 exports.StatsInfo = core_1.withStyles(styles)(function (props) {
     var classes = props.classes;
     return (React.createElement("div", { className: classes.wrapper },
         React.createElement(core_1.Paper, { className: classes.paper },
-            React.createElement("div", null, "lorem query"),
-            React.createElement("div", null, "1")),
+            React.createElement(core_1.Typography, { className: classes.text, variant: "body1", gutterBottom: true }, dict_1.dict.predictions_success),
+            React.createElement("div", { className: classes.number }, "3")),
         React.createElement(core_1.Paper, { className: classes.paper },
-            React.createElement("div", null, "lorem query"),
-            React.createElement("div", null, "3")),
+            React.createElement(core_1.Typography, { className: classes.text, variant: "body1", gutterBottom: true }, dict_1.dict.predictions_total),
+            React.createElement("div", { className: classes.number }, "1")),
         React.createElement(core_1.Paper, { className: classes.paper },
-            React.createElement("div", null, "lorem query"),
-            React.createElement("div", null, "12")),
+            React.createElement(core_1.Typography, { className: classes.text, variant: "body1", gutterBottom: true }, dict_1.dict.predictions_correct),
+            React.createElement("div", { className: classes.number }, "12")),
         React.createElement(core_1.Paper, { className: classes.paper },
-            React.createElement("div", null, "lorem query"),
-            React.createElement("div", null, "8"))));
+            React.createElement(core_1.Typography, { className: classes.text, variant: "body1", gutterBottom: true }, dict_1.dict.predictions_pending),
+            React.createElement("div", { className: classes.number }, "8"))));
 });
 
 
@@ -85804,6 +85821,10 @@ exports.dict = {
     points: "points",
     prediction: "Prediction",
     prediction_submit_btn: "Show",
+    predictions_correct: "Predicted correctly",
+    predictions_pending: "Predictions pending",
+    predictions_success: "Predictions success %",
+    predictions_total: "Total predictions",
     rank: "rank",
     register: "Register",
     registration_error: "User with these credentials is already registered",

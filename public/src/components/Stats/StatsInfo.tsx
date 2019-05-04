@@ -2,21 +2,36 @@ import {
   createStyles,
   Paper,
   Theme,
+  Typography,
   withStyles,
   WithStyles,
 } from "@material-ui/core";
 import * as React from "react";
+import { dict } from "../../dict";
 
-const styles = ({ spacing }: Theme) =>
+const styles = ({ breakpoints, spacing, typography }: Theme) =>
   createStyles({
+    number: {
+      fontSize: typography.fontSize * 2,
+    },
     paper: {
       padding: `${spacing.unit * 2}px ${spacing.unit}px`,
       "text-align": "center",
-      width: "100%",
+      width: "50%",
+      [breakpoints.up("sm")]: {
+        width: "100%",
+      },
+    },
+    text: {
+      fontSize: typography.fontSize,
     },
     wrapper: {
       display: "flex",
-      flexWrap: "nowrap",
+      flexWrap: "wrap",
+      marginBottom: spacing.unit,
+      [breakpoints.up("sm")]: {
+        flexWrap: "nowrap",
+      },
     },
   });
 
@@ -27,20 +42,44 @@ export const StatsInfo = withStyles(styles)((props: IProps) => {
   return (
     <div className={classes.wrapper}>
       <Paper className={classes.paper}>
-        <div>lorem query</div>
-        <div>1</div>
+        <Typography
+          className={classes.text}
+          variant="body1"
+          gutterBottom={true}
+        >
+          {dict.predictions_success}
+        </Typography>
+        <div className={classes.number}>3</div>
       </Paper>
       <Paper className={classes.paper}>
-        <div>lorem query</div>
-        <div>3</div>
+        <Typography
+          className={classes.text}
+          variant="body1"
+          gutterBottom={true}
+        >
+          {dict.predictions_total}
+        </Typography>
+        <div className={classes.number}>1</div>
       </Paper>
       <Paper className={classes.paper}>
-        <div>lorem query</div>
-        <div>12</div>
+        <Typography
+          className={classes.text}
+          variant="body1"
+          gutterBottom={true}
+        >
+          {dict.predictions_correct}
+        </Typography>
+        <div className={classes.number}>12</div>
       </Paper>
       <Paper className={classes.paper}>
-        <div>lorem query</div>
-        <div>8</div>
+        <Typography
+          className={classes.text}
+          variant="body1"
+          gutterBottom={true}
+        >
+          {dict.predictions_pending}
+        </Typography>
+        <div className={classes.number}>8</div>
       </Paper>
     </div>
   );
