@@ -84948,6 +84948,25 @@ var React = __webpack_require__(/*! react */ "./node_modules/react/index.js");
 var __1 = __webpack_require__(/*! ../ */ "./public/src/components/index.ts");
 var EmptyStats_1 = __webpack_require__(/*! ./EmptyStats */ "./public/src/components/Stats/EmptyStats.tsx");
 var StatsInfo_1 = __webpack_require__(/*! ./StatsInfo */ "./public/src/components/Stats/StatsInfo.tsx");
+var renderInfo = function (store) {
+    var total = store.data.length;
+    var list = [];
+    var success = 0;
+    var pending = 0;
+    store.data.forEach(function (item) {
+        list.push(React.createElement(__1.MatchItem, { key: item.awayTeam + " " + item.homeTeam, awayTeam: item.awayTeam, homeTeam: item.homeTeam, homeScore: item.homeScore, awayScore: item.awayScore, status: item.status }));
+        if (item.status > 0) {
+            success += 1;
+        }
+        if (item.status < 0) {
+            pending += 1;
+        }
+    });
+    var rate = Math.round((success / total) * 100);
+    return (React.createElement(React.Fragment, null,
+        React.createElement(StatsInfo_1.StatsInfo, { total: total, pending: pending, success: success, rate: rate }),
+        list));
+};
 exports.Stats = mobx_react_1.observer(/** @class */ (function (_super) {
     __extends(class_1, _super);
     function class_1() {
@@ -84955,11 +84974,7 @@ exports.Stats = mobx_react_1.observer(/** @class */ (function (_super) {
     }
     class_1.prototype.render = function () {
         var store = this.props.store;
-        return store.isLoaded ? (store.data.length < 1 ? (React.createElement(EmptyStats_1.EmptyStats, null)) : (React.createElement(React.Fragment, null,
-            React.createElement(StatsInfo_1.StatsInfo, null),
-            store.data.map(function (item) {
-                return (React.createElement(__1.MatchItem, { key: item.awayTeam + " " + item.homeTeam, awayTeam: item.awayTeam, homeTeam: item.homeTeam, homeScore: item.homeScore, awayScore: item.awayScore, status: item.status }));
-            })))) : (React.createElement(__1.Loader, null));
+        return store.isLoaded ? (store.data.length < 1 ? (React.createElement(EmptyStats_1.EmptyStats, null)) : (renderInfo(store))) : (React.createElement(__1.Loader, null));
     };
     return class_1;
 }(React.Component)));
@@ -85011,20 +85026,20 @@ var styles = function (_a) {
     });
 };
 exports.StatsInfo = core_1.withStyles(styles)(function (props) {
-    var classes = props.classes;
+    var classes = props.classes, total = props.total, pending = props.pending, success = props.success, rate = props.rate;
     return (React.createElement("div", { className: classes.wrapper },
         React.createElement(core_1.Paper, { className: classes.paper },
             React.createElement(core_1.Typography, { className: classes.text, variant: "body1", gutterBottom: true }, dict_1.dict.predictions_success),
-            React.createElement("div", { className: classes.number }, "3")),
+            React.createElement("div", { className: classes.number }, rate)),
         React.createElement(core_1.Paper, { className: classes.paper },
             React.createElement(core_1.Typography, { className: classes.text, variant: "body1", gutterBottom: true }, dict_1.dict.predictions_total),
-            React.createElement("div", { className: classes.number }, "1")),
+            React.createElement("div", { className: classes.number }, total)),
         React.createElement(core_1.Paper, { className: classes.paper },
             React.createElement(core_1.Typography, { className: classes.text, variant: "body1", gutterBottom: true }, dict_1.dict.predictions_correct),
-            React.createElement("div", { className: classes.number }, "12")),
+            React.createElement("div", { className: classes.number }, success)),
         React.createElement(core_1.Paper, { className: classes.paper },
             React.createElement(core_1.Typography, { className: classes.text, variant: "body1", gutterBottom: true }, dict_1.dict.predictions_pending),
-            React.createElement("div", { className: classes.number }, "8"))));
+            React.createElement("div", { className: classes.number }, pending))));
 });
 
 

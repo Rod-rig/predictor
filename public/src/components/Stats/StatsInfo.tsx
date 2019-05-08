@@ -35,10 +35,15 @@ const styles = ({ breakpoints, spacing, typography }: Theme) =>
     },
   });
 
-interface IProps extends WithStyles<typeof styles> {}
+interface IProps extends WithStyles<typeof styles> {
+  total?: number;
+  pending?: number;
+  success?: number;
+  rate?: number;
+}
 
 export const StatsInfo = withStyles(styles)((props: IProps) => {
-  const { classes } = props;
+  const { classes, total, pending, success, rate } = props;
   return (
     <div className={classes.wrapper}>
       <Paper className={classes.paper}>
@@ -49,7 +54,7 @@ export const StatsInfo = withStyles(styles)((props: IProps) => {
         >
           {dict.predictions_success}
         </Typography>
-        <div className={classes.number}>3</div>
+        <div className={classes.number}>{rate}</div>
       </Paper>
       <Paper className={classes.paper}>
         <Typography
@@ -59,7 +64,7 @@ export const StatsInfo = withStyles(styles)((props: IProps) => {
         >
           {dict.predictions_total}
         </Typography>
-        <div className={classes.number}>1</div>
+        <div className={classes.number}>{total}</div>
       </Paper>
       <Paper className={classes.paper}>
         <Typography
@@ -69,7 +74,7 @@ export const StatsInfo = withStyles(styles)((props: IProps) => {
         >
           {dict.predictions_correct}
         </Typography>
-        <div className={classes.number}>12</div>
+        <div className={classes.number}>{success}</div>
       </Paper>
       <Paper className={classes.paper}>
         <Typography
@@ -79,7 +84,7 @@ export const StatsInfo = withStyles(styles)((props: IProps) => {
         >
           {dict.predictions_pending}
         </Typography>
-        <div className={classes.number}>8</div>
+        <div className={classes.number}>{pending}</div>
       </Paper>
     </div>
   );
