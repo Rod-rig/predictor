@@ -1,6 +1,6 @@
 import axios, { AxiosResponse } from "axios";
 import { action, computed, observable } from "mobx";
-import { OutputParams, parse } from "query-string";
+import { parse, ParsedQuery } from "query-string";
 import { userStore } from "../";
 import { IPredictionStore, ISportEvent } from "../../@types";
 import { getFutureDates, sortByTournamentId } from "../../helpers";
@@ -38,7 +38,7 @@ export class PredictionStore implements IPredictionStore {
   @observable public buttonWasClicked: boolean = false;
   @observable public currentDate: string;
   public dates: string[];
-  public filter: OutputParams;
+  public filter: ParsedQuery;
 
   constructor(props?: { filter: string }) {
     this.filter = props ? parse(props.filter) : undefined;
