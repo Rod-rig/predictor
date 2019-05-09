@@ -1,36 +1,41 @@
 import * as React from "react";
+import { MemoryRouter } from "react-router-dom";
 import * as renderer from "react-test-renderer";
+import { IPredictionMatch } from "../../@types";
 import { predictions } from "../../__mocks__";
 import { Stats } from "./";
 
 describe("Stats", () => {
-  const stats = (
-    <Stats
-      store={{
-        data: predictions,
-        isLoaded: true,
-        url: "url",
-      }}
-    />
-  );
+  type StatsType = (data: IPredictionMatch[], isLoaded: boolean) => JSX.Element;
+  let stats: StatsType;
 
-  const emptyStats = (
-    <Stats
-      store={{
-        data: [],
-        isLoaded: false,
-        url: "url",
-      }}
-    />
-  );
+  beforeEach(() => {
+    stats = (data, isLoaded) => (
+      <Stats
+        store={{
+          data,
+          isLoaded,
+          url: "url",
+        }}
+      />
+    );
+  });
 
-  it("should render stats correctly", () => {
-    const tree = renderer.create(stats).toJSON();
+  it("should render stats with predictions correctly", () => {
+    const comp = stats(predictions, true);
+    const tree = renderer.create(comp).toJSON();
+    expect(tree).toMatchSnapshot();
+  });
+
+  it("should render stats with not loaded predictions correctly", () => {
+    const comp = stats([], false);
+    const tree = renderer.create(comp).toJSON();
     expect(tree).toMatchSnapshot();
   });
 
   it("should render empty stats comp correctly", () => {
-    const tree = renderer.create(emptyStats).toJSON();
+    const comp = stats([], true);
+    const tree = renderer.create(<MemoryRouter>{comp}</MemoryRouter>).toJSON();
     expect(tree).toMatchSnapshot();
   });
 });

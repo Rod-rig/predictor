@@ -2,6 +2,52 @@
 
 exports[`Stats should render empty stats comp correctly 1`] = `
 <div
+  className="MuiPaper-root-5 MuiPaper-elevation2-9 MuiPaper-rounded-6 Component-paper-124"
+>
+  <svg
+    aria-hidden="true"
+    className="MuiSvgIcon-root-125 MuiSvgIcon-colorPrimary-126 MuiSvgIcon-fontSizeLarge-133"
+    focusable="false"
+    role="presentation"
+    viewBox="0 0 24 24"
+  >
+    <path
+      d="M12 22c1.1 0 2-.9 2-2h-4c0 1.1.89 2 2 2zm6-6v-5c0-3.07-1.64-5.64-4.5-6.32V4c0-.83-.67-1.5-1.5-1.5s-1.5.67-1.5 1.5v.68C7.63 5.36 6 7.92 6 11v5l-2 2v1h16v-1l-2-2z"
+    />
+  </svg>
+  <h4
+    className="MuiTypography-root-32 MuiTypography-h4-47 MuiTypography-gutterBottom-59"
+  >
+    No statistics
+  </h4>
+  <p
+    className="MuiTypography-root-32 MuiTypography-body1-41 MuiTypography-gutterBottom-59"
+  >
+    Looks like you have no predictions yet
+  </p>
+  <div
+    className="Component-links-123"
+  >
+    <a
+      className="MuiTypography-root-32 MuiTypography-colorSecondary-63 MuiTypography-inline-67 MuiLink-root-134 MuiLink-underlineHover-136"
+      href="/"
+      onClick={[Function]}
+    >
+      Go to main page
+    </a>
+    <a
+      className="MuiTypography-root-32 MuiTypography-colorSecondary-63 MuiTypography-inline-67 MuiLink-root-134 MuiLink-underlineHover-136"
+      href="/predictions"
+      onClick={[Function]}
+    >
+      Make predictions
+    </a>
+  </div>
+</div>
+`;
+
+exports[`Stats should render stats with not loaded predictions correctly 1`] = `
+<div
   className="MuiCircularProgress-root-113 Component-root-112 MuiCircularProgress-colorPrimary-116 MuiCircularProgress-indeterminate-115"
   role="progressbar"
   style={
@@ -28,7 +74,7 @@ exports[`Stats should render empty stats comp correctly 1`] = `
 </div>
 `;
 
-exports[`Stats should render stats correctly 1`] = `
+exports[`Stats should render stats with predictions correctly 1`] = `
 Array [
   <div
     className="Component-wrapper-4"
@@ -44,7 +90,7 @@ Array [
       <div
         className="Component-number-1"
       >
-        0
+        33
       </div>
     </div>
     <div
@@ -72,7 +118,7 @@ Array [
       <div
         className="Component-number-1"
       >
-        0
+        1
       </div>
     </div>
     <div
@@ -86,7 +132,7 @@ Array [
       <div
         className="Component-number-1"
       >
-        0
+        1
       </div>
     </div>
   </div>,
@@ -126,7 +172,7 @@ Array [
       </div>
     </div>
     <div
-      className="Component-score-77 Component-default-70"
+      className="Component-score-77 Component-red-76"
     >
       <div>
         2
@@ -199,7 +245,7 @@ Array [
       </div>
     </div>
     <div
-      className="Component-score-77 Component-default-70"
+      className="Component-score-77 Component-green-71"
     >
       <div>
         1
@@ -345,7 +391,7 @@ Array [
       </div>
     </div>
     <div
-      className="Component-score-77 Component-default-70"
+      className="Component-score-77 Component-red-76"
     >
       <div>
         1
