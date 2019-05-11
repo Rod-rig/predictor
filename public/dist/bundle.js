@@ -85655,7 +85655,7 @@ var renderInfo = function (store) {
             pending += 1;
         }
     });
-    var rate = Math.round((success / (total - pending)) * 100);
+    var rate = Math.round(success / (total - pending) * 100 * 100) / 100;
     return (React.createElement(React.Fragment, null,
         React.createElement(StatsInfo_1.StatsInfo, { total: total, pending: pending, success: success, rate: rate }),
         list));

@@ -28,7 +28,7 @@ const renderInfo = (store: IRetriever<IPredictionMatch[]>) => {
       pending += 1;
     }
   });
-  const rate = Math.round((success / (total - pending)) * 100);
+  const rate = Math.round((success / (total - pending)) * 100 * 100) / 100;
   return (
     <React.Fragment>
       <StatsInfo
