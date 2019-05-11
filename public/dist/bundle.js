@@ -85655,7 +85655,7 @@ var renderInfo = function (store) {
             pending += 1;
         }
     });
-    var rate = Math.round(success / (total - pending) * 100 * 100) / 100;
+    var rate = Math.round((success / (total - pending)) * 100 * 100) / 100;
     return (React.createElement(React.Fragment, null,
         React.createElement(StatsInfo_1.StatsInfo, { total: total, pending: pending, success: success, rate: rate }),
         list));
@@ -86098,18 +86098,19 @@ var styles = function (_a) {
         },
     });
 };
+var fallBackImageUrl = "http://www.merseyvolley.co.uk/MVL/wp-content/uploads/2017/04/icon_tournament.png";
+var TournamentCardImage = function (props) {
+    var classes = props.classes;
+    var id = props.id.split(":")[2];
+    var image = tournamentsLogo_1.tournamentsLogo[id] ? tournamentsLogo_1.tournamentsLogo[id] : fallBackImageUrl;
+    return React.createElement(core_1.CardMedia, { className: classes.img, image: image, title: props.name });
+};
 var TournamentCardElement = function (props) {
     var classes = props.classes;
     var MyLink = function (linkProps) { return (React.createElement(react_router_dom_1.Link, __assign({ to: "tournament/" + props.id }, linkProps))); };
-    var renderImage = function () {
-        var id = props.id.split(":")[2];
-        var image = tournamentsLogo_1.tournamentsLogo[id]
-            ? tournamentsLogo_1.tournamentsLogo[id]
-            : "http://www.merseyvolley.co.uk/MVL/wp-content/uploads/2017/04/icon_tournament.png";
-        return (React.createElement(core_1.CardMedia, { className: classes.img, image: image, title: props.name }));
-    };
     return (React.createElement(core_1.Card, null,
-        renderImage(),
+        React.createElement(core_1.CardActionArea, null,
+            React.createElement(TournamentCardImage, __assign({}, props))),
         React.createElement(core_1.CardContent, { className: classes.content },
             React.createElement(core_1.Typography, { className: classes.h2, variant: "h5", component: "h2" }, props.name),
             React.createElement(core_1.Typography, { className: classes.caption, variant: "caption" }, props.country)),

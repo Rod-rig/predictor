@@ -1,24 +1,19 @@
 import {
   Button,
   Card,
+  CardActionArea,
   CardActions,
   CardContent,
   CardMedia,
   Theme,
   Typography,
+  WithStyles,
   withStyles,
 } from "@material-ui/core";
 import * as React from "react";
 import { Link } from "react-router-dom";
 import { tournamentsLogo } from "../../content/tournamentsLogo";
 import { dict } from "../../dict";
-
-interface IProps {
-  classes?: any;
-  country?: string;
-  id: string;
-  name: string;
-}
 
 const styles = ({ palette, spacing }: Theme) => ({
   caption: {
@@ -39,24 +34,33 @@ const styles = ({ palette, spacing }: Theme) => ({
   },
 });
 
+interface IProps extends WithStyles<typeof styles> {
+  country?: string;
+  id: string;
+  name: string;
+}
+
+const fallBackImageUrl =
+  "http://www.merseyvolley.co.uk/MVL/wp-content/uploads/2017/04/icon_tournament.png";
+
+const TournamentCardImage = (props: IProps) => {
+  const { classes } = props;
+  const id = props.id.split(":")[2];
+  const image = tournamentsLogo[id] ? tournamentsLogo[id] : fallBackImageUrl;
+  return <CardMedia className={classes.img} image={image} title={props.name} />;
+};
+
 const TournamentCardElement = (props: IProps) => {
   const { classes } = props;
   const MyLink = (linkProps: any) => (
     <Link to={`tournament/${props.id}`} {...linkProps} />
   );
-  const renderImage = () => {
-    const id = props.id.split(":")[2];
-    const image = tournamentsLogo[id]
-      ? tournamentsLogo[id]
-      : "http://www.merseyvolley.co.uk/MVL/wp-content/uploads/2017/04/icon_tournament.png";
-    return (
-      <CardMedia className={classes.img} image={image} title={props.name} />
-    );
-  };
 
   return (
     <Card>
-      {renderImage()}
+      <CardActionArea>
+        <TournamentCardImage {...props} />
+      </CardActionArea>
       <CardContent className={classes.content}>
         <Typography className={classes.h2} variant="h5" component="h2">
           {props.name}
