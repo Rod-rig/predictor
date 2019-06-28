@@ -12,6 +12,10 @@ module.exports = {
       {
         test: /\.tsx?$/,
         loader: "ts-loader",
+        options: {
+          transpileOnly: true,
+          experimentalWatchApi: true,
+        },
       },
       {
         enforce: "pre",
