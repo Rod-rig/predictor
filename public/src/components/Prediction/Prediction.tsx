@@ -29,6 +29,7 @@ const styles = ({ palette, spacing }: Theme) =>
         "justify-content": "flex-start",
       },
       width: "100%",
+      wordBreak: "break-word",
     },
     btnWrap: {
       marginBottom: spacing.unit,
@@ -47,6 +48,7 @@ const styles = ({ palette, spacing }: Theme) =>
         paddingLeft: spacing.unit * 2,
       },
       width: "100%",
+      wordBreak: "break-word",
     },
     input: {
       textAlign: "center",

@@ -3,6 +3,7 @@ import { action, computed, observable } from "mobx";
 import { parse, ParsedQuery } from "query-string";
 import { userStore } from "../";
 import { IPredictionStore, ISportEvent } from "../../@types";
+import { constants } from "../../constants";
 import { getFutureDates, sortByTournamentId } from "../../helpers";
 
 const createPayload = (matches: ISportEvent[]) => {
@@ -31,17 +32,29 @@ export class PredictionStore implements IPredictionStore {
   @computed get apiPredictionUrl() {
     return `/available-events/${this.currentDate}`;
   }
-  @observable public matches: ISportEvent[] = [];
   @observable public isLoaded: boolean = false;
   @observable public isFetched: boolean = false;
   @observable public isSuccessSubmit: boolean = false;
   @observable public buttonWasClicked: boolean = false;
   @observable public currentDate: string;
   public dates: string[];
-  public filter: ParsedQuery;
+  @observable public filter: ParsedQuery;
+  public cache: {
+    [key: string]: ISportEvent[];
+  } = {};
+  @observable public matches: ISportEvent[] = this.cache[this.currentDate]
+    ? [...this.cache[this.currentDate]]
+    : [];
+  @observable public tournaments: {
+    [key: string]: string;
+  } = {};
 
   constructor(props?: { filter: string }) {
-    this.filter = props ? parse(props.filter) : undefined;
+    this.filter = props.filter
+      ? parse(props.filter)
+      : {
+          tournament_id: constants.defaultTournamentsValue,
+        };
     this.dates = getFutureDates();
     this.currentDate = this.dates[0];
     this.fetchMatches();
@@ -78,14 +91,21 @@ export class PredictionStore implements IPredictionStore {
   }
 
   public fetchMatches() {
-    const tournamentId = this.filter ? this.filter.tournament_id : undefined;
+    const tournamentId = this.filter.tournament_id;
     this.isFetched = false;
     axios
       .get(this.apiPredictionUrl)
       .then((res: AxiosResponse) => {
-        this.matches = tournamentId
-          ? this.filterMatches(res.data)
-          : res.data.sort(sortByTournamentId);
+        const matches = res.data.sort(sortByTournamentId);
+        this.matches =
+          tournamentId !== constants.defaultTournamentsValue
+            ? this.filterMatches(matches)
+            : matches;
+        this.cache = {
+          ...this.cache,
+          [this.currentDate]: matches,
+        };
+        this.tournaments = this.getTournaments();
         this.isLoaded = this.isLoaded ? this.isLoaded : true;
         this.isFetched = true;
       })
@@ -100,7 +120,7 @@ export class PredictionStore implements IPredictionStore {
           if (response.status === 404) {
             this.isLoaded = true;
             this.isFetched = true;
-            this.matches = [];
+            this.cache[this.currentDate] = [];
           }
         },
       );
@@ -116,7 +136,34 @@ export class PredictionStore implements IPredictionStore {
     this.isSuccessSubmit = false;
   }
 
-  private filterMatches(matches: ISportEvent[]) {
+  @action.bound
+  public setTournamentId(id: string) {
+    this.filter = {
+      tournament_id: id,
+    };
+  }
+
+  @action.bound
+  public setMatches(matches: ISportEvent[]) {
+    this.matches = matches;
+    this.tournaments = this.getTournaments();
+  }
+
+  @action.bound
+  public getTournaments() {
+    const ids: {
+      [key: string]: string;
+    } = {};
+    this.cache[this.currentDate].forEach((match: ISportEvent) => {
+      const id: string = match.tournament.id;
+      if (!ids[id]) {
+        ids[id] = match.tournament.name;
+      }
+    });
+    return ids;
+  }
+
+  public filterMatches(matches: ISportEvent[]) {
     return matches.filter((match: ISportEvent) => {
       return match.tournament.id === this.filter.tournament_id;
     });

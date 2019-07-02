@@ -1,5 +1,6 @@
 export interface IDict {
   continue_text: string;
+  date_label: string;
   draw: string;
   email: string;
   empty_stat_descr: string;
@@ -39,11 +40,13 @@ export interface IDict {
   table: string;
   team: string;
   tournament_card_more: string;
+  tournament_label: string;
   win: string;
 }
 
 export const dict: IDict = {
   continue_text: "continue",
+  date_label: "Date",
   draw: "draw",
   email: "Email",
   empty_stat_descr: "Looks like you have no predictions yet",
@@ -85,5 +88,6 @@ export const dict: IDict = {
   table: "Table",
   team: "team",
   tournament_card_more: "Learn more",
+  tournament_label: "Tournament",
   win: "win",
 };

@@ -36176,38 +36176,6 @@ exports.default = _default;
 
 /***/ }),
 
-/***/ "./node_modules/@material-ui/icons/FilterList.js":
-/*!*******************************************************!*\
-  !*** ./node_modules/@material-ui/icons/FilterList.js ***!
-  \*******************************************************/
-/*! no static exports found */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-
-var _interopRequireDefault = __webpack_require__(/*! @babel/runtime/helpers/interopRequireDefault */ "./node_modules/@babel/runtime/helpers/interopRequireDefault.js");
-
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
-exports.default = void 0;
-
-var _react = _interopRequireDefault(__webpack_require__(/*! react */ "./node_modules/react/index.js"));
-
-var _createSvgIcon = _interopRequireDefault(__webpack_require__(/*! ./utils/createSvgIcon */ "./node_modules/@material-ui/icons/utils/createSvgIcon.js"));
-
-var _default = (0, _createSvgIcon.default)(_react.default.createElement(_react.default.Fragment, null, _react.default.createElement("path", {
-  d: "M10 18h4v-2h-4v2zM3 6v2h18V6H3zm3 7h12v-2H6v2z"
-}), _react.default.createElement("path", {
-  fill: "none",
-  d: "M0 0h24v24H0z"
-})), 'FilterList');
-
-exports.default = _default;
-
-/***/ }),
-
 /***/ "./node_modules/@material-ui/icons/Menu.js":
 /*!*************************************************!*\
   !*** ./node_modules/@material-ui/icons/Menu.js ***!
@@ -84881,6 +84849,7 @@ var styles = function (_a) {
                 "justify-content": "flex-start",
             },
             width: "100%",
+            wordBreak: "break-word",
         },
         btnWrap: {
             marginBottom: spacing.unit,
@@ -84899,6 +84868,7 @@ var styles = function (_a) {
                 paddingLeft: spacing.unit * 2,
             },
             width: "100%",
+            wordBreak: "break-word",
         },
         input: {
             textAlign: "center",
@@ -85064,23 +85034,16 @@ var __extends = (this && this.__extends) || (function () {
 })();
 Object.defineProperty(exports, "__esModule", { value: true });
 var core_1 = __webpack_require__(/*! @material-ui/core */ "./node_modules/@material-ui/core/index.es.js");
-var FilterList_1 = __webpack_require__(/*! @material-ui/icons/FilterList */ "./node_modules/@material-ui/icons/FilterList.js");
 var mobx_react_1 = __webpack_require__(/*! mobx-react */ "./node_modules/mobx-react/index.module.js");
 var React = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+var constants_1 = __webpack_require__(/*! ../../constants */ "./public/src/constants/index.ts");
 var dict_1 = __webpack_require__(/*! ../../dict */ "./public/src/dict/index.ts");
 var styles = function (_a) {
     var spacing = _a.spacing;
     return core_1.createStyles({
-        btn: {
-            paddingBottom: spacing.unit * 1.5,
-            paddingTop: spacing.unit * 1.5,
-        },
-        btnIcon: {
-            marginRight: spacing.unit,
-        },
         control: {
             margin: spacing.unit,
-            width: "20%",
+            width: 200,
         },
         wrap: {
             alignItems: "center",
@@ -85091,21 +85054,33 @@ var styles = function (_a) {
 exports.PredictionFilter = core_1.withStyles(styles)(mobx_react_1.observer(/** @class */ (function (_super) {
     __extends(class_1, _super);
     function class_1() {
-        return _super !== null && _super.apply(this, arguments) || this;
+        var _this = _super !== null && _super.apply(this, arguments) || this;
+        _this.handleDateChange = function (event) {
+            var store = _this.props.store;
+            store.setCurrentDate(event.target.value);
+            store.currentDate in store.cache
+                ? store.filter.tournament_id === constants_1.constants.defaultTournamentsValue
+                    ? store.setMatches(store.cache[store.currentDate])
+                    : store.setMatches(store.filterMatches(store.cache[store.currentDate]))
+                : store.fetchMatches();
+        };
+        _this.handleTournamentChange = function (event) {
+            var store = _this.props.store;
+            store.setTournamentId(event.target.value);
+            var filteredMatches = store.filter.tournament_id === constants_1.constants.defaultTournamentsValue
+                ? store.cache[store.currentDate]
+                : store.filterMatches(store.cache[store.currentDate]);
+            store.setMatches(filteredMatches);
+        };
+        return _this;
     }
     class_1.prototype.render = function () {
         var _a = this.props, classes = _a.classes, store = _a.store;
-        var refreshMatches = function () {
-            store.fetchMatches();
-        };
-        var handleChange = function (event) {
-            store.setCurrentDate(event.target.value);
-        };
         return (React.createElement("div", null,
             React.createElement("div", { className: classes.wrap },
                 React.createElement(core_1.FormControl, { className: classes.control },
-                    React.createElement(core_1.InputLabel, { htmlFor: "date" }, "Date"),
-                    React.createElement(core_1.Select, { value: store.currentDate, onChange: handleChange, inputProps: {
+                    React.createElement(core_1.InputLabel, { htmlFor: "date" }, dict_1.dict.date_label),
+                    React.createElement(core_1.Select, { value: store.currentDate, onChange: this.handleDateChange, inputProps: {
                             id: "date",
                             name: "date",
                         } }, store.dates.map(function (item) {
@@ -85115,9 +85090,13 @@ exports.PredictionFilter = core_1.withStyles(styles)(mobx_react_1.observer(/** @
                             .join(".");
                         return (React.createElement(core_1.MenuItem, { key: item, value: item }, date));
                     }))),
-                React.createElement(core_1.Button, { className: classes.btn, size: "small", onClick: refreshMatches, variant: "contained", color: "secondary" },
-                    React.createElement(FilterList_1.default, { className: classes.btnIcon }),
-                    dict_1.dict.prediction_submit_btn))));
+                React.createElement(core_1.FormControl, { className: classes.control, disabled: store.matches.length < 1 },
+                    React.createElement(core_1.InputLabel, { htmlFor: "tournament" }, dict_1.dict.tournament_label),
+                    React.createElement(core_1.Select, { value: store.filter.tournament_id, onChange: this.handleTournamentChange },
+                        React.createElement(core_1.MenuItem, { key: constants_1.constants.defaultTournamentsValue, value: constants_1.constants.defaultTournamentsValue }, "All"),
+                        Object.keys(store.tournaments).map(function (id) {
+                            return (React.createElement(core_1.MenuItem, { key: id, value: id }, store.tournaments[id]));
+                        }))))));
     };
     return class_1;
 }(React.Component))));
@@ -86110,7 +86089,8 @@ var TournamentCardElement = function (props) {
     var MyLink = function (linkProps) { return (React.createElement(react_router_dom_1.Link, __assign({ to: "tournament/" + props.id }, linkProps))); };
     return (React.createElement(core_1.Card, null,
         React.createElement(core_1.CardActionArea, null,
-            React.createElement(TournamentCardImage, __assign({}, props))),
+            React.createElement(MyLink, null,
+                React.createElement(TournamentCardImage, __assign({}, props)))),
         React.createElement(core_1.CardContent, { className: classes.content },
             React.createElement(core_1.Typography, { className: classes.h2, variant: "h5", component: "h2" }, props.name),
             React.createElement(core_1.Typography, { className: classes.caption, variant: "caption" }, props.country)),
@@ -86226,6 +86206,41 @@ __export(__webpack_require__(/*! ./TableView */ "./public/src/components/TableVi
 __export(__webpack_require__(/*! ./TeamLogo */ "./public/src/components/TeamLogo/index.ts"));
 __export(__webpack_require__(/*! ./TournamentCard */ "./public/src/components/TournamentCard/index.ts"));
 __export(__webpack_require__(/*! ./TournamentList */ "./public/src/components/TournamentList/index.ts"));
+
+
+/***/ }),
+
+/***/ "./public/src/constants/constants.ts":
+/*!*******************************************!*\
+  !*** ./public/src/constants/constants.ts ***!
+  \*******************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+Object.defineProperty(exports, "__esModule", { value: true });
+exports.constants = {
+    defaultTournamentsValue: "all",
+};
+
+
+/***/ }),
+
+/***/ "./public/src/constants/index.ts":
+/*!***************************************!*\
+  !*** ./public/src/constants/index.ts ***!
+  \***************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+function __export(m) {
+    for (var p in m) if (!exports.hasOwnProperty(p)) exports[p] = m[p];
+}
+Object.defineProperty(exports, "__esModule", { value: true });
+__export(__webpack_require__(/*! ./constants */ "./public/src/constants/constants.ts"));
 
 
 /***/ }),
@@ -86505,6 +86520,7 @@ exports.tournamentsLogo = {
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.dict = {
     continue_text: "continue",
+    date_label: "Date",
     draw: "draw",
     email: "Email",
     empty_stat_descr: "Looks like you have no predictions yet",
@@ -86544,6 +86560,7 @@ exports.dict = {
     table: "Table",
     team: "team",
     tournament_card_more: "Learn more",
+    tournament_label: "Tournament",
     win: "win",
 };
 
@@ -87052,6 +87069,17 @@ __export(__webpack_require__(/*! ./LoginStore */ "./public/src/stores/LoginStore
 
 "use strict";
 
+var __assign = (this && this.__assign) || function () {
+    __assign = Object.assign || function(t) {
+        for (var s, i = 1, n = arguments.length; i < n; i++) {
+            s = arguments[i];
+            for (var p in s) if (Object.prototype.hasOwnProperty.call(s, p))
+                t[p] = s[p];
+        }
+        return t;
+    };
+    return __assign.apply(this, arguments);
+};
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -87063,6 +87091,7 @@ var axios_1 = __webpack_require__(/*! axios */ "./node_modules/axios/index.js");
 var mobx_1 = __webpack_require__(/*! mobx */ "./node_modules/mobx/lib/mobx.module.js");
 var query_string_1 = __webpack_require__(/*! query-string */ "./node_modules/query-string/index.js");
 var __1 = __webpack_require__(/*! ../ */ "./public/src/stores/index.ts");
+var constants_1 = __webpack_require__(/*! ../../constants */ "./public/src/constants/index.ts");
 var helpers_1 = __webpack_require__(/*! ../../helpers */ "./public/src/helpers/index.ts");
 var createPayload = function (matches) {
     return matches
@@ -87085,12 +87114,19 @@ var createPayload = function (matches) {
 };
 var PredictionStore = /** @class */ (function () {
     function PredictionStore(props) {
-        this.matches = [];
         this.isLoaded = false;
         this.isFetched = false;
         this.isSuccessSubmit = false;
         this.buttonWasClicked = false;
-        this.filter = props ? query_string_1.parse(props.filter) : undefined;
+        this.cache = {};
+        this.matches = this.cache[this.currentDate]
+            ? this.cache[this.currentDate].slice() : [];
+        this.tournaments = {};
+        this.filter = props.filter
+            ? query_string_1.parse(props.filter)
+            : {
+                tournament_id: constants_1.constants.defaultTournamentsValue,
+            };
         this.dates = helpers_1.getFutureDates();
         this.currentDate = this.dates[0];
         this.fetchMatches();
@@ -87130,14 +87166,19 @@ var PredictionStore = /** @class */ (function () {
     };
     PredictionStore.prototype.fetchMatches = function () {
         var _this = this;
-        var tournamentId = this.filter ? this.filter.tournament_id : undefined;
+        var tournamentId = this.filter.tournament_id;
         this.isFetched = false;
         axios_1.default
             .get(this.apiPredictionUrl)
             .then(function (res) {
-            _this.matches = tournamentId
-                ? _this.filterMatches(res.data)
-                : res.data.sort(helpers_1.sortByTournamentId);
+            var _a;
+            var matches = res.data.sort(helpers_1.sortByTournamentId);
+            _this.matches =
+                tournamentId !== constants_1.constants.defaultTournamentsValue
+                    ? _this.filterMatches(matches)
+                    : matches;
+            _this.cache = __assign({}, _this.cache, (_a = {}, _a[_this.currentDate] = matches, _a));
+            _this.tournaments = _this.getTournaments();
             _this.isLoaded = _this.isLoaded ? _this.isLoaded : true;
             _this.isFetched = true;
         })
@@ -87153,7 +87194,7 @@ var PredictionStore = /** @class */ (function () {
             if (response.status === 404) {
                 _this.isLoaded = true;
                 _this.isFetched = true;
-                _this.matches = [];
+                _this.cache[_this.currentDate] = [];
             }
         });
     };
@@ -87164,6 +87205,25 @@ var PredictionStore = /** @class */ (function () {
         this.fetchMatches();
         this.isSuccessSubmit = false;
     };
+    PredictionStore.prototype.setTournamentId = function (id) {
+        this.filter = {
+            tournament_id: id,
+        };
+    };
+    PredictionStore.prototype.setMatches = function (matches) {
+        this.matches = matches;
+        this.tournaments = this.getTournaments();
+    };
+    PredictionStore.prototype.getTournaments = function () {
+        var ids = {};
+        this.cache[this.currentDate].forEach(function (match) {
+            var id = match.tournament.id;
+            if (!ids[id]) {
+                ids[id] = match.tournament.name;
+            }
+        });
+        return ids;
+    };
     PredictionStore.prototype.filterMatches = function (matches) {
         var _this = this;
         return matches.filter(function (match) {
@@ -87173,9 +87233,6 @@ var PredictionStore = /** @class */ (function () {
     __decorate([
         mobx_1.computed
     ], PredictionStore.prototype, "apiPredictionUrl", null);
-    __decorate([
-        mobx_1.observable
-    ], PredictionStore.prototype, "matches", void 0);
     __decorate([
         mobx_1.observable
     ], PredictionStore.prototype, "isLoaded", void 0);
@@ -87192,8 +87249,26 @@ var PredictionStore = /** @class */ (function () {
         mobx_1.observable
     ], PredictionStore.prototype, "currentDate", void 0);
     __decorate([
+        mobx_1.observable
+    ], PredictionStore.prototype, "filter", void 0);
+    __decorate([
+        mobx_1.observable
+    ], PredictionStore.prototype, "matches", void 0);
+    __decorate([
+        mobx_1.observable
+    ], PredictionStore.prototype, "tournaments", void 0);
+    __decorate([
         mobx_1.action.bound
     ], PredictionStore.prototype, "closeSuccessMsg", null);
+    __decorate([
+        mobx_1.action.bound
+    ], PredictionStore.prototype, "setTournamentId", null);
+    __decorate([
+        mobx_1.action.bound
+    ], PredictionStore.prototype, "setMatches", null);
+    __decorate([
+        mobx_1.action.bound
+    ], PredictionStore.prototype, "getTournaments", null);
     return PredictionStore;
 }());
 exports.PredictionStore = PredictionStore;

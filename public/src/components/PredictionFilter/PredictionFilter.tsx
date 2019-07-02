@@ -1,5 +1,4 @@
 import {
-  Button,
   createStyles,
   FormControl,
   InputLabel,
@@ -9,24 +8,17 @@ import {
   WithStyles,
   withStyles,
 } from "@material-ui/core";
-import FilterList from "@material-ui/icons/FilterList";
 import { observer } from "mobx-react";
 import * as React from "react";
 import { IPredictionStore } from "../../@types";
+import { constants } from "../../constants";
 import { dict } from "../../dict";
 
 const styles = ({ spacing }: Theme) =>
   createStyles({
-    btn: {
-      paddingBottom: spacing.unit * 1.5,
-      paddingTop: spacing.unit * 1.5,
-    },
-    btnIcon: {
-      marginRight: spacing.unit,
-    },
     control: {
       margin: spacing.unit,
-      width: "20%",
+      width: 200,
     },
     wrap: {
       alignItems: "center",
@@ -43,21 +35,15 @@ export const PredictionFilter = withStyles(styles)(
     class extends React.Component<IDatePickerProps, {}> {
       public render() {
         const { classes, store } = this.props;
-        const refreshMatches = () => {
-          store.fetchMatches();
-        };
-        const handleChange = (event: any) => {
-          store.setCurrentDate(event.target.value);
-        };
 
         return (
           <div>
             <div className={classes.wrap}>
               <FormControl className={classes.control}>
-                <InputLabel htmlFor="date">Date</InputLabel>
+                <InputLabel htmlFor="date">{dict.date_label}</InputLabel>
                 <Select
                   value={store.currentDate}
-                  onChange={handleChange}
+                  onChange={this.handleDateChange}
                   inputProps={{
                     id: "date",
                     name: "date",
@@ -76,20 +62,63 @@ export const PredictionFilter = withStyles(styles)(
                   })}
                 </Select>
               </FormControl>
-              <Button
-                className={classes.btn}
-                size="small"
-                onClick={refreshMatches}
-                variant="contained"
-                color="secondary"
+
+              <FormControl
+                className={classes.control}
+                disabled={store.matches.length < 1}
               >
-                <FilterList className={classes.btnIcon} />
-                {dict.prediction_submit_btn}
-              </Button>
+                <InputLabel htmlFor="tournament">
+                  {dict.tournament_label}
+                </InputLabel>
+                <Select
+                  value={store.filter.tournament_id}
+                  onChange={this.handleTournamentChange}
+                >
+                  <MenuItem
+                    key={constants.defaultTournamentsValue}
+                    value={constants.defaultTournamentsValue}
+                  >
+                    All
+                  </MenuItem>
+                  {Object.keys(store.tournaments).map((id: string) => {
+                    return (
+                      <MenuItem key={id} value={id}>
+                        {store.tournaments[id]}
+                      </MenuItem>
+                    );
+                  })}
+                </Select>
+              </FormControl>
             </div>
           </div>
         );
       }
+
+      private handleDateChange = (event: any) => {
+        const { store } = this.props;
+
+        store.setCurrentDate(event.target.value);
+
+        store.currentDate in store.cache
+          ? store.filter.tournament_id === constants.defaultTournamentsValue
+            ? store.setMatches(store.cache[store.currentDate])
+            : store.setMatches(
+                store.filterMatches(store.cache[store.currentDate]),
+              )
+          : store.fetchMatches();
+      };
+
+      private handleTournamentChange = (event: any) => {
+        const { store } = this.props;
+
+        store.setTournamentId(event.target.value);
+
+        const filteredMatches =
+          store.filter.tournament_id === constants.defaultTournamentsValue
+            ? store.cache[store.currentDate]
+            : store.filterMatches(store.cache[store.currentDate]);
+        store.setMatches(filteredMatches);
+      };
     },
   ),
 );

@@ -7,6 +7,8 @@ import { PredictionFilter } from "./PredictionFilter";
 describe("PredictionFilter", () => {
   const setCurrentDateMock = jest.fn();
   const fetchMock = jest.fn();
+  const setTournamentIdMock = jest.fn();
+  const setMatchesMock = jest.fn();
   const predictionFilter = (
     <PredictionFilter
       store={{
@@ -14,6 +16,7 @@ describe("PredictionFilter", () => {
         currentDate: "date",
         dates: ["Berlin", "Rome", "Paris", "London"],
         fetchMatches: fetchMock,
+        filterMatches: jest.fn(),
         handleChange: () => ({}),
         handleSubmit: () => ({}),
         isFetched: true,
@@ -21,6 +24,9 @@ describe("PredictionFilter", () => {
         isSuccessSubmit: false,
         matches: [],
         setCurrentDate: setCurrentDateMock,
+        setMatches: setMatchesMock,
+        setTournamentId: setTournamentIdMock,
+        tournaments: {},
       }}
     />
   );

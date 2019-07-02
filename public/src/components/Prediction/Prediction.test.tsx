@@ -17,9 +17,12 @@ describe("Prediction", () => {
   ) => {
     const closeSuccessMsgMock = jest.fn();
     const fetchMatchesMock = jest.fn();
+    const filterMatchesMock = jest.fn();
     const handleChangeMock = jest.fn();
     const handleSubmitMock = jest.fn();
     const setCurrentDateMock = jest.fn();
+    const setTournamentIdMock = jest.fn();
+    const setMatchesMock = jest.fn();
     return (
       <Prediction
         store={{
@@ -28,6 +31,7 @@ describe("Prediction", () => {
           currentDate: "",
           dates: [],
           fetchMatches: fetchMatchesMock,
+          filterMatches: filterMatchesMock,
           handleChange: handleChangeMock,
           handleSubmit: handleSubmitMock,
           isFetched,
@@ -35,6 +39,9 @@ describe("Prediction", () => {
           isSuccessSubmit,
           matches: data,
           setCurrentDate: setCurrentDateMock,
+          setMatches: setMatchesMock,
+          setTournamentId: setTournamentIdMock,
+          tournaments: {},
         }}
       />
     );

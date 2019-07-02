@@ -59,7 +59,9 @@ const TournamentCardElement = (props: IProps) => {
   return (
     <Card>
       <CardActionArea>
-        <TournamentCardImage {...props} />
+        <MyLink>
+          <TournamentCardImage {...props} />
+        </MyLink>
       </CardActionArea>
       <CardContent className={classes.content}>
         <Typography className={classes.h2} variant="h5" component="h2">

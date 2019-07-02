@@ -71,6 +71,9 @@ export interface IPredictionMatch {
 
 export interface IPredictionStore {
   buttonWasClicked?: boolean;
+  cache: {
+    [key: string]: ISportEvent[];
+  };
   currentDate: string;
   dates: string[];
   filter?: any;
@@ -78,9 +81,15 @@ export interface IPredictionStore {
   isFetched: boolean;
   isSuccessSubmit: boolean;
   matches: ISportEvent[];
+  tournaments: {
+    [key: string]: string;
+  };
+  setMatches(matches: ISportEvent[]): void;
+  setTournamentId(value: string): void;
   fetchMatches(): void;
   handleSubmit(e: Event): void;
   handleChange(index: number, compIndex: number, e: any): void;
   setCurrentDate(date: string): void;
   closeSuccessMsg(): void;
+  filterMatches(matches: ISportEvent[]): ISportEvent[];
 }
