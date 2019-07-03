@@ -99,12 +99,10 @@ export const PredictionFilter = withStyles(styles)(
 
         store.setCurrentDate(event.target.value);
 
+        store.setTournamentId(constants.defaultTournamentsValue);
+
         store.currentDate in store.cache
-          ? store.filter.tournament_id === constants.defaultTournamentsValue
-            ? store.setMatches(store.cache[store.currentDate])
-            : store.setMatches(
-                store.filterMatches(store.cache[store.currentDate]),
-              )
+          ? store.setMatches(store.cache[store.currentDate])
           : store.fetchMatches();
       };
 

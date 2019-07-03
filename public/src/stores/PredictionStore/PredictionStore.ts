@@ -139,6 +139,7 @@ export class PredictionStore implements IPredictionStore {
   @action.bound
   public setTournamentId(id: string) {
     this.filter = {
+      ...this.filter,
       tournament_id: id,
     };
   }

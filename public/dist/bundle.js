@@ -85058,10 +85058,9 @@ exports.PredictionFilter = core_1.withStyles(styles)(mobx_react_1.observer(/** @
         _this.handleDateChange = function (event) {
             var store = _this.props.store;
             store.setCurrentDate(event.target.value);
+            store.setTournamentId(constants_1.constants.defaultTournamentsValue);
             store.currentDate in store.cache
-                ? store.filter.tournament_id === constants_1.constants.defaultTournamentsValue
-                    ? store.setMatches(store.cache[store.currentDate])
-                    : store.setMatches(store.filterMatches(store.cache[store.currentDate]))
+                ? store.setMatches(store.cache[store.currentDate])
                 : store.fetchMatches();
         };
         _this.handleTournamentChange = function (event) {
@@ -87206,9 +87205,7 @@ var PredictionStore = /** @class */ (function () {
         this.isSuccessSubmit = false;
     };
     PredictionStore.prototype.setTournamentId = function (id) {
-        this.filter = {
-            tournament_id: id,
-        };
+        this.filter = __assign({}, this.filter, { tournament_id: id });
     };
     PredictionStore.prototype.setMatches = function (matches) {
         this.matches = matches;
