@@ -38,7 +38,7 @@ export class PredictionStore implements IPredictionStore {
   @observable public buttonWasClicked: boolean = false;
   @observable public currentDate: string;
   public dates: string[];
-  @observable public filter: ParsedQuery;
+  @observable public routerParams: ParsedQuery;
   public cache: {
     [key: string]: ISportEvent[];
   } = {};
@@ -50,7 +50,7 @@ export class PredictionStore implements IPredictionStore {
   } = {};
 
   constructor(props?: { filter: string }) {
-    this.filter = props.filter
+    this.routerParams = props.filter
       ? parse(props.filter)
       : {
           tournament_id: constants.defaultTournamentsValue,
@@ -91,7 +91,7 @@ export class PredictionStore implements IPredictionStore {
   }
 
   public fetchMatches() {
-    const tournamentId = this.filter.tournament_id;
+    const tournamentId = this.routerParams.tournament_id;
     this.isFetched = false;
     axios
       .get(this.apiPredictionUrl)
@@ -138,8 +138,8 @@ export class PredictionStore implements IPredictionStore {
 
   @action.bound
   public setTournamentId(id: string) {
-    this.filter = {
-      ...this.filter,
+    this.routerParams = {
+      ...this.routerParams,
       tournament_id: id,
     };
   }
@@ -166,7 +166,7 @@ export class PredictionStore implements IPredictionStore {
 
   public filterMatches(matches: ISportEvent[]) {
     return matches.filter((match: ISportEvent) => {
-      return match.tournament.id === this.filter.tournament_id;
+      return match.tournament.id === this.routerParams.tournament_id;
     });
   }
 }

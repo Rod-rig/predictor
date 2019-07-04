@@ -85057,18 +85057,21 @@ exports.PredictionFilter = core_1.withStyles(styles)(mobx_react_1.observer(/** @
         var _this = _super !== null && _super.apply(this, arguments) || this;
         _this.handleDateChange = function (event) {
             var store = _this.props.store;
+            var cache = store.cache, currentDate = store.currentDate;
             store.setCurrentDate(event.target.value);
             store.setTournamentId(constants_1.constants.defaultTournamentsValue);
-            store.currentDate in store.cache
-                ? store.setMatches(store.cache[store.currentDate])
+            store.currentDate in cache
+                ? store.setMatches(cache[currentDate])
                 : store.fetchMatches();
         };
         _this.handleTournamentChange = function (event) {
             var store = _this.props.store;
+            var cache = store.cache, currentDate = store.currentDate;
+            var cacheMatches = cache[currentDate];
             store.setTournamentId(event.target.value);
-            var filteredMatches = store.filter.tournament_id === constants_1.constants.defaultTournamentsValue
-                ? store.cache[store.currentDate]
-                : store.filterMatches(store.cache[store.currentDate]);
+            var filteredMatches = store.routerParams.tournament_id === constants_1.constants.defaultTournamentsValue
+                ? cacheMatches
+                : store.filterMatches(cacheMatches);
             store.setMatches(filteredMatches);
         };
         return _this;
@@ -85091,7 +85094,7 @@ exports.PredictionFilter = core_1.withStyles(styles)(mobx_react_1.observer(/** @
                     }))),
                 React.createElement(core_1.FormControl, { className: classes.control, disabled: store.matches.length < 1 },
                     React.createElement(core_1.InputLabel, { htmlFor: "tournament" }, dict_1.dict.tournament_label),
-                    React.createElement(core_1.Select, { value: store.filter.tournament_id, onChange: this.handleTournamentChange },
+                    React.createElement(core_1.Select, { value: store.routerParams.tournament_id, onChange: this.handleTournamentChange },
                         React.createElement(core_1.MenuItem, { key: constants_1.constants.defaultTournamentsValue, value: constants_1.constants.defaultTournamentsValue }, "All"),
                         Object.keys(store.tournaments).map(function (id) {
                             return (React.createElement(core_1.MenuItem, { key: id, value: id }, store.tournaments[id]));
@@ -87121,7 +87124,7 @@ var PredictionStore = /** @class */ (function () {
         this.matches = this.cache[this.currentDate]
             ? this.cache[this.currentDate].slice() : [];
         this.tournaments = {};
-        this.filter = props.filter
+        this.routerParams = props.filter
             ? query_string_1.parse(props.filter)
             : {
                 tournament_id: constants_1.constants.defaultTournamentsValue,
@@ -87165,7 +87168,7 @@ var PredictionStore = /** @class */ (function () {
     };
     PredictionStore.prototype.fetchMatches = function () {
         var _this = this;
-        var tournamentId = this.filter.tournament_id;
+        var tournamentId = this.routerParams.tournament_id;
         this.isFetched = false;
         axios_1.default
             .get(this.apiPredictionUrl)
@@ -87205,7 +87208,7 @@ var PredictionStore = /** @class */ (function () {
         this.isSuccessSubmit = false;
     };
     PredictionStore.prototype.setTournamentId = function (id) {
-        this.filter = __assign({}, this.filter, { tournament_id: id });
+        this.routerParams = __assign({}, this.routerParams, { tournament_id: id });
     };
     PredictionStore.prototype.setMatches = function (matches) {
         this.matches = matches;
@@ -87224,7 +87227,7 @@ var PredictionStore = /** @class */ (function () {
     PredictionStore.prototype.filterMatches = function (matches) {
         var _this = this;
         return matches.filter(function (match) {
-            return match.tournament.id === _this.filter.tournament_id;
+            return match.tournament.id === _this.routerParams.tournament_id;
         });
     };
     __decorate([
@@ -87247,7 +87250,7 @@ var PredictionStore = /** @class */ (function () {
     ], PredictionStore.prototype, "currentDate", void 0);
     __decorate([
         mobx_1.observable
-    ], PredictionStore.prototype, "filter", void 0);
+    ], PredictionStore.prototype, "routerParams", void 0);
     __decorate([
         mobx_1.observable
     ], PredictionStore.prototype, "matches", void 0);

@@ -76,7 +76,7 @@ export interface IPredictionStore {
   };
   currentDate: string;
   dates: string[];
-  filter?: any;
+  routerParams?: any;
   isLoaded: boolean;
   isFetched: boolean;
   isSuccessSubmit: boolean;
