@@ -85054,27 +85054,7 @@ var styles = function (_a) {
 exports.PredictionFilter = core_1.withStyles(styles)(mobx_react_1.observer(/** @class */ (function (_super) {
     __extends(class_1, _super);
     function class_1() {
-        var _this = _super !== null && _super.apply(this, arguments) || this;
-        _this.handleDateChange = function (event) {
-            var store = _this.props.store;
-            var cache = store.cache;
-            store.setCurrentDate(event.target.value);
-            store.setTournamentId(constants_1.constants.defaultTournamentsValue);
-            store.currentDate in cache
-                ? store.setMatches(cache[store.currentDate])
-                : store.fetchMatches();
-        };
-        _this.handleTournamentChange = function (event) {
-            var store = _this.props.store;
-            var cache = store.cache, currentDate = store.currentDate;
-            var cacheMatches = cache[currentDate];
-            store.setTournamentId(event.target.value);
-            var filteredMatches = store.tournamentId === constants_1.constants.defaultTournamentsValue
-                ? cacheMatches
-                : store.filterMatches(cacheMatches);
-            store.setMatches(filteredMatches);
-        };
-        return _this;
+        return _super !== null && _super.apply(this, arguments) || this;
     }
     class_1.prototype.render = function () {
         var _a = this.props, classes = _a.classes, store = _a.store;
@@ -85082,7 +85062,7 @@ exports.PredictionFilter = core_1.withStyles(styles)(mobx_react_1.observer(/** @
             React.createElement("div", { className: classes.wrap },
                 React.createElement(core_1.FormControl, { className: classes.control },
                     React.createElement(core_1.InputLabel, { htmlFor: "date" }, dict_1.dict.date_label),
-                    React.createElement(core_1.Select, { value: store.currentDate, onChange: this.handleDateChange, inputProps: {
+                    React.createElement(core_1.Select, { value: store.currentDate, onChange: store.handleDateChange, inputProps: {
                             id: "date",
                             name: "date",
                         } }, store.dates.map(function (item) {
@@ -85094,7 +85074,7 @@ exports.PredictionFilter = core_1.withStyles(styles)(mobx_react_1.observer(/** @
                     }))),
                 React.createElement(core_1.FormControl, { className: classes.control, disabled: store.matches.length < 1 },
                     React.createElement(core_1.InputLabel, { htmlFor: "tournament" }, dict_1.dict.tournament_label),
-                    React.createElement(core_1.Select, { value: store.tournamentId, onChange: this.handleTournamentChange },
+                    React.createElement(core_1.Select, { value: store.tournamentId, onChange: store.handleTournamentChange },
                         React.createElement(core_1.MenuItem, { key: constants_1.constants.defaultTournamentsValue, value: constants_1.constants.defaultTournamentsValue }, "All"),
                         Object.keys(store.tournaments).map(function (id) {
                             return (React.createElement(core_1.MenuItem, { key: id, value: id }, store.tournaments[id]));
@@ -87098,6 +87078,7 @@ var helpers_1 = __webpack_require__(/*! ../../helpers */ "./public/src/helpers/i
 var helpers_2 = __webpack_require__(/*! ./helpers */ "./public/src/stores/PredictionStore/helpers/index.ts");
 var PredictionStore = /** @class */ (function () {
     function PredictionStore(props) {
+        var _this = this;
         this.isLoaded = false;
         this.isFetched = false;
         this.isSuccessSubmit = false;
@@ -87106,6 +87087,21 @@ var PredictionStore = /** @class */ (function () {
         this.matches = this.cache[this.currentDate]
             ? this.cache[this.currentDate].slice() : [];
         this.tournaments = {};
+        this.handleDateChange = function (event) {
+            _this.setCurrentDate(event.target.value);
+            _this.setTournamentId(constants_1.constants.defaultTournamentsValue);
+            _this.currentDate in _this.cache
+                ? _this.setMatches(_this.cache[_this.currentDate])
+                : _this.fetchMatches();
+        };
+        this.handleTournamentChange = function (event) {
+            var cacheMatches = _this.cache[_this.currentDate];
+            _this.setTournamentId(event.target.value);
+            var filteredMatches = _this.tournamentId === constants_1.constants.defaultTournamentsValue
+                ? cacheMatches
+                : helpers_2.filterMatches(cacheMatches, _this.tournamentId);
+            _this.setMatches(filteredMatches);
+        };
         var _a = query_string_1.parse(props.filter), date = _a.date, tournament_id = _a.tournament_id;
         this.dates = helpers_1.getFutureDates();
         this.currentDate = date && !Array.isArray(date) ? date : this.dates[0];
@@ -87160,7 +87156,7 @@ var PredictionStore = /** @class */ (function () {
         var matches = res.data.sort(helpers_1.sortByTournamentId);
         this.matches =
             this.tournamentId !== constants_1.constants.defaultTournamentsValue
-                ? this.filterMatches(matches)
+                ? helpers_2.filterMatches(matches, this.tournamentId)
                 : matches;
         this.cache = __assign({}, this.cache, (_a = {}, _a[this.currentDate] = matches, _a));
         this.tournaments = helpers_2.getTournaments(this.cache[this.currentDate]);
@@ -87190,12 +87186,6 @@ var PredictionStore = /** @class */ (function () {
     PredictionStore.prototype.setMatches = function (matches) {
         this.matches = matches;
         this.tournaments = helpers_2.getTournaments(this.cache[this.currentDate]);
-    };
-    PredictionStore.prototype.filterMatches = function (matches) {
-        var _this = this;
-        return matches.filter(function (match) {
-            return match.tournament.id === _this.tournamentId;
-        });
     };
     __decorate([
         mobx_1.computed
@@ -87235,10 +87225,10 @@ var PredictionStore = /** @class */ (function () {
     ], PredictionStore.prototype, "closeSuccessMsg", null);
     __decorate([
         mobx_1.action.bound
-    ], PredictionStore.prototype, "setTournamentId", null);
+    ], PredictionStore.prototype, "handleDateChange", void 0);
     __decorate([
         mobx_1.action.bound
-    ], PredictionStore.prototype, "setMatches", null);
+    ], PredictionStore.prototype, "handleTournamentChange", void 0);
     return PredictionStore;
 }());
 exports.PredictionStore = PredictionStore;
@@ -87293,6 +87283,43 @@ function __export(m) {
 }
 Object.defineProperty(exports, "__esModule", { value: true });
 __export(__webpack_require__(/*! ./createPayload */ "./public/src/stores/PredictionStore/helpers/createPayload/createPayload.ts"));
+
+
+/***/ }),
+
+/***/ "./public/src/stores/PredictionStore/helpers/filterMatches/filterMatches.ts":
+/*!**********************************************************************************!*\
+  !*** ./public/src/stores/PredictionStore/helpers/filterMatches/filterMatches.ts ***!
+  \**********************************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+Object.defineProperty(exports, "__esModule", { value: true });
+exports.filterMatches = function (matches, tournamentId) {
+    return matches.filter(function (match) {
+        return match.tournament.id === tournamentId;
+    });
+};
+
+
+/***/ }),
+
+/***/ "./public/src/stores/PredictionStore/helpers/filterMatches/index.ts":
+/*!**************************************************************************!*\
+  !*** ./public/src/stores/PredictionStore/helpers/filterMatches/index.ts ***!
+  \**************************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+function __export(m) {
+    for (var p in m) if (!exports.hasOwnProperty(p)) exports[p] = m[p];
+}
+Object.defineProperty(exports, "__esModule", { value: true });
+__export(__webpack_require__(/*! ./filterMatches */ "./public/src/stores/PredictionStore/helpers/filterMatches/filterMatches.ts"));
 
 
 /***/ }),
@@ -87353,6 +87380,7 @@ function __export(m) {
 }
 Object.defineProperty(exports, "__esModule", { value: true });
 __export(__webpack_require__(/*! ./createPayload */ "./public/src/stores/PredictionStore/helpers/createPayload/index.ts"));
+__export(__webpack_require__(/*! ./filterMatches */ "./public/src/stores/PredictionStore/helpers/filterMatches/index.ts"));
 __export(__webpack_require__(/*! ./getTournaments */ "./public/src/stores/PredictionStore/helpers/getTournaments/index.ts"));
 
 

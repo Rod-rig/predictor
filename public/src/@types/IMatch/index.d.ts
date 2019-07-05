@@ -88,9 +88,10 @@ export interface IPredictionStore {
   setMatches(matches: ISportEvent[]): void;
   setTournamentId(value: string): void;
   fetchMatches(): void;
+  handleDateChange(event: any): void;
+  handleTournamentChange(event: any): void;
   handleSubmit(e: Event): void;
   handleChange(index: number, compIndex: number, e: any): void;
   setCurrentDate(date: string): void;
   closeSuccessMsg(): void;
-  filterMatches(matches: ISportEvent[]): ISportEvent[];
 }

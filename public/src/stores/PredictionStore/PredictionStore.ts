@@ -5,7 +5,7 @@ import { userStore } from "../";
 import { IPredictionStore, ISportEvent } from "../../@types";
 import { constants } from "../../constants";
 import { getFutureDates, sortByTournamentId } from "../../helpers";
-import { createPayload, getTournaments } from "./helpers";
+import { createPayload, filterMatches, getTournaments } from "./helpers";
 
 export class PredictionStore implements IPredictionStore {
   @computed get apiPredictionUrl() {
@@ -83,7 +83,7 @@ export class PredictionStore implements IPredictionStore {
     const matches = res.data.sort(sortByTournamentId);
     this.matches =
       this.tournamentId !== constants.defaultTournamentsValue
-        ? this.filterMatches(matches)
+        ? filterMatches(matches, this.tournamentId)
         : matches;
     this.cache = {
       ...this.cache,
@@ -116,20 +116,36 @@ export class PredictionStore implements IPredictionStore {
     this.isSuccessSubmit = false;
   }
 
-  @action.bound
   public setTournamentId(tournamentId: string) {
     this.tournamentId = tournamentId;
   }
 
-  @action.bound
   public setMatches(matches: ISportEvent[]) {
     this.matches = matches;
     this.tournaments = getTournaments(this.cache[this.currentDate]);
   }
 
-  public filterMatches(matches: ISportEvent[]) {
-    return matches.filter((match: ISportEvent) => {
-      return match.tournament.id === this.tournamentId;
-    });
-  }
+  @action.bound
+  public handleDateChange = (event: any) => {
+    this.setCurrentDate(event.target.value);
+
+    this.setTournamentId(constants.defaultTournamentsValue);
+
+    this.currentDate in this.cache
+      ? this.setMatches(this.cache[this.currentDate])
+      : this.fetchMatches();
+  };
+
+  @action.bound
+  public handleTournamentChange = (event: any) => {
+    const cacheMatches = this.cache[this.currentDate];
+
+    this.setTournamentId(event.target.value);
+
+    const filteredMatches =
+      this.tournamentId === constants.defaultTournamentsValue
+        ? cacheMatches
+        : filterMatches(cacheMatches, this.tournamentId);
+    this.setMatches(filteredMatches);
+  };
 }
