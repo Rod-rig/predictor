@@ -5,28 +5,7 @@ import { userStore } from "../";
 import { IPredictionStore, ISportEvent } from "../../@types";
 import { constants } from "../../constants";
 import { getFutureDates, sortByTournamentId } from "../../helpers";
-
-const createPayload = (matches: ISportEvent[]) => {
-  return matches
-    .filter((match: ISportEvent) => {
-      return (
-        match.competitors[0].userPrediction >= 0 &&
-        match.competitors[1].userPrediction >= 0
-      );
-    })
-    .map(match => {
-      return {
-        awayScore: match.competitors[1].userPrediction,
-        awayTeam: match.competitors[1].name,
-        homeScore: match.competitors[0].userPrediction,
-        homeTeam: match.competitors[0].name,
-        matchId: match.id,
-        scheduled: match.scheduled,
-        seasonId: match.season.id,
-        tournamentId: match.tournament.id,
-      };
-    });
-};
+import { createPayload, getTournaments } from "./helpers";
 
 export class PredictionStore implements IPredictionStore {
   @computed get apiPredictionUrl() {
@@ -37,8 +16,8 @@ export class PredictionStore implements IPredictionStore {
   @observable public isSuccessSubmit: boolean = false;
   @observable public buttonWasClicked: boolean = false;
   @observable public currentDate: string;
+  @observable public tournamentId: string;
   public dates: string[];
-  @observable public routerParams: ParsedQuery;
   public cache: {
     [key: string]: ISportEvent[];
   } = {};
@@ -50,13 +29,13 @@ export class PredictionStore implements IPredictionStore {
   } = {};
 
   constructor(props?: { filter: string }) {
-    this.routerParams = props.filter
-      ? parse(props.filter)
-      : {
-          tournament_id: constants.defaultTournamentsValue,
-        };
+    const { date, tournament_id }: ParsedQuery = parse(props.filter);
     this.dates = getFutureDates();
-    this.currentDate = this.dates[0];
+    this.currentDate = date && !Array.isArray(date) ? date : this.dates[0];
+    this.tournamentId =
+      tournament_id && !Array.isArray(tournament_id)
+        ? tournament_id
+        : constants.defaultTournamentsValue;
     this.fetchMatches();
   }
 
@@ -91,39 +70,40 @@ export class PredictionStore implements IPredictionStore {
   }
 
   public fetchMatches() {
-    const tournamentId = this.routerParams.tournament_id;
     this.isFetched = false;
+    this.cache[this.currentDate] = [];
+
     axios
       .get(this.apiPredictionUrl)
-      .then((res: AxiosResponse) => {
-        const matches = res.data.sort(sortByTournamentId);
-        this.matches =
-          tournamentId !== constants.defaultTournamentsValue
-            ? this.filterMatches(matches)
-            : matches;
-        this.cache = {
-          ...this.cache,
-          [this.currentDate]: matches,
-        };
-        this.tournaments = this.getTournaments();
-        this.isLoaded = this.isLoaded ? this.isLoaded : true;
-        this.isFetched = true;
-      })
-      /* istanbul ignore next */
-      .catch(
-        /* istanbul ignore next */
-        ({ response }) => {
-          /* istanbul ignore next */
-          if (response.status === 403) {
-            userStore.logout();
-          }
-          if (response.status === 404) {
-            this.isLoaded = true;
-            this.isFetched = true;
-            this.cache[this.currentDate] = [];
-          }
-        },
-      );
+      .then(this.fetchMatchesSuccess, this.fetchMatchesError);
+  }
+
+  @action.bound
+  public fetchMatchesSuccess(res: AxiosResponse) {
+    const matches = res.data.sort(sortByTournamentId);
+    this.matches =
+      this.tournamentId !== constants.defaultTournamentsValue
+        ? this.filterMatches(matches)
+        : matches;
+    this.cache = {
+      ...this.cache,
+      [this.currentDate]: matches,
+    };
+    this.tournaments = getTournaments(this.cache[this.currentDate]);
+    this.isLoaded = this.isLoaded ? this.isLoaded : true;
+    this.isFetched = true;
+  }
+
+  @action.bound
+  public fetchMatchesError(response: any) {
+    /* istanbul ignore next */
+    if (response.status === 403) {
+      userStore.logout();
+    }
+    if (response.status === 404) {
+      this.isLoaded = true;
+      this.isFetched = true;
+    }
   }
 
   public setCurrentDate(date: string) {
@@ -137,36 +117,19 @@ export class PredictionStore implements IPredictionStore {
   }
 
   @action.bound
-  public setTournamentId(id: string) {
-    this.routerParams = {
-      ...this.routerParams,
-      tournament_id: id,
-    };
+  public setTournamentId(tournamentId: string) {
+    this.tournamentId = tournamentId;
   }
 
   @action.bound
   public setMatches(matches: ISportEvent[]) {
     this.matches = matches;
-    this.tournaments = this.getTournaments();
-  }
-
-  @action.bound
-  public getTournaments() {
-    const ids: {
-      [key: string]: string;
-    } = {};
-    this.cache[this.currentDate].forEach((match: ISportEvent) => {
-      const id: string = match.tournament.id;
-      if (!ids[id]) {
-        ids[id] = match.tournament.name;
-      }
-    });
-    return ids;
+    this.tournaments = getTournaments(this.cache[this.currentDate]);
   }
 
   public filterMatches(matches: ISportEvent[]) {
     return matches.filter((match: ISportEvent) => {
-      return match.tournament.id === this.routerParams.tournament_id;
+      return match.tournament.id === this.tournamentId;
     });
   }
 }

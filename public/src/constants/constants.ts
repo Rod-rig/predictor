@@ -1,3 +1,5 @@
-export const constants = {
+export const constants: {
+  defaultTournamentsValue: string;
+} = {
   defaultTournamentsValue: "all",
 };

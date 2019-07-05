@@ -71,7 +71,7 @@ export const PredictionFilter = withStyles(styles)(
                   {dict.tournament_label}
                 </InputLabel>
                 <Select
-                  value={store.routerParams.tournament_id}
+                  value={store.tournamentId}
                   onChange={this.handleTournamentChange}
                 >
                   <MenuItem
@@ -96,14 +96,14 @@ export const PredictionFilter = withStyles(styles)(
 
       private handleDateChange = (event: any) => {
         const { store } = this.props;
-        const { cache, currentDate } = store;
+        const { cache } = store;
 
         store.setCurrentDate(event.target.value);
 
         store.setTournamentId(constants.defaultTournamentsValue);
 
         store.currentDate in cache
-          ? store.setMatches(cache[currentDate])
+          ? store.setMatches(cache[store.currentDate])
           : store.fetchMatches();
       };
 
@@ -115,7 +115,7 @@ export const PredictionFilter = withStyles(styles)(
         store.setTournamentId(event.target.value);
 
         const filteredMatches =
-          store.routerParams.tournament_id === constants.defaultTournamentsValue
+          store.tournamentId === constants.defaultTournamentsValue
             ? cacheMatches
             : store.filterMatches(cacheMatches);
         store.setMatches(filteredMatches);

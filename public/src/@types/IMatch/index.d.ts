@@ -1,3 +1,4 @@
+import { ParsedQuery } from "query-string";
 import { ISeason, ITournament } from "../";
 
 interface ICompetitor {
@@ -75,8 +76,8 @@ export interface IPredictionStore {
     [key: string]: ISportEvent[];
   };
   currentDate: string;
+  tournamentId: string;
   dates: string[];
-  routerParams?: any;
   isLoaded: boolean;
   isFetched: boolean;
   isSuccessSubmit: boolean;

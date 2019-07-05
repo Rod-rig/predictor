@@ -85057,11 +85057,11 @@ exports.PredictionFilter = core_1.withStyles(styles)(mobx_react_1.observer(/** @
         var _this = _super !== null && _super.apply(this, arguments) || this;
         _this.handleDateChange = function (event) {
             var store = _this.props.store;
-            var cache = store.cache, currentDate = store.currentDate;
+            var cache = store.cache;
             store.setCurrentDate(event.target.value);
             store.setTournamentId(constants_1.constants.defaultTournamentsValue);
             store.currentDate in cache
-                ? store.setMatches(cache[currentDate])
+                ? store.setMatches(cache[store.currentDate])
                 : store.fetchMatches();
         };
         _this.handleTournamentChange = function (event) {
@@ -85069,7 +85069,7 @@ exports.PredictionFilter = core_1.withStyles(styles)(mobx_react_1.observer(/** @
             var cache = store.cache, currentDate = store.currentDate;
             var cacheMatches = cache[currentDate];
             store.setTournamentId(event.target.value);
-            var filteredMatches = store.routerParams.tournament_id === constants_1.constants.defaultTournamentsValue
+            var filteredMatches = store.tournamentId === constants_1.constants.defaultTournamentsValue
                 ? cacheMatches
                 : store.filterMatches(cacheMatches);
             store.setMatches(filteredMatches);
@@ -85094,7 +85094,7 @@ exports.PredictionFilter = core_1.withStyles(styles)(mobx_react_1.observer(/** @
                     }))),
                 React.createElement(core_1.FormControl, { className: classes.control, disabled: store.matches.length < 1 },
                     React.createElement(core_1.InputLabel, { htmlFor: "tournament" }, dict_1.dict.tournament_label),
-                    React.createElement(core_1.Select, { value: store.routerParams.tournament_id, onChange: this.handleTournamentChange },
+                    React.createElement(core_1.Select, { value: store.tournamentId, onChange: this.handleTournamentChange },
                         React.createElement(core_1.MenuItem, { key: constants_1.constants.defaultTournamentsValue, value: constants_1.constants.defaultTournamentsValue }, "All"),
                         Object.keys(store.tournaments).map(function (id) {
                             return (React.createElement(core_1.MenuItem, { key: id, value: id }, store.tournaments[id]));
@@ -87095,25 +87095,7 @@ var query_string_1 = __webpack_require__(/*! query-string */ "./node_modules/que
 var __1 = __webpack_require__(/*! ../ */ "./public/src/stores/index.ts");
 var constants_1 = __webpack_require__(/*! ../../constants */ "./public/src/constants/index.ts");
 var helpers_1 = __webpack_require__(/*! ../../helpers */ "./public/src/helpers/index.ts");
-var createPayload = function (matches) {
-    return matches
-        .filter(function (match) {
-        return (match.competitors[0].userPrediction >= 0 &&
-            match.competitors[1].userPrediction >= 0);
-    })
-        .map(function (match) {
-        return {
-            awayScore: match.competitors[1].userPrediction,
-            awayTeam: match.competitors[1].name,
-            homeScore: match.competitors[0].userPrediction,
-            homeTeam: match.competitors[0].name,
-            matchId: match.id,
-            scheduled: match.scheduled,
-            seasonId: match.season.id,
-            tournamentId: match.tournament.id,
-        };
-    });
-};
+var helpers_2 = __webpack_require__(/*! ./helpers */ "./public/src/stores/PredictionStore/helpers/index.ts");
 var PredictionStore = /** @class */ (function () {
     function PredictionStore(props) {
         this.isLoaded = false;
@@ -87124,13 +87106,13 @@ var PredictionStore = /** @class */ (function () {
         this.matches = this.cache[this.currentDate]
             ? this.cache[this.currentDate].slice() : [];
         this.tournaments = {};
-        this.routerParams = props.filter
-            ? query_string_1.parse(props.filter)
-            : {
-                tournament_id: constants_1.constants.defaultTournamentsValue,
-            };
+        var _a = query_string_1.parse(props.filter), date = _a.date, tournament_id = _a.tournament_id;
         this.dates = helpers_1.getFutureDates();
-        this.currentDate = this.dates[0];
+        this.currentDate = date && !Array.isArray(date) ? date : this.dates[0];
+        this.tournamentId =
+            tournament_id && !Array.isArray(tournament_id)
+                ? tournament_id
+                : constants_1.constants.defaultTournamentsValue;
         this.fetchMatches();
     }
     Object.defineProperty(PredictionStore.prototype, "apiPredictionUrl", {
@@ -87143,7 +87125,7 @@ var PredictionStore = /** @class */ (function () {
     PredictionStore.prototype.handleSubmit = function (e) {
         var _this = this;
         e.preventDefault();
-        var payload = createPayload(this.matches);
+        var payload = helpers_2.createPayload(this.matches);
         if (payload.length < 1) {
             return;
         }
@@ -87167,38 +87149,33 @@ var PredictionStore = /** @class */ (function () {
         this.matches[index].competitors[compIndex].userPrediction = +e.target.value;
     };
     PredictionStore.prototype.fetchMatches = function () {
-        var _this = this;
-        var tournamentId = this.routerParams.tournament_id;
         this.isFetched = false;
+        this.cache[this.currentDate] = [];
         axios_1.default
             .get(this.apiPredictionUrl)
-            .then(function (res) {
-            var _a;
-            var matches = res.data.sort(helpers_1.sortByTournamentId);
-            _this.matches =
-                tournamentId !== constants_1.constants.defaultTournamentsValue
-                    ? _this.filterMatches(matches)
-                    : matches;
-            _this.cache = __assign({}, _this.cache, (_a = {}, _a[_this.currentDate] = matches, _a));
-            _this.tournaments = _this.getTournaments();
-            _this.isLoaded = _this.isLoaded ? _this.isLoaded : true;
-            _this.isFetched = true;
-        })
-            /* istanbul ignore next */
-            .catch(
+            .then(this.fetchMatchesSuccess, this.fetchMatchesError);
+    };
+    PredictionStore.prototype.fetchMatchesSuccess = function (res) {
+        var _a;
+        var matches = res.data.sort(helpers_1.sortByTournamentId);
+        this.matches =
+            this.tournamentId !== constants_1.constants.defaultTournamentsValue
+                ? this.filterMatches(matches)
+                : matches;
+        this.cache = __assign({}, this.cache, (_a = {}, _a[this.currentDate] = matches, _a));
+        this.tournaments = helpers_2.getTournaments(this.cache[this.currentDate]);
+        this.isLoaded = this.isLoaded ? this.isLoaded : true;
+        this.isFetched = true;
+    };
+    PredictionStore.prototype.fetchMatchesError = function (response) {
         /* istanbul ignore next */
-        function (_a) {
-            var response = _a.response;
-            /* istanbul ignore next */
-            if (response.status === 403) {
-                __1.userStore.logout();
-            }
-            if (response.status === 404) {
-                _this.isLoaded = true;
-                _this.isFetched = true;
-                _this.cache[_this.currentDate] = [];
-            }
-        });
+        if (response.status === 403) {
+            __1.userStore.logout();
+        }
+        if (response.status === 404) {
+            this.isLoaded = true;
+            this.isFetched = true;
+        }
     };
     PredictionStore.prototype.setCurrentDate = function (date) {
         this.currentDate = date;
@@ -87207,27 +87184,17 @@ var PredictionStore = /** @class */ (function () {
         this.fetchMatches();
         this.isSuccessSubmit = false;
     };
-    PredictionStore.prototype.setTournamentId = function (id) {
-        this.routerParams = __assign({}, this.routerParams, { tournament_id: id });
+    PredictionStore.prototype.setTournamentId = function (tournamentId) {
+        this.tournamentId = tournamentId;
     };
     PredictionStore.prototype.setMatches = function (matches) {
         this.matches = matches;
-        this.tournaments = this.getTournaments();
-    };
-    PredictionStore.prototype.getTournaments = function () {
-        var ids = {};
-        this.cache[this.currentDate].forEach(function (match) {
-            var id = match.tournament.id;
-            if (!ids[id]) {
-                ids[id] = match.tournament.name;
-            }
-        });
-        return ids;
+        this.tournaments = helpers_2.getTournaments(this.cache[this.currentDate]);
     };
     PredictionStore.prototype.filterMatches = function (matches) {
         var _this = this;
         return matches.filter(function (match) {
-            return match.tournament.id === _this.routerParams.tournament_id;
+            return match.tournament.id === _this.tournamentId;
         });
     };
     __decorate([
@@ -87250,13 +87217,19 @@ var PredictionStore = /** @class */ (function () {
     ], PredictionStore.prototype, "currentDate", void 0);
     __decorate([
         mobx_1.observable
-    ], PredictionStore.prototype, "routerParams", void 0);
+    ], PredictionStore.prototype, "tournamentId", void 0);
     __decorate([
         mobx_1.observable
     ], PredictionStore.prototype, "matches", void 0);
     __decorate([
         mobx_1.observable
     ], PredictionStore.prototype, "tournaments", void 0);
+    __decorate([
+        mobx_1.action.bound
+    ], PredictionStore.prototype, "fetchMatchesSuccess", null);
+    __decorate([
+        mobx_1.action.bound
+    ], PredictionStore.prototype, "fetchMatchesError", null);
     __decorate([
         mobx_1.action.bound
     ], PredictionStore.prototype, "closeSuccessMsg", null);
@@ -87266,12 +87239,121 @@ var PredictionStore = /** @class */ (function () {
     __decorate([
         mobx_1.action.bound
     ], PredictionStore.prototype, "setMatches", null);
-    __decorate([
-        mobx_1.action.bound
-    ], PredictionStore.prototype, "getTournaments", null);
     return PredictionStore;
 }());
 exports.PredictionStore = PredictionStore;
+
+
+/***/ }),
+
+/***/ "./public/src/stores/PredictionStore/helpers/createPayload/createPayload.ts":
+/*!**********************************************************************************!*\
+  !*** ./public/src/stores/PredictionStore/helpers/createPayload/createPayload.ts ***!
+  \**********************************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+Object.defineProperty(exports, "__esModule", { value: true });
+exports.createPayload = function (matches) {
+    return matches
+        .filter(function (match) {
+        return (match.competitors[0].userPrediction >= 0 &&
+            match.competitors[1].userPrediction >= 0);
+    })
+        .map(function (match) {
+        return {
+            awayScore: match.competitors[1].userPrediction,
+            awayTeam: match.competitors[1].name,
+            homeScore: match.competitors[0].userPrediction,
+            homeTeam: match.competitors[0].name,
+            matchId: match.id,
+            scheduled: match.scheduled,
+            seasonId: match.season.id,
+            tournamentId: match.tournament.id,
+        };
+    });
+};
+
+
+/***/ }),
+
+/***/ "./public/src/stores/PredictionStore/helpers/createPayload/index.ts":
+/*!**************************************************************************!*\
+  !*** ./public/src/stores/PredictionStore/helpers/createPayload/index.ts ***!
+  \**************************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+function __export(m) {
+    for (var p in m) if (!exports.hasOwnProperty(p)) exports[p] = m[p];
+}
+Object.defineProperty(exports, "__esModule", { value: true });
+__export(__webpack_require__(/*! ./createPayload */ "./public/src/stores/PredictionStore/helpers/createPayload/createPayload.ts"));
+
+
+/***/ }),
+
+/***/ "./public/src/stores/PredictionStore/helpers/getTournaments/getTournaments.ts":
+/*!************************************************************************************!*\
+  !*** ./public/src/stores/PredictionStore/helpers/getTournaments/getTournaments.ts ***!
+  \************************************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+Object.defineProperty(exports, "__esModule", { value: true });
+exports.getTournaments = function (matches) {
+    var ids = {};
+    matches.forEach(function (match) {
+        var id = match.tournament.id;
+        if (!ids[id]) {
+            ids[id] = match.tournament.name;
+        }
+    });
+    return ids;
+};
+
+
+/***/ }),
+
+/***/ "./public/src/stores/PredictionStore/helpers/getTournaments/index.ts":
+/*!***************************************************************************!*\
+  !*** ./public/src/stores/PredictionStore/helpers/getTournaments/index.ts ***!
+  \***************************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+function __export(m) {
+    for (var p in m) if (!exports.hasOwnProperty(p)) exports[p] = m[p];
+}
+Object.defineProperty(exports, "__esModule", { value: true });
+__export(__webpack_require__(/*! ./getTournaments */ "./public/src/stores/PredictionStore/helpers/getTournaments/getTournaments.ts"));
+
+
+/***/ }),
+
+/***/ "./public/src/stores/PredictionStore/helpers/index.ts":
+/*!************************************************************!*\
+  !*** ./public/src/stores/PredictionStore/helpers/index.ts ***!
+  \************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+function __export(m) {
+    for (var p in m) if (!exports.hasOwnProperty(p)) exports[p] = m[p];
+}
+Object.defineProperty(exports, "__esModule", { value: true });
+__export(__webpack_require__(/*! ./createPayload */ "./public/src/stores/PredictionStore/helpers/createPayload/index.ts"));
+__export(__webpack_require__(/*! ./getTournaments */ "./public/src/stores/PredictionStore/helpers/getTournaments/index.ts"));
 
 
 /***/ }),
