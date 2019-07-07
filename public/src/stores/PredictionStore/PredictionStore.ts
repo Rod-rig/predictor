@@ -1,11 +1,21 @@
 import axios, { AxiosResponse } from "axios";
+import { createBrowserHistory } from "history";
 import { action, computed, observable } from "mobx";
 import { parse, ParsedQuery } from "query-string";
 import { userStore } from "../";
 import { IPredictionStore, ISportEvent } from "../../@types";
 import { constants } from "../../constants";
 import { getFutureDates, sortByTournamentId } from "../../helpers";
-import { createPayload, filterMatches, getTournaments } from "./helpers";
+import {
+  createPayload,
+  filterMatches,
+  getTournaments,
+  updateUrl,
+} from "./helpers";
+
+const history = createBrowserHistory({
+  basename: "/#/predictions",
+});
 
 export class PredictionStore implements IPredictionStore {
   @computed get apiPredictionUrl() {
@@ -134,6 +144,11 @@ export class PredictionStore implements IPredictionStore {
     this.currentDate in this.cache
       ? this.setMatches(this.cache[this.currentDate])
       : this.fetchMatches();
+
+    updateUrl(history, {
+      date: this.currentDate,
+      tournament_id: this.tournamentId,
+    });
   };
 
   @action.bound
@@ -147,5 +162,7 @@ export class PredictionStore implements IPredictionStore {
         ? cacheMatches
         : filterMatches(cacheMatches, this.tournamentId);
     this.setMatches(filteredMatches);
+
+    updateUrl(history, { tournament_id: this.tournamentId });
   };
 }

@@ -1,6 +1,6 @@
 {
   "name": "predictor",
-  "version": "0.4.19",
+  "version": "0.4.20",
   "main": "public/src/index.tsx",
   "license": "MIT",
   "scripts": {
@@ -121,6 +121,7 @@
     "enzyme-adapter-react-16": "^1.12.1",
     "express": "^4.16.4",
     "express-session": "^1.16.1",
+    "history": "^4.9.0",
     "mobx": "^5.9.4",
     "mobx-react": "^5.3.6",
     "mongoose": "^5.5.7",

@@ -78,7 +78,7 @@ export const PredictionFilter = withStyles(styles)(
                     key={constants.defaultTournamentsValue}
                     value={constants.defaultTournamentsValue}
                   >
-                    All
+                    {dict.all}
                   </MenuItem>
                   {Object.keys(store.tournaments).map((id: string) => {
                     return (
