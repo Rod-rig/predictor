@@ -12,13 +12,15 @@ describe("PredictionFilter", () => {
   const predictionFilter = (
     <PredictionFilter
       store={{
+        cache: {},
         closeSuccessMsg: jest.fn(),
         currentDate: "date",
         dates: ["Berlin", "Rome", "Paris", "London"],
         fetchMatches: fetchMock,
-        filterMatches: jest.fn(),
-        handleChange: () => ({}),
-        handleSubmit: () => ({}),
+        handleChange: jest.fn(),
+        handleDateChange: jest.fn(),
+        handleSubmit: jest.fn(),
+        handleTournamentChange: jest.fn(),
         isFetched: true,
         isLoaded: true,
         isSuccessSubmit: false,
@@ -26,6 +28,7 @@ describe("PredictionFilter", () => {
         setCurrentDate: setCurrentDateMock,
         setMatches: setMatchesMock,
         setTournamentId: setTournamentIdMock,
+        tournamentId: "",
         tournaments: {},
       }}
     />

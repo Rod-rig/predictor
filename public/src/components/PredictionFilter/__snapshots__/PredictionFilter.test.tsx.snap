@@ -3,29 +3,29 @@
 exports[`PredictionFilter should render correctly 1`] = `
 <div>
   <div
-    className="class_1-wrap-4"
+    className="class_1-wrap-2"
   >
     <div
-      className="MuiFormControl-root-5 class_1-control-3"
+      className="MuiFormControl-root-3 class_1-control-1"
     >
       <label
-        className="MuiFormLabel-root-20 MuiFormLabel-filled-24 MuiInputLabel-root-9 MuiInputLabel-formControl-14 MuiInputLabel-animated-17 MuiInputLabel-shrink-16"
+        className="MuiFormLabel-root-18 MuiFormLabel-filled-22 MuiInputLabel-root-7 MuiInputLabel-formControl-12 MuiInputLabel-animated-15 MuiInputLabel-shrink-14"
         data-shrink={true}
         htmlFor="date"
       >
         Date
       </label>
       <div
-        className="MuiInputBase-root-47 MuiInput-root-34 MuiInput-underline-38 MuiInputBase-formControl-48 MuiInput-formControl-35"
+        className="MuiInputBase-root-45 MuiInput-root-32 MuiInput-underline-36 MuiInputBase-formControl-46 MuiInput-formControl-33"
         onClick={[Function]}
       >
         <div
-          className="MuiSelect-root-27"
+          className="MuiSelect-root-25"
         >
           <div
             aria-haspopup="true"
             aria-pressed="false"
-            className="MuiSelect-select-28 MuiSelect-selectMenu-31 MuiInputBase-input-57 MuiInput-input-42"
+            className="MuiSelect-select-26 MuiSelect-selectMenu-29 MuiInputBase-input-55 MuiInput-input-40"
             id="select-date"
             onBlur={[Function]}
             onClick={[Function]}
@@ -50,7 +50,7 @@ exports[`PredictionFilter should render correctly 1`] = `
           />
           <svg
             aria-hidden="true"
-            className="MuiSvgIcon-root-64 MuiSelect-icon-33"
+            className="MuiSvgIcon-root-62 MuiSelect-icon-31"
             focusable="false"
             role="presentation"
             viewBox="0 0 24 24"
@@ -62,48 +62,60 @@ exports[`PredictionFilter should render correctly 1`] = `
         </div>
       </div>
     </div>
-    <button
-      className="MuiButtonBase-root-103 MuiButton-root-77 MuiButton-contained-88 MuiButton-containedSecondary-90 MuiButton-raised-91 MuiButton-raisedSecondary-93 MuiButton-sizeSmall-100 class_1-btn-1"
-      disabled={false}
-      onBlur={[Function]}
-      onClick={[Function]}
-      onContextMenu={[Function]}
-      onFocus={[Function]}
-      onKeyDown={[Function]}
-      onKeyUp={[Function]}
-      onMouseDown={[Function]}
-      onMouseLeave={[Function]}
-      onMouseUp={[Function]}
-      onTouchEnd={[Function]}
-      onTouchMove={[Function]}
-      onTouchStart={[Function]}
-      tabIndex="0"
-      type="button"
+    <div
+      className="MuiFormControl-root-3 class_1-control-1"
     >
-      <span
-        className="MuiButton-label-78"
+      <label
+        className="MuiFormLabel-root-18 MuiFormLabel-disabled-20 MuiInputLabel-disabled-9 MuiInputLabel-root-7 MuiInputLabel-formControl-12 MuiInputLabel-animated-15"
+        data-shrink={false}
+        htmlFor="tournament"
       >
-        <svg
-          aria-hidden="true"
-          className="MuiSvgIcon-root-64 class_1-btnIcon-2"
-          focusable="false"
-          role="presentation"
-          viewBox="0 0 24 24"
+        Tournament
+      </label>
+      <div
+        className="MuiInputBase-root-45 MuiInput-root-32 MuiInput-underline-36 MuiInputBase-disabled-48 MuiInput-disabled-35 MuiInputBase-formControl-46 MuiInput-formControl-33"
+        onClick={[Function]}
+      >
+        <div
+          className="MuiSelect-root-25"
         >
-          <path
-            d="M10 18h4v-2h-4v2zM3 6v2h18V6H3zm3 7h12v-2H6v2z"
+          <div
+            aria-haspopup="true"
+            aria-pressed="false"
+            className="MuiSelect-select-26 MuiSelect-selectMenu-29 MuiSelect-disabled-30 MuiInputBase-input-55 MuiInput-input-40 MuiInputBase-disabled-48 MuiInput-disabled-35"
+            onBlur={[Function]}
+            onClick={null}
+            onFocus={[Function]}
+            onKeyDown={[Function]}
+            role="button"
+            tabIndex={null}
+          >
+            <span
+              dangerouslySetInnerHTML={
+                Object {
+                  "__html": "&#8203;",
+                }
+              }
+            />
+          </div>
+          <input
+            type="hidden"
+            value=""
           />
-          <path
-            d="M0 0h24v24H0z"
-            fill="none"
-          />
-        </svg>
-        Show
-      </span>
-      <span
-        className="MuiTouchRipple-root-106"
-      />
-    </button>
+          <svg
+            aria-hidden="true"
+            className="MuiSvgIcon-root-62 MuiSelect-icon-31"
+            focusable="false"
+            role="presentation"
+            viewBox="0 0 24 24"
+          >
+            <path
+              d="M7 10l5 5 5-5z"
+            />
+          </svg>
+        </div>
+      </div>
+    </div>
   </div>
 </div>
 `;

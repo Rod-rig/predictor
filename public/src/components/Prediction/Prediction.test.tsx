@@ -17,9 +17,10 @@ describe("Prediction", () => {
   ) => {
     const closeSuccessMsgMock = jest.fn();
     const fetchMatchesMock = jest.fn();
-    const filterMatchesMock = jest.fn();
     const handleChangeMock = jest.fn();
+    const handleDateChangeMock = jest.fn();
     const handleSubmitMock = jest.fn();
+    const handleTournamentChangeMock = jest.fn();
     const setCurrentDateMock = jest.fn();
     const setTournamentIdMock = jest.fn();
     const setMatchesMock = jest.fn();
@@ -27,13 +28,15 @@ describe("Prediction", () => {
       <Prediction
         store={{
           buttonWasClicked,
+          cache: {},
           closeSuccessMsg: closeSuccessMsgMock,
           currentDate: "",
           dates: [],
           fetchMatches: fetchMatchesMock,
-          filterMatches: filterMatchesMock,
           handleChange: handleChangeMock,
+          handleDateChange: handleDateChangeMock,
           handleSubmit: handleSubmitMock,
+          handleTournamentChange: handleTournamentChangeMock,
           isFetched,
           isLoaded,
           isSuccessSubmit,
@@ -41,6 +44,7 @@ describe("Prediction", () => {
           setCurrentDate: setCurrentDateMock,
           setMatches: setMatchesMock,
           setTournamentId: setTournamentIdMock,
+          tournamentId: "",
           tournaments: {},
         }}
       />
