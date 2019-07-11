@@ -1,4 +1,3 @@
-import { ParsedQuery } from "query-string";
 import { ISeason, ITournament } from "../";
 
 interface ICompetitor {
