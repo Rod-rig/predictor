@@ -13,8 +13,8 @@ describe("TournamentCard", () => {
     const link = card.find("Link");
     expect(card.length).toBeGreaterThanOrEqual(1);
     expect(card.find("CardMedia")).toHaveLength(1);
-    expect(link).toHaveLength(1);
-    expect(link.prop("to")).toEqual("tournament/premier-league");
+    expect(link).toHaveLength(2);
+    expect(link.at(0).prop("to")).toEqual("tournament/premier-league");
   });
 
   it("should render card with image correctly", () => {

@@ -86887,7 +86887,9 @@ var PredictionStore = /** @class */ (function () {
             _this.setMatches(filteredMatches);
             helpers_2.updateUrl(history, { tournament_id: _this.tournamentId });
         };
-        var _a = query_string_1.parse(props.filter), date = _a.date, tournament_id = _a.tournament_id;
+        var _a = props
+            ? query_string_1.parse(props.filter)
+            : {}, date = _a.date, tournament_id = _a.tournament_id;
         this.dates = helpers_1.getFutureDates();
         this.currentDate = date && !Array.isArray(date) ? date : this.dates[0];
         this.tournamentId =

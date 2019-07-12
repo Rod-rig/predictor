@@ -39,7 +39,9 @@ export class PredictionStore implements IPredictionStore {
   } = {};
 
   constructor(props?: { filter: string }) {
-    const { date, tournament_id }: ParsedQuery = parse(props.filter);
+    const { date, tournament_id }: ParsedQuery = props
+      ? parse(props.filter)
+      : {};
     this.dates = getFutureDates();
     this.currentDate = date && !Array.isArray(date) ? date : this.dates[0];
     this.tournamentId =

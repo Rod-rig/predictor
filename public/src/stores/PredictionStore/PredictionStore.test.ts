@@ -1,4 +1,6 @@
+import { date, random } from "faker";
 import { IPredictionStore } from "../../@types/IMatch";
+import { constants } from "../../constants";
 import { PredictionStore } from "./";
 
 describe("PredictionStore", () => {
@@ -59,6 +61,10 @@ describe("PredictionStore", () => {
       store = new PredictionStore();
     });
 
+    afterEach(() => {
+      store = null;
+    });
+
     it("should not submit form", () => {
       store.handleSubmit(new Event("submit"));
       expect(store.buttonWasClicked).toBeFalsy();
@@ -73,6 +79,108 @@ describe("PredictionStore", () => {
       );
       submitSpy();
       expect(submitSpy.mock.calls).toHaveLength(1);
+    });
+  });
+
+  describe("setCurrentDate", () => {
+    let store: IPredictionStore;
+    let currentDate: string;
+
+    beforeEach(() => {
+      store = new PredictionStore();
+      currentDate = date.past().toString();
+    });
+
+    afterEach(() => {
+      store = null;
+      currentDate = null;
+    });
+
+    it.each([1, 2, 3, 4, 5])("should set current date", () => {
+      store.setCurrentDate(currentDate);
+      expect(store.currentDate).toBe(currentDate);
+    });
+  });
+
+  describe("setTournamentId", () => {
+    let store: IPredictionStore;
+    let id: string;
+
+    beforeEach(() => {
+      store = new PredictionStore();
+      id = random.number().toString();
+    });
+
+    afterEach(() => {
+      store = null;
+      id = null;
+    });
+
+    it.each([1, 2, 3, 4, 5])("should set tournament id", () => {
+      store.setTournamentId(id);
+      expect(store.tournamentId).toBe(id);
+    });
+  });
+
+  describe("handleTournamentChange", () => {
+    let store: IPredictionStore;
+    let event: any;
+    let id: string;
+
+    beforeEach(() => {
+      store = new PredictionStore();
+      id = random.number().toString();
+      event = {
+        target: {
+          value: id,
+        },
+      };
+      store.handleTournamentChange(event);
+    });
+
+    afterEach(() => {
+      store = null;
+      event = null;
+      id = null;
+    });
+
+    it("should set tournament id correctly", () => {
+      expect(store.tournamentId).toBe(id);
+    });
+
+    it("should set empty matches", () => {
+      expect(store.matches).toEqual([]);
+    });
+  });
+
+  describe("handleDateChange", () => {
+    let store: IPredictionStore;
+    let event: any;
+    let mockDate: string;
+
+    beforeEach(() => {
+      store = new PredictionStore();
+      mockDate = date.past().toString();
+      event = {
+        target: {
+          value: mockDate,
+        },
+      };
+      store.handleDateChange(event);
+    });
+
+    afterEach(() => {
+      store = null;
+      event = null;
+      mockDate = null;
+    });
+
+    it("should set current date correctly", () => {
+      expect(store.currentDate).toBe(mockDate);
+    });
+
+    it("should set default tournament id", () => {
+      expect(store.tournamentId).toBe(constants.defaultTournamentsValue);
     });
   });
 });
