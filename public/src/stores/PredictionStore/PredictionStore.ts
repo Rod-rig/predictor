@@ -31,9 +31,7 @@ export class PredictionStore implements IPredictionStore {
   public cache: {
     [key: string]: ISportEvent[];
   } = {};
-  @observable public matches: ISportEvent[] = this.cache[this.currentDate]
-    ? [...this.cache[this.currentDate]]
-    : [];
+  @observable public matches: ISportEvent[] = [];
   @observable public tournaments: {
     [key: string]: string;
   } = {};
@@ -108,7 +106,6 @@ export class PredictionStore implements IPredictionStore {
 
   @action.bound
   public fetchMatchesError(response: any) {
-    /* istanbul ignore next */
     if (response.status === 403) {
       userStore.logout();
     }

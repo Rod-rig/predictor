@@ -1,17 +1,32 @@
 import { date, random } from "faker";
+import { userStore } from "../";
 import { IPredictionStore } from "../../@types/IMatch";
 import { constants } from "../../constants";
+import { getFutureDates } from "../../helpers";
 import { PredictionStore } from "./";
 
 describe("PredictionStore", () => {
+  const initialTournamentId = "sr:tournament:37";
+  const initialDate = "01-01-2000";
   const mockStore = new PredictionStore();
   const mockWithFilter = new PredictionStore({
-    filter: "tournament_id=sr:tournament:37",
+    filter: `tournament_id=${initialTournamentId}&date=${initialDate}`,
   });
 
   it("should be initialized correctly", () => {
     expect(mockStore).toBeInstanceOf(PredictionStore);
     expect(mockWithFilter).toBeInstanceOf(PredictionStore);
+  });
+
+  it("should have correct initial state", () => {
+    expect(mockStore.isLoaded).toBeTruthy();
+    expect(mockStore.isFetched).toBeTruthy();
+
+    expect(mockStore.currentDate).toBe(getFutureDates()[0]);
+    expect(mockWithFilter.currentDate).toBe(initialDate);
+
+    expect(mockStore.tournamentId).toBe(constants.defaultTournamentsValue);
+    expect(mockWithFilter.tournamentId).toBe(initialTournamentId);
   });
 
   it("should create correct object", () => {
@@ -181,6 +196,83 @@ describe("PredictionStore", () => {
 
     it("should set default tournament id", () => {
       expect(store.tournamentId).toBe(constants.defaultTournamentsValue);
+    });
+  });
+
+  describe("cache", () => {
+    let store: IPredictionStore;
+
+    beforeEach(() => {
+      store = new PredictionStore({
+        filter: "tournament_id=all",
+      });
+      store.setMatches = jest.fn(store.setMatches.bind(store));
+      store.setTournamentId = jest.fn(store.setTournamentId.bind(store));
+    });
+
+    afterEach(() => {
+      store = null;
+    });
+
+    it("should contain matches and cache", () => {
+      const cache = store.cache[store.currentDate];
+      expect(store.matches.length).toBe(cache.length);
+      expect(store.tournamentId).toBe(constants.defaultTournamentsValue);
+    });
+
+    it("shouldn't fetch matches if cache is present", () => {
+      const { currentDate } = store;
+
+      store.handleDateChange({
+        target: {
+          value: currentDate,
+        },
+      });
+
+      expect(store.setMatches).toHaveBeenCalled();
+    });
+
+    it("should handle tournament change from cache", () => {
+      store.handleTournamentChange({
+        target: {
+          value: constants.defaultTournamentsValue,
+        },
+      });
+
+      expect(store.setTournamentId).toHaveBeenCalledWith(
+        constants.defaultTournamentsValue,
+      );
+      expect(store.setMatches).toHaveBeenCalled();
+    });
+  });
+
+  describe("fetchMatchesError", () => {
+    let store: IPredictionStore;
+
+    beforeEach(() => {
+      store = new PredictionStore();
+      userStore.logout = jest.fn(userStore.logout.bind(userStore));
+    });
+
+    afterEach(() => {
+      store = null;
+    });
+
+    it("should handle 403 error", () => {
+      store.fetchMatchesError({
+        status: 403,
+      });
+
+      expect(userStore.logout).toHaveBeenCalled();
+    });
+
+    it("should handle 404 error", () => {
+      store.fetchMatchesError({
+        status: 404,
+      });
+
+      expect(store.isLoaded).toBeTruthy();
+      expect(store.isFetched).toBeTruthy();
     });
   });
 });
