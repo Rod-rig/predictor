@@ -15,35 +15,30 @@ describe("Prediction", () => {
     isFetched: boolean,
     buttonWasClicked: boolean,
   ) => {
-    const closeSuccessMsgMock = jest.fn();
-    const fetchMatchesMock = jest.fn();
-    const handleChangeMock = jest.fn();
-    const handleDateChangeMock = jest.fn();
-    const handleSubmitMock = jest.fn();
-    const handleTournamentChangeMock = jest.fn();
-    const setCurrentDateMock = jest.fn();
-    const setTournamentIdMock = jest.fn();
-    const setMatchesMock = jest.fn();
     return (
       <Prediction
         store={{
           buttonWasClicked,
           cache: {},
-          closeSuccessMsg: closeSuccessMsgMock,
+          closeSuccessMsg: jest.fn(),
           currentDate: "",
           dates: [],
-          fetchMatches: fetchMatchesMock,
-          handleChange: handleChangeMock,
-          handleDateChange: handleDateChangeMock,
-          handleSubmit: handleSubmitMock,
-          handleTournamentChange: handleTournamentChangeMock,
+          fetchMatches: jest.fn(),
+          fetchMatchesError: jest.fn(),
+          fetchMatchesSuccess: jest.fn(),
+          handleChange: jest.fn(),
+          handleDateChange: jest.fn(),
+          handleSubmit: jest.fn(),
+          handleSubmitError: jest.fn(),
+          handleSubmitSuccess: jest.fn(),
+          handleTournamentChange: jest.fn(),
           isFetched,
           isLoaded,
           isSuccessSubmit,
           matches: data,
-          setCurrentDate: setCurrentDateMock,
-          setMatches: setMatchesMock,
-          setTournamentId: setTournamentIdMock,
+          setCurrentDate: jest.fn(),
+          setMatches: jest.fn(),
+          setTournamentId: jest.fn(),
           tournamentId: "",
           tournaments: {},
         }}
