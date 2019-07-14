@@ -9,6 +9,8 @@ Analyze football statistics and predict the result of matches
 
 ### Used:
 
+##### Front-end
+
 - react
 - react-router
 - mobx
@@ -16,9 +18,16 @@ Analyze football statistics and predict the result of matches
 - typescript
 - jest
 - enzyme
+- istanbul
 - css-in-js
 - material ui
 - prettier
+
+##### Back-end
+
+- nodejs
+- express
+- mongoDB (mongoose)
 
 ##### To start the project type in your CLI:
 

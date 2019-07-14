@@ -88,6 +88,7 @@ export interface IPredictionStore {
   setTournamentId(value: string): void;
   fetchMatches(): void;
   fetchMatchesError(response: any): void;
+  fetchMatchesSuccess(response: any): void;
   handleDateChange(event: any): void;
   handleTournamentChange(event: any): void;
   handleSubmit(e: Event): void;
