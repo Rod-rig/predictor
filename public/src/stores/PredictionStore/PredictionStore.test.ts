@@ -95,6 +95,20 @@ describe("PredictionStore", () => {
       submitSpy();
       expect(submitSpy.mock.calls).toHaveLength(1);
     });
+
+    it("should handle success submit", () => {
+      store.handleSubmitSuccess();
+
+      expect(store.isSuccessSubmit).toBeTruthy();
+      expect(store.buttonWasClicked).toBeFalsy();
+    });
+
+    it("should handle error submit", () => {
+      store.handleSubmitError();
+
+      expect(store.isSuccessSubmit).toBeFalsy();
+      expect(store.buttonWasClicked).toBeFalsy();
+    });
   });
 
   describe("setCurrentDate", () => {

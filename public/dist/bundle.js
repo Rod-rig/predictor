@@ -86864,8 +86864,7 @@ var PredictionStore = /** @class */ (function () {
         this.isSuccessSubmit = false;
         this.buttonWasClicked = false;
         this.cache = {};
-        this.matches = this.cache[this.currentDate]
-            ? this.cache[this.currentDate].slice() : [];
+        this.matches = [];
         this.tournaments = {};
         this.handleDateChange = function (event) {
             _this.setCurrentDate(event.target.value);
@@ -86906,7 +86905,6 @@ var PredictionStore = /** @class */ (function () {
         configurable: true
     });
     PredictionStore.prototype.handleSubmit = function (e) {
-        var _this = this;
         e.preventDefault();
         var payload = helpers_2.createPayload(this.matches);
         if (payload.length < 1) {
@@ -86915,18 +86913,15 @@ var PredictionStore = /** @class */ (function () {
         this.buttonWasClicked = true;
         axios_1.default
             .post("/predictions", { payload: payload })
-            .then(function () {
-            _this.isSuccessSubmit = true;
-            _this.buttonWasClicked = false;
-        })
-            /* istanbul ignore next */
-            .catch(
-        /* istanbul ignore next */
-        function () {
-            /* istanbul ignore next */
-            _this.isSuccessSubmit = false;
-            _this.buttonWasClicked = false;
-        });
+            .then(this.handleSubmitSuccess, this.handleSubmitError);
+    };
+    PredictionStore.prototype.handleSubmitSuccess = function () {
+        this.isSuccessSubmit = true;
+        this.buttonWasClicked = false;
+    };
+    PredictionStore.prototype.handleSubmitError = function () {
+        this.isSuccessSubmit = false;
+        this.buttonWasClicked = false;
     };
     PredictionStore.prototype.handleChange = function (index, compIndex, e) {
         this.matches[index].competitors[compIndex].userPrediction = +e.target.value;
@@ -86951,7 +86946,6 @@ var PredictionStore = /** @class */ (function () {
         this.isFetched = true;
     };
     PredictionStore.prototype.fetchMatchesError = function (response) {
-        /* istanbul ignore next */
         if (response.status === 403) {
             __1.userStore.logout();
         }
@@ -87001,6 +86995,12 @@ var PredictionStore = /** @class */ (function () {
     __decorate([
         mobx_1.observable
     ], PredictionStore.prototype, "tournaments", void 0);
+    __decorate([
+        mobx_1.action.bound
+    ], PredictionStore.prototype, "handleSubmitSuccess", null);
+    __decorate([
+        mobx_1.action.bound
+    ], PredictionStore.prototype, "handleSubmitError", null);
     __decorate([
         mobx_1.action.bound
     ], PredictionStore.prototype, "fetchMatchesSuccess", null);
