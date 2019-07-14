@@ -16,9 +16,7 @@ module.exports.getAllTournaments = (req, res) => {
 module.exports.getStandings = (req, res) => {
   axios
     .get(
-      `${apiUrl}/en/tournaments/${
-        req.params.id
-      }/standings.json?api_key=${apiKey}`,
+      `${apiUrl}/en/tournaments/${req.params.id}/standings.json?api_key=${apiKey}`,
     )
     .then(response => {
       res.status(200).send(response.data);
@@ -28,9 +26,7 @@ module.exports.getStandings = (req, res) => {
 module.exports.getResultsByTournamentId = (req, res) => {
   axios
     .get(
-      `${apiUrl}/en/tournaments/${
-        req.params.id
-      }/results.json?api_key=${apiKey}`,
+      `${apiUrl}/en/tournaments/${req.params.id}/results.json?api_key=${apiKey}`,
     )
     .then(response => {
       res.status(200).send(response.data);
@@ -40,9 +36,7 @@ module.exports.getResultsByTournamentId = (req, res) => {
 module.exports.getResultsByDate = (req, res) => {
   axios
     .get(
-      `${apiUrl}/en/schedules/${
-        req.params.date
-      }/results.json?api_key=${apiKey}`,
+      `${apiUrl}/en/schedules/${req.params.date}/results.json?api_key=${apiKey}`,
     )
     .then(response => {
       res.status(200).send(response.data);
@@ -52,9 +46,7 @@ module.exports.getResultsByDate = (req, res) => {
 module.exports.getSchedule = (req, res) => {
   axios
     .get(
-      `${apiUrl}/en/schedules/${
-        req.params.date
-      }/schedule.json?api_key=${apiKey}`,
+      `${apiUrl}/en/schedules/${req.params.date}/schedule.json?api_key=${apiKey}`,
     )
     .then(response => {
       res.status(200).send(response.data);
