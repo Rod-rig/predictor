@@ -20,7 +20,7 @@ describe("TournamentList", () => {
     const root = comp(true);
     const tournProp = root.find(".list").first();
     expect(tournProp.prop("container")).toBeTruthy();
-    expect(tournProp.prop("spacing")).toBe(16);
+    expect(tournProp.prop("spacing")).toBe(2);
     expect(root.find(Loader)).toHaveLength(0);
   });
 

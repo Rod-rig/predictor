@@ -14,16 +14,16 @@ import { IMatch, IRetriever } from "../../@types";
 const styles = ({ breakpoints, spacing, typography }: Theme) =>
   createStyles({
     round: {
-      marginBottom: spacing.unit,
+      marginBottom: spacing(1),
       [breakpoints.up("lg")]: {
-        margin: `0 ${spacing.unit * 3}px ${spacing.unit * 3}px`,
+        margin: spacing(0, 3, 3),
       },
     },
     title: {
       ...typography.body1,
-      padding: `${spacing.unit}px`,
+      padding: spacing(1),
       [breakpoints.up("lg")]: {
-        padding: `${spacing.unit}px ${spacing.unit * 4}px`,
+        padding: spacing(1, 4),
       },
     },
   });

@@ -7,12 +7,12 @@ const decorate = withStyles(
   ({ breakpoints, palette, spacing, typography }: Theme) => ({
     awayIcon: {
       [breakpoints.down("xs")]: {
-        marginRight: spacing.unit,
+        marginRight: spacing(1),
       },
     },
     dash: {
-      marginLeft: spacing.unit / 2,
-      marginRight: spacing.unit / 2,
+      marginLeft: spacing(0.5),
+      marginRight: spacing(0.5),
     },
     default: {
       backgroundColor: palette.primary.main,
@@ -23,26 +23,26 @@ const decorate = withStyles(
     guest: {
       paddingRight: 0,
       [breakpoints.down("xs")]: {
-        paddingLeft: spacing.unit,
+        paddingLeft: spacing(1),
       },
     },
     home: {
       justifyContent: "flex-end",
       "text-align": "right",
       [breakpoints.down("xs")]: {
-        paddingRight: spacing.unit,
+        paddingRight: spacing(1),
       },
     },
     homeIcon: {
-      marginLeft: spacing.unit * 2,
+      marginLeft: spacing(2),
       marginRight: 0,
       [breakpoints.down("xs")]: {
-        marginLeft: spacing.unit,
+        marginLeft: spacing(1),
       },
     },
     matchItem: {
       [breakpoints.down("xs")]: {
-        padding: spacing.unit,
+        padding: spacing(1),
       },
     },
     red: {

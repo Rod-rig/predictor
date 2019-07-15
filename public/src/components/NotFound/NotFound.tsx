@@ -17,7 +17,7 @@ const styles = ({ breakpoints, spacing }: Theme) =>
   createStyles({
     paper: {
       margin: "auto",
-      padding: spacing.unit * 2,
+      padding: spacing(2),
       "text-align": "center",
       width: "320px",
       [breakpoints.up("sm")]: {

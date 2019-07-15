@@ -17,7 +17,7 @@ import { dict } from "../../dict";
 const styles = ({ spacing }: Theme) =>
   createStyles({
     control: {
-      margin: spacing.unit,
+      margin: spacing(1),
       width: 200,
     },
     wrap: {

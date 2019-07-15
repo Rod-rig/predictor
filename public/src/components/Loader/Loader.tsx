@@ -6,8 +6,8 @@ const styles = ({ spacing }: Theme) =>
   createStyles({
     root: {
       left: "50%",
-      marginLeft: (-5 * spacing.unit) / 2,
-      marginTop: (-5 * spacing.unit) / 2,
+      marginLeft: spacing(-5 / 2),
+      marginTop: spacing(-5 / 2),
       position: "absolute",
       top: "50%",
     },

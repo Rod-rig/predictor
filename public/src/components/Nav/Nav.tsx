@@ -4,20 +4,20 @@ import * as React from "react";
 import { Link, withRouter } from "react-router-dom";
 import { dict } from "../../dict";
 
-const styles = (theme: Theme) =>
+const styles = ({ spacing, palette, typography }: Theme) =>
   createStyles({
     containedSecondary: {
-      marginRight: theme.spacing.unit,
+      marginRight: spacing(1),
       textTransform: "none",
     },
     link: {
-      color: theme.palette.primary.contrastText,
-      fontSize: theme.typography.fontSize,
+      color: palette.primary.contrastText,
+      fontSize: typography.fontSize,
       textDecoration: "none",
     },
     title: {
       display: "inline-block",
-      marginLeft: theme.spacing.unit * 2,
+      marginLeft: spacing(2),
     },
   });
 
@@ -31,18 +31,27 @@ export const Nav = compose(
 )((props?: any) => {
   const { classes, match } = props;
   const { id } = match.params;
-  const TableLink = (linkProps: any) => (
-    <Link to={`/tournament/${id}`} {...linkProps} />
-  );
-  const FixturesLink = (linkProps: any) => (
-    <Link to={`/fixtures/${id}`} {...linkProps} />
-  );
-  const ResultsLink = (linkProps: any) => (
-    <Link to={`/results/${id}`} {...linkProps} />
-  );
-  const PredictionsLink = (linkProps: any) => (
-    <Link to={`/predictions?tournament_id=${id}`} {...linkProps} />
-  );
+
+  const TableLink = React.forwardRef((linkProps: any, ref) => (
+    <Link to={`/tournament/${id}`} innerRef={ref} {...linkProps} />
+  ));
+
+  const FixturesLink = React.forwardRef((linkProps: any, ref) => (
+    <Link to={`/fixtures/${id}`} innerRef={ref} {...linkProps} />
+  ));
+
+  const ResultsLink = React.forwardRef((linkProps: any, ref) => (
+    <Link to={`/results/${id}`} innerRef={ref} {...linkProps} />
+  ));
+
+  const PredictionsLink = React.forwardRef((linkProps: any, ref) => (
+    <Link
+      to={`/predictions?tournament_id=${id}`}
+      innerRef={ref}
+      {...linkProps}
+    />
+  ));
+
   const renderBtn = (comp: React.ReactType<ButtonProps>, text: string) => (
     <Button
       size="small"

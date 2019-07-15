@@ -2,18 +2,18 @@
 
 exports[`Header should render correctly 1`] = `
 <header
-  className="MuiPaper-root-14 MuiPaper-elevation4-20 MuiAppBar-root-5 MuiAppBar-positionStatic-9 MuiAppBar-colorPrimary-12 class_1-header-1"
+  className="MuiPaper-root MuiPaper-elevation4 MuiAppBar-root MuiAppBar-positionStatic class_1-header-1 MuiAppBar-colorPrimary"
 >
   <div
-    className="MuiToolbar-root-41 MuiToolbar-regular-43 MuiToolbar-gutters-42 class_1-toolbar-3"
+    className="MuiToolbar-root MuiToolbar-regular class_1-toolbar-3 MuiToolbar-gutters"
   >
     <button
       aria-label="Menu"
-      className="MuiButtonBase-root-51 MuiIconButton-root-45 MuiIconButton-colorInherit-46"
+      className="MuiButtonBase-root MuiIconButton-root MuiIconButton-colorInherit"
       disabled={false}
       onBlur={[Function]}
       onClick={[Function]}
-      onContextMenu={[Function]}
+      onDragLeave={[Function]}
       onFocus={[Function]}
       onKeyDown={[Function]}
       onKeyUp={[Function]}
@@ -23,34 +23,27 @@ exports[`Header should render correctly 1`] = `
       onTouchEnd={[Function]}
       onTouchMove={[Function]}
       onTouchStart={[Function]}
-      tabIndex="0"
+      tabIndex={0}
       type="button"
     >
       <span
-        className="MuiIconButton-label-50"
+        className="MuiIconButton-label"
       >
         <svg
           aria-hidden="true"
-          className="MuiSvgIcon-root-54"
+          className="MuiSvgIcon-root"
           focusable="false"
           role="presentation"
           viewBox="0 0 24 24"
         >
           <path
-            d="M0 0h24v24H0z"
-            fill="none"
-          />
-          <path
             d="M3 18h18v-2H3v2zm0-5h18v-2H3v2zm0-7v2h18V6H3z"
           />
         </svg>
       </span>
-      <span
-        className="MuiTouchRipple-root-105"
-      />
     </button>
     <div
-      className="LogoElement-logo-64"
+      className="LogoElement-logo-67"
     >
       <a
         href="/"
@@ -58,7 +51,7 @@ exports[`Header should render correctly 1`] = `
       >
         <img
           alt="logo"
-          className="LogoElement-img-63"
+          className="LogoElement-img-66"
           src="src/images/logo.svg"
         />
       </a>
@@ -67,11 +60,11 @@ exports[`Header should render correctly 1`] = `
       className="class_1-user-4"
     >
       <button
-        className="MuiButtonBase-root-51 MuiIconButton-root-45 MuiIconButton-colorInherit-46"
+        className="MuiButtonBase-root MuiIconButton-root MuiIconButton-colorInherit"
         disabled={false}
         onBlur={[Function]}
         onClick={[Function]}
-        onContextMenu={[Function]}
+        onDragLeave={[Function]}
         onFocus={[Function]}
         onKeyDown={[Function]}
         onKeyUp={[Function]}
@@ -81,15 +74,15 @@ exports[`Header should render correctly 1`] = `
         onTouchEnd={[Function]}
         onTouchMove={[Function]}
         onTouchStart={[Function]}
-        tabIndex="0"
+        tabIndex={0}
         type="button"
       >
         <span
-          className="MuiIconButton-label-50"
+          className="MuiIconButton-label"
         >
           <svg
             aria-hidden="true"
-            className="MuiSvgIcon-root-54"
+            className="MuiSvgIcon-root"
             focusable="false"
             role="presentation"
             viewBox="0 0 24 24"
@@ -97,15 +90,8 @@ exports[`Header should render correctly 1`] = `
             <path
               d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 3c1.66 0 3 1.34 3 3s-1.34 3-3 3-3-1.34-3-3 1.34-3 3-3zm0 14.2c-2.5 0-4.71-1.28-6-3.22.03-1.99 4-3.08 6-3.08 1.99 0 5.97 1.09 6 3.08-1.29 1.94-3.5 3.22-6 3.22z"
             />
-            <path
-              d="M0 0h24v24H0z"
-              fill="none"
-            />
           </svg>
         </span>
-        <span
-          className="MuiTouchRipple-root-105"
-        />
       </button>
     </div>
   </div>

@@ -32,11 +32,11 @@ const styles = ({ palette, spacing }: Theme) =>
       wordBreak: "break-word",
     },
     btnWrap: {
-      marginBottom: spacing.unit,
+      marginBottom: spacing(1),
       textAlign: "center",
     },
     circle: {
-      marginRight: spacing.unit,
+      marginRight: spacing(1),
     },
     home: {
       "& > span": {
@@ -45,7 +45,7 @@ const styles = ({ palette, spacing }: Theme) =>
         "justify-content": "flex-end",
       },
       "&:first-child": {
-        paddingLeft: spacing.unit * 2,
+        paddingLeft: spacing(2),
       },
       width: "100%",
       wordBreak: "break-word",
@@ -58,11 +58,11 @@ const styles = ({ palette, spacing }: Theme) =>
       fontSize: "1.25rem",
     },
     logo: {
-      marginLeft: spacing.unit * 2,
+      marginLeft: spacing(2),
       marginRight: 0,
     },
     noMatchesMsg: {
-      margin: spacing.unit,
+      margin: spacing(1),
     },
     score: {
       alignItems: "center",

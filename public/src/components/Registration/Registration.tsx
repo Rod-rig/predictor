@@ -17,8 +17,8 @@ import { registrationStore, userStore } from "../../stores";
 const styles = ({ spacing }: Theme) =>
   createStyles({
     paper: {
-      margin: spacing.unit,
-      padding: spacing.unit * 3,
+      margin: spacing(1),
+      padding: spacing(3),
     },
   });
 

@@ -10,7 +10,9 @@ import * as React from "react";
 import { Link } from "react-router-dom";
 import { dict } from "../../dict";
 
-const SidebarLink = (props: any) => <Link to="/predictions" {...props} />;
+const SidebarLink = React.forwardRef((props: any, ref) => (
+  <Link to="/predictions" {...props} innerRef={ref} />
+));
 
 export const Sidebar = (props: { isOpen: boolean; toggleHandler(): void }) => (
   <Drawer open={props.isOpen} onClose={props.toggleHandler}>

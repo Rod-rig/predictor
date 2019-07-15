@@ -17,13 +17,13 @@ const decorate = withStyles(({ breakpoints, palette, spacing }) => ({
   cell: {
     "&:last-child": {
       [breakpoints.down("sm")]: {
-        paddingRight: 0.75 * spacing.unit,
+        paddingRight: spacing(0.75),
       },
     },
     "text-align": "center",
     [breakpoints.down("sm")]: {
-      paddingLeft: 0.75 * spacing.unit,
-      paddingRight: 0.75 * spacing.unit,
+      paddingLeft: spacing(0.75),
+      paddingRight: spacing(0.75),
     },
   },
   draw: {
