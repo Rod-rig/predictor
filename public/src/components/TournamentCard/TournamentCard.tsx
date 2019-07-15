@@ -47,7 +47,14 @@ const TournamentCardImage = (props: IProps) => {
   const { classes } = props;
   const id = props.id.split(":")[2];
   const image = tournamentsLogo[id] ? tournamentsLogo[id] : fallBackImageUrl;
-  return <CardMedia className={classes.img} image={image} title={props.name} />;
+  return (
+    <CardMedia
+      component="img"
+      className={classes.img}
+      image={image}
+      title={props.name}
+    />
+  );
 };
 
 const TournamentCardElement = (props: IProps) => {
@@ -59,7 +66,7 @@ const TournamentCardElement = (props: IProps) => {
 
   return (
     <Card>
-      <CardActionArea>
+      <CardActionArea href="">
         <MyLink>
           <TournamentCardImage {...props} />
         </MyLink>

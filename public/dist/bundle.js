@@ -32189,7 +32189,7 @@ var defaultTheme = Object(_createMuiTheme__WEBPACK_IMPORTED_MODULE_0__["default"
 /*!************************************************************!*\
   !*** ./node_modules/@material-ui/core/esm/styles/index.js ***!
   \************************************************************/
-/*! exports provided: hexToRgb, rgbToHex, hslToRgb, decomposeColor, recomposeColor, getContrastRatio, getLuminance, emphasize, fade, darken, lighten, createMuiTheme, createStyles, makeStyles, MuiThemeProvider, responsiveFontSizes, styled, easing, duration, formatMs, isString, isNumber, useTheme, withStyles, withTheme */
+/*! exports provided: createMuiTheme, createStyles, makeStyles, MuiThemeProvider, responsiveFontSizes, styled, useTheme, withStyles, withTheme, hexToRgb, rgbToHex, hslToRgb, decomposeColor, recomposeColor, getContrastRatio, getLuminance, emphasize, fade, darken, lighten, easing, duration, formatMs, isString, isNumber */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -37726,7 +37726,7 @@ var flexbox = Object(_compose__WEBPACK_IMPORTED_MODULE_1__["default"])(flexBasis
 /*!*******************************************************!*\
   !*** ./node_modules/@material-ui/system/esm/index.js ***!
   \*******************************************************/
-/*! exports provided: borders, border, borderTop, borderRight, borderBottom, borderLeft, borderColor, borderRadius, breakpoints, compose, css, display, flexbox, flexBasis, flexDirection, flexWrap, justifyContent, alignItems, alignContent, order, flex, flexGrow, flexShrink, alignSelf, justifyItems, justifySelf, palette, color, bgcolor, positions, position, zIndex, top, right, bottom, left, shadows, sizing, width, maxWidth, minWidth, height, maxHeight, minHeight, sizeWidth, sizeHeight, spacing, style, typography, fontFamily, fontSize, fontStyle, fontWeight, letterSpacing, lineHeight, textAlign */
+/*! exports provided: borders, breakpoints, compose, css, display, flexbox, palette, positions, shadows, sizing, spacing, style, typography, border, borderTop, borderRight, borderBottom, borderLeft, borderColor, borderRadius, flexBasis, flexDirection, flexWrap, justifyContent, alignItems, alignContent, order, flex, flexGrow, flexShrink, alignSelf, justifyItems, justifySelf, color, bgcolor, position, zIndex, top, right, bottom, left, width, maxWidth, minWidth, height, maxHeight, minHeight, sizeWidth, sizeHeight, fontFamily, fontSize, fontStyle, fontWeight, letterSpacing, lineHeight, textAlign */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -77996,7 +77996,7 @@ if (false) {} else {
 /*!***************************************************************!*\
   !*** ./node_modules/react-router-dom/esm/react-router-dom.js ***!
   \***************************************************************/
-/*! exports provided: MemoryRouter, Prompt, Redirect, Route, Router, StaticRouter, Switch, generatePath, matchPath, withRouter, __RouterContext, BrowserRouter, HashRouter, Link, NavLink */
+/*! exports provided: BrowserRouter, HashRouter, Link, NavLink, MemoryRouter, Prompt, Redirect, Route, Router, StaticRouter, Switch, generatePath, matchPath, withRouter, __RouterContext */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -85189,12 +85189,12 @@ exports.Header = core_1.withStyles(styles)(mobx_react_1.observer(/** @class */ (
         return (React.createElement(React.Fragment, null,
             React.createElement(core_1.AppBar, { position: "static", className: classes.header },
                 React.createElement(core_1.Toolbar, { className: classes.toolbar },
-                    React.createElement(core_1.IconButton, { onClick: this.toggleSidebar.bind(this, true), color: "inherit", "aria-label": "Menu" },
+                    React.createElement(core_1.IconButton, { onClick: this.toggleSidebar.bind(this, true), color: "inherit", "aria-label": "Menu", href: "" },
                         React.createElement(Menu_1.default, null)),
                     React.createElement(__1.Logo, null),
                     React.createElement("div", { className: classes.user }, stores_1.userStore.isLoggedIn ? (React.createElement(AccountMenu_1.AccountMenu, { userName: stores_1.userStore.name, logout: stores_1.userStore.logout })) : (React.createElement(React.Fragment, null,
-                        React.createElement(core_1.Button, { className: classes.headerBtn, component: RegLink, color: "inherit" }, dict_1.dict.register),
-                        React.createElement(core_1.Button, { className: classes.headerBtn, component: LoginLink, color: "inherit" }, dict_1.dict.login)))))),
+                        React.createElement(core_1.Button, { className: classes.headerBtn, component: RegLink, color: "inherit", href: "" }, dict_1.dict.register),
+                        React.createElement(core_1.Button, { className: classes.headerBtn, component: LoginLink, color: "inherit", href: "" }, dict_1.dict.login)))))),
             React.createElement(__1.Sidebar, { isOpen: this.state.isSidebarOpen, toggleHandler: this.toggleSidebar.bind(this, false) })));
     };
     return class_1;
@@ -87167,13 +87167,13 @@ var TournamentCardImage = function (props) {
     var classes = props.classes;
     var id = props.id.split(":")[2];
     var image = tournamentsLogo_1.tournamentsLogo[id] ? tournamentsLogo_1.tournamentsLogo[id] : fallBackImageUrl;
-    return React.createElement(core_1.CardMedia, { className: classes.img, image: image, title: props.name });
+    return (React.createElement(core_1.CardMedia, { component: "img", className: classes.img, image: image, title: props.name }));
 };
 var TournamentCardElement = function (props) {
     var classes = props.classes;
     var MyLink = React.forwardRef(function (linkProps, ref) { return (React.createElement(react_router_dom_1.Link, __assign({ to: "tournament/" + props.id }, linkProps, { innerRef: ref }))); });
     return (React.createElement(core_1.Card, null,
-        React.createElement(core_1.CardActionArea, null,
+        React.createElement(core_1.CardActionArea, { href: "" },
             React.createElement(MyLink, null,
                 React.createElement(TournamentCardImage, __assign({}, props)))),
         React.createElement(core_1.CardContent, { className: classes.content },
