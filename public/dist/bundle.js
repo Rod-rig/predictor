@@ -85821,7 +85821,7 @@ var core_1 = __webpack_require__(/*! @material-ui/core */ "./node_modules/@mater
 var React = __webpack_require__(/*! react */ "./node_modules/react/index.js");
 var react_router_dom_1 = __webpack_require__(/*! react-router-dom */ "./node_modules/react-router-dom/esm/react-router-dom.js");
 var dict_1 = __webpack_require__(/*! ../../dict */ "./public/src/dict/index.ts");
-var MainLink = function (props) { return React.createElement(react_router_dom_1.Link, __assign({ to: "/" }, props)); };
+var MainLink = React.forwardRef(function (props, ref) { return (React.createElement(react_router_dom_1.Link, __assign({ to: "/", ref: ref }, props))); });
 var styles = function (_a) {
     var _b;
     var breakpoints = _a.breakpoints, spacing = _a.spacing;
@@ -86639,8 +86639,8 @@ var Notifications_1 = __webpack_require__(/*! @material-ui/icons/Notifications *
 var React = __webpack_require__(/*! react */ "./node_modules/react/index.js");
 var react_router_dom_1 = __webpack_require__(/*! react-router-dom */ "./node_modules/react-router-dom/esm/react-router-dom.js");
 var dict_1 = __webpack_require__(/*! ../../dict */ "./public/src/dict/index.ts");
-var MainLink = function (props) { return React.createElement(react_router_dom_1.Link, __assign({ to: "/" }, props)); };
-var PredictionLink = function (props) { return (React.createElement(react_router_dom_1.Link, __assign({ to: "/predictions" }, props))); };
+var MainLink = React.forwardRef(function (props) { return (React.createElement(react_router_dom_1.Link, __assign({ to: "/" }, props))); });
+var PredictionLink = React.forwardRef(function (props) { return (React.createElement(react_router_dom_1.Link, __assign({ to: "/predictions" }, props))); });
 var styles = function (_a) {
     var _b;
     var breakpoints = _a.breakpoints, spacing = _a.spacing;

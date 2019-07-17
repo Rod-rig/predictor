@@ -11,7 +11,6 @@ exports[`Header when user is logged in should render correctly 1`] = `
       aria-label="Menu"
       className="MuiButtonBase-root MuiIconButton-root MuiIconButton-colorInherit"
       disabled={false}
-      href=""
       onBlur={[Function]}
       onClick={[Function]}
       onDragLeave={[Function]}
@@ -110,7 +109,6 @@ exports[`Header when user is not logged in should render snapshot correctly 1`] 
       aria-label="Menu"
       className="MuiButtonBase-root MuiIconButton-root MuiIconButton-colorInherit"
       disabled={false}
-      href=""
       onBlur={[Function]}
       onClick={[Function]}
       onDragLeave={[Function]}

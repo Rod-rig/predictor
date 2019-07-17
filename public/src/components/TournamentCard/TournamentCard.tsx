@@ -61,12 +61,12 @@ const TournamentCardElement = (props: IProps) => {
   const { classes } = props;
 
   const MyLink = React.forwardRef((linkProps: any, ref) => (
-    <Link to={`tournament/${props.id}`} {...linkProps} innerRef={ref} />
+    <Link to={`tournament/${props.id}`} {...linkProps} ref={ref} />
   ));
 
   return (
     <Card>
-      <CardActionArea href="">
+      <CardActionArea>
         <MyLink>
           <TournamentCardImage {...props} />
         </MyLink>

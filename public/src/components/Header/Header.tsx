@@ -78,7 +78,6 @@ export const Header = withStyles(styles)(
                   onClick={this.toggleSidebar.bind(this, true)}
                   color="inherit"
                   aria-label="Menu"
-                  href=""
                 >
                   <Menu />
                 </IconButton>
@@ -95,7 +94,6 @@ export const Header = withStyles(styles)(
                         className={classes.headerBtn}
                         component={RegLink}
                         color="inherit"
-                        href=""
                       >
                         {dict.register}
                       </Button>
@@ -103,7 +101,6 @@ export const Header = withStyles(styles)(
                         className={classes.headerBtn}
                         component={LoginLink}
                         color="inherit"
-                        href=""
                       >
                         {dict.login}
                       </Button>

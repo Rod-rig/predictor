@@ -12,10 +12,12 @@ import * as React from "react";
 import { Link as RouterLink } from "react-router-dom";
 import { dict } from "../../dict";
 
-const MainLink = (props: any) => <RouterLink to="/" {...props} />;
-const PredictionLink = (props: any) => (
+const MainLink = React.forwardRef((props: any) => (
+  <RouterLink to="/" {...props} />
+));
+const PredictionLink = React.forwardRef((props: any) => (
   <RouterLink to="/predictions" {...props} />
-);
+));
 
 const styles = ({ breakpoints, spacing }: Theme) =>
   createStyles({

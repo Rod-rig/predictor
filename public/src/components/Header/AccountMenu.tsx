@@ -10,10 +10,10 @@ interface IProps {
 }
 
 const AccountLink = React.forwardRef((props: any, ref) => (
-  <Link to="/account" innerRef={ref} {...props} />
+  <Link to="/account" ref={ref} {...props} />
 ));
 const StatLink = React.forwardRef((props: any, ref) => (
-  <Link to="/stats" innerRef={ref} {...props} />
+  <Link to="/stats" ref={ref} {...props} />
 ));
 
 export class AccountMenu extends React.Component<

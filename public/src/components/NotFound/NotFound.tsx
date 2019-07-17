@@ -11,7 +11,9 @@ import * as React from "react";
 import { Link as RouterLink } from "react-router-dom";
 import { dict } from "../../dict";
 
-const MainLink = (props: any) => <RouterLink to="/" {...props} />;
+const MainLink = React.forwardRef((props: any, ref) => (
+  <RouterLink to="/" ref={ref} {...props} />
+));
 
 const styles = ({ breakpoints, spacing }: Theme) =>
   createStyles({
