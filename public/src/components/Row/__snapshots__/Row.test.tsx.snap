@@ -5,20 +5,20 @@ exports[`Row should render correctly 1`] = `
   className="MuiTable-root"
 >
   <tr
-    className="MuiTableRow-root Component-edge-4 Component-top-14"
+    className="MuiTableRow-root Component-edge-4 Component-top-15 Component-tableRow-13"
   >
     <td
       aria-sort={null}
-      className="MuiTableCell-root Component-cell-2 Component-teamName-13 MuiTableCell-paddingCheckbox"
+      className="MuiTableCell-root Component-cell-2 Component-teamName-14 MuiTableCell-paddingCheckbox"
     >
       <div
         className="Component-info-8"
       >
         <div
-          className="MuiListItemIcon-root"
+          className="MuiListItemIcon-root Component-img-7 Component-root-34"
         >
           <div
-            className="MuiAvatar-root Component-logo-32"
+            className="MuiAvatar-root Component-logo-33"
           >
             <img
               className="MuiAvatar-img"
@@ -51,7 +51,7 @@ exports[`Row should render correctly 1`] = `
     </td>
     <td
       aria-sort={null}
-      className="MuiTableCell-root Component-cell-2 Component-win-15 MuiTableCell-paddingCheckbox"
+      className="MuiTableCell-root Component-cell-2 Component-win-16 MuiTableCell-paddingCheckbox"
     >
       30
     </td>
@@ -93,20 +93,20 @@ exports[`Row should render correctly 1`] = `
     </td>
   </tr>
   <tr
-    className="MuiTableRow-root Component-edge-4 "
+    className="MuiTableRow-root Component-edge-4 Component-tableRow-13"
   >
     <td
       aria-sort={null}
-      className="MuiTableCell-root Component-cell-2 Component-teamName-13 MuiTableCell-paddingCheckbox"
+      className="MuiTableCell-root Component-cell-2 Component-teamName-14 MuiTableCell-paddingCheckbox"
     >
       <div
         className="Component-info-8"
       >
         <div
-          className="MuiListItemIcon-root"
+          className="MuiListItemIcon-root Component-img-7 Component-root-34"
         >
           <div
-            className="MuiAvatar-root Component-logo-32"
+            className="MuiAvatar-root Component-logo-33"
           >
             <img
               className="MuiAvatar-img"
@@ -139,7 +139,7 @@ exports[`Row should render correctly 1`] = `
     </td>
     <td
       aria-sort={null}
-      className="MuiTableCell-root Component-cell-2 Component-win-15 MuiTableCell-paddingCheckbox"
+      className="MuiTableCell-root Component-cell-2 Component-win-16 MuiTableCell-paddingCheckbox"
     >
       10
     </td>
@@ -181,20 +181,20 @@ exports[`Row should render correctly 1`] = `
     </td>
   </tr>
   <tr
-    className="MuiTableRow-root Component-edge-4 "
+    className="MuiTableRow-root Component-edge-4 Component-tableRow-13"
   >
     <td
       aria-sort={null}
-      className="MuiTableCell-root Component-cell-2 Component-teamName-13 MuiTableCell-paddingCheckbox"
+      className="MuiTableCell-root Component-cell-2 Component-teamName-14 MuiTableCell-paddingCheckbox"
     >
       <div
         className="Component-info-8"
       >
         <div
-          className="MuiListItemIcon-root"
+          className="MuiListItemIcon-root Component-img-7 Component-root-34"
         >
           <div
-            className="MuiAvatar-root Component-logo-32"
+            className="MuiAvatar-root Component-logo-33"
           >
             <img
               className="MuiAvatar-img"
@@ -227,7 +227,7 @@ exports[`Row should render correctly 1`] = `
     </td>
     <td
       aria-sort={null}
-      className="MuiTableCell-root Component-cell-2 Component-win-15 MuiTableCell-paddingCheckbox"
+      className="MuiTableCell-root Component-cell-2 Component-win-16 MuiTableCell-paddingCheckbox"
     >
       0
     </td>
@@ -269,20 +269,20 @@ exports[`Row should render correctly 1`] = `
     </td>
   </tr>
   <tr
-    className="MuiTableRow-root Component-middle-10 "
+    className="MuiTableRow-root Component-middle-10 Component-tableRow-13"
   >
     <td
       aria-sort={null}
-      className="MuiTableCell-root Component-cell-2 Component-teamName-13 MuiTableCell-paddingCheckbox"
+      className="MuiTableCell-root Component-cell-2 Component-teamName-14 MuiTableCell-paddingCheckbox"
     >
       <div
         className="Component-info-8"
       >
         <div
-          className="MuiListItemIcon-root"
+          className="MuiListItemIcon-root Component-img-7 Component-root-34"
         >
           <div
-            className="MuiAvatar-root Component-logo-32"
+            className="MuiAvatar-root Component-logo-33"
           >
             <img
               className="MuiAvatar-img"
@@ -315,7 +315,7 @@ exports[`Row should render correctly 1`] = `
     </td>
     <td
       aria-sort={null}
-      className="MuiTableCell-root Component-cell-2 Component-win-15 MuiTableCell-paddingCheckbox"
+      className="MuiTableCell-root Component-cell-2 Component-win-16 MuiTableCell-paddingCheckbox"
     >
       10
     </td>
@@ -357,20 +357,20 @@ exports[`Row should render correctly 1`] = `
     </td>
   </tr>
   <tr
-    className="MuiTableRow-root Component-middle-10 "
+    className="MuiTableRow-root Component-middle-10 Component-tableRow-13"
   >
     <td
       aria-sort={null}
-      className="MuiTableCell-root Component-cell-2 Component-teamName-13 MuiTableCell-paddingCheckbox"
+      className="MuiTableCell-root Component-cell-2 Component-teamName-14 MuiTableCell-paddingCheckbox"
     >
       <div
         className="Component-info-8"
       >
         <div
-          className="MuiListItemIcon-root"
+          className="MuiListItemIcon-root Component-img-7 Component-root-34"
         >
           <div
-            className="MuiAvatar-root Component-logo-32"
+            className="MuiAvatar-root Component-logo-33"
           >
             <img
               className="MuiAvatar-img"
@@ -403,7 +403,7 @@ exports[`Row should render correctly 1`] = `
     </td>
     <td
       aria-sort={null}
-      className="MuiTableCell-root Component-cell-2 Component-win-15 MuiTableCell-paddingCheckbox"
+      className="MuiTableCell-root Component-cell-2 Component-win-16 MuiTableCell-paddingCheckbox"
     >
       10
     </td>
@@ -445,20 +445,20 @@ exports[`Row should render correctly 1`] = `
     </td>
   </tr>
   <tr
-    className="MuiTableRow-root Component-row-12  MuiTableRow-hover"
+    className="MuiTableRow-root Component-row-12 Component-tableRow-13 MuiTableRow-hover"
   >
     <td
       aria-sort={null}
-      className="MuiTableCell-root Component-cell-2 Component-teamName-13 MuiTableCell-paddingCheckbox"
+      className="MuiTableCell-root Component-cell-2 Component-teamName-14 MuiTableCell-paddingCheckbox"
     >
       <div
         className="Component-info-8"
       >
         <div
-          className="MuiListItemIcon-root"
+          className="MuiListItemIcon-root Component-img-7 Component-root-34"
         >
           <div
-            className="MuiAvatar-root Component-logo-32"
+            className="MuiAvatar-root Component-logo-33"
           >
             <img
               className="MuiAvatar-img"
@@ -491,7 +491,7 @@ exports[`Row should render correctly 1`] = `
     </td>
     <td
       aria-sort={null}
-      className="MuiTableCell-root Component-cell-2 Component-win-15 MuiTableCell-paddingCheckbox"
+      className="MuiTableCell-root Component-cell-2 Component-win-16 MuiTableCell-paddingCheckbox"
     >
       5
     </td>

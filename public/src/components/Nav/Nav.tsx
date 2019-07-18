@@ -33,23 +33,19 @@ export const Nav = compose(
   const { id } = match.params;
 
   const TableLink = React.forwardRef((linkProps: any, ref) => (
-    <Link to={`/tournament/${id}`} innerRef={ref} {...linkProps} />
+    <Link to={`/tournament/${id}`} ref={ref} {...linkProps} />
   ));
 
   const FixturesLink = React.forwardRef((linkProps: any, ref) => (
-    <Link to={`/fixtures/${id}`} innerRef={ref} {...linkProps} />
+    <Link to={`/fixtures/${id}`} ref={ref} {...linkProps} />
   ));
 
   const ResultsLink = React.forwardRef((linkProps: any, ref) => (
-    <Link to={`/results/${id}`} innerRef={ref} {...linkProps} />
+    <Link to={`/results/${id}`} ref={ref} {...linkProps} />
   ));
 
   const PredictionsLink = React.forwardRef((linkProps: any, ref) => (
-    <Link
-      to={`/predictions?tournament_id=${id}`}
-      innerRef={ref}
-      {...linkProps}
-    />
+    <Link to={`/predictions?tournament_id=${id}`} ref={ref} {...linkProps} />
   ));
 
   const renderBtn = (comp: React.ReactType<ButtonProps>, text: string) => (

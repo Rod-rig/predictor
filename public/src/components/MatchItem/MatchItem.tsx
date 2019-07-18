@@ -6,6 +6,8 @@ import { TeamLogo } from "../";
 const decorate = withStyles(
   ({ breakpoints, palette, spacing, typography }: Theme) => ({
     awayIcon: {
+      marginRight: spacing(2),
+      minWidth: 0,
       [breakpoints.down("xs")]: {
         marginRight: spacing(1),
       },
@@ -21,27 +23,34 @@ const decorate = withStyles(
       backgroundColor: green[600],
     },
     guest: {
-      paddingRight: 0,
+      padding: spacing(0, 0, 0, 2),
       [breakpoints.down("xs")]: {
-        paddingLeft: spacing(1),
+        margin: 0,
+        padding: spacing(0, 0, 0, 1),
       },
     },
     home: {
       justifyContent: "flex-end",
       "text-align": "right",
       [breakpoints.down("xs")]: {
+        margin: 0,
         paddingRight: spacing(1),
       },
     },
     homeIcon: {
-      marginLeft: spacing(2),
-      marginRight: 0,
+      margin: spacing(0, 2),
+      minWidth: 0,
       [breakpoints.down("xs")]: {
-        marginLeft: spacing(1),
+        margin: spacing(0, 0, 0, 1),
       },
     },
+    logo: {
+      marginRight: spacing(2),
+    },
     matchItem: {
+      ...typography.subtitle1,
       [breakpoints.down("xs")]: {
+        lineHeight: 1.2,
         padding: spacing(1),
       },
     },

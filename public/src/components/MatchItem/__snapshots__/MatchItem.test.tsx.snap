@@ -3,7 +3,7 @@
 exports[`MatchItem should render future match correctly 1`] = `
 <div
   aria-disabled={false}
-  className="MuiButtonBase-root MuiListItem-root Component-matchItem-8 MuiListItem-gutters MuiListItem-divider MuiListItem-button"
+  className="MuiButtonBase-root MuiListItem-root Component-matchItem-9 MuiListItem-gutters MuiListItem-divider MuiListItem-button"
   onBlur={[Function]}
   onDragLeave={[Function]}
   onFocus={[Function]}
@@ -19,16 +19,16 @@ exports[`MatchItem should render future match correctly 1`] = `
   tabIndex={0}
 >
   <div
-    className="MuiListItemText-root Component-text-11 Component-home-6"
+    className="MuiListItemText-root Component-text-12 Component-home-6"
   >
     <div>
       Test2
     </div>
     <div
-      className="MuiListItemIcon-root Component-homeIcon-7"
+      className="MuiListItemIcon-root Component-homeIcon-7 Component-root-34"
     >
       <div
-        className="MuiAvatar-root Component-logo-32"
+        className="MuiAvatar-root Component-logo-33"
       >
         <img
           className="MuiAvatar-img"
@@ -38,7 +38,7 @@ exports[`MatchItem should render future match correctly 1`] = `
     </div>
   </div>
   <div
-    className="Component-score-10"
+    className="Component-score-11"
   >
     <div
       className="Component-dash-2"
@@ -47,13 +47,13 @@ exports[`MatchItem should render future match correctly 1`] = `
     </div>
   </div>
   <div
-    className="MuiListItemText-root Component-text-11 Component-guest-5"
+    className="MuiListItemText-root Component-text-12 Component-guest-5"
   >
     <div
-      className="MuiListItemIcon-root Component-awayIcon-1"
+      className="MuiListItemIcon-root Component-awayIcon-1 Component-root-34"
     >
       <div
-        className="MuiAvatar-root Component-logo-32"
+        className="MuiAvatar-root Component-logo-33"
       >
         <img
           className="MuiAvatar-img"
@@ -71,7 +71,7 @@ exports[`MatchItem should render future match correctly 1`] = `
 exports[`MatchItem should render played match correctly 1`] = `
 <div
   aria-disabled={false}
-  className="MuiButtonBase-root MuiListItem-root Component-matchItem-8 MuiListItem-gutters MuiListItem-divider MuiListItem-button"
+  className="MuiButtonBase-root MuiListItem-root Component-matchItem-9 MuiListItem-gutters MuiListItem-divider MuiListItem-button"
   onBlur={[Function]}
   onDragLeave={[Function]}
   onFocus={[Function]}
@@ -87,16 +87,16 @@ exports[`MatchItem should render played match correctly 1`] = `
   tabIndex={0}
 >
   <div
-    className="MuiListItemText-root Component-text-11 Component-home-6"
+    className="MuiListItemText-root Component-text-12 Component-home-6"
   >
     <div>
       Test2
     </div>
     <div
-      className="MuiListItemIcon-root Component-homeIcon-7"
+      className="MuiListItemIcon-root Component-homeIcon-7 Component-root-34"
     >
       <div
-        className="MuiAvatar-root Component-logo-32"
+        className="MuiAvatar-root Component-logo-33"
       >
         <img
           className="MuiAvatar-img"
@@ -106,7 +106,7 @@ exports[`MatchItem should render played match correctly 1`] = `
     </div>
   </div>
   <div
-    className="Component-score-10 Component-green-4"
+    className="Component-score-11 Component-green-4"
   >
     <div>
       2
@@ -121,13 +121,13 @@ exports[`MatchItem should render played match correctly 1`] = `
     </div>
   </div>
   <div
-    className="MuiListItemText-root Component-text-11 Component-guest-5"
+    className="MuiListItemText-root Component-text-12 Component-guest-5"
   >
     <div
-      className="MuiListItemIcon-root Component-awayIcon-1"
+      className="MuiListItemIcon-root Component-awayIcon-1 Component-root-34"
     >
       <div
-        className="MuiAvatar-root Component-logo-32"
+        className="MuiAvatar-root Component-logo-33"
       >
         <img
           className="MuiAvatar-img"
@@ -145,7 +145,7 @@ exports[`MatchItem should render played match correctly 1`] = `
 exports[`MatchItem should render predicted wrong match correctly 1`] = `
 <div
   aria-disabled={false}
-  className="MuiButtonBase-root MuiListItem-root Component-matchItem-8 MuiListItem-gutters MuiListItem-divider MuiListItem-button"
+  className="MuiButtonBase-root MuiListItem-root Component-matchItem-9 MuiListItem-gutters MuiListItem-divider MuiListItem-button"
   onBlur={[Function]}
   onDragLeave={[Function]}
   onFocus={[Function]}
@@ -161,16 +161,16 @@ exports[`MatchItem should render predicted wrong match correctly 1`] = `
   tabIndex={0}
 >
   <div
-    className="MuiListItemText-root Component-text-11 Component-home-6"
+    className="MuiListItemText-root Component-text-12 Component-home-6"
   >
     <div>
       Test2
     </div>
     <div
-      className="MuiListItemIcon-root Component-homeIcon-7"
+      className="MuiListItemIcon-root Component-homeIcon-7 Component-root-34"
     >
       <div
-        className="MuiAvatar-root Component-logo-32"
+        className="MuiAvatar-root Component-logo-33"
       >
         <img
           className="MuiAvatar-img"
@@ -180,7 +180,7 @@ exports[`MatchItem should render predicted wrong match correctly 1`] = `
     </div>
   </div>
   <div
-    className="Component-score-10 Component-red-9"
+    className="Component-score-11 Component-red-10"
   >
     <div>
       2
@@ -195,13 +195,13 @@ exports[`MatchItem should render predicted wrong match correctly 1`] = `
     </div>
   </div>
   <div
-    className="MuiListItemText-root Component-text-11 Component-guest-5"
+    className="MuiListItemText-root Component-text-12 Component-guest-5"
   >
     <div
-      className="MuiListItemIcon-root Component-awayIcon-1"
+      className="MuiListItemIcon-root Component-awayIcon-1 Component-root-34"
     >
       <div
-        className="MuiAvatar-root Component-logo-32"
+        className="MuiAvatar-root Component-logo-33"
       >
         <img
           className="MuiAvatar-img"

@@ -71,6 +71,9 @@ const decorate = withStyles(({ breakpoints, spacing }) => ({
   rank: {
     width: 80,
   },
+  row: {
+    height: 48,
+  },
   team: {
     "min-width": 0,
     "text-align": "left",
@@ -90,7 +93,7 @@ export const TableHeadView = decorate((props: IHead) => {
   const { chars, classes, order, sortName, sortHandle } = props;
   return (
     <TableHead>
-      <TableRow>
+      <TableRow className={classes.row}>
         {chars.map((name: keyof IDict, index: number) => {
           return (
             <TableCell
