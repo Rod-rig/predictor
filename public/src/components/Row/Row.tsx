@@ -1,4 +1,5 @@
 import { TableCell, TableRow, withStyles } from "@material-ui/core";
+import classNames from "classnames";
 import * as React from "react";
 import { TeamLogo } from "../";
 
@@ -17,13 +18,14 @@ const decorate = withStyles(({ breakpoints, palette, spacing }) => ({
   cell: {
     "&:last-child": {
       [breakpoints.down("sm")]: {
-        paddingRight: 0.75 * spacing.unit,
+        paddingRight: spacing(0),
       },
     },
     "text-align": "center",
+    width: "auto",
     [breakpoints.down("sm")]: {
-      paddingLeft: 0.75 * spacing.unit,
-      paddingRight: 0.75 * spacing.unit,
+      paddingLeft: spacing(0.75),
+      paddingRight: spacing(0.75),
     },
   },
   draw: {
@@ -54,13 +56,16 @@ const decorate = withStyles(({ breakpoints, palette, spacing }) => ({
     "border-radius": 0,
     display: "inline-block",
     height: 25,
-    marginRight: 5,
+    marginRight: spacing(1),
     verticalAlign: "middle",
     width: 25,
   },
   info: {
     alignItems: "center",
     display: "flex",
+    [breakpoints.down("xs")]: {
+      wordBreak: "break-word",
+    },
   },
   loss: {
     [breakpoints.down("xs")]: {
@@ -89,6 +94,9 @@ const decorate = withStyles(({ breakpoints, palette, spacing }) => ({
   //     display: 'none',
   //   },
   // },
+  tableRow: {
+    height: "48px",
+  },
   teamName: {
     "text-align": "left",
     [breakpoints.down("xs")]: {
@@ -129,11 +137,11 @@ export const Row = decorate((props: IProps) => {
   const topClass =
     row.rank === 1 && row.current_outcome !== "Playoffs" ? classes.top : "";
   const rowProps = {
-    className: `${classes[rowClass]} ${topClass}`,
+    className: classNames(classes[rowClass], topClass, classes.tableRow),
     hover: !row.current_outcome,
   };
   return (
-    <TableRow {...rowProps}>
+    <TableRow className={classes.tableRow} {...rowProps}>
       {props.chars.map(
         (val, i): JSX.Element => {
           if (val !== "team") {
@@ -156,7 +164,7 @@ export const Row = decorate((props: IProps) => {
                 className={`${classes.cell} ${classes.teamName}`}
               >
                 <div className={classes.info}>
-                  <TeamLogo teamName={row.team.name} modClass={row.img} />
+                  <TeamLogo teamName={row.team.name} modClass={classes.img} />
                   <span className={classes.team}>{row.team.name}</span>
                   {/*<span className={classes.shortName}>{row.shortName}</span>*/}
                 </div>

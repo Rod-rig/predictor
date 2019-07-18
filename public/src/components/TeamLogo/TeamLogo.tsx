@@ -5,6 +5,7 @@ import {
   WithStyles,
   withStyles,
 } from "@material-ui/core";
+import classNames from "classnames";
 import * as React from "react";
 import { logos } from "../../content/logos";
 
@@ -21,6 +22,9 @@ const styles = ({ breakpoints }: Theme) => ({
       width: "1em",
     },
   },
+  root: {
+    minWidth: 0,
+  },
 });
 
 interface IProps extends WithStyles<typeof styles> {
@@ -34,8 +38,9 @@ export const TeamLogo = withStyles(styles)(
       teamName in logos
         ? logos[teamName]
         : "https://cdn2.iconfinder.com/data/icons/sport-items-2/512/football_soccer_badge_shield_ball_heraldic-128.png";
+    const iconClassName = classNames(modClass, classes.root);
     return (
-      <ListItemIcon className={modClass}>
+      <ListItemIcon className={iconClassName}>
         <Avatar src={src} className={classes.logo} />
       </ListItemIcon>
     );

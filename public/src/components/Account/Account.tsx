@@ -4,11 +4,11 @@ import { observer } from "mobx-react";
 import * as React from "react";
 import { userStore } from "../../stores";
 
-const styles = (theme: Theme) => ({
+const styles = ({ spacing }: Theme) => ({
   account: {
     alignItems: "center",
     display: "flex",
-    padding: theme.spacing.unit,
+    padding: spacing(1),
   },
   icon: {
     height: "4em",

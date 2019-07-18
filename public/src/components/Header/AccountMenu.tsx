@@ -9,8 +9,12 @@ interface IProps {
   logout: () => void;
 }
 
-const AccountLink = (props: any) => <Link to="/account" {...props} />;
-const StatLink = (props: any) => <Link to="/stats" {...props} />;
+const AccountLink = React.forwardRef((props: any, ref) => (
+  <Link to="/account" ref={ref} {...props} />
+));
+const StatLink = React.forwardRef((props: any, ref) => (
+  <Link to="/stats" ref={ref} {...props} />
+));
 
 export class AccountMenu extends React.Component<
   IProps,

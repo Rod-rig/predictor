@@ -1,3 +1,4 @@
+import { CardMedia } from "@material-ui/core";
 import { mount } from "enzyme";
 import * as React from "react";
 import { MemoryRouter } from "react-router-dom";
@@ -12,7 +13,7 @@ describe("TournamentCard", () => {
     );
     const link = card.find("Link");
     expect(card.length).toBeGreaterThanOrEqual(1);
-    expect(card.find("CardMedia")).toHaveLength(1);
+    expect(card.find(CardMedia)).toHaveLength(1);
     expect(link).toHaveLength(2);
     expect(link.at(0).prop("to")).toEqual("tournament/premier-league");
   });
@@ -27,7 +28,7 @@ describe("TournamentCard", () => {
         />
       </MemoryRouter>,
     );
-    expect(card.find("CardMedia").prop("className")).toContain("card__img");
+    expect(card.find(CardMedia).prop("className")).toContain("card__img");
     expect(card.find("h2").text()).toBe("test_name");
   });
 });

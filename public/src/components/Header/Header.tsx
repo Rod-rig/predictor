@@ -19,21 +19,21 @@ import { AccountMenu } from "./AccountMenu";
 const styles = ({ breakpoints, spacing }: Theme) =>
   createStyles({
     header: {
-      marginBottom: spacing.unit,
+      marginBottom: spacing(1),
       [breakpoints.up("lg")]: {
-        marginBottom: spacing.unit * 3,
+        marginBottom: spacing(3),
       },
     },
     headerBtn: {
       [breakpoints.down("xs")]: {
-        paddingLeft: spacing.unit,
-        paddingRight: spacing.unit,
+        paddingLeft: spacing(1),
+        paddingRight: spacing(1),
       },
     },
     toolbar: {
       [breakpoints.down("xs")]: {
-        paddingLeft: spacing.unit,
-        paddingRight: spacing.unit,
+        paddingLeft: spacing(1),
+        paddingRight: spacing(1),
       },
     },
     user: {
@@ -41,8 +41,12 @@ const styles = ({ breakpoints, spacing }: Theme) =>
     },
   });
 
-const LoginLink = (props: any) => <Link to="/login" {...props} />;
-const RegLink = (props: any) => <Link to="/registration" {...props} />;
+const LoginLink = React.forwardRef((props: any, ref) => (
+  <Link to="/login" {...props} innerRef={ref} />
+));
+const RegLink = React.forwardRef((props: any, ref) => (
+  <Link to="/registration" {...props} innerRef={ref} />
+));
 
 export const Header = withStyles(styles)(
   observer(

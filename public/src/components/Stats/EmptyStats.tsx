@@ -12,10 +12,12 @@ import * as React from "react";
 import { Link as RouterLink } from "react-router-dom";
 import { dict } from "../../dict";
 
-const MainLink = (props: any) => <RouterLink to="/" {...props} />;
-const PredictionLink = (props: any) => (
-  <RouterLink to="/predictions" {...props} />
-);
+const MainLink = React.forwardRef((props: any, ref) => (
+  <RouterLink to="/" innerRef={ref} {...props} />
+));
+const PredictionLink = React.forwardRef((props: any, ref) => (
+  <RouterLink to="/predictions" innerRef={ref} {...props} />
+));
 
 const styles = ({ breakpoints, spacing }: Theme) =>
   createStyles({
@@ -25,7 +27,7 @@ const styles = ({ breakpoints, spacing }: Theme) =>
     },
     paper: {
       margin: "auto",
-      padding: spacing.unit * 2,
+      padding: spacing(2),
       "text-align": "center",
       width: "320px",
       [breakpoints.up("sm")]: {

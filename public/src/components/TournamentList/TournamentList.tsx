@@ -14,7 +14,7 @@ const styles = {
 const TournamentListElement = observer((props: any) => {
   const { classes, store } = props;
   return store.isLoaded ? (
-    <Grid container={true} spacing={16} className={classes.list}>
+    <Grid container={true} spacing={2} className={classes.list}>
       {store.list.map((item: ITournament) => {
         return (
           <Grid key={item.id} item={true} xs={12} sm={6} md={4} lg={3}>

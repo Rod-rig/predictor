@@ -19,7 +19,7 @@ const styles = ({ palette, spacing, typography }: Theme) =>
     },
     text: {
       fontSize: typography.subtitle1.fontSize,
-      marginLeft: spacing.unit,
+      marginLeft: spacing(1),
     },
   });
 

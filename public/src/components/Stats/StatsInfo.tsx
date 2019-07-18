@@ -15,7 +15,7 @@ const styles = ({ breakpoints, spacing, typography }: Theme) =>
       fontSize: typography.fontSize * 2,
     },
     paper: {
-      padding: `${spacing.unit * 2}px ${spacing.unit}px`,
+      padding: spacing(2, 1),
       "text-align": "center",
       width: "50%",
       [breakpoints.up("sm")]: {
@@ -28,7 +28,7 @@ const styles = ({ breakpoints, spacing, typography }: Theme) =>
     wrapper: {
       display: "flex",
       flexWrap: "wrap",
-      marginBottom: spacing.unit,
+      marginBottom: spacing(1),
       [breakpoints.up("sm")]: {
         flexWrap: "nowrap",
       },

@@ -21,7 +21,7 @@ const styles = ({ palette, spacing }: Theme) => ({
   },
   content: {
     paddingBottom: 0,
-    paddingTop: spacing.unit * 2,
+    paddingTop: spacing(2),
   },
   h2: {
     overflow: "hidden",
@@ -52,9 +52,10 @@ const TournamentCardImage = (props: IProps) => {
 
 const TournamentCardElement = (props: IProps) => {
   const { classes } = props;
-  const MyLink = (linkProps: any) => (
-    <Link to={`tournament/${props.id}`} {...linkProps} />
-  );
+
+  const MyLink = React.forwardRef((linkProps: any, ref) => (
+    <Link to={`tournament/${props.id}`} {...linkProps} ref={ref} />
+  ));
 
   return (
     <Card>

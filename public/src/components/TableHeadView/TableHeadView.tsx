@@ -21,26 +21,26 @@ interface IHead {
 const decorate = withStyles(({ breakpoints, spacing }) => ({
   cell: {
     "& svg": {
-      margin: `${-spacing.unit}px 0 0`,
+      margin: spacing(-1, 0, 0),
       position: "absolute" as "absolute",
-      right: -2 * spacing.unit,
+      right: spacing(-2),
       top: "50%",
     },
     "&:last-child": {
       [breakpoints.down("sm")]: {
-        paddingRight: 0.75 * spacing.unit,
+        paddingRight: spacing(0.75),
       },
     },
     "min-width": 90,
     "text-align": "center",
     [breakpoints.down("sm")]: {
       minWidth: 80,
-      paddingLeft: 0.75 * spacing.unit,
-      paddingRight: 0.75 * spacing.unit,
+      paddingLeft: spacing(0.75),
+      paddingRight: spacing(0.75),
     },
     [breakpoints.down("xs")]: {
       minWidth: 70,
-      paddingRight: 0.75 * spacing.unit,
+      paddingRight: spacing(0.75),
     },
   },
   draw: {
@@ -71,6 +71,9 @@ const decorate = withStyles(({ breakpoints, spacing }) => ({
   rank: {
     width: 80,
   },
+  row: {
+    height: 48,
+  },
   team: {
     "min-width": 0,
     "text-align": "left",
@@ -90,7 +93,7 @@ export const TableHeadView = decorate((props: IHead) => {
   const { chars, classes, order, sortName, sortHandle } = props;
   return (
     <TableHead>
-      <TableRow>
+      <TableRow className={classes.row}>
         {chars.map((name: keyof IDict, index: number) => {
           return (
             <TableCell

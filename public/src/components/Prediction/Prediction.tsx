@@ -20,7 +20,7 @@ import { dict } from "../../dict";
 import { userStore } from "../../stores";
 import { PredictionMessage } from "./PredictionMessage";
 
-const styles = ({ palette, spacing }: Theme) =>
+const styles = ({ breakpoints, palette, spacing }: Theme) =>
   createStyles({
     away: {
       "& > span": {
@@ -28,15 +28,19 @@ const styles = ({ palette, spacing }: Theme) =>
         display: "flex",
         "justify-content": "flex-start",
       },
+      padding: spacing(0, 2),
       width: "100%",
       wordBreak: "break-word",
+      [breakpoints.down("xs")]: {
+        padding: spacing(0, 1),
+      },
     },
     btnWrap: {
-      marginBottom: spacing.unit,
+      marginBottom: spacing(1),
       textAlign: "center",
     },
     circle: {
-      marginRight: spacing.unit,
+      marginRight: spacing(1),
     },
     home: {
       "& > span": {
@@ -44,8 +48,9 @@ const styles = ({ palette, spacing }: Theme) =>
         display: "flex",
         "justify-content": "flex-end",
       },
-      "&:first-child": {
-        paddingLeft: spacing.unit * 2,
+      padding: spacing(0, 2),
+      [breakpoints.down("xs")]: {
+        padding: spacing(0, 1),
       },
       width: "100%",
       wordBreak: "break-word",
@@ -57,12 +62,16 @@ const styles = ({ palette, spacing }: Theme) =>
     inputWrap: {
       fontSize: "1.25rem",
     },
-    logo: {
-      marginLeft: spacing.unit * 2,
+    logoAway: {
+      marginLeft: 0,
+      marginRight: spacing(2),
+    },
+    logoHome: {
+      marginLeft: spacing(2),
       marginRight: 0,
     },
     noMatchesMsg: {
-      margin: spacing.unit,
+      margin: spacing(1),
     },
     score: {
       alignItems: "center",
@@ -115,7 +124,7 @@ export const Prediction = withStyles(styles)(
                             </InputLabel>
                             <TeamLogo
                               teamName={item.competitors[0].name}
-                              modClass={classes.logo}
+                              modClass={classes.logoHome}
                             />
                           </ListItemText>
                           <div className={classes.score}>
@@ -143,7 +152,10 @@ export const Prediction = withStyles(styles)(
                             />
                           </div>
                           <ListItemText classes={{ root: classes.away }}>
-                            <TeamLogo teamName={item.competitors[1].name} />
+                            <TeamLogo
+                              teamName={item.competitors[1].name}
+                              modClass={classes.logoAway}
+                            />
                             <InputLabel htmlFor={item.competitors[1].id}>
                               {item.competitors[1].name}
                             </InputLabel>

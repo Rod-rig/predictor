@@ -16,26 +16,25 @@ import { IGroup, ITable, ITeam } from "../../@types";
 const styles = ({ breakpoints, palette, spacing, typography }: Theme) =>
   createStyles({
     group: {
-      ...typography.title,
+      ...typography.h6,
       backgroundColor: palette.secondary.main,
       color: palette.common.white,
       fontSize: "",
-      padding: `${spacing.unit * 2}px ${spacing.unit * 3}px`,
+      padding: spacing(2, 3),
     },
     header: {
       backgroundColor: palette.primary.main,
       color: palette.primary.contrastText,
-      padding: spacing.unit,
+      padding: spacing(1),
       [breakpoints.up("lg")]: {
-        margin: `0 ${spacing.unit * 3}px`,
-        padding: `${spacing.unit}px ${spacing.unit * 3}px ${spacing.unit *
-          3}px`,
+        margin: spacing(0, 3),
+        padding: spacing(1, 3, 3),
       },
     },
     paper: {
-      marginBottom: spacing.unit,
+      marginBottom: spacing(1),
       [breakpoints.up("lg")]: {
-        margin: `0 ${spacing.unit * 3}px ${spacing.unit * 3}px`,
+        margin: spacing(0, 3, 3),
       },
     },
     title: {
