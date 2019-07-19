@@ -76,7 +76,7 @@ export const tableMock = {
             {
               team: {
                 id: "sr:competitor:30",
-                name: "Brighton & Hove Albion FC",
+                name: "Brighton & Hove Albion",
               },
               rank: 3,
               current_outcome: "Relegation",
