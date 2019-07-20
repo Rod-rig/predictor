@@ -15,32 +15,39 @@ import { IGroup, ITable, ITeam } from "../../@types";
 
 const styles = ({ breakpoints, palette, spacing, typography }: Theme) =>
   createStyles({
-    group: {
+    groupName: {
       ...typography.h6,
       backgroundColor: palette.secondary.main,
       color: palette.common.white,
-      fontSize: "",
+      fontSize: "1em",
       padding: spacing(2, 3),
     },
     header: {
+      alignItems: "center",
       backgroundColor: palette.primary.main,
       color: palette.primary.contrastText,
-      padding: spacing(1),
-      [breakpoints.up("lg")]: {
-        margin: spacing(0, 3),
-        padding: spacing(1, 3, 3),
+      display: "flex",
+      justifyContent: "space-between",
+      padding: spacing(1, 2),
+      [breakpoints.down("sm")]: {
+        alignItems: "flex-start",
+        flexFlow: "column",
+        padding: spacing(2, 2, 1),
       },
     },
     paper: {
-      marginBottom: spacing(1),
-      [breakpoints.up("lg")]: {
-        margin: spacing(0, 3, 3),
-      },
+      margin: spacing(1),
+      overflow: "hidden",
     },
     title: {
-      margin: "0.35em 0",
+      fontWeight: "bold",
+      margin: spacing(1.5, 0),
       [breakpoints.up("sm")]: {
-        fontSize: "3.5em",
+        fontSize: "2.25rem",
+        width: "50%",
+      },
+      [breakpoints.down("sm")]: {
+        marginTop: 0,
       },
     },
   });
@@ -56,24 +63,22 @@ export const TableView = withStyles(styles)(
         const { classes, store } = this.props;
 
         return store.isLoaded ? (
-          <React.Fragment>
+          <Paper className={classes.paper}>
             <div className={classes.header}>
-              {store.title && (
-                <Typography
-                  variant="h4"
-                  className={classes.title}
-                  color="inherit"
-                >
-                  {store.title}
-                </Typography>
-              )}
+              <Typography
+                variant="h4"
+                className={classes.title}
+                color="inherit"
+              >
+                {store.title}
+              </Typography>
               <Nav />
             </div>
             {store.table.map((group: IGroup, key: number) => {
               return (
-                <Paper key={key} className={classes.paper}>
+                <div key={key}>
                   {group.name && (
-                    <div className={classes.group}>Group {group.name}</div>
+                    <div className={classes.groupName}>Group {group.name}</div>
                   )}
                   <Table>
                     <TableHeadView
@@ -90,10 +95,10 @@ export const TableView = withStyles(styles)(
                       )}
                     </TableBody>
                   </Table>
-                </Paper>
+                </div>
               );
             })}
-          </React.Fragment>
+          </Paper>
         ) : (
           <Loader />
         );

@@ -32147,7 +32147,7 @@ var defaultTheme = Object(_createMuiTheme__WEBPACK_IMPORTED_MODULE_0__["default"
 /*!************************************************************!*\
   !*** ./node_modules/@material-ui/core/esm/styles/index.js ***!
   \************************************************************/
-/*! exports provided: hexToRgb, rgbToHex, hslToRgb, decomposeColor, recomposeColor, getContrastRatio, getLuminance, emphasize, fade, darken, lighten, createMuiTheme, createStyles, makeStyles, MuiThemeProvider, responsiveFontSizes, styled, easing, duration, formatMs, isString, isNumber, useTheme, withStyles, withTheme */
+/*! exports provided: createMuiTheme, createStyles, makeStyles, MuiThemeProvider, responsiveFontSizes, styled, useTheme, withStyles, withTheme, hexToRgb, rgbToHex, hslToRgb, decomposeColor, recomposeColor, getContrastRatio, getLuminance, emphasize, fade, darken, lighten, easing, duration, formatMs, isString, isNumber */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -37611,7 +37611,7 @@ var flexbox = Object(_compose__WEBPACK_IMPORTED_MODULE_1__["default"])(flexBasis
 /*!*******************************************************!*\
   !*** ./node_modules/@material-ui/system/esm/index.js ***!
   \*******************************************************/
-/*! exports provided: borders, border, borderTop, borderRight, borderBottom, borderLeft, borderColor, borderRadius, breakpoints, compose, css, display, flexbox, flexBasis, flexDirection, flexWrap, justifyContent, alignItems, alignContent, order, flex, flexGrow, flexShrink, alignSelf, justifyItems, justifySelf, palette, color, bgcolor, positions, position, zIndex, top, right, bottom, left, shadows, sizing, width, maxWidth, minWidth, height, maxHeight, minHeight, sizeWidth, sizeHeight, spacing, style, typography, fontFamily, fontSize, fontStyle, fontWeight, letterSpacing, lineHeight, textAlign */
+/*! exports provided: borders, breakpoints, compose, css, display, flexbox, palette, positions, shadows, sizing, spacing, style, typography, border, borderTop, borderRight, borderBottom, borderLeft, borderColor, borderRadius, flexBasis, flexDirection, flexWrap, justifyContent, alignItems, alignContent, order, flex, flexGrow, flexShrink, alignSelf, justifyItems, justifySelf, color, bgcolor, position, zIndex, top, right, bottom, left, width, maxWidth, minWidth, height, maxHeight, minHeight, sizeWidth, sizeHeight, fontFamily, fontSize, fontStyle, fontWeight, letterSpacing, lineHeight, textAlign */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -50812,17 +50812,18 @@ var arrayTraps = {
     set: function (target, name, value) {
         if (name === "length") {
             target[$mobx].setArrayLength(value);
-            return true;
         }
         if (typeof name === "number") {
             arrayExtensions.set.call(target, name, value);
-            return true;
         }
-        if (!isNaN(name)) {
+        if (typeof name === "symbol" || isNaN(name)) {
+            target[name] = value;
+        }
+        else {
+            // numeric string
             arrayExtensions.set.call(target, parseInt(name), value);
-            return true;
         }
-        return false;
+        return true;
     },
     preventExtensions: function (target) {
         fail("Observable arrays cannot be frozen");
@@ -51208,9 +51209,17 @@ var ObservableMap = /** @class */ (function () {
         return this._data.has(key);
     };
     ObservableMap.prototype.has = function (key) {
-        if (this._hasMap.has(key))
-            return this._hasMap.get(key).get();
-        return this._updateHasMapEntry(key, false).get();
+        var _this = this;
+        if (!globalState.trackingDerivation)
+            return this._has(key);
+        var entry = this._hasMap.get(key);
+        if (!entry) {
+            // todo: replace with atom (breaking change)
+            var newEntry = (entry = new ObservableValue(this._has(key), referenceEnhancer, this.name + "." + stringifyKey(key) + "?", false));
+            this._hasMap.set(key, newEntry);
+            onBecomeUnobserved(newEntry, function () { return _this._hasMap.delete(key); });
+        }
+        return entry.get();
     };
     ObservableMap.prototype.set = function (key, value) {
         var hasKey = this._has(key);
@@ -51273,16 +51282,10 @@ var ObservableMap = /** @class */ (function () {
         return false;
     };
     ObservableMap.prototype._updateHasMapEntry = function (key, value) {
-        // optimization; don't fill the hasMap if we are not observing, or remove entry if there are no observers anymore
         var entry = this._hasMap.get(key);
         if (entry) {
             entry.setNewValue(value);
         }
-        else {
-            entry = new ObservableValue(value, referenceEnhancer, this.name + "." + stringifyKey(key) + "?", false);
-            this._hasMap.set(key, entry);
-        }
-        return entry;
     };
     ObservableMap.prototype._updateValue = function (key, newValue) {
         var observable = this._data.get(key);
@@ -77939,7 +77942,7 @@ if (false) {} else {
 /*!***************************************************************!*\
   !*** ./node_modules/react-router-dom/esm/react-router-dom.js ***!
   \***************************************************************/
-/*! exports provided: MemoryRouter, Prompt, Redirect, Route, Router, StaticRouter, Switch, generatePath, matchPath, withRouter, __RouterContext, BrowserRouter, HashRouter, Link, NavLink */
+/*! exports provided: BrowserRouter, HashRouter, Link, NavLink, MemoryRouter, Prompt, Redirect, Route, Router, StaticRouter, Switch, generatePath, matchPath, withRouter, __RouterContext */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -85691,12 +85694,25 @@ var React = __webpack_require__(/*! react */ "./node_modules/react/index.js");
 var react_router_dom_1 = __webpack_require__(/*! react-router-dom */ "./node_modules/react-router-dom/esm/react-router-dom.js");
 var dict_1 = __webpack_require__(/*! ../../dict */ "./public/src/dict/index.ts");
 var styles = function (_a) {
-    var spacing = _a.spacing, palette = _a.palette, typography = _a.typography;
+    var _b;
+    var breakpoints = _a.breakpoints, spacing = _a.spacing, palette = _a.palette, typography = _a.typography;
     return core_1.createStyles({
-        containedSecondary: {
-            marginRight: spacing(1),
-            textTransform: "none",
-        },
+        button: (_b = {
+                "&:last-child": {
+                    marginRight: 0,
+                },
+                backgroundColor: palette.common.white,
+                boxShadow: "none",
+                color: palette.primary.main,
+                fontSize: "1.15em",
+                marginRight: spacing(1),
+                padding: spacing(0.5, 2, 0.25),
+                textTransform: "none"
+            },
+            _b[breakpoints.down("sm")] = {
+                marginBottom: spacing(1),
+            },
+            _b),
         link: {
             color: palette.primary.contrastText,
             fontSize: typography.fontSize,
@@ -85728,8 +85744,8 @@ exports.Nav = compose(core_1.withStyles(styles), react_router_dom_1.withRouter)(
     var FixturesLink = React.forwardRef(function (linkProps, ref) { return (React.createElement(react_router_dom_1.Link, __assign({ to: "/fixtures/" + id, ref: ref }, linkProps))); });
     var ResultsLink = React.forwardRef(function (linkProps, ref) { return (React.createElement(react_router_dom_1.Link, __assign({ to: "/results/" + id, ref: ref }, linkProps))); });
     var PredictionsLink = React.forwardRef(function (linkProps, ref) { return (React.createElement(react_router_dom_1.Link, __assign({ to: "/predictions?tournament_id=" + id, ref: ref }, linkProps))); });
-    var renderBtn = function (comp, text) { return (React.createElement(core_1.Button, { size: "small", className: classes.containedSecondary, component: comp, variant: "contained", color: "secondary" }, text)); };
-    return (React.createElement(React.Fragment, null,
+    var renderBtn = function (comp, text) { return (React.createElement(core_1.Button, { size: "small", className: classes.button, component: comp, variant: "contained", color: "default" }, text)); };
+    return (React.createElement("div", null,
         renderBtn(TableLink, dict_1.dict.table),
         renderBtn(FixturesLink, dict_1.dict.fixtures),
         renderBtn(ResultsLink, dict_1.dict.results),
@@ -86974,34 +86990,40 @@ var mobx_react_1 = __webpack_require__(/*! mobx-react */ "./node_modules/mobx-re
 var React = __webpack_require__(/*! react */ "./node_modules/react/index.js");
 var __1 = __webpack_require__(/*! ../ */ "./public/src/components/index.ts");
 var styles = function (_a) {
-    var _b, _c, _d;
+    var _b, _c;
     var breakpoints = _a.breakpoints, palette = _a.palette, spacing = _a.spacing, typography = _a.typography;
     return core_1.createStyles({
-        group: __assign({}, typography.h6, { backgroundColor: palette.secondary.main, color: palette.common.white, fontSize: "", padding: spacing(2, 3) }),
+        groupName: __assign({}, typography.h6, { backgroundColor: palette.secondary.main, color: palette.common.white, fontSize: "1em", padding: spacing(2, 3) }),
         header: (_b = {
+                alignItems: "center",
                 backgroundColor: palette.primary.main,
                 color: palette.primary.contrastText,
-                padding: spacing(1)
+                display: "flex",
+                justifyContent: "space-between",
+                padding: spacing(1, 2)
             },
-            _b[breakpoints.up("lg")] = {
-                margin: spacing(0, 3),
-                padding: spacing(1, 3, 3),
+            _b[breakpoints.down("sm")] = {
+                alignItems: "flex-start",
+                flexFlow: "column",
+                padding: spacing(2, 2, 1),
             },
             _b),
-        paper: (_c = {
-                marginBottom: spacing(1)
+        paper: {
+            margin: spacing(1),
+            overflow: "hidden",
+        },
+        title: (_c = {
+                fontWeight: "bold",
+                margin: spacing(1.5, 0)
             },
-            _c[breakpoints.up("lg")] = {
-                margin: spacing(0, 3, 3),
+            _c[breakpoints.up("sm")] = {
+                fontSize: "2.25rem",
+                width: "50%",
+            },
+            _c[breakpoints.down("sm")] = {
+                marginTop: 0,
             },
             _c),
-        title: (_d = {
-                margin: "0.35em 0"
-            },
-            _d[breakpoints.up("sm")] = {
-                fontSize: "3.5em",
-            },
-            _d),
     });
 };
 exports.TableView = core_1.withStyles(styles)(mobx_react_1.observer(/** @class */ (function (_super) {
@@ -87011,13 +87033,13 @@ exports.TableView = core_1.withStyles(styles)(mobx_react_1.observer(/** @class *
     }
     class_1.prototype.render = function () {
         var _a = this.props, classes = _a.classes, store = _a.store;
-        return store.isLoaded ? (React.createElement(React.Fragment, null,
+        return store.isLoaded ? (React.createElement(core_1.Paper, { className: classes.paper },
             React.createElement("div", { className: classes.header },
-                store.title && (React.createElement(core_1.Typography, { variant: "h4", className: classes.title, color: "inherit" }, store.title)),
+                React.createElement(core_1.Typography, { variant: "h4", className: classes.title, color: "inherit" }, store.title),
                 React.createElement(__1.Nav, null)),
             store.table.map(function (group, key) {
-                return (React.createElement(core_1.Paper, { key: key, className: classes.paper },
-                    group.name && (React.createElement("div", { className: classes.group },
+                return (React.createElement("div", { key: key },
+                    group.name && (React.createElement("div", { className: classes.groupName },
                         "Group ",
                         group.name)),
                     React.createElement(core_1.Table, null,

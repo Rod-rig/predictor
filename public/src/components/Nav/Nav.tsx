@@ -4,11 +4,22 @@ import * as React from "react";
 import { Link, withRouter } from "react-router-dom";
 import { dict } from "../../dict";
 
-const styles = ({ spacing, palette, typography }: Theme) =>
+const styles = ({ breakpoints, spacing, palette, typography }: Theme) =>
   createStyles({
-    containedSecondary: {
+    button: {
+      "&:last-child": {
+        marginRight: 0,
+      },
+      backgroundColor: palette.common.white,
+      boxShadow: "none",
+      color: palette.primary.main,
+      fontSize: "1.15em",
       marginRight: spacing(1),
+      padding: spacing(0.5, 2, 0.25),
       textTransform: "none",
+      [breakpoints.down("sm")]: {
+        marginBottom: spacing(1),
+      },
     },
     link: {
       color: palette.primary.contrastText,
@@ -48,24 +59,24 @@ export const Nav = compose(
     <Link to={`/predictions?tournament_id=${id}`} ref={ref} {...linkProps} />
   ));
 
-  const renderBtn = (comp: React.ReactType<ButtonProps>, text: string) => (
+  const renderBtn = (comp: React.ElementType<ButtonProps>, text: string) => (
     <Button
       size="small"
-      className={classes.containedSecondary}
+      className={classes.button}
       component={comp}
       variant="contained"
-      color="secondary"
+      color="default"
     >
       {text}
     </Button>
   );
 
   return (
-    <React.Fragment>
+    <div>
       {renderBtn(TableLink, dict.table)}
       {renderBtn(FixturesLink, dict.fixtures)}
       {renderBtn(ResultsLink, dict.results)}
       {renderBtn(PredictionsLink, dict.prediction)}
-    </React.Fragment>
+    </div>
   );
 });
