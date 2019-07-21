@@ -3,6 +3,7 @@ import { match, RouteProps } from "react-router-dom";
 import { IPredictionStore, IRetrieverProps, ITableProps } from "./@types";
 import {
   Account,
+  FixturesList,
   Login,
   MatchList,
   NotFound,
@@ -67,10 +68,10 @@ const results = (props: { match: IId }) => (
 
 /* istanbul ignore next */
 const fixtures = (props: { match: IId }) => (
-  <MatchList
+  <FixturesList
     store={
       new DataRetriever({
-        url: `/api/results/${props.match.params.id}`,
+        url: `/api/schedule/${props.match.params.id}`,
       })
     }
     {...props}

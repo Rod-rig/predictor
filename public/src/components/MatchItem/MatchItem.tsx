@@ -1,5 +1,6 @@
 import { ListItem, ListItemText, Theme, withStyles } from "@material-ui/core";
 import { green } from "@material-ui/core/colors";
+import classNames from "classnames";
 import * as React from "react";
 import { TeamLogo } from "../";
 
@@ -86,7 +87,7 @@ const renderScore = (
   const statusClassName =
     status === 1 ? classes.green : status === 0 ? classes.red : classes.default;
   return (
-    <div className={`${classes.score} ${statusClassName}`}>
+    <div className={classNames(classes.score, statusClassName)}>
       <div>{homeScore}</div>
       <div className={classes.dash}>:</div>
       <div>{awayScore}</div>
@@ -95,7 +96,7 @@ const renderScore = (
 };
 
 const renderEmptyScore = (classes: any): JSX.Element => (
-  <div className={classes.score}>
+  <div className={classNames(classes.score, classes.default)}>
     <div className={classes.dash}>:</div>
   </div>
 );
@@ -122,12 +123,12 @@ export const MatchItem = decorate(
           <TeamLogo teamName={homeTeam} modClass={classes.homeIcon} />
         </ListItemText>
 
-        {!isNaN(props.homeScore)
+        {homeScore !== undefined || !isNaN(homeScore)
           ? renderScore(homeScore, awayScore, status, classes)
           : renderEmptyScore(classes)}
 
         <ListItemText
-          className={`${classes.text} ${classes.guest}`}
+          className={classNames(classes.text, classes.guest)}
           disableTypography={true}
         >
           <TeamLogo teamName={awayTeam} modClass={classes.awayIcon} />

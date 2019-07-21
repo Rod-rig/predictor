@@ -1,24 +1,6 @@
 import { ISeason, ITournament } from "../";
-
-interface ICompetitor {
-  abbreviation: string;
-  country: string;
-  country_code: string;
-  id: string;
-  name: string;
-  qualifier: string;
-  userPrediction?: number;
-}
-
-interface IVenue {
-  capacity: number;
-  city_name: string;
-  country_code: string;
-  country_name: string;
-  id: string;
-  map_coordinates: string;
-  name: string;
-}
+import { ICompetitor } from "../ICompetitor";
+import { IVenue } from "../IVenue";
 
 interface ISportEvent {
   competitors: ICompetitor[];

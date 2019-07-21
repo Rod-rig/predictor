@@ -32147,7 +32147,7 @@ var defaultTheme = Object(_createMuiTheme__WEBPACK_IMPORTED_MODULE_0__["default"
 /*!************************************************************!*\
   !*** ./node_modules/@material-ui/core/esm/styles/index.js ***!
   \************************************************************/
-/*! exports provided: createMuiTheme, createStyles, makeStyles, MuiThemeProvider, responsiveFontSizes, styled, useTheme, withStyles, withTheme, hexToRgb, rgbToHex, hslToRgb, decomposeColor, recomposeColor, getContrastRatio, getLuminance, emphasize, fade, darken, lighten, easing, duration, formatMs, isString, isNumber */
+/*! exports provided: hexToRgb, rgbToHex, hslToRgb, decomposeColor, recomposeColor, getContrastRatio, getLuminance, emphasize, fade, darken, lighten, createMuiTheme, createStyles, makeStyles, MuiThemeProvider, responsiveFontSizes, styled, easing, duration, formatMs, isString, isNumber, useTheme, withStyles, withTheme */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -37611,7 +37611,7 @@ var flexbox = Object(_compose__WEBPACK_IMPORTED_MODULE_1__["default"])(flexBasis
 /*!*******************************************************!*\
   !*** ./node_modules/@material-ui/system/esm/index.js ***!
   \*******************************************************/
-/*! exports provided: borders, breakpoints, compose, css, display, flexbox, palette, positions, shadows, sizing, spacing, style, typography, border, borderTop, borderRight, borderBottom, borderLeft, borderColor, borderRadius, flexBasis, flexDirection, flexWrap, justifyContent, alignItems, alignContent, order, flex, flexGrow, flexShrink, alignSelf, justifyItems, justifySelf, color, bgcolor, position, zIndex, top, right, bottom, left, width, maxWidth, minWidth, height, maxHeight, minHeight, sizeWidth, sizeHeight, fontFamily, fontSize, fontStyle, fontWeight, letterSpacing, lineHeight, textAlign */
+/*! exports provided: borders, border, borderTop, borderRight, borderBottom, borderLeft, borderColor, borderRadius, breakpoints, compose, css, display, flexbox, flexBasis, flexDirection, flexWrap, justifyContent, alignItems, alignContent, order, flex, flexGrow, flexShrink, alignSelf, justifyItems, justifySelf, palette, color, bgcolor, positions, position, zIndex, top, right, bottom, left, shadows, sizing, width, maxWidth, minWidth, height, maxHeight, minHeight, sizeWidth, sizeHeight, spacing, style, typography, fontFamily, fontSize, fontStyle, fontWeight, letterSpacing, lineHeight, textAlign */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -77942,7 +77942,7 @@ if (false) {} else {
 /*!***************************************************************!*\
   !*** ./node_modules/react-router-dom/esm/react-router-dom.js ***!
   \***************************************************************/
-/*! exports provided: BrowserRouter, HashRouter, Link, NavLink, MemoryRouter, Prompt, Redirect, Route, Router, StaticRouter, Switch, generatePath, matchPath, withRouter, __RouterContext */
+/*! exports provided: MemoryRouter, Prompt, Redirect, Route, Router, StaticRouter, Switch, generatePath, matchPath, withRouter, __RouterContext, BrowserRouter, HashRouter, Link, NavLink */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -84959,6 +84959,112 @@ exports.App = core_1.withStyles(styles)(function (props) {
 
 /***/ }),
 
+/***/ "./public/src/components/FixturesList/FixturesList.tsx":
+/*!*************************************************************!*\
+  !*** ./public/src/components/FixturesList/FixturesList.tsx ***!
+  \*************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+var __extends = (this && this.__extends) || (function () {
+    var extendStatics = function (d, b) {
+        extendStatics = Object.setPrototypeOf ||
+            ({ __proto__: [] } instanceof Array && function (d, b) { d.__proto__ = b; }) ||
+            function (d, b) { for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p]; };
+        return extendStatics(d, b);
+    };
+    return function (d, b) {
+        extendStatics(d, b);
+        function __() { this.constructor = d; }
+        d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
+    };
+})();
+var __assign = (this && this.__assign) || function () {
+    __assign = Object.assign || function(t) {
+        for (var s, i = 1, n = arguments.length; i < n; i++) {
+            s = arguments[i];
+            for (var p in s) if (Object.prototype.hasOwnProperty.call(s, p))
+                t[p] = s[p];
+        }
+        return t;
+    };
+    return __assign.apply(this, arguments);
+};
+Object.defineProperty(exports, "__esModule", { value: true });
+var core_1 = __webpack_require__(/*! @material-ui/core */ "./node_modules/@material-ui/core/esm/index.js");
+var mobx_react_1 = __webpack_require__(/*! mobx-react */ "./node_modules/mobx-react/dist/mobx-react.module.js");
+var React = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+var __1 = __webpack_require__(/*! ../ */ "./public/src/components/index.ts");
+var styles = function (_a) {
+    var _b, _c;
+    var breakpoints = _a.breakpoints, spacing = _a.spacing, typography = _a.typography;
+    return core_1.createStyles({
+        round: (_b = {
+                marginBottom: spacing(1)
+            },
+            _b[breakpoints.up("lg")] = {
+                margin: spacing(0, 3, 3),
+            },
+            _b),
+        title: __assign({}, typography.body1, (_c = { padding: spacing(1) }, _c[breakpoints.up("lg")] = {
+            padding: spacing(1, 4),
+        }, _c)),
+    });
+};
+exports.FixturesList = core_1.withStyles(styles)(mobx_react_1.observer(/** @class */ (function (_super) {
+    __extends(class_1, _super);
+    function class_1() {
+        return _super !== null && _super.apply(this, arguments) || this;
+    }
+    class_1.prototype.render = function () {
+        var _a = this.props, classes = _a.classes, store = _a.store;
+        var group = [];
+        return store.isLoaded ? (React.createElement(core_1.List, { disablePadding: true }, store.data.sport_events.map(function (item, index, list) {
+            var stat = {
+                awayTeam: item.competitors[1].name,
+                homeTeam: item.competitors[0].name,
+                id: item.id,
+                round: item.tournament_round.number,
+            };
+            group.push(React.createElement(__1.MatchItem, __assign({ key: stat.id }, stat)));
+            if (!list[index + 1] ||
+                stat.round !== list[index + 1].tournament_round.number) {
+                var round = (React.createElement(React.Fragment, { key: stat.id },
+                    React.createElement("div", { className: classes.title },
+                        "Round ",
+                        stat.round),
+                    React.createElement(core_1.Paper, { className: classes.round }, group)));
+                group = [];
+                return round;
+            }
+        }))) : (React.createElement(__1.Loader, null));
+    };
+    return class_1;
+}(React.Component))));
+
+
+/***/ }),
+
+/***/ "./public/src/components/FixturesList/index.ts":
+/*!*****************************************************!*\
+  !*** ./public/src/components/FixturesList/index.ts ***!
+  \*****************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+function __export(m) {
+    for (var p in m) if (!exports.hasOwnProperty(p)) exports[p] = m[p];
+}
+Object.defineProperty(exports, "__esModule", { value: true });
+__export(__webpack_require__(/*! ./FixturesList */ "./public/src/components/FixturesList/FixturesList.tsx"));
+
+
+/***/ }),
+
 /***/ "./public/src/components/Header/AccountMenu.tsx":
 /*!******************************************************!*\
   !*** ./public/src/components/Header/AccountMenu.tsx ***!
@@ -85374,6 +85480,7 @@ var __assign = (this && this.__assign) || function () {
 Object.defineProperty(exports, "__esModule", { value: true });
 var core_1 = __webpack_require__(/*! @material-ui/core */ "./node_modules/@material-ui/core/esm/index.js");
 var colors_1 = __webpack_require__(/*! @material-ui/core/colors */ "./node_modules/@material-ui/core/esm/colors/index.js");
+var classnames_1 = __webpack_require__(/*! classnames */ "./node_modules/classnames/index.js");
 var React = __webpack_require__(/*! react */ "./node_modules/react/index.js");
 var __1 = __webpack_require__(/*! ../ */ "./public/src/components/index.ts");
 var decorate = core_1.withStyles(function (_a) {
@@ -85455,12 +85562,12 @@ var decorate = core_1.withStyles(function (_a) {
 });
 var renderScore = function (homeScore, awayScore, status, classes) {
     var statusClassName = status === 1 ? classes.green : status === 0 ? classes.red : classes.default;
-    return (React.createElement("div", { className: classes.score + " " + statusClassName },
+    return (React.createElement("div", { className: classnames_1.default(classes.score, statusClassName) },
         React.createElement("div", null, homeScore),
         React.createElement("div", { className: classes.dash }, ":"),
         React.createElement("div", null, awayScore)));
 };
-var renderEmptyScore = function (classes) { return (React.createElement("div", { className: classes.score },
+var renderEmptyScore = function (classes) { return (React.createElement("div", { className: classnames_1.default(classes.score, classes.default) },
     React.createElement("div", { className: classes.dash }, ":"))); };
 exports.MatchItem = decorate(function (props) {
     var awayScore = props.awayScore, awayTeam = props.awayTeam, classes = props.classes, homeScore = props.homeScore, homeTeam = props.homeTeam, status = props.status;
@@ -85468,10 +85575,10 @@ exports.MatchItem = decorate(function (props) {
         React.createElement(core_1.ListItemText, { className: classes.text + " " + classes.home, disableTypography: true },
             React.createElement("div", null, homeTeam),
             React.createElement(__1.TeamLogo, { teamName: homeTeam, modClass: classes.homeIcon })),
-        !isNaN(props.homeScore)
+        homeScore !== undefined || !isNaN(homeScore)
             ? renderScore(homeScore, awayScore, status, classes)
             : renderEmptyScore(classes),
-        React.createElement(core_1.ListItemText, { className: classes.text + " " + classes.guest, disableTypography: true },
+        React.createElement(core_1.ListItemText, { className: classnames_1.default(classes.text, classes.guest), disableTypography: true },
             React.createElement(__1.TeamLogo, { teamName: awayTeam, modClass: classes.awayIcon }),
             React.createElement("div", null, awayTeam))));
 });
@@ -87292,6 +87399,7 @@ function __export(m) {
 }
 Object.defineProperty(exports, "__esModule", { value: true });
 __export(__webpack_require__(/*! ./Account */ "./public/src/components/Account/index.ts"));
+__export(__webpack_require__(/*! ./FixturesList */ "./public/src/components/FixturesList/index.ts"));
 __export(__webpack_require__(/*! ./Header */ "./public/src/components/Header/index.ts"));
 __export(__webpack_require__(/*! ./Logo */ "./public/src/components/Logo/index.ts"));
 __export(__webpack_require__(/*! ./Loader */ "./public/src/components/Loader/index.ts"));
@@ -87961,8 +88069,8 @@ var results = function (props) { return (React.createElement(components_1.MatchL
         url: "/api/results/" + props.match.params.id,
     }) }, props))); };
 /* istanbul ignore next */
-var fixtures = function (props) { return (React.createElement(components_1.MatchList, __assign({ store: new stores_1.DataRetriever({
-        url: "/api/results/" + props.match.params.id,
+var fixtures = function (props) { return (React.createElement(components_1.FixturesList, __assign({ store: new stores_1.DataRetriever({
+        url: "/api/schedule/" + props.match.params.id,
     }) }, props))); };
 /* istanbul ignore next */
 var predictions = function (props) { return (React.createElement(components_1.Prediction, { store: new stores_1.PredictionStore({
@@ -88072,9 +88180,9 @@ var DataRetriever = /** @class */ (function () {
             .catch(
         /* istanbul ignore next */
         function (_a) {
-            var response = _a.response;
+            var status = _a.status;
             /* istanbul ignore next */
-            if (response.status === 403) {
+            if (status === 403) {
                 UserStore_1.userStore.logout();
             }
         });

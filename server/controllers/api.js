@@ -40,10 +40,26 @@ module.exports.getResultsByDate = (req, res) => {
     )
     .then(response => {
       res.status(200).send(response.data);
+    })
+    .catch(err => {
+      res.status(404).send(err.data);
     });
 };
 
-module.exports.getSchedule = (req, res) => {
+module.exports.getScheduleByTournamentId = (req, res) => {
+  axios
+    .get(
+      `${apiUrl}/en/tournaments/${req.params.id}/schedule.json?api_key=${apiKey}`,
+    )
+    .then(response => {
+      res.status(200).send(response.data);
+    })
+    .catch(err => {
+      res.status(404).send(err.data);
+    });
+};
+
+module.exports.getScheduleByDate = (req, res) => {
   axios
     .get(
       `${apiUrl}/en/schedules/${req.params.date}/schedule.json?api_key=${apiKey}`,

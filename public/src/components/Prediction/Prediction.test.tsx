@@ -3,7 +3,7 @@ import { mount } from "enzyme";
 import * as React from "react";
 import { Loader, Prediction } from "../";
 import { ISportEvent } from "../../@types";
-import { scheduleMock } from "../../__mocks__";
+import { scheduleByDateMock as schedule } from "../../__mocks__";
 import { userStore } from "../../stores";
 import { PredictionMessage } from "./PredictionMessage";
 
@@ -45,7 +45,7 @@ describe("Prediction", () => {
       />
     );
   };
-  const comp = createPrediction(true, scheduleMock, false, true, false);
+  const comp = createPrediction(true, schedule, false, true, false);
 
   it("should render loader", () => {
     const notRenderedComp = mount(
@@ -55,16 +55,12 @@ describe("Prediction", () => {
   });
 
   it("should render submit button with loader", () => {
-    const wrapper = mount(
-      createPrediction(true, scheduleMock, false, true, true),
-    );
+    const wrapper = mount(createPrediction(true, schedule, false, true, true));
     expect(wrapper.find(CircularProgress)).toHaveLength(1);
   });
 
   it("should render success message after form submit", () => {
-    const wrapper = mount(
-      createPrediction(true, scheduleMock, true, true, false),
-    );
+    const wrapper = mount(createPrediction(true, schedule, true, true, false));
     expect(wrapper.find(PredictionMessage)).toHaveLength(1);
   });
 
