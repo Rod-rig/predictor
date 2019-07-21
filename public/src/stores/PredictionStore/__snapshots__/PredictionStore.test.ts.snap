@@ -1,3 +1,63 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`PredictionStore should create correct object 1`] = `undefined`;
+exports[`PredictionStore should create correct object 1`] = `
+Object {
+  "competitors": Array [
+    Object {
+      "abbreviation": "TWE",
+      "country": "Netherlands",
+      "country_code": "NLD",
+      "id": "sr:competitor:2955",
+      "name": "FC Twente Enschede",
+      "qualifier": "home",
+    },
+    Object {
+      "abbreviation": "FCU",
+      "country": "Netherlands",
+      "country_code": "NLD",
+      "id": "sr:competitor:2948",
+      "name": "FC Utrecht",
+      "qualifier": "away",
+    },
+  ],
+  "id": "sr:match:18440746",
+  "scheduled": "2019-09-01T10:15:00+00:00",
+  "season": Object {
+    "end_date": "2020-05-25",
+    "id": "sr:season:67181",
+    "name": "Eredivisie 19/20",
+    "start_date": "2019-08-02",
+    "tournament_id": "sr:tournament:37",
+    "year": "19/20",
+  },
+  "start_time_tbd": false,
+  "status": "not_started",
+  "tournament": Object {
+    "category": Object {
+      "country_code": "NLD",
+      "id": "sr:category:35",
+      "name": "Netherlands",
+    },
+    "id": "sr:tournament:37",
+    "name": "Eredivisie",
+    "sport": Object {
+      "id": "sr:sport:1",
+      "name": "Soccer",
+    },
+  },
+  "tournament_round": Object {
+    "number": 5,
+    "phase": "regular season",
+    "type": "group",
+  },
+  "venue": Object {
+    "capacity": 30205,
+    "city_name": "Enschede",
+    "country_code": "NLD",
+    "country_name": "Netherlands",
+    "id": "sr:venue:584",
+    "map_coordinates": "52.236667,6.837500",
+    "name": "Grolsch Veste Stadium",
+  },
+}
+`;

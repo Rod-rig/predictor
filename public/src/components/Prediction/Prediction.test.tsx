@@ -45,7 +45,8 @@ describe("Prediction", () => {
       />
     );
   };
-  const comp = createPrediction(true, schedule, false, true, false);
+  const { sport_events: events } = schedule;
+  const comp = createPrediction(true, events, false, true, false);
 
   it("should render loader", () => {
     const notRenderedComp = mount(
@@ -55,12 +56,12 @@ describe("Prediction", () => {
   });
 
   it("should render submit button with loader", () => {
-    const wrapper = mount(createPrediction(true, schedule, false, true, true));
+    const wrapper = mount(createPrediction(true, events, false, true, true));
     expect(wrapper.find(CircularProgress)).toHaveLength(1);
   });
 
   it("should render success message after form submit", () => {
-    const wrapper = mount(createPrediction(true, schedule, true, true, false));
+    const wrapper = mount(createPrediction(true, events, true, true, false));
     expect(wrapper.find(PredictionMessage)).toHaveLength(1);
   });
 
