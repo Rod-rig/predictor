@@ -5,26 +5,17 @@ const resultsByDateMock = require("../config/mocks/resultsByDateMock");
 const scheduleByDateMock = require("../config/mocks/scheduleByDateMock");
 const scheduleByTournamentIdMock = require("../config/mocks/scheduleByTournamentIdMock");
 
-module.exports.getAllTournaments = (req, res) => {
-  res.status(200).send(tournamentListMock);
+const methods = {
+  getAllTournaments: tournamentListMock,
+  getStandings: tableMock,
+  getResultsByTournamentId: resultsMock,
+  getResultsByDate: resultsByDateMock,
+  getScheduleByTournamentId: scheduleByTournamentIdMock,
+  getScheduleByDate: scheduleByDateMock,
 };
 
-module.exports.getStandings = (req, res) => {
-  res.status(200).send(tableMock);
-};
-
-module.exports.getResultsByTournamentId = (req, res) => {
-  res.status(200).send(resultsMock);
-};
-
-module.exports.getResultsByDate = (req, res) => {
-  res.status(200).send(resultsByDateMock);
-};
-
-module.exports.getScheduleByTournamentId = (req, res) => {
-  res.status(200).send(scheduleByTournamentIdMock);
-};
-
-module.exports.getScheduleByDate = (req, res) => {
-  res.status(200).send(scheduleByDateMock);
-};
+Object.keys(methods).forEach(key => {
+  module.exports[key] = (req, res) => {
+    res.status(200).send(methods[key]);
+  };
+});

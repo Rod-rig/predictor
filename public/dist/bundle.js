@@ -32147,7 +32147,7 @@ var defaultTheme = Object(_createMuiTheme__WEBPACK_IMPORTED_MODULE_0__["default"
 /*!************************************************************!*\
   !*** ./node_modules/@material-ui/core/esm/styles/index.js ***!
   \************************************************************/
-/*! exports provided: createMuiTheme, createStyles, makeStyles, MuiThemeProvider, responsiveFontSizes, styled, useTheme, withStyles, withTheme, hexToRgb, rgbToHex, hslToRgb, decomposeColor, recomposeColor, getContrastRatio, getLuminance, emphasize, fade, darken, lighten, easing, duration, formatMs, isString, isNumber */
+/*! exports provided: hexToRgb, rgbToHex, hslToRgb, decomposeColor, recomposeColor, getContrastRatio, getLuminance, emphasize, fade, darken, lighten, createMuiTheme, createStyles, makeStyles, MuiThemeProvider, responsiveFontSizes, styled, easing, duration, formatMs, isString, isNumber, useTheme, withStyles, withTheme */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -34586,6 +34586,38 @@ var _createSvgIcon = _interopRequireDefault(__webpack_require__(/*! ./utils/crea
 var _default = (0, _createSvgIcon.default)(_react.default.createElement("path", {
   d: "M3 18h18v-2H3v2zm0-5h18v-2H3v2zm0-7v2h18V6H3z"
 }), 'Menu');
+
+exports.default = _default;
+
+/***/ }),
+
+/***/ "./node_modules/@material-ui/icons/MoodBad.js":
+/*!****************************************************!*\
+  !*** ./node_modules/@material-ui/icons/MoodBad.js ***!
+  \****************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+var _interopRequireDefault = __webpack_require__(/*! @babel/runtime/helpers/interopRequireDefault */ "./node_modules/@babel/runtime/helpers/interopRequireDefault.js");
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.default = void 0;
+
+var _react = _interopRequireDefault(__webpack_require__(/*! react */ "./node_modules/react/index.js"));
+
+var _createSvgIcon = _interopRequireDefault(__webpack_require__(/*! ./utils/createSvgIcon */ "./node_modules/@material-ui/icons/utils/createSvgIcon.js"));
+
+var _default = (0, _createSvgIcon.default)(_react.default.createElement(_react.default.Fragment, null, _react.default.createElement("path", {
+  fill: "none",
+  d: "M0 0h24v24H0V0z"
+}), _react.default.createElement("path", {
+  d: "M11.99 2C6.47 2 2 6.48 2 12s4.47 10 9.99 10C17.52 22 22 17.52 22 12S17.52 2 11.99 2zM12 20c-4.42 0-8-3.58-8-8s3.58-8 8-8 8 3.58 8 8-3.58 8-8 8zm3.5-9c.83 0 1.5-.67 1.5-1.5S16.33 8 15.5 8 14 8.67 14 9.5s.67 1.5 1.5 1.5zm-7 0c.83 0 1.5-.67 1.5-1.5S9.33 8 8.5 8 7 8.67 7 9.5 7.67 11 8.5 11zm3.5 3c-2.33 0-4.31 1.46-5.11 3.5h10.22c-.8-2.04-2.78-3.5-5.11-3.5z"
+})), 'MoodBad');
 
 exports.default = _default;
 
@@ -37611,7 +37643,7 @@ var flexbox = Object(_compose__WEBPACK_IMPORTED_MODULE_1__["default"])(flexBasis
 /*!*******************************************************!*\
   !*** ./node_modules/@material-ui/system/esm/index.js ***!
   \*******************************************************/
-/*! exports provided: borders, breakpoints, compose, css, display, flexbox, palette, positions, shadows, sizing, spacing, style, typography, border, borderTop, borderRight, borderBottom, borderLeft, borderColor, borderRadius, flexBasis, flexDirection, flexWrap, justifyContent, alignItems, alignContent, order, flex, flexGrow, flexShrink, alignSelf, justifyItems, justifySelf, color, bgcolor, position, zIndex, top, right, bottom, left, width, maxWidth, minWidth, height, maxHeight, minHeight, sizeWidth, sizeHeight, fontFamily, fontSize, fontStyle, fontWeight, letterSpacing, lineHeight, textAlign */
+/*! exports provided: borders, border, borderTop, borderRight, borderBottom, borderLeft, borderColor, borderRadius, breakpoints, compose, css, display, flexbox, flexBasis, flexDirection, flexWrap, justifyContent, alignItems, alignContent, order, flex, flexGrow, flexShrink, alignSelf, justifyItems, justifySelf, palette, color, bgcolor, positions, position, zIndex, top, right, bottom, left, shadows, sizing, width, maxWidth, minWidth, height, maxHeight, minHeight, sizeWidth, sizeHeight, spacing, style, typography, fontFamily, fontSize, fontStyle, fontWeight, letterSpacing, lineHeight, textAlign */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -77942,7 +77974,7 @@ if (false) {} else {
 /*!***************************************************************!*\
   !*** ./node_modules/react-router-dom/esm/react-router-dom.js ***!
   \***************************************************************/
-/*! exports provided: BrowserRouter, HashRouter, Link, NavLink, MemoryRouter, Prompt, Redirect, Route, Router, StaticRouter, Switch, generatePath, matchPath, withRouter, __RouterContext */
+/*! exports provided: MemoryRouter, Prompt, Redirect, Route, Router, StaticRouter, Switch, generatePath, matchPath, withRouter, __RouterContext, BrowserRouter, HashRouter, Link, NavLink */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -84968,19 +85000,6 @@ exports.App = core_1.withStyles(styles)(function (props) {
 
 "use strict";
 
-var __extends = (this && this.__extends) || (function () {
-    var extendStatics = function (d, b) {
-        extendStatics = Object.setPrototypeOf ||
-            ({ __proto__: [] } instanceof Array && function (d, b) { d.__proto__ = b; }) ||
-            function (d, b) { for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p]; };
-        return extendStatics(d, b);
-    };
-    return function (d, b) {
-        extendStatics(d, b);
-        function __() { this.constructor = d; }
-        d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
-    };
-})();
 var __assign = (this && this.__assign) || function () {
     __assign = Object.assign || function(t) {
         for (var s, i = 1, n = arguments.length; i < n; i++) {
@@ -84994,55 +85013,65 @@ var __assign = (this && this.__assign) || function () {
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 var core_1 = __webpack_require__(/*! @material-ui/core */ "./node_modules/@material-ui/core/esm/index.js");
+var MoodBad_1 = __webpack_require__(/*! @material-ui/icons/MoodBad */ "./node_modules/@material-ui/icons/MoodBad.js");
 var mobx_react_1 = __webpack_require__(/*! mobx-react */ "./node_modules/mobx-react/dist/mobx-react.module.js");
 var React = __webpack_require__(/*! react */ "./node_modules/react/index.js");
 var __1 = __webpack_require__(/*! ../ */ "./public/src/components/index.ts");
+var dict_1 = __webpack_require__(/*! ../../dict */ "./public/src/dict/index.ts");
 var styles = function (_a) {
-    var _b, _c;
+    var _b, _c, _d;
     var breakpoints = _a.breakpoints, spacing = _a.spacing, typography = _a.typography;
     return core_1.createStyles({
-        round: (_b = {
-                marginBottom: spacing(1)
+        empty: (_b = {
+                margin: "auto",
+                padding: spacing(2),
+                "text-align": "center",
+                width: "320px"
             },
-            _b[breakpoints.up("lg")] = {
-                margin: spacing(0, 3, 3),
+            _b[breakpoints.up("sm")] = {
+                left: "50%",
+                position: "absolute",
+                top: "50%",
+                transform: "translate(-50%, -50%);",
             },
             _b),
-        title: __assign({}, typography.body1, (_c = { padding: spacing(1) }, _c[breakpoints.up("lg")] = {
+        round: (_c = {
+                marginBottom: spacing(1)
+            },
+            _c[breakpoints.up("lg")] = {
+                margin: spacing(0, 3, 3),
+            },
+            _c),
+        title: __assign({}, typography.body1, (_d = { padding: spacing(1) }, _d[breakpoints.up("lg")] = {
             padding: spacing(1, 4),
-        }, _c)),
+        }, _d)),
     });
 };
-exports.FixturesList = core_1.withStyles(styles)(mobx_react_1.observer(/** @class */ (function (_super) {
-    __extends(class_1, _super);
-    function class_1() {
-        return _super !== null && _super.apply(this, arguments) || this;
-    }
-    class_1.prototype.render = function () {
-        var _a = this.props, classes = _a.classes, store = _a.store;
-        var group = [];
-        return store.isLoaded ? (React.createElement(core_1.List, { disablePadding: true }, store.data.sport_events.map(function (item, index, list) {
-            var stat = {
-                awayTeam: item.competitors[1].name,
-                homeTeam: item.competitors[0].name,
-                id: item.id,
-                round: item.tournament_round.number,
-            };
-            group.push(React.createElement(__1.MatchItem, __assign({ key: stat.id }, stat)));
-            if (!list[index + 1] ||
-                stat.round !== list[index + 1].tournament_round.number) {
-                var round = (React.createElement(React.Fragment, { key: stat.id },
-                    React.createElement("div", { className: classes.title },
-                        "Round ",
-                        stat.round),
-                    React.createElement(core_1.Paper, { className: classes.round }, group)));
-                group = [];
-                return round;
-            }
-        }))) : (React.createElement(__1.Loader, null));
-    };
-    return class_1;
-}(React.Component))));
+exports.FixturesList = core_1.withStyles(styles)(mobx_react_1.observer(function (props) {
+    var classes = props.classes, store = props.store;
+    var group = [];
+    return store.isLoaded ? (store.data.sport_events.length > 0 ? (React.createElement(core_1.List, { disablePadding: true }, store.data.sport_events.map(function (item, index, list) {
+        var stat = {
+            awayTeam: item.competitors[1].name,
+            homeTeam: item.competitors[0].name,
+            id: item.id,
+            round: item.tournament_round.number,
+        };
+        group.push(React.createElement(__1.MatchItem, __assign({ key: stat.id }, stat)));
+        if (!list[index + 1] ||
+            stat.round !== list[index + 1].tournament_round.number) {
+            var round = (React.createElement(React.Fragment, { key: stat.id },
+                React.createElement("div", { className: classes.title },
+                    "Round ",
+                    stat.round),
+                React.createElement(core_1.Paper, { className: classes.round }, group)));
+            group = [];
+            return round;
+        }
+    }))) : (React.createElement("div", { className: classes.empty },
+        React.createElement(MoodBad_1.default, { fontSize: "large" }),
+        React.createElement(core_1.Typography, { variant: "h5" }, dict_1.dict.empty_fixtures_list)))) : (React.createElement(__1.Loader, null));
+}));
 
 
 /***/ }),
@@ -85613,19 +85642,6 @@ __export(__webpack_require__(/*! ./MatchItem */ "./public/src/components/MatchIt
 
 "use strict";
 
-var __extends = (this && this.__extends) || (function () {
-    var extendStatics = function (d, b) {
-        extendStatics = Object.setPrototypeOf ||
-            ({ __proto__: [] } instanceof Array && function (d, b) { d.__proto__ = b; }) ||
-            function (d, b) { for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p]; };
-        return extendStatics(d, b);
-    };
-    return function (d, b) {
-        extendStatics(d, b);
-        function __() { this.constructor = d; }
-        d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
-    };
-})();
 var __assign = (this && this.__assign) || function () {
     __assign = Object.assign || function(t) {
         for (var s, i = 1, n = arguments.length; i < n; i++) {
@@ -85639,58 +85655,68 @@ var __assign = (this && this.__assign) || function () {
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 var core_1 = __webpack_require__(/*! @material-ui/core */ "./node_modules/@material-ui/core/esm/index.js");
+var MoodBad_1 = __webpack_require__(/*! @material-ui/icons/MoodBad */ "./node_modules/@material-ui/icons/MoodBad.js");
 var mobx_react_1 = __webpack_require__(/*! mobx-react */ "./node_modules/mobx-react/dist/mobx-react.module.js");
 var React = __webpack_require__(/*! react */ "./node_modules/react/index.js");
 var __1 = __webpack_require__(/*! ../ */ "./public/src/components/index.ts");
+var dict_1 = __webpack_require__(/*! ../../dict */ "./public/src/dict/index.ts");
 var styles = function (_a) {
-    var _b, _c;
+    var _b, _c, _d;
     var breakpoints = _a.breakpoints, spacing = _a.spacing, typography = _a.typography;
     return core_1.createStyles({
-        round: (_b = {
-                marginBottom: spacing(1)
+        empty: (_b = {
+                margin: "auto",
+                padding: spacing(2),
+                "text-align": "center",
+                width: "320px"
             },
-            _b[breakpoints.up("lg")] = {
-                margin: spacing(0, 3, 3),
+            _b[breakpoints.up("sm")] = {
+                left: "50%",
+                position: "absolute",
+                top: "50%",
+                transform: "translate(-50%, -50%);",
             },
             _b),
-        title: __assign({}, typography.body1, (_c = { padding: spacing(1) }, _c[breakpoints.up("lg")] = {
+        round: (_c = {
+                marginBottom: spacing(1)
+            },
+            _c[breakpoints.up("lg")] = {
+                margin: spacing(0, 3, 3),
+            },
+            _c),
+        title: __assign({}, typography.body1, (_d = { padding: spacing(1) }, _d[breakpoints.up("lg")] = {
             padding: spacing(1, 4),
-        }, _c)),
+        }, _d)),
     });
 };
-exports.MatchList = core_1.withStyles(styles)(mobx_react_1.observer(/** @class */ (function (_super) {
-    __extends(class_1, _super);
-    function class_1() {
-        return _super !== null && _super.apply(this, arguments) || this;
-    }
-    class_1.prototype.render = function () {
-        var _a = this.props, classes = _a.classes, store = _a.store;
-        var group = [];
-        return store.isLoaded ? (React.createElement(core_1.List, { disablePadding: true }, store.data.results.map(function (item, index, list) {
-            var stat = {
-                awayScore: item.sport_event_status.away_score,
-                awayTeam: item.sport_event.competitors[1].name,
-                homeScore: item.sport_event_status.home_score,
-                homeTeam: item.sport_event.competitors[0].name,
-                id: item.sport_event.id,
-                round: item.sport_event.tournament_round.number,
-            };
-            group.push(React.createElement(__1.MatchItem, __assign({ key: stat.id }, stat)));
-            if (!list[index + 1] ||
-                stat.round !==
-                    list[index + 1].sport_event.tournament_round.number) {
-                var round = (React.createElement(React.Fragment, { key: stat.id },
-                    React.createElement("div", { className: classes.title },
-                        "Round ",
-                        stat.round),
-                    React.createElement(core_1.Paper, { className: classes.round }, group)));
-                group = [];
-                return round;
-            }
-        }))) : (React.createElement(__1.Loader, null));
-    };
-    return class_1;
-}(React.Component))));
+exports.MatchList = core_1.withStyles(styles)(mobx_react_1.observer(function (props) {
+    var classes = props.classes, store = props.store;
+    var group = [];
+    return store.isLoaded ? (store.data.results.length > 0 ? (React.createElement(core_1.List, { disablePadding: true }, store.data.results.map(function (item, index, list) {
+        var stat = {
+            awayScore: item.sport_event_status.away_score,
+            awayTeam: item.sport_event.competitors[1].name,
+            homeScore: item.sport_event_status.home_score,
+            homeTeam: item.sport_event.competitors[0].name,
+            id: item.sport_event.id,
+            round: item.sport_event.tournament_round.number,
+        };
+        group.push(React.createElement(__1.MatchItem, __assign({ key: stat.id }, stat)));
+        if (!list[index + 1] ||
+            stat.round !==
+                list[index + 1].sport_event.tournament_round.number) {
+            var round = (React.createElement(React.Fragment, { key: stat.id },
+                React.createElement("div", { className: classes.title },
+                    "Round ",
+                    stat.round),
+                React.createElement(core_1.Paper, { className: classes.round }, group)));
+            group = [];
+            return round;
+        }
+    }))) : (React.createElement("div", { className: classes.empty },
+        React.createElement(MoodBad_1.default, { fontSize: "large" }),
+        React.createElement(core_1.Typography, { variant: "h5" }, dict_1.dict.empty_match_list)))) : (React.createElement(__1.Loader, null));
+}));
 
 
 /***/ }),
@@ -87768,6 +87794,8 @@ exports.dict = {
     date_label: "Date",
     draw: "draw",
     email: "Email",
+    empty_fixtures_list: "Fixtures list is empty",
+    empty_match_list: "Match list is empty",
     empty_stat_descr: "Looks like you have no predictions yet",
     empty_stat_title: "No statistics",
     fixtures: "Fixtures",
