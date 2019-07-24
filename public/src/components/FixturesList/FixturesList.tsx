@@ -14,7 +14,7 @@ import { Loader, MatchItem } from "../";
 import { IFixture, IRetriever } from "../../@types";
 import { dict } from "../../dict";
 
-const styles = ({ breakpoints, spacing, typography }: Theme) =>
+const styles = ({ breakpoints, palette, spacing, typography }: Theme) =>
   createStyles({
     empty: {
       margin: "auto",
@@ -29,17 +29,17 @@ const styles = ({ breakpoints, spacing, typography }: Theme) =>
       },
     },
     round: {
-      marginBottom: spacing(1),
-      [breakpoints.up("lg")]: {
-        margin: spacing(0, 3, 3),
+      margin: spacing(1),
+      overflow: "hidden",
+      [breakpoints.up("sm")]: {
+        margin: spacing(3, 1),
       },
     },
     title: {
       ...typography.body1,
-      padding: spacing(1),
-      [breakpoints.up("lg")]: {
-        padding: spacing(1, 4),
-      },
+      backgroundColor: palette.primary.main,
+      color: palette.common.white,
+      padding: spacing(1.5),
     },
   });
 
@@ -71,10 +71,10 @@ export const FixturesList = withStyles(styles)(
                 stat.round !== list[index + 1].tournament_round.number
               ) {
                 const round = (
-                  <React.Fragment key={stat.id}>
+                  <Paper className={classes.round} key={stat.id}>
                     <div className={classes.title}>Round {stat.round}</div>
-                    <Paper className={classes.round}>{group}</Paper>
-                  </React.Fragment>
+                    <div>{group}</div>
+                  </Paper>
                 );
                 group = [];
                 return round;

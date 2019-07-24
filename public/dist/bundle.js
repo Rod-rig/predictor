@@ -85019,8 +85019,8 @@ var React = __webpack_require__(/*! react */ "./node_modules/react/index.js");
 var __1 = __webpack_require__(/*! ../ */ "./public/src/components/index.ts");
 var dict_1 = __webpack_require__(/*! ../../dict */ "./public/src/dict/index.ts");
 var styles = function (_a) {
-    var _b, _c, _d;
-    var breakpoints = _a.breakpoints, spacing = _a.spacing, typography = _a.typography;
+    var _b, _c;
+    var breakpoints = _a.breakpoints, palette = _a.palette, spacing = _a.spacing, typography = _a.typography;
     return core_1.createStyles({
         empty: (_b = {
                 margin: "auto",
@@ -85036,15 +85036,14 @@ var styles = function (_a) {
             },
             _b),
         round: (_c = {
-                marginBottom: spacing(1)
+                margin: spacing(1),
+                overflow: "hidden"
             },
-            _c[breakpoints.up("lg")] = {
-                margin: spacing(0, 3, 3),
+            _c[breakpoints.up("sm")] = {
+                margin: spacing(3, 1),
             },
             _c),
-        title: __assign({}, typography.body1, (_d = { padding: spacing(1) }, _d[breakpoints.up("lg")] = {
-            padding: spacing(1, 4),
-        }, _d)),
+        title: __assign({}, typography.body1, { backgroundColor: palette.primary.main, color: palette.common.white, padding: spacing(1.5) }),
     });
 };
 exports.FixturesList = core_1.withStyles(styles)(mobx_react_1.observer(function (props) {
@@ -85060,11 +85059,11 @@ exports.FixturesList = core_1.withStyles(styles)(mobx_react_1.observer(function 
         group.push(React.createElement(__1.MatchItem, __assign({ key: stat.id }, stat)));
         if (!list[index + 1] ||
             stat.round !== list[index + 1].tournament_round.number) {
-            var round = (React.createElement(React.Fragment, { key: stat.id },
+            var round = (React.createElement(core_1.Paper, { className: classes.round, key: stat.id },
                 React.createElement("div", { className: classes.title },
                     "Round ",
                     stat.round),
-                React.createElement(core_1.Paper, { className: classes.round }, group)));
+                React.createElement("div", null, group)));
             group = [];
             return round;
         }
@@ -85661,8 +85660,8 @@ var React = __webpack_require__(/*! react */ "./node_modules/react/index.js");
 var __1 = __webpack_require__(/*! ../ */ "./public/src/components/index.ts");
 var dict_1 = __webpack_require__(/*! ../../dict */ "./public/src/dict/index.ts");
 var styles = function (_a) {
-    var _b, _c, _d;
-    var breakpoints = _a.breakpoints, spacing = _a.spacing, typography = _a.typography;
+    var _b, _c;
+    var breakpoints = _a.breakpoints, palette = _a.palette, spacing = _a.spacing, typography = _a.typography;
     return core_1.createStyles({
         empty: (_b = {
                 margin: "auto",
@@ -85678,15 +85677,14 @@ var styles = function (_a) {
             },
             _b),
         round: (_c = {
-                marginBottom: spacing(1)
+                margin: spacing(1),
+                overflow: "hidden"
             },
-            _c[breakpoints.up("lg")] = {
-                margin: spacing(0, 3, 3),
+            _c[breakpoints.up("sm")] = {
+                margin: spacing(3, 1),
             },
             _c),
-        title: __assign({}, typography.body1, (_d = { padding: spacing(1) }, _d[breakpoints.up("lg")] = {
-            padding: spacing(1, 4),
-        }, _d)),
+        title: __assign({}, typography.body1, { backgroundColor: palette.primary.main, color: palette.common.white, padding: spacing(1.5) }),
     });
 };
 exports.MatchList = core_1.withStyles(styles)(mobx_react_1.observer(function (props) {
@@ -85705,11 +85703,11 @@ exports.MatchList = core_1.withStyles(styles)(mobx_react_1.observer(function (pr
         if (!list[index + 1] ||
             stat.round !==
                 list[index + 1].sport_event.tournament_round.number) {
-            var round = (React.createElement(React.Fragment, { key: stat.id },
+            var round = (React.createElement(core_1.Paper, { className: classes.round, key: stat.id },
                 React.createElement("div", { className: classes.title },
                     "Round ",
                     stat.round),
-                React.createElement(core_1.Paper, { className: classes.round }, group)));
+                React.createElement("div", null, group)));
             group = [];
             return round;
         }
