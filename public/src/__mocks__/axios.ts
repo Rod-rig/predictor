@@ -2,7 +2,7 @@ import { getFutureDates } from "../helpers";
 import {
   matchListMock,
   predictions,
-  scheduleMock,
+  scheduleByDateMock,
   tableMock,
   tournamentListMock,
   userMock,
@@ -17,7 +17,7 @@ export default {
     } else if (url === "/api/results/id") {
       return Promise.resolve({ data: matchListMock });
     } else if (url === `/available-events/${getFutureDates()[0]}`) {
-      return Promise.resolve({ data: scheduleMock });
+      return Promise.resolve({ data: scheduleByDateMock.sport_events });
     } else if (url === "/predictions") {
       return Promise.resolve({ data: predictions });
     } else if (url === "/current-user") {

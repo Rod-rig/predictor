@@ -38,7 +38,7 @@ exports[`MatchItem should render future match correctly 1`] = `
     </div>
   </div>
   <div
-    className="Component-score-11"
+    className="Component-score-11 Component-default-3"
   >
     <div
       className="Component-dash-2"

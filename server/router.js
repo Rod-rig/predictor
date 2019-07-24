@@ -11,7 +11,8 @@ module.exports = app => {
   app.get("/api/standings/:id", apiCtrl.getStandings);
   app.get("/api/results/:id", apiCtrl.getResultsByTournamentId);
   app.get("/api/daily-results/:date", apiCtrl.getResultsByDate);
-  app.get("/api/schedule/:date", apiCtrl.getSchedule);
+  app.get("/api/schedule/:id", apiCtrl.getScheduleByTournamentId);
+  app.get("/api/schedule/:date", apiCtrl.getScheduleByDate);
 
   //users
   app.get("/users", userCtrl.verifyIsAdmin, userCtrl.getAllUsers);

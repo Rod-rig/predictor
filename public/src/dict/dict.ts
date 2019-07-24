@@ -4,6 +4,8 @@ export interface IDict {
   date_label: string;
   draw: string;
   email: string;
+  empty_fixtures_list: string;
+  empty_match_list: string;
   empty_stat_descr: string;
   empty_stat_title: string;
   fixtures: string;
@@ -51,6 +53,8 @@ export const dict: IDict = {
   date_label: "Date",
   draw: "draw",
   email: "Email",
+  empty_fixtures_list: "Fixtures list is empty",
+  empty_match_list: "Match list is empty",
   empty_stat_descr: "Looks like you have no predictions yet",
   empty_stat_title: "No statistics",
   fixtures: "Fixtures",

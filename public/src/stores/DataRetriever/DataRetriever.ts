@@ -23,9 +23,9 @@ export class DataRetriever implements IRetriever {
       /* istanbul ignore next */
       .catch(
         /* istanbul ignore next */
-        ({ response }) => {
+        ({ status }) => {
           /* istanbul ignore next */
-          if (response.status === 403) {
+          if (status === 403) {
             userStore.logout();
           }
         },

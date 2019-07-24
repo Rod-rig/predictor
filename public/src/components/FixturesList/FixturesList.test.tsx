@@ -1,16 +1,16 @@
 import { mount } from "enzyme";
 import * as React from "react";
 import * as renderer from "react-test-renderer";
-import { Loader, MatchList } from "../";
-import { IMatch } from "../../@types";
-import { matchListMock } from "../../__mocks__";
+import { FixturesList, Loader } from "../";
+import { IFixture } from "../../@types";
+import { scheduleByTournamentId as schedule } from "../../__mocks__";
 
-describe("MatchList", () => {
-  const renderComp = (results: IMatch[], isLoaded: boolean) => (
-    <MatchList
+describe("FixturesList", () => {
+  const renderComp = (sportEvents: IFixture[], isLoaded: boolean) => (
+    <FixturesList
       store={{
         data: {
-          results,
+          sport_events: sportEvents,
         },
         isLoaded,
         url: "test",
@@ -24,7 +24,7 @@ describe("MatchList", () => {
   });
 
   it("should render match list correctly", () => {
-    const comp = renderComp(matchListMock.results, true);
+    const comp = renderComp(schedule.sport_events, true);
     const tree = renderer.create(comp).toJSON();
     expect(tree).toMatchSnapshot();
   });

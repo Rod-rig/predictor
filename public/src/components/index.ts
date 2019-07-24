@@ -1,4 +1,5 @@
 export * from "./Account";
+export * from "./FixturesList";
 export * from "./Header";
 export * from "./Logo";
 export * from "./Loader";
