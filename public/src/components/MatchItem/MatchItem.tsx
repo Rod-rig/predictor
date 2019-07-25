@@ -2,6 +2,7 @@ import { ListItem, ListItemText, Theme, withStyles } from "@material-ui/core";
 import { green } from "@material-ui/core/colors";
 import classNames from "classnames";
 import * as React from "react";
+import { Link } from "react-router-dom";
 import { TeamLogo } from "../";
 
 const decorate = withStyles(
@@ -101,6 +102,10 @@ const renderEmptyScore = (classes: any): JSX.Element => (
   </div>
 );
 
+const MatchItemLink = React.forwardRef((props: any, ref) => (
+  <Link to={`/match/${props.id}`} ref={ref} {...props} />
+));
+
 export const MatchItem = decorate(
   (props: {
     awayLogo?: string;
@@ -110,11 +115,26 @@ export const MatchItem = decorate(
     homeLogo?: string;
     homeScore?: number;
     homeTeam: string;
+    id: string;
     status?: number;
   }) => {
-    const { awayScore, awayTeam, classes, homeScore, homeTeam, status } = props;
+    const {
+      awayScore,
+      awayTeam,
+      classes,
+      homeScore,
+      homeTeam,
+      id,
+      status,
+    } = props;
     return (
-      <ListItem button={true} divider={true} className={classes.matchItem}>
+      <ListItem
+        component={MatchItemLink}
+        button={true}
+        divider={true}
+        className={classes.matchItem}
+        id={id}
+      >
         <ListItemText
           className={`${classes.text} ${classes.home}`}
           disableTypography={true}

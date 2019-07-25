@@ -4,6 +4,7 @@ export * from "./Header";
 export * from "./Logo";
 export * from "./Loader";
 export * from "./Login";
+export * from "./MatchDetails";
 export * from "./MatchItem";
 export * from "./MatchList";
 export * from "./Message";

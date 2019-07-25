@@ -85485,6 +85485,42 @@ __export(__webpack_require__(/*! ./Logo */ "./public/src/components/Logo/Logo.ts
 
 /***/ }),
 
+/***/ "./public/src/components/MatchDetails/MatchDetails.tsx":
+/*!*************************************************************!*\
+  !*** ./public/src/components/MatchDetails/MatchDetails.tsx ***!
+  \*************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+Object.defineProperty(exports, "__esModule", { value: true });
+var React = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+exports.MatchDetails = function (props) {
+    return React.createElement("div", null, props.match.params.id);
+};
+
+
+/***/ }),
+
+/***/ "./public/src/components/MatchDetails/index.ts":
+/*!*****************************************************!*\
+  !*** ./public/src/components/MatchDetails/index.ts ***!
+  \*****************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+function __export(m) {
+    for (var p in m) if (!exports.hasOwnProperty(p)) exports[p] = m[p];
+}
+Object.defineProperty(exports, "__esModule", { value: true });
+__export(__webpack_require__(/*! ./MatchDetails */ "./public/src/components/MatchDetails/MatchDetails.tsx"));
+
+
+/***/ }),
+
 /***/ "./public/src/components/MatchItem/MatchItem.tsx":
 /*!*******************************************************!*\
   !*** ./public/src/components/MatchItem/MatchItem.tsx ***!
@@ -85510,6 +85546,7 @@ var core_1 = __webpack_require__(/*! @material-ui/core */ "./node_modules/@mater
 var colors_1 = __webpack_require__(/*! @material-ui/core/colors */ "./node_modules/@material-ui/core/esm/colors/index.js");
 var classnames_1 = __webpack_require__(/*! classnames */ "./node_modules/classnames/index.js");
 var React = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+var react_router_dom_1 = __webpack_require__(/*! react-router-dom */ "./node_modules/react-router-dom/esm/react-router-dom.js");
 var __1 = __webpack_require__(/*! ../ */ "./public/src/components/index.ts");
 var decorate = core_1.withStyles(function (_a) {
     var _b, _c, _d, _e, _f, _g;
@@ -85597,9 +85634,10 @@ var renderScore = function (homeScore, awayScore, status, classes) {
 };
 var renderEmptyScore = function (classes) { return (React.createElement("div", { className: classnames_1.default(classes.score, classes.default) },
     React.createElement("div", { className: classes.dash }, ":"))); };
+var MatchItemLink = React.forwardRef(function (props, ref) { return (React.createElement(react_router_dom_1.Link, __assign({ to: "/match/" + props.id, ref: ref }, props))); });
 exports.MatchItem = decorate(function (props) {
-    var awayScore = props.awayScore, awayTeam = props.awayTeam, classes = props.classes, homeScore = props.homeScore, homeTeam = props.homeTeam, status = props.status;
-    return (React.createElement(core_1.ListItem, { button: true, divider: true, className: classes.matchItem },
+    var awayScore = props.awayScore, awayTeam = props.awayTeam, classes = props.classes, homeScore = props.homeScore, homeTeam = props.homeTeam, id = props.id, status = props.status;
+    return (React.createElement(core_1.ListItem, { component: MatchItemLink, button: true, divider: true, className: classes.matchItem, id: id },
         React.createElement(core_1.ListItemText, { className: classes.text + " " + classes.home, disableTypography: true },
             React.createElement("div", null, homeTeam),
             React.createElement(__1.TeamLogo, { teamName: homeTeam, modClass: classes.homeIcon })),
@@ -87428,6 +87466,7 @@ __export(__webpack_require__(/*! ./Header */ "./public/src/components/Header/ind
 __export(__webpack_require__(/*! ./Logo */ "./public/src/components/Logo/index.ts"));
 __export(__webpack_require__(/*! ./Loader */ "./public/src/components/Loader/index.ts"));
 __export(__webpack_require__(/*! ./Login */ "./public/src/components/Login/index.ts"));
+__export(__webpack_require__(/*! ./MatchDetails */ "./public/src/components/MatchDetails/index.ts"));
 __export(__webpack_require__(/*! ./MatchItem */ "./public/src/components/MatchItem/index.ts"));
 __export(__webpack_require__(/*! ./MatchList */ "./public/src/components/MatchList/index.ts"));
 __export(__webpack_require__(/*! ./Message */ "./public/src/components/Message/index.ts"));
@@ -88108,6 +88147,7 @@ var registration = function () { return React.createElement(components_1.Registr
 var stats = function (props) { return (React.createElement(components_1.Stats, __assign({ store: new stores_1.DataRetriever({
         url: "/predictions",
     }) }, props))); };
+var matchDetails = function (props) { return (React.createElement(components_1.MatchDetails, __assign({}, props))); };
 exports.routes = [
     {
         component: tournamentList,
@@ -88149,6 +88189,10 @@ exports.routes = [
         component: stats,
         isProtected: true,
         path: "/stats",
+    },
+    {
+        component: matchDetails,
+        path: "/match/:id",
     },
     {
         component: components_1.NotFound,

@@ -1,10 +1,11 @@
 import * as React from "react";
-import { match, RouteProps } from "react-router-dom";
+import { match, RouteComponentProps, RouteProps } from "react-router-dom";
 import { IPredictionStore, IRetrieverProps, ITableProps } from "./@types";
 import {
   Account,
   FixturesList,
   Login,
+  MatchDetails,
   MatchList,
   NotFound,
   Prediction,
@@ -105,6 +106,10 @@ const stats = (props: IRetrieverProps & { match: IId }) => (
   />
 );
 
+const matchDetails = (props: RouteComponentProps<{ id: string }>) => (
+  <MatchDetails {...props} />
+);
+
 export const routes = [
   {
     component: tournamentList,
@@ -146,6 +151,10 @@ export const routes = [
     component: stats,
     isProtected: true,
     path: "/stats",
+  },
+  {
+    component: matchDetails,
+    path: "/match/:id",
   },
   {
     component: NotFound,
