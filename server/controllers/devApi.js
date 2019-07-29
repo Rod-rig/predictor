@@ -4,6 +4,7 @@ const resultsMock = require("../config/mocks/resultsMock");
 const resultsByDateMock = require("../config/mocks/resultsByDateMock");
 const scheduleByDateMock = require("../config/mocks/scheduleByDateMock");
 const scheduleByTournamentIdMock = require("../config/mocks/scheduleByTournamentIdMock");
+const matchSummaryMock = require("../config/mocks/matchSummaryMock");
 
 const methods = {
   getAllTournaments: tournamentListMock,
@@ -12,6 +13,7 @@ const methods = {
   getResultsByDate: resultsByDateMock,
   getScheduleByTournamentId: scheduleByTournamentIdMock,
   getScheduleByDate: scheduleByDateMock,
+  getMatchDetails: matchSummaryMock,
 };
 
 Object.keys(methods).forEach(key => {

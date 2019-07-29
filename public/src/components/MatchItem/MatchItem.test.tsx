@@ -11,10 +11,11 @@ describe("MatchItem", () => {
       homeTeam="Test2"
       homeScore={2}
       homeLogo="logo2"
+      id="test"
       status={0}
     />
   );
-  const futureMatch = <MatchItem awayTeam="Test1" homeTeam="Test2" />;
+  const futureMatch = <MatchItem awayTeam="Test1" homeTeam="Test2" id="test" />;
   const playedMatch = (
     <MatchItem
       awayTeam="Test1"
@@ -23,6 +24,7 @@ describe("MatchItem", () => {
       homeTeam="Test2"
       homeScore={2}
       homeLogo="logo2"
+      id="test"
       status={1}
     />
   );

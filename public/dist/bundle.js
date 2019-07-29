@@ -85495,9 +85495,24 @@ __export(__webpack_require__(/*! ./Logo */ "./public/src/components/Logo/Logo.ts
 "use strict";
 
 Object.defineProperty(exports, "__esModule", { value: true });
+var axios_1 = __webpack_require__(/*! axios */ "./node_modules/axios/index.js");
 var React = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+var __1 = __webpack_require__(/*! ../ */ "./public/src/components/index.ts");
 exports.MatchDetails = function (props) {
-    return React.createElement("div", null, props.match.params.id);
+    var id = props.match.params.id;
+    var _a = React.useState({
+        isLoaded: false,
+        matches: null,
+    }), data = _a[0], setData = _a[1];
+    React.useEffect(function () {
+        axios_1.default.get("/api/match/" + id).then(function (response) {
+            setData({
+                isLoaded: true,
+                matches: response.data,
+            });
+        });
+    }, []);
+    return data.isLoaded ? (React.createElement("div", null, data.matches.statistics.teams[0].name + " " + data.matches.sport_event_status.home_score + ":" + data.matches.sport_event_status.away_score + " " + data.matches.statistics.teams[1].name)) : (React.createElement(__1.Loader, null));
 };
 
 
@@ -88246,12 +88261,8 @@ var DataRetriever = /** @class */ (function () {
             _this.data = Array.isArray(res.data) ? res.data.slice() : __assign({}, res.data);
             _this.isLoaded = true;
         })
-            /* istanbul ignore next */
-            .catch(
-        /* istanbul ignore next */
-        function (_a) {
+            .catch(function (_a) {
             var status = _a.status;
-            /* istanbul ignore next */
             if (status === 403) {
                 UserStore_1.userStore.logout();
             }
