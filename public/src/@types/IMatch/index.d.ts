@@ -1,5 +1,6 @@
 import { ISeason, ITournament } from "../";
 import { ICompetitor } from "../ICompetitor";
+import { IPeriodScore } from "../IPeriodScore";
 import { IVenue } from "../IVenue";
 
 interface ISportEvent {
@@ -20,13 +21,6 @@ interface ISportEvent {
     tournament_match_number?: number;
   };
   venue: IVenue;
-}
-
-interface IPeriodScore {
-  away_score: number;
-  home_score: number;
-  number: number;
-  type: string;
 }
 
 interface ISportEventStatus {

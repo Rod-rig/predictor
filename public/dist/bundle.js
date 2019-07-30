@@ -85495,24 +85495,60 @@ __export(__webpack_require__(/*! ./Logo */ "./public/src/components/Logo/Logo.ts
 "use strict";
 
 Object.defineProperty(exports, "__esModule", { value: true });
+var core_1 = __webpack_require__(/*! @material-ui/core */ "./node_modules/@material-ui/core/esm/index.js");
+var styles_1 = __webpack_require__(/*! @material-ui/styles */ "./node_modules/@material-ui/styles/esm/index.js");
 var axios_1 = __webpack_require__(/*! axios */ "./node_modules/axios/index.js");
 var React = __webpack_require__(/*! react */ "./node_modules/react/index.js");
 var __1 = __webpack_require__(/*! ../ */ "./public/src/components/index.ts");
+var useStyles = styles_1.makeStyles(function (_a) {
+    var palette = _a.palette, spacing = _a.spacing;
+    return styles_1.createStyles({
+        info: {
+            backgroundColor: palette.common.black,
+            color: palette.common.white,
+            padding: spacing(1),
+        },
+        paper: {
+            margin: spacing(1),
+            overflow: "hidden",
+        },
+    });
+});
 exports.MatchDetails = function (props) {
     var id = props.match.params.id;
+    var classes = useStyles();
     var _a = React.useState({
         isLoaded: false,
         matches: null,
     }), data = _a[0], setData = _a[1];
     React.useEffect(function () {
-        axios_1.default.get("/api/match/" + id).then(function (response) {
+        axios_1.default
+            .get("/api/match/" + id)
+            .then(function (response) {
             setData({
                 isLoaded: true,
                 matches: response.data,
             });
         });
     }, []);
-    return data.isLoaded ? (React.createElement("div", null, data.matches.statistics.teams[0].name + " " + data.matches.sport_event_status.home_score + ":" + data.matches.sport_event_status.away_score + " " + data.matches.statistics.teams[1].name)) : (React.createElement(__1.Loader, null));
+    if (data.isLoaded) {
+        var matches = data.matches;
+        var sportEvent = matches.sport_event;
+        var sportEventConditions = matches.sport_event_conditions;
+        var scheduledDate = sportEvent.scheduled;
+        var stadiumName = sportEvent.venue.name;
+        var refereeName = sportEventConditions.referee.name;
+        var attendence = sportEventConditions.attendance;
+        return (React.createElement(core_1.Paper, { className: classes.paper },
+            React.createElement("div", { className: classes.info },
+                React.createElement("span", null, scheduledDate),
+                React.createElement("span", null, refereeName),
+                React.createElement("span", null, stadiumName),
+                React.createElement("span", null, attendence))));
+    }
+    else {
+        return React.createElement(__1.Loader, null);
+    }
 };
 
 
