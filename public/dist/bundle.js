@@ -34681,6 +34681,95 @@ exports.default = _default;
 
 /***/ }),
 
+/***/ "./node_modules/@material-ui/icons/Person.js":
+/*!***************************************************!*\
+  !*** ./node_modules/@material-ui/icons/Person.js ***!
+  \***************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+var _interopRequireDefault = __webpack_require__(/*! @babel/runtime/helpers/interopRequireDefault */ "./node_modules/@babel/runtime/helpers/interopRequireDefault.js");
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.default = void 0;
+
+var _react = _interopRequireDefault(__webpack_require__(/*! react */ "./node_modules/react/index.js"));
+
+var _createSvgIcon = _interopRequireDefault(__webpack_require__(/*! ./utils/createSvgIcon */ "./node_modules/@material-ui/icons/utils/createSvgIcon.js"));
+
+var _default = (0, _createSvgIcon.default)(_react.default.createElement("path", {
+  d: "M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z"
+}), 'Person');
+
+exports.default = _default;
+
+/***/ }),
+
+/***/ "./node_modules/@material-ui/icons/Place.js":
+/*!**************************************************!*\
+  !*** ./node_modules/@material-ui/icons/Place.js ***!
+  \**************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+var _interopRequireDefault = __webpack_require__(/*! @babel/runtime/helpers/interopRequireDefault */ "./node_modules/@babel/runtime/helpers/interopRequireDefault.js");
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.default = void 0;
+
+var _react = _interopRequireDefault(__webpack_require__(/*! react */ "./node_modules/react/index.js"));
+
+var _createSvgIcon = _interopRequireDefault(__webpack_require__(/*! ./utils/createSvgIcon */ "./node_modules/@material-ui/icons/utils/createSvgIcon.js"));
+
+var _default = (0, _createSvgIcon.default)(_react.default.createElement("path", {
+  d: "M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"
+}), 'Place');
+
+exports.default = _default;
+
+/***/ }),
+
+/***/ "./node_modules/@material-ui/icons/Schedule.js":
+/*!*****************************************************!*\
+  !*** ./node_modules/@material-ui/icons/Schedule.js ***!
+  \*****************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+var _interopRequireDefault = __webpack_require__(/*! @babel/runtime/helpers/interopRequireDefault */ "./node_modules/@babel/runtime/helpers/interopRequireDefault.js");
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.default = void 0;
+
+var _react = _interopRequireDefault(__webpack_require__(/*! react */ "./node_modules/react/index.js"));
+
+var _createSvgIcon = _interopRequireDefault(__webpack_require__(/*! ./utils/createSvgIcon */ "./node_modules/@material-ui/icons/utils/createSvgIcon.js"));
+
+var _default = (0, _createSvgIcon.default)(_react.default.createElement(_react.default.Fragment, null, _react.default.createElement("path", {
+  d: "M11.99 2C6.47 2 2 6.48 2 12s4.47 10 9.99 10C17.52 22 22 17.52 22 12S17.52 2 11.99 2zM12 20c-4.42 0-8-3.58-8-8s3.58-8 8-8 8 3.58 8 8-3.58 8-8 8z"
+}), _react.default.createElement("path", {
+  d: "M12.5 7H11v6l5.25 3.15.75-1.23-4.5-2.67z"
+})), 'Schedule');
+
+exports.default = _default;
+
+/***/ }),
+
 /***/ "./node_modules/@material-ui/icons/utils/createSvgIcon.js":
 /*!****************************************************************!*\
   !*** ./node_modules/@material-ui/icons/utils/createSvgIcon.js ***!
@@ -85496,6 +85585,9 @@ __export(__webpack_require__(/*! ./Logo */ "./public/src/components/Logo/Logo.ts
 
 Object.defineProperty(exports, "__esModule", { value: true });
 var core_1 = __webpack_require__(/*! @material-ui/core */ "./node_modules/@material-ui/core/esm/index.js");
+var Place_1 = __webpack_require__(/*! @material-ui/icons/Place */ "./node_modules/@material-ui/icons/Place.js");
+var Person_1 = __webpack_require__(/*! @material-ui/icons/Person */ "./node_modules/@material-ui/icons/Person.js");
+var Schedule_1 = __webpack_require__(/*! @material-ui/icons/Schedule */ "./node_modules/@material-ui/icons/Schedule.js");
 var styles_1 = __webpack_require__(/*! @material-ui/styles */ "./node_modules/@material-ui/styles/esm/index.js");
 var axios_1 = __webpack_require__(/*! axios */ "./node_modules/axios/index.js");
 var React = __webpack_require__(/*! react */ "./node_modules/react/index.js");
@@ -85503,14 +85595,29 @@ var __1 = __webpack_require__(/*! ../ */ "./public/src/components/index.ts");
 var useStyles = styles_1.makeStyles(function (_a) {
     var palette = _a.palette, spacing = _a.spacing;
     return styles_1.createStyles({
+        icon: {
+            fontSize: "1rem",
+            marginRight: spacing(0.5),
+        },
         info: {
+            alignItems: "center",
             backgroundColor: palette.common.black,
             color: palette.common.white,
+            display: "flex",
+            fontSize: "0.75rem",
             padding: spacing(1),
         },
         paper: {
             margin: spacing(1),
             overflow: "hidden",
+        },
+        row: {
+            "&:first-child": {
+                marginLeft: 0,
+            },
+            alignItems: "center",
+            display: "inline-flex",
+            margin: spacing(0, 0.5),
         },
     });
 });
@@ -85535,16 +85642,25 @@ exports.MatchDetails = function (props) {
         var matches = data.matches;
         var sportEvent = matches.sport_event;
         var sportEventConditions = matches.sport_event_conditions;
-        var scheduledDate = sportEvent.scheduled;
+        var scheduledDate = new Date(sportEvent.scheduled).toDateString();
         var stadiumName = sportEvent.venue.name;
         var refereeName = sportEventConditions.referee.name;
         var attendence = sportEventConditions.attendance;
         return (React.createElement(core_1.Paper, { className: classes.paper },
             React.createElement("div", { className: classes.info },
-                React.createElement("span", null, scheduledDate),
-                React.createElement("span", null, refereeName),
-                React.createElement("span", null, stadiumName),
-                React.createElement("span", null, attendence))));
+                React.createElement("div", { className: classes.row },
+                    React.createElement(Schedule_1.default, { className: classes.icon }),
+                    React.createElement("span", null, scheduledDate)),
+                React.createElement("div", { className: classes.row },
+                    React.createElement(Person_1.default, { className: classes.icon }),
+                    React.createElement("span", null, refereeName)),
+                React.createElement("div", { className: classes.row },
+                    React.createElement(Place_1.default, { className: classes.icon }),
+                    React.createElement("span", null, stadiumName)),
+                React.createElement("div", { className: classes.row },
+                    React.createElement("span", null,
+                        "Att: ",
+                        attendence)))));
     }
     else {
         return React.createElement(__1.Loader, null);
