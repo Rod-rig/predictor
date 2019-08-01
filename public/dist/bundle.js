@@ -85585,39 +85585,133 @@ __export(__webpack_require__(/*! ./Logo */ "./public/src/components/Logo/Logo.ts
 
 Object.defineProperty(exports, "__esModule", { value: true });
 var core_1 = __webpack_require__(/*! @material-ui/core */ "./node_modules/@material-ui/core/esm/index.js");
-var Place_1 = __webpack_require__(/*! @material-ui/icons/Place */ "./node_modules/@material-ui/icons/Place.js");
 var Person_1 = __webpack_require__(/*! @material-ui/icons/Person */ "./node_modules/@material-ui/icons/Person.js");
+var Place_1 = __webpack_require__(/*! @material-ui/icons/Place */ "./node_modules/@material-ui/icons/Place.js");
 var Schedule_1 = __webpack_require__(/*! @material-ui/icons/Schedule */ "./node_modules/@material-ui/icons/Schedule.js");
 var styles_1 = __webpack_require__(/*! @material-ui/styles */ "./node_modules/@material-ui/styles/esm/index.js");
 var axios_1 = __webpack_require__(/*! axios */ "./node_modules/axios/index.js");
+var classnames_1 = __webpack_require__(/*! classnames */ "./node_modules/classnames/index.js");
 var React = __webpack_require__(/*! react */ "./node_modules/react/index.js");
 var __1 = __webpack_require__(/*! ../ */ "./public/src/components/index.ts");
+var desktopSize = 64;
+var mobSize = 44;
+var mobBreakpoint = 370;
 var useStyles = styles_1.makeStyles(function (_a) {
-    var palette = _a.palette, spacing = _a.spacing;
+    var _b, _c, _d, _e, _f, _g;
+    var breakpoints = _a.breakpoints, palette = _a.palette, spacing = _a.spacing;
     return styles_1.createStyles({
+        competitor: {
+            alignItems: "stretch",
+            display: "flex",
+            width: "100%",
+        },
+        dash: {
+            fontWeight: 400,
+            padding: spacing(0, 1),
+        },
         icon: {
             fontSize: "1rem",
             marginRight: spacing(0.5),
         },
-        info: {
-            alignItems: "center",
-            backgroundColor: palette.common.black,
-            color: palette.common.white,
-            display: "flex",
-            fontSize: "0.75rem",
-            padding: spacing(1),
-        },
+        info: (_b = {
+                alignItems: "center",
+                backgroundColor: palette.common.black,
+                color: palette.common.white,
+                display: "flex",
+                fontSize: "0.75rem",
+                padding: spacing(1)
+            },
+            _b[breakpoints.down("xs")] = {
+                flexFlow: "wrap",
+                padding: spacing(0.5, 1),
+            },
+            _b),
+        logo: (_c = {
+                alignItems: "center",
+                justifyContent: "center",
+                padding: spacing(1),
+                width: desktopSize + "px"
+            },
+            _c[breakpoints.down(mobBreakpoint)] = {
+                width: mobSize + "px",
+            },
+            _c),
         paper: {
             margin: spacing(1),
             overflow: "hidden",
         },
-        row: {
-            "&:first-child": {
-                marginLeft: 0,
+        row: (_d = {
+                "&:first-child": {
+                    marginLeft: 0,
+                },
+                alignItems: "center",
+                display: "inline-flex",
+                margin: spacing(0, 0.5)
             },
-            alignItems: "center",
-            display: "inline-flex",
-            margin: spacing(0, 0.5),
+            _d[breakpoints.down("xs")] = {
+                margin: spacing(0.5, 0),
+                width: "50%",
+            },
+            _d),
+        score: (_e = {
+                alignItems: "center",
+                backgroundColor: palette.secondary.main,
+                color: palette.common.white,
+                display: "flex",
+                fontSize: "2.5rem",
+                fontWeight: "bold",
+                justifyContent: "center",
+                minWidth: "140px",
+                textAlign: "center",
+                width: "140px"
+            },
+            _e[breakpoints.down("sm")] = {
+                fontSize: "2rem",
+                minWidth: "100px",
+                width: "100px",
+            },
+            _e[breakpoints.down("xs")] = {
+                minWidth: "90px",
+                width: "90px",
+            },
+            _e[breakpoints.down(mobBreakpoint)] = {
+                fontSize: "1.5rem",
+                minWidth: "80px",
+                width: "80px",
+            },
+            _e),
+        scoreBoard: (_f = {
+                alignItems: "stretch",
+                display: "flex",
+                height: desktopSize + "px",
+                justifyContent: "space-between"
+            },
+            _f[breakpoints.down(mobBreakpoint)] = {
+                height: mobSize + "px",
+            },
+            _f),
+        team: (_g = {
+                alignItems: "center",
+                background: palette.primary.main,
+                color: palette.common.white,
+                display: "flex",
+                fontSize: "1.5rem",
+                padding: spacing(0, 3),
+                width: "100%"
+            },
+            _g[breakpoints.down("sm")] = {
+                fontSize: "1.25rem",
+                padding: spacing(0, 2),
+            },
+            _g[breakpoints.down(mobBreakpoint)] = {
+                padding: spacing(0, 1),
+            },
+            _g),
+        teamAway: {
+            justifyContent: "flex-end",
+        },
+        teamHome: {
+            justifyContent: "flex-start",
         },
     });
 });
@@ -85641,7 +85735,15 @@ exports.MatchDetails = function (props) {
     if (data.isLoaded) {
         var matches = data.matches;
         var sportEvent = matches.sport_event;
+        var sportEventStat = matches.sport_event_status;
         var sportEventConditions = matches.sport_event_conditions;
+        var competitors = sportEvent.competitors;
+        var homeTeam = competitors[0].name;
+        var homeTeamAbbr = competitors[0].abbreviation;
+        var homeScore = sportEventStat.home_score;
+        var awayTeam = competitors[1].name;
+        var awayTeamAbbr = competitors[1].abbreviation;
+        var awayScore = sportEventStat.away_score;
         var scheduledDate = new Date(sportEvent.scheduled).toDateString();
         var stadiumName = sportEvent.venue.name;
         var refereeName = sportEventConditions.referee.name;
@@ -85660,7 +85762,22 @@ exports.MatchDetails = function (props) {
                 React.createElement("div", { className: classes.row },
                     React.createElement("span", null,
                         "Att: ",
-                        attendence)))));
+                        attendence))),
+            React.createElement("div", { className: classes.scoreBoard },
+                React.createElement("div", { className: classes.competitor },
+                    React.createElement(__1.TeamLogo, { modClass: classes.logo, teamName: homeTeam }),
+                    React.createElement("div", { className: classnames_1.default(classes.team, classes.teamHome) },
+                        React.createElement(core_1.Hidden, { xsDown: true }, homeTeam),
+                        React.createElement(core_1.Hidden, { smUp: true }, homeTeamAbbr))),
+                React.createElement("div", { className: classes.score },
+                    homeScore,
+                    React.createElement("span", { className: classes.dash }, "-"),
+                    awayScore),
+                React.createElement("div", { className: classes.competitor },
+                    React.createElement("div", { className: classnames_1.default(classes.team, classes.teamAway) },
+                        React.createElement(core_1.Hidden, { xsDown: true }, awayTeam),
+                        React.createElement(core_1.Hidden, { smUp: true }, awayTeamAbbr)),
+                    React.createElement(__1.TeamLogo, { modClass: classes.logo, teamName: awayTeam })))));
     }
     else {
         return React.createElement(__1.Loader, null);
