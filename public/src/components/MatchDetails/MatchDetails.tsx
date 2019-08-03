@@ -43,11 +43,13 @@ const useStyles = makeStyles(({ breakpoints, palette, spacing }: Theme) =>
     },
     logo: {
       alignItems: "center",
+      height: desktopSize,
       justifyContent: "center",
       padding: spacing(1),
-      width: `${desktopSize}px`,
+      width: desktopSize,
       [breakpoints.down(mobBreakpoint)]: {
-        width: `${mobSize}px`,
+        height: mobSize,
+        width: mobSize,
       },
     },
     paper: {
@@ -79,17 +81,17 @@ const useStyles = makeStyles(({ breakpoints, palette, spacing }: Theme) =>
       width: "140px",
       [breakpoints.down("sm")]: {
         fontSize: "2rem",
-        minWidth: "100px",
-        width: "100px",
+        minWidth: 100,
+        width: 100,
       },
       [breakpoints.down("xs")]: {
-        minWidth: "90px",
-        width: "90px",
+        minWidth: 90,
+        width: 90,
       },
       [breakpoints.down(mobBreakpoint)]: {
         fontSize: "1.5rem",
-        minWidth: "80px",
-        width: "80px",
+        minWidth: 80,
+        width: 80,
       },
     },
     scoreBoard: {
@@ -98,7 +100,7 @@ const useStyles = makeStyles(({ breakpoints, palette, spacing }: Theme) =>
       height: `${desktopSize}px`,
       justifyContent: "space-between",
       [breakpoints.down(mobBreakpoint)]: {
-        height: `${mobSize}px`,
+        height: mobSize,
       },
     },
     team: {

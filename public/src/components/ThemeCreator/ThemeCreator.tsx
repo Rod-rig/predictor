@@ -3,6 +3,21 @@ import { ThemeProvider } from "@material-ui/styles";
 import * as React from "react";
 
 const theme = createMuiTheme({
+  overrides: {
+    MuiAvatar: {
+      img: {
+        objectFit: "contain",
+      },
+      root: {
+        borderRadius: 0,
+      },
+    },
+    MuiListItemAvatar: {
+      root: {
+        minWidth: 0,
+      }
+    },
+  },
   palette: {
     background: {
       default: "#f2f2f2",
@@ -20,6 +35,6 @@ const theme = createMuiTheme({
   },
 });
 
-export const Palette = (props?: any) => (
+export const ThemeCreator = (props?: any) => (
   <ThemeProvider theme={theme}>{props.children}</ThemeProvider>
 );

@@ -6,7 +6,7 @@ import {
 } from "@material-ui/core";
 import * as React from "react";
 import { HashRouter, Route, Switch } from "react-router-dom";
-import { Header, Palette, PrivateRoute } from "../";
+import { Header, PrivateRoute, ThemeCreator } from "../";
 import { routes } from "../../routeConfig";
 
 const styles = ({ typography }: Theme) =>
@@ -19,7 +19,7 @@ const styles = ({ typography }: Theme) =>
 export const App = withStyles(styles)((props: any) => {
   return (
     <div className={props.classes.main}>
-      <Palette>
+      <ThemeCreator>
         <CssBaseline />
         <HashRouter>
           <React.Fragment>
@@ -39,7 +39,7 @@ export const App = withStyles(styles)((props: any) => {
             </Switch>
           </React.Fragment>
         </HashRouter>
-      </Palette>
+      </ThemeCreator>
     </div>
   );
 });

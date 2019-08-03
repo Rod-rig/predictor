@@ -1,4 +1,10 @@
-import { ListItem, ListItemText, Theme, withStyles } from "@material-ui/core";
+import {
+  ListItem,
+  ListItemAvatar,
+  ListItemText,
+  Theme,
+  withStyles,
+} from "@material-ui/core";
 import { green } from "@material-ui/core/colors";
 import classNames from "classnames";
 import * as React from "react";
@@ -47,7 +53,8 @@ const decorate = withStyles(
       },
     },
     logo: {
-      marginRight: spacing(2),
+      height: 30,
+      width: 30,
     },
     matchItem: {
       ...typography.subtitle1,
@@ -140,7 +147,12 @@ export const MatchItem = decorate(
           disableTypography={true}
         >
           <div>{homeTeam}</div>
-          <TeamLogo teamName={homeTeam} modClass={classes.homeIcon} />
+          <ListItemAvatar>
+            <TeamLogo
+              teamName={homeTeam}
+              modClass={classNames(classes.homeIcon, classes.logo)}
+            />
+          </ListItemAvatar>
         </ListItemText>
 
         {homeScore !== undefined || !isNaN(homeScore)
@@ -151,7 +163,12 @@ export const MatchItem = decorate(
           className={classNames(classes.text, classes.guest)}
           disableTypography={true}
         >
-          <TeamLogo teamName={awayTeam} modClass={classes.awayIcon} />
+          <ListItemAvatar>
+            <TeamLogo
+              teamName={awayTeam}
+              modClass={classNames(classes.awayIcon, classes.logo)}
+            />
+          </ListItemAvatar>
           <div>{awayTeam}</div>
         </ListItemText>
       </ListItem>

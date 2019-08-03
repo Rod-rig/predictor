@@ -85066,7 +85066,7 @@ var styles = function (_a) {
 };
 exports.App = core_1.withStyles(styles)(function (props) {
     return (React.createElement("div", { className: props.classes.main },
-        React.createElement(__1.Palette, null,
+        React.createElement(__1.ThemeCreator, null,
             React.createElement(core_1.CssBaseline, null),
             React.createElement(react_router_dom_1.HashRouter, null,
                 React.createElement(React.Fragment, null,
@@ -85628,12 +85628,14 @@ var useStyles = styles_1.makeStyles(function (_a) {
             _b),
         logo: (_c = {
                 alignItems: "center",
+                height: desktopSize,
                 justifyContent: "center",
                 padding: spacing(1),
-                width: desktopSize + "px"
+                width: desktopSize
             },
             _c[breakpoints.down(mobBreakpoint)] = {
-                width: mobSize + "px",
+                height: mobSize,
+                width: mobSize,
             },
             _c),
         paper: {
@@ -85667,17 +85669,17 @@ var useStyles = styles_1.makeStyles(function (_a) {
             },
             _e[breakpoints.down("sm")] = {
                 fontSize: "2rem",
-                minWidth: "100px",
-                width: "100px",
+                minWidth: 100,
+                width: 100,
             },
             _e[breakpoints.down("xs")] = {
-                minWidth: "90px",
-                width: "90px",
+                minWidth: 90,
+                width: 90,
             },
             _e[breakpoints.down(mobBreakpoint)] = {
                 fontSize: "1.5rem",
-                minWidth: "80px",
-                width: "80px",
+                minWidth: 80,
+                width: 80,
             },
             _e),
         scoreBoard: (_f = {
@@ -85687,7 +85689,7 @@ var useStyles = styles_1.makeStyles(function (_a) {
                 justifyContent: "space-between"
             },
             _f[breakpoints.down(mobBreakpoint)] = {
-                height: mobSize + "px",
+                height: mobSize,
             },
             _f),
         team: (_g = {
@@ -85880,7 +85882,8 @@ var decorate = core_1.withStyles(function (_a) {
             },
             _e),
         logo: {
-            marginRight: spacing(2),
+            height: 30,
+            width: 30,
         },
         matchItem: __assign({}, typography.subtitle1, (_f = {}, _f[breakpoints.down("xs")] = {
             lineHeight: 1.2,
@@ -85924,12 +85927,14 @@ exports.MatchItem = decorate(function (props) {
     return (React.createElement(core_1.ListItem, { component: MatchItemLink, button: true, divider: true, className: classes.matchItem, id: id },
         React.createElement(core_1.ListItemText, { className: classes.text + " " + classes.home, disableTypography: true },
             React.createElement("div", null, homeTeam),
-            React.createElement(__1.TeamLogo, { teamName: homeTeam, modClass: classes.homeIcon })),
+            React.createElement(core_1.ListItemAvatar, null,
+                React.createElement(__1.TeamLogo, { teamName: homeTeam, modClass: classnames_1.default(classes.homeIcon, classes.logo) }))),
         homeScore !== undefined || !isNaN(homeScore)
             ? renderScore(homeScore, awayScore, status, classes)
             : renderEmptyScore(classes),
         React.createElement(core_1.ListItemText, { className: classnames_1.default(classes.text, classes.guest), disableTypography: true },
-            React.createElement(__1.TeamLogo, { teamName: awayTeam, modClass: classes.awayIcon }),
+            React.createElement(core_1.ListItemAvatar, null,
+                React.createElement(__1.TeamLogo, { teamName: awayTeam, modClass: classnames_1.default(classes.awayIcon, classes.logo) })),
             React.createElement("div", null, awayTeam))));
 });
 
@@ -86297,59 +86302,6 @@ function __export(m) {
 }
 Object.defineProperty(exports, "__esModule", { value: true });
 __export(__webpack_require__(/*! ./NotFound */ "./public/src/components/NotFound/NotFound.tsx"));
-
-
-/***/ }),
-
-/***/ "./public/src/components/Palette/Palette.tsx":
-/*!***************************************************!*\
-  !*** ./public/src/components/Palette/Palette.tsx ***!
-  \***************************************************/
-/*! no static exports found */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-Object.defineProperty(exports, "__esModule", { value: true });
-var core_1 = __webpack_require__(/*! @material-ui/core */ "./node_modules/@material-ui/core/esm/index.js");
-var styles_1 = __webpack_require__(/*! @material-ui/styles */ "./node_modules/@material-ui/styles/esm/index.js");
-var React = __webpack_require__(/*! react */ "./node_modules/react/index.js");
-var theme = core_1.createMuiTheme({
-    palette: {
-        background: {
-            default: "#f2f2f2",
-        },
-        primary: {
-            dark: "#1a0018",
-            light: "#652d67",
-            main: "#38003C",
-        },
-        secondary: {
-            dark: "#af002a",
-            light: "#ff577e",
-            main: "#E90052",
-        },
-    },
-});
-exports.Palette = function (props) { return (React.createElement(styles_1.ThemeProvider, { theme: theme }, props.children)); };
-
-
-/***/ }),
-
-/***/ "./public/src/components/Palette/index.ts":
-/*!************************************************!*\
-  !*** ./public/src/components/Palette/index.ts ***!
-  \************************************************/
-/*! no static exports found */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-function __export(m) {
-    for (var p in m) if (!exports.hasOwnProperty(p)) exports[p] = m[p];
-}
-Object.defineProperty(exports, "__esModule", { value: true });
-__export(__webpack_require__(/*! ./Palette */ "./public/src/components/Palette/Palette.tsx"));
 
 
 /***/ }),
@@ -87535,40 +87487,15 @@ __export(__webpack_require__(/*! ./TableView */ "./public/src/components/TableVi
 
 Object.defineProperty(exports, "__esModule", { value: true });
 var core_1 = __webpack_require__(/*! @material-ui/core */ "./node_modules/@material-ui/core/esm/index.js");
-var classnames_1 = __webpack_require__(/*! classnames */ "./node_modules/classnames/index.js");
 var React = __webpack_require__(/*! react */ "./node_modules/react/index.js");
 var logos_1 = __webpack_require__(/*! ../../content/logos */ "./public/src/content/logos.ts");
-var styles = function (_a) {
-    var _b;
-    var breakpoints = _a.breakpoints;
-    return ({
-        logo: (_b = {
-                "& img": {
-                    "object-fit": "contain",
-                },
-                "border-radius": 0,
-                height: "1.25em",
-                width: "1.25em"
-            },
-            _b[breakpoints.down("xs")] = {
-                height: "1em",
-                width: "1em",
-            },
-            _b),
-        root: {
-            minWidth: 0,
-        },
-    });
-};
-exports.TeamLogo = core_1.withStyles(styles)(function (_a) {
-    var classes = _a.classes, teamName = _a.teamName, modClass = _a.modClass;
+exports.TeamLogo = function (_a) {
+    var teamName = _a.teamName, modClass = _a.modClass;
     var src = teamName in logos_1.logos
         ? logos_1.logos[teamName]
         : "https://cdn2.iconfinder.com/data/icons/sport-items-2/512/football_soccer_badge_shield_ball_heraldic-128.png";
-    var iconClassName = classnames_1.default(modClass, classes.root);
-    return (React.createElement(core_1.ListItemIcon, { className: iconClassName },
-        React.createElement(core_1.Avatar, { src: src, className: classes.logo })));
-});
+    return React.createElement(core_1.Avatar, { src: src, className: modClass });
+};
 
 
 /***/ }),
@@ -87587,6 +87514,74 @@ function __export(m) {
 }
 Object.defineProperty(exports, "__esModule", { value: true });
 __export(__webpack_require__(/*! ./TeamLogo */ "./public/src/components/TeamLogo/TeamLogo.tsx"));
+
+
+/***/ }),
+
+/***/ "./public/src/components/ThemeCreator/ThemeCreator.tsx":
+/*!*************************************************************!*\
+  !*** ./public/src/components/ThemeCreator/ThemeCreator.tsx ***!
+  \*************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+Object.defineProperty(exports, "__esModule", { value: true });
+var core_1 = __webpack_require__(/*! @material-ui/core */ "./node_modules/@material-ui/core/esm/index.js");
+var styles_1 = __webpack_require__(/*! @material-ui/styles */ "./node_modules/@material-ui/styles/esm/index.js");
+var React = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+var theme = core_1.createMuiTheme({
+    overrides: {
+        MuiAvatar: {
+            img: {
+                objectFit: "contain",
+            },
+            root: {
+                borderRadius: 0,
+            },
+        },
+        MuiListItemAvatar: {
+            root: {
+                minWidth: 0,
+            },
+        },
+    },
+    palette: {
+        background: {
+            default: "#f2f2f2",
+        },
+        primary: {
+            dark: "#1a0018",
+            light: "#652d67",
+            main: "#38003C",
+        },
+        secondary: {
+            dark: "#af002a",
+            light: "#ff577e",
+            main: "#E90052",
+        },
+    },
+});
+exports.ThemeCreator = function (props) { return (React.createElement(styles_1.ThemeProvider, { theme: theme }, props.children)); };
+
+
+/***/ }),
+
+/***/ "./public/src/components/ThemeCreator/index.ts":
+/*!*****************************************************!*\
+  !*** ./public/src/components/ThemeCreator/index.ts ***!
+  \*****************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+function __export(m) {
+    for (var p in m) if (!exports.hasOwnProperty(p)) exports[p] = m[p];
+}
+Object.defineProperty(exports, "__esModule", { value: true });
+__export(__webpack_require__(/*! ./ThemeCreator */ "./public/src/components/ThemeCreator/ThemeCreator.tsx"));
 
 
 /***/ }),
@@ -87756,7 +87751,6 @@ __export(__webpack_require__(/*! ./MatchList */ "./public/src/components/MatchLi
 __export(__webpack_require__(/*! ./Message */ "./public/src/components/Message/index.ts"));
 __export(__webpack_require__(/*! ./NotFound */ "./public/src/components/NotFound/index.ts"));
 __export(__webpack_require__(/*! ./Nav */ "./public/src/components/Nav/index.ts"));
-__export(__webpack_require__(/*! ./Palette */ "./public/src/components/Palette/index.ts"));
 __export(__webpack_require__(/*! ./Prediction */ "./public/src/components/Prediction/index.ts"));
 __export(__webpack_require__(/*! ./PredictionFilter */ "./public/src/components/PredictionFilter/index.ts"));
 __export(__webpack_require__(/*! ./PrivateRoute */ "./public/src/components/PrivateRoute/index.ts"));
@@ -87767,6 +87761,7 @@ __export(__webpack_require__(/*! ./Stats */ "./public/src/components/Stats/index
 __export(__webpack_require__(/*! ./TableHeadView */ "./public/src/components/TableHeadView/index.ts"));
 __export(__webpack_require__(/*! ./TableView */ "./public/src/components/TableView/index.ts"));
 __export(__webpack_require__(/*! ./TeamLogo */ "./public/src/components/TeamLogo/index.ts"));
+__export(__webpack_require__(/*! ./ThemeCreator */ "./public/src/components/ThemeCreator/index.ts"));
 __export(__webpack_require__(/*! ./TournamentCard */ "./public/src/components/TournamentCard/index.ts"));
 __export(__webpack_require__(/*! ./TournamentList */ "./public/src/components/TournamentList/index.ts"));
 
