@@ -85583,6 +85583,28 @@ __export(__webpack_require__(/*! ./Logo */ "./public/src/components/Logo/Logo.ts
 
 "use strict";
 
+var __assign = (this && this.__assign) || function () {
+    __assign = Object.assign || function(t) {
+        for (var s, i = 1, n = arguments.length; i < n; i++) {
+            s = arguments[i];
+            for (var p in s) if (Object.prototype.hasOwnProperty.call(s, p))
+                t[p] = s[p];
+        }
+        return t;
+    };
+    return __assign.apply(this, arguments);
+};
+var __rest = (this && this.__rest) || function (s, e) {
+    var t = {};
+    for (var p in s) if (Object.prototype.hasOwnProperty.call(s, p) && e.indexOf(p) < 0)
+        t[p] = s[p];
+    if (s != null && typeof Object.getOwnPropertySymbols === "function")
+        for (var i = 0, p = Object.getOwnPropertySymbols(s); i < p.length; i++) {
+            if (e.indexOf(p[i]) < 0 && Object.prototype.propertyIsEnumerable.call(s, p[i]))
+                t[p[i]] = s[p[i]];
+        }
+    return t;
+};
 Object.defineProperty(exports, "__esModule", { value: true });
 var core_1 = __webpack_require__(/*! @material-ui/core */ "./node_modules/@material-ui/core/esm/index.js");
 var Person_1 = __webpack_require__(/*! @material-ui/icons/Person */ "./node_modules/@material-ui/icons/Person.js");
@@ -85593,6 +85615,7 @@ var axios_1 = __webpack_require__(/*! axios */ "./node_modules/axios/index.js");
 var classnames_1 = __webpack_require__(/*! classnames */ "./node_modules/classnames/index.js");
 var React = __webpack_require__(/*! react */ "./node_modules/react/index.js");
 var __1 = __webpack_require__(/*! ../ */ "./public/src/components/index.ts");
+var dict_1 = __webpack_require__(/*! ../../dict */ "./public/src/dict/index.ts");
 var desktopSize = 64;
 var mobSize = 44;
 var mobBreakpoint = 370;
@@ -85638,6 +85661,9 @@ var useStyles = styles_1.makeStyles(function (_a) {
                 width: mobSize,
             },
             _c),
+        panel: {
+            padding: spacing(1),
+        },
         paper: {
             margin: spacing(1),
             overflow: "hidden",
@@ -85692,6 +85718,18 @@ var useStyles = styles_1.makeStyles(function (_a) {
                 height: mobSize,
             },
             _f),
+        stats: {
+            fontWeight: "bold",
+        },
+        statsActive: {
+            color: palette.secondary.main,
+        },
+        td: {
+            fontSize: "1rem",
+            padding: spacing(1),
+            textAlign: "center",
+            width: 100 / 3 + "%",
+        },
         team: (_g = {
                 alignItems: "center",
                 background: palette.primary.main,
@@ -85715,15 +85753,23 @@ var useStyles = styles_1.makeStyles(function (_a) {
         teamHome: {
             justifyContent: "flex-start",
         },
+        title: {
+            margin: spacing(2),
+        },
     });
 });
+function TabPanel(props) {
+    var children = props.children, className = props.className, tab = props.tab, index = props.index, other = __rest(props, ["children", "className", "tab", "index"]);
+    return (React.createElement("div", __assign({ className: className, role: "tabpanel", hidden: tab !== index }, other), children));
+}
 exports.MatchDetails = function (props) {
     var id = props.match.params.id;
     var classes = useStyles();
-    var _a = React.useState({
+    var _a = React.useState(0), tab = _a[0], setTab = _a[1];
+    var _b = React.useState({
         isLoaded: false,
         matches: null,
-    }), data = _a[0], setData = _a[1];
+    }), data = _b[0], setData = _b[1];
     React.useEffect(function () {
         axios_1.default
             .get("/api/match/" + id)
@@ -85734,11 +85780,17 @@ exports.MatchDetails = function (props) {
             });
         });
     }, []);
+    var handleChange = function (event, newValue) {
+        setTab(newValue);
+    };
     if (data.isLoaded) {
         var matches = data.matches;
         var sportEvent = matches.sport_event;
         var sportEventStat = matches.sport_event_status;
         var sportEventConditions = matches.sport_event_conditions;
+        var statistics = matches.statistics;
+        var homeTeamStats_1 = statistics.teams[0].statistics;
+        var awayTeamStats_1 = statistics.teams[1].statistics;
         var competitors = sportEvent.competitors;
         var homeTeam = competitors[0].name;
         var homeTeamAbbr = competitors[0].abbreviation;
@@ -85779,7 +85831,32 @@ exports.MatchDetails = function (props) {
                     React.createElement("div", { className: classnames_1.default(classes.team, classes.teamAway) },
                         React.createElement(core_1.Hidden, { xsDown: true }, awayTeam),
                         React.createElement(core_1.Hidden, { smUp: true }, awayTeamAbbr)),
-                    React.createElement(__1.TeamLogo, { modClass: classes.logo, teamName: awayTeam })))));
+                    React.createElement(__1.TeamLogo, { modClass: classes.logo, teamName: awayTeam }))),
+            React.createElement(core_1.Tabs, { value: tab, onChange: handleChange, indicatorColor: "primary", textColor: "primary", centered: true },
+                React.createElement(core_1.Tab, { value: 0, label: dict_1.dict.match_details_tab_stats }),
+                React.createElement(core_1.Tab, { value: 1, label: dict_1.dict.match_details_tab_lineups })),
+            React.createElement(TabPanel, { tab: tab, index: 0, className: classes.panel },
+                React.createElement(core_1.Typography, { className: classes.title, variant: "h4", align: "center" }, dict_1.dict.match_details_tab_stats_title),
+                React.createElement(core_1.Table, null,
+                    React.createElement(core_1.TableBody, null, Object.keys(homeTeamStats_1).map(function (key) {
+                        var _a, _b;
+                        var label = key[0].toUpperCase() +
+                            key
+                                .slice(1)
+                                .split("_")
+                                .join(" ");
+                        var homeClassName = classnames_1.default(classes.td, classes.stats, (_a = {},
+                            _a[classes.statsActive] = homeTeamStats_1[key] > awayTeamStats_1[key],
+                            _a));
+                        var awayClassName = classnames_1.default(classes.td, classes.stats, (_b = {},
+                            _b[classes.statsActive] = homeTeamStats_1[key] < awayTeamStats_1[key],
+                            _b));
+                        return (React.createElement(core_1.TableRow, { key: key },
+                            React.createElement(core_1.TableCell, { className: homeClassName }, homeTeamStats_1[key]),
+                            React.createElement(core_1.TableCell, { className: classes.td }, label),
+                            React.createElement(core_1.TableCell, { className: awayClassName }, awayTeamStats_1[key])));
+                    })))),
+            React.createElement(TabPanel, { tab: tab, index: 1 }, "1")));
     }
     else {
         return React.createElement(__1.Loader, null);
@@ -88126,6 +88203,9 @@ exports.dict = {
     login_error_msg: "Wrong credentials",
     logout: "Logout",
     loss: "loss",
+    match_details_tab_lineups: "Line-ups",
+    match_details_tab_stats: "Stats",
+    match_details_tab_stats_title: "Match Stats",
     name: "Name",
     no_available_prediction_matches: "No available matches for predictions on this date. Please choose another date.",
     not_found_descr: "Looks like you've followed a broken link or entered a URL that doesn't exist on this site.",

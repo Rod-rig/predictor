@@ -15,7 +15,7 @@ const theme = createMuiTheme({
     MuiListItemAvatar: {
       root: {
         minWidth: 0,
-      }
+      },
     },
   },
   palette: {

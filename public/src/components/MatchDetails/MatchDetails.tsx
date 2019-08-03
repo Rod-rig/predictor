@@ -1,4 +1,15 @@
-import { Hidden, Paper, Theme } from "@material-ui/core";
+import {
+  Hidden,
+  Paper,
+  Tab,
+  Table,
+  TableBody,
+  TableCell,
+  TableRow,
+  Tabs,
+  Theme,
+  Typography,
+} from "@material-ui/core";
 import Person from "@material-ui/icons/Person";
 import Place from "@material-ui/icons/Place";
 import Schedule from "@material-ui/icons/Schedule";
@@ -9,6 +20,7 @@ import * as React from "react";
 import { RouteComponentProps } from "react-router-dom";
 import { Loader, TeamLogo } from "../";
 import { IMatchDetails } from "../../@types";
+import { dict } from "../../dict";
 
 const desktopSize = 64;
 const mobSize = 44;
@@ -51,6 +63,9 @@ const useStyles = makeStyles(({ breakpoints, palette, spacing }: Theme) =>
         height: mobSize,
         width: mobSize,
       },
+    },
+    panel: {
+      padding: spacing(1),
     },
     paper: {
       margin: spacing(1),
@@ -103,6 +118,18 @@ const useStyles = makeStyles(({ breakpoints, palette, spacing }: Theme) =>
         height: mobSize,
       },
     },
+    stats: {
+      fontWeight: "bold",
+    },
+    statsActive: {
+      color: palette.secondary.main,
+    },
+    td: {
+      fontSize: "1rem",
+      padding: spacing(1),
+      textAlign: "center",
+      width: `${100 / 3}%`,
+    },
     team: {
       alignItems: "center",
       background: palette.primary.main,
@@ -125,12 +152,38 @@ const useStyles = makeStyles(({ breakpoints, palette, spacing }: Theme) =>
     teamHome: {
       justifyContent: "flex-start",
     },
+    title: {
+      margin: spacing(2),
+    },
   }),
 );
+
+interface ITabPanelProps {
+  children?: React.ReactNode;
+  className?: string;
+  index: number;
+  tab: number;
+}
+
+function TabPanel(props: ITabPanelProps) {
+  const { children, className, tab, index, ...other } = props;
+
+  return (
+    <div
+      className={className}
+      role="tabpanel"
+      hidden={tab !== index}
+      {...other}
+    >
+      {children}
+    </div>
+  );
+}
 
 export const MatchDetails = (props: RouteComponentProps<{ id: string }>) => {
   const { id } = props.match.params;
   const classes = useStyles();
+  const [tab, setTab] = React.useState(0);
   const [data, setData] = React.useState({
     isLoaded: false,
     matches: null,
@@ -147,11 +200,18 @@ export const MatchDetails = (props: RouteComponentProps<{ id: string }>) => {
       });
   }, []);
 
+  const handleChange = (event: React.ChangeEvent<{}>, newValue: number) => {
+    setTab(newValue);
+  };
+
   if (data.isLoaded) {
     const { matches } = data;
     const sportEvent = matches.sport_event;
     const sportEventStat = matches.sport_event_status;
     const sportEventConditions = matches.sport_event_conditions;
+    const statistics = matches.statistics;
+    const homeTeamStats = statistics.teams[0].statistics;
+    const awayTeamStats = statistics.teams[1].statistics;
 
     const { competitors } = sportEvent;
     const homeTeam = competitors[0].name;
@@ -205,6 +265,56 @@ export const MatchDetails = (props: RouteComponentProps<{ id: string }>) => {
             <TeamLogo modClass={classes.logo} teamName={awayTeam} />
           </div>
         </div>
+
+        <Tabs
+          value={tab}
+          onChange={handleChange}
+          indicatorColor="primary"
+          textColor="primary"
+          centered={true}
+        >
+          <Tab value={0} label={dict.match_details_tab_stats} />
+          <Tab value={1} label={dict.match_details_tab_lineups} />
+        </Tabs>
+        <TabPanel tab={tab} index={0} className={classes.panel}>
+          <Typography className={classes.title} variant="h4" align="center">
+            {dict.match_details_tab_stats_title}
+          </Typography>
+          <Table>
+            <TableBody>
+              {Object.keys(homeTeamStats).map(key => {
+                const label =
+                  key[0].toUpperCase() +
+                  key
+                    .slice(1)
+                    .split("_")
+                    .join(" ");
+                const homeClassName = classNames(classes.td, classes.stats, {
+                  [classes.statsActive]:
+                    homeTeamStats[key] > awayTeamStats[key],
+                });
+                const awayClassName = classNames(classes.td, classes.stats, {
+                  [classes.statsActive]:
+                    homeTeamStats[key] < awayTeamStats[key],
+                });
+                return (
+                  <TableRow key={key}>
+                    <TableCell className={homeClassName}>
+                      {homeTeamStats[key]}
+                    </TableCell>
+                    <TableCell className={classes.td}>{label}</TableCell>
+                    <TableCell className={awayClassName}>
+                      {awayTeamStats[key]}
+                    </TableCell>
+                  </TableRow>
+                );
+              })}
+            </TableBody>
+          </Table>
+        </TabPanel>
+        <TabPanel tab={tab} index={1}>
+          1
+        </TabPanel>
       </Paper>
     );
   } else {
