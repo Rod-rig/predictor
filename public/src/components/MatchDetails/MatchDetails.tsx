@@ -1,189 +1,27 @@
-import {
-  Hidden,
-  Paper,
-  Tab,
-  Table,
-  TableBody,
-  TableCell,
-  TableRow,
-  Tabs,
-  Theme,
-  Typography,
-} from "@material-ui/core";
-import Person from "@material-ui/icons/Person";
-import Place from "@material-ui/icons/Place";
-import Schedule from "@material-ui/icons/Schedule";
+import { Paper, Theme } from "@material-ui/core";
 import { createStyles, makeStyles } from "@material-ui/styles";
 import axios, { AxiosResponse } from "axios";
-import classNames from "classnames";
 import * as React from "react";
 import { RouteComponentProps } from "react-router-dom";
-import { Loader, TeamLogo } from "../";
+import { Loader } from "../";
 import { IMatchDetails } from "../../@types";
-import { dict } from "../../dict";
+import { MatchDetailsInfo } from "./MatchDetailsInfo";
+import { MatchDetailsScore } from "./MatchDetailsScore";
+import { MatchDetailsTabs } from "./MatchDetailsTabs";
 
-const desktopSize = 64;
-const mobSize = 44;
-const mobBreakpoint = 370;
-
-const useStyles = makeStyles(({ breakpoints, palette, spacing }: Theme) =>
+const useStyles = makeStyles(({ spacing }: Theme) =>
   createStyles({
-    competitor: {
-      alignItems: "stretch",
-      display: "flex",
-      width: "100%",
-    },
-    dash: {
-      fontWeight: 400,
-      padding: spacing(0, 1),
-    },
-    icon: {
-      fontSize: "1rem",
-      marginRight: spacing(0.5),
-    },
-    info: {
-      alignItems: "center",
-      backgroundColor: palette.common.black,
-      color: palette.common.white,
-      display: "flex",
-      fontSize: "0.75rem",
-      padding: spacing(1),
-      [breakpoints.down("xs")]: {
-        flexFlow: "wrap",
-        padding: spacing(0.5, 1),
-      },
-    },
-    logo: {
-      alignItems: "center",
-      height: desktopSize,
-      justifyContent: "center",
-      padding: spacing(1),
-      width: desktopSize,
-      [breakpoints.down(mobBreakpoint)]: {
-        height: mobSize,
-        width: mobSize,
-      },
-    },
-    panel: {
-      padding: spacing(1),
-    },
     paper: {
       margin: spacing(1),
       overflow: "hidden",
     },
-    row: {
-      "&:first-child": {
-        marginLeft: 0,
-      },
-      alignItems: "center",
-      display: "inline-flex",
-      margin: spacing(0, 0.5),
-      [breakpoints.down("xs")]: {
-        margin: spacing(0.5, 0),
-        width: "50%",
-      },
-    },
-    score: {
-      alignItems: "center",
-      backgroundColor: palette.secondary.main,
-      color: palette.common.white,
-      display: "flex",
-      fontSize: "2.5rem",
-      fontWeight: "bold",
-      justifyContent: "center",
-      minWidth: "140px",
-      textAlign: "center",
-      width: "140px",
-      [breakpoints.down("sm")]: {
-        fontSize: "2rem",
-        minWidth: 100,
-        width: 100,
-      },
-      [breakpoints.down("xs")]: {
-        minWidth: 90,
-        width: 90,
-      },
-      [breakpoints.down(mobBreakpoint)]: {
-        fontSize: "1.5rem",
-        minWidth: 80,
-        width: 80,
-      },
-    },
-    scoreBoard: {
-      alignItems: "stretch",
-      display: "flex",
-      height: `${desktopSize}px`,
-      justifyContent: "space-between",
-      [breakpoints.down(mobBreakpoint)]: {
-        height: mobSize,
-      },
-    },
-    stats: {
-      fontWeight: "bold",
-    },
-    statsActive: {
-      color: palette.secondary.main,
-    },
-    td: {
-      fontSize: "1rem",
-      padding: spacing(1),
-      textAlign: "center",
-      width: `${100 / 3}%`,
-    },
-    team: {
-      alignItems: "center",
-      background: palette.primary.main,
-      color: palette.common.white,
-      display: "flex",
-      fontSize: "1.5rem",
-      padding: spacing(0, 3),
-      width: "100%",
-      [breakpoints.down("sm")]: {
-        fontSize: "1.25rem",
-        padding: spacing(0, 2),
-      },
-      [breakpoints.down(mobBreakpoint)]: {
-        padding: spacing(0, 1),
-      },
-    },
-    teamAway: {
-      justifyContent: "flex-end",
-    },
-    teamHome: {
-      justifyContent: "flex-start",
-    },
-    title: {
-      margin: spacing(2),
-    },
   }),
 );
 
-interface ITabPanelProps {
-  children?: React.ReactNode;
-  className?: string;
-  index: number;
-  tab: number;
-}
-
-function TabPanel(props: ITabPanelProps) {
-  const { children, className, tab, index, ...other } = props;
-
-  return (
-    <div
-      className={className}
-      role="tabpanel"
-      hidden={tab !== index}
-      {...other}
-    >
-      {children}
-    </div>
-  );
-}
-
 export const MatchDetails = (props: RouteComponentProps<{ id: string }>) => {
   const { id } = props.match.params;
+  // @ts-ignore
   const classes = useStyles();
-  const [tab, setTab] = React.useState(0);
   const [data, setData] = React.useState({
     isLoaded: false,
     matches: null,
@@ -200,10 +38,6 @@ export const MatchDetails = (props: RouteComponentProps<{ id: string }>) => {
       });
   }, []);
 
-  const handleChange = (event: React.ChangeEvent<{}>, newValue: number) => {
-    setTab(newValue);
-  };
-
   if (data.isLoaded) {
     const { matches } = data;
     const sportEvent = matches.sport_event;
@@ -213,7 +47,7 @@ export const MatchDetails = (props: RouteComponentProps<{ id: string }>) => {
     const homeTeamStats = statistics.teams[0].statistics;
     const awayTeamStats = statistics.teams[1].statistics;
 
-    const { competitors } = sportEvent;
+    const competitors = sportEvent.competitors;
     const homeTeam = competitors[0].name;
     const homeTeamAbbr = competitors[0].abbreviation;
     const homeScore = sportEventStat.home_score;
@@ -223,98 +57,30 @@ export const MatchDetails = (props: RouteComponentProps<{ id: string }>) => {
     const scheduledDate = new Date(sportEvent.scheduled).toDateString();
     const stadiumName = sportEvent.venue.name;
     const refereeName = sportEventConditions.referee.name;
-    const attendence = sportEventConditions.attendance;
+    const attendance = sportEventConditions.attendance;
 
     return (
       <Paper className={classes.paper}>
-        <div className={classes.info}>
-          <div className={classes.row}>
-            <Schedule className={classes.icon} />
-            <span>{scheduledDate}</span>
-          </div>
-          <div className={classes.row}>
-            <Person className={classes.icon} />
-            <span>{refereeName}</span>
-          </div>
-          <div className={classes.row}>
-            <Place className={classes.icon} />
-            <span>{stadiumName}</span>
-          </div>
-          <div className={classes.row}>
-            <span>Att: {attendence}</span>
-          </div>
-        </div>
-        <div className={classes.scoreBoard}>
-          <div className={classes.competitor}>
-            <TeamLogo modClass={classes.logo} teamName={homeTeam} />
-            <div className={classNames(classes.team, classes.teamHome)}>
-              <Hidden xsDown={true}>{homeTeam}</Hidden>
-              <Hidden smUp={true}>{homeTeamAbbr}</Hidden>
-            </div>
-          </div>
-          <div className={classes.score}>
-            {homeScore}
-            <span className={classes.dash}>-</span>
-            {awayScore}
-          </div>
-          <div className={classes.competitor}>
-            <div className={classNames(classes.team, classes.teamAway)}>
-              <Hidden xsDown={true}>{awayTeam}</Hidden>
-              <Hidden smUp={true}>{awayTeamAbbr}</Hidden>
-            </div>
-            <TeamLogo modClass={classes.logo} teamName={awayTeam} />
-          </div>
-        </div>
+        <MatchDetailsInfo
+          attendance={attendance}
+          scheduledDate={scheduledDate}
+          stadiumName={stadiumName}
+          refereeName={refereeName}
+        />
 
-        <Tabs
-          value={tab}
-          onChange={handleChange}
-          indicatorColor="primary"
-          textColor="primary"
-          centered={true}
-        >
-          <Tab value={0} label={dict.match_details_tab_stats} />
-          <Tab value={1} label={dict.match_details_tab_lineups} />
-        </Tabs>
-        <TabPanel tab={tab} index={0} className={classes.panel}>
-          <Typography className={classes.title} variant="h4" align="center">
-            {dict.match_details_tab_stats_title}
-          </Typography>
-          <Table>
-            <TableBody>
-              {Object.keys(homeTeamStats).map(key => {
-                const label =
-                  key[0].toUpperCase() +
-                  key
-                    .slice(1)
-                    .split("_")
-                    .join(" ");
-                const homeClassName = classNames(classes.td, classes.stats, {
-                  [classes.statsActive]:
-                    homeTeamStats[key] > awayTeamStats[key],
-                });
-                const awayClassName = classNames(classes.td, classes.stats, {
-                  [classes.statsActive]:
-                    homeTeamStats[key] < awayTeamStats[key],
-                });
-                return (
-                  <TableRow key={key}>
-                    <TableCell className={homeClassName}>
-                      {homeTeamStats[key]}
-                    </TableCell>
-                    <TableCell className={classes.td}>{label}</TableCell>
-                    <TableCell className={awayClassName}>
-                      {awayTeamStats[key]}
-                    </TableCell>
-                  </TableRow>
-                );
-              })}
-            </TableBody>
-          </Table>
-        </TabPanel>
-        <TabPanel tab={tab} index={1}>
-          1
-        </TabPanel>
+        <MatchDetailsScore
+          homeTeam={homeTeam}
+          awayTeam={awayTeam}
+          homeScore={homeScore}
+          awayScore={awayScore}
+          homeTeamAbbr={homeTeamAbbr}
+          awayTeamAbbr={awayTeamAbbr}
+        />
+
+        <MatchDetailsTabs
+          homeTeamStats={homeTeamStats}
+          awayTeamStats={awayTeamStats}
+        />
       </Paper>
     );
   } else {

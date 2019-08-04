@@ -1,5 +1,6 @@
 export interface IDict {
   all: string;
+  att: string;
   continue_text: string;
   date_label: string;
   draw: string;
@@ -52,6 +53,7 @@ export interface IDict {
 
 export const dict: IDict = {
   all: "All",
+  att: "Att",
   continue_text: "continue",
   date_label: "Date",
   draw: "draw",

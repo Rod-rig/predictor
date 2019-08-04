@@ -85583,6 +85583,347 @@ __export(__webpack_require__(/*! ./Logo */ "./public/src/components/Logo/Logo.ts
 
 "use strict";
 
+Object.defineProperty(exports, "__esModule", { value: true });
+var core_1 = __webpack_require__(/*! @material-ui/core */ "./node_modules/@material-ui/core/esm/index.js");
+var styles_1 = __webpack_require__(/*! @material-ui/styles */ "./node_modules/@material-ui/styles/esm/index.js");
+var axios_1 = __webpack_require__(/*! axios */ "./node_modules/axios/index.js");
+var React = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+var __1 = __webpack_require__(/*! ../ */ "./public/src/components/index.ts");
+var MatchDetailsInfo_1 = __webpack_require__(/*! ./MatchDetailsInfo */ "./public/src/components/MatchDetails/MatchDetailsInfo.tsx");
+var MatchDetailsScore_1 = __webpack_require__(/*! ./MatchDetailsScore */ "./public/src/components/MatchDetails/MatchDetailsScore.tsx");
+var MatchDetailsTabs_1 = __webpack_require__(/*! ./MatchDetailsTabs */ "./public/src/components/MatchDetails/MatchDetailsTabs.tsx");
+var useStyles = styles_1.makeStyles(function (_a) {
+    var spacing = _a.spacing;
+    return styles_1.createStyles({
+        paper: {
+            margin: spacing(1),
+            overflow: "hidden",
+        },
+    });
+});
+exports.MatchDetails = function (props) {
+    var id = props.match.params.id;
+    // @ts-ignore
+    var classes = useStyles();
+    var _a = React.useState({
+        isLoaded: false,
+        matches: null,
+    }), data = _a[0], setData = _a[1];
+    React.useEffect(function () {
+        axios_1.default
+            .get("/api/match/" + id)
+            .then(function (response) {
+            setData({
+                isLoaded: true,
+                matches: response.data,
+            });
+        });
+    }, []);
+    if (data.isLoaded) {
+        var matches = data.matches;
+        var sportEvent = matches.sport_event;
+        var sportEventStat = matches.sport_event_status;
+        var sportEventConditions = matches.sport_event_conditions;
+        var statistics = matches.statistics;
+        var homeTeamStats = statistics.teams[0].statistics;
+        var awayTeamStats = statistics.teams[1].statistics;
+        var competitors = sportEvent.competitors;
+        var homeTeam = competitors[0].name;
+        var homeTeamAbbr = competitors[0].abbreviation;
+        var homeScore = sportEventStat.home_score;
+        var awayTeam = competitors[1].name;
+        var awayTeamAbbr = competitors[1].abbreviation;
+        var awayScore = sportEventStat.away_score;
+        var scheduledDate = new Date(sportEvent.scheduled).toDateString();
+        var stadiumName = sportEvent.venue.name;
+        var refereeName = sportEventConditions.referee.name;
+        var attendance = sportEventConditions.attendance;
+        return (React.createElement(core_1.Paper, { className: classes.paper },
+            React.createElement(MatchDetailsInfo_1.MatchDetailsInfo, { attendance: attendance, scheduledDate: scheduledDate, stadiumName: stadiumName, refereeName: refereeName }),
+            React.createElement(MatchDetailsScore_1.MatchDetailsScore, { homeTeam: homeTeam, awayTeam: awayTeam, homeScore: homeScore, awayScore: awayScore, homeTeamAbbr: homeTeamAbbr, awayTeamAbbr: awayTeamAbbr }),
+            React.createElement(MatchDetailsTabs_1.MatchDetailsTabs, { homeTeamStats: homeTeamStats, awayTeamStats: awayTeamStats })));
+    }
+    else {
+        return React.createElement(__1.Loader, null);
+    }
+};
+
+
+/***/ }),
+
+/***/ "./public/src/components/MatchDetails/MatchDetailsInfo.tsx":
+/*!*****************************************************************!*\
+  !*** ./public/src/components/MatchDetails/MatchDetailsInfo.tsx ***!
+  \*****************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+Object.defineProperty(exports, "__esModule", { value: true });
+var Person_1 = __webpack_require__(/*! @material-ui/icons/Person */ "./node_modules/@material-ui/icons/Person.js");
+var Place_1 = __webpack_require__(/*! @material-ui/icons/Place */ "./node_modules/@material-ui/icons/Place.js");
+var Schedule_1 = __webpack_require__(/*! @material-ui/icons/Schedule */ "./node_modules/@material-ui/icons/Schedule.js");
+var styles_1 = __webpack_require__(/*! @material-ui/styles */ "./node_modules/@material-ui/styles/esm/index.js");
+var React = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+var dict_1 = __webpack_require__(/*! ../../dict */ "./public/src/dict/index.ts");
+var useStyles = styles_1.makeStyles(function (_a) {
+    var _b, _c;
+    var breakpoints = _a.breakpoints, palette = _a.palette, spacing = _a.spacing;
+    return styles_1.createStyles({
+        icon: {
+            fontSize: "1rem",
+            marginRight: spacing(0.5),
+        },
+        info: (_b = {
+                alignItems: "center",
+                backgroundColor: palette.common.black,
+                color: palette.common.white,
+                display: "flex",
+                fontSize: "0.75rem",
+                padding: spacing(1)
+            },
+            _b[breakpoints.down("xs")] = {
+                flexFlow: "wrap",
+                padding: spacing(0.5, 1),
+            },
+            _b),
+        row: (_c = {
+                "&:first-child": {
+                    marginLeft: 0,
+                },
+                alignItems: "center",
+                display: "inline-flex",
+                margin: spacing(0, 0.5)
+            },
+            _c[breakpoints.down("xs")] = {
+                margin: spacing(0.5, 0),
+                width: "50%",
+            },
+            _c),
+    });
+});
+exports.MatchDetailsInfo = function (props) {
+    var attendance = props.attendance, refereeName = props.refereeName, scheduledDate = props.scheduledDate, stadiumName = props.stadiumName;
+    // @ts-ignore
+    var classes = useStyles();
+    return (React.createElement("div", { className: classes.info },
+        React.createElement("div", { className: classes.row },
+            React.createElement(Schedule_1.default, { className: classes.icon }),
+            React.createElement("span", null, scheduledDate)),
+        React.createElement("div", { className: classes.row },
+            React.createElement(Person_1.default, { className: classes.icon }),
+            React.createElement("span", null, refereeName)),
+        React.createElement("div", { className: classes.row },
+            React.createElement(Place_1.default, { className: classes.icon }),
+            React.createElement("span", null, stadiumName)),
+        React.createElement("div", { className: classes.row },
+            React.createElement("span", null,
+                dict_1.dict.att,
+                ": ",
+                attendance))));
+};
+
+
+/***/ }),
+
+/***/ "./public/src/components/MatchDetails/MatchDetailsScore.tsx":
+/*!******************************************************************!*\
+  !*** ./public/src/components/MatchDetails/MatchDetailsScore.tsx ***!
+  \******************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+Object.defineProperty(exports, "__esModule", { value: true });
+var core_1 = __webpack_require__(/*! @material-ui/core */ "./node_modules/@material-ui/core/esm/index.js");
+var styles_1 = __webpack_require__(/*! @material-ui/styles */ "./node_modules/@material-ui/styles/esm/index.js");
+var classnames_1 = __webpack_require__(/*! classnames */ "./node_modules/classnames/index.js");
+var React = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+var TeamLogo_1 = __webpack_require__(/*! ../TeamLogo */ "./public/src/components/TeamLogo/index.ts");
+var desktopSize = 64;
+var mobSize = 44;
+var mobBreakpoint = 370;
+var useStyles = styles_1.makeStyles(function (_a) {
+    var _b, _c, _d, _e;
+    var breakpoints = _a.breakpoints, palette = _a.palette, spacing = _a.spacing;
+    return styles_1.createStyles({
+        competitor: {
+            alignItems: "stretch",
+            display: "flex",
+            width: "100%",
+        },
+        dash: {
+            fontWeight: 400,
+            padding: spacing(0, 1),
+        },
+        logo: (_b = {
+                alignItems: "center",
+                height: desktopSize,
+                justifyContent: "center",
+                padding: spacing(1),
+                width: desktopSize
+            },
+            _b[breakpoints.down(mobBreakpoint)] = {
+                height: mobSize,
+                width: mobSize,
+            },
+            _b),
+        score: (_c = {
+                alignItems: "center",
+                backgroundColor: palette.secondary.main,
+                color: palette.common.white,
+                display: "flex",
+                fontSize: "2.5rem",
+                fontWeight: "bold",
+                justifyContent: "center",
+                minWidth: "140px",
+                textAlign: "center",
+                width: "140px"
+            },
+            _c[breakpoints.down("sm")] = {
+                fontSize: "2rem",
+                minWidth: 100,
+                width: 100,
+            },
+            _c[breakpoints.down("xs")] = {
+                minWidth: 90,
+                width: 90,
+            },
+            _c[breakpoints.down(mobBreakpoint)] = {
+                fontSize: "1.5rem",
+                minWidth: 80,
+                width: 80,
+            },
+            _c),
+        scoreBoard: (_d = {
+                alignItems: "stretch",
+                display: "flex",
+                height: desktopSize + "px",
+                justifyContent: "space-between"
+            },
+            _d[breakpoints.down(mobBreakpoint)] = {
+                height: mobSize,
+            },
+            _d),
+        team: (_e = {
+                alignItems: "center",
+                background: palette.primary.main,
+                color: palette.common.white,
+                display: "flex",
+                fontSize: "1.5rem",
+                padding: spacing(0, 3),
+                width: "100%"
+            },
+            _e[breakpoints.down("sm")] = {
+                fontSize: "1.25rem",
+                padding: spacing(0, 2),
+            },
+            _e[breakpoints.down(mobBreakpoint)] = {
+                padding: spacing(0, 1),
+            },
+            _e),
+        teamAway: {
+            justifyContent: "flex-end",
+        },
+        teamHome: {
+            justifyContent: "flex-start",
+        },
+    });
+});
+exports.MatchDetailsScore = function (props) {
+    // @ts-ignore
+    var classes = useStyles();
+    var homeTeamAbbr = props.homeTeamAbbr, awayTeamAbbr = props.awayTeamAbbr, homeTeam = props.homeTeam, awayTeam = props.awayTeam, homeScore = props.homeScore, awayScore = props.awayScore;
+    return (React.createElement("div", { className: classes.scoreBoard },
+        React.createElement("div", { className: classes.competitor },
+            React.createElement(TeamLogo_1.TeamLogo, { modClass: classes.logo, teamName: homeTeam }),
+            React.createElement("div", { className: classnames_1.default(classes.team, classes.teamHome) },
+                React.createElement(core_1.Hidden, { xsDown: true }, homeTeam),
+                React.createElement(core_1.Hidden, { smUp: true }, homeTeamAbbr))),
+        React.createElement("div", { className: classes.score },
+            homeScore,
+            React.createElement("span", { className: classes.dash }, "-"),
+            awayScore),
+        React.createElement("div", { className: classes.competitor },
+            React.createElement("div", { className: classnames_1.default(classes.team, classes.teamAway) },
+                React.createElement(core_1.Hidden, { xsDown: true }, awayTeam),
+                React.createElement(core_1.Hidden, { smUp: true }, awayTeamAbbr)),
+            React.createElement(TeamLogo_1.TeamLogo, { modClass: classes.logo, teamName: awayTeam }))));
+};
+
+
+/***/ }),
+
+/***/ "./public/src/components/MatchDetails/MatchDetailsStat.tsx":
+/*!*****************************************************************!*\
+  !*** ./public/src/components/MatchDetails/MatchDetailsStat.tsx ***!
+  \*****************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+Object.defineProperty(exports, "__esModule", { value: true });
+var core_1 = __webpack_require__(/*! @material-ui/core */ "./node_modules/@material-ui/core/esm/index.js");
+var styles_1 = __webpack_require__(/*! @material-ui/styles */ "./node_modules/@material-ui/styles/esm/index.js");
+var classnames_1 = __webpack_require__(/*! classnames */ "./node_modules/classnames/index.js");
+var React = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+var useStyles = styles_1.makeStyles(function (_a) {
+    var palette = _a.palette, spacing = _a.spacing;
+    return styles_1.createStyles({
+        stats: {
+            fontWeight: "bold",
+        },
+        statsActive: {
+            color: palette.secondary.main,
+        },
+        td: {
+            fontSize: "1rem",
+            padding: spacing(1),
+            textAlign: "center",
+            width: 100 / 3 + "%",
+        },
+    });
+});
+exports.MatchDetailsStat = function (props) {
+    var homeTeamStats = props.homeTeamStats, awayTeamStats = props.awayTeamStats;
+    // @ts-ignore
+    var classes = useStyles();
+    return (React.createElement(core_1.Table, null,
+        React.createElement(core_1.TableBody, null, Object.keys(homeTeamStats).map(function (key) {
+            var _a, _b;
+            var label = key[0].toUpperCase() +
+                key
+                    .slice(1)
+                    .split("_")
+                    .join(" ");
+            var homeClassName = classnames_1.default(classes.td, classes.stats, (_a = {},
+                _a[classes.statsActive] = homeTeamStats[key] > awayTeamStats[key],
+                _a));
+            var awayClassName = classnames_1.default(classes.td, classes.stats, (_b = {},
+                _b[classes.statsActive] = homeTeamStats[key] < awayTeamStats[key],
+                _b));
+            return (React.createElement(core_1.TableRow, { key: key },
+                React.createElement(core_1.TableCell, { className: homeClassName }, homeTeamStats[key]),
+                React.createElement(core_1.TableCell, { className: classes.td }, label),
+                React.createElement(core_1.TableCell, { className: awayClassName }, awayTeamStats[key])));
+        }))));
+};
+
+
+/***/ }),
+
+/***/ "./public/src/components/MatchDetails/MatchDetailsTabPanel.tsx":
+/*!*********************************************************************!*\
+  !*** ./public/src/components/MatchDetails/MatchDetailsTabPanel.tsx ***!
+  \*********************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
 var __assign = (this && this.__assign) || function () {
     __assign = Object.assign || function(t) {
         for (var s, i = 1, n = arguments.length; i < n; i++) {
@@ -85606,261 +85947,58 @@ var __rest = (this && this.__rest) || function (s, e) {
     return t;
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-var core_1 = __webpack_require__(/*! @material-ui/core */ "./node_modules/@material-ui/core/esm/index.js");
-var Person_1 = __webpack_require__(/*! @material-ui/icons/Person */ "./node_modules/@material-ui/icons/Person.js");
-var Place_1 = __webpack_require__(/*! @material-ui/icons/Place */ "./node_modules/@material-ui/icons/Place.js");
-var Schedule_1 = __webpack_require__(/*! @material-ui/icons/Schedule */ "./node_modules/@material-ui/icons/Schedule.js");
-var styles_1 = __webpack_require__(/*! @material-ui/styles */ "./node_modules/@material-ui/styles/esm/index.js");
-var axios_1 = __webpack_require__(/*! axios */ "./node_modules/axios/index.js");
-var classnames_1 = __webpack_require__(/*! classnames */ "./node_modules/classnames/index.js");
 var React = __webpack_require__(/*! react */ "./node_modules/react/index.js");
-var __1 = __webpack_require__(/*! ../ */ "./public/src/components/index.ts");
+exports.MatchDetailsTabPanel = function (props) {
+    var children = props.children, className = props.className, tab = props.tab, index = props.index, other = __rest(props, ["children", "className", "tab", "index"]);
+    return (React.createElement("div", __assign({ className: className, role: "tabpanel", hidden: tab !== index }, other), children));
+};
+
+
+/***/ }),
+
+/***/ "./public/src/components/MatchDetails/MatchDetailsTabs.tsx":
+/*!*****************************************************************!*\
+  !*** ./public/src/components/MatchDetails/MatchDetailsTabs.tsx ***!
+  \*****************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+Object.defineProperty(exports, "__esModule", { value: true });
+var core_1 = __webpack_require__(/*! @material-ui/core */ "./node_modules/@material-ui/core/esm/index.js");
+var styles_1 = __webpack_require__(/*! @material-ui/styles */ "./node_modules/@material-ui/styles/esm/index.js");
+var React = __webpack_require__(/*! react */ "./node_modules/react/index.js");
 var dict_1 = __webpack_require__(/*! ../../dict */ "./public/src/dict/index.ts");
-var desktopSize = 64;
-var mobSize = 44;
-var mobBreakpoint = 370;
+var MatchDetailsStat_1 = __webpack_require__(/*! ./MatchDetailsStat */ "./public/src/components/MatchDetails/MatchDetailsStat.tsx");
+var MatchDetailsTabPanel_1 = __webpack_require__(/*! ./MatchDetailsTabPanel */ "./public/src/components/MatchDetails/MatchDetailsTabPanel.tsx");
 var useStyles = styles_1.makeStyles(function (_a) {
-    var _b, _c, _d, _e, _f, _g;
-    var breakpoints = _a.breakpoints, palette = _a.palette, spacing = _a.spacing;
+    var palette = _a.palette, spacing = _a.spacing;
     return styles_1.createStyles({
-        competitor: {
-            alignItems: "stretch",
-            display: "flex",
-            width: "100%",
-        },
-        dash: {
-            fontWeight: 400,
-            padding: spacing(0, 1),
-        },
-        icon: {
-            fontSize: "1rem",
-            marginRight: spacing(0.5),
-        },
-        info: (_b = {
-                alignItems: "center",
-                backgroundColor: palette.common.black,
-                color: palette.common.white,
-                display: "flex",
-                fontSize: "0.75rem",
-                padding: spacing(1)
-            },
-            _b[breakpoints.down("xs")] = {
-                flexFlow: "wrap",
-                padding: spacing(0.5, 1),
-            },
-            _b),
-        logo: (_c = {
-                alignItems: "center",
-                height: desktopSize,
-                justifyContent: "center",
-                padding: spacing(1),
-                width: desktopSize
-            },
-            _c[breakpoints.down(mobBreakpoint)] = {
-                height: mobSize,
-                width: mobSize,
-            },
-            _c),
         panel: {
             padding: spacing(1),
-        },
-        paper: {
-            margin: spacing(1),
-            overflow: "hidden",
-        },
-        row: (_d = {
-                "&:first-child": {
-                    marginLeft: 0,
-                },
-                alignItems: "center",
-                display: "inline-flex",
-                margin: spacing(0, 0.5)
-            },
-            _d[breakpoints.down("xs")] = {
-                margin: spacing(0.5, 0),
-                width: "50%",
-            },
-            _d),
-        score: (_e = {
-                alignItems: "center",
-                backgroundColor: palette.secondary.main,
-                color: palette.common.white,
-                display: "flex",
-                fontSize: "2.5rem",
-                fontWeight: "bold",
-                justifyContent: "center",
-                minWidth: "140px",
-                textAlign: "center",
-                width: "140px"
-            },
-            _e[breakpoints.down("sm")] = {
-                fontSize: "2rem",
-                minWidth: 100,
-                width: 100,
-            },
-            _e[breakpoints.down("xs")] = {
-                minWidth: 90,
-                width: 90,
-            },
-            _e[breakpoints.down(mobBreakpoint)] = {
-                fontSize: "1.5rem",
-                minWidth: 80,
-                width: 80,
-            },
-            _e),
-        scoreBoard: (_f = {
-                alignItems: "stretch",
-                display: "flex",
-                height: desktopSize + "px",
-                justifyContent: "space-between"
-            },
-            _f[breakpoints.down(mobBreakpoint)] = {
-                height: mobSize,
-            },
-            _f),
-        stats: {
-            fontWeight: "bold",
-        },
-        statsActive: {
-            color: palette.secondary.main,
-        },
-        td: {
-            fontSize: "1rem",
-            padding: spacing(1),
-            textAlign: "center",
-            width: 100 / 3 + "%",
-        },
-        team: (_g = {
-                alignItems: "center",
-                background: palette.primary.main,
-                color: palette.common.white,
-                display: "flex",
-                fontSize: "1.5rem",
-                padding: spacing(0, 3),
-                width: "100%"
-            },
-            _g[breakpoints.down("sm")] = {
-                fontSize: "1.25rem",
-                padding: spacing(0, 2),
-            },
-            _g[breakpoints.down(mobBreakpoint)] = {
-                padding: spacing(0, 1),
-            },
-            _g),
-        teamAway: {
-            justifyContent: "flex-end",
-        },
-        teamHome: {
-            justifyContent: "flex-start",
         },
         title: {
             margin: spacing(2),
         },
     });
 });
-function TabPanel(props) {
-    var children = props.children, className = props.className, tab = props.tab, index = props.index, other = __rest(props, ["children", "className", "tab", "index"]);
-    return (React.createElement("div", __assign({ className: className, role: "tabpanel", hidden: tab !== index }, other), children));
-}
-exports.MatchDetails = function (props) {
-    var id = props.match.params.id;
-    var classes = useStyles();
+exports.MatchDetailsTabs = function (props) {
+    var homeTeamStats = props.homeTeamStats, awayTeamStats = props.awayTeamStats;
     var _a = React.useState(0), tab = _a[0], setTab = _a[1];
-    var _b = React.useState({
-        isLoaded: false,
-        matches: null,
-    }), data = _b[0], setData = _b[1];
-    React.useEffect(function () {
-        axios_1.default
-            .get("/api/match/" + id)
-            .then(function (response) {
-            setData({
-                isLoaded: true,
-                matches: response.data,
-            });
-        });
-    }, []);
+    // @ts-ignore
+    var classes = useStyles();
     var handleChange = function (event, newValue) {
         setTab(newValue);
     };
-    if (data.isLoaded) {
-        var matches = data.matches;
-        var sportEvent = matches.sport_event;
-        var sportEventStat = matches.sport_event_status;
-        var sportEventConditions = matches.sport_event_conditions;
-        var statistics = matches.statistics;
-        var homeTeamStats_1 = statistics.teams[0].statistics;
-        var awayTeamStats_1 = statistics.teams[1].statistics;
-        var competitors = sportEvent.competitors;
-        var homeTeam = competitors[0].name;
-        var homeTeamAbbr = competitors[0].abbreviation;
-        var homeScore = sportEventStat.home_score;
-        var awayTeam = competitors[1].name;
-        var awayTeamAbbr = competitors[1].abbreviation;
-        var awayScore = sportEventStat.away_score;
-        var scheduledDate = new Date(sportEvent.scheduled).toDateString();
-        var stadiumName = sportEvent.venue.name;
-        var refereeName = sportEventConditions.referee.name;
-        var attendence = sportEventConditions.attendance;
-        return (React.createElement(core_1.Paper, { className: classes.paper },
-            React.createElement("div", { className: classes.info },
-                React.createElement("div", { className: classes.row },
-                    React.createElement(Schedule_1.default, { className: classes.icon }),
-                    React.createElement("span", null, scheduledDate)),
-                React.createElement("div", { className: classes.row },
-                    React.createElement(Person_1.default, { className: classes.icon }),
-                    React.createElement("span", null, refereeName)),
-                React.createElement("div", { className: classes.row },
-                    React.createElement(Place_1.default, { className: classes.icon }),
-                    React.createElement("span", null, stadiumName)),
-                React.createElement("div", { className: classes.row },
-                    React.createElement("span", null,
-                        "Att: ",
-                        attendence))),
-            React.createElement("div", { className: classes.scoreBoard },
-                React.createElement("div", { className: classes.competitor },
-                    React.createElement(__1.TeamLogo, { modClass: classes.logo, teamName: homeTeam }),
-                    React.createElement("div", { className: classnames_1.default(classes.team, classes.teamHome) },
-                        React.createElement(core_1.Hidden, { xsDown: true }, homeTeam),
-                        React.createElement(core_1.Hidden, { smUp: true }, homeTeamAbbr))),
-                React.createElement("div", { className: classes.score },
-                    homeScore,
-                    React.createElement("span", { className: classes.dash }, "-"),
-                    awayScore),
-                React.createElement("div", { className: classes.competitor },
-                    React.createElement("div", { className: classnames_1.default(classes.team, classes.teamAway) },
-                        React.createElement(core_1.Hidden, { xsDown: true }, awayTeam),
-                        React.createElement(core_1.Hidden, { smUp: true }, awayTeamAbbr)),
-                    React.createElement(__1.TeamLogo, { modClass: classes.logo, teamName: awayTeam }))),
-            React.createElement(core_1.Tabs, { value: tab, onChange: handleChange, indicatorColor: "primary", textColor: "primary", centered: true },
-                React.createElement(core_1.Tab, { value: 0, label: dict_1.dict.match_details_tab_stats }),
-                React.createElement(core_1.Tab, { value: 1, label: dict_1.dict.match_details_tab_lineups })),
-            React.createElement(TabPanel, { tab: tab, index: 0, className: classes.panel },
-                React.createElement(core_1.Typography, { className: classes.title, variant: "h4", align: "center" }, dict_1.dict.match_details_tab_stats_title),
-                React.createElement(core_1.Table, null,
-                    React.createElement(core_1.TableBody, null, Object.keys(homeTeamStats_1).map(function (key) {
-                        var _a, _b;
-                        var label = key[0].toUpperCase() +
-                            key
-                                .slice(1)
-                                .split("_")
-                                .join(" ");
-                        var homeClassName = classnames_1.default(classes.td, classes.stats, (_a = {},
-                            _a[classes.statsActive] = homeTeamStats_1[key] > awayTeamStats_1[key],
-                            _a));
-                        var awayClassName = classnames_1.default(classes.td, classes.stats, (_b = {},
-                            _b[classes.statsActive] = homeTeamStats_1[key] < awayTeamStats_1[key],
-                            _b));
-                        return (React.createElement(core_1.TableRow, { key: key },
-                            React.createElement(core_1.TableCell, { className: homeClassName }, homeTeamStats_1[key]),
-                            React.createElement(core_1.TableCell, { className: classes.td }, label),
-                            React.createElement(core_1.TableCell, { className: awayClassName }, awayTeamStats_1[key])));
-                    })))),
-            React.createElement(TabPanel, { tab: tab, index: 1 }, "1")));
-    }
-    else {
-        return React.createElement(__1.Loader, null);
-    }
+    return (React.createElement(React.Fragment, null,
+        React.createElement(core_1.Tabs, { value: tab, onChange: handleChange, indicatorColor: "primary", textColor: "primary", centered: true },
+            React.createElement(core_1.Tab, { value: 0, label: dict_1.dict.match_details_tab_stats }),
+            React.createElement(core_1.Tab, { value: 1, label: dict_1.dict.match_details_tab_lineups })),
+        React.createElement(MatchDetailsTabPanel_1.MatchDetailsTabPanel, { tab: tab, index: 0, className: classes.panel },
+            React.createElement(core_1.Typography, { className: classes.title, variant: "h4", align: "center" }, dict_1.dict.match_details_tab_stats_title),
+            React.createElement(MatchDetailsStat_1.MatchDetailsStat, { homeTeamStats: homeTeamStats, awayTeamStats: awayTeamStats })),
+        React.createElement(MatchDetailsTabPanel_1.MatchDetailsTabPanel, { tab: tab, index: 1 }, "1")));
 };
 
 
@@ -88183,6 +88321,7 @@ exports.tournamentsLogo = {
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.dict = {
     all: "All",
+    att: "Att",
     continue_text: "continue",
     date_label: "Date",
     draw: "draw",
