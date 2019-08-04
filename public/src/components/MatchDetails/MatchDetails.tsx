@@ -44,9 +44,12 @@ export const MatchDetails = (props: RouteComponentProps<{ id: string }>) => {
     const sportEventStat = matches.sport_event_status;
     const sportEventConditions = matches.sport_event_conditions;
     const statistics = matches.statistics;
-    const homeTeamStats = statistics.teams[0].statistics;
-    const awayTeamStats = statistics.teams[1].statistics;
+    const teams = statistics.teams;
 
+    const homePlayers = teams[0].players;
+    const awayPlayers = teams[1].players;
+    const homeTeamStats = teams[0].statistics;
+    const awayTeamStats = teams[1].statistics;
     const competitors = sportEvent.competitors;
     const homeTeam = competitors[0].name;
     const homeTeamAbbr = competitors[0].abbreviation;
@@ -80,6 +83,8 @@ export const MatchDetails = (props: RouteComponentProps<{ id: string }>) => {
         <MatchDetailsTabs
           homeTeamStats={homeTeamStats}
           awayTeamStats={awayTeamStats}
+          homePlayers={homePlayers}
+          awayPlayers={awayPlayers}
         />
       </Paper>
     );

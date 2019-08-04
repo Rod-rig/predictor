@@ -85625,8 +85625,11 @@ exports.MatchDetails = function (props) {
         var sportEventStat = matches.sport_event_status;
         var sportEventConditions = matches.sport_event_conditions;
         var statistics = matches.statistics;
-        var homeTeamStats = statistics.teams[0].statistics;
-        var awayTeamStats = statistics.teams[1].statistics;
+        var teams = statistics.teams;
+        var homePlayers = teams[0].players;
+        var awayPlayers = teams[1].players;
+        var homeTeamStats = teams[0].statistics;
+        var awayTeamStats = teams[1].statistics;
         var competitors = sportEvent.competitors;
         var homeTeam = competitors[0].name;
         var homeTeamAbbr = competitors[0].abbreviation;
@@ -85641,7 +85644,7 @@ exports.MatchDetails = function (props) {
         return (React.createElement(core_1.Paper, { className: classes.paper },
             React.createElement(MatchDetailsInfo_1.MatchDetailsInfo, { attendance: attendance, scheduledDate: scheduledDate, stadiumName: stadiumName, refereeName: refereeName }),
             React.createElement(MatchDetailsScore_1.MatchDetailsScore, { homeTeam: homeTeam, awayTeam: awayTeam, homeScore: homeScore, awayScore: awayScore, homeTeamAbbr: homeTeamAbbr, awayTeamAbbr: awayTeamAbbr }),
-            React.createElement(MatchDetailsTabs_1.MatchDetailsTabs, { homeTeamStats: homeTeamStats, awayTeamStats: awayTeamStats })));
+            React.createElement(MatchDetailsTabs_1.MatchDetailsTabs, { homeTeamStats: homeTeamStats, awayTeamStats: awayTeamStats, homePlayers: homePlayers, awayPlayers: awayPlayers })));
     }
     else {
         return React.createElement(__1.Loader, null);
@@ -85722,6 +85725,49 @@ exports.MatchDetailsInfo = function (props) {
                 dict_1.dict.att,
                 ": ",
                 attendance))));
+};
+
+
+/***/ }),
+
+/***/ "./public/src/components/MatchDetails/MatchDetailsLineUps.tsx":
+/*!********************************************************************!*\
+  !*** ./public/src/components/MatchDetails/MatchDetailsLineUps.tsx ***!
+  \********************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+Object.defineProperty(exports, "__esModule", { value: true });
+var core_1 = __webpack_require__(/*! @material-ui/core */ "./node_modules/@material-ui/core/esm/index.js");
+var styles_1 = __webpack_require__(/*! @material-ui/styles */ "./node_modules/@material-ui/styles/esm/index.js");
+var React = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+var useStyles = styles_1.makeStyles(function (_a) {
+    var spacing = _a.spacing;
+    return styles_1.createStyles({
+        lineups: {
+            display: "flex",
+            padding: spacing(0, 1),
+        },
+        list: {
+            width: "50%",
+        },
+    });
+});
+exports.MatchDetailsLineUps = function (props) {
+    var homePlayers = props.homePlayers, awayPlayers = props.awayPlayers;
+    // @ts-ignore
+    var classes = useStyles();
+    return (React.createElement("div", { className: classes.lineups },
+        React.createElement(core_1.List, { className: classes.list }, homePlayers.map(function (player) {
+            return (React.createElement(core_1.ListItem, { key: player.id, button: true },
+                React.createElement(core_1.ListItemText, null, player.name)));
+        })),
+        React.createElement(core_1.List, { className: classes.list }, awayPlayers.map(function (player) {
+            return (React.createElement(core_1.ListItem, { key: player.id, button: true },
+                React.createElement(core_1.ListItemText, null, player.name)));
+        }))));
 };
 
 
@@ -85970,6 +86016,7 @@ var core_1 = __webpack_require__(/*! @material-ui/core */ "./node_modules/@mater
 var styles_1 = __webpack_require__(/*! @material-ui/styles */ "./node_modules/@material-ui/styles/esm/index.js");
 var React = __webpack_require__(/*! react */ "./node_modules/react/index.js");
 var dict_1 = __webpack_require__(/*! ../../dict */ "./public/src/dict/index.ts");
+var MatchDetailsLineUps_1 = __webpack_require__(/*! ./MatchDetailsLineUps */ "./public/src/components/MatchDetails/MatchDetailsLineUps.tsx");
 var MatchDetailsStat_1 = __webpack_require__(/*! ./MatchDetailsStat */ "./public/src/components/MatchDetails/MatchDetailsStat.tsx");
 var MatchDetailsTabPanel_1 = __webpack_require__(/*! ./MatchDetailsTabPanel */ "./public/src/components/MatchDetails/MatchDetailsTabPanel.tsx");
 var useStyles = styles_1.makeStyles(function (_a) {
@@ -85984,8 +86031,8 @@ var useStyles = styles_1.makeStyles(function (_a) {
     });
 });
 exports.MatchDetailsTabs = function (props) {
-    var homeTeamStats = props.homeTeamStats, awayTeamStats = props.awayTeamStats;
-    var _a = React.useState(0), tab = _a[0], setTab = _a[1];
+    var homeTeamStats = props.homeTeamStats, awayTeamStats = props.awayTeamStats, homePlayers = props.homePlayers, awayPlayers = props.awayPlayers;
+    var _a = React.useState(1), tab = _a[0], setTab = _a[1];
     // @ts-ignore
     var classes = useStyles();
     var handleChange = function (event, newValue) {
@@ -85998,7 +86045,8 @@ exports.MatchDetailsTabs = function (props) {
         React.createElement(MatchDetailsTabPanel_1.MatchDetailsTabPanel, { tab: tab, index: 0, className: classes.panel },
             React.createElement(core_1.Typography, { className: classes.title, variant: "h4", align: "center" }, dict_1.dict.match_details_tab_stats_title),
             React.createElement(MatchDetailsStat_1.MatchDetailsStat, { homeTeamStats: homeTeamStats, awayTeamStats: awayTeamStats })),
-        React.createElement(MatchDetailsTabPanel_1.MatchDetailsTabPanel, { tab: tab, index: 1 }, "1")));
+        React.createElement(MatchDetailsTabPanel_1.MatchDetailsTabPanel, { tab: tab, index: 1 },
+            React.createElement(MatchDetailsLineUps_1.MatchDetailsLineUps, { homePlayers: homePlayers, awayPlayers: awayPlayers }))));
 };
 
 

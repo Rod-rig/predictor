@@ -11,7 +11,7 @@ interface IReferee {
   country_code: string;
 }
 
-interface IPlayer {
+export interface IPlayer {
   id: string;
   name: string;
   substituted_in: number;
