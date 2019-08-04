@@ -71,7 +71,7 @@ const fixtures = (props: { match: IId }) => (
   <FixturesList
     store={
       new DataRetriever({
-        url: `/api/schedule/${props.match.params.id}`,
+        url: `/api/tournament-schedule/${props.match.params.id}`,
       })
     }
     {...props}
