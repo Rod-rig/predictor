@@ -88096,7 +88096,7 @@ var results = function (props) { return (React.createElement(components_1.MatchL
     }) }, props))); };
 /* istanbul ignore next */
 var fixtures = function (props) { return (React.createElement(components_1.FixturesList, __assign({ store: new stores_1.DataRetriever({
-        url: "/api/schedule/" + props.match.params.id,
+        url: "/api/tournament-schedule/" + props.match.params.id,
     }) }, props))); };
 /* istanbul ignore next */
 var predictions = function (props) { return (React.createElement(components_1.Prediction, { store: new stores_1.PredictionStore({
