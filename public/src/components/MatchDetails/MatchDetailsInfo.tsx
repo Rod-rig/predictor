@@ -13,6 +13,9 @@ const useStyles = makeStyles(({ breakpoints, palette, spacing }: Theme) =>
       marginRight: spacing(0.5),
     },
     info: {
+      "&:empty": {
+        display: "none",
+      },
       alignItems: "center",
       backgroundColor: palette.common.black,
       color: palette.common.white,
@@ -40,10 +43,10 @@ const useStyles = makeStyles(({ breakpoints, palette, spacing }: Theme) =>
 );
 
 interface IProps {
-  attendance: number;
-  refereeName: string;
-  scheduledDate: string;
-  stadiumName: string;
+  attendance?: number;
+  refereeName?: string;
+  scheduledDate?: string;
+  stadiumName?: string;
 }
 
 export const MatchDetailsInfo = (props: IProps) => {
@@ -53,23 +56,31 @@ export const MatchDetailsInfo = (props: IProps) => {
 
   return (
     <div className={classes.info}>
-      <div className={classes.row}>
-        <Schedule className={classes.icon} />
-        <span>{scheduledDate}</span>
-      </div>
-      <div className={classes.row}>
-        <Person className={classes.icon} />
-        <span>{refereeName}</span>
-      </div>
-      <div className={classes.row}>
-        <Place className={classes.icon} />
-        <span>{stadiumName}</span>
-      </div>
-      <div className={classes.row}>
-        <span>
-          {dict.att}: {attendance}
-        </span>
-      </div>
+      {scheduledDate && (
+        <div className={classes.row}>
+          <Schedule className={classes.icon} />
+          <span>{scheduledDate}</span>
+        </div>
+      )}
+      {refereeName && (
+        <div className={classes.row}>
+          <Person className={classes.icon} />
+          <span>{refereeName}</span>
+        </div>
+      )}
+      {stadiumName && (
+        <div className={classes.row}>
+          <Place className={classes.icon} />
+          <span>{stadiumName}</span>
+        </div>
+      )}
+      {attendance && (
+        <div className={classes.row}>
+          <span>
+            {dict.att}: {attendance}
+          </span>
+        </div>
+      )}
     </div>
   );
 };

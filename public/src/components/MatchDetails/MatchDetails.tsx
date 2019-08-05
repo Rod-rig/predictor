@@ -9,6 +9,8 @@ import { MatchDetailsInfo } from "./MatchDetailsInfo";
 import { MatchDetailsScore } from "./MatchDetailsScore";
 import { MatchDetailsTabs } from "./MatchDetailsTabs";
 
+const notStartedStatus = "not_started";
+
 const useStyles = makeStyles(({ spacing }: Theme) =>
   createStyles({
     paper: {
@@ -41,25 +43,21 @@ export const MatchDetails = (props: RouteComponentProps<{ id: string }>) => {
   if (data.isLoaded) {
     const { matches } = data;
     const sportEvent = matches.sport_event;
-    const sportEventStat = matches.sport_event_status;
+    const sportEventStatus = matches.sport_event_status;
     const sportEventConditions = matches.sport_event_conditions;
     const statistics = matches.statistics;
-    const teams = statistics.teams;
 
-    const homePlayers = teams[0].players;
-    const awayPlayers = teams[1].players;
-    const homeTeamStats = teams[0].statistics;
-    const awayTeamStats = teams[1].statistics;
     const competitors = sportEvent.competitors;
     const homeTeam = competitors[0].name;
     const homeTeamAbbr = competitors[0].abbreviation;
-    const homeScore = sportEventStat.home_score;
+    const homeScore = sportEventStatus.home_score;
     const awayTeam = competitors[1].name;
     const awayTeamAbbr = competitors[1].abbreviation;
-    const awayScore = sportEventStat.away_score;
+    const awayScore = sportEventStatus.away_score;
     const scheduledDate = new Date(sportEvent.scheduled).toDateString();
     const stadiumName = sportEvent.venue.name;
-    const refereeName = sportEventConditions.referee.name;
+    const refereeName =
+      sportEventConditions.referee && sportEventConditions.referee.name;
     const attendance = sportEventConditions.attendance;
 
     return (
@@ -80,12 +78,9 @@ export const MatchDetails = (props: RouteComponentProps<{ id: string }>) => {
           awayTeamAbbr={awayTeamAbbr}
         />
 
-        <MatchDetailsTabs
-          homeTeamStats={homeTeamStats}
-          awayTeamStats={awayTeamStats}
-          homePlayers={homePlayers}
-          awayPlayers={awayPlayers}
-        />
+        {sportEventStatus.status !== notStartedStatus && (
+          <MatchDetailsTabs statistics={statistics} />
+        )}
       </Paper>
     );
   } else {

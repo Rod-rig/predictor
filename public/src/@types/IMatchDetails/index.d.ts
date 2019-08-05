@@ -24,7 +24,7 @@ export interface IPlayer {
   red_cards: number;
 }
 
-interface ITeamStat {
+export interface ITeamStat {
   id: string;
   name: string;
   abbreviation: string;
@@ -63,23 +63,23 @@ export interface IMatchDetails {
     venue: IVenue;
   };
   sport_event_conditions: {
-    referee: IReferee;
-    referee_assistants: IReferee[];
+    referee?: IReferee;
+    referee_assistants?: IReferee[];
     venue: IVenue;
-    attendance: number;
-    weather_info: {
+    attendance?: number;
+    weather_info?: {
       pitch: string;
       weather_conditions: string;
     };
   };
   sport_event_status: {
     status: string;
-    match_status: string;
-    home_score: number;
-    away_score: number;
-    winner_id: string;
-    period_scores: IPeriodScore[];
-    statistics: {
+    match_status?: string;
+    home_score?: number;
+    away_score?: number;
+    winner_id?: string;
+    period_scores?: IPeriodScore[];
+    statistics?: {
       teams: ITeamStat[];
     };
   };

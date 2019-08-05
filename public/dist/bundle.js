@@ -85592,6 +85592,7 @@ var __1 = __webpack_require__(/*! ../ */ "./public/src/components/index.ts");
 var MatchDetailsInfo_1 = __webpack_require__(/*! ./MatchDetailsInfo */ "./public/src/components/MatchDetails/MatchDetailsInfo.tsx");
 var MatchDetailsScore_1 = __webpack_require__(/*! ./MatchDetailsScore */ "./public/src/components/MatchDetails/MatchDetailsScore.tsx");
 var MatchDetailsTabs_1 = __webpack_require__(/*! ./MatchDetailsTabs */ "./public/src/components/MatchDetails/MatchDetailsTabs.tsx");
+var notStartedStatus = "not_started";
 var useStyles = styles_1.makeStyles(function (_a) {
     var spacing = _a.spacing;
     return styles_1.createStyles({
@@ -85622,29 +85623,24 @@ exports.MatchDetails = function (props) {
     if (data.isLoaded) {
         var matches = data.matches;
         var sportEvent = matches.sport_event;
-        var sportEventStat = matches.sport_event_status;
+        var sportEventStatus = matches.sport_event_status;
         var sportEventConditions = matches.sport_event_conditions;
         var statistics = matches.statistics;
-        var teams = statistics.teams;
-        var homePlayers = teams[0].players;
-        var awayPlayers = teams[1].players;
-        var homeTeamStats = teams[0].statistics;
-        var awayTeamStats = teams[1].statistics;
         var competitors = sportEvent.competitors;
         var homeTeam = competitors[0].name;
         var homeTeamAbbr = competitors[0].abbreviation;
-        var homeScore = sportEventStat.home_score;
+        var homeScore = sportEventStatus.home_score;
         var awayTeam = competitors[1].name;
         var awayTeamAbbr = competitors[1].abbreviation;
-        var awayScore = sportEventStat.away_score;
+        var awayScore = sportEventStatus.away_score;
         var scheduledDate = new Date(sportEvent.scheduled).toDateString();
         var stadiumName = sportEvent.venue.name;
-        var refereeName = sportEventConditions.referee.name;
+        var refereeName = sportEventConditions.referee && sportEventConditions.referee.name;
         var attendance = sportEventConditions.attendance;
         return (React.createElement(core_1.Paper, { className: classes.paper },
             React.createElement(MatchDetailsInfo_1.MatchDetailsInfo, { attendance: attendance, scheduledDate: scheduledDate, stadiumName: stadiumName, refereeName: refereeName }),
             React.createElement(MatchDetailsScore_1.MatchDetailsScore, { homeTeam: homeTeam, awayTeam: awayTeam, homeScore: homeScore, awayScore: awayScore, homeTeamAbbr: homeTeamAbbr, awayTeamAbbr: awayTeamAbbr }),
-            React.createElement(MatchDetailsTabs_1.MatchDetailsTabs, { homeTeamStats: homeTeamStats, awayTeamStats: awayTeamStats, homePlayers: homePlayers, awayPlayers: awayPlayers })));
+            sportEventStatus.status !== notStartedStatus && (React.createElement(MatchDetailsTabs_1.MatchDetailsTabs, { statistics: statistics }))));
     }
     else {
         return React.createElement(__1.Loader, null);
@@ -85679,6 +85675,9 @@ var useStyles = styles_1.makeStyles(function (_a) {
             marginRight: spacing(0.5),
         },
         info: (_b = {
+                "&:empty": {
+                    display: "none",
+                },
                 alignItems: "center",
                 backgroundColor: palette.common.black,
                 color: palette.common.white,
@@ -85711,20 +85710,20 @@ exports.MatchDetailsInfo = function (props) {
     // @ts-ignore
     var classes = useStyles();
     return (React.createElement("div", { className: classes.info },
-        React.createElement("div", { className: classes.row },
+        scheduledDate && (React.createElement("div", { className: classes.row },
             React.createElement(Schedule_1.default, { className: classes.icon }),
-            React.createElement("span", null, scheduledDate)),
-        React.createElement("div", { className: classes.row },
+            React.createElement("span", null, scheduledDate))),
+        refereeName && (React.createElement("div", { className: classes.row },
             React.createElement(Person_1.default, { className: classes.icon }),
-            React.createElement("span", null, refereeName)),
-        React.createElement("div", { className: classes.row },
+            React.createElement("span", null, refereeName))),
+        stadiumName && (React.createElement("div", { className: classes.row },
             React.createElement(Place_1.default, { className: classes.icon }),
-            React.createElement("span", null, stadiumName)),
-        React.createElement("div", { className: classes.row },
+            React.createElement("span", null, stadiumName))),
+        attendance && (React.createElement("div", { className: classes.row },
             React.createElement("span", null,
                 dict_1.dict.att,
                 ": ",
-                attendance))));
+                attendance)))));
 };
 
 
@@ -86031,8 +86030,13 @@ var useStyles = styles_1.makeStyles(function (_a) {
     });
 });
 exports.MatchDetailsTabs = function (props) {
-    var homeTeamStats = props.homeTeamStats, awayTeamStats = props.awayTeamStats, homePlayers = props.homePlayers, awayPlayers = props.awayPlayers;
-    var _a = React.useState(1), tab = _a[0], setTab = _a[1];
+    var statistics = props.statistics;
+    var teams = statistics.teams;
+    var homePlayers = teams[0].players;
+    var awayPlayers = teams[1].players;
+    var homeTeamStats = teams[0].statistics;
+    var awayTeamStats = teams[1].statistics;
+    var _a = React.useState(0), tab = _a[0], setTab = _a[1];
     // @ts-ignore
     var classes = useStyles();
     var handleChange = function (event, newValue) {

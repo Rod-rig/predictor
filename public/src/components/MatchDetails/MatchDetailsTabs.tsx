@@ -1,21 +1,16 @@
 import { Tab, Tabs, Theme, Typography } from "@material-ui/core";
 import { createStyles, makeStyles } from "@material-ui/styles";
 import * as React from "react";
-import { IPlayer } from "../../@types";
+import { ITeamStat } from "../../@types";
 import { dict } from "../../dict";
 import { MatchDetailsLineUps } from "./MatchDetailsLineUps";
 import { MatchDetailsStat } from "./MatchDetailsStat";
 import { MatchDetailsTabPanel } from "./MatchDetailsTabPanel";
 
 interface IProps {
-  homeTeamStats: {
-    [key: string]: number;
+  statistics: {
+    teams: ITeamStat[];
   };
-  awayTeamStats: {
-    [key: string]: number;
-  };
-  homePlayers: IPlayer[];
-  awayPlayers: IPlayer[];
 }
 
 const useStyles = makeStyles(({ palette, spacing }: Theme) =>
@@ -30,8 +25,14 @@ const useStyles = makeStyles(({ palette, spacing }: Theme) =>
 );
 
 export const MatchDetailsTabs = (props: IProps) => {
-  const { homeTeamStats, awayTeamStats, homePlayers, awayPlayers } = props;
-  const [tab, setTab] = React.useState(1);
+  const { statistics } = props;
+  const teams = statistics.teams;
+  const homePlayers = teams[0].players;
+  const awayPlayers = teams[1].players;
+  const homeTeamStats = teams[0].statistics;
+  const awayTeamStats = teams[1].statistics;
+
+  const [tab, setTab] = React.useState(0);
   // @ts-ignore
   const classes = useStyles();
   const handleChange = (event: React.ChangeEvent<{}>, newValue: number) => {

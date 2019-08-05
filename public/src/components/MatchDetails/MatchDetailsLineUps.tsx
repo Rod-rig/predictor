@@ -1,7 +1,7 @@
 import { List, ListItem, ListItemText, Theme } from "@material-ui/core";
 import { createStyles, makeStyles } from "@material-ui/styles";
 import * as React from "react";
-import { IPlayer } from "../../@types/IMatchDetails";
+import { IPlayer } from "../../@types";
 
 interface IProps {
   homePlayers: IPlayer[];
