@@ -213,8 +213,8 @@ export const logos: ILogo = {
     "https://upload.wikimedia.org/wikipedia/en/4/4a/Chievo-verona-logo.png",
   "Brescia Calcio":
     "https://upload.wikimedia.org/wikipedia/en/a/a4/Brescia_calcio_badge.png",
-  "U.S. Lecce": "https://upload.wikimedia.org/wikipedia/en/0/05/Us_lecce.png",
-  "Hellas Verona F.C.":
+  "US Lecce": "https://upload.wikimedia.org/wikipedia/en/0/05/Us_lecce.png",
+  "Hellas Verona":
     "https://upload.wikimedia.org/wikipedia/en/c/cc/Hellas_Verona_FC_logo.svg",
   "PSV Eindhoven":
     "https://upload.wikimedia.org/wikipedia/en/0/05/PSV_Eindhoven.svg",
