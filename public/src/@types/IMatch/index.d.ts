@@ -43,6 +43,7 @@ export interface IPredictionMatch {
   homeScore: number;
   awayScore: number;
   status?: number;
+  id: string;
 }
 
 export interface IPredictionStore {

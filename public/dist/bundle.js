@@ -87393,7 +87393,7 @@ var renderInfo = function (store) {
     var success = 0;
     var pending = 0;
     store.data.forEach(function (item) {
-        list.push(React.createElement(__1.MatchItem, { key: item.awayTeam + " " + item.homeTeam, awayTeam: item.awayTeam, homeTeam: item.homeTeam, homeScore: item.homeScore, awayScore: item.awayScore, status: item.status }));
+        list.push(React.createElement(__1.MatchItem, { key: item.awayTeam + " " + item.homeTeam, awayTeam: item.awayTeam, homeTeam: item.homeTeam, homeScore: item.homeScore, awayScore: item.awayScore, status: item.status, id: item.id }));
         if (item.status > 0) {
             success += 1;
         }
