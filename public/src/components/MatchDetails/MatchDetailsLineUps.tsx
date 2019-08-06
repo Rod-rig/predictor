@@ -1,4 +1,5 @@
 import { List, ListItem, ListItemText, Theme } from "@material-ui/core";
+import { red, yellow } from "@material-ui/core/colors";
 import { createStyles, makeStyles } from "@material-ui/styles";
 import * as React from "react";
 import { IPlayer } from "../../@types";
@@ -17,6 +18,24 @@ const useStyles = makeStyles(({ spacing }: Theme) =>
     list: {
       width: "50%",
     },
+    name: {
+      alignItems: "center",
+      display: "flex",
+    },
+    red: {
+      backgroundColor: red[500],
+      display: "inline-block",
+      height: 15,
+      margin: spacing(0.5),
+      width: 9,
+    },
+    yellow: {
+      backgroundColor: yellow[500],
+      display: "inline-block",
+      height: 15,
+      margin: spacing(0.5),
+      width: 9,
+    },
   }),
 );
 
@@ -31,7 +50,15 @@ export const MatchDetailsLineUps = (props: IProps) => {
         {homePlayers.map((player: IPlayer) => {
           return (
             <ListItem key={player.id} button={true}>
-              <ListItemText>{player.name}</ListItemText>
+              <ListItemText>
+                <div className={classes.name}>
+                  <span>{player.name}</span>
+                  {player.yellow_cards > 0 && (
+                    <span className={classes.yellow} />
+                  )}
+                  {player.red_cards > 0 && <span className={classes.red} />}
+                </div>
+              </ListItemText>
             </ListItem>
           );
         })}
@@ -40,7 +67,15 @@ export const MatchDetailsLineUps = (props: IProps) => {
         {awayPlayers.map((player: IPlayer) => {
           return (
             <ListItem key={player.id} button={true}>
-              <ListItemText>{player.name}</ListItemText>
+              <ListItemText>
+                <div className={classes.name}>
+                  <span>{player.name}</span>
+                  {player.yellow_cards > 0 && (
+                    <span className={classes.yellow} />
+                  )}
+                  {player.red_cards > 0 && <span className={classes.red} />}
+                </div>
+              </ListItemText>
             </ListItem>
           );
         })}

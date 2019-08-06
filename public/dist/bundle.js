@@ -85740,6 +85740,7 @@ exports.MatchDetailsInfo = function (props) {
 
 Object.defineProperty(exports, "__esModule", { value: true });
 var core_1 = __webpack_require__(/*! @material-ui/core */ "./node_modules/@material-ui/core/esm/index.js");
+var colors_1 = __webpack_require__(/*! @material-ui/core/colors */ "./node_modules/@material-ui/core/esm/colors/index.js");
 var styles_1 = __webpack_require__(/*! @material-ui/styles */ "./node_modules/@material-ui/styles/esm/index.js");
 var React = __webpack_require__(/*! react */ "./node_modules/react/index.js");
 var useStyles = styles_1.makeStyles(function (_a) {
@@ -85752,6 +85753,24 @@ var useStyles = styles_1.makeStyles(function (_a) {
         list: {
             width: "50%",
         },
+        name: {
+            alignItems: "center",
+            display: "flex",
+        },
+        red: {
+            backgroundColor: colors_1.red[500],
+            display: "inline-block",
+            height: 15,
+            margin: spacing(0.5),
+            width: 9,
+        },
+        yellow: {
+            backgroundColor: colors_1.yellow[500],
+            display: "inline-block",
+            height: 15,
+            margin: spacing(0.5),
+            width: 9,
+        },
     });
 });
 exports.MatchDetailsLineUps = function (props) {
@@ -85761,11 +85780,19 @@ exports.MatchDetailsLineUps = function (props) {
     return (React.createElement("div", { className: classes.lineups },
         React.createElement(core_1.List, { className: classes.list }, homePlayers.map(function (player) {
             return (React.createElement(core_1.ListItem, { key: player.id, button: true },
-                React.createElement(core_1.ListItemText, null, player.name)));
+                React.createElement(core_1.ListItemText, null,
+                    React.createElement("div", { className: classes.name },
+                        React.createElement("span", null, player.name),
+                        player.yellow_cards > 0 && (React.createElement("span", { className: classes.yellow })),
+                        player.red_cards > 0 && React.createElement("span", { className: classes.red })))));
         })),
         React.createElement(core_1.List, { className: classes.list }, awayPlayers.map(function (player) {
             return (React.createElement(core_1.ListItem, { key: player.id, button: true },
-                React.createElement(core_1.ListItemText, null, player.name)));
+                React.createElement(core_1.ListItemText, null,
+                    React.createElement("div", { className: classes.name },
+                        React.createElement("span", null, player.name),
+                        player.yellow_cards > 0 && (React.createElement("span", { className: classes.yellow })),
+                        player.red_cards > 0 && React.createElement("span", { className: classes.red })))));
         }))));
 };
 
