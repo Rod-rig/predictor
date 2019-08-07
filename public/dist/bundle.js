@@ -34770,6 +34770,70 @@ exports.default = _default;
 
 /***/ }),
 
+/***/ "./node_modules/@material-ui/icons/SubdirectoryArrowLeft.js":
+/*!******************************************************************!*\
+  !*** ./node_modules/@material-ui/icons/SubdirectoryArrowLeft.js ***!
+  \******************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+var _interopRequireDefault = __webpack_require__(/*! @babel/runtime/helpers/interopRequireDefault */ "./node_modules/@babel/runtime/helpers/interopRequireDefault.js");
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.default = void 0;
+
+var _react = _interopRequireDefault(__webpack_require__(/*! react */ "./node_modules/react/index.js"));
+
+var _createSvgIcon = _interopRequireDefault(__webpack_require__(/*! ./utils/createSvgIcon */ "./node_modules/@material-ui/icons/utils/createSvgIcon.js"));
+
+var _default = (0, _createSvgIcon.default)(_react.default.createElement(_react.default.Fragment, null, _react.default.createElement("path", {
+  fill: "none",
+  d: "M0 0h24v24H0V0z"
+}), _react.default.createElement("path", {
+  d: "M11 9l1.42 1.42L8.83 14H18V4h2v12H8.83l3.59 3.58L11 21l-6-6 6-6z"
+})), 'SubdirectoryArrowLeft');
+
+exports.default = _default;
+
+/***/ }),
+
+/***/ "./node_modules/@material-ui/icons/SubdirectoryArrowRight.js":
+/*!*******************************************************************!*\
+  !*** ./node_modules/@material-ui/icons/SubdirectoryArrowRight.js ***!
+  \*******************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+var _interopRequireDefault = __webpack_require__(/*! @babel/runtime/helpers/interopRequireDefault */ "./node_modules/@babel/runtime/helpers/interopRequireDefault.js");
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.default = void 0;
+
+var _react = _interopRequireDefault(__webpack_require__(/*! react */ "./node_modules/react/index.js"));
+
+var _createSvgIcon = _interopRequireDefault(__webpack_require__(/*! ./utils/createSvgIcon */ "./node_modules/@material-ui/icons/utils/createSvgIcon.js"));
+
+var _default = (0, _createSvgIcon.default)(_react.default.createElement(_react.default.Fragment, null, _react.default.createElement("path", {
+  fill: "none",
+  d: "M0 0h24v24H0V0z"
+}), _react.default.createElement("path", {
+  d: "M19 15l-6 6-1.42-1.42L15.17 16H4V4h2v10h9.17l-3.59-3.58L13 9l6 6z"
+})), 'SubdirectoryArrowRight');
+
+exports.default = _default;
+
+/***/ }),
+
 /***/ "./node_modules/@material-ui/icons/utils/createSvgIcon.js":
 /*!****************************************************************!*\
   !*** ./node_modules/@material-ui/icons/utils/createSvgIcon.js ***!
@@ -85741,11 +85805,38 @@ exports.MatchDetailsInfo = function (props) {
 Object.defineProperty(exports, "__esModule", { value: true });
 var core_1 = __webpack_require__(/*! @material-ui/core */ "./node_modules/@material-ui/core/esm/index.js");
 var colors_1 = __webpack_require__(/*! @material-ui/core/colors */ "./node_modules/@material-ui/core/esm/colors/index.js");
+var SubdirectoryArrowLeft_1 = __webpack_require__(/*! @material-ui/icons/SubdirectoryArrowLeft */ "./node_modules/@material-ui/icons/SubdirectoryArrowLeft.js");
+var SubdirectoryArrowRight_1 = __webpack_require__(/*! @material-ui/icons/SubdirectoryArrowRight */ "./node_modules/@material-ui/icons/SubdirectoryArrowRight.js");
 var styles_1 = __webpack_require__(/*! @material-ui/styles */ "./node_modules/@material-ui/styles/esm/index.js");
 var React = __webpack_require__(/*! react */ "./node_modules/react/index.js");
 var useStyles = styles_1.makeStyles(function (_a) {
-    var spacing = _a.spacing;
+    var palette = _a.palette, spacing = _a.spacing;
     return styles_1.createStyles({
+        assist: {
+            border: "1px solid " + palette.common.black,
+            display: "inline-block",
+            fontSize: 10,
+            height: 14,
+            margin: spacing(0.5),
+            padding: spacing(0, 0.5),
+        },
+        goal: {
+            border: "1px solid " + palette.common.black,
+            borderRadius: "50%",
+            display: "inline-block",
+            fontSize: 10,
+            height: 16,
+            lineHeight: "16px",
+            margin: spacing(0.5),
+            textAlign: "center",
+            width: 16,
+        },
+        in: {
+            color: colors_1.red[500],
+            display: "inline-block",
+            fontSize: 20,
+            margin: spacing(0.25),
+        },
         lineups: {
             display: "flex",
             padding: spacing(0, 1),
@@ -85756,6 +85847,13 @@ var useStyles = styles_1.makeStyles(function (_a) {
         name: {
             alignItems: "center",
             display: "flex",
+            flexWrap: "wrap",
+        },
+        out: {
+            color: colors_1.green[500],
+            display: "inline-block",
+            fontSize: 20,
+            margin: spacing(0.25),
         },
         red: {
             backgroundColor: colors_1.red[500],
@@ -85773,27 +85871,29 @@ var useStyles = styles_1.makeStyles(function (_a) {
         },
     });
 });
+var renderList = function (players) {
+    // @ts-ignore
+    var classes = useStyles();
+    return (React.createElement(core_1.List, { className: classes.list }, players.map(function (player) {
+        return (React.createElement(core_1.ListItem, { key: player.id, button: true },
+            React.createElement(core_1.ListItemText, null,
+                React.createElement("div", { className: classes.name },
+                    React.createElement("span", null, player.name),
+                    player.goals_scored > 0 && (React.createElement("span", { className: classes.goal }, "G")),
+                    player.assists > 0 && (React.createElement("span", { className: classes.assist }, "AS")),
+                    player.yellow_cards > 0 && React.createElement("span", { className: classes.yellow }),
+                    player.red_cards > 0 && React.createElement("span", { className: classes.red }),
+                    player.substituted_in > 0 && (React.createElement(SubdirectoryArrowLeft_1.default, { className: classes.in })),
+                    player.substituted_out > 0 && (React.createElement(SubdirectoryArrowRight_1.default, { className: classes.out }))))));
+    })));
+};
 exports.MatchDetailsLineUps = function (props) {
     var homePlayers = props.homePlayers, awayPlayers = props.awayPlayers;
     // @ts-ignore
     var classes = useStyles();
     return (React.createElement("div", { className: classes.lineups },
-        React.createElement(core_1.List, { className: classes.list }, homePlayers.map(function (player) {
-            return (React.createElement(core_1.ListItem, { key: player.id, button: true },
-                React.createElement(core_1.ListItemText, null,
-                    React.createElement("div", { className: classes.name },
-                        React.createElement("span", null, player.name),
-                        player.yellow_cards > 0 && (React.createElement("span", { className: classes.yellow })),
-                        player.red_cards > 0 && React.createElement("span", { className: classes.red })))));
-        })),
-        React.createElement(core_1.List, { className: classes.list }, awayPlayers.map(function (player) {
-            return (React.createElement(core_1.ListItem, { key: player.id, button: true },
-                React.createElement(core_1.ListItemText, null,
-                    React.createElement("div", { className: classes.name },
-                        React.createElement("span", null, player.name),
-                        player.yellow_cards > 0 && (React.createElement("span", { className: classes.yellow })),
-                        player.red_cards > 0 && React.createElement("span", { className: classes.red })))));
-        }))));
+        renderList(homePlayers),
+        renderList(awayPlayers)));
 };
 
 
@@ -86063,7 +86163,7 @@ exports.MatchDetailsTabs = function (props) {
     var awayPlayers = teams[1].players;
     var homeTeamStats = teams[0].statistics;
     var awayTeamStats = teams[1].statistics;
-    var _a = React.useState(0), tab = _a[0], setTab = _a[1];
+    var _a = React.useState(1), tab = _a[0], setTab = _a[1];
     // @ts-ignore
     var classes = useStyles();
     var handleChange = function (event, newValue) {

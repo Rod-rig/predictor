@@ -17,6 +17,7 @@ export interface IPlayer {
   substituted_in: number;
   substituted_out: number;
   goals_scored: number;
+  penalty_goals_scored?: number;
   assists: number;
   own_goals: number;
   yellow_cards: number;

@@ -1,5 +1,7 @@
 import { List, ListItem, ListItemText, Theme } from "@material-ui/core";
-import { red, yellow } from "@material-ui/core/colors";
+import { green, red, yellow } from "@material-ui/core/colors";
+import SubdirectoryArrowLeft from "@material-ui/icons/SubdirectoryArrowLeft";
+import SubdirectoryArrowRight from "@material-ui/icons/SubdirectoryArrowRight";
 import { createStyles, makeStyles } from "@material-ui/styles";
 import * as React from "react";
 import { IPlayer } from "../../@types";
@@ -9,8 +11,33 @@ interface IProps {
   awayPlayers: IPlayer[];
 }
 
-const useStyles = makeStyles(({ spacing }: Theme) =>
+const useStyles = makeStyles(({ palette, spacing }: Theme) =>
   createStyles({
+    assist: {
+      border: `1px solid ${palette.common.black}`,
+      display: "inline-block",
+      fontSize: 10,
+      height: 14,
+      margin: spacing(0.5),
+      padding: spacing(0, 0.5),
+    },
+    goal: {
+      border: `1px solid ${palette.common.black}`,
+      borderRadius: "50%",
+      display: "inline-block",
+      fontSize: 10,
+      height: 16,
+      lineHeight: "16px",
+      margin: spacing(0.5),
+      textAlign: "center",
+      width: 16,
+    },
+    in: {
+      color: red[500],
+      display: "inline-block",
+      fontSize: 20,
+      margin: spacing(0.25),
+    },
     lineups: {
       display: "flex",
       padding: spacing(0, 1),
@@ -21,6 +48,13 @@ const useStyles = makeStyles(({ spacing }: Theme) =>
     name: {
       alignItems: "center",
       display: "flex",
+      flexWrap: "wrap",
+    },
+    out: {
+      color: green[500],
+      display: "inline-block",
+      fontSize: 20,
+      margin: spacing(0.25),
     },
     red: {
       backgroundColor: red[500],
@@ -39,6 +73,40 @@ const useStyles = makeStyles(({ spacing }: Theme) =>
   }),
 );
 
+const renderList = (players: IPlayer[]) => {
+  // @ts-ignore
+  const classes = useStyles();
+  return (
+    <List className={classes.list}>
+      {players.map((player: IPlayer) => {
+        return (
+          <ListItem key={player.id} button={true}>
+            <ListItemText>
+              <div className={classes.name}>
+                <span>{player.name}</span>
+                {player.goals_scored > 0 && (
+                  <span className={classes.goal}>G</span>
+                )}
+                {player.assists > 0 && (
+                  <span className={classes.assist}>AS</span>
+                )}
+                {player.yellow_cards > 0 && <span className={classes.yellow} />}
+                {player.red_cards > 0 && <span className={classes.red} />}
+                {player.substituted_in > 0 && (
+                  <SubdirectoryArrowLeft className={classes.in} />
+                )}
+                {player.substituted_out > 0 && (
+                  <SubdirectoryArrowRight className={classes.out} />
+                )}
+              </div>
+            </ListItemText>
+          </ListItem>
+        );
+      })}
+    </List>
+  );
+};
+
 export const MatchDetailsLineUps = (props: IProps) => {
   const { homePlayers, awayPlayers } = props;
   // @ts-ignore
@@ -46,40 +114,8 @@ export const MatchDetailsLineUps = (props: IProps) => {
 
   return (
     <div className={classes.lineups}>
-      <List className={classes.list}>
-        {homePlayers.map((player: IPlayer) => {
-          return (
-            <ListItem key={player.id} button={true}>
-              <ListItemText>
-                <div className={classes.name}>
-                  <span>{player.name}</span>
-                  {player.yellow_cards > 0 && (
-                    <span className={classes.yellow} />
-                  )}
-                  {player.red_cards > 0 && <span className={classes.red} />}
-                </div>
-              </ListItemText>
-            </ListItem>
-          );
-        })}
-      </List>
-      <List className={classes.list}>
-        {awayPlayers.map((player: IPlayer) => {
-          return (
-            <ListItem key={player.id} button={true}>
-              <ListItemText>
-                <div className={classes.name}>
-                  <span>{player.name}</span>
-                  {player.yellow_cards > 0 && (
-                    <span className={classes.yellow} />
-                  )}
-                  {player.red_cards > 0 && <span className={classes.red} />}
-                </div>
-              </ListItemText>
-            </ListItem>
-          );
-        })}
-      </List>
+      {renderList(homePlayers)}
+      {renderList(awayPlayers)}
     </div>
   );
 };
