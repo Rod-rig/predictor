@@ -1,5 +1,5 @@
 import * as React from "react";
-import { match, RouteComponentProps, RouteProps } from "react-router-dom";
+import { match, RouteProps } from "react-router-dom";
 import { IPredictionStore, IRetrieverProps, ITableProps } from "./@types";
 import {
   Account,
@@ -106,9 +106,7 @@ const stats = (props: IRetrieverProps & { match: IId }) => (
   />
 );
 
-const matchDetails = (props: RouteComponentProps<{ id: string }>) => (
-  <MatchDetails {...props} />
-);
+const matchDetails = (props: { id: string }) => <MatchDetails id={props.id} />;
 
 export const routes = [
   {

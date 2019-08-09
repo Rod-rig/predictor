@@ -1,5 +1,7 @@
 import { getFutureDates } from "../helpers";
 import {
+  futureMatchDetailsMock,
+  matchDetailsMock,
   matchListMock,
   predictions,
   scheduleByDateMock,
@@ -24,6 +26,10 @@ export default {
       return Promise.resolve({ data: userMock });
     } else if (url === "/logout") {
       return Promise.resolve();
+    } else if (url === "/api/match/test") {
+      return Promise.resolve({ data: matchDetailsMock });
+    } else if (url === "/api/match/future-match") {
+      return Promise.resolve({ data: futureMatchDetailsMock });
     } else {
       return Promise.reject({
         response: { error: "No such url", status: 404 },

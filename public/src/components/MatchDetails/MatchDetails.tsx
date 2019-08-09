@@ -2,7 +2,6 @@ import { Paper, Theme } from "@material-ui/core";
 import { createStyles, makeStyles } from "@material-ui/styles";
 import axios, { AxiosResponse } from "axios";
 import * as React from "react";
-import { RouteComponentProps } from "react-router-dom";
 import { Loader } from "../";
 import { IMatchDetails } from "../../@types";
 import { MatchDetailsInfo } from "./MatchDetailsInfo";
@@ -20,8 +19,8 @@ const useStyles = makeStyles(({ spacing }: Theme) =>
   }),
 );
 
-export const MatchDetails = (props: RouteComponentProps<{ id: string }>) => {
-  const { id } = props.match.params;
+export const MatchDetails = (props: { id: string }) => {
+  const { id } = props;
   // @ts-ignore
   const classes = useStyles();
   const [data, setData] = React.useState({

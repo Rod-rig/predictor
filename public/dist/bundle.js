@@ -85667,7 +85667,7 @@ var useStyles = styles_1.makeStyles(function (_a) {
     });
 });
 exports.MatchDetails = function (props) {
-    var id = props.match.params.id;
+    var id = props.id;
     // @ts-ignore
     var classes = useStyles();
     var _a = React.useState({
@@ -85828,6 +85828,7 @@ var useStyles = styles_1.makeStyles(function (_a) {
             height: 16,
             lineHeight: "16px",
             margin: spacing(0.5),
+            paddingRight: 1,
             textAlign: "center",
             width: 16,
         },
@@ -85871,6 +85872,13 @@ var useStyles = styles_1.makeStyles(function (_a) {
         },
     });
 });
+var renderInLoop = function (to, text, className) {
+    var collection = [];
+    for (var i = 0; i < to; i++) {
+        collection.push(React.createElement("span", { key: i, className: className }, text));
+    }
+    return collection;
+};
 var renderList = function (players) {
     // @ts-ignore
     var classes = useStyles();
@@ -85879,8 +85887,10 @@ var renderList = function (players) {
             React.createElement(core_1.ListItemText, null,
                 React.createElement("div", { className: classes.name },
                     React.createElement("span", null, player.name),
-                    player.goals_scored > 0 && (React.createElement("span", { className: classes.goal }, "G")),
-                    player.assists > 0 && (React.createElement("span", { className: classes.assist }, "AS")),
+                    player.goals_scored > 0 &&
+                        renderInLoop(player.goals_scored, "G", classes.goal),
+                    player.assists > 0 &&
+                        renderInLoop(player.assists, "AS", classes.assist),
                     player.yellow_cards > 0 && React.createElement("span", { className: classes.yellow }),
                     player.red_cards > 0 && React.createElement("span", { className: classes.red }),
                     player.substituted_in > 0 && (React.createElement(SubdirectoryArrowLeft_1.default, { className: classes.in })),
@@ -86163,7 +86173,7 @@ exports.MatchDetailsTabs = function (props) {
     var awayPlayers = teams[1].players;
     var homeTeamStats = teams[0].statistics;
     var awayTeamStats = teams[1].statistics;
-    var _a = React.useState(1), tab = _a[0], setTab = _a[1];
+    var _a = React.useState(0), tab = _a[0], setTab = _a[1];
     // @ts-ignore
     var classes = useStyles();
     var handleChange = function (event, newValue) {
@@ -88824,7 +88834,7 @@ var registration = function () { return React.createElement(components_1.Registr
 var stats = function (props) { return (React.createElement(components_1.Stats, __assign({ store: new stores_1.DataRetriever({
         url: "/predictions",
     }) }, props))); };
-var matchDetails = function (props) { return (React.createElement(components_1.MatchDetails, __assign({}, props))); };
+var matchDetails = function (props) { return React.createElement(components_1.MatchDetails, { id: props.id }); };
 exports.routes = [
     {
         component: tournamentList,

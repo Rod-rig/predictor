@@ -32,7 +32,7 @@ export const MatchDetailsTabs = (props: IProps) => {
   const homeTeamStats = teams[0].statistics;
   const awayTeamStats = teams[1].statistics;
 
-  const [tab, setTab] = React.useState(1);
+  const [tab, setTab] = React.useState(0);
   // @ts-ignore
   const classes = useStyles();
   const handleChange = (event: React.ChangeEvent<{}>, newValue: number) => {

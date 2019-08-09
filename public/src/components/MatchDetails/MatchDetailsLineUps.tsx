@@ -29,6 +29,7 @@ const useStyles = makeStyles(({ palette, spacing }: Theme) =>
       height: 16,
       lineHeight: "16px",
       margin: spacing(0.5),
+      paddingRight: 1,
       textAlign: "center",
       width: 16,
     },
@@ -73,6 +74,18 @@ const useStyles = makeStyles(({ palette, spacing }: Theme) =>
   }),
 );
 
+const renderInLoop = (to: number, text: string, className: string) => {
+  const collection: React.ReactNode[] = [];
+  for (let i = 0; i < to; i++) {
+    collection.push(
+      <span key={i} className={className}>
+        {text}
+      </span>,
+    );
+  }
+  return collection;
+};
+
 const renderList = (players: IPlayer[]) => {
   // @ts-ignore
   const classes = useStyles();
@@ -84,12 +97,10 @@ const renderList = (players: IPlayer[]) => {
             <ListItemText>
               <div className={classes.name}>
                 <span>{player.name}</span>
-                {player.goals_scored > 0 && (
-                  <span className={classes.goal}>G</span>
-                )}
-                {player.assists > 0 && (
-                  <span className={classes.assist}>AS</span>
-                )}
+                {player.goals_scored > 0 &&
+                  renderInLoop(player.goals_scored, "G", classes.goal)}
+                {player.assists > 0 &&
+                  renderInLoop(player.assists, "AS", classes.assist)}
                 {player.yellow_cards > 0 && <span className={classes.yellow} />}
                 {player.red_cards > 0 && <span className={classes.red} />}
                 {player.substituted_in > 0 && (

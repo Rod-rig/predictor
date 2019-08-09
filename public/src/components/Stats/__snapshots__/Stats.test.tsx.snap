@@ -2,7 +2,7 @@
 
 exports[`Stats should render empty stats comp correctly 1`] = `
 <div
-  className="MuiPaper-root MuiPaper-elevation1 Component-paper-125 MuiPaper-rounded"
+  className="MuiPaper-root MuiPaper-elevation1 Component-paper-102 MuiPaper-rounded"
 >
   <svg
     aria-hidden="true"
@@ -26,7 +26,7 @@ exports[`Stats should render empty stats comp correctly 1`] = `
     Looks like you have no predictions yet
   </p>
   <div
-    className="Component-links-124"
+    className="Component-links-101"
   >
     <a
       className="MuiTypography-root MuiLink-root MuiLink-underlineHover MuiTypography-colorSecondary"
@@ -52,7 +52,7 @@ exports[`Stats should render empty stats comp correctly 1`] = `
 
 exports[`Stats should render stats with not loaded predictions correctly 1`] = `
 <div
-  className="MuiCircularProgress-root Component-root-111 MuiCircularProgress-colorPrimary MuiCircularProgress-indeterminate"
+  className="MuiCircularProgress-root Component-root-88 MuiCircularProgress-colorPrimary MuiCircularProgress-indeterminate"
   role="progressbar"
   style={
     Object {
