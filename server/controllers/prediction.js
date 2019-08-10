@@ -41,8 +41,8 @@ module.exports.getAvailableEvents = (req, res) => {
   const { BASE_URL } = process.env;
 
   const getSchedule = () => {
-    const { date: id } = req.params;
-    const url = `${BASE_URL}/api/schedule/${id}`;
+    const { date } = req.params;
+    const url = `${BASE_URL}/api/schedule/${date}`;
     return axios.get(url);
   };
 
