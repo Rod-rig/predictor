@@ -1,5 +1,5 @@
 import axios, { AxiosResponse } from "axios";
-import { observable } from "mobx";
+import { action, observable } from "mobx";
 import { IRetriever, IRetrieverProps } from "../../@types";
 import { userStore } from "../UserStore";
 
@@ -13,17 +13,20 @@ export class DataRetriever implements IRetriever {
     this.fetchList();
   }
 
+  @action.bound
+  public fetchDataFailed({ status }: { status: number }) {
+    if (status === 403) {
+      userStore.logout();
+    }
+  }
+
+  @action.bound
+  private fetchDataSuccess(res: AxiosResponse) {
+    this.data = Array.isArray(res.data) ? [...res.data] : { ...res.data };
+    this.isLoaded = true;
+  }
+
   private fetchList() {
-    axios
-      .get(this.url)
-      .then((res: AxiosResponse) => {
-        this.data = Array.isArray(res.data) ? [...res.data] : { ...res.data };
-        this.isLoaded = true;
-      })
-      .catch(({ status }) => {
-        if (status === 403) {
-          userStore.logout();
-        }
-      });
+    axios.get(this.url).then(this.fetchDataSuccess, this.fetchDataFailed);
   }
 }
