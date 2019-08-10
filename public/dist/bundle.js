@@ -93861,7 +93861,7 @@ var registration = function () { return React.createElement(components_1.Registr
 var stats = function (props) { return (React.createElement(components_1.Stats, __assign({ store: new stores_1.DataRetriever({
         url: "/predictions",
     }) }, props))); };
-var matchDetails = function (props) { return React.createElement(components_1.MatchDetails, { id: props.id }); };
+var matchDetails = function (props) { return (React.createElement(components_1.MatchDetails, { id: props.match.params.id })); };
 exports.routes = [
     {
         component: tournamentList,
