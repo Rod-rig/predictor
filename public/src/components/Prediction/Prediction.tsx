@@ -63,12 +63,16 @@ const styles = ({ breakpoints, palette, spacing }: Theme) =>
       fontSize: "1.25rem",
     },
     logoAway: {
+      height: 30,
       marginLeft: 0,
       marginRight: spacing(2),
+      width: 30,
     },
     logoHome: {
+      height: 30,
       marginLeft: spacing(2),
       marginRight: 0,
+      width: 30,
     },
     noMatchesMsg: {
       margin: spacing(1),

@@ -13,6 +13,7 @@ module.exports = app => {
   app.get("/api/daily-results/:date", apiCtrl.getResultsByDate);
   app.get("/api/tournament-schedule/:id", apiCtrl.getScheduleByTournamentId);
   app.get("/api/schedule/:date", apiCtrl.getScheduleByDate);
+  app.get("/api/match/:id", apiCtrl.getMatchDetails);
 
   //users
   app.get("/users", userCtrl.verifyIsAdmin, userCtrl.getAllUsers);

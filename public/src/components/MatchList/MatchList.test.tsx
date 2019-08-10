@@ -4,18 +4,21 @@ import * as renderer from "react-test-renderer";
 import { Loader, MatchList } from "../";
 import { IMatch } from "../../@types";
 import { matchListMock } from "../../__mocks__";
+import { MemoryRouter } from "react-router-dom";
 
 describe("MatchList", () => {
   const renderComp = (results: IMatch[], isLoaded: boolean) => (
-    <MatchList
-      store={{
-        data: {
-          results,
-        },
-        isLoaded,
-        url: "test",
-      }}
-    />
+    <MemoryRouter>
+      <MatchList
+        store={{
+          data: {
+            results,
+          },
+          isLoaded,
+          url: "test",
+        }}
+      />
+    </MemoryRouter>
   );
 
   it("should render loader", () => {

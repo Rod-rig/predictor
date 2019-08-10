@@ -5,6 +5,7 @@ import {
   Account,
   FixturesList,
   Login,
+  MatchDetails,
   MatchList,
   NotFound,
   Prediction,
@@ -105,6 +106,8 @@ const stats = (props: IRetrieverProps & { match: IId }) => (
   />
 );
 
+const matchDetails = (props: { id: string }) => <MatchDetails id={props.id} />;
+
 export const routes = [
   {
     component: tournamentList,
@@ -146,6 +149,10 @@ export const routes = [
     component: stats,
     isProtected: true,
     path: "/stats",
+  },
+  {
+    component: matchDetails,
+    path: "/match/:id",
   },
   {
     component: NotFound,

@@ -15,16 +15,12 @@ exports[`Row should render correctly 1`] = `
         className="Component-info-8"
       >
         <div
-          className="MuiListItemIcon-root Component-img-7 Component-root-34"
+          className="MuiAvatar-root Component-img-7"
         >
-          <div
-            className="MuiAvatar-root Component-logo-33"
-          >
-            <img
-              className="MuiAvatar-img"
-              src="https://cdn2.iconfinder.com/data/icons/sport-items-2/512/football_soccer_badge_shield_ball_heraldic-128.png"
-            />
-          </div>
+          <img
+            className="MuiAvatar-img"
+            src="https://cdn2.iconfinder.com/data/icons/sport-items-2/512/football_soccer_badge_shield_ball_heraldic-128.png"
+          />
         </div>
         <span>
           Arsenal
@@ -103,16 +99,12 @@ exports[`Row should render correctly 1`] = `
         className="Component-info-8"
       >
         <div
-          className="MuiListItemIcon-root Component-img-7 Component-root-34"
+          className="MuiAvatar-root Component-img-7"
         >
-          <div
-            className="MuiAvatar-root Component-logo-33"
-          >
-            <img
-              className="MuiAvatar-img"
-              src="https://upload.wikimedia.org/wikipedia/en/e/e5/AFC_Bournemouth_%282013%29.svg"
-            />
-          </div>
+          <img
+            className="MuiAvatar-img"
+            src="https://upload.wikimedia.org/wikipedia/en/e/e5/AFC_Bournemouth_%282013%29.svg"
+          />
         </div>
         <span>
           AFC Bournemouth
@@ -191,16 +183,12 @@ exports[`Row should render correctly 1`] = `
         className="Component-info-8"
       >
         <div
-          className="MuiListItemIcon-root Component-img-7 Component-root-34"
+          className="MuiAvatar-root Component-img-7"
         >
-          <div
-            className="MuiAvatar-root Component-logo-33"
-          >
-            <img
-              className="MuiAvatar-img"
-              src="https://upload.wikimedia.org/wikipedia/en/f/fd/Brighton_%26_Hove_Albion_logo.svg"
-            />
-          </div>
+          <img
+            className="MuiAvatar-img"
+            src="https://upload.wikimedia.org/wikipedia/en/f/fd/Brighton_%26_Hove_Albion_logo.svg"
+          />
         </div>
         <span>
           Brighton & Hove Albion
@@ -279,16 +267,12 @@ exports[`Row should render correctly 1`] = `
         className="Component-info-8"
       >
         <div
-          className="MuiListItemIcon-root Component-img-7 Component-root-34"
+          className="MuiAvatar-root Component-img-7"
         >
-          <div
-            className="MuiAvatar-root Component-logo-33"
-          >
-            <img
-              className="MuiAvatar-img"
-              src="https://cdn2.iconfinder.com/data/icons/sport-items-2/512/football_soccer_badge_shield_ball_heraldic-128.png"
-            />
-          </div>
+          <img
+            className="MuiAvatar-img"
+            src="https://cdn2.iconfinder.com/data/icons/sport-items-2/512/football_soccer_badge_shield_ball_heraldic-128.png"
+          />
         </div>
         <span>
           Leeds United
@@ -367,16 +351,12 @@ exports[`Row should render correctly 1`] = `
         className="Component-info-8"
       >
         <div
-          className="MuiListItemIcon-root Component-img-7 Component-root-34"
+          className="MuiAvatar-root Component-img-7"
         >
-          <div
-            className="MuiAvatar-root Component-logo-33"
-          >
-            <img
-              className="MuiAvatar-img"
-              src="https://cdn2.iconfinder.com/data/icons/sport-items-2/512/football_soccer_badge_shield_ball_heraldic-128.png"
-            />
-          </div>
+          <img
+            className="MuiAvatar-img"
+            src="https://cdn2.iconfinder.com/data/icons/sport-items-2/512/football_soccer_badge_shield_ball_heraldic-128.png"
+          />
         </div>
         <span>
           Everton
@@ -455,16 +435,12 @@ exports[`Row should render correctly 1`] = `
         className="Component-info-8"
       >
         <div
-          className="MuiListItemIcon-root Component-img-7 Component-root-34"
+          className="MuiAvatar-root Component-img-7"
         >
-          <div
-            className="MuiAvatar-root Component-logo-33"
-          >
-            <img
-              className="MuiAvatar-img"
-              src="https://cdn2.iconfinder.com/data/icons/sport-items-2/512/football_soccer_badge_shield_ball_heraldic-128.png"
-            />
-          </div>
+          <img
+            className="MuiAvatar-img"
+            src="https://cdn2.iconfinder.com/data/icons/sport-items-2/512/football_soccer_badge_shield_ball_heraldic-128.png"
+          />
         </div>
         <span>
           Burnley

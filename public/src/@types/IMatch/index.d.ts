@@ -1,5 +1,6 @@
 import { ISeason, ITournament } from "../";
 import { ICompetitor } from "../ICompetitor";
+import { IPeriodScore } from "../IPeriodScore";
 import { IVenue } from "../IVenue";
 
 interface ISportEvent {
@@ -22,13 +23,6 @@ interface ISportEvent {
   venue: IVenue;
 }
 
-interface IPeriodScore {
-  away_score: number;
-  home_score: number;
-  number: number;
-  type: string;
-}
-
 interface ISportEventStatus {
   away_score: number;
   home_score: number;
@@ -49,6 +43,7 @@ export interface IPredictionMatch {
   homeScore: number;
   awayScore: number;
   status?: number;
+  id: string;
 }
 
 export interface IPredictionStore {

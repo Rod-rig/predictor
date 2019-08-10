@@ -19,6 +19,7 @@ const renderInfo = (store: IRetriever<IPredictionMatch[]>) => {
         homeScore={item.homeScore}
         awayScore={item.awayScore}
         status={item.status}
+        id={item.id}
       />,
     );
     if (item.status > 0) {

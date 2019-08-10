@@ -1,10 +1,13 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`MatchItem should render future match correctly 1`] = `
-<div
+<a
   aria-disabled={false}
   className="MuiButtonBase-root MuiListItem-root Component-matchItem-9 MuiListItem-gutters MuiListItem-divider MuiListItem-button"
+  href="/match/test"
+  id="test"
   onBlur={[Function]}
+  onClick={[Function]}
   onDragLeave={[Function]}
   onFocus={[Function]}
   onKeyDown={[Function]}
@@ -25,10 +28,10 @@ exports[`MatchItem should render future match correctly 1`] = `
       Test2
     </div>
     <div
-      className="MuiListItemIcon-root Component-homeIcon-7 Component-root-34"
+      className="MuiListItemAvatar-root"
     >
       <div
-        className="MuiAvatar-root Component-logo-33"
+        className="MuiAvatar-root Component-homeIcon-7 Component-logo-8"
       >
         <img
           className="MuiAvatar-img"
@@ -50,10 +53,10 @@ exports[`MatchItem should render future match correctly 1`] = `
     className="MuiListItemText-root Component-text-12 Component-guest-5"
   >
     <div
-      className="MuiListItemIcon-root Component-awayIcon-1 Component-root-34"
+      className="MuiListItemAvatar-root"
     >
       <div
-        className="MuiAvatar-root Component-logo-33"
+        className="MuiAvatar-root Component-awayIcon-1 Component-logo-8"
       >
         <img
           className="MuiAvatar-img"
@@ -65,14 +68,20 @@ exports[`MatchItem should render future match correctly 1`] = `
       Test1
     </div>
   </div>
-</div>
+  <span
+    className="MuiTouchRipple-root"
+  />
+</a>
 `;
 
 exports[`MatchItem should render played match correctly 1`] = `
-<div
+<a
   aria-disabled={false}
   className="MuiButtonBase-root MuiListItem-root Component-matchItem-9 MuiListItem-gutters MuiListItem-divider MuiListItem-button"
+  href="/match/test"
+  id="test"
   onBlur={[Function]}
+  onClick={[Function]}
   onDragLeave={[Function]}
   onFocus={[Function]}
   onKeyDown={[Function]}
@@ -93,10 +102,10 @@ exports[`MatchItem should render played match correctly 1`] = `
       Test2
     </div>
     <div
-      className="MuiListItemIcon-root Component-homeIcon-7 Component-root-34"
+      className="MuiListItemAvatar-root"
     >
       <div
-        className="MuiAvatar-root Component-logo-33"
+        className="MuiAvatar-root Component-homeIcon-7 Component-logo-8"
       >
         <img
           className="MuiAvatar-img"
@@ -124,10 +133,10 @@ exports[`MatchItem should render played match correctly 1`] = `
     className="MuiListItemText-root Component-text-12 Component-guest-5"
   >
     <div
-      className="MuiListItemIcon-root Component-awayIcon-1 Component-root-34"
+      className="MuiListItemAvatar-root"
     >
       <div
-        className="MuiAvatar-root Component-logo-33"
+        className="MuiAvatar-root Component-awayIcon-1 Component-logo-8"
       >
         <img
           className="MuiAvatar-img"
@@ -139,14 +148,17 @@ exports[`MatchItem should render played match correctly 1`] = `
       Test1
     </div>
   </div>
-</div>
+</a>
 `;
 
 exports[`MatchItem should render predicted wrong match correctly 1`] = `
-<div
+<a
   aria-disabled={false}
   className="MuiButtonBase-root MuiListItem-root Component-matchItem-9 MuiListItem-gutters MuiListItem-divider MuiListItem-button"
+  href="/match/test"
+  id="test"
   onBlur={[Function]}
+  onClick={[Function]}
   onDragLeave={[Function]}
   onFocus={[Function]}
   onKeyDown={[Function]}
@@ -167,10 +179,10 @@ exports[`MatchItem should render predicted wrong match correctly 1`] = `
       Test2
     </div>
     <div
-      className="MuiListItemIcon-root Component-homeIcon-7 Component-root-34"
+      className="MuiListItemAvatar-root"
     >
       <div
-        className="MuiAvatar-root Component-logo-33"
+        className="MuiAvatar-root Component-homeIcon-7 Component-logo-8"
       >
         <img
           className="MuiAvatar-img"
@@ -198,10 +210,10 @@ exports[`MatchItem should render predicted wrong match correctly 1`] = `
     className="MuiListItemText-root Component-text-12 Component-guest-5"
   >
     <div
-      className="MuiListItemIcon-root Component-awayIcon-1 Component-root-34"
+      className="MuiListItemAvatar-root"
     >
       <div
-        className="MuiAvatar-root Component-logo-33"
+        className="MuiAvatar-root Component-awayIcon-1 Component-logo-8"
       >
         <img
           className="MuiAvatar-img"
@@ -213,5 +225,5 @@ exports[`MatchItem should render predicted wrong match correctly 1`] = `
       Test1
     </div>
   </div>
-</div>
+</a>
 `;

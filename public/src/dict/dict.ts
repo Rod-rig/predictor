@@ -1,5 +1,6 @@
 export interface IDict {
   all: string;
+  att: string;
   continue_text: string;
   date_label: string;
   draw: string;
@@ -20,6 +21,9 @@ export interface IDict {
   login_error_msg: string;
   logout: string;
   loss: string;
+  match_details_tab_lineups: string;
+  match_details_tab_stats: string;
+  match_details_tab_stats_title: string;
   name: string;
   no_available_prediction_matches: string;
   not_found_descr: string;
@@ -49,6 +53,7 @@ export interface IDict {
 
 export const dict: IDict = {
   all: "All",
+  att: "Att",
   continue_text: "continue",
   date_label: "Date",
   draw: "draw",
@@ -69,6 +74,9 @@ export const dict: IDict = {
   login_error_msg: "Wrong credentials",
   logout: "Logout",
   loss: "loss",
+  match_details_tab_lineups: "Line-ups",
+  match_details_tab_stats: "Stats",
+  match_details_tab_stats_title: "Match Stats",
   name: "Name",
   no_available_prediction_matches:
     "No available matches for predictions on this date. Please choose another date.",

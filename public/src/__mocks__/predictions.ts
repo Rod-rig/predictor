@@ -6,6 +6,7 @@ export const predictions = [
     homeScore: 2,
     awayScore: 2,
     status: 0,
+    id: "sr:match:1",
   },
   {
     awayTeam: "West Ham United",
@@ -13,6 +14,7 @@ export const predictions = [
     homeScore: 1,
     awayScore: 2,
     status: 1,
+    id: "sr:match:2",
   },
   {
     awayTeam: "Manchester City",
@@ -20,6 +22,7 @@ export const predictions = [
     homeScore: 6,
     awayScore: 1,
     status: -1,
+    id: "sr:match:3",
   },
   {
     awayTeam: "Fulham FC",
@@ -27,5 +30,6 @@ export const predictions = [
     homeScore: 1,
     awayScore: 1,
     status: 0,
+    id: "sr:match:4",
   },
 ];

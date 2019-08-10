@@ -71,3 +71,14 @@ module.exports.getScheduleByDate = (req, res) => {
       res.status(404).send(err.data);
     });
 };
+
+module.exports.getMatchDetails = (req, res) => {
+  axios
+    .get(`${apiUrl}/en/matches/${req.params.id}/summary.json?api_key=${apiKey}`)
+    .then(response => {
+      res.status(200).send(response.data);
+    })
+    .catch(err => {
+      res.status(404).send(err.data);
+    });
+};

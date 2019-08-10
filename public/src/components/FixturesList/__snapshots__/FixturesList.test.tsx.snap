@@ -41,10 +41,13 @@ exports[`FixturesList should render match list correctly 1`] = `
       20
     </div>
     <div>
-      <div
+      <a
         aria-disabled={false}
         className="MuiButtonBase-root MuiListItem-root Component-matchItem-56 MuiListItem-gutters MuiListItem-divider MuiListItem-button"
+        href="/match/sr:match:18427904"
+        id="sr:match:18427904"
         onBlur={[Function]}
+        onClick={[Function]}
         onDragLeave={[Function]}
         onFocus={[Function]}
         onKeyDown={[Function]}
@@ -65,10 +68,10 @@ exports[`FixturesList should render match list correctly 1`] = `
             Arsenal FC
           </div>
           <div
-            className="MuiListItemIcon-root Component-homeIcon-54 Component-root-81"
+            className="MuiListItemAvatar-root"
           >
             <div
-              className="MuiAvatar-root Component-logo-80"
+              className="MuiAvatar-root Component-homeIcon-54 Component-logo-55"
             >
               <img
                 className="MuiAvatar-img"
@@ -90,10 +93,10 @@ exports[`FixturesList should render match list correctly 1`] = `
           className="MuiListItemText-root Component-text-59 Component-guest-52"
         >
           <div
-            className="MuiListItemIcon-root Component-awayIcon-48 Component-root-81"
+            className="MuiListItemAvatar-root"
           >
             <div
-              className="MuiAvatar-root Component-logo-80"
+              className="MuiAvatar-root Component-awayIcon-48 Component-logo-55"
             >
               <img
                 className="MuiAvatar-img"
@@ -105,11 +108,14 @@ exports[`FixturesList should render match list correctly 1`] = `
             Chelsea FC
           </div>
         </div>
-      </div>
-      <div
+      </a>
+      <a
         aria-disabled={false}
         className="MuiButtonBase-root MuiListItem-root Component-matchItem-56 MuiListItem-gutters MuiListItem-divider MuiListItem-button"
+        href="/match/sr:match:18427906"
+        id="sr:match:18427906"
         onBlur={[Function]}
+        onClick={[Function]}
         onDragLeave={[Function]}
         onFocus={[Function]}
         onKeyDown={[Function]}
@@ -130,10 +136,10 @@ exports[`FixturesList should render match list correctly 1`] = `
             Brighton & Hove Albion
           </div>
           <div
-            className="MuiListItemIcon-root Component-homeIcon-54 Component-root-81"
+            className="MuiListItemAvatar-root"
           >
             <div
-              className="MuiAvatar-root Component-logo-80"
+              className="MuiAvatar-root Component-homeIcon-54 Component-logo-55"
             >
               <img
                 className="MuiAvatar-img"
@@ -155,10 +161,10 @@ exports[`FixturesList should render match list correctly 1`] = `
           className="MuiListItemText-root Component-text-59 Component-guest-52"
         >
           <div
-            className="MuiListItemIcon-root Component-awayIcon-48 Component-root-81"
+            className="MuiListItemAvatar-root"
           >
             <div
-              className="MuiAvatar-root Component-logo-80"
+              className="MuiAvatar-root Component-awayIcon-48 Component-logo-55"
             >
               <img
                 className="MuiAvatar-img"
@@ -170,11 +176,14 @@ exports[`FixturesList should render match list correctly 1`] = `
             AFC Bournemouth
           </div>
         </div>
-      </div>
-      <div
+      </a>
+      <a
         aria-disabled={false}
         className="MuiButtonBase-root MuiListItem-root Component-matchItem-56 MuiListItem-gutters MuiListItem-divider MuiListItem-button"
+        href="/match/sr:match:18427908"
+        id="sr:match:18427908"
         onBlur={[Function]}
+        onClick={[Function]}
         onDragLeave={[Function]}
         onFocus={[Function]}
         onKeyDown={[Function]}
@@ -195,10 +204,10 @@ exports[`FixturesList should render match list correctly 1`] = `
             Burnley FC
           </div>
           <div
-            className="MuiListItemIcon-root Component-homeIcon-54 Component-root-81"
+            className="MuiListItemAvatar-root"
           >
             <div
-              className="MuiAvatar-root Component-logo-80"
+              className="MuiAvatar-root Component-homeIcon-54 Component-logo-55"
             >
               <img
                 className="MuiAvatar-img"
@@ -220,10 +229,10 @@ exports[`FixturesList should render match list correctly 1`] = `
           className="MuiListItemText-root Component-text-59 Component-guest-52"
         >
           <div
-            className="MuiListItemIcon-root Component-awayIcon-48 Component-root-81"
+            className="MuiListItemAvatar-root"
           >
             <div
-              className="MuiAvatar-root Component-logo-80"
+              className="MuiAvatar-root Component-awayIcon-48 Component-logo-55"
             >
               <img
                 className="MuiAvatar-img"
@@ -235,11 +244,14 @@ exports[`FixturesList should render match list correctly 1`] = `
             Manchester United
           </div>
         </div>
-      </div>
-      <div
+      </a>
+      <a
         aria-disabled={false}
         className="MuiButtonBase-root MuiListItem-root Component-matchItem-56 MuiListItem-gutters MuiListItem-divider MuiListItem-button"
+        href="/match/sr:match:18427910"
+        id="sr:match:18427910"
         onBlur={[Function]}
+        onClick={[Function]}
         onDragLeave={[Function]}
         onFocus={[Function]}
         onKeyDown={[Function]}
@@ -260,10 +272,10 @@ exports[`FixturesList should render match list correctly 1`] = `
             Liverpool FC
           </div>
           <div
-            className="MuiListItemIcon-root Component-homeIcon-54 Component-root-81"
+            className="MuiListItemAvatar-root"
           >
             <div
-              className="MuiAvatar-root Component-logo-80"
+              className="MuiAvatar-root Component-homeIcon-54 Component-logo-55"
             >
               <img
                 className="MuiAvatar-img"
@@ -285,10 +297,10 @@ exports[`FixturesList should render match list correctly 1`] = `
           className="MuiListItemText-root Component-text-59 Component-guest-52"
         >
           <div
-            className="MuiListItemIcon-root Component-awayIcon-48 Component-root-81"
+            className="MuiListItemAvatar-root"
           >
             <div
-              className="MuiAvatar-root Component-logo-80"
+              className="MuiAvatar-root Component-awayIcon-48 Component-logo-55"
             >
               <img
                 className="MuiAvatar-img"
@@ -300,11 +312,14 @@ exports[`FixturesList should render match list correctly 1`] = `
             Wolverhampton Wanderers
           </div>
         </div>
-      </div>
-      <div
+      </a>
+      <a
         aria-disabled={false}
         className="MuiButtonBase-root MuiListItem-root Component-matchItem-56 MuiListItem-gutters MuiListItem-divider MuiListItem-button"
+        href="/match/sr:match:18427912"
+        id="sr:match:18427912"
         onBlur={[Function]}
+        onClick={[Function]}
         onDragLeave={[Function]}
         onFocus={[Function]}
         onKeyDown={[Function]}
@@ -325,10 +340,10 @@ exports[`FixturesList should render match list correctly 1`] = `
             Manchester City
           </div>
           <div
-            className="MuiListItemIcon-root Component-homeIcon-54 Component-root-81"
+            className="MuiListItemAvatar-root"
           >
             <div
-              className="MuiAvatar-root Component-logo-80"
+              className="MuiAvatar-root Component-homeIcon-54 Component-logo-55"
             >
               <img
                 className="MuiAvatar-img"
@@ -350,10 +365,10 @@ exports[`FixturesList should render match list correctly 1`] = `
           className="MuiListItemText-root Component-text-59 Component-guest-52"
         >
           <div
-            className="MuiListItemIcon-root Component-awayIcon-48 Component-root-81"
+            className="MuiListItemAvatar-root"
           >
             <div
-              className="MuiAvatar-root Component-logo-80"
+              className="MuiAvatar-root Component-awayIcon-48 Component-logo-55"
             >
               <img
                 className="MuiAvatar-img"
@@ -365,11 +380,14 @@ exports[`FixturesList should render match list correctly 1`] = `
             Sheffield United
           </div>
         </div>
-      </div>
-      <div
+      </a>
+      <a
         aria-disabled={false}
         className="MuiButtonBase-root MuiListItem-root Component-matchItem-56 MuiListItem-gutters MuiListItem-divider MuiListItem-button"
+        href="/match/sr:match:18427914"
+        id="sr:match:18427914"
         onBlur={[Function]}
+        onClick={[Function]}
         onDragLeave={[Function]}
         onFocus={[Function]}
         onKeyDown={[Function]}
@@ -390,10 +408,10 @@ exports[`FixturesList should render match list correctly 1`] = `
             Newcastle United
           </div>
           <div
-            className="MuiListItemIcon-root Component-homeIcon-54 Component-root-81"
+            className="MuiListItemAvatar-root"
           >
             <div
-              className="MuiAvatar-root Component-logo-80"
+              className="MuiAvatar-root Component-homeIcon-54 Component-logo-55"
             >
               <img
                 className="MuiAvatar-img"
@@ -415,10 +433,10 @@ exports[`FixturesList should render match list correctly 1`] = `
           className="MuiListItemText-root Component-text-59 Component-guest-52"
         >
           <div
-            className="MuiListItemIcon-root Component-awayIcon-48 Component-root-81"
+            className="MuiListItemAvatar-root"
           >
             <div
-              className="MuiAvatar-root Component-logo-80"
+              className="MuiAvatar-root Component-awayIcon-48 Component-logo-55"
             >
               <img
                 className="MuiAvatar-img"
@@ -430,11 +448,14 @@ exports[`FixturesList should render match list correctly 1`] = `
             Everton FC
           </div>
         </div>
-      </div>
-      <div
+      </a>
+      <a
         aria-disabled={false}
         className="MuiButtonBase-root MuiListItem-root Component-matchItem-56 MuiListItem-gutters MuiListItem-divider MuiListItem-button"
+        href="/match/sr:match:18427916"
+        id="sr:match:18427916"
         onBlur={[Function]}
+        onClick={[Function]}
         onDragLeave={[Function]}
         onFocus={[Function]}
         onKeyDown={[Function]}
@@ -455,10 +476,10 @@ exports[`FixturesList should render match list correctly 1`] = `
             Norwich City
           </div>
           <div
-            className="MuiListItemIcon-root Component-homeIcon-54 Component-root-81"
+            className="MuiListItemAvatar-root"
           >
             <div
-              className="MuiAvatar-root Component-logo-80"
+              className="MuiAvatar-root Component-homeIcon-54 Component-logo-55"
             >
               <img
                 className="MuiAvatar-img"
@@ -480,10 +501,10 @@ exports[`FixturesList should render match list correctly 1`] = `
           className="MuiListItemText-root Component-text-59 Component-guest-52"
         >
           <div
-            className="MuiListItemIcon-root Component-awayIcon-48 Component-root-81"
+            className="MuiListItemAvatar-root"
           >
             <div
-              className="MuiAvatar-root Component-logo-80"
+              className="MuiAvatar-root Component-awayIcon-48 Component-logo-55"
             >
               <img
                 className="MuiAvatar-img"
@@ -495,11 +516,14 @@ exports[`FixturesList should render match list correctly 1`] = `
             Tottenham Hotspur
           </div>
         </div>
-      </div>
-      <div
+      </a>
+      <a
         aria-disabled={false}
         className="MuiButtonBase-root MuiListItem-root Component-matchItem-56 MuiListItem-gutters MuiListItem-divider MuiListItem-button"
+        href="/match/sr:match:18427918"
+        id="sr:match:18427918"
         onBlur={[Function]}
+        onClick={[Function]}
         onDragLeave={[Function]}
         onFocus={[Function]}
         onKeyDown={[Function]}
@@ -520,10 +544,10 @@ exports[`FixturesList should render match list correctly 1`] = `
             Southampton FC
           </div>
           <div
-            className="MuiListItemIcon-root Component-homeIcon-54 Component-root-81"
+            className="MuiListItemAvatar-root"
           >
             <div
-              className="MuiAvatar-root Component-logo-80"
+              className="MuiAvatar-root Component-homeIcon-54 Component-logo-55"
             >
               <img
                 className="MuiAvatar-img"
@@ -545,10 +569,10 @@ exports[`FixturesList should render match list correctly 1`] = `
           className="MuiListItemText-root Component-text-59 Component-guest-52"
         >
           <div
-            className="MuiListItemIcon-root Component-awayIcon-48 Component-root-81"
+            className="MuiListItemAvatar-root"
           >
             <div
-              className="MuiAvatar-root Component-logo-80"
+              className="MuiAvatar-root Component-awayIcon-48 Component-logo-55"
             >
               <img
                 className="MuiAvatar-img"
@@ -560,11 +584,14 @@ exports[`FixturesList should render match list correctly 1`] = `
             Crystal Palace
           </div>
         </div>
-      </div>
-      <div
+      </a>
+      <a
         aria-disabled={false}
         className="MuiButtonBase-root MuiListItem-root Component-matchItem-56 MuiListItem-gutters MuiListItem-divider MuiListItem-button"
+        href="/match/sr:match:18427920"
+        id="sr:match:18427920"
         onBlur={[Function]}
+        onClick={[Function]}
         onDragLeave={[Function]}
         onFocus={[Function]}
         onKeyDown={[Function]}
@@ -585,10 +612,10 @@ exports[`FixturesList should render match list correctly 1`] = `
             Watford FC
           </div>
           <div
-            className="MuiListItemIcon-root Component-homeIcon-54 Component-root-81"
+            className="MuiListItemAvatar-root"
           >
             <div
-              className="MuiAvatar-root Component-logo-80"
+              className="MuiAvatar-root Component-homeIcon-54 Component-logo-55"
             >
               <img
                 className="MuiAvatar-img"
@@ -610,10 +637,10 @@ exports[`FixturesList should render match list correctly 1`] = `
           className="MuiListItemText-root Component-text-59 Component-guest-52"
         >
           <div
-            className="MuiListItemIcon-root Component-awayIcon-48 Component-root-81"
+            className="MuiListItemAvatar-root"
           >
             <div
-              className="MuiAvatar-root Component-logo-80"
+              className="MuiAvatar-root Component-awayIcon-48 Component-logo-55"
             >
               <img
                 className="MuiAvatar-img"
@@ -625,11 +652,14 @@ exports[`FixturesList should render match list correctly 1`] = `
             Aston Villa
           </div>
         </div>
-      </div>
-      <div
+      </a>
+      <a
         aria-disabled={false}
         className="MuiButtonBase-root MuiListItem-root Component-matchItem-56 MuiListItem-gutters MuiListItem-divider MuiListItem-button"
+        href="/match/sr:match:18427922"
+        id="sr:match:18427922"
         onBlur={[Function]}
+        onClick={[Function]}
         onDragLeave={[Function]}
         onFocus={[Function]}
         onKeyDown={[Function]}
@@ -650,10 +680,10 @@ exports[`FixturesList should render match list correctly 1`] = `
             West Ham United
           </div>
           <div
-            className="MuiListItemIcon-root Component-homeIcon-54 Component-root-81"
+            className="MuiListItemAvatar-root"
           >
             <div
-              className="MuiAvatar-root Component-logo-80"
+              className="MuiAvatar-root Component-homeIcon-54 Component-logo-55"
             >
               <img
                 className="MuiAvatar-img"
@@ -675,10 +705,10 @@ exports[`FixturesList should render match list correctly 1`] = `
           className="MuiListItemText-root Component-text-59 Component-guest-52"
         >
           <div
-            className="MuiListItemIcon-root Component-awayIcon-48 Component-root-81"
+            className="MuiListItemAvatar-root"
           >
             <div
-              className="MuiAvatar-root Component-logo-80"
+              className="MuiAvatar-root Component-awayIcon-48 Component-logo-55"
             >
               <img
                 className="MuiAvatar-img"
@@ -690,7 +720,7 @@ exports[`FixturesList should render match list correctly 1`] = `
             Leicester City
           </div>
         </div>
-      </div>
+      </a>
     </div>
   </div>
   <div
@@ -703,10 +733,13 @@ exports[`FixturesList should render match list correctly 1`] = `
       21
     </div>
     <div>
-      <div
+      <a
         aria-disabled={false}
         className="MuiButtonBase-root MuiListItem-root Component-matchItem-56 MuiListItem-gutters MuiListItem-divider MuiListItem-button"
+        href="/match/sr:match:18427924"
+        id="sr:match:18427924"
         onBlur={[Function]}
+        onClick={[Function]}
         onDragLeave={[Function]}
         onFocus={[Function]}
         onKeyDown={[Function]}
@@ -727,10 +760,10 @@ exports[`FixturesList should render match list correctly 1`] = `
             Arsenal FC
           </div>
           <div
-            className="MuiListItemIcon-root Component-homeIcon-54 Component-root-81"
+            className="MuiListItemAvatar-root"
           >
             <div
-              className="MuiAvatar-root Component-logo-80"
+              className="MuiAvatar-root Component-homeIcon-54 Component-logo-55"
             >
               <img
                 className="MuiAvatar-img"
@@ -752,10 +785,10 @@ exports[`FixturesList should render match list correctly 1`] = `
           className="MuiListItemText-root Component-text-59 Component-guest-52"
         >
           <div
-            className="MuiListItemIcon-root Component-awayIcon-48 Component-root-81"
+            className="MuiListItemAvatar-root"
           >
             <div
-              className="MuiAvatar-root Component-logo-80"
+              className="MuiAvatar-root Component-awayIcon-48 Component-logo-55"
             >
               <img
                 className="MuiAvatar-img"
@@ -767,11 +800,14 @@ exports[`FixturesList should render match list correctly 1`] = `
             Manchester United
           </div>
         </div>
-      </div>
-      <div
+      </a>
+      <a
         aria-disabled={false}
         className="MuiButtonBase-root MuiListItem-root Component-matchItem-56 MuiListItem-gutters MuiListItem-divider MuiListItem-button"
+        href="/match/sr:match:18427926"
+        id="sr:match:18427926"
         onBlur={[Function]}
+        onClick={[Function]}
         onDragLeave={[Function]}
         onFocus={[Function]}
         onKeyDown={[Function]}
@@ -792,10 +828,10 @@ exports[`FixturesList should render match list correctly 1`] = `
             Brighton & Hove Albion
           </div>
           <div
-            className="MuiListItemIcon-root Component-homeIcon-54 Component-root-81"
+            className="MuiListItemAvatar-root"
           >
             <div
-              className="MuiAvatar-root Component-logo-80"
+              className="MuiAvatar-root Component-homeIcon-54 Component-logo-55"
             >
               <img
                 className="MuiAvatar-img"
@@ -817,10 +853,10 @@ exports[`FixturesList should render match list correctly 1`] = `
           className="MuiListItemText-root Component-text-59 Component-guest-52"
         >
           <div
-            className="MuiListItemIcon-root Component-awayIcon-48 Component-root-81"
+            className="MuiListItemAvatar-root"
           >
             <div
-              className="MuiAvatar-root Component-logo-80"
+              className="MuiAvatar-root Component-awayIcon-48 Component-logo-55"
             >
               <img
                 className="MuiAvatar-img"
@@ -832,11 +868,14 @@ exports[`FixturesList should render match list correctly 1`] = `
             Chelsea FC
           </div>
         </div>
-      </div>
-      <div
+      </a>
+      <a
         aria-disabled={false}
         className="MuiButtonBase-root MuiListItem-root Component-matchItem-56 MuiListItem-gutters MuiListItem-divider MuiListItem-button"
+        href="/match/sr:match:18427928"
+        id="sr:match:18427928"
         onBlur={[Function]}
+        onClick={[Function]}
         onDragLeave={[Function]}
         onFocus={[Function]}
         onKeyDown={[Function]}
@@ -857,10 +896,10 @@ exports[`FixturesList should render match list correctly 1`] = `
             Burnley FC
           </div>
           <div
-            className="MuiListItemIcon-root Component-homeIcon-54 Component-root-81"
+            className="MuiListItemAvatar-root"
           >
             <div
-              className="MuiAvatar-root Component-logo-80"
+              className="MuiAvatar-root Component-homeIcon-54 Component-logo-55"
             >
               <img
                 className="MuiAvatar-img"
@@ -882,10 +921,10 @@ exports[`FixturesList should render match list correctly 1`] = `
           className="MuiListItemText-root Component-text-59 Component-guest-52"
         >
           <div
-            className="MuiListItemIcon-root Component-awayIcon-48 Component-root-81"
+            className="MuiListItemAvatar-root"
           >
             <div
-              className="MuiAvatar-root Component-logo-80"
+              className="MuiAvatar-root Component-awayIcon-48 Component-logo-55"
             >
               <img
                 className="MuiAvatar-img"
@@ -897,11 +936,14 @@ exports[`FixturesList should render match list correctly 1`] = `
             Aston Villa
           </div>
         </div>
-      </div>
-      <div
+      </a>
+      <a
         aria-disabled={false}
         className="MuiButtonBase-root MuiListItem-root Component-matchItem-56 MuiListItem-gutters MuiListItem-divider MuiListItem-button"
+        href="/match/sr:match:18427930"
+        id="sr:match:18427930"
         onBlur={[Function]}
+        onClick={[Function]}
         onDragLeave={[Function]}
         onFocus={[Function]}
         onKeyDown={[Function]}
@@ -922,10 +964,10 @@ exports[`FixturesList should render match list correctly 1`] = `
             Liverpool FC
           </div>
           <div
-            className="MuiListItemIcon-root Component-homeIcon-54 Component-root-81"
+            className="MuiListItemAvatar-root"
           >
             <div
-              className="MuiAvatar-root Component-logo-80"
+              className="MuiAvatar-root Component-homeIcon-54 Component-logo-55"
             >
               <img
                 className="MuiAvatar-img"
@@ -947,10 +989,10 @@ exports[`FixturesList should render match list correctly 1`] = `
           className="MuiListItemText-root Component-text-59 Component-guest-52"
         >
           <div
-            className="MuiListItemIcon-root Component-awayIcon-48 Component-root-81"
+            className="MuiListItemAvatar-root"
           >
             <div
-              className="MuiAvatar-root Component-logo-80"
+              className="MuiAvatar-root Component-awayIcon-48 Component-logo-55"
             >
               <img
                 className="MuiAvatar-img"
@@ -962,11 +1004,14 @@ exports[`FixturesList should render match list correctly 1`] = `
             Sheffield United
           </div>
         </div>
-      </div>
-      <div
+      </a>
+      <a
         aria-disabled={false}
         className="MuiButtonBase-root MuiListItem-root Component-matchItem-56 MuiListItem-gutters MuiListItem-divider MuiListItem-button"
+        href="/match/sr:match:18427932"
+        id="sr:match:18427932"
         onBlur={[Function]}
+        onClick={[Function]}
         onDragLeave={[Function]}
         onFocus={[Function]}
         onKeyDown={[Function]}
@@ -987,10 +1032,10 @@ exports[`FixturesList should render match list correctly 1`] = `
             Manchester City
           </div>
           <div
-            className="MuiListItemIcon-root Component-homeIcon-54 Component-root-81"
+            className="MuiListItemAvatar-root"
           >
             <div
-              className="MuiAvatar-root Component-logo-80"
+              className="MuiAvatar-root Component-homeIcon-54 Component-logo-55"
             >
               <img
                 className="MuiAvatar-img"
@@ -1012,10 +1057,10 @@ exports[`FixturesList should render match list correctly 1`] = `
           className="MuiListItemText-root Component-text-59 Component-guest-52"
         >
           <div
-            className="MuiListItemIcon-root Component-awayIcon-48 Component-root-81"
+            className="MuiListItemAvatar-root"
           >
             <div
-              className="MuiAvatar-root Component-logo-80"
+              className="MuiAvatar-root Component-awayIcon-48 Component-logo-55"
             >
               <img
                 className="MuiAvatar-img"
@@ -1027,11 +1072,14 @@ exports[`FixturesList should render match list correctly 1`] = `
             Everton FC
           </div>
         </div>
-      </div>
-      <div
+      </a>
+      <a
         aria-disabled={false}
         className="MuiButtonBase-root MuiListItem-root Component-matchItem-56 MuiListItem-gutters MuiListItem-divider MuiListItem-button"
+        href="/match/sr:match:18427934"
+        id="sr:match:18427934"
         onBlur={[Function]}
+        onClick={[Function]}
         onDragLeave={[Function]}
         onFocus={[Function]}
         onKeyDown={[Function]}
@@ -1052,10 +1100,10 @@ exports[`FixturesList should render match list correctly 1`] = `
             Newcastle United
           </div>
           <div
-            className="MuiListItemIcon-root Component-homeIcon-54 Component-root-81"
+            className="MuiListItemAvatar-root"
           >
             <div
-              className="MuiAvatar-root Component-logo-80"
+              className="MuiAvatar-root Component-homeIcon-54 Component-logo-55"
             >
               <img
                 className="MuiAvatar-img"
@@ -1077,10 +1125,10 @@ exports[`FixturesList should render match list correctly 1`] = `
           className="MuiListItemText-root Component-text-59 Component-guest-52"
         >
           <div
-            className="MuiListItemIcon-root Component-awayIcon-48 Component-root-81"
+            className="MuiListItemAvatar-root"
           >
             <div
-              className="MuiAvatar-root Component-logo-80"
+              className="MuiAvatar-root Component-awayIcon-48 Component-logo-55"
             >
               <img
                 className="MuiAvatar-img"
@@ -1092,11 +1140,14 @@ exports[`FixturesList should render match list correctly 1`] = `
             Leicester City
           </div>
         </div>
-      </div>
-      <div
+      </a>
+      <a
         aria-disabled={false}
         className="MuiButtonBase-root MuiListItem-root Component-matchItem-56 MuiListItem-gutters MuiListItem-divider MuiListItem-button"
+        href="/match/sr:match:18427936"
+        id="sr:match:18427936"
         onBlur={[Function]}
+        onClick={[Function]}
         onDragLeave={[Function]}
         onFocus={[Function]}
         onKeyDown={[Function]}
@@ -1117,10 +1168,10 @@ exports[`FixturesList should render match list correctly 1`] = `
             Norwich City
           </div>
           <div
-            className="MuiListItemIcon-root Component-homeIcon-54 Component-root-81"
+            className="MuiListItemAvatar-root"
           >
             <div
-              className="MuiAvatar-root Component-logo-80"
+              className="MuiAvatar-root Component-homeIcon-54 Component-logo-55"
             >
               <img
                 className="MuiAvatar-img"
@@ -1142,10 +1193,10 @@ exports[`FixturesList should render match list correctly 1`] = `
           className="MuiListItemText-root Component-text-59 Component-guest-52"
         >
           <div
-            className="MuiListItemIcon-root Component-awayIcon-48 Component-root-81"
+            className="MuiListItemAvatar-root"
           >
             <div
-              className="MuiAvatar-root Component-logo-80"
+              className="MuiAvatar-root Component-awayIcon-48 Component-logo-55"
             >
               <img
                 className="MuiAvatar-img"
@@ -1157,11 +1208,14 @@ exports[`FixturesList should render match list correctly 1`] = `
             Crystal Palace
           </div>
         </div>
-      </div>
-      <div
+      </a>
+      <a
         aria-disabled={false}
         className="MuiButtonBase-root MuiListItem-root Component-matchItem-56 MuiListItem-gutters MuiListItem-divider MuiListItem-button"
+        href="/match/sr:match:18427938"
+        id="sr:match:18427938"
         onBlur={[Function]}
+        onClick={[Function]}
         onDragLeave={[Function]}
         onFocus={[Function]}
         onKeyDown={[Function]}
@@ -1182,10 +1236,10 @@ exports[`FixturesList should render match list correctly 1`] = `
             Southampton FC
           </div>
           <div
-            className="MuiListItemIcon-root Component-homeIcon-54 Component-root-81"
+            className="MuiListItemAvatar-root"
           >
             <div
-              className="MuiAvatar-root Component-logo-80"
+              className="MuiAvatar-root Component-homeIcon-54 Component-logo-55"
             >
               <img
                 className="MuiAvatar-img"
@@ -1207,10 +1261,10 @@ exports[`FixturesList should render match list correctly 1`] = `
           className="MuiListItemText-root Component-text-59 Component-guest-52"
         >
           <div
-            className="MuiListItemIcon-root Component-awayIcon-48 Component-root-81"
+            className="MuiListItemAvatar-root"
           >
             <div
-              className="MuiAvatar-root Component-logo-80"
+              className="MuiAvatar-root Component-awayIcon-48 Component-logo-55"
             >
               <img
                 className="MuiAvatar-img"
@@ -1222,11 +1276,14 @@ exports[`FixturesList should render match list correctly 1`] = `
             Tottenham Hotspur
           </div>
         </div>
-      </div>
-      <div
+      </a>
+      <a
         aria-disabled={false}
         className="MuiButtonBase-root MuiListItem-root Component-matchItem-56 MuiListItem-gutters MuiListItem-divider MuiListItem-button"
+        href="/match/sr:match:18427940"
+        id="sr:match:18427940"
         onBlur={[Function]}
+        onClick={[Function]}
         onDragLeave={[Function]}
         onFocus={[Function]}
         onKeyDown={[Function]}
@@ -1247,10 +1304,10 @@ exports[`FixturesList should render match list correctly 1`] = `
             Watford FC
           </div>
           <div
-            className="MuiListItemIcon-root Component-homeIcon-54 Component-root-81"
+            className="MuiListItemAvatar-root"
           >
             <div
-              className="MuiAvatar-root Component-logo-80"
+              className="MuiAvatar-root Component-homeIcon-54 Component-logo-55"
             >
               <img
                 className="MuiAvatar-img"
@@ -1272,10 +1329,10 @@ exports[`FixturesList should render match list correctly 1`] = `
           className="MuiListItemText-root Component-text-59 Component-guest-52"
         >
           <div
-            className="MuiListItemIcon-root Component-awayIcon-48 Component-root-81"
+            className="MuiListItemAvatar-root"
           >
             <div
-              className="MuiAvatar-root Component-logo-80"
+              className="MuiAvatar-root Component-awayIcon-48 Component-logo-55"
             >
               <img
                 className="MuiAvatar-img"
@@ -1287,11 +1344,14 @@ exports[`FixturesList should render match list correctly 1`] = `
             Wolverhampton Wanderers
           </div>
         </div>
-      </div>
-      <div
+      </a>
+      <a
         aria-disabled={false}
         className="MuiButtonBase-root MuiListItem-root Component-matchItem-56 MuiListItem-gutters MuiListItem-divider MuiListItem-button"
+        href="/match/sr:match:18427942"
+        id="sr:match:18427942"
         onBlur={[Function]}
+        onClick={[Function]}
         onDragLeave={[Function]}
         onFocus={[Function]}
         onKeyDown={[Function]}
@@ -1312,10 +1372,10 @@ exports[`FixturesList should render match list correctly 1`] = `
             West Ham United
           </div>
           <div
-            className="MuiListItemIcon-root Component-homeIcon-54 Component-root-81"
+            className="MuiListItemAvatar-root"
           >
             <div
-              className="MuiAvatar-root Component-logo-80"
+              className="MuiAvatar-root Component-homeIcon-54 Component-logo-55"
             >
               <img
                 className="MuiAvatar-img"
@@ -1337,10 +1397,10 @@ exports[`FixturesList should render match list correctly 1`] = `
           className="MuiListItemText-root Component-text-59 Component-guest-52"
         >
           <div
-            className="MuiListItemIcon-root Component-awayIcon-48 Component-root-81"
+            className="MuiListItemAvatar-root"
           >
             <div
-              className="MuiAvatar-root Component-logo-80"
+              className="MuiAvatar-root Component-awayIcon-48 Component-logo-55"
             >
               <img
                 className="MuiAvatar-img"
@@ -1352,7 +1412,7 @@ exports[`FixturesList should render match list correctly 1`] = `
             AFC Bournemouth
           </div>
         </div>
-      </div>
+      </a>
     </div>
   </div>
   <div
@@ -1365,10 +1425,13 @@ exports[`FixturesList should render match list correctly 1`] = `
       22
     </div>
     <div>
-      <div
+      <a
         aria-disabled={false}
         className="MuiButtonBase-root MuiListItem-root Component-matchItem-56 MuiListItem-gutters MuiListItem-divider MuiListItem-button"
+        href="/match/sr:match:18427944"
+        id="sr:match:18427944"
         onBlur={[Function]}
+        onClick={[Function]}
         onDragLeave={[Function]}
         onFocus={[Function]}
         onKeyDown={[Function]}
@@ -1389,10 +1452,10 @@ exports[`FixturesList should render match list correctly 1`] = `
             Aston Villa
           </div>
           <div
-            className="MuiListItemIcon-root Component-homeIcon-54 Component-root-81"
+            className="MuiListItemAvatar-root"
           >
             <div
-              className="MuiAvatar-root Component-logo-80"
+              className="MuiAvatar-root Component-homeIcon-54 Component-logo-55"
             >
               <img
                 className="MuiAvatar-img"
@@ -1414,10 +1477,10 @@ exports[`FixturesList should render match list correctly 1`] = `
           className="MuiListItemText-root Component-text-59 Component-guest-52"
         >
           <div
-            className="MuiListItemIcon-root Component-awayIcon-48 Component-root-81"
+            className="MuiListItemAvatar-root"
           >
             <div
-              className="MuiAvatar-root Component-logo-80"
+              className="MuiAvatar-root Component-awayIcon-48 Component-logo-55"
             >
               <img
                 className="MuiAvatar-img"
@@ -1429,11 +1492,14 @@ exports[`FixturesList should render match list correctly 1`] = `
             Manchester City
           </div>
         </div>
-      </div>
-      <div
+      </a>
+      <a
         aria-disabled={false}
         className="MuiButtonBase-root MuiListItem-root Component-matchItem-56 MuiListItem-gutters MuiListItem-divider MuiListItem-button"
+        href="/match/sr:match:18427946"
+        id="sr:match:18427946"
         onBlur={[Function]}
+        onClick={[Function]}
         onDragLeave={[Function]}
         onFocus={[Function]}
         onKeyDown={[Function]}
@@ -1454,10 +1520,10 @@ exports[`FixturesList should render match list correctly 1`] = `
             AFC Bournemouth
           </div>
           <div
-            className="MuiListItemIcon-root Component-homeIcon-54 Component-root-81"
+            className="MuiListItemAvatar-root"
           >
             <div
-              className="MuiAvatar-root Component-logo-80"
+              className="MuiAvatar-root Component-homeIcon-54 Component-logo-55"
             >
               <img
                 className="MuiAvatar-img"
@@ -1479,10 +1545,10 @@ exports[`FixturesList should render match list correctly 1`] = `
           className="MuiListItemText-root Component-text-59 Component-guest-52"
         >
           <div
-            className="MuiListItemIcon-root Component-awayIcon-48 Component-root-81"
+            className="MuiListItemAvatar-root"
           >
             <div
-              className="MuiAvatar-root Component-logo-80"
+              className="MuiAvatar-root Component-awayIcon-48 Component-logo-55"
             >
               <img
                 className="MuiAvatar-img"
@@ -1494,11 +1560,14 @@ exports[`FixturesList should render match list correctly 1`] = `
             Watford FC
           </div>
         </div>
-      </div>
-      <div
+      </a>
+      <a
         aria-disabled={false}
         className="MuiButtonBase-root MuiListItem-root Component-matchItem-56 MuiListItem-gutters MuiListItem-divider MuiListItem-button"
+        href="/match/sr:match:18427948"
+        id="sr:match:18427948"
         onBlur={[Function]}
+        onClick={[Function]}
         onDragLeave={[Function]}
         onFocus={[Function]}
         onKeyDown={[Function]}
@@ -1519,10 +1588,10 @@ exports[`FixturesList should render match list correctly 1`] = `
             Chelsea FC
           </div>
           <div
-            className="MuiListItemIcon-root Component-homeIcon-54 Component-root-81"
+            className="MuiListItemAvatar-root"
           >
             <div
-              className="MuiAvatar-root Component-logo-80"
+              className="MuiAvatar-root Component-homeIcon-54 Component-logo-55"
             >
               <img
                 className="MuiAvatar-img"
@@ -1544,10 +1613,10 @@ exports[`FixturesList should render match list correctly 1`] = `
           className="MuiListItemText-root Component-text-59 Component-guest-52"
         >
           <div
-            className="MuiListItemIcon-root Component-awayIcon-48 Component-root-81"
+            className="MuiListItemAvatar-root"
           >
             <div
-              className="MuiAvatar-root Component-logo-80"
+              className="MuiAvatar-root Component-awayIcon-48 Component-logo-55"
             >
               <img
                 className="MuiAvatar-img"
@@ -1559,11 +1628,14 @@ exports[`FixturesList should render match list correctly 1`] = `
             Burnley FC
           </div>
         </div>
-      </div>
-      <div
+      </a>
+      <a
         aria-disabled={false}
         className="MuiButtonBase-root MuiListItem-root Component-matchItem-56 MuiListItem-gutters MuiListItem-divider MuiListItem-button"
+        href="/match/sr:match:18427950"
+        id="sr:match:18427950"
         onBlur={[Function]}
+        onClick={[Function]}
         onDragLeave={[Function]}
         onFocus={[Function]}
         onKeyDown={[Function]}
@@ -1584,10 +1656,10 @@ exports[`FixturesList should render match list correctly 1`] = `
             Crystal Palace
           </div>
           <div
-            className="MuiListItemIcon-root Component-homeIcon-54 Component-root-81"
+            className="MuiListItemAvatar-root"
           >
             <div
-              className="MuiAvatar-root Component-logo-80"
+              className="MuiAvatar-root Component-homeIcon-54 Component-logo-55"
             >
               <img
                 className="MuiAvatar-img"
@@ -1609,10 +1681,10 @@ exports[`FixturesList should render match list correctly 1`] = `
           className="MuiListItemText-root Component-text-59 Component-guest-52"
         >
           <div
-            className="MuiListItemIcon-root Component-awayIcon-48 Component-root-81"
+            className="MuiListItemAvatar-root"
           >
             <div
-              className="MuiAvatar-root Component-logo-80"
+              className="MuiAvatar-root Component-awayIcon-48 Component-logo-55"
             >
               <img
                 className="MuiAvatar-img"
@@ -1624,11 +1696,14 @@ exports[`FixturesList should render match list correctly 1`] = `
             Arsenal FC
           </div>
         </div>
-      </div>
-      <div
+      </a>
+      <a
         aria-disabled={false}
         className="MuiButtonBase-root MuiListItem-root Component-matchItem-56 MuiListItem-gutters MuiListItem-divider MuiListItem-button"
+        href="/match/sr:match:18427952"
+        id="sr:match:18427952"
         onBlur={[Function]}
+        onClick={[Function]}
         onDragLeave={[Function]}
         onFocus={[Function]}
         onKeyDown={[Function]}
@@ -1649,10 +1724,10 @@ exports[`FixturesList should render match list correctly 1`] = `
             Everton FC
           </div>
           <div
-            className="MuiListItemIcon-root Component-homeIcon-54 Component-root-81"
+            className="MuiListItemAvatar-root"
           >
             <div
-              className="MuiAvatar-root Component-logo-80"
+              className="MuiAvatar-root Component-homeIcon-54 Component-logo-55"
             >
               <img
                 className="MuiAvatar-img"
@@ -1674,10 +1749,10 @@ exports[`FixturesList should render match list correctly 1`] = `
           className="MuiListItemText-root Component-text-59 Component-guest-52"
         >
           <div
-            className="MuiListItemIcon-root Component-awayIcon-48 Component-root-81"
+            className="MuiListItemAvatar-root"
           >
             <div
-              className="MuiAvatar-root Component-logo-80"
+              className="MuiAvatar-root Component-awayIcon-48 Component-logo-55"
             >
               <img
                 className="MuiAvatar-img"
@@ -1689,11 +1764,14 @@ exports[`FixturesList should render match list correctly 1`] = `
             Brighton & Hove Albion
           </div>
         </div>
-      </div>
-      <div
+      </a>
+      <a
         aria-disabled={false}
         className="MuiButtonBase-root MuiListItem-root Component-matchItem-56 MuiListItem-gutters MuiListItem-divider MuiListItem-button"
+        href="/match/sr:match:18427954"
+        id="sr:match:18427954"
         onBlur={[Function]}
+        onClick={[Function]}
         onDragLeave={[Function]}
         onFocus={[Function]}
         onKeyDown={[Function]}
@@ -1714,10 +1792,10 @@ exports[`FixturesList should render match list correctly 1`] = `
             Leicester City
           </div>
           <div
-            className="MuiListItemIcon-root Component-homeIcon-54 Component-root-81"
+            className="MuiListItemAvatar-root"
           >
             <div
-              className="MuiAvatar-root Component-logo-80"
+              className="MuiAvatar-root Component-homeIcon-54 Component-logo-55"
             >
               <img
                 className="MuiAvatar-img"
@@ -1739,10 +1817,10 @@ exports[`FixturesList should render match list correctly 1`] = `
           className="MuiListItemText-root Component-text-59 Component-guest-52"
         >
           <div
-            className="MuiListItemIcon-root Component-awayIcon-48 Component-root-81"
+            className="MuiListItemAvatar-root"
           >
             <div
-              className="MuiAvatar-root Component-logo-80"
+              className="MuiAvatar-root Component-awayIcon-48 Component-logo-55"
             >
               <img
                 className="MuiAvatar-img"
@@ -1754,11 +1832,14 @@ exports[`FixturesList should render match list correctly 1`] = `
             Southampton FC
           </div>
         </div>
-      </div>
-      <div
+      </a>
+      <a
         aria-disabled={false}
         className="MuiButtonBase-root MuiListItem-root Component-matchItem-56 MuiListItem-gutters MuiListItem-divider MuiListItem-button"
+        href="/match/sr:match:18427956"
+        id="sr:match:18427956"
         onBlur={[Function]}
+        onClick={[Function]}
         onDragLeave={[Function]}
         onFocus={[Function]}
         onKeyDown={[Function]}
@@ -1779,10 +1860,10 @@ exports[`FixturesList should render match list correctly 1`] = `
             Manchester United
           </div>
           <div
-            className="MuiListItemIcon-root Component-homeIcon-54 Component-root-81"
+            className="MuiListItemAvatar-root"
           >
             <div
-              className="MuiAvatar-root Component-logo-80"
+              className="MuiAvatar-root Component-homeIcon-54 Component-logo-55"
             >
               <img
                 className="MuiAvatar-img"
@@ -1804,10 +1885,10 @@ exports[`FixturesList should render match list correctly 1`] = `
           className="MuiListItemText-root Component-text-59 Component-guest-52"
         >
           <div
-            className="MuiListItemIcon-root Component-awayIcon-48 Component-root-81"
+            className="MuiListItemAvatar-root"
           >
             <div
-              className="MuiAvatar-root Component-logo-80"
+              className="MuiAvatar-root Component-awayIcon-48 Component-logo-55"
             >
               <img
                 className="MuiAvatar-img"
@@ -1819,11 +1900,14 @@ exports[`FixturesList should render match list correctly 1`] = `
             Norwich City
           </div>
         </div>
-      </div>
-      <div
+      </a>
+      <a
         aria-disabled={false}
         className="MuiButtonBase-root MuiListItem-root Component-matchItem-56 MuiListItem-gutters MuiListItem-divider MuiListItem-button"
+        href="/match/sr:match:18427958"
+        id="sr:match:18427958"
         onBlur={[Function]}
+        onClick={[Function]}
         onDragLeave={[Function]}
         onFocus={[Function]}
         onKeyDown={[Function]}
@@ -1844,10 +1928,10 @@ exports[`FixturesList should render match list correctly 1`] = `
             Sheffield United
           </div>
           <div
-            className="MuiListItemIcon-root Component-homeIcon-54 Component-root-81"
+            className="MuiListItemAvatar-root"
           >
             <div
-              className="MuiAvatar-root Component-logo-80"
+              className="MuiAvatar-root Component-homeIcon-54 Component-logo-55"
             >
               <img
                 className="MuiAvatar-img"
@@ -1869,10 +1953,10 @@ exports[`FixturesList should render match list correctly 1`] = `
           className="MuiListItemText-root Component-text-59 Component-guest-52"
         >
           <div
-            className="MuiListItemIcon-root Component-awayIcon-48 Component-root-81"
+            className="MuiListItemAvatar-root"
           >
             <div
-              className="MuiAvatar-root Component-logo-80"
+              className="MuiAvatar-root Component-awayIcon-48 Component-logo-55"
             >
               <img
                 className="MuiAvatar-img"
@@ -1884,11 +1968,14 @@ exports[`FixturesList should render match list correctly 1`] = `
             West Ham United
           </div>
         </div>
-      </div>
-      <div
+      </a>
+      <a
         aria-disabled={false}
         className="MuiButtonBase-root MuiListItem-root Component-matchItem-56 MuiListItem-gutters MuiListItem-divider MuiListItem-button"
+        href="/match/sr:match:18427960"
+        id="sr:match:18427960"
         onBlur={[Function]}
+        onClick={[Function]}
         onDragLeave={[Function]}
         onFocus={[Function]}
         onKeyDown={[Function]}
@@ -1909,10 +1996,10 @@ exports[`FixturesList should render match list correctly 1`] = `
             Tottenham Hotspur
           </div>
           <div
-            className="MuiListItemIcon-root Component-homeIcon-54 Component-root-81"
+            className="MuiListItemAvatar-root"
           >
             <div
-              className="MuiAvatar-root Component-logo-80"
+              className="MuiAvatar-root Component-homeIcon-54 Component-logo-55"
             >
               <img
                 className="MuiAvatar-img"
@@ -1934,10 +2021,10 @@ exports[`FixturesList should render match list correctly 1`] = `
           className="MuiListItemText-root Component-text-59 Component-guest-52"
         >
           <div
-            className="MuiListItemIcon-root Component-awayIcon-48 Component-root-81"
+            className="MuiListItemAvatar-root"
           >
             <div
-              className="MuiAvatar-root Component-logo-80"
+              className="MuiAvatar-root Component-awayIcon-48 Component-logo-55"
             >
               <img
                 className="MuiAvatar-img"
@@ -1949,11 +2036,14 @@ exports[`FixturesList should render match list correctly 1`] = `
             Liverpool FC
           </div>
         </div>
-      </div>
-      <div
+      </a>
+      <a
         aria-disabled={false}
         className="MuiButtonBase-root MuiListItem-root Component-matchItem-56 MuiListItem-gutters MuiListItem-divider MuiListItem-button"
+        href="/match/sr:match:18427962"
+        id="sr:match:18427962"
         onBlur={[Function]}
+        onClick={[Function]}
         onDragLeave={[Function]}
         onFocus={[Function]}
         onKeyDown={[Function]}
@@ -1974,10 +2064,10 @@ exports[`FixturesList should render match list correctly 1`] = `
             Wolverhampton Wanderers
           </div>
           <div
-            className="MuiListItemIcon-root Component-homeIcon-54 Component-root-81"
+            className="MuiListItemAvatar-root"
           >
             <div
-              className="MuiAvatar-root Component-logo-80"
+              className="MuiAvatar-root Component-homeIcon-54 Component-logo-55"
             >
               <img
                 className="MuiAvatar-img"
@@ -1999,10 +2089,10 @@ exports[`FixturesList should render match list correctly 1`] = `
           className="MuiListItemText-root Component-text-59 Component-guest-52"
         >
           <div
-            className="MuiListItemIcon-root Component-awayIcon-48 Component-root-81"
+            className="MuiListItemAvatar-root"
           >
             <div
-              className="MuiAvatar-root Component-logo-80"
+              className="MuiAvatar-root Component-awayIcon-48 Component-logo-55"
             >
               <img
                 className="MuiAvatar-img"
@@ -2014,7 +2104,7 @@ exports[`FixturesList should render match list correctly 1`] = `
             Newcastle United
           </div>
         </div>
-      </div>
+      </a>
     </div>
   </div>
   <div
@@ -2027,10 +2117,13 @@ exports[`FixturesList should render match list correctly 1`] = `
       23
     </div>
     <div>
-      <div
+      <a
         aria-disabled={false}
         className="MuiButtonBase-root MuiListItem-root Component-matchItem-56 MuiListItem-gutters MuiListItem-divider MuiListItem-button"
+        href="/match/sr:match:18427964"
+        id="sr:match:18427964"
         onBlur={[Function]}
+        onClick={[Function]}
         onDragLeave={[Function]}
         onFocus={[Function]}
         onKeyDown={[Function]}
@@ -2051,10 +2144,10 @@ exports[`FixturesList should render match list correctly 1`] = `
             Arsenal FC
           </div>
           <div
-            className="MuiListItemIcon-root Component-homeIcon-54 Component-root-81"
+            className="MuiListItemAvatar-root"
           >
             <div
-              className="MuiAvatar-root Component-logo-80"
+              className="MuiAvatar-root Component-homeIcon-54 Component-logo-55"
             >
               <img
                 className="MuiAvatar-img"
@@ -2076,10 +2169,10 @@ exports[`FixturesList should render match list correctly 1`] = `
           className="MuiListItemText-root Component-text-59 Component-guest-52"
         >
           <div
-            className="MuiListItemIcon-root Component-awayIcon-48 Component-root-81"
+            className="MuiListItemAvatar-root"
           >
             <div
-              className="MuiAvatar-root Component-logo-80"
+              className="MuiAvatar-root Component-awayIcon-48 Component-logo-55"
             >
               <img
                 className="MuiAvatar-img"
@@ -2091,11 +2184,14 @@ exports[`FixturesList should render match list correctly 1`] = `
             Sheffield United
           </div>
         </div>
-      </div>
-      <div
+      </a>
+      <a
         aria-disabled={false}
         className="MuiButtonBase-root MuiListItem-root Component-matchItem-56 MuiListItem-gutters MuiListItem-divider MuiListItem-button"
+        href="/match/sr:match:18427966"
+        id="sr:match:18427966"
         onBlur={[Function]}
+        onClick={[Function]}
         onDragLeave={[Function]}
         onFocus={[Function]}
         onKeyDown={[Function]}
@@ -2116,10 +2212,10 @@ exports[`FixturesList should render match list correctly 1`] = `
             Brighton & Hove Albion
           </div>
           <div
-            className="MuiListItemIcon-root Component-homeIcon-54 Component-root-81"
+            className="MuiListItemAvatar-root"
           >
             <div
-              className="MuiAvatar-root Component-logo-80"
+              className="MuiAvatar-root Component-homeIcon-54 Component-logo-55"
             >
               <img
                 className="MuiAvatar-img"
@@ -2141,10 +2237,10 @@ exports[`FixturesList should render match list correctly 1`] = `
           className="MuiListItemText-root Component-text-59 Component-guest-52"
         >
           <div
-            className="MuiListItemIcon-root Component-awayIcon-48 Component-root-81"
+            className="MuiListItemAvatar-root"
           >
             <div
-              className="MuiAvatar-root Component-logo-80"
+              className="MuiAvatar-root Component-awayIcon-48 Component-logo-55"
             >
               <img
                 className="MuiAvatar-img"
@@ -2156,11 +2252,14 @@ exports[`FixturesList should render match list correctly 1`] = `
             Aston Villa
           </div>
         </div>
-      </div>
-      <div
+      </a>
+      <a
         aria-disabled={false}
         className="MuiButtonBase-root MuiListItem-root Component-matchItem-56 MuiListItem-gutters MuiListItem-divider MuiListItem-button"
+        href="/match/sr:match:18427968"
+        id="sr:match:18427968"
         onBlur={[Function]}
+        onClick={[Function]}
         onDragLeave={[Function]}
         onFocus={[Function]}
         onKeyDown={[Function]}
@@ -2181,10 +2280,10 @@ exports[`FixturesList should render match list correctly 1`] = `
             Burnley FC
           </div>
           <div
-            className="MuiListItemIcon-root Component-homeIcon-54 Component-root-81"
+            className="MuiListItemAvatar-root"
           >
             <div
-              className="MuiAvatar-root Component-logo-80"
+              className="MuiAvatar-root Component-homeIcon-54 Component-logo-55"
             >
               <img
                 className="MuiAvatar-img"
@@ -2206,10 +2305,10 @@ exports[`FixturesList should render match list correctly 1`] = `
           className="MuiListItemText-root Component-text-59 Component-guest-52"
         >
           <div
-            className="MuiListItemIcon-root Component-awayIcon-48 Component-root-81"
+            className="MuiListItemAvatar-root"
           >
             <div
-              className="MuiAvatar-root Component-logo-80"
+              className="MuiAvatar-root Component-awayIcon-48 Component-logo-55"
             >
               <img
                 className="MuiAvatar-img"
@@ -2221,11 +2320,14 @@ exports[`FixturesList should render match list correctly 1`] = `
             Leicester City
           </div>
         </div>
-      </div>
-      <div
+      </a>
+      <a
         aria-disabled={false}
         className="MuiButtonBase-root MuiListItem-root Component-matchItem-56 MuiListItem-gutters MuiListItem-divider MuiListItem-button"
+        href="/match/sr:match:18427970"
+        id="sr:match:18427970"
         onBlur={[Function]}
+        onClick={[Function]}
         onDragLeave={[Function]}
         onFocus={[Function]}
         onKeyDown={[Function]}
@@ -2246,10 +2348,10 @@ exports[`FixturesList should render match list correctly 1`] = `
             Liverpool FC
           </div>
           <div
-            className="MuiListItemIcon-root Component-homeIcon-54 Component-root-81"
+            className="MuiListItemAvatar-root"
           >
             <div
-              className="MuiAvatar-root Component-logo-80"
+              className="MuiAvatar-root Component-homeIcon-54 Component-logo-55"
             >
               <img
                 className="MuiAvatar-img"
@@ -2271,10 +2373,10 @@ exports[`FixturesList should render match list correctly 1`] = `
           className="MuiListItemText-root Component-text-59 Component-guest-52"
         >
           <div
-            className="MuiListItemIcon-root Component-awayIcon-48 Component-root-81"
+            className="MuiListItemAvatar-root"
           >
             <div
-              className="MuiAvatar-root Component-logo-80"
+              className="MuiAvatar-root Component-awayIcon-48 Component-logo-55"
             >
               <img
                 className="MuiAvatar-img"
@@ -2286,11 +2388,14 @@ exports[`FixturesList should render match list correctly 1`] = `
             Manchester United
           </div>
         </div>
-      </div>
-      <div
+      </a>
+      <a
         aria-disabled={false}
         className="MuiButtonBase-root MuiListItem-root Component-matchItem-56 MuiListItem-gutters MuiListItem-divider MuiListItem-button"
+        href="/match/sr:match:18427972"
+        id="sr:match:18427972"
         onBlur={[Function]}
+        onClick={[Function]}
         onDragLeave={[Function]}
         onFocus={[Function]}
         onKeyDown={[Function]}
@@ -2311,10 +2416,10 @@ exports[`FixturesList should render match list correctly 1`] = `
             Manchester City
           </div>
           <div
-            className="MuiListItemIcon-root Component-homeIcon-54 Component-root-81"
+            className="MuiListItemAvatar-root"
           >
             <div
-              className="MuiAvatar-root Component-logo-80"
+              className="MuiAvatar-root Component-homeIcon-54 Component-logo-55"
             >
               <img
                 className="MuiAvatar-img"
@@ -2336,10 +2441,10 @@ exports[`FixturesList should render match list correctly 1`] = `
           className="MuiListItemText-root Component-text-59 Component-guest-52"
         >
           <div
-            className="MuiListItemIcon-root Component-awayIcon-48 Component-root-81"
+            className="MuiListItemAvatar-root"
           >
             <div
-              className="MuiAvatar-root Component-logo-80"
+              className="MuiAvatar-root Component-awayIcon-48 Component-logo-55"
             >
               <img
                 className="MuiAvatar-img"
@@ -2351,11 +2456,14 @@ exports[`FixturesList should render match list correctly 1`] = `
             Crystal Palace
           </div>
         </div>
-      </div>
-      <div
+      </a>
+      <a
         aria-disabled={false}
         className="MuiButtonBase-root MuiListItem-root Component-matchItem-56 MuiListItem-gutters MuiListItem-divider MuiListItem-button"
+        href="/match/sr:match:18427974"
+        id="sr:match:18427974"
         onBlur={[Function]}
+        onClick={[Function]}
         onDragLeave={[Function]}
         onFocus={[Function]}
         onKeyDown={[Function]}
@@ -2376,10 +2484,10 @@ exports[`FixturesList should render match list correctly 1`] = `
             Newcastle United
           </div>
           <div
-            className="MuiListItemIcon-root Component-homeIcon-54 Component-root-81"
+            className="MuiListItemAvatar-root"
           >
             <div
-              className="MuiAvatar-root Component-logo-80"
+              className="MuiAvatar-root Component-homeIcon-54 Component-logo-55"
             >
               <img
                 className="MuiAvatar-img"
@@ -2401,10 +2509,10 @@ exports[`FixturesList should render match list correctly 1`] = `
           className="MuiListItemText-root Component-text-59 Component-guest-52"
         >
           <div
-            className="MuiListItemIcon-root Component-awayIcon-48 Component-root-81"
+            className="MuiListItemAvatar-root"
           >
             <div
-              className="MuiAvatar-root Component-logo-80"
+              className="MuiAvatar-root Component-awayIcon-48 Component-logo-55"
             >
               <img
                 className="MuiAvatar-img"
@@ -2416,11 +2524,14 @@ exports[`FixturesList should render match list correctly 1`] = `
             Chelsea FC
           </div>
         </div>
-      </div>
-      <div
+      </a>
+      <a
         aria-disabled={false}
         className="MuiButtonBase-root MuiListItem-root Component-matchItem-56 MuiListItem-gutters MuiListItem-divider MuiListItem-button"
+        href="/match/sr:match:18427976"
+        id="sr:match:18427976"
         onBlur={[Function]}
+        onClick={[Function]}
         onDragLeave={[Function]}
         onFocus={[Function]}
         onKeyDown={[Function]}
@@ -2441,10 +2552,10 @@ exports[`FixturesList should render match list correctly 1`] = `
             Norwich City
           </div>
           <div
-            className="MuiListItemIcon-root Component-homeIcon-54 Component-root-81"
+            className="MuiListItemAvatar-root"
           >
             <div
-              className="MuiAvatar-root Component-logo-80"
+              className="MuiAvatar-root Component-homeIcon-54 Component-logo-55"
             >
               <img
                 className="MuiAvatar-img"
@@ -2466,10 +2577,10 @@ exports[`FixturesList should render match list correctly 1`] = `
           className="MuiListItemText-root Component-text-59 Component-guest-52"
         >
           <div
-            className="MuiListItemIcon-root Component-awayIcon-48 Component-root-81"
+            className="MuiListItemAvatar-root"
           >
             <div
-              className="MuiAvatar-root Component-logo-80"
+              className="MuiAvatar-root Component-awayIcon-48 Component-logo-55"
             >
               <img
                 className="MuiAvatar-img"
@@ -2481,11 +2592,14 @@ exports[`FixturesList should render match list correctly 1`] = `
             AFC Bournemouth
           </div>
         </div>
-      </div>
-      <div
+      </a>
+      <a
         aria-disabled={false}
         className="MuiButtonBase-root MuiListItem-root Component-matchItem-56 MuiListItem-gutters MuiListItem-divider MuiListItem-button"
+        href="/match/sr:match:18427978"
+        id="sr:match:18427978"
         onBlur={[Function]}
+        onClick={[Function]}
         onDragLeave={[Function]}
         onFocus={[Function]}
         onKeyDown={[Function]}
@@ -2506,10 +2620,10 @@ exports[`FixturesList should render match list correctly 1`] = `
             Southampton FC
           </div>
           <div
-            className="MuiListItemIcon-root Component-homeIcon-54 Component-root-81"
+            className="MuiListItemAvatar-root"
           >
             <div
-              className="MuiAvatar-root Component-logo-80"
+              className="MuiAvatar-root Component-homeIcon-54 Component-logo-55"
             >
               <img
                 className="MuiAvatar-img"
@@ -2531,10 +2645,10 @@ exports[`FixturesList should render match list correctly 1`] = `
           className="MuiListItemText-root Component-text-59 Component-guest-52"
         >
           <div
-            className="MuiListItemIcon-root Component-awayIcon-48 Component-root-81"
+            className="MuiListItemAvatar-root"
           >
             <div
-              className="MuiAvatar-root Component-logo-80"
+              className="MuiAvatar-root Component-awayIcon-48 Component-logo-55"
             >
               <img
                 className="MuiAvatar-img"
@@ -2546,11 +2660,14 @@ exports[`FixturesList should render match list correctly 1`] = `
             Wolverhampton Wanderers
           </div>
         </div>
-      </div>
-      <div
+      </a>
+      <a
         aria-disabled={false}
         className="MuiButtonBase-root MuiListItem-root Component-matchItem-56 MuiListItem-gutters MuiListItem-divider MuiListItem-button"
+        href="/match/sr:match:18427980"
+        id="sr:match:18427980"
         onBlur={[Function]}
+        onClick={[Function]}
         onDragLeave={[Function]}
         onFocus={[Function]}
         onKeyDown={[Function]}
@@ -2571,10 +2688,10 @@ exports[`FixturesList should render match list correctly 1`] = `
             Watford FC
           </div>
           <div
-            className="MuiListItemIcon-root Component-homeIcon-54 Component-root-81"
+            className="MuiListItemAvatar-root"
           >
             <div
-              className="MuiAvatar-root Component-logo-80"
+              className="MuiAvatar-root Component-homeIcon-54 Component-logo-55"
             >
               <img
                 className="MuiAvatar-img"
@@ -2596,10 +2713,10 @@ exports[`FixturesList should render match list correctly 1`] = `
           className="MuiListItemText-root Component-text-59 Component-guest-52"
         >
           <div
-            className="MuiListItemIcon-root Component-awayIcon-48 Component-root-81"
+            className="MuiListItemAvatar-root"
           >
             <div
-              className="MuiAvatar-root Component-logo-80"
+              className="MuiAvatar-root Component-awayIcon-48 Component-logo-55"
             >
               <img
                 className="MuiAvatar-img"
@@ -2611,11 +2728,14 @@ exports[`FixturesList should render match list correctly 1`] = `
             Tottenham Hotspur
           </div>
         </div>
-      </div>
-      <div
+      </a>
+      <a
         aria-disabled={false}
         className="MuiButtonBase-root MuiListItem-root Component-matchItem-56 MuiListItem-gutters MuiListItem-divider MuiListItem-button"
+        href="/match/sr:match:18427982"
+        id="sr:match:18427982"
         onBlur={[Function]}
+        onClick={[Function]}
         onDragLeave={[Function]}
         onFocus={[Function]}
         onKeyDown={[Function]}
@@ -2636,10 +2756,10 @@ exports[`FixturesList should render match list correctly 1`] = `
             West Ham United
           </div>
           <div
-            className="MuiListItemIcon-root Component-homeIcon-54 Component-root-81"
+            className="MuiListItemAvatar-root"
           >
             <div
-              className="MuiAvatar-root Component-logo-80"
+              className="MuiAvatar-root Component-homeIcon-54 Component-logo-55"
             >
               <img
                 className="MuiAvatar-img"
@@ -2661,10 +2781,10 @@ exports[`FixturesList should render match list correctly 1`] = `
           className="MuiListItemText-root Component-text-59 Component-guest-52"
         >
           <div
-            className="MuiListItemIcon-root Component-awayIcon-48 Component-root-81"
+            className="MuiListItemAvatar-root"
           >
             <div
-              className="MuiAvatar-root Component-logo-80"
+              className="MuiAvatar-root Component-awayIcon-48 Component-logo-55"
             >
               <img
                 className="MuiAvatar-img"
@@ -2676,7 +2796,7 @@ exports[`FixturesList should render match list correctly 1`] = `
             Everton FC
           </div>
         </div>
-      </div>
+      </a>
     </div>
   </div>
 </ul>

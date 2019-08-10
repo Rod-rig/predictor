@@ -27,6 +27,7 @@ exports.getPredictionsByUserId = (req, res) => {
           homeScore: userPrediction.homeScore,
           homeTeam: p.homeTeam,
           status: userPrediction.status,
+          id: p.matchId,
         };
       });
       res.status(200).send(pred);
