@@ -1,7 +1,7 @@
 import { createMuiTheme } from "@material-ui/core";
 import { ThemeProvider } from "@material-ui/styles";
 import * as React from "react";
-import { act, create, ReactTestRenderer } from "react-test-renderer";
+import { create } from "react-test-renderer";
 import { MatchDetails } from "./";
 
 describe("MatchDetails", () => {

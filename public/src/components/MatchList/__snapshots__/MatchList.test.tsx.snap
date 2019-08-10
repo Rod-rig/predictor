@@ -41,10 +41,13 @@ exports[`MatchList should render match list correctly 1`] = `
       1
     </div>
     <div>
-      <div
+      <a
         aria-disabled={false}
         className="MuiButtonBase-root MuiListItem-root Component-matchItem-56 MuiListItem-gutters MuiListItem-divider MuiListItem-button"
+        href="/match/sr:match:13245886"
+        id="sr:match:13245886"
         onBlur={[Function]}
+        onClick={[Function]}
         onDragLeave={[Function]}
         onFocus={[Function]}
         onKeyDown={[Function]}
@@ -65,10 +68,10 @@ exports[`MatchList should render match list correctly 1`] = `
             Russia
           </div>
           <div
-            className="MuiListItemIcon-root Component-homeIcon-54 Component-root-81"
+            className="MuiListItemAvatar-root"
           >
             <div
-              className="MuiAvatar-root Component-logo-80"
+              className="MuiAvatar-root Component-homeIcon-54 Component-logo-55"
             >
               <img
                 className="MuiAvatar-img"
@@ -96,10 +99,10 @@ exports[`MatchList should render match list correctly 1`] = `
           className="MuiListItemText-root Component-text-59 Component-guest-52"
         >
           <div
-            className="MuiListItemIcon-root Component-awayIcon-48 Component-root-81"
+            className="MuiListItemAvatar-root"
           >
             <div
-              className="MuiAvatar-root Component-logo-80"
+              className="MuiAvatar-root Component-awayIcon-48 Component-logo-55"
             >
               <img
                 className="MuiAvatar-img"
@@ -111,11 +114,14 @@ exports[`MatchList should render match list correctly 1`] = `
             Saudi Arabia
           </div>
         </div>
-      </div>
-      <div
+      </a>
+      <a
         aria-disabled={false}
         className="MuiButtonBase-root MuiListItem-root Component-matchItem-56 MuiListItem-gutters MuiListItem-divider MuiListItem-button"
+        href="/match/sr:match:13246028"
+        id="sr:match:13246028"
         onBlur={[Function]}
+        onClick={[Function]}
         onDragLeave={[Function]}
         onFocus={[Function]}
         onKeyDown={[Function]}
@@ -136,10 +142,10 @@ exports[`MatchList should render match list correctly 1`] = `
             Sweden
           </div>
           <div
-            className="MuiListItemIcon-root Component-homeIcon-54 Component-root-81"
+            className="MuiListItemAvatar-root"
           >
             <div
-              className="MuiAvatar-root Component-logo-80"
+              className="MuiAvatar-root Component-homeIcon-54 Component-logo-55"
             >
               <img
                 className="MuiAvatar-img"
@@ -167,10 +173,10 @@ exports[`MatchList should render match list correctly 1`] = `
           className="MuiListItemText-root Component-text-59 Component-guest-52"
         >
           <div
-            className="MuiListItemIcon-root Component-awayIcon-48 Component-root-81"
+            className="MuiListItemAvatar-root"
           >
             <div
-              className="MuiAvatar-root Component-logo-80"
+              className="MuiAvatar-root Component-awayIcon-48 Component-logo-55"
             >
               <img
                 className="MuiAvatar-img"
@@ -182,7 +188,7 @@ exports[`MatchList should render match list correctly 1`] = `
             Republic of Korea
           </div>
         </div>
-      </div>
+      </a>
     </div>
   </div>
   <div
@@ -195,10 +201,13 @@ exports[`MatchList should render match list correctly 1`] = `
       2
     </div>
     <div>
-      <div
+      <a
         aria-disabled={false}
         className="MuiButtonBase-root MuiListItem-root Component-matchItem-56 MuiListItem-gutters MuiListItem-divider MuiListItem-button"
+        href="/match/sr:match:13245922"
+        id="sr:match:13245922"
         onBlur={[Function]}
+        onClick={[Function]}
         onDragLeave={[Function]}
         onFocus={[Function]}
         onKeyDown={[Function]}
@@ -219,10 +228,10 @@ exports[`MatchList should render match list correctly 1`] = `
             Egypt
           </div>
           <div
-            className="MuiListItemIcon-root Component-homeIcon-54 Component-root-81"
+            className="MuiListItemAvatar-root"
           >
             <div
-              className="MuiAvatar-root Component-logo-80"
+              className="MuiAvatar-root Component-homeIcon-54 Component-logo-55"
             >
               <img
                 className="MuiAvatar-img"
@@ -250,10 +259,10 @@ exports[`MatchList should render match list correctly 1`] = `
           className="MuiListItemText-root Component-text-59 Component-guest-52"
         >
           <div
-            className="MuiListItemIcon-root Component-awayIcon-48 Component-root-81"
+            className="MuiListItemAvatar-root"
           >
             <div
-              className="MuiAvatar-root Component-logo-80"
+              className="MuiAvatar-root Component-awayIcon-48 Component-logo-55"
             >
               <img
                 className="MuiAvatar-img"
@@ -265,7 +274,7 @@ exports[`MatchList should render match list correctly 1`] = `
             Uruguay
           </div>
         </div>
-      </div>
+      </a>
     </div>
   </div>
 </ul>

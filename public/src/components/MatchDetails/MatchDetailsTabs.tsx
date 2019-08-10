@@ -13,7 +13,7 @@ interface IProps {
   };
 }
 
-const useStyles = makeStyles(({ palette, spacing }: Theme) =>
+const useStyles = makeStyles(({ spacing }: Theme) =>
   createStyles({
     panel: {
       padding: spacing(1),
@@ -35,6 +35,7 @@ export const MatchDetailsTabs = (props: IProps) => {
   const [tab, setTab] = React.useState(0);
   // @ts-ignore
   const classes = useStyles();
+  /* istanbul ignore next */
   const handleChange = (event: React.ChangeEvent<{}>, newValue: number) => {
     setTab(newValue);
   };

@@ -110,7 +110,7 @@ const renderEmptyScore = (classes: any): JSX.Element => (
 );
 
 const MatchItemLink = React.forwardRef((props: any, ref) => (
-  <Link to={`/match/${props.id}`} ref={ref} {...props} />
+  <Link to={`/match/${props.id}`} innerRef={ref} {...props} />
 ));
 
 export const MatchItem = decorate(

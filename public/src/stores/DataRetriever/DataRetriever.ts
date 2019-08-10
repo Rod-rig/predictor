@@ -14,7 +14,8 @@ export class DataRetriever implements IRetriever {
   }
 
   @action.bound
-  public fetchDataFailed({ status }: { status: number }) {
+  private fetchDataFailed({ status }: { status: number }) {
+    this.isLoaded = false;
     if (status === 403) {
       userStore.logout();
     }

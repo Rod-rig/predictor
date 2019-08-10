@@ -1,5 +1,6 @@
 import { mount } from "enzyme";
 import * as React from "react";
+import { MemoryRouter } from "react-router-dom";
 import * as renderer from "react-test-renderer";
 import { FixturesList, Loader } from "../";
 import { IFixture } from "../../@types";
@@ -25,7 +26,7 @@ describe("FixturesList", () => {
 
   it("should render match list correctly", () => {
     const comp = renderComp(schedule.sport_events, true);
-    const tree = renderer.create(comp).toJSON();
+    const tree = renderer.create(<MemoryRouter>{comp}</MemoryRouter>).toJSON();
     expect(tree).toMatchSnapshot();
   });
 

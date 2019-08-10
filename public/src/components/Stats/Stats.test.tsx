@@ -23,7 +23,7 @@ describe("Stats", () => {
 
   it("should render stats with predictions correctly", () => {
     const comp = stats(predictions, true);
-    const tree = renderer.create(comp).toJSON();
+    const tree = renderer.create(<MemoryRouter>{comp}</MemoryRouter>).toJSON();
     expect(tree).toMatchSnapshot();
   });
 

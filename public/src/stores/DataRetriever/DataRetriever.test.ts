@@ -1,53 +1,99 @@
-import { DataRetriever } from "./DataRetriever";
 import { userStore } from "../UserStore";
+import { DataRetriever } from "./DataRetriever";
 
 describe("DataRetriever", () => {
   let logoutMock: any;
-  let object: any;
-  let array: any;
 
   beforeEach(() => {
     logoutMock = jest.spyOn(userStore, "logout");
-    object = new DataRetriever({
-      url: "/api/tournaments",
-    });
-    array = new DataRetriever({
-      url: "/predictions",
-    });
   });
 
   afterEach(() => {
     logoutMock = null;
-    object = null;
-    array = null;
   });
 
-  it("should create new instance", () => {
-    expect(object).toBeInstanceOf(DataRetriever);
-    expect(array).toBeInstanceOf(DataRetriever);
+  describe("object data", () => {
+    let object: any;
+
+    beforeEach(() => {
+      object = new DataRetriever({
+        url: "/api/tournaments",
+      });
+    });
+
+    afterEach(() => {
+      object = null;
+    });
+
+    it("should get data(object)", () => {
+      expect(object.data).toBeDefined();
+      expect(object).toBeInstanceOf(DataRetriever);
+      expect(Object.keys(object.data).length).toBeGreaterThan(0);
+      expect(object.isLoaded).toBeTruthy();
+      expect(logoutMock).not.toHaveBeenCalled();
+    });
   });
 
-  it("should get data(object)", () => {
-    expect(object.data).toBeDefined();
-    expect(Object.keys(object.data).length).toBeGreaterThan(0);
-    expect(object.isLoaded).toBeTruthy();
-    expect(logoutMock).not.toHaveBeenCalled();
+  describe("array data", () => {
+    let array: any;
+
+    beforeEach(() => {
+      array = new DataRetriever({
+        url: "/predictions",
+      });
+    });
+
+    afterEach(() => {
+      array = null;
+    });
+
+    it("should get data(array)", () => {
+      expect(array.data).toBeDefined();
+      expect(array).toBeInstanceOf(DataRetriever);
+      expect(array.data.length).toBeGreaterThan(0);
+      expect(array.isLoaded).toBeTruthy();
+      expect(logoutMock).not.toHaveBeenCalled();
+    });
   });
 
-  it("should get data(array)", () => {
-    expect(array.data).toBeDefined();
-    expect(array.data.length).toBeGreaterThan(0);
-    expect(array.isLoaded).toBeTruthy();
-    expect(logoutMock).not.toHaveBeenCalled();
+  describe("other errors", () => {
+    let otherError: any;
+
+    beforeEach(() => {
+      otherError = new DataRetriever({
+        url: "/other-error",
+      });
+    });
+
+    afterEach(() => {
+      otherError = null;
+    });
+
+    it("should get other errors", () => {
+      expect(otherError).toBeInstanceOf(DataRetriever);
+      expect(otherError.data).toBeUndefined();
+      expect(logoutMock).not.toHaveBeenCalled();
+    });
   });
 
-  it("should handle 403 errors", () => {
-    object.fetchDataFailed({ status: 403 });
-    expect(logoutMock).toHaveBeenCalled();
-  });
+  describe("403 error", () => {
+    let error: any;
 
-  it("should handle other errors", () => {
-    object.fetchDataFailed({ status: 100 });
-    expect(logoutMock).not.toHaveBeenCalled();
+    beforeEach(() => {
+      error = new DataRetriever({
+        url: "/403-error",
+      });
+    });
+
+    afterEach(() => {
+      error = null;
+    });
+
+    it("should get 403 errors", () => {
+      expect(error).toBeInstanceOf(DataRetriever);
+      expect(error.isLoaded).toBeFalsy();
+      expect(error.data).toBeUndefined();
+      expect(logoutMock).toHaveBeenCalled();
+    });
   });
 });
