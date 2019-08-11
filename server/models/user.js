@@ -23,6 +23,28 @@ const UserSchema = new mongoose.Schema({
       ref: "Prediction",
     },
   ],
+  stats: {
+    totalPredictions: {
+      type: Number,
+      default: 0,
+    },
+    correctPredictions: {
+      type: Number,
+      default: 0,
+    },
+    pendingPredictions: {
+      type: Number,
+      default: 0,
+    },
+    successRate: {
+      type: Number,
+      default: 0,
+    },
+    oneXTwoSuccessRate: {
+      type: Number,
+      default: 0,
+    },
+  },
 });
 
 const User = mongoose.model("User", UserSchema);

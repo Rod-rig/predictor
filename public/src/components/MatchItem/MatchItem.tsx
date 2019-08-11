@@ -67,6 +67,7 @@ const decorate = withStyles(
       backgroundColor: palette.error.dark,
     },
     score: {
+      borderRadius: 4,
       color: palette.primary.contrastText,
       display: "flex",
       fontSize: typography.pxToRem(20),
