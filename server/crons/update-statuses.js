@@ -21,13 +21,14 @@ exports.updateStatuses = () => {
       Prediction.find({ $or: query })
         .then(predictions => {
           predictions.forEach(prediction => {
-            prediction.users.forEach(item => {
-              const { matchId } = prediction;
-              const eventResults = results.find(res => {
-                return res.sport_event.id === matchId;
-              }).sport_event_status;
+            const { matchId } = prediction;
+            const eventResults = results.find(res => {
+              return res.sport_event.id === matchId;
+            }).sport_event_status;
+            //todo here can be a bug with postponed status event
+            const isEventEnded = eventResults.status === "closed";
 
-              const isEventEnded = eventResults.status === "closed";
+            prediction.users.forEach(item => {
               const isPredictionCorrect =
                 eventResults.home_score === item.homeScore &&
                 eventResults.away_score === item.awayScore;
@@ -38,6 +39,10 @@ exports.updateStatuses = () => {
                 item.status = 0;
               }
             });
+            if (isEventEnded) {
+              prediction.matchResult.homeScore = eventResults.home_score;
+              prediction.matchResult.awayScore = eventResults.away_score;
+            }
             prediction.save();
             console.log(`predictions for ${prediction.matchId} were saved!`);
           });

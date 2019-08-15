@@ -25,6 +25,16 @@ const PredictionSchema = new mongoose.Schema({
     type: String,
     required: true,
   },
+  matchResult: {
+    awayScore: {
+      type: Number,
+      default: null,
+    },
+    homeScore: {
+      type: Number,
+      default: null,
+    },
+  },
   users: [
     {
       userId: {
