@@ -325,13 +325,13 @@ var AppBar = react__WEBPACK_IMPORTED_MODULE_2___default.a.forwardRef(function Ap
   /**
    * The content of the component.
    */
-  children: prop_types__WEBPACK_IMPORTED_MODULE_3___default.a.node.isRequired,
+  children: prop_types__WEBPACK_IMPORTED_MODULE_3___default.a.node,
 
   /**
    * Override or extend the styles applied to the component.
    * See [CSS API](#css) below for more details.
    */
-  classes: prop_types__WEBPACK_IMPORTED_MODULE_3___default.a.object.isRequired,
+  classes: prop_types__WEBPACK_IMPORTED_MODULE_3___default.a.object,
 
   /**
    * @ignore
@@ -341,14 +341,14 @@ var AppBar = react__WEBPACK_IMPORTED_MODULE_2___default.a.forwardRef(function Ap
   /**
    * The color of the component. It supports those theme colors that make sense for this component.
    */
-  color: prop_types__WEBPACK_IMPORTED_MODULE_3___default.a.oneOf(['inherit', 'primary', 'secondary', 'default']),
+  color: prop_types__WEBPACK_IMPORTED_MODULE_3___default.a.oneOf(['default', 'inherit', 'primary', 'secondary']),
 
   /**
    * The positioning type. The behavior of the different options is described
    * [in the MDN web docs](https://developer.mozilla.org/en-US/docs/Learn/CSS/CSS_layout/Positioning).
    * Note: `sticky` is not universally supported and will fall back to `static` when unavailable.
    */
-  position: prop_types__WEBPACK_IMPORTED_MODULE_3___default.a.oneOf(['fixed', 'absolute', 'sticky', 'static', 'relative'])
+  position: prop_types__WEBPACK_IMPORTED_MODULE_3___default.a.oneOf(['absolute', 'fixed', 'relative', 'static', 'sticky'])
 } : undefined;
 /* harmony default export */ __webpack_exports__["default"] = (Object(_styles_withStyles__WEBPACK_IMPORTED_MODULE_5__["default"])(styles, {
   name: 'MuiAppBar'
@@ -618,10 +618,15 @@ var Backdrop = react__WEBPACK_IMPORTED_MODULE_2___default.a.forwardRef(function 
 });
  true ? Backdrop.propTypes = {
   /**
+   * The content of the component.
+   */
+  children: prop_types__WEBPACK_IMPORTED_MODULE_3___default.a.node,
+
+  /**
    * Override or extend the styles applied to the component.
    * See [CSS API](#css) below for more details.
    */
-  classes: prop_types__WEBPACK_IMPORTED_MODULE_3___default.a.object.isRequired,
+  classes: prop_types__WEBPACK_IMPORTED_MODULE_3___default.a.object,
 
   /**
    * @ignore
@@ -644,6 +649,7 @@ var Backdrop = react__WEBPACK_IMPORTED_MODULE_2___default.a.forwardRef(function 
    * You may specify a single timeout for all transitions, or individually with an object.
    */
   transitionDuration: prop_types__WEBPACK_IMPORTED_MODULE_3___default.a.oneOfType([prop_types__WEBPACK_IMPORTED_MODULE_3___default.a.number, prop_types__WEBPACK_IMPORTED_MODULE_3___default.a.shape({
+    appear: prop_types__WEBPACK_IMPORTED_MODULE_3___default.a.number,
     enter: prop_types__WEBPACK_IMPORTED_MODULE_3___default.a.number,
     exit: prop_types__WEBPACK_IMPORTED_MODULE_3___default.a.number
   })])
@@ -822,13 +828,13 @@ var Badge = react__WEBPACK_IMPORTED_MODULE_2___default.a.forwardRef(function Bad
   /**
    * The badge will be added relative to this node.
    */
-  children: prop_types__WEBPACK_IMPORTED_MODULE_3___default.a.node.isRequired,
+  children: prop_types__WEBPACK_IMPORTED_MODULE_3___default.a.node,
 
   /**
    * Override or extend the styles applied to the component.
    * See [CSS API](#css) below for more details.
    */
-  classes: prop_types__WEBPACK_IMPORTED_MODULE_3___default.a.object.isRequired,
+  classes: prop_types__WEBPACK_IMPORTED_MODULE_3___default.a.object,
 
   /**
    * @ignore
@@ -838,7 +844,7 @@ var Badge = react__WEBPACK_IMPORTED_MODULE_2___default.a.forwardRef(function Bad
   /**
    * The color of the component. It supports those theme colors that make sense for this component.
    */
-  color: prop_types__WEBPACK_IMPORTED_MODULE_3___default.a.oneOf(['default', 'primary', 'secondary', 'error']),
+  color: prop_types__WEBPACK_IMPORTED_MODULE_3___default.a.oneOf(['default', 'error', 'primary', 'secondary']),
 
   /**
    * The component used for the root node.
@@ -864,7 +870,7 @@ var Badge = react__WEBPACK_IMPORTED_MODULE_2___default.a.forwardRef(function Bad
   /**
    * The variant to use.
    */
-  variant: prop_types__WEBPACK_IMPORTED_MODULE_3___default.a.oneOf(['standard', 'dot'])
+  variant: prop_types__WEBPACK_IMPORTED_MODULE_3___default.a.oneOf(['dot', 'standard'])
 } : undefined;
 /* harmony default export */ __webpack_exports__["default"] = (Object(_styles_withStyles__WEBPACK_IMPORTED_MODULE_5__["default"])(styles, {
   name: 'MuiBadge'
@@ -960,13 +966,13 @@ var BottomNavigation = react__WEBPACK_IMPORTED_MODULE_2___default.a.forwardRef(f
   /**
    * The content of the component.
    */
-  children: prop_types__WEBPACK_IMPORTED_MODULE_3___default.a.node.isRequired,
+  children: prop_types__WEBPACK_IMPORTED_MODULE_3___default.a.node,
 
   /**
    * Override or extend the styles applied to the component.
    * See [CSS API](#css) below for more details.
    */
-  classes: prop_types__WEBPACK_IMPORTED_MODULE_3___default.a.object.isRequired,
+  classes: prop_types__WEBPACK_IMPORTED_MODULE_3___default.a.object,
 
   /**
    * @ignore
@@ -981,7 +987,6 @@ var BottomNavigation = react__WEBPACK_IMPORTED_MODULE_2___default.a.forwardRef(f
 
   /**
    * Callback fired when the value changes.
-   *
    * @param {object} event The event source of the callback
    * @param {any} value We default to the index of the child
    */
@@ -2009,7 +2014,7 @@ var styles = {
     backgroundColor: 'transparent',
     // Reset default value
     // We disable the focus ring for mouse, touch and keyboard users.
-    outline: 'none',
+    outline: 0,
     border: 0,
     margin: 0,
     // Remove the margin in Safari
@@ -3060,12 +3065,12 @@ var ButtonGroup = react__WEBPACK_IMPORTED_MODULE_2___default.a.forwardRef(functi
     return react__WEBPACK_IMPORTED_MODULE_2___default.a.cloneElement(child, {
       className: Object(clsx__WEBPACK_IMPORTED_MODULE_5__["default"])(buttonClassName, child.props.className),
       disabled: child.props.disabled || disabled,
-      color: color,
+      color: child.props.color || color,
       disableFocusRipple: disableFocusRipple,
       disableRipple: disableRipple,
       fullWidth: fullWidth,
       size: child.props.size || size,
-      variant: variant
+      variant: child.props.variant || variant
     });
   }));
 });
@@ -4144,7 +4149,7 @@ var styles = function styles(theme) {
       // label will inherit this from root, then `clickable` class overrides this for both
       cursor: 'default',
       // We disable the focus ring for mouse, touch and keyboard users.
-      outline: 'none',
+      outline: 0,
       textDecoration: 'none',
       border: 'none',
       // Remove `button` border
@@ -5151,15 +5156,15 @@ var Collapse = react__WEBPACK_IMPORTED_MODULE_2___default.a.forwardRef(function 
     };
   }, []);
 
-  var handleEnter = function handleEnter(node) {
+  var handleEnter = function handleEnter(node, isAppearing) {
     node.style.height = collapsedHeight;
 
     if (onEnter) {
-      onEnter(node);
+      onEnter(node, isAppearing);
     }
   };
 
-  var handleEntering = function handleEntering(node) {
+  var handleEntering = function handleEntering(node, isAppearing) {
     var wrapperHeight = wrapperRef.current ? wrapperRef.current.clientHeight : 0;
 
     var _getTransitionProps = Object(_transitions_utils__WEBPACK_IMPORTED_MODULE_8__["getTransitionProps"])({
@@ -5181,15 +5186,15 @@ var Collapse = react__WEBPACK_IMPORTED_MODULE_2___default.a.forwardRef(function 
     node.style.height = "".concat(wrapperHeight, "px");
 
     if (onEntering) {
-      onEntering(node);
+      onEntering(node, isAppearing);
     }
   };
 
-  var handleEntered = function handleEntered(node) {
+  var handleEntered = function handleEntered(node, isAppearing) {
     node.style.height = 'auto';
 
     if (onEntered) {
-      onEntered(node);
+      onEntered(node, isAppearing);
     }
   };
 
@@ -5572,6 +5577,11 @@ var useStyles = Object(_styles__WEBPACK_IMPORTED_MODULE_3__["makeStyles"])(funct
         '@media print': {
           // Save printer ink.
           backgroundColor: theme.palette.common.white
+        },
+        // Add support for document.body.requestFullScreen().
+        // Other elements, if background transparent, are not supported.
+        '&::backdrop': {
+          backgroundColor: theme.palette.background.default
         }
       })
     }
@@ -5700,7 +5710,7 @@ var styles = function styles(theme) {
         height: 'auto'
       },
       // We disable the focus ring for mouse, touch and keyboard users.
-      outline: 'none'
+      outline: 0
     },
 
     /* Styles applied to the `Paper` component. */
@@ -6548,7 +6558,7 @@ var Divider = react__WEBPACK_IMPORTED_MODULE_2___default.a.forwardRef(function D
   role: prop_types__WEBPACK_IMPORTED_MODULE_3___default.a.string,
 
   /**
-   *  The variant to use.
+   * The variant to use.
    */
   variant: prop_types__WEBPACK_IMPORTED_MODULE_3___default.a.oneOf(['fullWidth', 'inset', 'middle'])
 } : undefined;
@@ -6638,7 +6648,7 @@ var styles = function styles(theme) {
       // We disable the focus ring for mouse, touch and keyboard users.
       // At some point, it would be better to keep it for keyboard users.
       // :focus-ring CSS pseudo-class will help.
-      outline: 'none'
+      outline: 0
     },
 
     /* Styles applied to the `Paper` component if `anchor="left"`. */
@@ -7904,7 +7914,7 @@ var Fade = react__WEBPACK_IMPORTED_MODULE_2___default.a.forwardRef(function Fade
   var theme = Object(_styles_useTheme__WEBPACK_IMPORTED_MODULE_6__["default"])();
   var handleRef = Object(_utils_reactHelpers__WEBPACK_IMPORTED_MODULE_8__["useForkRef"])(children.ref, ref);
 
-  var handleEnter = function handleEnter(node) {
+  var handleEnter = function handleEnter(node, isAppearing) {
     Object(_transitions_utils__WEBPACK_IMPORTED_MODULE_7__["reflow"])(node); // So the animation always start from the start.
 
     var transitionProps = Object(_transitions_utils__WEBPACK_IMPORTED_MODULE_7__["getTransitionProps"])({
@@ -7917,7 +7927,7 @@ var Fade = react__WEBPACK_IMPORTED_MODULE_2___default.a.forwardRef(function Fade
     node.style.transition = theme.transitions.create('opacity', transitionProps);
 
     if (onEnter) {
-      onEnter(node);
+      onEnter(node, isAppearing);
     }
   };
 
@@ -8391,11 +8401,14 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var prop_types__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! prop-types */ "./node_modules/@material-ui/core/node_modules/prop-types/index.js");
 /* harmony import */ var prop_types__WEBPACK_IMPORTED_MODULE_4___default = /*#__PURE__*/__webpack_require__.n(prop_types__WEBPACK_IMPORTED_MODULE_4__);
 /* harmony import */ var clsx__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! clsx */ "./node_modules/clsx/dist/clsx.m.js");
-/* harmony import */ var _InputBase_utils__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ../InputBase/utils */ "./node_modules/@material-ui/core/esm/InputBase/utils.js");
-/* harmony import */ var _styles_withStyles__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ../styles/withStyles */ "./node_modules/@material-ui/core/esm/styles/withStyles.js");
-/* harmony import */ var _utils_helpers__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ../utils/helpers */ "./node_modules/@material-ui/core/esm/utils/helpers.js");
-/* harmony import */ var _utils_reactHelpers__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ../utils/reactHelpers */ "./node_modules/@material-ui/core/esm/utils/reactHelpers.js");
-/* harmony import */ var _FormControlContext__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ./FormControlContext */ "./node_modules/@material-ui/core/esm/FormControl/FormControlContext.js");
+/* harmony import */ var warning__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! warning */ "./node_modules/warning/warning.js");
+/* harmony import */ var warning__WEBPACK_IMPORTED_MODULE_6___default = /*#__PURE__*/__webpack_require__.n(warning__WEBPACK_IMPORTED_MODULE_6__);
+/* harmony import */ var _InputBase_utils__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ../InputBase/utils */ "./node_modules/@material-ui/core/esm/InputBase/utils.js");
+/* harmony import */ var _styles_withStyles__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ../styles/withStyles */ "./node_modules/@material-ui/core/esm/styles/withStyles.js");
+/* harmony import */ var _utils_helpers__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ../utils/helpers */ "./node_modules/@material-ui/core/esm/utils/helpers.js");
+/* harmony import */ var _utils_reactHelpers__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ../utils/reactHelpers */ "./node_modules/@material-ui/core/esm/utils/reactHelpers.js");
+/* harmony import */ var _FormControlContext__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! ./FormControlContext */ "./node_modules/@material-ui/core/esm/FormControl/FormControlContext.js");
+
 
 
 
@@ -8492,13 +8505,13 @@ var FormControl = react__WEBPACK_IMPORTED_MODULE_3___default.a.forwardRef(functi
 
     if (children) {
       react__WEBPACK_IMPORTED_MODULE_3___default.a.Children.forEach(children, function (child) {
-        if (!Object(_utils_reactHelpers__WEBPACK_IMPORTED_MODULE_9__["isMuiElement"])(child, ['Input', 'Select'])) {
+        if (!Object(_utils_reactHelpers__WEBPACK_IMPORTED_MODULE_10__["isMuiElement"])(child, ['Input', 'Select'])) {
           return;
         }
 
-        var input = Object(_utils_reactHelpers__WEBPACK_IMPORTED_MODULE_9__["isMuiElement"])(child, ['Select']) ? child.props.input : child;
+        var input = Object(_utils_reactHelpers__WEBPACK_IMPORTED_MODULE_10__["isMuiElement"])(child, ['Select']) ? child.props.input : child;
 
-        if (input && Object(_InputBase_utils__WEBPACK_IMPORTED_MODULE_6__["isAdornedStart"])(input.props)) {
+        if (input && Object(_InputBase_utils__WEBPACK_IMPORTED_MODULE_7__["isAdornedStart"])(input.props)) {
           initialAdornedStart = true;
         }
       });
@@ -8516,11 +8529,11 @@ var FormControl = react__WEBPACK_IMPORTED_MODULE_3___default.a.forwardRef(functi
 
     if (children) {
       react__WEBPACK_IMPORTED_MODULE_3___default.a.Children.forEach(children, function (child) {
-        if (!Object(_utils_reactHelpers__WEBPACK_IMPORTED_MODULE_9__["isMuiElement"])(child, ['Input', 'Select'])) {
+        if (!Object(_utils_reactHelpers__WEBPACK_IMPORTED_MODULE_10__["isMuiElement"])(child, ['Input', 'Select'])) {
           return;
         }
 
-        if (Object(_InputBase_utils__WEBPACK_IMPORTED_MODULE_6__["isFilled"])(child.props, true)) {
+        if (Object(_InputBase_utils__WEBPACK_IMPORTED_MODULE_7__["isFilled"])(child.props, true)) {
           initialFilled = true;
         }
       });
@@ -8541,25 +8554,23 @@ var FormControl = react__WEBPACK_IMPORTED_MODULE_3___default.a.forwardRef(functi
     setFocused(false);
   }
 
-  var handleFocus = function handleFocus() {
-    setFocused(true);
-  };
+  var registerEffect;
 
-  var handleBlur = function handleBlur() {
-    setFocused(false);
-  };
+  if (true) {
+    // eslint-disable-next-line react-hooks/rules-of-hooks
+    var registeredInput = react__WEBPACK_IMPORTED_MODULE_3___default.a.useRef(false);
 
-  var handleDirty = function handleDirty() {
-    if (!filled) {
-      setFilled(true);
-    }
-  };
+    registerEffect = function registerEffect() {
+      if (registeredInput.current) {
+         true ? warning__WEBPACK_IMPORTED_MODULE_6___default()(false, ['Material-UI: there are multiple InputBase components inside a FromControl.', 'This is not supported. It might cause infinite rendering loops.', 'Only use one InputBase.'].join('\n')) : undefined;
+      }
 
-  var handleClean = function handleClean() {
-    if (filled) {
-      setFilled(false);
-    }
-  };
+      registeredInput.current = true;
+      return function () {
+        registeredInput.current = false;
+      };
+    };
+  }
 
   var childContext = {
     adornedStart: adornedStart,
@@ -8569,17 +8580,30 @@ var FormControl = react__WEBPACK_IMPORTED_MODULE_3___default.a.forwardRef(functi
     focused: focused,
     hiddenLabel: hiddenLabel,
     margin: margin,
-    onBlur: handleBlur,
-    onEmpty: handleClean,
-    onFilled: handleDirty,
-    onFocus: handleFocus,
+    onBlur: function onBlur() {
+      setFocused(false);
+    },
+    onEmpty: function onEmpty() {
+      if (filled) {
+        setFilled(false);
+      }
+    },
+    onFilled: function onFilled() {
+      if (!filled) {
+        setFilled(true);
+      }
+    },
+    onFocus: function onFocus() {
+      setFocused(true);
+    },
+    registerEffect: registerEffect,
     required: required,
     variant: variant
   };
-  return react__WEBPACK_IMPORTED_MODULE_3___default.a.createElement(_FormControlContext__WEBPACK_IMPORTED_MODULE_10__["default"].Provider, {
+  return react__WEBPACK_IMPORTED_MODULE_3___default.a.createElement(_FormControlContext__WEBPACK_IMPORTED_MODULE_11__["default"].Provider, {
     value: childContext
   }, react__WEBPACK_IMPORTED_MODULE_3___default.a.createElement(Component, Object(_babel_runtime_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_0__["default"])({
-    className: Object(clsx__WEBPACK_IMPORTED_MODULE_5__["default"])(classes.root, className, margin !== 'none' && classes["margin".concat(Object(_utils_helpers__WEBPACK_IMPORTED_MODULE_8__["capitalize"])(margin))], fullWidth && classes.fullWidth),
+    className: Object(clsx__WEBPACK_IMPORTED_MODULE_5__["default"])(classes.root, className, margin !== 'none' && classes["margin".concat(Object(_utils_helpers__WEBPACK_IMPORTED_MODULE_9__["capitalize"])(margin))], fullWidth && classes.fullWidth),
     ref: ref
   }, other), children));
 });
@@ -8643,7 +8667,7 @@ var FormControl = react__WEBPACK_IMPORTED_MODULE_3___default.a.forwardRef(functi
    */
   variant: prop_types__WEBPACK_IMPORTED_MODULE_4___default.a.oneOf(['standard', 'outlined', 'filled'])
 } : undefined;
-/* harmony default export */ __webpack_exports__["default"] = (Object(_styles_withStyles__WEBPACK_IMPORTED_MODULE_7__["default"])(styles, {
+/* harmony default export */ __webpack_exports__["default"] = (Object(_styles_withStyles__WEBPACK_IMPORTED_MODULE_8__["default"])(styles, {
   name: 'MuiFormControl'
 })(FormControl));
 
@@ -10429,7 +10453,7 @@ var Grow = react__WEBPACK_IMPORTED_MODULE_2___default.a.forwardRef(function Grow
   var handleRef = Object(_utils_reactHelpers__WEBPACK_IMPORTED_MODULE_7__["useForkRef"])(children.ref, ref);
   var theme = Object(_styles_useTheme__WEBPACK_IMPORTED_MODULE_5__["default"])();
 
-  var handleEnter = function handleEnter(node) {
+  var handleEnter = function handleEnter(node, isAppearing) {
     Object(_transitions_utils__WEBPACK_IMPORTED_MODULE_6__["reflow"])(node); // So the animation always start from the start.
 
     var _getTransitionProps = Object(_transitions_utils__WEBPACK_IMPORTED_MODULE_6__["getTransitionProps"])({
@@ -10459,7 +10483,7 @@ var Grow = react__WEBPACK_IMPORTED_MODULE_2___default.a.forwardRef(function Grow
     })].join(',');
 
     if (onEnter) {
-      onEnter(node);
+      onEnter(node, isAppearing);
     }
   };
 
@@ -12248,7 +12272,7 @@ var InputBase = react__WEBPACK_IMPORTED_MODULE_3___default.a.forwardRef(function
       onKeyUp = props.onKeyUp,
       placeholder = props.placeholder,
       readOnly = props.readOnly,
-      renderPrefix = props.renderPrefix,
+      renderSuffix = props.renderSuffix,
       rows = props.rows,
       rowsMax = props.rowsMax,
       _props$select = props.select,
@@ -12257,7 +12281,7 @@ var InputBase = react__WEBPACK_IMPORTED_MODULE_3___default.a.forwardRef(function
       _props$type = props.type,
       type = _props$type === void 0 ? 'text' : _props$type,
       value = props.value,
-      other = Object(_babel_runtime_helpers_esm_objectWithoutProperties__WEBPACK_IMPORTED_MODULE_2__["default"])(props, ["aria-describedby", "autoComplete", "autoFocus", "classes", "className", "defaultValue", "disabled", "endAdornment", "error", "fullWidth", "id", "inputComponent", "inputProps", "inputRef", "margin", "multiline", "name", "onBlur", "onChange", "onClick", "onFocus", "onKeyDown", "onKeyUp", "placeholder", "readOnly", "renderPrefix", "rows", "rowsMax", "select", "startAdornment", "type", "value"]);
+      other = Object(_babel_runtime_helpers_esm_objectWithoutProperties__WEBPACK_IMPORTED_MODULE_2__["default"])(props, ["aria-describedby", "autoComplete", "autoFocus", "classes", "className", "defaultValue", "disabled", "endAdornment", "error", "fullWidth", "id", "inputComponent", "inputProps", "inputRef", "margin", "multiline", "name", "onBlur", "onChange", "onClick", "onFocus", "onKeyDown", "onKeyUp", "placeholder", "readOnly", "renderSuffix", "rows", "rowsMax", "select", "startAdornment", "type", "value"]);
 
   var _React$useRef = react__WEBPACK_IMPORTED_MODULE_3___default.a.useRef(value != null),
       isControlled = _React$useRef.current;
@@ -12276,6 +12300,18 @@ var InputBase = react__WEBPACK_IMPORTED_MODULE_3___default.a.forwardRef(function
       setFocused = _React$useState2[1];
 
   var muiFormControl = Object(_FormControl_FormControlContext__WEBPACK_IMPORTED_MODULE_8__["useFormControl"])();
+
+  if (true) {
+    // eslint-disable-next-line react-hooks/rules-of-hooks
+    react__WEBPACK_IMPORTED_MODULE_3___default.a.useEffect(function () {
+      if (muiFormControl) {
+        return muiFormControl.registerEffect();
+      }
+
+      return undefined;
+    }, [muiFormControl]);
+  }
+
   var fcs = Object(_FormControl_formControlState__WEBPACK_IMPORTED_MODULE_7__["default"])({
     props: props,
     muiFormControl: muiFormControl,
@@ -12411,9 +12447,7 @@ var InputBase = react__WEBPACK_IMPORTED_MODULE_3___default.a.forwardRef(function
     }[fcs.margin]),
     onClick: handleClick,
     ref: ref
-  }, other), renderPrefix ? renderPrefix(Object(_babel_runtime_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_0__["default"])({}, fcs, {
-    startAdornment: startAdornment
-  })) : null, startAdornment, react__WEBPACK_IMPORTED_MODULE_3___default.a.createElement(_FormControl_FormControlContext__WEBPACK_IMPORTED_MODULE_8__["default"].Provider, {
+  }, other), startAdornment, react__WEBPACK_IMPORTED_MODULE_3___default.a.createElement(_FormControl_FormControlContext__WEBPACK_IMPORTED_MODULE_8__["default"].Provider, {
     value: null
   }, react__WEBPACK_IMPORTED_MODULE_3___default.a.createElement(InputComponent, Object(_babel_runtime_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_0__["default"])({
     "aria-invalid": fcs.error,
@@ -12439,7 +12473,9 @@ var InputBase = react__WEBPACK_IMPORTED_MODULE_3___default.a.forwardRef(function
     required: fcs.required,
     rows: rows,
     value: value
-  }, inputProps))), endAdornment);
+  }, inputProps))), endAdornment, renderSuffix ? renderSuffix(Object(_babel_runtime_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_0__["default"])({}, fcs, {
+    startAdornment: startAdornment
+  })) : null);
 });
  true ? InputBase.propTypes = {
   /**
@@ -12580,7 +12616,7 @@ var InputBase = react__WEBPACK_IMPORTED_MODULE_3___default.a.forwardRef(function
   /**
    * @ignore
    */
-  renderPrefix: prop_types__WEBPACK_IMPORTED_MODULE_4___default.a.func,
+  renderSuffix: prop_types__WEBPACK_IMPORTED_MODULE_4___default.a.func,
 
   /**
    * If `true`, the `input` element will be required.
@@ -13320,7 +13356,7 @@ var styles = {
     backgroundColor: 'transparent',
     // Reset default value
     // We disable the focus ring for mouse, touch and keyboard users.
-    outline: 'none',
+    outline: 0,
     border: 0,
     margin: 0,
     // Remove the margin in Safari
@@ -13452,7 +13488,7 @@ var Link = react__WEBPACK_IMPORTED_MODULE_3___default.a.forwardRef(function Link
   TypographyClasses: prop_types__WEBPACK_IMPORTED_MODULE_4___default.a.object,
 
   /**
-   *  Controls when the link should have an underline.
+   * Controls when the link should have an underline.
    */
   underline: prop_types__WEBPACK_IMPORTED_MODULE_4___default.a.oneOf(['none', 'hover', 'always']),
 
@@ -14645,7 +14681,7 @@ var styles = {
   /* Styles applied to the `List` component via `MenuList`. */
   list: {
     // We disable the focus ring for mouse, touch and keyboard users.
-    outline: 'none'
+    outline: 0
   }
 };
 var Menu = react__WEBPACK_IMPORTED_MODULE_2___default.a.forwardRef(function Menu(props, ref) {
@@ -14678,13 +14714,13 @@ var Menu = react__WEBPACK_IMPORTED_MODULE_2___default.a.forwardRef(function Menu
     return firstSelectedItemRef.current || firstValidItemRef.current;
   };
 
-  var handleEntering = function handleEntering(element) {
+  var handleEntering = function handleEntering(element, isAppearing) {
     if (menuListActionsRef.current) {
       menuListActionsRef.current.adjustStyleForScrollbar(element, theme);
     }
 
     if (onEntering) {
-      onEntering(element);
+      onEntering(element, isAppearing);
     }
   };
 
@@ -17249,7 +17285,7 @@ var OutlinedInput = react__WEBPACK_IMPORTED_MODULE_2___default.a.forwardRef(func
       other = Object(_babel_runtime_helpers_esm_objectWithoutProperties__WEBPACK_IMPORTED_MODULE_1__["default"])(props, ["classes", "fullWidth", "inputComponent", "labelWidth", "multiline", "notched", "type"]);
 
   return react__WEBPACK_IMPORTED_MODULE_2___default.a.createElement(_InputBase__WEBPACK_IMPORTED_MODULE_5__["default"], Object(_babel_runtime_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_0__["default"])({
-    renderPrefix: function renderPrefix(state) {
+    renderSuffix: function renderSuffix(state) {
       return react__WEBPACK_IMPORTED_MODULE_2___default.a.createElement(_NotchedOutline__WEBPACK_IMPORTED_MODULE_6__["default"], {
         className: classes.notchedOutline,
         labelWidth: labelWidth,
@@ -17669,7 +17705,7 @@ var styles = {
     maxWidth: 'calc(100% - 32px)',
     maxHeight: 'calc(100% - 32px)',
     // We disable the focus ring for mouse, touch and keyboard users.
-    outline: 'none'
+    outline: 0
   }
 };
 var Popover = react__WEBPACK_IMPORTED_MODULE_2___default.a.forwardRef(function Popover(props, ref) {
@@ -17842,9 +17878,9 @@ var Popover = react__WEBPACK_IMPORTED_MODULE_2___default.a.forwardRef(function P
     element.style.transformOrigin = positioning.transformOrigin;
   }, [getPositioningStyle]);
 
-  var handleEntering = function handleEntering(element) {
+  var handleEntering = function handleEntering(element, isAppearing) {
     if (onEntering) {
-      onEntering(element);
+      onEntering(element, isAppearing);
     }
 
     setPositioningStyles(element);
@@ -18532,7 +18568,7 @@ var Portal = react__WEBPACK_IMPORTED_MODULE_1___default.a.forwardRef(function Po
   /**
    * The children to render into the `container`.
    */
-  children: prop_types__WEBPACK_IMPORTED_MODULE_3___default.a.node.isRequired,
+  children: prop_types__WEBPACK_IMPORTED_MODULE_3___default.a.node,
 
   /**
    * A node, component instance, or function that returns either.
@@ -18540,7 +18576,7 @@ var Portal = react__WEBPACK_IMPORTED_MODULE_1___default.a.forwardRef(function Po
    * By default, it uses the body of the top-level document object,
    * so it's simply `document.body` most of the time.
    */
-  container: prop_types__WEBPACK_IMPORTED_MODULE_3___default.a.oneOfType([prop_types__WEBPACK_IMPORTED_MODULE_3___default.a.object, prop_types__WEBPACK_IMPORTED_MODULE_3___default.a.func]),
+  container: prop_types__WEBPACK_IMPORTED_MODULE_3___default.a.oneOfType([prop_types__WEBPACK_IMPORTED_MODULE_3___default.a.func, prop_types__WEBPACK_IMPORTED_MODULE_3___default.a.instanceOf(react__WEBPACK_IMPORTED_MODULE_1___default.a.Component), prop_types__WEBPACK_IMPORTED_MODULE_3___default.a.instanceOf(typeof Element === 'undefined' ? Object : Element)]),
 
   /**
    * Disable the portal behavior.
@@ -20100,17 +20136,17 @@ var Slide = react__WEBPACK_IMPORTED_MODULE_2___default.a.forwardRef(function Sli
   var handleRefIntermediary = Object(_utils_reactHelpers__WEBPACK_IMPORTED_MODULE_8__["useForkRef"])(children.ref, handleOwnRef);
   var handleRef = Object(_utils_reactHelpers__WEBPACK_IMPORTED_MODULE_8__["useForkRef"])(handleRefIntermediary, ref);
 
-  var handleEnter = function handleEnter() {
+  var handleEnter = function handleEnter(_, isAppearing) {
     var node = childrenRef.current;
     setTranslateValue(direction, node);
     Object(_transitions_utils__WEBPACK_IMPORTED_MODULE_11__["reflow"])(node);
 
     if (onEnter) {
-      onEnter(node);
+      onEnter(node, isAppearing);
     }
   };
 
-  var handleEntering = function handleEntering() {
+  var handleEntering = function handleEntering(_, isAppearing) {
     var node = childrenRef.current;
     var transitionProps = Object(_transitions_utils__WEBPACK_IMPORTED_MODULE_11__["getTransitionProps"])({
       timeout: timeout,
@@ -20128,7 +20164,7 @@ var Slide = react__WEBPACK_IMPORTED_MODULE_2___default.a.forwardRef(function Sli
     node.style.transform = 'none';
 
     if (onEntering) {
-      onEntering(node);
+      onEntering(node, isAppearing);
     }
   };
 
@@ -20559,7 +20595,7 @@ var styles = function styles(theme) {
       marginTop: -5,
       boxSizing: 'border-box',
       borderRadius: '50%',
-      outline: 'none',
+      outline: 0,
       backgroundColor: 'currentColor',
       display: 'flex',
       alignItems: 'center',
@@ -22807,7 +22843,7 @@ var StepIcon = react__WEBPACK_IMPORTED_MODULE_0___default.a.forwardRef(function 
   error: prop_types__WEBPACK_IMPORTED_MODULE_1___default.a.bool,
 
   /**
-   * The icon displayed by the step label.
+   * The label displayed in the step icon.
    */
   icon: prop_types__WEBPACK_IMPORTED_MODULE_1___default.a.node.isRequired
 } : undefined;
@@ -23028,7 +23064,7 @@ var StepLabel = react__WEBPACK_IMPORTED_MODULE_2___default.a.forwardRef(function
   error: prop_types__WEBPACK_IMPORTED_MODULE_3___default.a.bool,
 
   /**
-   * Override the default icon.
+   * Override the default label of the step icon.
    */
   icon: prop_types__WEBPACK_IMPORTED_MODULE_3___default.a.node,
 
@@ -25821,7 +25857,7 @@ var styles = function styles(theme) {
       display: 'table-row',
       verticalAlign: 'middle',
       // We disable the focus ring for mouse, touch and keyboard users.
-      outline: 'none',
+      outline: 0,
       '&$selected': {
         backgroundColor: theme.palette.type === 'light' ? 'rgba(0, 0, 0, 0.04)' // grey[100]
         : 'rgba(255, 255, 255, 0.08)'
@@ -27375,7 +27411,8 @@ var styles = {
     // Ignore the scrollbar width
     overflow: 'hidden',
     height: 0,
-    top: 0
+    top: 0,
+    left: 0
   }
 };
 var TextareaAutosize = react__WEBPACK_IMPORTED_MODULE_3___default.a.forwardRef(function TextareaAutosize(props, ref) {
@@ -28581,7 +28618,7 @@ var Zoom = react__WEBPACK_IMPORTED_MODULE_2___default.a.forwardRef(function Zoom
   var theme = Object(_styles_useTheme__WEBPACK_IMPORTED_MODULE_6__["default"])();
   var handleRef = Object(_utils_reactHelpers__WEBPACK_IMPORTED_MODULE_8__["useForkRef"])(children.ref, ref);
 
-  var handleEnter = function handleEnter(node) {
+  var handleEnter = function handleEnter(node, isAppearing) {
     Object(_transitions_utils__WEBPACK_IMPORTED_MODULE_7__["reflow"])(node); // So the animation always start from the start.
 
     var transitionProps = Object(_transitions_utils__WEBPACK_IMPORTED_MODULE_7__["getTransitionProps"])({
@@ -28594,7 +28631,7 @@ var Zoom = react__WEBPACK_IMPORTED_MODULE_2___default.a.forwardRef(function Zoom
     node.style.transition = theme.transitions.create('transform', transitionProps);
 
     if (onEnter) {
-      onEnter(node);
+      onEnter(node, isAppearing);
     }
   };
 
@@ -29715,7 +29752,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _Zoom__WEBPACK_IMPORTED_MODULE_114__ = __webpack_require__(/*! ./Zoom */ "./node_modules/@material-ui/core/esm/Zoom/index.js");
 /* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "Zoom", function() { return _Zoom__WEBPACK_IMPORTED_MODULE_114__["default"]; });
 
-/** @license Material-UI v4.3.1
+/** @license Material-UI v4.3.2
  *
  * This source code is licensed under the MIT license found in the
  * LICENSE file in the root directory of this source tree.
@@ -32207,15 +32244,15 @@ function useMediaQuery(queryInput) {
     }
 
     var queryList = window.matchMedia(query);
-    setMatch(queryList.matches);
 
-    function handleMatchesChange() {
+    var updateMatch = function updateMatch() {
       setMatch(queryList.matches);
-    }
+    };
 
-    queryList.addListener(handleMatchesChange);
+    updateMatch();
+    queryList.addListener(updateMatch);
     return function () {
-      queryList.removeListener(handleMatchesChange);
+      queryList.removeListener(updateMatch);
     };
   }, [query, supportMatchMedia]);
   return match;
@@ -37525,7 +37562,7 @@ function getBorder(value) {
     return value;
   }
 
-  return "".concat(value, "px solid").concat(value === 0 ? ' !important' : '');
+  return "".concat(value, "px solid");
 }
 
 var border = Object(_style__WEBPACK_IMPORTED_MODULE_0__["default"])({
@@ -37555,10 +37592,7 @@ var borderLeft = Object(_style__WEBPACK_IMPORTED_MODULE_0__["default"])({
 });
 var borderColor = Object(_style__WEBPACK_IMPORTED_MODULE_0__["default"])({
   prop: 'borderColor',
-  themeKey: 'palette',
-  transform: function transform(value) {
-    return "".concat(value, " !important");
-  }
+  themeKey: 'palette'
 });
 var borderRadius = Object(_style__WEBPACK_IMPORTED_MODULE_0__["default"])({
   prop: 'borderRadius',
@@ -38031,7 +38065,7 @@ __webpack_require__.r(__webpack_exports__);
 
 /* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "textAlign", function() { return _typography__WEBPACK_IMPORTED_MODULE_12__["textAlign"]; });
 
-/** @license Material-UI v4.3.2
+/** @license Material-UI v4.3.3
  *
  * This source code is licensed under the MIT license found in the
  * LICENSE file in the root directory of this source tree.
@@ -91320,6 +91354,7 @@ var decorate = core_1.withStyles(function (_a) {
             backgroundColor: palette.error.dark,
         },
         score: {
+            borderRadius: 4,
             color: palette.primary.contrastText,
             display: "flex",
             fontSize: typography.pxToRem(20),
