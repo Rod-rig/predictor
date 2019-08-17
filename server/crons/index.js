@@ -1,25 +1,29 @@
 require("dotenv").config();
-const { updateStatuses } = require("./update-statuses");
+const { runCron } = require("./runCron");
+const { green, red } = require("chalk");
 const express = require("express");
-const mongoose = require("mongoose");
 const router = require("../router");
 const app = express();
 const db = require("../db");
 
 db.connect(process.env.DB_URL, err => {
   if (err) {
-    return console.error(err);
+    return console.log(red(err));
   }
+
   router(app);
-  app.listen(process.env.PORT, () => {
-    console.log("Server started");
-    updateStatuses();
+
+  app.listen(process.env.PORT, async () => {
+    console.log(green("Server started"));
+    console.log(green("Cron was started execution"));
+
+    // await runCron();
+
+    console.log(green("Cron was executed successfully"));
 
     setTimeout(() => {
-      mongoose.connection.close(() => {
-        console.log("Mongoose default connection is disconnected");
-      });
-      console.log("...waited 15s, exiting.");
+      db.disconnect();
+      console.log("Db is disconnected and node is exited");
       process.exit();
     }, 15000);
   });
