@@ -11,7 +11,7 @@ const collectUserStats = async user => {
       return user.stats;
     }
     let correctPredictions = 0;
-    let oneXTwoSuccessRate = 0;
+    let oneXTwoSuccess = 0;
     let pendingPredictions = 0;
 
     for (let p of predictions) {
@@ -30,7 +30,7 @@ const collectUserStats = async user => {
         (userPrediction.homeScore === userPrediction.awayScore &&
           p.matchResult.homeScore === p.matchResult.awayScore)
       ) {
-        oneXTwoSuccessRate += 1;
+        oneXTwoSuccess += 1;
       }
       if (userPrediction.status === -1) {
         pendingPredictions += 1;
@@ -39,13 +39,18 @@ const collectUserStats = async user => {
 
     const totalPredictions = predictions.length;
     const oldPredictions = totalPredictions - pendingPredictions;
+    const hasPredictions = oldPredictions > 0;
+    const oneXTwoSuccessRate = hasPredictions
+      ? Math.round((oneXTwoSuccess / oldPredictions) * 100 * 100) / 100
+      : 0;
+    const successRate = hasPredictions
+      ? Math.round((correctPredictions / oldPredictions) * 100 * 100) / 100
+      : 0;
     return {
       correctPredictions,
-      oneXTwoSuccessRate:
-        Math.round((oneXTwoSuccessRate / oldPredictions) * 100 * 100) / 100,
+      oneXTwoSuccessRate,
       pendingPredictions,
-      successRate:
-        Math.round((correctPredictions / oldPredictions) * 100 * 100) / 100,
+      successRate,
       totalPredictions,
     };
   } catch (err) {

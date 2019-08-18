@@ -17,7 +17,7 @@ db.connect(process.env.DB_URL, err => {
     console.log(green("Server started"));
     console.log(green("Cron was started execution"));
 
-    // await runCron();
+    await runCron();
 
     console.log(green("Cron was executed successfully"));
 
