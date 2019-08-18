@@ -42,6 +42,7 @@ export interface IDict {
   registration_error: string;
   results: string;
   sidebar_menu_prediction: string;
+  sidebar_menu_rating: string;
   submit_btn_text: string;
   success: string;
   table: string;
@@ -97,6 +98,7 @@ export const dict: IDict = {
   registration_error: "User with these credentials is already registered",
   results: "Results",
   sidebar_menu_prediction: "Predictions",
+  sidebar_menu_rating: "Rating",
   submit_btn_text: "Submit",
   success: "Success",
   table: "Table",

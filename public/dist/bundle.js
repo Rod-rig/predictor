@@ -31668,7 +31668,7 @@ var defaultTheme = Object(_createMuiTheme__WEBPACK_IMPORTED_MODULE_0__["default"
 /*!************************************************************!*\
   !*** ./node_modules/@material-ui/core/esm/styles/index.js ***!
   \************************************************************/
-/*! exports provided: createMuiTheme, createStyles, makeStyles, MuiThemeProvider, responsiveFontSizes, styled, useTheme, withStyles, withTheme, hexToRgb, rgbToHex, hslToRgb, decomposeColor, recomposeColor, getContrastRatio, getLuminance, emphasize, fade, darken, lighten, easing, duration, formatMs, isString, isNumber */
+/*! exports provided: hexToRgb, rgbToHex, hslToRgb, decomposeColor, recomposeColor, getContrastRatio, getLuminance, emphasize, fade, darken, lighten, createMuiTheme, createStyles, makeStyles, MuiThemeProvider, responsiveFontSizes, styled, easing, duration, formatMs, isString, isNumber, useTheme, withStyles, withTheme */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -34558,6 +34558,35 @@ var _createSvgIcon = _interopRequireDefault(__webpack_require__(/*! ./utils/crea
 var _default = (0, _createSvgIcon.default)(_react.default.createElement("path", {
   d: "M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 15h-2v-2h2v2zm0-4h-2V7h2v6z"
 }), 'Error');
+
+exports.default = _default;
+
+/***/ }),
+
+/***/ "./node_modules/@material-ui/icons/FormatListNumbered.js":
+/*!***************************************************************!*\
+  !*** ./node_modules/@material-ui/icons/FormatListNumbered.js ***!
+  \***************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+var _interopRequireDefault = __webpack_require__(/*! @babel/runtime/helpers/interopRequireDefault */ "./node_modules/@babel/runtime/helpers/interopRequireDefault.js");
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.default = void 0;
+
+var _react = _interopRequireDefault(__webpack_require__(/*! react */ "./node_modules/react/index.js"));
+
+var _createSvgIcon = _interopRequireDefault(__webpack_require__(/*! ./utils/createSvgIcon */ "./node_modules/@material-ui/icons/utils/createSvgIcon.js"));
+
+var _default = (0, _createSvgIcon.default)(_react.default.createElement("path", {
+  d: "M2 17h2v.5H3v1h1v.5H2v1h3v-4H2v1zm1-9h1V4H2v1h1v3zm-1 3h1.8L2 13.1v.9h3v-1H3.2L5 10.9V10H2v1zm5-6v2h14V5H7zm0 14h14v-2H7v2zm0-6h14v-2H7v2z"
+}), 'FormatListNumbered');
 
 exports.default = _default;
 
@@ -37935,7 +37964,7 @@ var flexbox = Object(_compose__WEBPACK_IMPORTED_MODULE_1__["default"])(flexBasis
 /*!*******************************************************!*\
   !*** ./node_modules/@material-ui/system/esm/index.js ***!
   \*******************************************************/
-/*! exports provided: borders, breakpoints, compose, css, display, flexbox, palette, positions, shadows, sizing, spacing, style, typography, border, borderTop, borderRight, borderBottom, borderLeft, borderColor, borderRadius, flexBasis, flexDirection, flexWrap, justifyContent, alignItems, alignContent, order, flex, flexGrow, flexShrink, alignSelf, justifyItems, justifySelf, color, bgcolor, position, zIndex, top, right, bottom, left, width, maxWidth, minWidth, height, maxHeight, minHeight, sizeWidth, sizeHeight, fontFamily, fontSize, fontStyle, fontWeight, letterSpacing, lineHeight, textAlign */
+/*! exports provided: borders, border, borderTop, borderRight, borderBottom, borderLeft, borderColor, borderRadius, breakpoints, compose, css, display, flexbox, flexBasis, flexDirection, flexWrap, justifyContent, alignItems, alignContent, order, flex, flexGrow, flexShrink, alignSelf, justifyItems, justifySelf, palette, color, bgcolor, positions, position, zIndex, top, right, bottom, left, shadows, sizing, width, maxWidth, minWidth, height, maxHeight, minHeight, sizeWidth, sizeHeight, spacing, style, typography, fontFamily, fontSize, fontStyle, fontWeight, letterSpacing, lineHeight, textAlign */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -82596,7 +82625,7 @@ if (false) {} else {
 /*!***************************************************************!*\
   !*** ./node_modules/react-router-dom/esm/react-router-dom.js ***!
   \***************************************************************/
-/*! exports provided: BrowserRouter, HashRouter, Link, NavLink, MemoryRouter, Prompt, Redirect, Route, Router, StaticRouter, Switch, generatePath, matchPath, withRouter, __RouterContext */
+/*! exports provided: MemoryRouter, Prompt, Redirect, Route, Router, StaticRouter, Switch, generatePath, matchPath, withRouter, __RouterContext, BrowserRouter, HashRouter, Link, NavLink */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -92160,6 +92189,42 @@ __export(__webpack_require__(/*! ./PrivateRoute */ "./public/src/components/Priv
 
 /***/ }),
 
+/***/ "./public/src/components/Rating/Rating.tsx":
+/*!*************************************************!*\
+  !*** ./public/src/components/Rating/Rating.tsx ***!
+  \*************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+Object.defineProperty(exports, "__esModule", { value: true });
+var React = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+exports.Rating = function () {
+    return React.createElement("div", null, "Rating");
+};
+
+
+/***/ }),
+
+/***/ "./public/src/components/Rating/index.ts":
+/*!***********************************************!*\
+  !*** ./public/src/components/Rating/index.ts ***!
+  \***********************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+function __export(m) {
+    for (var p in m) if (!exports.hasOwnProperty(p)) exports[p] = m[p];
+}
+Object.defineProperty(exports, "__esModule", { value: true });
+__export(__webpack_require__(/*! ./Rating */ "./public/src/components/Rating/Rating.tsx"));
+
+
+/***/ }),
+
 /***/ "./public/src/components/Registration/Registration.tsx":
 /*!*************************************************************!*\
   !*** ./public/src/components/Registration/Registration.tsx ***!
@@ -92448,11 +92513,13 @@ var __assign = (this && this.__assign) || function () {
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 var core_1 = __webpack_require__(/*! @material-ui/core */ "./node_modules/@material-ui/core/esm/index.js");
+var FormatListNumbered_1 = __webpack_require__(/*! @material-ui/icons/FormatListNumbered */ "./node_modules/@material-ui/icons/FormatListNumbered.js");
 var OpenWith_1 = __webpack_require__(/*! @material-ui/icons/OpenWith */ "./node_modules/@material-ui/icons/OpenWith.js");
 var React = __webpack_require__(/*! react */ "./node_modules/react/index.js");
 var react_router_dom_1 = __webpack_require__(/*! react-router-dom */ "./node_modules/react-router-dom/esm/react-router-dom.js");
 var dict_1 = __webpack_require__(/*! ../../dict */ "./public/src/dict/index.ts");
 var SidebarLink = React.forwardRef(function (props, ref) { return (React.createElement(react_router_dom_1.Link, __assign({ to: "/predictions" }, props, { ref: ref }))); });
+var RatingLink = React.forwardRef(function (props, ref) { return (React.createElement(react_router_dom_1.Link, __assign({ to: "/rating" }, props, { ref: ref }))); });
 var styles = function (_a) {
     var spacing = _a.spacing;
     return core_1.createStyles({
@@ -92469,7 +92536,11 @@ exports.Sidebar = core_1.withStyles(styles)(function (props) {
                 React.createElement(core_1.ListItem, { component: SidebarLink, button: true },
                     React.createElement(core_1.ListItemIcon, null,
                         React.createElement(OpenWith_1.default, null)),
-                    React.createElement(core_1.ListItemText, { className: classes.root, primary: dict_1.dict.sidebar_menu_prediction }))))));
+                    React.createElement(core_1.ListItemText, { className: classes.root, primary: dict_1.dict.sidebar_menu_prediction })),
+                React.createElement(core_1.ListItem, { component: RatingLink, button: true },
+                    React.createElement(core_1.ListItemIcon, null,
+                        React.createElement(FormatListNumbered_1.default, null)),
+                    React.createElement(core_1.ListItemText, { className: classes.root, primary: dict_1.dict.sidebar_menu_rating }))))));
 });
 
 
@@ -93220,6 +93291,7 @@ __export(__webpack_require__(/*! ./Nav */ "./public/src/components/Nav/index.ts"
 __export(__webpack_require__(/*! ./Prediction */ "./public/src/components/Prediction/index.ts"));
 __export(__webpack_require__(/*! ./PredictionFilter */ "./public/src/components/PredictionFilter/index.ts"));
 __export(__webpack_require__(/*! ./PrivateRoute */ "./public/src/components/PrivateRoute/index.ts"));
+__export(__webpack_require__(/*! ./Rating */ "./public/src/components/Rating/index.ts"));
 __export(__webpack_require__(/*! ./Registration */ "./public/src/components/Registration/index.ts"));
 __export(__webpack_require__(/*! ./Row */ "./public/src/components/Row/index.ts"));
 __export(__webpack_require__(/*! ./Sidebar */ "./public/src/components/Sidebar/index.ts"));
@@ -93614,6 +93686,7 @@ exports.dict = {
     registration_error: "User with these credentials is already registered",
     results: "Results",
     sidebar_menu_prediction: "Predictions",
+    sidebar_menu_rating: "Rating",
     submit_btn_text: "Submit",
     success: "Success",
     table: "Table",
@@ -93897,6 +93970,7 @@ var stats = function (props) { return (React.createElement(components_1.Stats, _
         url: "/predictions",
     }) }, props))); };
 var matchDetails = function (props) { return (React.createElement(components_1.MatchDetails, { id: props.match.params.id })); };
+var rating = function () { return React.createElement(components_1.Rating, null); };
 exports.routes = [
     {
         component: tournamentList,
@@ -93942,6 +94016,11 @@ exports.routes = [
     {
         component: matchDetails,
         path: "/match/:id",
+    },
+    {
+        component: rating,
+        exact: true,
+        path: "/rating",
     },
     {
         component: components_1.NotFound,

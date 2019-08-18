@@ -9,6 +9,7 @@ import {
   MatchList,
   NotFound,
   Prediction,
+  Rating,
   Registration,
   Stats,
   TableView,
@@ -110,6 +111,8 @@ const matchDetails = (props: RouteComponentProps<{ id: string }>) => (
   <MatchDetails id={props.match.params.id} />
 );
 
+const rating = () => <Rating />;
+
 export const routes = [
   {
     component: tournamentList,
@@ -155,6 +158,11 @@ export const routes = [
   {
     component: matchDetails,
     path: "/match/:id",
+  },
+  {
+    component: rating,
+    exact: true,
+    path: "/rating",
   },
   {
     component: NotFound,
