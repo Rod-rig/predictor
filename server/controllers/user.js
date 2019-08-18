@@ -137,3 +137,19 @@ exports.updateUser = (req, res) => {
       res.sendStatus(404);
     });
 };
+
+exports.getRating = (req, res) => {
+  User.find()
+    .then(users => {
+      const rating = users.map(u => {
+        return {
+          name: u.name,
+          stats: u.stats,
+        };
+      });
+      res.status(200).send(rating);
+    })
+    .catch(() => {
+      res.sendStatus(404);
+    });
+};
