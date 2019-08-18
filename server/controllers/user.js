@@ -145,6 +145,7 @@ exports.getRating = (req, res) => {
         return {
           name: u.name,
           stats: u.stats,
+          hasEnoughPredictions: u.predictions.length > 20,
         };
       });
       res.status(200).send(rating);

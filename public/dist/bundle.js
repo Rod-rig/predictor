@@ -92199,9 +92199,71 @@ __export(__webpack_require__(/*! ./PrivateRoute */ "./public/src/components/Priv
 "use strict";
 
 Object.defineProperty(exports, "__esModule", { value: true });
+var axios_1 = __webpack_require__(/*! axios */ "./node_modules/axios/index.js");
 var React = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+var __1 = __webpack_require__(/*! ../ */ "./public/src/components/index.ts");
+var RatingTable_1 = __webpack_require__(/*! ./RatingTable */ "./public/src/components/Rating/RatingTable.tsx");
+var ORDER_BY = "oneXTwoSuccessRate";
 exports.Rating = function () {
-    return React.createElement("div", null, "Rating");
+    var _a = React.useState({
+        isLoaded: false,
+        rating: null,
+    }), _b = _a[0], isLoaded = _b.isLoaded, rating = _b.rating, setData = _a[1];
+    React.useEffect(function () {
+        axios_1.default.get("/rating").then(function (response) {
+            setData({
+                isLoaded: true,
+                rating: response.data
+                    .filter(function (user) { return user.hasEnoughPredictions; })
+                    .sort(function (a, b) {
+                    if (b.stats[ORDER_BY] < a.stats[ORDER_BY]) {
+                        return -1;
+                    }
+                    if (b.stats[ORDER_BY] > a.stats[ORDER_BY]) {
+                        return 1;
+                    }
+                    return 0;
+                }),
+            });
+        });
+    }, []);
+    return isLoaded ? React.createElement(RatingTable_1.RatingTable, { rating: rating }) : React.createElement(__1.Loader, null);
+};
+
+
+/***/ }),
+
+/***/ "./public/src/components/Rating/RatingTable.tsx":
+/*!******************************************************!*\
+  !*** ./public/src/components/Rating/RatingTable.tsx ***!
+  \******************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+Object.defineProperty(exports, "__esModule", { value: true });
+var core_1 = __webpack_require__(/*! @material-ui/core */ "./node_modules/@material-ui/core/esm/index.js");
+var React = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+exports.RatingTable = function (props) {
+    var rating = props.rating;
+    return (React.createElement(core_1.Paper, null,
+        React.createElement(core_1.Table, null,
+            React.createElement(core_1.TableHead, null,
+                React.createElement(core_1.TableRow, null,
+                    React.createElement(core_1.TableCell, null, "Rank"),
+                    React.createElement(core_1.TableCell, null, "Name"),
+                    React.createElement(core_1.TableCell, null, "Total Predictions"),
+                    React.createElement(core_1.TableCell, null, "Correct Predictions"),
+                    React.createElement(core_1.TableCell, null, "Success Rate, %"),
+                    React.createElement(core_1.TableCell, null, "1X2 Success Rate, %"))),
+            React.createElement(core_1.TableBody, null, rating.map(function (u, index) { return (React.createElement(core_1.TableRow, { key: u.name + "-" + u.stats.successRate },
+                React.createElement(core_1.TableCell, null, index + 1),
+                React.createElement(core_1.TableCell, null, u.name),
+                React.createElement(core_1.TableCell, null, u.stats.totalPredictions),
+                React.createElement(core_1.TableCell, null, u.stats.correctPredictions),
+                React.createElement(core_1.TableCell, null, u.stats.successRate),
+                React.createElement(core_1.TableCell, null, u.stats.oneXTwoSuccessRate))); })))));
 };
 
 
