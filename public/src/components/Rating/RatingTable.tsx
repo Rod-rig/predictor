@@ -5,6 +5,7 @@ import {
   TableCell,
   TableHead,
   TableRow,
+  TableSortLabel,
 } from "@material-ui/core";
 import * as React from "react";
 
@@ -20,8 +21,20 @@ export interface IUser {
   hasEnoughPredictions: boolean;
 }
 
-export const RatingTable = (props: { rating: IUser[] }) => {
-  const { rating } = props;
+interface IProps {
+  onRequestSort: any;
+  order: "asc" | "desc";
+  orderBy: string;
+  rating: IUser[];
+}
+
+export const RatingTable = (props: IProps) => {
+  const { onRequestSort, order, orderBy, rating } = props;
+  const createSortHandler = (property: string) => (
+    event: React.MouseEvent<unknown>,
+  ) => {
+    onRequestSort(event, property);
+  };
 
   return (
     <Paper>
@@ -30,15 +43,55 @@ export const RatingTable = (props: { rating: IUser[] }) => {
           <TableRow>
             <TableCell>Rank</TableCell>
             <TableCell>Name</TableCell>
-            <TableCell>Total Predictions</TableCell>
-            <TableCell>Correct Predictions</TableCell>
-            <TableCell>Success Rate, %</TableCell>
-            <TableCell>1X2 Success Rate, %</TableCell>
+            <TableCell
+              sortDirection={orderBy === "totalPredictions" ? order : false}
+            >
+              <TableSortLabel
+                active={orderBy === "totalPredictions"}
+                direction={order}
+                onClick={createSortHandler("totalPredictions")}
+              >
+                Total Predictions
+              </TableSortLabel>
+            </TableCell>
+            <TableCell
+              sortDirection={orderBy === "correctPredictions" ? order : false}
+            >
+              <TableSortLabel
+                active={orderBy === "correctPredictions"}
+                direction={order}
+                onClick={createSortHandler("correctPredictions")}
+              >
+                Correct Predictions
+              </TableSortLabel>
+            </TableCell>
+            <TableCell
+              sortDirection={orderBy === "successRate" ? order : false}
+            >
+              <TableSortLabel
+                active={orderBy === "successRate"}
+                direction={order}
+                onClick={createSortHandler("successRate")}
+              >
+                Success Rate, %
+              </TableSortLabel>
+            </TableCell>
+            <TableCell
+              sortDirection={orderBy === "successRate" ? order : false}
+            >
+              <TableSortLabel
+                active={orderBy === "oneXTwoSuccessRate"}
+                direction={order}
+                onClick={createSortHandler("oneXTwoSuccessRate")}
+              >
+                1X2 Success Rate, %
+              </TableSortLabel>
+            </TableCell>
           </TableRow>
         </TableHead>
         <TableBody>
           {rating.map((u: IUser, index: number) => (
-            <TableRow key={`${u.name}-${u.stats.successRate}`}>
+            <TableRow hover={true} key={`${u.name}-${u.stats.successRate}`}>
               <TableCell>{index + 1}</TableCell>
               <TableCell>{u.name}</TableCell>
               <TableCell>{u.stats.totalPredictions}</TableCell>

@@ -92209,25 +92209,33 @@ exports.Rating = function () {
         isLoaded: false,
         rating: null,
     }), _b = _a[0], isLoaded = _b.isLoaded, rating = _b.rating, setData = _a[1];
+    var _c = React.useState("desc"), order = _c[0], setOrder = _c[1];
+    var _d = React.useState(ORDER_BY), orderBy = _d[0], setOrderBy = _d[1];
     React.useEffect(function () {
         axios_1.default.get("/rating").then(function (response) {
             setData({
                 isLoaded: true,
                 rating: response.data
                     .filter(function (user) { return user.hasEnoughPredictions; })
-                    .sort(function (a, b) {
-                    if (b.stats[ORDER_BY] < a.stats[ORDER_BY]) {
-                        return -1;
-                    }
-                    if (b.stats[ORDER_BY] > a.stats[ORDER_BY]) {
-                        return 1;
-                    }
-                    return 0;
-                }),
+                    .sort(sort),
             });
         });
     }, []);
-    return isLoaded ? React.createElement(RatingTable_1.RatingTable, { rating: rating }) : React.createElement(__1.Loader, null);
+    var sort = function (a, b) {
+        if (b.stats[orderBy] < a.stats[orderBy]) {
+            return order === "desc" ? -1 : 1;
+        }
+        if (b.stats[orderBy] > a.stats[orderBy]) {
+            return order === "desc" ? 1 : -1;
+        }
+        return 0;
+    };
+    var handleRequestSort = function (event, property) {
+        var isDesc = orderBy === property && order === "desc";
+        setOrder(isDesc ? "asc" : "desc");
+        setOrderBy(property);
+    };
+    return isLoaded ? (React.createElement(RatingTable_1.RatingTable, { onRequestSort: handleRequestSort, order: order, orderBy: orderBy, rating: rating.sort(sort) })) : (React.createElement(__1.Loader, null));
 };
 
 
@@ -92246,18 +92254,25 @@ Object.defineProperty(exports, "__esModule", { value: true });
 var core_1 = __webpack_require__(/*! @material-ui/core */ "./node_modules/@material-ui/core/esm/index.js");
 var React = __webpack_require__(/*! react */ "./node_modules/react/index.js");
 exports.RatingTable = function (props) {
-    var rating = props.rating;
+    var onRequestSort = props.onRequestSort, order = props.order, orderBy = props.orderBy, rating = props.rating;
+    var createSortHandler = function (property) { return function (event) {
+        onRequestSort(event, property);
+    }; };
     return (React.createElement(core_1.Paper, null,
         React.createElement(core_1.Table, null,
             React.createElement(core_1.TableHead, null,
                 React.createElement(core_1.TableRow, null,
                     React.createElement(core_1.TableCell, null, "Rank"),
                     React.createElement(core_1.TableCell, null, "Name"),
-                    React.createElement(core_1.TableCell, null, "Total Predictions"),
-                    React.createElement(core_1.TableCell, null, "Correct Predictions"),
-                    React.createElement(core_1.TableCell, null, "Success Rate, %"),
-                    React.createElement(core_1.TableCell, null, "1X2 Success Rate, %"))),
-            React.createElement(core_1.TableBody, null, rating.map(function (u, index) { return (React.createElement(core_1.TableRow, { key: u.name + "-" + u.stats.successRate },
+                    React.createElement(core_1.TableCell, { sortDirection: orderBy === "totalPredictions" ? order : false },
+                        React.createElement(core_1.TableSortLabel, { active: orderBy === "totalPredictions", direction: order, onClick: createSortHandler("totalPredictions") }, "Total Predictions")),
+                    React.createElement(core_1.TableCell, { sortDirection: orderBy === "correctPredictions" ? order : false },
+                        React.createElement(core_1.TableSortLabel, { active: orderBy === "correctPredictions", direction: order, onClick: createSortHandler("correctPredictions") }, "Correct Predictions")),
+                    React.createElement(core_1.TableCell, { sortDirection: orderBy === "successRate" ? order : false },
+                        React.createElement(core_1.TableSortLabel, { active: orderBy === "successRate", direction: order, onClick: createSortHandler("successRate") }, "Success Rate, %")),
+                    React.createElement(core_1.TableCell, { sortDirection: orderBy === "successRate" ? order : false },
+                        React.createElement(core_1.TableSortLabel, { active: orderBy === "oneXTwoSuccessRate", direction: order, onClick: createSortHandler("oneXTwoSuccessRate") }, "1X2 Success Rate, %")))),
+            React.createElement(core_1.TableBody, null, rating.map(function (u, index) { return (React.createElement(core_1.TableRow, { hover: true, key: u.name + "-" + u.stats.successRate },
                 React.createElement(core_1.TableCell, null, index + 1),
                 React.createElement(core_1.TableCell, null, u.name),
                 React.createElement(core_1.TableCell, null, u.stats.totalPredictions),

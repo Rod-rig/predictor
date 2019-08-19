@@ -10,6 +10,8 @@ export const Rating = () => {
     isLoaded: false,
     rating: null,
   });
+  const [order, setOrder] = React.useState<"asc" | "desc">("desc");
+  const [orderBy, setOrderBy] = React.useState(ORDER_BY);
 
   React.useEffect(() => {
     axios.get("/rating").then((response: AxiosResponse<IUser[]>) => {
@@ -17,17 +19,38 @@ export const Rating = () => {
         isLoaded: true,
         rating: response.data
           .filter(user => user.hasEnoughPredictions)
-          .sort((a: any, b: any) => {
-            if (b.stats[ORDER_BY] < a.stats[ORDER_BY]) {
-              return -1;
-            }
-            if (b.stats[ORDER_BY] > a.stats[ORDER_BY]) {
-              return 1;
-            }
-            return 0;
-          }),
+          .sort(sort),
       });
     });
   }, []);
-  return isLoaded ? <RatingTable rating={rating} /> : <Loader />;
+
+  const sort = (a: any, b: any) => {
+    if (b.stats[orderBy] < a.stats[orderBy]) {
+      return order === "desc" ? -1 : 1;
+    }
+    if (b.stats[orderBy] > a.stats[orderBy]) {
+      return order === "desc" ? 1 : -1;
+    }
+    return 0;
+  };
+
+  const handleRequestSort = (
+    event: React.MouseEvent<unknown>,
+    property: string,
+  ) => {
+    const isDesc = orderBy === property && order === "desc";
+    setOrder(isDesc ? "asc" : "desc");
+    setOrderBy(property);
+  };
+
+  return isLoaded ? (
+    <RatingTable
+      onRequestSort={handleRequestSort}
+      order={order}
+      orderBy={orderBy}
+      rating={rating.sort(sort)}
+    />
+  ) : (
+    <Loader />
+  );
 };
