@@ -92257,12 +92257,25 @@ var classnames_1 = __webpack_require__(/*! classnames */ "./node_modules/classna
 var React = __webpack_require__(/*! react */ "./node_modules/react/index.js");
 var stores_1 = __webpack_require__(/*! ../../stores */ "./public/src/stores/index.ts");
 var useStyles = styles_1.makeStyles(function (_a) {
-    var palette = _a.palette;
+    var _b;
+    var breakpoints = _a.breakpoints, palette = _a.palette, spacing = _a.spacing;
     return styles_1.createStyles({
         highlight: {
-            backgroundColor: palette.secondary.main,
-            color: palette.common.white,
-            fontWeight: "bold",
+            "& td": {
+                backgroundColor: palette.secondary.main,
+                color: palette.common.white,
+                fontWeight: "bold",
+            },
+        },
+        paper: {
+            "& td, & th": (_b = {
+                    paddingRight: spacing(2)
+                },
+                _b[breakpoints.down("xs")] = {
+                    padding: spacing(1),
+                },
+                _b),
+            margin: spacing(1),
         },
     });
 });
@@ -92273,32 +92286,44 @@ exports.RatingTable = function (props) {
     var createSortHandler = function (property) { return function (event) {
         onRequestSort(event, property);
     }; };
-    return (React.createElement(core_1.Paper, null,
+    return (React.createElement(core_1.Paper, { className: classes.paper },
         React.createElement(core_1.Table, null,
             React.createElement(core_1.TableHead, null,
                 React.createElement(core_1.TableRow, null,
                     React.createElement(core_1.TableCell, null, "Rank"),
                     React.createElement(core_1.TableCell, null, "Name"),
-                    React.createElement(core_1.TableCell, { sortDirection: orderBy === "totalPredictions" ? order : false },
-                        React.createElement(core_1.TableSortLabel, { active: orderBy === "totalPredictions", direction: order, onClick: createSortHandler("totalPredictions") }, "Total Predictions")),
-                    React.createElement(core_1.TableCell, { sortDirection: orderBy === "correctPredictions" ? order : false },
-                        React.createElement(core_1.TableSortLabel, { active: orderBy === "correctPredictions", direction: order, onClick: createSortHandler("correctPredictions") }, "Correct Predictions")),
+                    React.createElement(core_1.Hidden, { xsDown: true },
+                        React.createElement(core_1.TableCell, { sortDirection: orderBy === "totalPredictions" ? order : false },
+                            React.createElement(core_1.TableSortLabel, { active: orderBy === "totalPredictions", direction: order, onClick: createSortHandler("totalPredictions") },
+                                React.createElement(core_1.Hidden, { smDown: true }, "Total Predictions"),
+                                React.createElement(core_1.Hidden, { mdUp: true }, "TP")))),
+                    React.createElement(core_1.Hidden, { xsDown: true },
+                        React.createElement(core_1.TableCell, { sortDirection: orderBy === "correctPredictions" ? order : false },
+                            React.createElement(core_1.TableSortLabel, { active: orderBy === "correctPredictions", direction: order, onClick: createSortHandler("correctPredictions") },
+                                React.createElement(core_1.Hidden, { smDown: true }, "Correct Predictions"),
+                                React.createElement(core_1.Hidden, { mdUp: true }, "CP")))),
                     React.createElement(core_1.TableCell, { sortDirection: orderBy === "successRate" ? order : false },
-                        React.createElement(core_1.TableSortLabel, { active: orderBy === "successRate", direction: order, onClick: createSortHandler("successRate") }, "Success Rate, %")),
+                        React.createElement(core_1.TableSortLabel, { active: orderBy === "successRate", direction: order, onClick: createSortHandler("successRate") },
+                            React.createElement(core_1.Hidden, { smDown: true }, "Success Rate, %"),
+                            React.createElement(core_1.Hidden, { mdUp: true }, "SR"))),
                     React.createElement(core_1.TableCell, { sortDirection: orderBy === "successRate" ? order : false },
-                        React.createElement(core_1.TableSortLabel, { active: orderBy === "oneXTwoSuccessRate", direction: order, onClick: createSortHandler("oneXTwoSuccessRate") }, "1X2 Success Rate, %")))),
+                        React.createElement(core_1.TableSortLabel, { active: orderBy === "oneXTwoSuccessRate", direction: order, onClick: createSortHandler("oneXTwoSuccessRate") },
+                            React.createElement(core_1.Hidden, { smDown: true }, "1X2 Success Rate, %"),
+                            React.createElement(core_1.Hidden, { mdUp: true }, "1X2"))))),
             React.createElement(core_1.TableBody, null, rating.map(function (u, index) {
                 var _a;
                 var tdClassName = classnames_1.default((_a = {},
                     _a[classes.highlight] = u.name === stores_1.userStore.name,
                     _a));
-                return (React.createElement(core_1.TableRow, { hover: true, key: u.name + "-" + u.stats.successRate },
-                    React.createElement(core_1.TableCell, { className: tdClassName }, index + 1),
-                    React.createElement(core_1.TableCell, { className: tdClassName }, u.name),
-                    React.createElement(core_1.TableCell, { className: tdClassName }, u.stats.totalPredictions),
-                    React.createElement(core_1.TableCell, { className: tdClassName }, u.stats.correctPredictions),
-                    React.createElement(core_1.TableCell, { className: tdClassName }, u.stats.successRate),
-                    React.createElement(core_1.TableCell, { className: tdClassName }, u.stats.oneXTwoSuccessRate)));
+                return (React.createElement(core_1.TableRow, { className: tdClassName, hover: true, key: u.name + "-" + u.stats.successRate },
+                    React.createElement(core_1.TableCell, null, index + 1),
+                    React.createElement(core_1.TableCell, null, u.name),
+                    React.createElement(core_1.Hidden, { xsDown: true },
+                        React.createElement(core_1.TableCell, null, u.stats.totalPredictions)),
+                    React.createElement(core_1.Hidden, { xsDown: true },
+                        React.createElement(core_1.TableCell, null, u.stats.correctPredictions)),
+                    React.createElement(core_1.TableCell, null, u.stats.successRate),
+                    React.createElement(core_1.TableCell, null, u.stats.oneXTwoSuccessRate)));
             })))));
 };
 

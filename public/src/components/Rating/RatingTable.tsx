@@ -1,4 +1,5 @@
 import {
+  Hidden,
   Paper,
   Table,
   TableBody,
@@ -32,12 +33,23 @@ interface IProps {
   rating: IUser[];
 }
 
-const useStyles = makeStyles(({ palette }: Theme) =>
+const useStyles = makeStyles(({ breakpoints, palette, spacing }: Theme) =>
   createStyles({
     highlight: {
-      backgroundColor: palette.secondary.main,
-      color: palette.common.white,
-      fontWeight: "bold",
+      "& td": {
+        backgroundColor: palette.secondary.main,
+        color: palette.common.white,
+        fontWeight: "bold",
+      },
+    },
+    paper: {
+      "& td, & th": {
+        paddingRight: spacing(2),
+        [breakpoints.down("xs")]: {
+          padding: spacing(1),
+        },
+      },
+      margin: spacing(1),
     },
   }),
 );
@@ -54,34 +66,40 @@ export const RatingTable = (props: IProps) => {
   };
 
   return (
-    <Paper>
+    <Paper className={classes.paper}>
       <Table>
         <TableHead>
           <TableRow>
             <TableCell>Rank</TableCell>
             <TableCell>Name</TableCell>
-            <TableCell
-              sortDirection={orderBy === "totalPredictions" ? order : false}
-            >
-              <TableSortLabel
-                active={orderBy === "totalPredictions"}
-                direction={order}
-                onClick={createSortHandler("totalPredictions")}
+            <Hidden xsDown={true}>
+              <TableCell
+                sortDirection={orderBy === "totalPredictions" ? order : false}
               >
-                Total Predictions
-              </TableSortLabel>
-            </TableCell>
-            <TableCell
-              sortDirection={orderBy === "correctPredictions" ? order : false}
-            >
-              <TableSortLabel
-                active={orderBy === "correctPredictions"}
-                direction={order}
-                onClick={createSortHandler("correctPredictions")}
+                <TableSortLabel
+                  active={orderBy === "totalPredictions"}
+                  direction={order}
+                  onClick={createSortHandler("totalPredictions")}
+                >
+                  <Hidden smDown={true}>Total Predictions</Hidden>
+                  <Hidden mdUp={true}>TP</Hidden>
+                </TableSortLabel>
+              </TableCell>
+            </Hidden>
+            <Hidden xsDown={true}>
+              <TableCell
+                sortDirection={orderBy === "correctPredictions" ? order : false}
               >
-                Correct Predictions
-              </TableSortLabel>
-            </TableCell>
+                <TableSortLabel
+                  active={orderBy === "correctPredictions"}
+                  direction={order}
+                  onClick={createSortHandler("correctPredictions")}
+                >
+                  <Hidden smDown={true}>Correct Predictions</Hidden>
+                  <Hidden mdUp={true}>CP</Hidden>
+                </TableSortLabel>
+              </TableCell>
+            </Hidden>
             <TableCell
               sortDirection={orderBy === "successRate" ? order : false}
             >
@@ -90,7 +108,8 @@ export const RatingTable = (props: IProps) => {
                 direction={order}
                 onClick={createSortHandler("successRate")}
               >
-                Success Rate, %
+                <Hidden smDown={true}>Success Rate, %</Hidden>
+                <Hidden mdUp={true}>SR</Hidden>
               </TableSortLabel>
             </TableCell>
             <TableCell
@@ -101,7 +120,8 @@ export const RatingTable = (props: IProps) => {
                 direction={order}
                 onClick={createSortHandler("oneXTwoSuccessRate")}
               >
-                1X2 Success Rate, %
+                <Hidden smDown={true}>1X2 Success Rate, %</Hidden>
+                <Hidden mdUp={true}>1X2</Hidden>
               </TableSortLabel>
             </TableCell>
           </TableRow>
@@ -112,21 +132,21 @@ export const RatingTable = (props: IProps) => {
               [classes.highlight]: u.name === userStore.name,
             });
             return (
-              <TableRow hover={true} key={`${u.name}-${u.stats.successRate}`}>
-                <TableCell className={tdClassName}>{index + 1}</TableCell>
-                <TableCell className={tdClassName}>{u.name}</TableCell>
-                <TableCell className={tdClassName}>
-                  {u.stats.totalPredictions}
-                </TableCell>
-                <TableCell className={tdClassName}>
-                  {u.stats.correctPredictions}
-                </TableCell>
-                <TableCell className={tdClassName}>
-                  {u.stats.successRate}
-                </TableCell>
-                <TableCell className={tdClassName}>
-                  {u.stats.oneXTwoSuccessRate}
-                </TableCell>
+              <TableRow
+                className={tdClassName}
+                hover={true}
+                key={`${u.name}-${u.stats.successRate}`}
+              >
+                <TableCell>{index + 1}</TableCell>
+                <TableCell>{u.name}</TableCell>
+                <Hidden xsDown={true}>
+                  <TableCell>{u.stats.totalPredictions}</TableCell>
+                </Hidden>
+                <Hidden xsDown={true}>
+                  <TableCell>{u.stats.correctPredictions}</TableCell>
+                </Hidden>
+                <TableCell>{u.stats.successRate}</TableCell>
+                <TableCell>{u.stats.oneXTwoSuccessRate}</TableCell>
               </TableRow>
             );
           })}
