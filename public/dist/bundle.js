@@ -92252,9 +92252,24 @@ exports.Rating = function () {
 
 Object.defineProperty(exports, "__esModule", { value: true });
 var core_1 = __webpack_require__(/*! @material-ui/core */ "./node_modules/@material-ui/core/esm/index.js");
+var styles_1 = __webpack_require__(/*! @material-ui/styles */ "./node_modules/@material-ui/styles/esm/index.js");
+var classnames_1 = __webpack_require__(/*! classnames */ "./node_modules/classnames/index.js");
 var React = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+var stores_1 = __webpack_require__(/*! ../../stores */ "./public/src/stores/index.ts");
+var useStyles = styles_1.makeStyles(function (_a) {
+    var palette = _a.palette;
+    return styles_1.createStyles({
+        highlight: {
+            backgroundColor: palette.secondary.main,
+            color: palette.common.white,
+            fontWeight: "bold",
+        },
+    });
+});
 exports.RatingTable = function (props) {
     var onRequestSort = props.onRequestSort, order = props.order, orderBy = props.orderBy, rating = props.rating;
+    // @ts-ignore
+    var classes = useStyles();
     var createSortHandler = function (property) { return function (event) {
         onRequestSort(event, property);
     }; };
@@ -92272,13 +92287,19 @@ exports.RatingTable = function (props) {
                         React.createElement(core_1.TableSortLabel, { active: orderBy === "successRate", direction: order, onClick: createSortHandler("successRate") }, "Success Rate, %")),
                     React.createElement(core_1.TableCell, { sortDirection: orderBy === "successRate" ? order : false },
                         React.createElement(core_1.TableSortLabel, { active: orderBy === "oneXTwoSuccessRate", direction: order, onClick: createSortHandler("oneXTwoSuccessRate") }, "1X2 Success Rate, %")))),
-            React.createElement(core_1.TableBody, null, rating.map(function (u, index) { return (React.createElement(core_1.TableRow, { hover: true, key: u.name + "-" + u.stats.successRate },
-                React.createElement(core_1.TableCell, null, index + 1),
-                React.createElement(core_1.TableCell, null, u.name),
-                React.createElement(core_1.TableCell, null, u.stats.totalPredictions),
-                React.createElement(core_1.TableCell, null, u.stats.correctPredictions),
-                React.createElement(core_1.TableCell, null, u.stats.successRate),
-                React.createElement(core_1.TableCell, null, u.stats.oneXTwoSuccessRate))); })))));
+            React.createElement(core_1.TableBody, null, rating.map(function (u, index) {
+                var _a;
+                var tdClassName = classnames_1.default((_a = {},
+                    _a[classes.highlight] = u.name === stores_1.userStore.name,
+                    _a));
+                return (React.createElement(core_1.TableRow, { hover: true, key: u.name + "-" + u.stats.successRate },
+                    React.createElement(core_1.TableCell, { className: tdClassName }, index + 1),
+                    React.createElement(core_1.TableCell, { className: tdClassName }, u.name),
+                    React.createElement(core_1.TableCell, { className: tdClassName }, u.stats.totalPredictions),
+                    React.createElement(core_1.TableCell, { className: tdClassName }, u.stats.correctPredictions),
+                    React.createElement(core_1.TableCell, { className: tdClassName }, u.stats.successRate),
+                    React.createElement(core_1.TableCell, { className: tdClassName }, u.stats.oneXTwoSuccessRate)));
+            })))));
 };
 
 

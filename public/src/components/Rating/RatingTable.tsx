@@ -6,8 +6,12 @@ import {
   TableHead,
   TableRow,
   TableSortLabel,
+  Theme,
 } from "@material-ui/core";
+import { createStyles, makeStyles } from "@material-ui/styles";
+import classNames from "classnames";
 import * as React from "react";
+import { userStore } from "../../stores";
 
 export interface IUser {
   name: string;
@@ -28,8 +32,21 @@ interface IProps {
   rating: IUser[];
 }
 
+const useStyles = makeStyles(({ palette }: Theme) =>
+  createStyles({
+    highlight: {
+      backgroundColor: palette.secondary.main,
+      color: palette.common.white,
+      fontWeight: "bold",
+    },
+  }),
+);
+
 export const RatingTable = (props: IProps) => {
   const { onRequestSort, order, orderBy, rating } = props;
+  // @ts-ignore
+  const classes = useStyles();
+
   const createSortHandler = (property: string) => (
     event: React.MouseEvent<unknown>,
   ) => {
@@ -90,16 +107,29 @@ export const RatingTable = (props: IProps) => {
           </TableRow>
         </TableHead>
         <TableBody>
-          {rating.map((u: IUser, index: number) => (
-            <TableRow hover={true} key={`${u.name}-${u.stats.successRate}`}>
-              <TableCell>{index + 1}</TableCell>
-              <TableCell>{u.name}</TableCell>
-              <TableCell>{u.stats.totalPredictions}</TableCell>
-              <TableCell>{u.stats.correctPredictions}</TableCell>
-              <TableCell>{u.stats.successRate}</TableCell>
-              <TableCell>{u.stats.oneXTwoSuccessRate}</TableCell>
-            </TableRow>
-          ))}
+          {rating.map((u: IUser, index: number) => {
+            const tdClassName = classNames({
+              [classes.highlight]: u.name === userStore.name,
+            });
+            return (
+              <TableRow hover={true} key={`${u.name}-${u.stats.successRate}`}>
+                <TableCell className={tdClassName}>{index + 1}</TableCell>
+                <TableCell className={tdClassName}>{u.name}</TableCell>
+                <TableCell className={tdClassName}>
+                  {u.stats.totalPredictions}
+                </TableCell>
+                <TableCell className={tdClassName}>
+                  {u.stats.correctPredictions}
+                </TableCell>
+                <TableCell className={tdClassName}>
+                  {u.stats.successRate}
+                </TableCell>
+                <TableCell className={tdClassName}>
+                  {u.stats.oneXTwoSuccessRate}
+                </TableCell>
+              </TableRow>
+            );
+          })}
         </TableBody>
       </Table>
     </Paper>
