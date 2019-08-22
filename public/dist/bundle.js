@@ -92202,15 +92202,15 @@ Object.defineProperty(exports, "__esModule", { value: true });
 var axios_1 = __webpack_require__(/*! axios */ "./node_modules/axios/index.js");
 var React = __webpack_require__(/*! react */ "./node_modules/react/index.js");
 var __1 = __webpack_require__(/*! ../ */ "./public/src/components/index.ts");
+var constants_1 = __webpack_require__(/*! ./constants */ "./public/src/components/Rating/constants.ts");
 var RatingTable_1 = __webpack_require__(/*! ./RatingTable */ "./public/src/components/Rating/RatingTable.tsx");
-var ORDER_BY = "oneXTwoSuccessRate";
 exports.Rating = function () {
     var _a = React.useState({
         isLoaded: false,
         rating: null,
     }), _b = _a[0], isLoaded = _b.isLoaded, rating = _b.rating, setData = _a[1];
-    var _c = React.useState("desc"), order = _c[0], setOrder = _c[1];
-    var _d = React.useState(ORDER_BY), orderBy = _d[0], setOrderBy = _d[1];
+    var _c = React.useState(constants_1.DESC), order = _c[0], setOrder = _c[1];
+    var _d = React.useState(constants_1.ORDER_BY), orderBy = _d[0], setOrderBy = _d[1];
     React.useEffect(function () {
         axios_1.default.get("/rating").then(function (response) {
             setData({
@@ -92223,16 +92223,16 @@ exports.Rating = function () {
     }, []);
     var sort = function (a, b) {
         if (b.stats[orderBy] < a.stats[orderBy]) {
-            return order === "desc" ? -1 : 1;
+            return order === constants_1.DESC ? -1 : 1;
         }
         if (b.stats[orderBy] > a.stats[orderBy]) {
-            return order === "desc" ? 1 : -1;
+            return order === constants_1.DESC ? 1 : -1;
         }
         return 0;
     };
     var handleRequestSort = function (event, property) {
-        var isDesc = orderBy === property && order === "desc";
-        setOrder(isDesc ? "asc" : "desc");
+        var isDesc = orderBy === property && order === constants_1.DESC;
+        setOrder(isDesc ? constants_1.ASC : constants_1.DESC);
         setOrderBy(property);
     };
     return isLoaded ? (React.createElement(RatingTable_1.RatingTable, { onRequestSort: handleRequestSort, order: order, orderBy: orderBy, rating: rating.sort(sort) })) : (React.createElement(__1.Loader, null));
@@ -92255,7 +92255,9 @@ var core_1 = __webpack_require__(/*! @material-ui/core */ "./node_modules/@mater
 var styles_1 = __webpack_require__(/*! @material-ui/styles */ "./node_modules/@material-ui/styles/esm/index.js");
 var classnames_1 = __webpack_require__(/*! classnames */ "./node_modules/classnames/index.js");
 var React = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+var dict_1 = __webpack_require__(/*! ../../dict */ "./public/src/dict/index.ts");
 var stores_1 = __webpack_require__(/*! ../../stores */ "./public/src/stores/index.ts");
+var constants_1 = __webpack_require__(/*! ./constants */ "./public/src/components/Rating/constants.ts");
 var useStyles = styles_1.makeStyles(function (_a) {
     var _b;
     var breakpoints = _a.breakpoints, palette = _a.palette, spacing = _a.spacing;
@@ -92290,26 +92292,26 @@ exports.RatingTable = function (props) {
         React.createElement(core_1.Table, null,
             React.createElement(core_1.TableHead, null,
                 React.createElement(core_1.TableRow, null,
-                    React.createElement(core_1.TableCell, null, "Rank"),
-                    React.createElement(core_1.TableCell, null, "Name"),
+                    React.createElement(core_1.TableCell, null, dict_1.dict.rating.rank),
+                    React.createElement(core_1.TableCell, null, dict_1.dict.rating.name),
                     React.createElement(core_1.Hidden, { xsDown: true },
-                        React.createElement(core_1.TableCell, { sortDirection: orderBy === "totalPredictions" ? order : false },
-                            React.createElement(core_1.TableSortLabel, { active: orderBy === "totalPredictions", direction: order, onClick: createSortHandler("totalPredictions") },
-                                React.createElement(core_1.Hidden, { smDown: true }, "Total Predictions"),
-                                React.createElement(core_1.Hidden, { mdUp: true }, "TP")))),
+                        React.createElement(core_1.TableCell, { sortDirection: orderBy === constants_1.TOTAL_PREDICTIONS ? order : false },
+                            React.createElement(core_1.TableSortLabel, { active: orderBy === constants_1.TOTAL_PREDICTIONS, direction: order, onClick: createSortHandler(constants_1.TOTAL_PREDICTIONS) },
+                                React.createElement(core_1.Hidden, { smDown: true }, dict_1.dict.rating.total),
+                                React.createElement(core_1.Hidden, { mdUp: true }, dict_1.dict.rating.totalAbbr)))),
                     React.createElement(core_1.Hidden, { xsDown: true },
-                        React.createElement(core_1.TableCell, { sortDirection: orderBy === "correctPredictions" ? order : false },
-                            React.createElement(core_1.TableSortLabel, { active: orderBy === "correctPredictions", direction: order, onClick: createSortHandler("correctPredictions") },
-                                React.createElement(core_1.Hidden, { smDown: true }, "Correct Predictions"),
-                                React.createElement(core_1.Hidden, { mdUp: true }, "CP")))),
-                    React.createElement(core_1.TableCell, { sortDirection: orderBy === "successRate" ? order : false },
-                        React.createElement(core_1.TableSortLabel, { active: orderBy === "successRate", direction: order, onClick: createSortHandler("successRate") },
-                            React.createElement(core_1.Hidden, { smDown: true }, "Success Rate, %"),
-                            React.createElement(core_1.Hidden, { mdUp: true }, "SR"))),
-                    React.createElement(core_1.TableCell, { sortDirection: orderBy === "successRate" ? order : false },
-                        React.createElement(core_1.TableSortLabel, { active: orderBy === "oneXTwoSuccessRate", direction: order, onClick: createSortHandler("oneXTwoSuccessRate") },
-                            React.createElement(core_1.Hidden, { smDown: true }, "1X2 Success Rate, %"),
-                            React.createElement(core_1.Hidden, { mdUp: true }, "1X2"))))),
+                        React.createElement(core_1.TableCell, { sortDirection: orderBy === constants_1.CORRECT_PREDICTIONS ? order : false },
+                            React.createElement(core_1.TableSortLabel, { active: orderBy === constants_1.CORRECT_PREDICTIONS, direction: order, onClick: createSortHandler(constants_1.CORRECT_PREDICTIONS) },
+                                React.createElement(core_1.Hidden, { smDown: true }, dict_1.dict.rating.correct),
+                                React.createElement(core_1.Hidden, { mdUp: true }, dict_1.dict.rating.correctAbbr)))),
+                    React.createElement(core_1.TableCell, { sortDirection: orderBy === constants_1.SUCCESS_RATE ? order : false },
+                        React.createElement(core_1.TableSortLabel, { active: orderBy === constants_1.SUCCESS_RATE, direction: order, onClick: createSortHandler(constants_1.SUCCESS_RATE) },
+                            React.createElement(core_1.Hidden, { smDown: true }, dict_1.dict.rating.success),
+                            React.createElement(core_1.Hidden, { mdUp: true }, dict_1.dict.rating.successAbbr))),
+                    React.createElement(core_1.TableCell, { sortDirection: orderBy === constants_1.SUCCESS_RATE ? order : false },
+                        React.createElement(core_1.TableSortLabel, { active: orderBy === constants_1.ONEXTWO_SUCCESS_RATE, direction: order, onClick: createSortHandler(constants_1.ONEXTWO_SUCCESS_RATE) },
+                            React.createElement(core_1.Hidden, { smDown: true }, dict_1.dict.rating.onextwo),
+                            React.createElement(core_1.Hidden, { mdUp: true }, dict_1.dict.rating.onextwoAbbr))))),
             React.createElement(core_1.TableBody, null, rating.map(function (u, index) {
                 var _a;
                 var tdClassName = classnames_1.default((_a = {},
@@ -92319,13 +92321,34 @@ exports.RatingTable = function (props) {
                     React.createElement(core_1.TableCell, null, index + 1),
                     React.createElement(core_1.TableCell, null, u.name),
                     React.createElement(core_1.Hidden, { xsDown: true },
-                        React.createElement(core_1.TableCell, null, u.stats.totalPredictions)),
+                        React.createElement(core_1.TableCell, null, u.stats[constants_1.TOTAL_PREDICTIONS])),
                     React.createElement(core_1.Hidden, { xsDown: true },
-                        React.createElement(core_1.TableCell, null, u.stats.correctPredictions)),
-                    React.createElement(core_1.TableCell, null, u.stats.successRate),
-                    React.createElement(core_1.TableCell, null, u.stats.oneXTwoSuccessRate)));
+                        React.createElement(core_1.TableCell, null, u.stats[constants_1.CORRECT_PREDICTIONS])),
+                    React.createElement(core_1.TableCell, null, u.stats[constants_1.SUCCESS_RATE]),
+                    React.createElement(core_1.TableCell, null, u.stats[constants_1.ONEXTWO_SUCCESS_RATE])));
             })))));
 };
+
+
+/***/ }),
+
+/***/ "./public/src/components/Rating/constants.ts":
+/*!***************************************************!*\
+  !*** ./public/src/components/Rating/constants.ts ***!
+  \***************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+Object.defineProperty(exports, "__esModule", { value: true });
+exports.ASC = "asc";
+exports.DESC = "desc";
+exports.TOTAL_PREDICTIONS = "totalPredictions";
+exports.CORRECT_PREDICTIONS = "correctPredictions";
+exports.SUCCESS_RATE = "successRate";
+exports.ONEXTWO_SUCCESS_RATE = "oneXTwoSuccessRate";
+exports.ORDER_BY = exports.ONEXTWO_SUCCESS_RATE;
 
 
 /***/ }),
@@ -93805,6 +93828,18 @@ exports.dict = {
     predictions_success: "Predictions success %",
     predictions_total: "Total predictions",
     rank: "rank",
+    rating: {
+        correct: "Correct Predictions",
+        correctAbbr: "CP",
+        name: "Name",
+        onextwo: "1X2 Success Rate, %",
+        onextwoAbbr: "1X2",
+        rank: "Rating",
+        success: "Success Rate, %",
+        successAbbr: "SR",
+        total: "Total Predictions",
+        totalAbbr: "TP",
+    },
     register: "Register",
     registration_error: "User with these credentials is already registered",
     results: "Results",

@@ -1,16 +1,17 @@
 import axios, { AxiosResponse } from "axios";
 import * as React from "react";
 import { Loader } from "../";
+import { ASC, DESC, ORDER_BY } from "./constants";
 import { IUser, RatingTable } from "./RatingTable";
 
-const ORDER_BY = "oneXTwoSuccessRate";
+type Order = "asc" | "desc";
 
 export const Rating = () => {
   const [{ isLoaded, rating }, setData] = React.useState({
     isLoaded: false,
     rating: null,
   });
-  const [order, setOrder] = React.useState<"asc" | "desc">("desc");
+  const [order, setOrder] = React.useState<Order>(DESC);
   const [orderBy, setOrderBy] = React.useState(ORDER_BY);
 
   React.useEffect(() => {
@@ -26,10 +27,10 @@ export const Rating = () => {
 
   const sort = (a: any, b: any) => {
     if (b.stats[orderBy] < a.stats[orderBy]) {
-      return order === "desc" ? -1 : 1;
+      return order === DESC ? -1 : 1;
     }
     if (b.stats[orderBy] > a.stats[orderBy]) {
-      return order === "desc" ? 1 : -1;
+      return order === DESC ? 1 : -1;
     }
     return 0;
   };
@@ -38,8 +39,8 @@ export const Rating = () => {
     event: React.MouseEvent<unknown>,
     property: string,
   ) => {
-    const isDesc = orderBy === property && order === "desc";
-    setOrder(isDesc ? "asc" : "desc");
+    const isDesc = orderBy === property && order === DESC;
+    setOrder(isDesc ? ASC : DESC);
     setOrderBy(property);
   };
 

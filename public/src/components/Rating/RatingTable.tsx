@@ -12,7 +12,14 @@ import {
 import { createStyles, makeStyles } from "@material-ui/styles";
 import classNames from "classnames";
 import * as React from "react";
+import { dict } from "../../dict";
 import { userStore } from "../../stores";
+import {
+  CORRECT_PREDICTIONS,
+  ONEXTWO_SUCCESS_RATE,
+  SUCCESS_RATE,
+  TOTAL_PREDICTIONS,
+} from "./constants";
 
 export interface IUser {
   name: string;
@@ -70,58 +77,54 @@ export const RatingTable = (props: IProps) => {
       <Table>
         <TableHead>
           <TableRow>
-            <TableCell>Rank</TableCell>
-            <TableCell>Name</TableCell>
+            <TableCell>{dict.rating.rank}</TableCell>
+            <TableCell>{dict.rating.name}</TableCell>
             <Hidden xsDown={true}>
               <TableCell
-                sortDirection={orderBy === "totalPredictions" ? order : false}
+                sortDirection={orderBy === TOTAL_PREDICTIONS ? order : false}
               >
                 <TableSortLabel
-                  active={orderBy === "totalPredictions"}
+                  active={orderBy === TOTAL_PREDICTIONS}
                   direction={order}
-                  onClick={createSortHandler("totalPredictions")}
+                  onClick={createSortHandler(TOTAL_PREDICTIONS)}
                 >
-                  <Hidden smDown={true}>Total Predictions</Hidden>
-                  <Hidden mdUp={true}>TP</Hidden>
+                  <Hidden smDown={true}>{dict.rating.total}</Hidden>
+                  <Hidden mdUp={true}>{dict.rating.totalAbbr}</Hidden>
                 </TableSortLabel>
               </TableCell>
             </Hidden>
             <Hidden xsDown={true}>
               <TableCell
-                sortDirection={orderBy === "correctPredictions" ? order : false}
+                sortDirection={orderBy === CORRECT_PREDICTIONS ? order : false}
               >
                 <TableSortLabel
-                  active={orderBy === "correctPredictions"}
+                  active={orderBy === CORRECT_PREDICTIONS}
                   direction={order}
-                  onClick={createSortHandler("correctPredictions")}
+                  onClick={createSortHandler(CORRECT_PREDICTIONS)}
                 >
-                  <Hidden smDown={true}>Correct Predictions</Hidden>
-                  <Hidden mdUp={true}>CP</Hidden>
+                  <Hidden smDown={true}>{dict.rating.correct}</Hidden>
+                  <Hidden mdUp={true}>{dict.rating.correctAbbr}</Hidden>
                 </TableSortLabel>
               </TableCell>
             </Hidden>
-            <TableCell
-              sortDirection={orderBy === "successRate" ? order : false}
-            >
+            <TableCell sortDirection={orderBy === SUCCESS_RATE ? order : false}>
               <TableSortLabel
-                active={orderBy === "successRate"}
+                active={orderBy === SUCCESS_RATE}
                 direction={order}
-                onClick={createSortHandler("successRate")}
+                onClick={createSortHandler(SUCCESS_RATE)}
               >
-                <Hidden smDown={true}>Success Rate, %</Hidden>
-                <Hidden mdUp={true}>SR</Hidden>
+                <Hidden smDown={true}>{dict.rating.success}</Hidden>
+                <Hidden mdUp={true}>{dict.rating.successAbbr}</Hidden>
               </TableSortLabel>
             </TableCell>
-            <TableCell
-              sortDirection={orderBy === "successRate" ? order : false}
-            >
+            <TableCell sortDirection={orderBy === SUCCESS_RATE ? order : false}>
               <TableSortLabel
-                active={orderBy === "oneXTwoSuccessRate"}
+                active={orderBy === ONEXTWO_SUCCESS_RATE}
                 direction={order}
-                onClick={createSortHandler("oneXTwoSuccessRate")}
+                onClick={createSortHandler(ONEXTWO_SUCCESS_RATE)}
               >
-                <Hidden smDown={true}>1X2 Success Rate, %</Hidden>
-                <Hidden mdUp={true}>1X2</Hidden>
+                <Hidden smDown={true}>{dict.rating.onextwo}</Hidden>
+                <Hidden mdUp={true}>{dict.rating.onextwoAbbr}</Hidden>
               </TableSortLabel>
             </TableCell>
           </TableRow>
@@ -140,13 +143,13 @@ export const RatingTable = (props: IProps) => {
                 <TableCell>{index + 1}</TableCell>
                 <TableCell>{u.name}</TableCell>
                 <Hidden xsDown={true}>
-                  <TableCell>{u.stats.totalPredictions}</TableCell>
+                  <TableCell>{u.stats[TOTAL_PREDICTIONS]}</TableCell>
                 </Hidden>
                 <Hidden xsDown={true}>
-                  <TableCell>{u.stats.correctPredictions}</TableCell>
+                  <TableCell>{u.stats[CORRECT_PREDICTIONS]}</TableCell>
                 </Hidden>
-                <TableCell>{u.stats.successRate}</TableCell>
-                <TableCell>{u.stats.oneXTwoSuccessRate}</TableCell>
+                <TableCell>{u.stats[SUCCESS_RATE]}</TableCell>
+                <TableCell>{u.stats[ONEXTWO_SUCCESS_RATE]}</TableCell>
               </TableRow>
             );
           })}

@@ -38,6 +38,18 @@ export interface IDict {
   predictions_success: string;
   predictions_total: string;
   rank: string;
+  rating: {
+    correct: string;
+    correctAbbr: string;
+    name: string;
+    onextwo: string;
+    onextwoAbbr: string;
+    rank: string;
+    success: string;
+    successAbbr: string;
+    total: string;
+    totalAbbr: string;
+  };
   register: string;
   registration_error: string;
   results: string;
@@ -94,6 +106,18 @@ export const dict: IDict = {
   predictions_success: "Predictions success %",
   predictions_total: "Total predictions",
   rank: "rank",
+  rating: {
+    correct: "Correct Predictions",
+    correctAbbr: "CP",
+    name: "Name",
+    onextwo: "1X2 Success Rate, %",
+    onextwoAbbr: "1X2",
+    rank: "Rating",
+    success: "Success Rate, %",
+    successAbbr: "SR",
+    total: "Total Predictions",
+    totalAbbr: "TP",
+  },
   register: "Register",
   registration_error: "User with these credentials is already registered",
   results: "Results",
