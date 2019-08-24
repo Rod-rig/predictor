@@ -6,26 +6,40 @@ import { IUser, RatingTable } from "./RatingTable";
 
 type Order = "asc" | "desc";
 
-export const Rating = () => {
-  const [{ isLoaded, rating }, setData] = React.useState({
-    isLoaded: false,
-    rating: null,
-  });
-  const [order, setOrder] = React.useState<Order>(DESC);
-  const [orderBy, setOrderBy] = React.useState(ORDER_BY);
+export class Rating extends React.Component<
+  {},
+  {
+    isLoaded: boolean;
+    order: Order;
+    orderBy: string;
+    rating: IUser[];
+  }
+> {
+  constructor(props: {}) {
+    super(props);
+    this.state = {
+      isLoaded: false,
+      order: DESC,
+      orderBy: ORDER_BY,
+      rating: [],
+    };
+    this.handleRequestSort = this.handleRequestSort.bind(this);
+    this.sort = this.sort.bind(this);
+  }
 
-  React.useEffect(() => {
+  public componentDidMount() {
     axios.get("/rating").then((response: AxiosResponse<IUser[]>) => {
-      setData({
+      this.setState({
         isLoaded: true,
         rating: response.data
           .filter(user => user.hasEnoughPredictions)
-          .sort(sort),
+          .sort(this.sort),
       });
     });
-  }, []);
+  }
 
-  const sort = (a: any, b: any) => {
+  public sort(a: any, b: any) {
+    const { order, orderBy } = this.state;
     if (b.stats[orderBy] < a.stats[orderBy]) {
       return order === DESC ? -1 : 1;
     }
@@ -33,25 +47,29 @@ export const Rating = () => {
       return order === DESC ? 1 : -1;
     }
     return 0;
-  };
+  }
 
-  const handleRequestSort = (
-    event: React.MouseEvent<unknown>,
-    property: string,
-  ) => {
+  public handleRequestSort(event: React.MouseEvent<unknown>, property: string) {
+    const { order, orderBy } = this.state;
     const isDesc = orderBy === property && order === DESC;
-    setOrder(isDesc ? ASC : DESC);
-    setOrderBy(property);
-  };
+    this.setState({
+      order: isDesc ? ASC : DESC,
+      orderBy: property,
+    });
+  }
 
-  return isLoaded ? (
-    <RatingTable
-      onRequestSort={handleRequestSort}
-      order={order}
-      orderBy={orderBy}
-      rating={rating.sort(sort)}
-    />
-  ) : (
-    <Loader />
-  );
-};
+  public render() {
+    const { isLoaded, order, orderBy, rating } = this.state;
+
+    return isLoaded ? (
+      <RatingTable
+        onRequestSort={this.handleRequestSort}
+        order={order}
+        orderBy={orderBy}
+        rating={rating.sort(this.sort)}
+      />
+    ) : (
+      <Loader />
+    );
+  }
+}
