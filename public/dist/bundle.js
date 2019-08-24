@@ -92198,30 +92198,52 @@ __export(__webpack_require__(/*! ./PrivateRoute */ "./public/src/components/Priv
 
 "use strict";
 
+var __extends = (this && this.__extends) || (function () {
+    var extendStatics = function (d, b) {
+        extendStatics = Object.setPrototypeOf ||
+            ({ __proto__: [] } instanceof Array && function (d, b) { d.__proto__ = b; }) ||
+            function (d, b) { for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p]; };
+        return extendStatics(d, b);
+    };
+    return function (d, b) {
+        extendStatics(d, b);
+        function __() { this.constructor = d; }
+        d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
+    };
+})();
 Object.defineProperty(exports, "__esModule", { value: true });
 var axios_1 = __webpack_require__(/*! axios */ "./node_modules/axios/index.js");
 var React = __webpack_require__(/*! react */ "./node_modules/react/index.js");
 var __1 = __webpack_require__(/*! ../ */ "./public/src/components/index.ts");
 var constants_1 = __webpack_require__(/*! ./constants */ "./public/src/components/Rating/constants.ts");
 var RatingTable_1 = __webpack_require__(/*! ./RatingTable */ "./public/src/components/Rating/RatingTable.tsx");
-exports.Rating = function () {
-    var _a = React.useState({
-        isLoaded: false,
-        rating: null,
-    }), _b = _a[0], isLoaded = _b.isLoaded, rating = _b.rating, setData = _a[1];
-    var _c = React.useState(constants_1.DESC), order = _c[0], setOrder = _c[1];
-    var _d = React.useState(constants_1.ORDER_BY), orderBy = _d[0], setOrderBy = _d[1];
-    React.useEffect(function () {
+var Rating = /** @class */ (function (_super) {
+    __extends(Rating, _super);
+    function Rating(props) {
+        var _this = _super.call(this, props) || this;
+        _this.state = {
+            isLoaded: false,
+            order: constants_1.DESC,
+            orderBy: constants_1.ORDER_BY,
+            rating: [],
+        };
+        _this.handleRequestSort = _this.handleRequestSort.bind(_this);
+        _this.sort = _this.sort.bind(_this);
+        return _this;
+    }
+    Rating.prototype.componentDidMount = function () {
+        var _this = this;
         axios_1.default.get("/rating").then(function (response) {
-            setData({
+            _this.setState({
                 isLoaded: true,
                 rating: response.data
                     .filter(function (user) { return user.hasEnoughPredictions; })
-                    .sort(sort),
+                    .sort(_this.sort),
             });
         });
-    }, []);
-    var sort = function (a, b) {
+    };
+    Rating.prototype.sort = function (a, b) {
+        var _a = this.state, order = _a.order, orderBy = _a.orderBy;
         if (b.stats[orderBy] < a.stats[orderBy]) {
             return order === constants_1.DESC ? -1 : 1;
         }
@@ -92230,13 +92252,21 @@ exports.Rating = function () {
         }
         return 0;
     };
-    var handleRequestSort = function (event, property) {
+    Rating.prototype.handleRequestSort = function (event, property) {
+        var _a = this.state, order = _a.order, orderBy = _a.orderBy;
         var isDesc = orderBy === property && order === constants_1.DESC;
-        setOrder(isDesc ? constants_1.ASC : constants_1.DESC);
-        setOrderBy(property);
+        this.setState({
+            order: isDesc ? constants_1.ASC : constants_1.DESC,
+            orderBy: property,
+        });
     };
-    return isLoaded ? (React.createElement(RatingTable_1.RatingTable, { onRequestSort: handleRequestSort, order: order, orderBy: orderBy, rating: rating.sort(sort) })) : (React.createElement(__1.Loader, null));
-};
+    Rating.prototype.render = function () {
+        var _a = this.state, isLoaded = _a.isLoaded, order = _a.order, orderBy = _a.orderBy, rating = _a.rating;
+        return isLoaded ? (React.createElement(RatingTable_1.RatingTable, { onRequestSort: this.handleRequestSort, order: order, orderBy: orderBy, rating: rating.sort(this.sort) })) : (React.createElement(__1.Loader, null));
+    };
+    return Rating;
+}(React.Component));
+exports.Rating = Rating;
 
 
 /***/ }),
