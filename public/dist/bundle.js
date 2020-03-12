@@ -34563,6 +34563,35 @@ exports.default = _default;
 
 /***/ }),
 
+/***/ "./node_modules/@material-ui/icons/FormatListNumbered.js":
+/*!***************************************************************!*\
+  !*** ./node_modules/@material-ui/icons/FormatListNumbered.js ***!
+  \***************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+var _interopRequireDefault = __webpack_require__(/*! @babel/runtime/helpers/interopRequireDefault */ "./node_modules/@babel/runtime/helpers/interopRequireDefault.js");
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.default = void 0;
+
+var _react = _interopRequireDefault(__webpack_require__(/*! react */ "./node_modules/react/index.js"));
+
+var _createSvgIcon = _interopRequireDefault(__webpack_require__(/*! ./utils/createSvgIcon */ "./node_modules/@material-ui/icons/utils/createSvgIcon.js"));
+
+var _default = (0, _createSvgIcon.default)(_react.default.createElement("path", {
+  d: "M2 17h2v.5H3v1h1v.5H2v1h3v-4H2v1zm1-9h1V4H2v1h1v3zm-1 3h1.8L2 13.1v.9h3v-1H3.2L5 10.9V10H2v1zm5-6v2h14V5H7zm0 14h14v-2H7v2zm0-6h14v-2H7v2z"
+}), 'FormatListNumbered');
+
+exports.default = _default;
+
+/***/ }),
+
 /***/ "./node_modules/@material-ui/icons/Menu.js":
 /*!*************************************************!*\
   !*** ./node_modules/@material-ui/icons/Menu.js ***!
@@ -92160,6 +92189,218 @@ __export(__webpack_require__(/*! ./PrivateRoute */ "./public/src/components/Priv
 
 /***/ }),
 
+/***/ "./public/src/components/Rating/Rating.tsx":
+/*!*************************************************!*\
+  !*** ./public/src/components/Rating/Rating.tsx ***!
+  \*************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+var __extends = (this && this.__extends) || (function () {
+    var extendStatics = function (d, b) {
+        extendStatics = Object.setPrototypeOf ||
+            ({ __proto__: [] } instanceof Array && function (d, b) { d.__proto__ = b; }) ||
+            function (d, b) { for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p]; };
+        return extendStatics(d, b);
+    };
+    return function (d, b) {
+        extendStatics(d, b);
+        function __() { this.constructor = d; }
+        d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
+    };
+})();
+Object.defineProperty(exports, "__esModule", { value: true });
+var axios_1 = __webpack_require__(/*! axios */ "./node_modules/axios/index.js");
+var React = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+var __1 = __webpack_require__(/*! ../ */ "./public/src/components/index.ts");
+var constants_1 = __webpack_require__(/*! ./constants */ "./public/src/components/Rating/constants.ts");
+var RatingTable_1 = __webpack_require__(/*! ./RatingTable */ "./public/src/components/Rating/RatingTable.tsx");
+var Rating = /** @class */ (function (_super) {
+    __extends(Rating, _super);
+    function Rating(props) {
+        var _this = _super.call(this, props) || this;
+        _this.state = {
+            isLoaded: false,
+            order: constants_1.DESC,
+            orderBy: constants_1.ORDER_BY,
+            rating: [],
+        };
+        _this.handleRequestSort = _this.handleRequestSort.bind(_this);
+        _this.sort = _this.sort.bind(_this);
+        return _this;
+    }
+    Rating.prototype.componentDidMount = function () {
+        var _this = this;
+        axios_1.default.get("/rating").then(function (response) {
+            _this.setState({
+                isLoaded: true,
+                rating: response.data
+                    .filter(function (user) { return user.hasEnoughPredictions; })
+                    .sort(_this.sort),
+            });
+        });
+    };
+    Rating.prototype.sort = function (a, b) {
+        var _a = this.state, order = _a.order, orderBy = _a.orderBy;
+        if (b.stats[orderBy] < a.stats[orderBy]) {
+            return order === constants_1.DESC ? -1 : 1;
+        }
+        if (b.stats[orderBy] > a.stats[orderBy]) {
+            return order === constants_1.DESC ? 1 : -1;
+        }
+        return 0;
+    };
+    Rating.prototype.handleRequestSort = function (event, property) {
+        var _a = this.state, order = _a.order, orderBy = _a.orderBy;
+        var isDesc = orderBy === property && order === constants_1.DESC;
+        this.setState({
+            order: isDesc ? constants_1.ASC : constants_1.DESC,
+            orderBy: property,
+        });
+    };
+    Rating.prototype.render = function () {
+        var _a = this.state, isLoaded = _a.isLoaded, order = _a.order, orderBy = _a.orderBy, rating = _a.rating;
+        return isLoaded ? (React.createElement(RatingTable_1.RatingTable, { onRequestSort: this.handleRequestSort, order: order, orderBy: orderBy, rating: rating.sort(this.sort) })) : (React.createElement(__1.Loader, null));
+    };
+    return Rating;
+}(React.Component));
+exports.Rating = Rating;
+
+
+/***/ }),
+
+/***/ "./public/src/components/Rating/RatingTable.tsx":
+/*!******************************************************!*\
+  !*** ./public/src/components/Rating/RatingTable.tsx ***!
+  \******************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+Object.defineProperty(exports, "__esModule", { value: true });
+var core_1 = __webpack_require__(/*! @material-ui/core */ "./node_modules/@material-ui/core/esm/index.js");
+var styles_1 = __webpack_require__(/*! @material-ui/styles */ "./node_modules/@material-ui/styles/esm/index.js");
+var classnames_1 = __webpack_require__(/*! classnames */ "./node_modules/classnames/index.js");
+var React = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+var dict_1 = __webpack_require__(/*! ../../dict */ "./public/src/dict/index.ts");
+var stores_1 = __webpack_require__(/*! ../../stores */ "./public/src/stores/index.ts");
+var constants_1 = __webpack_require__(/*! ./constants */ "./public/src/components/Rating/constants.ts");
+var useStyles = styles_1.makeStyles(function (_a) {
+    var _b;
+    var breakpoints = _a.breakpoints, palette = _a.palette, spacing = _a.spacing;
+    return styles_1.createStyles({
+        highlight: {
+            "& td": {
+                backgroundColor: palette.secondary.main,
+                color: palette.common.white,
+                fontWeight: "bold",
+            },
+        },
+        paper: {
+            "& td, & th": (_b = {
+                    paddingRight: spacing(2)
+                },
+                _b[breakpoints.down("xs")] = {
+                    padding: spacing(1),
+                },
+                _b),
+            margin: spacing(1),
+        },
+    });
+});
+exports.RatingTable = function (props) {
+    var onRequestSort = props.onRequestSort, order = props.order, orderBy = props.orderBy, rating = props.rating;
+    // @ts-ignore
+    var classes = useStyles();
+    var createSortHandler = function (property) { return function (event) {
+        onRequestSort(event, property);
+    }; };
+    return (React.createElement(core_1.Paper, { className: classes.paper },
+        React.createElement(core_1.Table, null,
+            React.createElement(core_1.TableHead, null,
+                React.createElement(core_1.TableRow, null,
+                    React.createElement(core_1.TableCell, null, dict_1.dict.rating.rank),
+                    React.createElement(core_1.TableCell, null, dict_1.dict.rating.name),
+                    React.createElement(core_1.Hidden, { xsDown: true },
+                        React.createElement(core_1.TableCell, { sortDirection: orderBy === constants_1.TOTAL_PREDICTIONS ? order : false },
+                            React.createElement(core_1.TableSortLabel, { active: orderBy === constants_1.TOTAL_PREDICTIONS, direction: order, onClick: createSortHandler(constants_1.TOTAL_PREDICTIONS) },
+                                React.createElement(core_1.Hidden, { smDown: true }, dict_1.dict.rating.total),
+                                React.createElement(core_1.Hidden, { mdUp: true }, dict_1.dict.rating.totalAbbr)))),
+                    React.createElement(core_1.Hidden, { xsDown: true },
+                        React.createElement(core_1.TableCell, { sortDirection: orderBy === constants_1.CORRECT_PREDICTIONS ? order : false },
+                            React.createElement(core_1.TableSortLabel, { active: orderBy === constants_1.CORRECT_PREDICTIONS, direction: order, onClick: createSortHandler(constants_1.CORRECT_PREDICTIONS) },
+                                React.createElement(core_1.Hidden, { smDown: true }, dict_1.dict.rating.correct),
+                                React.createElement(core_1.Hidden, { mdUp: true }, dict_1.dict.rating.correctAbbr)))),
+                    React.createElement(core_1.TableCell, { sortDirection: orderBy === constants_1.SUCCESS_RATE ? order : false },
+                        React.createElement(core_1.TableSortLabel, { active: orderBy === constants_1.SUCCESS_RATE, direction: order, onClick: createSortHandler(constants_1.SUCCESS_RATE) },
+                            React.createElement(core_1.Hidden, { smDown: true }, dict_1.dict.rating.success),
+                            React.createElement(core_1.Hidden, { mdUp: true }, dict_1.dict.rating.successAbbr))),
+                    React.createElement(core_1.TableCell, { sortDirection: orderBy === constants_1.SUCCESS_RATE ? order : false },
+                        React.createElement(core_1.TableSortLabel, { active: orderBy === constants_1.ONEXTWO_SUCCESS_RATE, direction: order, onClick: createSortHandler(constants_1.ONEXTWO_SUCCESS_RATE) },
+                            React.createElement(core_1.Hidden, { smDown: true }, dict_1.dict.rating.onextwo),
+                            React.createElement(core_1.Hidden, { mdUp: true }, dict_1.dict.rating.onextwoAbbr))))),
+            React.createElement(core_1.TableBody, null, rating.map(function (u, index) {
+                var _a;
+                var tdClassName = classnames_1.default((_a = {},
+                    _a[classes.highlight] = u.name === stores_1.userStore.name,
+                    _a));
+                return (React.createElement(core_1.TableRow, { className: tdClassName, hover: true, key: u.name + "-" + u.stats.successRate },
+                    React.createElement(core_1.TableCell, null, index + 1),
+                    React.createElement(core_1.TableCell, null, u.name),
+                    React.createElement(core_1.Hidden, { xsDown: true },
+                        React.createElement(core_1.TableCell, null, u.stats[constants_1.TOTAL_PREDICTIONS])),
+                    React.createElement(core_1.Hidden, { xsDown: true },
+                        React.createElement(core_1.TableCell, null, u.stats[constants_1.CORRECT_PREDICTIONS])),
+                    React.createElement(core_1.TableCell, null, u.stats[constants_1.SUCCESS_RATE]),
+                    React.createElement(core_1.TableCell, null, u.stats[constants_1.ONEXTWO_SUCCESS_RATE])));
+            })))));
+};
+
+
+/***/ }),
+
+/***/ "./public/src/components/Rating/constants.ts":
+/*!***************************************************!*\
+  !*** ./public/src/components/Rating/constants.ts ***!
+  \***************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+Object.defineProperty(exports, "__esModule", { value: true });
+exports.ASC = "asc";
+exports.DESC = "desc";
+exports.TOTAL_PREDICTIONS = "totalPredictions";
+exports.CORRECT_PREDICTIONS = "correctPredictions";
+exports.SUCCESS_RATE = "successRate";
+exports.ONEXTWO_SUCCESS_RATE = "oneXTwoSuccessRate";
+exports.ORDER_BY = exports.ONEXTWO_SUCCESS_RATE;
+
+
+/***/ }),
+
+/***/ "./public/src/components/Rating/index.ts":
+/*!***********************************************!*\
+  !*** ./public/src/components/Rating/index.ts ***!
+  \***********************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+function __export(m) {
+    for (var p in m) if (!exports.hasOwnProperty(p)) exports[p] = m[p];
+}
+Object.defineProperty(exports, "__esModule", { value: true });
+__export(__webpack_require__(/*! ./Rating */ "./public/src/components/Rating/Rating.tsx"));
+
+
+/***/ }),
+
 /***/ "./public/src/components/Registration/Registration.tsx":
 /*!*************************************************************!*\
   !*** ./public/src/components/Registration/Registration.tsx ***!
@@ -92448,11 +92689,13 @@ var __assign = (this && this.__assign) || function () {
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 var core_1 = __webpack_require__(/*! @material-ui/core */ "./node_modules/@material-ui/core/esm/index.js");
+var FormatListNumbered_1 = __webpack_require__(/*! @material-ui/icons/FormatListNumbered */ "./node_modules/@material-ui/icons/FormatListNumbered.js");
 var OpenWith_1 = __webpack_require__(/*! @material-ui/icons/OpenWith */ "./node_modules/@material-ui/icons/OpenWith.js");
 var React = __webpack_require__(/*! react */ "./node_modules/react/index.js");
 var react_router_dom_1 = __webpack_require__(/*! react-router-dom */ "./node_modules/react-router-dom/esm/react-router-dom.js");
 var dict_1 = __webpack_require__(/*! ../../dict */ "./public/src/dict/index.ts");
 var SidebarLink = React.forwardRef(function (props, ref) { return (React.createElement(react_router_dom_1.Link, __assign({ to: "/predictions" }, props, { ref: ref }))); });
+var RatingLink = React.forwardRef(function (props, ref) { return (React.createElement(react_router_dom_1.Link, __assign({ to: "/rating" }, props, { ref: ref }))); });
 var styles = function (_a) {
     var spacing = _a.spacing;
     return core_1.createStyles({
@@ -92469,7 +92712,11 @@ exports.Sidebar = core_1.withStyles(styles)(function (props) {
                 React.createElement(core_1.ListItem, { component: SidebarLink, button: true },
                     React.createElement(core_1.ListItemIcon, null,
                         React.createElement(OpenWith_1.default, null)),
-                    React.createElement(core_1.ListItemText, { className: classes.root, primary: dict_1.dict.sidebar_menu_prediction }))))));
+                    React.createElement(core_1.ListItemText, { className: classes.root, primary: dict_1.dict.sidebar_menu_prediction })),
+                React.createElement(core_1.ListItem, { component: RatingLink, button: true },
+                    React.createElement(core_1.ListItemIcon, null,
+                        React.createElement(FormatListNumbered_1.default, null)),
+                    React.createElement(core_1.ListItemText, { className: classes.root, primary: dict_1.dict.sidebar_menu_rating }))))));
 });
 
 
@@ -93220,6 +93467,7 @@ __export(__webpack_require__(/*! ./Nav */ "./public/src/components/Nav/index.ts"
 __export(__webpack_require__(/*! ./Prediction */ "./public/src/components/Prediction/index.ts"));
 __export(__webpack_require__(/*! ./PredictionFilter */ "./public/src/components/PredictionFilter/index.ts"));
 __export(__webpack_require__(/*! ./PrivateRoute */ "./public/src/components/PrivateRoute/index.ts"));
+__export(__webpack_require__(/*! ./Rating */ "./public/src/components/Rating/index.ts"));
 __export(__webpack_require__(/*! ./Registration */ "./public/src/components/Registration/index.ts"));
 __export(__webpack_require__(/*! ./Row */ "./public/src/components/Row/index.ts"));
 __export(__webpack_require__(/*! ./Sidebar */ "./public/src/components/Sidebar/index.ts"));
@@ -93610,10 +93858,23 @@ exports.dict = {
     predictions_success: "Predictions success %",
     predictions_total: "Total predictions",
     rank: "rank",
+    rating: {
+        correct: "Correct Predictions",
+        correctAbbr: "CP",
+        name: "Name",
+        onextwo: "1X2 Success Rate, %",
+        onextwoAbbr: "1X2",
+        rank: "Rating",
+        success: "Success Rate, %",
+        successAbbr: "SR",
+        total: "Total Predictions",
+        totalAbbr: "TP",
+    },
     register: "Register",
     registration_error: "User with these credentials is already registered",
     results: "Results",
     sidebar_menu_prediction: "Predictions",
+    sidebar_menu_rating: "Rating",
     submit_btn_text: "Submit",
     success: "Success",
     table: "Table",
@@ -93897,6 +94158,7 @@ var stats = function (props) { return (React.createElement(components_1.Stats, _
         url: "/predictions",
     }) }, props))); };
 var matchDetails = function (props) { return (React.createElement(components_1.MatchDetails, { id: props.match.params.id })); };
+var rating = function () { return React.createElement(components_1.Rating, null); };
 exports.routes = [
     {
         component: tournamentList,
@@ -93942,6 +94204,11 @@ exports.routes = [
     {
         component: matchDetails,
         path: "/match/:id",
+    },
+    {
+        component: rating,
+        exact: true,
+        path: "/rating",
     },
     {
         component: components_1.NotFound,

@@ -9,6 +9,7 @@ import {
   WithStyles,
   withStyles,
 } from "@material-ui/core";
+import FormatListNumbered from "@material-ui/icons/FormatListNumbered";
 import OpenWithIcon from "@material-ui/icons/OpenWith";
 import * as React from "react";
 import { Link } from "react-router-dom";
@@ -16,6 +17,10 @@ import { dict } from "../../dict";
 
 const SidebarLink = React.forwardRef((props: any, ref) => (
   <Link to="/predictions" {...props} ref={ref} />
+));
+
+const RatingLink = React.forwardRef((props: any, ref) => (
+  <Link to="/rating" {...props} ref={ref} />
 ));
 
 const styles = ({ spacing }: Theme) =>
@@ -43,6 +48,15 @@ export const Sidebar = withStyles(styles)((props: IProps) => {
             <ListItemText
               className={classes.root}
               primary={dict.sidebar_menu_prediction}
+            />
+          </ListItem>
+          <ListItem component={RatingLink} button={true}>
+            <ListItemIcon>
+              <FormatListNumbered />
+            </ListItemIcon>
+            <ListItemText
+              className={classes.root}
+              primary={dict.sidebar_menu_rating}
             />
           </ListItem>
         </List>

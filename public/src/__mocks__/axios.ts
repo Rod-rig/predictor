@@ -4,6 +4,7 @@ import {
   matchDetailsMock,
   matchListMock,
   predictions,
+  ratingMock,
   scheduleByDateMock,
   tableMock,
   tournamentListMock,
@@ -38,6 +39,9 @@ export default {
     }
     if (url === "/api/match/future-match") {
       return Promise.resolve({ data: futureMatchDetailsMock });
+    }
+    if (url === "/rating") {
+      return Promise.resolve({ data: ratingMock });
     }
     if (url === "/403-error") {
       return Promise.reject({ error: "No such url", status: 403 });

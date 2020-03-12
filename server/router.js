@@ -29,6 +29,7 @@ module.exports = app => {
   );
   app.put("/users/:id", userCtrl.updateUser);
   app.delete("/users/:id", userCtrl.deleteUser);
+  app.get("/rating", userCtrl.getRating);
 
   //predictions
   app.get(

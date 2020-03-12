@@ -1,6 +1,7 @@
 export * from "./futureMatchDetailsMock";
 export * from "./matchDetailsMock";
 export * from "./matchListMock";
+export * from "./ratingMock";
 export * from "./scheduleByDateMock";
 export * from "./scheduleByTournamentId";
 export * from "./tableMock";
