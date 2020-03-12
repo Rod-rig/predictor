@@ -53,7 +53,7 @@ export const logos: ILogo = {
     "https://upload.wikimedia.org/wikipedia/en/2/2e/Deportivo_Alaves_logo.svg",
   "Real Madrid":
     "https://upload.wikimedia.org/wikipedia/en/5/56/Real_Madrid_CF.svg",
-  "CF Getafe": "https://upload.wikimedia.org/wikipedia/en/7/7f/Getafe_logo.png",
+  "CF Getafe": "https://upload.wikimedia.org/wikipedia/en/4/46/Getafe_logo.svg",
   "UD Levante":
     "https://upload.wikimedia.org/wikipedia/en/7/7b/Levante_Uni%C3%B3n_Deportiva%2C_S.A.D._logo.svg",
   "RCD Espanyol Barcelona":
@@ -73,7 +73,7 @@ export const logos: ILogo = {
   "Real Valladolid":
     "https://upload.wikimedia.org/wikipedia/en/6/6e/Real_Valladolid_Logo.svg",
   "CD Leganes":
-    "https://upload.wikimedia.org/wikipedia/en/0/02/Club_Deportivo_Legan%C3%A9s.png",
+    "https://upload.wikimedia.org/wikipedia/en/b/b8/Club_Deportivo_Legan%C3%A9s_logo.svg",
   "CF Villarreal":
     "https://upload.wikimedia.org/wikipedia/en/7/70/Villarreal_CF_logo.svg",
   "Athletic Bilbao":
@@ -85,8 +85,7 @@ export const logos: ILogo = {
     "https://upload.wikimedia.org/wikipedia/en/d/db/Osasuna_logo.svg",
   "RCD Mallorca":
     "https://upload.wikimedia.org/wikipedia/en/e/e0/Rcd_mallorca.svg",
-  "Granada CF":
-    "https://upload.wikimedia.org/wikipedia/en/d/df/Granada_CF_logo.png",
+  "Granada CF": "https://upload.wikimedia.org/wikipedia/de/d/d3/Granada_CF.svg",
   "Borussia Dortmund":
     "https://upload.wikimedia.org/wikipedia/commons/6/67/Borussia_Dortmund_logo.svg",
   "FC Bayern Munich":
@@ -126,13 +125,13 @@ export const logos: ILogo = {
   "1. FC Cologne":
     "https://upload.wikimedia.org/wikipedia/en/5/53/FC_Cologne_logo.svg",
   "1. FC Union Berlin":
-    "https://upload.wikimedia.org/wikipedia/en/f/fe/1._FC_Union_Berlin_logo.svg",
+    "https://upload.wikimedia.org/wikipedia/commons/4/44/1._FC_Union_Berlin_Logo.svg",
   "SC Paderborn 07":
     "https://upload.wikimedia.org/wikipedia/en/b/b3/SC_Paderborn_07_logo.svg",
   "Paris Saint-Germain":
     "https://upload.wikimedia.org/wikipedia/en/a/a7/Paris_Saint-Germain_F.C..svg",
-  "Lille LOSC":
-    "https://upload.wikimedia.org/wikipedia/en/6/6f/Lille_OSC_2018_logo.png",
+  "LOSC Lille":
+    "https://upload.wikimedia.org/wikipedia/en/3/3f/Lille_OSC_2018_logo.svg",
   "Montpellier HSC":
     "https://upload.wikimedia.org/wikipedia/en/a/a8/Montpellier_HSC_logo.svg",
   "Olympique Lyonnais":
@@ -144,21 +143,21 @@ export const logos: ILogo = {
   "OGC Nice":
     "https://upload.wikimedia.org/wikipedia/en/2/2e/OGC_Nice_logo.svg",
   "Olympique Nimes":
-    "https://upload.wikimedia.org/wikipedia/en/d/d7/N%C3%AEmes_Olympique.png",
-  "Racing Strasbourg":
+    "https://upload.wikimedia.org/wikipedia/en/0/05/N%C3%AEmes_Olympique_2018_logo.svg",
+  "RC Strasbourg Alsace":
     "https://upload.wikimedia.org/wikipedia/en/8/80/Racing_Club_de_Strasbourg_logo.svg",
   "FC Girondins Bordeaux":
     "https://upload.wikimedia.org/wikipedia/en/1/11/FC_Girondins_de_Bordeaux_logo.svg",
   "Stade Reims":
-    "https://upload.wikimedia.org/wikipedia/en/f/f0/Stade_de_Reims_logo.png",
+    "https://upload.wikimedia.org/wikipedia/en/1/19/Stade_de_Reims_logo.svg",
   "FC Nantes":
-    "https://upload.wikimedia.org/wikipedia/en/e/ef/FC_Nantes_%282019%29.png",
+    "https://upload.wikimedia.org/wikipedia/commons/5/5c/FC_Nantes_2019_logo.svg",
   "FC Stade Rennes":
     "https://upload.wikimedia.org/wikipedia/en/9/9e/Stade_Rennais_FC.svg",
   "SCO Angers":
     "https://upload.wikimedia.org/wikipedia/en/d/d4/Angers_SCO_logo.svg",
   "FC Toulouse":
-    "https://upload.wikimedia.org/wikipedia/en/8/8b/Toulouse_FC.png",
+    "https://upload.wikimedia.org/wikipedia/en/6/63/Toulouse_FC_2018_logo.svg",
   "Dijon FCO":
     "https://upload.wikimedia.org/wikipedia/en/f/f7/Dijon_FCO_logo.svg",
   "SM Caen":
@@ -175,9 +174,9 @@ export const logos: ILogo = {
   "Juventus Turin":
     "https://upload.wikimedia.org/wikipedia/commons/1/15/Juventus_FC_2017_logo.svg",
   "SSC Napoli":
-    "https://upload.wikimedia.org/wikipedia/commons/2/28/S.S.C._Napoli_logo.svg",
+    "https://upload.wikimedia.org/wikipedia/commons/2/2d/SSC_Neapel.svg",
   "Inter Milano":
-    "https://upload.wikimedia.org/wikipedia/en/0/0b/Inter_Milan.svg",
+    "https://upload.wikimedia.org/wikipedia/commons/8/89/FC_Internazionale_Milano_2014.svg",
   "AC Milan":
     "https://upload.wikimedia.org/wikipedia/commons/d/d0/Logo_of_AC_Milan.svg",
   "SS Lazio Roma":
@@ -189,7 +188,7 @@ export const logos: ILogo = {
   "US Sassuolo Calcio":
     "https://upload.wikimedia.org/wikipedia/en/1/1c/US_Sassuolo_Calcio_logo.svg",
   "Parma Calcio 1913 S.r.l.":
-    "https://upload.wikimedia.org/wikipedia/commons/4/4a/ParmaCalcio1913_logo-400x400.png",
+    "https://upload.wikimedia.org/wikipedia/commons/4/40/Logo_Parma_Calcio_1913_%28adozione_2016%29.png",
   "UC Sampdoria":
     "https://upload.wikimedia.org/wikipedia/en/d/d2/U.C._Sampdoria_logo.svg",
   "Atalanta Bergamasca Calcio":
@@ -212,8 +211,8 @@ export const logos: ILogo = {
   "AC Chievo Verona":
     "https://upload.wikimedia.org/wikipedia/en/4/4a/Chievo-verona-logo.png",
   "Brescia Calcio":
-    "https://upload.wikimedia.org/wikipedia/en/a/a4/Brescia_calcio_badge.png",
-  "US Lecce": "https://upload.wikimedia.org/wikipedia/en/0/05/Us_lecce.png",
+    "https://upload.wikimedia.org/wikipedia/en/1/17/Brescia_calcio_badge.svg",
+  "US Lecce": "https://upload.wikimedia.org/wikipedia/en/8/85/Us_lecce.svg",
   "Hellas Verona":
     "https://upload.wikimedia.org/wikipedia/en/c/cc/Hellas_Verona_FC_logo.svg",
   "PSV Eindhoven":

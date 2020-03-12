@@ -4,7 +4,7 @@ export const tournamentsLogo: {
   7: "https://seeklogo.com/images/U/UEFA_Champions_League-logo-DD9AE0500D-seeklogo.com.png",
   8: "https://files.laliga.es/seccion_logos/laliga-v-300x300_2018.png",
   17: "https://www.premierleague.com/resources/ver/i/elements/premier-league-logo.svg",
-  23: "https://upload.wikimedia.org/wikipedia/it/8/83/Serie_A_TIM_-_Logo_2018.svg",
+  23: "https://upload.wikimedia.org/wikipedia/en/e/e1/Serie_A_logo_%282019%29.svg",
   34: "https://vignette.wikia.nocookie.net/logopedia/images/f/fa/Ligue_1_logo.svg",
   35: "https://upload.wikimedia.org/wikipedia/en/d/df/Bundesliga_logo_%282017%29.svg",
   37: "https://upload.wikimedia.org/wikipedia/commons/0/0f/Eredivisie_nieuw_logo_2017-.svg",
