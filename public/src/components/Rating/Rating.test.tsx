@@ -14,6 +14,7 @@ describe("Rating", () => {
       </ThemeProvider>
     );
   });
+
   it("should render correctly", () => {
     const tree = create(comp).toJSON();
     expect(tree).toMatchSnapshot();

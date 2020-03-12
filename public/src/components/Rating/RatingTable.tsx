@@ -66,12 +66,14 @@ export const RatingTable = (props: IProps) => {
   // @ts-ignore
   const classes = useStyles();
 
+  /* istanbul ignore next */
   const createSortHandler = (property: string) => (
     event: React.MouseEvent<unknown>,
   ) => {
     onRequestSort(event, property);
   };
 
+  /* istanbul ignore next */
   return (
     <Paper className={classes.paper}>
       <Table>

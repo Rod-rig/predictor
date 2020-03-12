@@ -38,6 +38,7 @@ export class Rating extends React.Component<
     });
   }
 
+  /* istanbul ignore next */
   public sort(a: any, b: any) {
     const { order, orderBy } = this.state;
     if (b.stats[orderBy] < a.stats[orderBy]) {
@@ -49,6 +50,7 @@ export class Rating extends React.Component<
     return 0;
   }
 
+  /* istanbul ignore next */
   public handleRequestSort(event: React.MouseEvent<unknown>, property: string) {
     const { order, orderBy } = this.state;
     const isDesc = orderBy === property && order === DESC;
