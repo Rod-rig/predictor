@@ -2,7 +2,7 @@
 
 exports[`Header when user is logged in should render correctly 1`] = `
 <header
-  className="MuiPaper-root MuiPaper-elevation4 MuiAppBar-root MuiAppBar-positionStatic class_1-header-1 MuiAppBar-colorPrimary"
+  className="MuiPaper-root MuiAppBar-root MuiAppBar-positionStatic MuiAppBar-colorPrimary class_1-header-1 MuiPaper-elevation4"
 >
   <div
     className="MuiToolbar-root MuiToolbar-regular class_1-toolbar-3 MuiToolbar-gutters"
@@ -43,7 +43,7 @@ exports[`Header when user is logged in should render correctly 1`] = `
       </span>
     </button>
     <div
-      className="LogoElement-logo-67"
+      className="LogoElement-logo-70"
     >
       <a
         href="/"
@@ -51,7 +51,7 @@ exports[`Header when user is logged in should render correctly 1`] = `
       >
         <img
           alt="logo"
-          className="LogoElement-img-66"
+          className="LogoElement-img-69"
           src="src/images/logo.svg"
         />
       </a>
@@ -100,7 +100,7 @@ exports[`Header when user is logged in should render correctly 1`] = `
 
 exports[`Header when user is not logged in should render snapshot correctly 1`] = `
 <header
-  className="MuiPaper-root MuiPaper-elevation4 MuiAppBar-root MuiAppBar-positionStatic class_1-header-1 MuiAppBar-colorPrimary"
+  className="MuiPaper-root MuiAppBar-root MuiAppBar-positionStatic MuiAppBar-colorPrimary class_1-header-1 MuiPaper-elevation4"
 >
   <div
     className="MuiToolbar-root MuiToolbar-regular class_1-toolbar-3 MuiToolbar-gutters"
@@ -141,7 +141,7 @@ exports[`Header when user is not logged in should render snapshot correctly 1`] 
       </span>
     </button>
     <div
-      className="LogoElement-logo-67"
+      className="LogoElement-logo-70"
     >
       <a
         href="/"
@@ -149,7 +149,7 @@ exports[`Header when user is not logged in should render snapshot correctly 1`] 
       >
         <img
           alt="logo"
-          className="LogoElement-img-66"
+          className="LogoElement-img-69"
           src="src/images/logo.svg"
         />
       </a>
@@ -159,7 +159,7 @@ exports[`Header when user is not logged in should render snapshot correctly 1`] 
     >
       <a
         aria-disabled={false}
-        className="MuiButtonBase-root MuiButton-root class_1-headerBtn-2 MuiButton-text MuiButton-colorInherit"
+        className="MuiButtonBase-root MuiButton-root MuiButton-text class_1-headerBtn-2 MuiButton-colorInherit"
         href="/registration"
         onBlur={[Function]}
         onClick={[Function]}
@@ -184,7 +184,7 @@ exports[`Header when user is not logged in should render snapshot correctly 1`] 
       </a>
       <a
         aria-disabled={false}
-        className="MuiButtonBase-root MuiButton-root class_1-headerBtn-2 MuiButton-text MuiButton-colorInherit"
+        className="MuiButtonBase-root MuiButton-root MuiButton-text class_1-headerBtn-2 MuiButton-colorInherit"
         href="/login"
         onBlur={[Function]}
         onClick={[Function]}
