@@ -1,5 +1,4 @@
 import { Button, createStyles, Theme, withStyles } from "@material-ui/core";
-import { ButtonProps } from "@material-ui/core/Button";
 import * as React from "react";
 import { Link, withRouter } from "react-router-dom";
 import { dict } from "../../dict";
@@ -43,23 +42,23 @@ export const Nav = compose(
   const { classes, match } = props;
   const { id } = match.params;
 
-  const TableLink = React.forwardRef((linkProps: any, ref) => (
-    <Link to={`/tournament/${id}`} ref={ref} {...linkProps} />
-  ));
+  const TableLink = (linkProps: any) => (
+    <Link to={`/tournament/${id}`} {...linkProps} />
+  );
 
-  const FixturesLink = React.forwardRef((linkProps: any, ref) => (
-    <Link to={`/fixtures/${id}`} ref={ref} {...linkProps} />
-  ));
+  const FixturesLink = (linkProps: any) => (
+    <Link to={`/fixtures/${id}`} {...linkProps} />
+  );
 
-  const ResultsLink = React.forwardRef((linkProps: any, ref) => (
-    <Link to={`/results/${id}`} ref={ref} {...linkProps} />
-  ));
+  const ResultsLink = (linkProps: any) => (
+    <Link to={`/results/${id}`} {...linkProps} />
+  );
 
-  const PredictionsLink = React.forwardRef((linkProps: any, ref) => (
-    <Link to={`/predictions?tournament_id=${id}`} ref={ref} {...linkProps} />
-  ));
+  const PredictionsLink = (linkProps: any) => (
+    <Link to={`/predictions?tournament_id=${id}`} {...linkProps} />
+  );
 
-  const renderBtn = (comp: React.ElementType<ButtonProps>, text: string) => (
+  const renderBtn = (comp: React.ElementType, text: string) => (
     <Button
       size="small"
       className={classes.button}

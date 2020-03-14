@@ -21,12 +21,13 @@ exports[`PredictionFilter should render correctly 1`] = `
       >
         <div
           aria-haspopup="listbox"
-          className="MuiSelect-root MuiSelect-select MuiSelect-selectMenu MuiInputBase-input MuiInput-input MuiInputBase-inputSelect"
-          id="select-date"
+          aria-labelledby=" mui-component-select-date"
+          className="MuiSelect-root MuiSelect-select MuiSelect-selectMenu MuiInputBase-input MuiInput-input"
+          id="mui-component-select-date"
           onBlur={[Function]}
-          onClick={[Function]}
           onFocus={[Function]}
           onKeyDown={[Function]}
+          onMouseDown={[Function]}
           role="button"
           tabIndex={0}
         >
@@ -41,6 +42,7 @@ exports[`PredictionFilter should render correctly 1`] = `
         <input
           id="date"
           name="date"
+          onAnimationStart={[Function]}
           type="hidden"
           value="date"
         />
@@ -73,11 +75,12 @@ exports[`PredictionFilter should render correctly 1`] = `
       >
         <div
           aria-haspopup="listbox"
-          className="MuiSelect-root MuiSelect-select MuiSelect-selectMenu MuiInputBase-input MuiInput-input Mui-disabled Mui-disabled MuiInputBase-inputSelect Mui-disabled"
+          aria-labelledby=" "
+          className="MuiSelect-root MuiSelect-select MuiSelect-selectMenu MuiInputBase-input MuiInput-input Mui-disabled Mui-disabled Mui-disabled"
           onBlur={[Function]}
-          onClick={null}
           onFocus={[Function]}
           onKeyDown={[Function]}
+          onMouseDown={null}
           role="button"
           tabIndex={null}
         >
@@ -90,6 +93,7 @@ exports[`PredictionFilter should render correctly 1`] = `
           />
         </div>
         <input
+          onAnimationStart={[Function]}
           type="hidden"
           value=""
         />
