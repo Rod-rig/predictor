@@ -1,20 +1,26 @@
-name: Build and deploy
+name: Build
+
 on:
   push:
     branches: [ master ]
   pull_request:
     branches: [ master ]
+
 jobs:
   build:
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v2
 
-    - name: Install npm packages
-      run: npm ci
+    - name: Installing
+      run: |
+        npm install
+        npm run test:coverage
 
-    - name: Run tests
-      run: npm run test:ci
+    - name: Coveralls
+      uses: coverallsapp/github-action@master
+      with:
+        github-token: ${{secrets.GITHUB_TOKEN}}
 
     - name: Build project
       run: npm run build

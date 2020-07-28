@@ -1,0 +1,23 @@
+name: Build and deploy
+
+on:
+  push:
+    branches: [ master ]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+
+      - name: Installing
+        run: npm ci
+
+      - name: Build project
+        run: npm run build
+
+      - uses: akhileshns/heroku-deploy@v3.4.6
+        with:
+          heroku_api_key: ${{secrets.HEROKU_API_KEY}}
+          heroku_app_name: "predict0r"
+          heroku_email: "cherniakvadim08@gmail.com"
