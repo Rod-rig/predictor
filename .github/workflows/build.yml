@@ -1,20 +1,32 @@
 name: Build and deploy
+
 on:
   push:
     branches: [ master ]
   pull_request:
     branches: [ master ]
+
 jobs:
   build:
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v2
 
-    - name: Install npm packages
-      run: npm ci
+    - name: Installing
+      run: |
+        npm install
+        make test-coverage
 
-    - name: Run tests
-      run: npm run test:ci
+    - name: Coveralls
+      uses: coverallsapp/github-action@master
+      with:
+        github-token: ${{secrets.GITHUB_TOKEN}}
 
     - name: Build project
       run: npm run build
+
+    - uses: akhileshns/heroku-deploy@v3.4.6
+      with:
+        heroku_api_key: ${{secrets.HEROKU_API_KEY}}
+        heroku_app_name: "predict0r"
+        heroku_email: "cherniakvadim08@gmail.com"

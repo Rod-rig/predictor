@@ -13,7 +13,6 @@
     "server:dev": "nodemon server/app",
     "start": "npm run server",
     "test": "jest --config package.json",
-    "test:ci": "npm run test:coverage && cat ./coverage/lcov.info | ./node_modules/coveralls/bin/coveralls.js && rm -rf ./coverage",
     "test:coverage": "jest --config package.json --coverage",
     "cron": "node server/crons"
   },
