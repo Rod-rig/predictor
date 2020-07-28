@@ -30,7 +30,7 @@ exports[`MatchDetails should render component 1`] = `
 
 exports[`MatchDetails should render component for future match 1`] = `
 <div
-  className="MuiCircularProgress-root Component-root-16 MuiCircularProgress-colorPrimary MuiCircularProgress-indeterminate"
+  className="MuiCircularProgress-root Component-root-4 MuiCircularProgress-colorPrimary MuiCircularProgress-indeterminate"
   role="progressbar"
   style={
     Object {

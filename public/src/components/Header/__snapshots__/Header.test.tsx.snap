@@ -30,10 +30,9 @@ exports[`Header when user is logged in should render correctly 1`] = `
         className="MuiIconButton-label"
       >
         <svg
-          aria-hidden="true"
+          aria-hidden={true}
           className="MuiSvgIcon-root"
           focusable="false"
-          role="presentation"
           viewBox="0 0 24 24"
         >
           <path
@@ -43,7 +42,7 @@ exports[`Header when user is logged in should render correctly 1`] = `
       </span>
     </button>
     <div
-      className="LogoElement-logo-70"
+      className="LogoElement-logo-6"
     >
       <a
         href="/"
@@ -51,7 +50,7 @@ exports[`Header when user is logged in should render correctly 1`] = `
       >
         <img
           alt="logo"
-          className="LogoElement-img-69"
+          className="LogoElement-img-5"
           src="src/images/logo.svg"
         />
       </a>
@@ -81,10 +80,9 @@ exports[`Header when user is logged in should render correctly 1`] = `
           className="MuiIconButton-label"
         >
           <svg
-            aria-hidden="true"
+            aria-hidden={true}
             className="MuiSvgIcon-root"
             focusable="false"
-            role="presentation"
             viewBox="0 0 24 24"
           >
             <path
@@ -128,10 +126,9 @@ exports[`Header when user is not logged in should render snapshot correctly 1`] 
         className="MuiIconButton-label"
       >
         <svg
-          aria-hidden="true"
+          aria-hidden={true}
           className="MuiSvgIcon-root"
           focusable="false"
-          role="presentation"
           viewBox="0 0 24 24"
         >
           <path
@@ -141,7 +138,7 @@ exports[`Header when user is not logged in should render snapshot correctly 1`] 
       </span>
     </button>
     <div
-      className="LogoElement-logo-70"
+      className="LogoElement-logo-6"
     >
       <a
         href="/"
@@ -149,7 +146,7 @@ exports[`Header when user is not logged in should render snapshot correctly 1`] 
       >
         <img
           alt="logo"
-          className="LogoElement-img-69"
+          className="LogoElement-img-5"
           src="src/images/logo.svg"
         />
       </a>

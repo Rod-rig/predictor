@@ -3,19 +3,21 @@
 exports[`Row should render correctly 1`] = `
 <table
   className="MuiTable-root"
+  role={null}
 >
   <tr
-    className="MuiTableRow-root Component-edge-5 Component-top-16 Component-tableRow-14"
+    className="MuiTableRow-root Component-edge-3 Component-top-14 Component-tableRow-12"
+    role={null}
   >
     <td
       aria-sort={null}
-      className="MuiTableCell-root Component-cell-3 Component-teamName-15 MuiTableCell-paddingCheckbox"
+      className="MuiTableCell-root Component-cell-1 Component-teamName-13 MuiTableCell-paddingCheckbox"
     >
       <div
-        className="Component-info-9"
+        className="Component-info-7"
       >
         <div
-          className="MuiAvatar-root MuiAvatar-circle Component-img-8"
+          className="MuiAvatar-root MuiAvatar-circle Component-img-6"
         >
           <img
             className="MuiAvatar-img"
@@ -29,77 +31,78 @@ exports[`Row should render correctly 1`] = `
     </td>
     <td
       aria-sort={null}
-      className="MuiTableCell-root Component-cell-3  MuiTableCell-paddingCheckbox"
+      className="MuiTableCell-root Component-cell-1  MuiTableCell-paddingCheckbox"
     >
       1
     </td>
     <td
       aria-sort={null}
-      className="MuiTableCell-root Component-cell-3  MuiTableCell-paddingCheckbox"
+      className="MuiTableCell-root Component-cell-1  MuiTableCell-paddingCheckbox"
     >
       Champions League
     </td>
     <td
       aria-sort={null}
-      className="MuiTableCell-root Component-cell-3 Component-played-12 MuiTableCell-paddingCheckbox"
+      className="MuiTableCell-root Component-cell-1 Component-played-10 MuiTableCell-paddingCheckbox"
     >
       38
     </td>
     <td
       aria-sort={null}
-      className="MuiTableCell-root Component-cell-3 Component-win-17 MuiTableCell-paddingCheckbox"
+      className="MuiTableCell-root Component-cell-1 Component-win-15 MuiTableCell-paddingCheckbox"
     >
       30
     </td>
     <td
       aria-sort={null}
-      className="MuiTableCell-root Component-cell-3 Component-draw-4 MuiTableCell-paddingCheckbox"
+      className="MuiTableCell-root Component-cell-1 Component-draw-2 MuiTableCell-paddingCheckbox"
     >
       5
     </td>
     <td
       aria-sort={null}
-      className="MuiTableCell-root Component-cell-3 Component-loss-10 MuiTableCell-paddingCheckbox"
+      className="MuiTableCell-root Component-cell-1 Component-loss-8 MuiTableCell-paddingCheckbox"
     >
       3
     </td>
     <td
       aria-sort={null}
-      className="MuiTableCell-root Component-cell-3 Component-goals_for-7 MuiTableCell-paddingCheckbox"
+      className="MuiTableCell-root Component-cell-1 Component-goals_for-5 MuiTableCell-paddingCheckbox"
     >
       95
     </td>
     <td
       aria-sort={null}
-      className="MuiTableCell-root Component-cell-3 Component-goals_against-6 MuiTableCell-paddingCheckbox"
+      className="MuiTableCell-root Component-cell-1 Component-goals_against-4 MuiTableCell-paddingCheckbox"
     >
       32
     </td>
     <td
       aria-sort={null}
-      className="MuiTableCell-root Component-cell-3  MuiTableCell-paddingCheckbox"
+      className="MuiTableCell-root Component-cell-1  MuiTableCell-paddingCheckbox"
     >
       63
     </td>
     <td
       aria-sort={null}
-      className="MuiTableCell-root Component-cell-3  MuiTableCell-paddingCheckbox"
+      className="MuiTableCell-root Component-cell-1  MuiTableCell-paddingCheckbox"
     >
       95
     </td>
   </tr>
   <tr
-    className="MuiTableRow-root Component-edge-5 Component-tableRow-14"
+    className="MuiTableRow-root Component-edge-3 Component-tableRow-12"
+    role={null}
   >
     <td
       aria-sort={null}
-      className="MuiTableCell-root Component-cell-3 Component-teamName-15 MuiTableCell-paddingCheckbox"
+      className="MuiTableCell-root Component-cell-1 Component-teamName-13 MuiTableCell-paddingCheckbox"
     >
       <div
-        className="Component-info-9"
+        className="Component-info-7"
       >
         <div
-          className="MuiAvatar-root MuiAvatar-circle Component-img-8"
+          className="MuiAvatar-root MuiAvatar-circle Component-img-6"
         >
           <img
             className="MuiAvatar-img"
@@ -113,77 +116,78 @@ exports[`Row should render correctly 1`] = `
     </td>
     <td
       aria-sort={null}
-      className="MuiTableCell-root Component-cell-3  MuiTableCell-paddingCheckbox"
+      className="MuiTableCell-root Component-cell-1  MuiTableCell-paddingCheckbox"
     >
       2
     </td>
     <td
       aria-sort={null}
-      className="MuiTableCell-root Component-cell-3  MuiTableCell-paddingCheckbox"
+      className="MuiTableCell-root Component-cell-1  MuiTableCell-paddingCheckbox"
     >
       Champions League Qualification
     </td>
     <td
       aria-sort={null}
-      className="MuiTableCell-root Component-cell-3 Component-played-12 MuiTableCell-paddingCheckbox"
+      className="MuiTableCell-root Component-cell-1 Component-played-10 MuiTableCell-paddingCheckbox"
     >
       20
     </td>
     <td
       aria-sort={null}
-      className="MuiTableCell-root Component-cell-3 Component-win-17 MuiTableCell-paddingCheckbox"
+      className="MuiTableCell-root Component-cell-1 Component-win-15 MuiTableCell-paddingCheckbox"
     >
       10
     </td>
     <td
       aria-sort={null}
-      className="MuiTableCell-root Component-cell-3 Component-draw-4 MuiTableCell-paddingCheckbox"
+      className="MuiTableCell-root Component-cell-1 Component-draw-2 MuiTableCell-paddingCheckbox"
     >
       0
     </td>
     <td
       aria-sort={null}
-      className="MuiTableCell-root Component-cell-3 Component-loss-10 MuiTableCell-paddingCheckbox"
+      className="MuiTableCell-root Component-cell-1 Component-loss-8 MuiTableCell-paddingCheckbox"
     >
       10
     </td>
     <td
       aria-sort={null}
-      className="MuiTableCell-root Component-cell-3 Component-goals_for-7 MuiTableCell-paddingCheckbox"
+      className="MuiTableCell-root Component-cell-1 Component-goals_for-5 MuiTableCell-paddingCheckbox"
     >
       30
     </td>
     <td
       aria-sort={null}
-      className="MuiTableCell-root Component-cell-3 Component-goals_against-6 MuiTableCell-paddingCheckbox"
+      className="MuiTableCell-root Component-cell-1 Component-goals_against-4 MuiTableCell-paddingCheckbox"
     >
       0
     </td>
     <td
       aria-sort={null}
-      className="MuiTableCell-root Component-cell-3  MuiTableCell-paddingCheckbox"
+      className="MuiTableCell-root Component-cell-1  MuiTableCell-paddingCheckbox"
     >
       0
     </td>
     <td
       aria-sort={null}
-      className="MuiTableCell-root Component-cell-3  MuiTableCell-paddingCheckbox"
+      className="MuiTableCell-root Component-cell-1  MuiTableCell-paddingCheckbox"
     >
       30
     </td>
   </tr>
   <tr
-    className="MuiTableRow-root Component-edge-5 Component-tableRow-14"
+    className="MuiTableRow-root Component-edge-3 Component-tableRow-12"
+    role={null}
   >
     <td
       aria-sort={null}
-      className="MuiTableCell-root Component-cell-3 Component-teamName-15 MuiTableCell-paddingCheckbox"
+      className="MuiTableCell-root Component-cell-1 Component-teamName-13 MuiTableCell-paddingCheckbox"
     >
       <div
-        className="Component-info-9"
+        className="Component-info-7"
       >
         <div
-          className="MuiAvatar-root MuiAvatar-circle Component-img-8"
+          className="MuiAvatar-root MuiAvatar-circle Component-img-6"
         >
           <img
             className="MuiAvatar-img"
@@ -197,77 +201,78 @@ exports[`Row should render correctly 1`] = `
     </td>
     <td
       aria-sort={null}
-      className="MuiTableCell-root Component-cell-3  MuiTableCell-paddingCheckbox"
+      className="MuiTableCell-root Component-cell-1  MuiTableCell-paddingCheckbox"
     >
       3
     </td>
     <td
       aria-sort={null}
-      className="MuiTableCell-root Component-cell-3  MuiTableCell-paddingCheckbox"
+      className="MuiTableCell-root Component-cell-1  MuiTableCell-paddingCheckbox"
     >
       Relegation
     </td>
     <td
       aria-sort={null}
-      className="MuiTableCell-root Component-cell-3 Component-played-12 MuiTableCell-paddingCheckbox"
+      className="MuiTableCell-root Component-cell-1 Component-played-10 MuiTableCell-paddingCheckbox"
     >
       0
     </td>
     <td
       aria-sort={null}
-      className="MuiTableCell-root Component-cell-3 Component-win-17 MuiTableCell-paddingCheckbox"
+      className="MuiTableCell-root Component-cell-1 Component-win-15 MuiTableCell-paddingCheckbox"
     >
       0
     </td>
     <td
       aria-sort={null}
-      className="MuiTableCell-root Component-cell-3 Component-draw-4 MuiTableCell-paddingCheckbox"
+      className="MuiTableCell-root Component-cell-1 Component-draw-2 MuiTableCell-paddingCheckbox"
     >
       0
     </td>
     <td
       aria-sort={null}
-      className="MuiTableCell-root Component-cell-3 Component-loss-10 MuiTableCell-paddingCheckbox"
+      className="MuiTableCell-root Component-cell-1 Component-loss-8 MuiTableCell-paddingCheckbox"
     >
       0
     </td>
     <td
       aria-sort={null}
-      className="MuiTableCell-root Component-cell-3 Component-goals_for-7 MuiTableCell-paddingCheckbox"
+      className="MuiTableCell-root Component-cell-1 Component-goals_for-5 MuiTableCell-paddingCheckbox"
     >
       0
     </td>
     <td
       aria-sort={null}
-      className="MuiTableCell-root Component-cell-3 Component-goals_against-6 MuiTableCell-paddingCheckbox"
+      className="MuiTableCell-root Component-cell-1 Component-goals_against-4 MuiTableCell-paddingCheckbox"
     >
       0
     </td>
     <td
       aria-sort={null}
-      className="MuiTableCell-root Component-cell-3  MuiTableCell-paddingCheckbox"
+      className="MuiTableCell-root Component-cell-1  MuiTableCell-paddingCheckbox"
     >
       0
     </td>
     <td
       aria-sort={null}
-      className="MuiTableCell-root Component-cell-3  MuiTableCell-paddingCheckbox"
+      className="MuiTableCell-root Component-cell-1  MuiTableCell-paddingCheckbox"
     >
       0
     </td>
   </tr>
   <tr
-    className="MuiTableRow-root Component-middle-11 Component-tableRow-14"
+    className="MuiTableRow-root Component-middle-9 Component-tableRow-12"
+    role={null}
   >
     <td
       aria-sort={null}
-      className="MuiTableCell-root Component-cell-3 Component-teamName-15 MuiTableCell-paddingCheckbox"
+      className="MuiTableCell-root Component-cell-1 Component-teamName-13 MuiTableCell-paddingCheckbox"
     >
       <div
-        className="Component-info-9"
+        className="Component-info-7"
       >
         <div
-          className="MuiAvatar-root MuiAvatar-circle Component-img-8"
+          className="MuiAvatar-root MuiAvatar-circle Component-img-6"
         >
           <img
             className="MuiAvatar-img"
@@ -281,77 +286,78 @@ exports[`Row should render correctly 1`] = `
     </td>
     <td
       aria-sort={null}
-      className="MuiTableCell-root Component-cell-3  MuiTableCell-paddingCheckbox"
+      className="MuiTableCell-root Component-cell-1  MuiTableCell-paddingCheckbox"
     >
       5
     </td>
     <td
       aria-sort={null}
-      className="MuiTableCell-root Component-cell-3  MuiTableCell-paddingCheckbox"
+      className="MuiTableCell-root Component-cell-1  MuiTableCell-paddingCheckbox"
     >
       Europa League
     </td>
     <td
       aria-sort={null}
-      className="MuiTableCell-root Component-cell-3 Component-played-12 MuiTableCell-paddingCheckbox"
+      className="MuiTableCell-root Component-cell-1 Component-played-10 MuiTableCell-paddingCheckbox"
     >
       10
     </td>
     <td
       aria-sort={null}
-      className="MuiTableCell-root Component-cell-3 Component-win-17 MuiTableCell-paddingCheckbox"
+      className="MuiTableCell-root Component-cell-1 Component-win-15 MuiTableCell-paddingCheckbox"
     >
       10
     </td>
     <td
       aria-sort={null}
-      className="MuiTableCell-root Component-cell-3 Component-draw-4 MuiTableCell-paddingCheckbox"
+      className="MuiTableCell-root Component-cell-1 Component-draw-2 MuiTableCell-paddingCheckbox"
     >
       0
     </td>
     <td
       aria-sort={null}
-      className="MuiTableCell-root Component-cell-3 Component-loss-10 MuiTableCell-paddingCheckbox"
+      className="MuiTableCell-root Component-cell-1 Component-loss-8 MuiTableCell-paddingCheckbox"
     >
       0
     </td>
     <td
       aria-sort={null}
-      className="MuiTableCell-root Component-cell-3 Component-goals_for-7 MuiTableCell-paddingCheckbox"
+      className="MuiTableCell-root Component-cell-1 Component-goals_for-5 MuiTableCell-paddingCheckbox"
     >
       45
     </td>
     <td
       aria-sort={null}
-      className="MuiTableCell-root Component-cell-3 Component-goals_against-6 MuiTableCell-paddingCheckbox"
+      className="MuiTableCell-root Component-cell-1 Component-goals_against-4 MuiTableCell-paddingCheckbox"
     >
       1
     </td>
     <td
       aria-sort={null}
-      className="MuiTableCell-root Component-cell-3  MuiTableCell-paddingCheckbox"
+      className="MuiTableCell-root Component-cell-1  MuiTableCell-paddingCheckbox"
     >
       44
     </td>
     <td
       aria-sort={null}
-      className="MuiTableCell-root Component-cell-3  MuiTableCell-paddingCheckbox"
+      className="MuiTableCell-root Component-cell-1  MuiTableCell-paddingCheckbox"
     >
       30
     </td>
   </tr>
   <tr
-    className="MuiTableRow-root Component-middle-11 Component-tableRow-14"
+    className="MuiTableRow-root Component-middle-9 Component-tableRow-12"
+    role={null}
   >
     <td
       aria-sort={null}
-      className="MuiTableCell-root Component-cell-3 Component-teamName-15 MuiTableCell-paddingCheckbox"
+      className="MuiTableCell-root Component-cell-1 Component-teamName-13 MuiTableCell-paddingCheckbox"
     >
       <div
-        className="Component-info-9"
+        className="Component-info-7"
       >
         <div
-          className="MuiAvatar-root MuiAvatar-circle Component-img-8"
+          className="MuiAvatar-root MuiAvatar-circle Component-img-6"
         >
           <img
             className="MuiAvatar-img"
@@ -365,77 +371,78 @@ exports[`Row should render correctly 1`] = `
     </td>
     <td
       aria-sort={null}
-      className="MuiTableCell-root Component-cell-3  MuiTableCell-paddingCheckbox"
+      className="MuiTableCell-root Component-cell-1  MuiTableCell-paddingCheckbox"
     >
       6
     </td>
     <td
       aria-sort={null}
-      className="MuiTableCell-root Component-cell-3  MuiTableCell-paddingCheckbox"
+      className="MuiTableCell-root Component-cell-1  MuiTableCell-paddingCheckbox"
     >
       Europa League Qualification
     </td>
     <td
       aria-sort={null}
-      className="MuiTableCell-root Component-cell-3 Component-played-12 MuiTableCell-paddingCheckbox"
+      className="MuiTableCell-root Component-cell-1 Component-played-10 MuiTableCell-paddingCheckbox"
     >
       11
     </td>
     <td
       aria-sort={null}
-      className="MuiTableCell-root Component-cell-3 Component-win-17 MuiTableCell-paddingCheckbox"
+      className="MuiTableCell-root Component-cell-1 Component-win-15 MuiTableCell-paddingCheckbox"
     >
       10
     </td>
     <td
       aria-sort={null}
-      className="MuiTableCell-root Component-cell-3 Component-draw-4 MuiTableCell-paddingCheckbox"
+      className="MuiTableCell-root Component-cell-1 Component-draw-2 MuiTableCell-paddingCheckbox"
     >
       1
     </td>
     <td
       aria-sort={null}
-      className="MuiTableCell-root Component-cell-3 Component-loss-10 MuiTableCell-paddingCheckbox"
+      className="MuiTableCell-root Component-cell-1 Component-loss-8 MuiTableCell-paddingCheckbox"
     >
       0
     </td>
     <td
       aria-sort={null}
-      className="MuiTableCell-root Component-cell-3 Component-goals_for-7 MuiTableCell-paddingCheckbox"
+      className="MuiTableCell-root Component-cell-1 Component-goals_for-5 MuiTableCell-paddingCheckbox"
     >
       18
     </td>
     <td
       aria-sort={null}
-      className="MuiTableCell-root Component-cell-3 Component-goals_against-6 MuiTableCell-paddingCheckbox"
+      className="MuiTableCell-root Component-cell-1 Component-goals_against-4 MuiTableCell-paddingCheckbox"
     >
       3
     </td>
     <td
       aria-sort={null}
-      className="MuiTableCell-root Component-cell-3  MuiTableCell-paddingCheckbox"
+      className="MuiTableCell-root Component-cell-1  MuiTableCell-paddingCheckbox"
     >
       15
     </td>
     <td
       aria-sort={null}
-      className="MuiTableCell-root Component-cell-3  MuiTableCell-paddingCheckbox"
+      className="MuiTableCell-root Component-cell-1  MuiTableCell-paddingCheckbox"
     >
       31
     </td>
   </tr>
   <tr
-    className="MuiTableRow-root Component-row-13 Component-tableRow-14 MuiTableRow-hover"
+    className="MuiTableRow-root Component-row-11 Component-tableRow-12 MuiTableRow-hover"
+    role={null}
   >
     <td
       aria-sort={null}
-      className="MuiTableCell-root Component-cell-3 Component-teamName-15 MuiTableCell-paddingCheckbox"
+      className="MuiTableCell-root Component-cell-1 Component-teamName-13 MuiTableCell-paddingCheckbox"
     >
       <div
-        className="Component-info-9"
+        className="Component-info-7"
       >
         <div
-          className="MuiAvatar-root MuiAvatar-circle Component-img-8"
+          className="MuiAvatar-root MuiAvatar-circle Component-img-6"
         >
           <img
             className="MuiAvatar-img"
@@ -449,61 +456,61 @@ exports[`Row should render correctly 1`] = `
     </td>
     <td
       aria-sort={null}
-      className="MuiTableCell-root Component-cell-3  MuiTableCell-paddingCheckbox"
+      className="MuiTableCell-root Component-cell-1  MuiTableCell-paddingCheckbox"
     >
       7
     </td>
     <td
       aria-sort={null}
-      className="MuiTableCell-root Component-cell-3  MuiTableCell-paddingCheckbox"
+      className="MuiTableCell-root Component-cell-1  MuiTableCell-paddingCheckbox"
     >
       
     </td>
     <td
       aria-sort={null}
-      className="MuiTableCell-root Component-cell-3 Component-played-12 MuiTableCell-paddingCheckbox"
+      className="MuiTableCell-root Component-cell-1 Component-played-10 MuiTableCell-paddingCheckbox"
     >
       6
     </td>
     <td
       aria-sort={null}
-      className="MuiTableCell-root Component-cell-3 Component-win-17 MuiTableCell-paddingCheckbox"
+      className="MuiTableCell-root Component-cell-1 Component-win-15 MuiTableCell-paddingCheckbox"
     >
       5
     </td>
     <td
       aria-sort={null}
-      className="MuiTableCell-root Component-cell-3 Component-draw-4 MuiTableCell-paddingCheckbox"
+      className="MuiTableCell-root Component-cell-1 Component-draw-2 MuiTableCell-paddingCheckbox"
     >
       1
     </td>
     <td
       aria-sort={null}
-      className="MuiTableCell-root Component-cell-3 Component-loss-10 MuiTableCell-paddingCheckbox"
+      className="MuiTableCell-root Component-cell-1 Component-loss-8 MuiTableCell-paddingCheckbox"
     >
       0
     </td>
     <td
       aria-sort={null}
-      className="MuiTableCell-root Component-cell-3 Component-goals_for-7 MuiTableCell-paddingCheckbox"
+      className="MuiTableCell-root Component-cell-1 Component-goals_for-5 MuiTableCell-paddingCheckbox"
     >
       23
     </td>
     <td
       aria-sort={null}
-      className="MuiTableCell-root Component-cell-3 Component-goals_against-6 MuiTableCell-paddingCheckbox"
+      className="MuiTableCell-root Component-cell-1 Component-goals_against-4 MuiTableCell-paddingCheckbox"
     >
       33
     </td>
     <td
       aria-sort={null}
-      className="MuiTableCell-root Component-cell-3  MuiTableCell-paddingCheckbox"
+      className="MuiTableCell-root Component-cell-1  MuiTableCell-paddingCheckbox"
     >
       -4
     </td>
     <td
       aria-sort={null}
-      className="MuiTableCell-root Component-cell-3  MuiTableCell-paddingCheckbox"
+      className="MuiTableCell-root Component-cell-1  MuiTableCell-paddingCheckbox"
     >
       25
     </td>

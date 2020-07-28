@@ -2,13 +2,12 @@
 
 exports[`MatchList should render empty match list message correctly 1`] = `
 <div
-  className="makeStyles-empty-1"
+  className="memo(wrappedComponent)-empty-1"
 >
   <svg
-    aria-hidden="true"
+    aria-hidden={true}
     className="MuiSvgIcon-root MuiSvgIcon-fontSizeLarge"
     focusable="false"
-    role="presentation"
     viewBox="0 0 24 24"
   >
     <path
@@ -28,10 +27,10 @@ exports[`MatchList should render match list correctly 1`] = `
   className="MuiList-root"
 >
   <div
-    className="MuiPaper-root makeStyles-round-2 MuiPaper-elevation1 MuiPaper-rounded"
+    className="MuiPaper-root memo(wrappedComponent)-round-2 MuiPaper-elevation1 MuiPaper-rounded"
   >
     <div
-      className="makeStyles-title-3"
+      className="memo(wrappedComponent)-title-3"
     >
       Round 
       1
@@ -39,7 +38,7 @@ exports[`MatchList should render match list correctly 1`] = `
     <div>
       <a
         aria-disabled={false}
-        className="MuiButtonBase-root MuiListItem-root Component-matchItem-57 MuiListItem-gutters MuiListItem-divider MuiListItem-button"
+        className="MuiButtonBase-root MuiListItem-root Component-matchItem-13 MuiListItem-gutters MuiListItem-divider MuiListItem-button"
         href="/match/sr:match:13245886"
         id="sr:match:13245886"
         onBlur={[Function]}
@@ -58,7 +57,7 @@ exports[`MatchList should render match list correctly 1`] = `
         tabIndex={0}
       >
         <div
-          className="MuiListItemText-root Component-text-60 Component-home-54"
+          className="MuiListItemText-root Component-text-16 Component-home-10"
         >
           <div>
             Russia
@@ -67,7 +66,7 @@ exports[`MatchList should render match list correctly 1`] = `
             className="MuiListItemAvatar-root"
           >
             <div
-              className="MuiAvatar-root MuiAvatar-circle Component-homeIcon-55 Component-logo-56"
+              className="MuiAvatar-root MuiAvatar-circle Component-homeIcon-11 Component-logo-12"
             >
               <img
                 className="MuiAvatar-img"
@@ -77,13 +76,13 @@ exports[`MatchList should render match list correctly 1`] = `
           </div>
         </div>
         <div
-          className="Component-score-59 Component-default-51"
+          className="Component-score-15 Component-default-7"
         >
           <div>
             0
           </div>
           <div
-            className="Component-dash-50"
+            className="Component-dash-6"
           >
             :
           </div>
@@ -92,13 +91,13 @@ exports[`MatchList should render match list correctly 1`] = `
           </div>
         </div>
         <div
-          className="MuiListItemText-root Component-text-60 Component-guest-53"
+          className="MuiListItemText-root Component-text-16 Component-guest-9"
         >
           <div
             className="MuiListItemAvatar-root"
           >
             <div
-              className="MuiAvatar-root MuiAvatar-circle Component-awayIcon-49 Component-logo-56"
+              className="MuiAvatar-root MuiAvatar-circle Component-awayIcon-5 Component-logo-12"
             >
               <img
                 className="MuiAvatar-img"
@@ -113,7 +112,7 @@ exports[`MatchList should render match list correctly 1`] = `
       </a>
       <a
         aria-disabled={false}
-        className="MuiButtonBase-root MuiListItem-root Component-matchItem-57 MuiListItem-gutters MuiListItem-divider MuiListItem-button"
+        className="MuiButtonBase-root MuiListItem-root Component-matchItem-13 MuiListItem-gutters MuiListItem-divider MuiListItem-button"
         href="/match/sr:match:13246028"
         id="sr:match:13246028"
         onBlur={[Function]}
@@ -132,7 +131,7 @@ exports[`MatchList should render match list correctly 1`] = `
         tabIndex={0}
       >
         <div
-          className="MuiListItemText-root Component-text-60 Component-home-54"
+          className="MuiListItemText-root Component-text-16 Component-home-10"
         >
           <div>
             Sweden
@@ -141,7 +140,7 @@ exports[`MatchList should render match list correctly 1`] = `
             className="MuiListItemAvatar-root"
           >
             <div
-              className="MuiAvatar-root MuiAvatar-circle Component-homeIcon-55 Component-logo-56"
+              className="MuiAvatar-root MuiAvatar-circle Component-homeIcon-11 Component-logo-12"
             >
               <img
                 className="MuiAvatar-img"
@@ -151,13 +150,13 @@ exports[`MatchList should render match list correctly 1`] = `
           </div>
         </div>
         <div
-          className="Component-score-59 Component-default-51"
+          className="Component-score-15 Component-default-7"
         >
           <div>
             1
           </div>
           <div
-            className="Component-dash-50"
+            className="Component-dash-6"
           >
             :
           </div>
@@ -166,13 +165,13 @@ exports[`MatchList should render match list correctly 1`] = `
           </div>
         </div>
         <div
-          className="MuiListItemText-root Component-text-60 Component-guest-53"
+          className="MuiListItemText-root Component-text-16 Component-guest-9"
         >
           <div
             className="MuiListItemAvatar-root"
           >
             <div
-              className="MuiAvatar-root MuiAvatar-circle Component-awayIcon-49 Component-logo-56"
+              className="MuiAvatar-root MuiAvatar-circle Component-awayIcon-5 Component-logo-12"
             >
               <img
                 className="MuiAvatar-img"
@@ -188,10 +187,10 @@ exports[`MatchList should render match list correctly 1`] = `
     </div>
   </div>
   <div
-    className="MuiPaper-root makeStyles-round-2 MuiPaper-elevation1 MuiPaper-rounded"
+    className="MuiPaper-root memo(wrappedComponent)-round-2 MuiPaper-elevation1 MuiPaper-rounded"
   >
     <div
-      className="makeStyles-title-3"
+      className="memo(wrappedComponent)-title-3"
     >
       Round 
       2
@@ -199,7 +198,7 @@ exports[`MatchList should render match list correctly 1`] = `
     <div>
       <a
         aria-disabled={false}
-        className="MuiButtonBase-root MuiListItem-root Component-matchItem-57 MuiListItem-gutters MuiListItem-divider MuiListItem-button"
+        className="MuiButtonBase-root MuiListItem-root Component-matchItem-13 MuiListItem-gutters MuiListItem-divider MuiListItem-button"
         href="/match/sr:match:13245922"
         id="sr:match:13245922"
         onBlur={[Function]}
@@ -218,7 +217,7 @@ exports[`MatchList should render match list correctly 1`] = `
         tabIndex={0}
       >
         <div
-          className="MuiListItemText-root Component-text-60 Component-home-54"
+          className="MuiListItemText-root Component-text-16 Component-home-10"
         >
           <div>
             Egypt
@@ -227,7 +226,7 @@ exports[`MatchList should render match list correctly 1`] = `
             className="MuiListItemAvatar-root"
           >
             <div
-              className="MuiAvatar-root MuiAvatar-circle Component-homeIcon-55 Component-logo-56"
+              className="MuiAvatar-root MuiAvatar-circle Component-homeIcon-11 Component-logo-12"
             >
               <img
                 className="MuiAvatar-img"
@@ -237,13 +236,13 @@ exports[`MatchList should render match list correctly 1`] = `
           </div>
         </div>
         <div
-          className="Component-score-59 Component-default-51"
+          className="Component-score-15 Component-default-7"
         >
           <div>
             0
           </div>
           <div
-            className="Component-dash-50"
+            className="Component-dash-6"
           >
             :
           </div>
@@ -252,13 +251,13 @@ exports[`MatchList should render match list correctly 1`] = `
           </div>
         </div>
         <div
-          className="MuiListItemText-root Component-text-60 Component-guest-53"
+          className="MuiListItemText-root Component-text-16 Component-guest-9"
         >
           <div
             className="MuiListItemAvatar-root"
           >
             <div
-              className="MuiAvatar-root MuiAvatar-circle Component-awayIcon-49 Component-logo-56"
+              className="MuiAvatar-root MuiAvatar-circle Component-awayIcon-5 Component-logo-12"
             >
               <img
                 className="MuiAvatar-img"

@@ -21,7 +21,7 @@ exports[`PredictionFilter should render correctly 1`] = `
       >
         <div
           aria-haspopup="listbox"
-          aria-labelledby=" mui-component-select-date"
+          aria-labelledby="mui-component-select-date"
           className="MuiSelect-root MuiSelect-select MuiSelect-selectMenu MuiInputBase-input MuiInput-input"
           id="mui-component-select-date"
           onBlur={[Function]}
@@ -40,17 +40,20 @@ exports[`PredictionFilter should render correctly 1`] = `
           />
         </div>
         <input
+          aria-hidden={true}
+          className="MuiSelect-nativeInput"
           id="date"
           name="date"
           onAnimationStart={[Function]}
-          type="hidden"
+          onChange={[Function]}
+          required={false}
+          tabIndex={-1}
           value="date"
         />
         <svg
-          aria-hidden="true"
+          aria-hidden={true}
           className="MuiSvgIcon-root MuiSelect-icon"
           focusable="false"
-          role="presentation"
           viewBox="0 0 24 24"
         >
           <path
@@ -74,8 +77,8 @@ exports[`PredictionFilter should render correctly 1`] = `
         onClick={[Function]}
       >
         <div
+          aria-disabled="true"
           aria-haspopup="listbox"
-          aria-labelledby=" "
           className="MuiSelect-root MuiSelect-select MuiSelect-selectMenu MuiInputBase-input MuiInput-input Mui-disabled Mui-disabled Mui-disabled"
           onBlur={[Function]}
           onFocus={[Function]}
@@ -93,15 +96,18 @@ exports[`PredictionFilter should render correctly 1`] = `
           />
         </div>
         <input
+          aria-hidden={true}
+          className="MuiSelect-nativeInput"
           onAnimationStart={[Function]}
-          type="hidden"
+          onChange={[Function]}
+          required={false}
+          tabIndex={-1}
           value=""
         />
         <svg
-          aria-hidden="true"
-          className="MuiSvgIcon-root MuiSelect-icon"
+          aria-hidden={true}
+          className="MuiSvgIcon-root MuiSelect-icon Mui-disabled"
           focusable="false"
-          role="presentation"
           viewBox="0 0 24 24"
         >
           <path
