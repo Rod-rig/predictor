@@ -25,7 +25,7 @@ describe("TeamLogo", () => {
   it("should render with logo url", () => {
     const comp = mountComp({
       modClass: "test",
-      teamName: "Manchester City",
+      teamName: "Manchester City FC",
     }).find(Avatar);
     expect(comp).toHaveLength(1);
     expect(comp.prop("src")).not.toBe(notExistingLogoUrl);
