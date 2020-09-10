@@ -14,6 +14,8 @@ describe("Stats", () => {
       <Stats
         store={{
           data,
+          handlePageChange: jest.fn(),
+          initialData: data,
           isLoaded,
           url: "url",
         }}

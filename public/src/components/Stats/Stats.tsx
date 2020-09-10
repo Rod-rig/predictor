@@ -1,11 +1,37 @@
+import { Theme, withStyles, WithStyles } from "@material-ui/core/styles";
+import Pagination from "@material-ui/lab/Pagination";
 import { observer } from "mobx-react";
 import * as React from "react";
 import { Loader, MatchItem } from "../";
-import { IPredictionMatch, IRetriever } from "../../@types";
+import { IPaginator, IPredictionMatch } from "../../@types";
+import { LIMIT } from "../../stores/Paginator";
 import { EmptyStats } from "./EmptyStats";
 import { StatsInfo } from "./StatsInfo";
 
-const renderInfo = (store: IRetriever<IPredictionMatch[]>) => {
+const decorate = withStyles(({ spacing }: Theme) => ({
+  ul: {
+    justifyContent: "center",
+    padding: spacing(2),
+  },
+}));
+
+interface IProps {
+  classes: any;
+  store: IPaginator<IPredictionMatch[]>;
+}
+
+const DecoratedPagination = decorate((props: IProps) => (
+  <Pagination
+    classes={{
+      ul: props.classes.ul,
+    }}
+    count={Math.ceil(props.store.initialData.length / LIMIT)}
+    color="secondary"
+    onChange={props.store.handlePageChange}
+  />
+));
+
+const renderInfo = (store: IPaginator<IPredictionMatch[]>) => {
   const total = store.data.length;
   const list: JSX.Element[] = [];
   let success = 0;
@@ -42,6 +68,7 @@ const renderInfo = (store: IRetriever<IPredictionMatch[]>) => {
         rate={rate}
       />
       {list}
+      <DecoratedPagination store={store} />
     </React.Fragment>
   );
 };
@@ -49,7 +76,7 @@ const renderInfo = (store: IRetriever<IPredictionMatch[]>) => {
 export const Stats = observer(
   class extends React.Component<
     {
-      store: IRetriever<IPredictionMatch[]>;
+      store: any;
     },
     {}
   > {
