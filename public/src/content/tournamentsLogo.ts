@@ -10,7 +10,7 @@ export const tournamentsLogo: {
   37: "https://upload.wikimedia.org/wikipedia/commons/0/0f/Eredivisie_nieuw_logo_2017-.svg",
   38: "https://upload.wikimedia.org/wikipedia/en/6/67/Belgianproleague.png",
   52: "https://upload.wikimedia.org/wikipedia/en/4/4f/S%C3%BCper_Lig_logo.svg",
-  185: "https://upload.wikimedia.org/wikipedia/en/6/61/Super_League_Greece_official_logo.png",
+  185: "https://www.slgr.gr/img/logo.svg",
   203: "https://upload.wikimedia.org/wikipedia/ru/9/92/Russian_Premier_League_Logo.png",
   218:
     "https://upload.wikimedia.org/wikipedia/commons/thumb/e/e9/" +
