@@ -1,6 +1,11 @@
 import * as React from "react";
 import { match, RouteComponentProps, RouteProps } from "react-router-dom";
-import { IPredictionStore, IRetrieverProps, ITableProps } from "./@types";
+import {
+  IPaginatorProps,
+  IPredictionStore,
+  IRetrieverProps,
+  ITableProps,
+} from "./@types";
 import {
   Account,
   FixturesList,
@@ -18,6 +23,7 @@ import {
 import {
   DataRetriever,
   loginStore,
+  Paginator,
   PredictionStore,
   registrationStore,
   TableStore,
@@ -96,16 +102,18 @@ const login = () => <Login store={loginStore} />;
 const registration = () => <Registration store={registrationStore} />;
 
 /* istanbul ignore next */
-const stats = (props: IRetrieverProps & { match: IId }) => (
-  <Stats
-    store={
-      new DataRetriever({
-        url: "/predictions",
-      })
-    }
-    {...props}
-  />
-);
+const stats = (props: IPaginatorProps & { match: IId }) => {
+  return (
+    <Stats
+      store={
+        new Paginator({
+          url: "/predictions",
+        })
+      }
+      {...props}
+    />
+  );
+};
 
 const matchDetails = (props: RouteComponentProps<{ id: string }>) => (
   <MatchDetails id={props.match.params.id} />
