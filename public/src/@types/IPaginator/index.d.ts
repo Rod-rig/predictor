@@ -4,9 +4,9 @@ export interface IPaginatorProps {
 
 export interface IPaginator<Data = any> {
   data: Data;
+  handlePageChange: (event: any, page: number) => void;
   initialData: Data;
   isLoaded: boolean;
-  url: string;
   page: number;
-  handlePageChange: (event: any, page: number) => void;
+  url: string;
 }
