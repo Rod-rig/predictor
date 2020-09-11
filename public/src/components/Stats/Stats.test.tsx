@@ -17,6 +17,7 @@ describe("Stats", () => {
           handlePageChange: jest.fn(),
           initialData: data,
           isLoaded,
+          page: 1,
           url: "url",
         }}
       />
