@@ -1,14 +1,11 @@
-import MenuItem from "@material-ui/core/MenuItem";
-import Select from "@material-ui/core/Select";
-import { Theme, withStyles } from "@material-ui/core/styles";
-import Pagination from "@material-ui/lab/Pagination";
 import { observer } from "mobx-react";
 import * as React from "react";
 import { Loader, MatchItem } from "../";
 import { IPredictionMatch, IStats } from "../../@types";
-import { constants } from "../../constants";
 import { LIMIT } from "../../stores/StatsStore";
 import { EmptyStats } from "./EmptyStats";
+import { Filter } from "./Filter";
+import { DecoratedPagination } from "./Pagination";
 import { StatsInfo } from "./StatsInfo";
 
 interface IStat {
@@ -17,29 +14,6 @@ interface IStat {
   success: number;
   total: number;
 }
-
-interface IProps {
-  classes: any;
-  store: IStats;
-}
-
-const decorate = withStyles(({ spacing }: Theme) => ({
-  ul: {
-    justifyContent: "center",
-    padding: spacing(2),
-  },
-}));
-
-const DecoratedPagination = decorate((props: IProps) => (
-  <Pagination
-    classes={{
-      ul: props.classes.ul,
-    }}
-    count={Math.ceil(props.store.initialData.length / LIMIT)}
-    color="secondary"
-    onChange={props.store.handlePageChange}
-  />
-));
 
 const calcStats = (store: IStats): IStat => {
   const total = store.initialData.length;
@@ -70,13 +44,7 @@ const renderInfo = (store: IStats) => {
 
   return (
     <React.Fragment>
-      <Select value={store.season} onChange={store.handleSeasonChange}>
-        {constants.seasons.map(s => (
-          <MenuItem key={s.value} value={s.value}>
-            {s.label}
-          </MenuItem>
-        ))}
-      </Select>
+      <Filter store={store} />
       <StatsInfo
         total={stat.total}
         pending={stat.pending}

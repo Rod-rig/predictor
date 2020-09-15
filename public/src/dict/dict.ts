@@ -53,6 +53,7 @@ export interface IDict {
   register: string;
   registration_error: string;
   results: string;
+  season: string;
   sidebar_menu_prediction: string;
   sidebar_menu_rating: string;
   submit_btn_text: string;
@@ -123,6 +124,7 @@ export const dict: IDict = {
   results: "Results",
   sidebar_menu_prediction: "Predictions",
   sidebar_menu_rating: "Rating",
+  season: "Season",
   submit_btn_text: "Submit",
   success: "Success",
   table: "Table",
