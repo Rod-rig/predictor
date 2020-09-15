@@ -1,9 +1,12 @@
+import MenuItem from "@material-ui/core/MenuItem";
+import Select from "@material-ui/core/Select";
 import { Theme, withStyles } from "@material-ui/core/styles";
 import Pagination from "@material-ui/lab/Pagination";
 import { observer } from "mobx-react";
 import * as React from "react";
 import { Loader, MatchItem } from "../";
 import { IPaginator, IPredictionMatch } from "../../@types";
+import { constants } from "../../constants";
 import { LIMIT } from "../../stores/Paginator";
 import { EmptyStats } from "./EmptyStats";
 import { StatsInfo } from "./StatsInfo";
@@ -67,6 +70,13 @@ const renderInfo = (store: IPaginator<IPredictionMatch[]>) => {
 
   return (
     <React.Fragment>
+      <Select value={store.season} onChange={store.handleSeasonChange}>
+        {constants.seasons.map(s => (
+          <MenuItem key={s.value} value={s.value}>
+            {s.label}
+          </MenuItem>
+        ))}
+      </Select>
       <StatsInfo
         total={stat.total}
         pending={stat.pending}

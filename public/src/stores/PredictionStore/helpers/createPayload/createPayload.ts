@@ -16,6 +16,7 @@ export const createPayload = (matches: ISportEvent[]) => {
         homeTeam: match.competitors[0].name,
         matchId: match.id,
         scheduled: match.scheduled,
+        season: match.season.year,
         seasonId: match.season.id,
         tournamentId: match.tournament.id,
       };

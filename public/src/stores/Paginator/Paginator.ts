@@ -1,15 +1,19 @@
 import axios, { AxiosResponse } from "axios";
 import { action, observable } from "mobx";
-import { IPaginator, IPaginatorProps } from "../../@types";
+import * as React from "react";
+import { IPaginator, IPaginatorProps, IPredictionMatch } from "../../@types";
+import { constants } from "../../constants";
 import { userStore } from "../UserStore";
 
 export const LIMIT: number = 20;
-export class Paginator implements IPaginator {
+const START_PAGE: number = 1;
+export class Paginator implements IPaginator<IPredictionMatch[]> {
   public url: string;
   @observable public isLoaded: boolean = false;
-  @observable public data: any;
-  @observable public page: number = 1;
-  public initialData: any;
+  @observable public data: IPredictionMatch[];
+  @observable public page: number = START_PAGE;
+  @observable public season: string = constants.defaultSeasonsValue;
+  public initialData: IPredictionMatch[];
   private readonly limit: number = LIMIT;
 
   constructor(props: IPaginatorProps) {
@@ -18,9 +22,19 @@ export class Paginator implements IPaginator {
   }
 
   @action.bound
-  public handlePageChange(event: any, page: number) {
+  public handlePageChange(
+    event: React.ChangeEvent<{ value: string }>,
+    page: number,
+  ) {
     this.page = page;
     this.data = this.getStoreByPage(this.initialData);
+  }
+
+  @action.bound
+  public handleSeasonChange(event: React.ChangeEvent<{ value: string }>) {
+    this.season = event.target.value;
+    this.page = START_PAGE;
+    this.data = this.getStoreByPage(this.filterDataBySeason(this.initialData));
   }
 
   @action.bound
@@ -42,9 +56,15 @@ export class Paginator implements IPaginator {
     axios.get(this.url).then(this.fetchDataSuccess, this.fetchDataFailed);
   }
 
-  private getStoreByPage(data: any) {
+  private getStoreByPage(data: IPredictionMatch[]) {
     const start: number = (this.page - 1) * this.limit;
     const end: number = this.page * this.limit;
     return data.slice(start, end);
+  }
+
+  private filterDataBySeason(data: IPredictionMatch[]) {
+    return this.season === constants.defaultSeasonsValue
+      ? data
+      : data.filter((i: IPredictionMatch) => i.season === this.season);
   }
 }

@@ -17,19 +17,22 @@ exports.getPredictionsByUserId = (req, res) => {
   const { userId } = req.session;
   Prediction.find({ "users.userId": userId })
     .then(predictions => {
-      const pred = predictions.map(p => {
-        const userPrediction = p.users.find(
-          u => u.userId.toString() === userId,
-        );
-        return {
-          awayScore: userPrediction.awayScore,
-          awayTeam: p.awayTeam,
-          homeScore: userPrediction.homeScore,
-          homeTeam: p.homeTeam,
-          status: userPrediction.status,
-          id: p.matchId,
-        };
-      });
+      const pred = predictions
+        .map(p => {
+          const userPrediction = p.users.find(
+            u => u.userId.toString() === userId,
+          );
+          return {
+            awayScore: userPrediction.awayScore,
+            awayTeam: p.awayTeam,
+            homeScore: userPrediction.homeScore,
+            homeTeam: p.homeTeam,
+            status: userPrediction.status,
+            id: p.matchId,
+            season: p.season,
+          };
+        })
+        .reverse();
       res.status(200).send(pred);
     })
     .catch(err => {
@@ -81,23 +84,13 @@ exports.create = (req, res) => {
   Prediction.find({ $or: query })
     .then(findedPrediction => {
       payload.forEach(prediction => {
-        const {
-          matchId,
-          awayScore,
-          awayTeam,
-          homeScore,
-          homeTeam,
-          scheduled,
-          seasonId,
-          tournamentId,
-        } = prediction;
         const userPrediction = {
-          awayScore,
-          homeScore,
+          awayScore: prediction.awayScore,
+          homeScore: prediction.homeScore,
           userId,
         };
         const existedPrediction = findedPrediction.find(
-          item => item.matchId === matchId,
+          item => item.matchId === prediction.matchId,
         );
         if (existedPrediction) {
           existedPrediction.users.push(userPrediction);
@@ -105,12 +98,13 @@ exports.create = (req, res) => {
           predictionIds.push(existedPrediction._id);
         } else {
           const newPrediction = new Prediction({
-            awayTeam,
-            homeTeam,
-            matchId,
-            scheduled,
-            seasonId,
-            tournamentId,
+            awayTeam: prediction.awayTeam,
+            homeTeam: prediction.homeTeam,
+            matchId: prediction.matchId,
+            scheduled: prediction.scheduled,
+            season: prediction.season,
+            seasonId: prediction.seasonId,
+            tournamentId: prediction.tournamentId,
             users: [userPrediction],
           });
           newPrediction.save();

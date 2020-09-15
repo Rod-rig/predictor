@@ -9,6 +9,10 @@ const PredictionSchema = new mongoose.Schema({
     type: String,
     required: true,
   },
+  season: {
+    type: String,
+    required: true,
+  },
   seasonId: {
     type: String,
     required: true,
