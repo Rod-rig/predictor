@@ -5,9 +5,9 @@ import Pagination from "@material-ui/lab/Pagination";
 import { observer } from "mobx-react";
 import * as React from "react";
 import { Loader, MatchItem } from "../";
-import { IPaginator, IPredictionMatch } from "../../@types";
+import { IPredictionMatch, IStats } from "../../@types";
 import { constants } from "../../constants";
-import { LIMIT } from "../../stores/Paginator";
+import { LIMIT } from "../../stores/StatsStore";
 import { EmptyStats } from "./EmptyStats";
 import { StatsInfo } from "./StatsInfo";
 
@@ -20,7 +20,7 @@ interface IStat {
 
 interface IProps {
   classes: any;
-  store: IPaginator<IPredictionMatch[]>;
+  store: IStats;
 }
 
 const decorate = withStyles(({ spacing }: Theme) => ({
@@ -41,7 +41,7 @@ const DecoratedPagination = decorate((props: IProps) => (
   />
 ));
 
-const calcStats = (store: IPaginator<IPredictionMatch[]>): IStat => {
+const calcStats = (store: IStats): IStat => {
   const total = store.initialData.length;
   let success = 0;
   let pending = 0;
@@ -65,7 +65,7 @@ const calcStats = (store: IPaginator<IPredictionMatch[]>): IStat => {
   };
 };
 
-const renderInfo = (store: IPaginator<IPredictionMatch[]>) => {
+const renderInfo = (store: IStats) => {
   const stat: IStat = calcStats(store);
 
   return (
@@ -106,7 +106,7 @@ const renderInfo = (store: IPaginator<IPredictionMatch[]>) => {
 export const Stats = observer(
   class extends React.Component<
     {
-      store: IPaginator<IPredictionMatch[]>;
+      store: IStats;
     },
     {}
   > {

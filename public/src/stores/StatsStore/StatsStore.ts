@@ -1,13 +1,13 @@
 import axios, { AxiosResponse } from "axios";
 import { action, observable } from "mobx";
 import * as React from "react";
-import { IPaginator, IPaginatorProps, IPredictionMatch } from "../../@types";
+import { IPredictionMatch, IStats, IStatsProps } from "../../@types";
 import { constants } from "../../constants";
 import { userStore } from "../UserStore";
 
 export const LIMIT: number = 20;
 const START_PAGE: number = 1;
-export class Paginator implements IPaginator<IPredictionMatch[]> {
+export class StatsStore implements IStats {
   public url: string;
   @observable public isLoaded: boolean = false;
   @observable public data: IPredictionMatch[];
@@ -16,7 +16,7 @@ export class Paginator implements IPaginator<IPredictionMatch[]> {
   public initialData: IPredictionMatch[];
   private readonly limit: number = LIMIT;
 
-  constructor(props: IPaginatorProps) {
+  constructor(props: IStatsProps) {
     this.url = props.url;
     this.fetchList();
   }

@@ -3,6 +3,7 @@ import { MemoryRouter } from "react-router-dom";
 import * as renderer from "react-test-renderer";
 import { IPredictionMatch } from "../../@types";
 import { predictions } from "../../__mocks__";
+import { constants } from "../../constants";
 import { Stats } from "./";
 
 describe("Stats", () => {
@@ -15,9 +16,11 @@ describe("Stats", () => {
         store={{
           data,
           handlePageChange: jest.fn(),
+          handleSeasonChange: jest.fn(),
           initialData: data,
           isLoaded,
           page: 1,
+          season: constants.defaultSeasonsValue,
           url: "url",
         }}
       />

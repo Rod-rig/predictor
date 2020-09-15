@@ -1,17 +1,18 @@
 import * as React from "react";
+import { IPredictionMatch } from "../IMatch";
 
-export interface IPaginatorProps {
+export interface IStatsProps {
   url: string;
 }
 
-export interface IPaginator<Data = any> {
-  data: Data;
+export interface IStats {
+  data: IPredictionMatch[];
   handlePageChange: (
     event: React.ChangeEvent<{ value: string }>,
     page: number,
   ) => void;
   handleSeasonChange: (event: React.ChangeEvent<{ value: string }>) => void;
-  initialData: Data;
+  initialData: IPredictionMatch[];
   isLoaded: boolean;
   page: number;
   season: string;
