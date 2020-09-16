@@ -2,7 +2,7 @@
 
 exports[`Stats should render empty stats comp correctly 1`] = `
 <div
-  className="MuiPaper-root Component-paper-19 MuiPaper-elevation1 MuiPaper-rounded"
+  className="MuiPaper-root Component-paper-20 MuiPaper-elevation1 MuiPaper-rounded"
 >
   <svg
     aria-hidden={true}
@@ -25,7 +25,7 @@ exports[`Stats should render empty stats comp correctly 1`] = `
     Looks like you have no predictions yet
   </p>
   <div
-    className="Component-links-18"
+    className="Component-links-19"
   >
     <a
       className="MuiTypography-root MuiLink-root MuiLink-underlineHover MuiTypography-colorSecondary"
@@ -51,7 +51,7 @@ exports[`Stats should render empty stats comp correctly 1`] = `
 
 exports[`Stats should render stats with not loaded predictions correctly 1`] = `
 <div
-  className="MuiCircularProgress-root Component-root-17 MuiCircularProgress-colorPrimary MuiCircularProgress-indeterminate"
+  className="MuiCircularProgress-root Component-root-18 MuiCircularProgress-colorPrimary MuiCircularProgress-indeterminate"
   role="progressbar"
   style={
     Object {
@@ -80,60 +80,109 @@ exports[`Stats should render stats with not loaded predictions correctly 1`] = `
 exports[`Stats should render stats with predictions correctly 1`] = `
 Array [
   <div
-    className="Component-wrapper-4"
+    className="MuiFormControl-root Component-root-1"
+  >
+    <label
+      className="MuiFormLabel-root MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-shrink MuiFormLabel-filled"
+      data-shrink={true}
+      id="stat-season"
+    >
+      Season
+    </label>
+    <div
+      className="MuiInputBase-root MuiInput-root MuiInput-underline MuiInputBase-formControl MuiInput-formControl"
+      onClick={[Function]}
+    >
+      <div
+        aria-haspopup="listbox"
+        aria-labelledby="stat-season"
+        className="MuiSelect-root MuiSelect-select MuiSelect-selectMenu MuiInputBase-input MuiInput-input"
+        id="stat-season"
+        onBlur={[Function]}
+        onFocus={[Function]}
+        onKeyDown={[Function]}
+        onMouseDown={[Function]}
+        role="button"
+        tabIndex={0}
+      >
+        All
+      </div>
+      <input
+        aria-hidden={true}
+        className="MuiSelect-nativeInput"
+        onAnimationStart={[Function]}
+        onChange={[Function]}
+        required={false}
+        tabIndex={-1}
+        value="all"
+      />
+      <svg
+        aria-hidden={true}
+        className="MuiSvgIcon-root MuiSelect-icon"
+        focusable="false"
+        viewBox="0 0 24 24"
+      >
+        <path
+          d="M7 10l5 5 5-5z"
+        />
+      </svg>
+    </div>
+  </div>,
+  <div
+    className="Component-wrapper-5"
   >
     <div
-      className="MuiPaper-root Component-paper-2 MuiPaper-elevation1 MuiPaper-rounded"
+      className="MuiPaper-root Component-paper-3 MuiPaper-elevation1 MuiPaper-rounded"
     >
       <p
-        className="MuiTypography-root Component-text-3 MuiTypography-body1 MuiTypography-gutterBottom"
+        className="MuiTypography-root Component-text-4 MuiTypography-body1 MuiTypography-gutterBottom"
       >
         Predictions success %
       </p>
       <div
-        className="Component-number-1"
+        className="Component-number-2"
       >
         33.33
       </div>
     </div>
     <div
-      className="MuiPaper-root Component-paper-2 MuiPaper-elevation1 MuiPaper-rounded"
+      className="MuiPaper-root Component-paper-3 MuiPaper-elevation1 MuiPaper-rounded"
     >
       <p
-        className="MuiTypography-root Component-text-3 MuiTypography-body1 MuiTypography-gutterBottom"
+        className="MuiTypography-root Component-text-4 MuiTypography-body1 MuiTypography-gutterBottom"
       >
         Total predictions
       </p>
       <div
-        className="Component-number-1"
+        className="Component-number-2"
       >
         4
       </div>
     </div>
     <div
-      className="MuiPaper-root Component-paper-2 MuiPaper-elevation1 MuiPaper-rounded"
+      className="MuiPaper-root Component-paper-3 MuiPaper-elevation1 MuiPaper-rounded"
     >
       <p
-        className="MuiTypography-root Component-text-3 MuiTypography-body1 MuiTypography-gutterBottom"
+        className="MuiTypography-root Component-text-4 MuiTypography-body1 MuiTypography-gutterBottom"
       >
         Predicted correctly
       </p>
       <div
-        className="Component-number-1"
+        className="Component-number-2"
       >
         1
       </div>
     </div>
     <div
-      className="MuiPaper-root Component-paper-2 MuiPaper-elevation1 MuiPaper-rounded"
+      className="MuiPaper-root Component-paper-3 MuiPaper-elevation1 MuiPaper-rounded"
     >
       <p
-        className="MuiTypography-root Component-text-3 MuiTypography-body1 MuiTypography-gutterBottom"
+        className="MuiTypography-root Component-text-4 MuiTypography-body1 MuiTypography-gutterBottom"
       >
         Predictions pending
       </p>
       <div
-        className="Component-number-1"
+        className="Component-number-2"
       >
         1
       </div>
@@ -141,7 +190,7 @@ Array [
   </div>,
   <a
     aria-disabled={false}
-    className="MuiButtonBase-root MuiListItem-root Component-matchItem-13 MuiListItem-gutters MuiListItem-divider MuiListItem-button"
+    className="MuiButtonBase-root MuiListItem-root Component-matchItem-14 MuiListItem-gutters MuiListItem-divider MuiListItem-button"
     href="/match/sr:match:1"
     id="sr:match:1"
     onBlur={[Function]}
@@ -160,7 +209,7 @@ Array [
     tabIndex={0}
   >
     <div
-      className="MuiListItemText-root Component-text-16 Component-home-10"
+      className="MuiListItemText-root Component-text-17 Component-home-11"
     >
       <div>
         Newcastle United
@@ -169,7 +218,7 @@ Array [
         className="MuiListItemAvatar-root"
       >
         <div
-          className="MuiAvatar-root MuiAvatar-circle Component-homeIcon-11 Component-logo-12"
+          className="MuiAvatar-root MuiAvatar-circle Component-homeIcon-12 Component-logo-13"
         >
           <img
             className="MuiAvatar-img"
@@ -179,13 +228,13 @@ Array [
       </div>
     </div>
     <div
-      className="Component-score-15 Component-red-14"
+      className="Component-score-16 Component-red-15"
     >
       <div>
         2
       </div>
       <div
-        className="Component-dash-6"
+        className="Component-dash-7"
       >
         :
       </div>
@@ -194,13 +243,13 @@ Array [
       </div>
     </div>
     <div
-      className="MuiListItemText-root Component-text-16 Component-guest-9"
+      className="MuiListItemText-root Component-text-17 Component-guest-10"
     >
       <div
         className="MuiListItemAvatar-root"
       >
         <div
-          className="MuiAvatar-root MuiAvatar-circle Component-awayIcon-5 Component-logo-12"
+          className="MuiAvatar-root MuiAvatar-circle Component-awayIcon-6 Component-logo-13"
         >
           <img
             className="MuiAvatar-img"
@@ -215,7 +264,7 @@ Array [
   </a>,
   <a
     aria-disabled={false}
-    className="MuiButtonBase-root MuiListItem-root Component-matchItem-13 MuiListItem-gutters MuiListItem-divider MuiListItem-button"
+    className="MuiButtonBase-root MuiListItem-root Component-matchItem-14 MuiListItem-gutters MuiListItem-divider MuiListItem-button"
     href="/match/sr:match:2"
     id="sr:match:2"
     onBlur={[Function]}
@@ -234,7 +283,7 @@ Array [
     tabIndex={0}
   >
     <div
-      className="MuiListItemText-root Component-text-16 Component-home-10"
+      className="MuiListItemText-root Component-text-17 Component-home-11"
     >
       <div>
         Liverpool FC
@@ -243,7 +292,7 @@ Array [
         className="MuiListItemAvatar-root"
       >
         <div
-          className="MuiAvatar-root MuiAvatar-circle Component-homeIcon-11 Component-logo-12"
+          className="MuiAvatar-root MuiAvatar-circle Component-homeIcon-12 Component-logo-13"
         >
           <img
             className="MuiAvatar-img"
@@ -253,13 +302,13 @@ Array [
       </div>
     </div>
     <div
-      className="Component-score-15 Component-green-8"
+      className="Component-score-16 Component-green-9"
     >
       <div>
         1
       </div>
       <div
-        className="Component-dash-6"
+        className="Component-dash-7"
       >
         :
       </div>
@@ -268,13 +317,13 @@ Array [
       </div>
     </div>
     <div
-      className="MuiListItemText-root Component-text-16 Component-guest-9"
+      className="MuiListItemText-root Component-text-17 Component-guest-10"
     >
       <div
         className="MuiListItemAvatar-root"
       >
         <div
-          className="MuiAvatar-root MuiAvatar-circle Component-awayIcon-5 Component-logo-12"
+          className="MuiAvatar-root MuiAvatar-circle Component-awayIcon-6 Component-logo-13"
         >
           <img
             className="MuiAvatar-img"
@@ -289,7 +338,7 @@ Array [
   </a>,
   <a
     aria-disabled={false}
-    className="MuiButtonBase-root MuiListItem-root Component-matchItem-13 MuiListItem-gutters MuiListItem-divider MuiListItem-button"
+    className="MuiButtonBase-root MuiListItem-root Component-matchItem-14 MuiListItem-gutters MuiListItem-divider MuiListItem-button"
     href="/match/sr:match:3"
     id="sr:match:3"
     onBlur={[Function]}
@@ -308,7 +357,7 @@ Array [
     tabIndex={0}
   >
     <div
-      className="MuiListItemText-root Component-text-16 Component-home-10"
+      className="MuiListItemText-root Component-text-17 Component-home-11"
     >
       <div>
         Wolverhampton Wanderers
@@ -317,7 +366,7 @@ Array [
         className="MuiListItemAvatar-root"
       >
         <div
-          className="MuiAvatar-root MuiAvatar-circle Component-homeIcon-11 Component-logo-12"
+          className="MuiAvatar-root MuiAvatar-circle Component-homeIcon-12 Component-logo-13"
         >
           <img
             className="MuiAvatar-img"
@@ -327,13 +376,13 @@ Array [
       </div>
     </div>
     <div
-      className="Component-score-15 Component-default-7"
+      className="Component-score-16 Component-default-8"
     >
       <div>
         6
       </div>
       <div
-        className="Component-dash-6"
+        className="Component-dash-7"
       >
         :
       </div>
@@ -342,13 +391,13 @@ Array [
       </div>
     </div>
     <div
-      className="MuiListItemText-root Component-text-16 Component-guest-9"
+      className="MuiListItemText-root Component-text-17 Component-guest-10"
     >
       <div
         className="MuiListItemAvatar-root"
       >
         <div
-          className="MuiAvatar-root MuiAvatar-circle Component-awayIcon-5 Component-logo-12"
+          className="MuiAvatar-root MuiAvatar-circle Component-awayIcon-6 Component-logo-13"
         >
           <img
             className="MuiAvatar-img"
@@ -363,7 +412,7 @@ Array [
   </a>,
   <a
     aria-disabled={false}
-    className="MuiButtonBase-root MuiListItem-root Component-matchItem-13 MuiListItem-gutters MuiListItem-divider MuiListItem-button"
+    className="MuiButtonBase-root MuiListItem-root Component-matchItem-14 MuiListItem-gutters MuiListItem-divider MuiListItem-button"
     href="/match/sr:match:4"
     id="sr:match:4"
     onBlur={[Function]}
@@ -382,7 +431,7 @@ Array [
     tabIndex={0}
   >
     <div
-      className="MuiListItemText-root Component-text-16 Component-home-10"
+      className="MuiListItemText-root Component-text-17 Component-home-11"
     >
       <div>
         Cardiff City
@@ -391,7 +440,7 @@ Array [
         className="MuiListItemAvatar-root"
       >
         <div
-          className="MuiAvatar-root MuiAvatar-circle Component-homeIcon-11 Component-logo-12"
+          className="MuiAvatar-root MuiAvatar-circle Component-homeIcon-12 Component-logo-13"
         >
           <img
             className="MuiAvatar-img"
@@ -401,13 +450,13 @@ Array [
       </div>
     </div>
     <div
-      className="Component-score-15 Component-red-14"
+      className="Component-score-16 Component-red-15"
     >
       <div>
         1
       </div>
       <div
-        className="Component-dash-6"
+        className="Component-dash-7"
       >
         :
       </div>
@@ -416,13 +465,13 @@ Array [
       </div>
     </div>
     <div
-      className="MuiListItemText-root Component-text-16 Component-guest-9"
+      className="MuiListItemText-root Component-text-17 Component-guest-10"
     >
       <div
         className="MuiListItemAvatar-root"
       >
         <div
-          className="MuiAvatar-root MuiAvatar-circle Component-awayIcon-5 Component-logo-12"
+          className="MuiAvatar-root MuiAvatar-circle Component-awayIcon-6 Component-logo-13"
         >
           <img
             className="MuiAvatar-img"
