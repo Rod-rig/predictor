@@ -22,7 +22,7 @@ export const DecoratedPagination = decorate((props: IProps) => (
       ul: props.classes.ul,
     }}
     color="secondary"
-    count={Math.ceil(props.store.initialData.length / LIMIT)}
+    count={Math.ceil(props.store.filteredData.length / LIMIT)}
     page={props.store.page}
     onChange={props.store.handlePageChange}
   />

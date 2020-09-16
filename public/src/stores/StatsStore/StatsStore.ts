@@ -5,7 +5,7 @@ import { IPredictionMatch, IStats, IStatsProps } from "../../@types";
 import { constants } from "../../constants";
 import { userStore } from "../UserStore";
 
-export const LIMIT: number = 5;
+export const LIMIT: number = 20;
 const START_PAGE: number = 1;
 export class StatsStore implements IStats {
   public url: string;
