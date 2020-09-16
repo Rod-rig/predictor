@@ -16,10 +16,10 @@ interface IStat {
 }
 
 const calcStats = (store: IStats): IStat => {
-  const total = store.initialData.length;
+  const total = store.filteredData.length;
   let success = 0;
   let pending = 0;
-  store.initialData.forEach((item: IPredictionMatch) => {
+  store.filteredData.forEach((item: IPredictionMatch) => {
     if (item.status > 0) {
       success += 1;
     }
