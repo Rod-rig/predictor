@@ -2,7 +2,7 @@ export * from "./IFixture";
 export * from "./ILogo";
 export * from "./IMatch";
 export * from "./IMatchDetails";
-export * from "./IPaginator";
+export * from "./IStats";
 export * from "./IRetriever";
 export * from "./ISeason";
 export * from "./ITable";

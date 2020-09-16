@@ -7,6 +7,7 @@ export const predictions = [
     awayScore: 2,
     status: 0,
     id: "sr:match:1",
+    season: "19/20",
   },
   {
     awayTeam: "West Ham United",
@@ -15,6 +16,7 @@ export const predictions = [
     awayScore: 2,
     status: 1,
     id: "sr:match:2",
+    season: "19/20",
   },
   {
     awayTeam: "Manchester City",
@@ -23,6 +25,7 @@ export const predictions = [
     awayScore: 1,
     status: -1,
     id: "sr:match:3",
+    season: "19/20",
   },
   {
     awayTeam: "Fulham FC",
@@ -31,5 +34,6 @@ export const predictions = [
     awayScore: 1,
     status: 0,
     id: "sr:match:4",
+    season: "19/20",
   },
 ];

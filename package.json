@@ -69,7 +69,8 @@
     ]
   },
   "prettier": {
-    "trailingComma": "all"
+    "trailingComma": "all",
+    "arrowParens": "avoid"
   },
   "husky": {
     "hooks": {

@@ -44,6 +44,7 @@ export interface IPredictionMatch {
   awayScore: number;
   status?: number;
   id: string;
+  season: string;
 }
 
 export interface IPredictionStore {

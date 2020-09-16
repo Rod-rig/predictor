@@ -1,11 +1,11 @@
-import { Theme, withStyles } from "@material-ui/core/styles";
-import Pagination from "@material-ui/lab/Pagination";
 import { observer } from "mobx-react";
 import * as React from "react";
 import { Loader, MatchItem } from "../";
-import { IPaginator, IPredictionMatch } from "../../@types";
-import { LIMIT } from "../../stores/Paginator";
+import { IPredictionMatch, IStats } from "../../@types";
+import { LIMIT } from "../../stores/StatsStore";
 import { EmptyStats } from "./EmptyStats";
+import { Filter } from "./Filter";
+import { DecoratedPagination } from "./Pagination";
 import { StatsInfo } from "./StatsInfo";
 
 interface IStat {
@@ -15,34 +15,11 @@ interface IStat {
   total: number;
 }
 
-interface IProps {
-  classes: any;
-  store: IPaginator<IPredictionMatch[]>;
-}
-
-const decorate = withStyles(({ spacing }: Theme) => ({
-  ul: {
-    justifyContent: "center",
-    padding: spacing(2),
-  },
-}));
-
-const DecoratedPagination = decorate((props: IProps) => (
-  <Pagination
-    classes={{
-      ul: props.classes.ul,
-    }}
-    count={Math.ceil(props.store.initialData.length / LIMIT)}
-    color="secondary"
-    onChange={props.store.handlePageChange}
-  />
-));
-
-const calcStats = (store: IPaginator<IPredictionMatch[]>): IStat => {
-  const total = store.initialData.length;
+const calcStats = (store: IStats): IStat => {
+  const total = store.filteredData.length;
   let success = 0;
   let pending = 0;
-  store.initialData.forEach((item: IPredictionMatch) => {
+  store.filteredData.forEach((item: IPredictionMatch) => {
     if (item.status > 0) {
       success += 1;
     }
@@ -62,11 +39,12 @@ const calcStats = (store: IPaginator<IPredictionMatch[]>): IStat => {
   };
 };
 
-const renderInfo = (store: IPaginator<IPredictionMatch[]>) => {
+const renderInfo = (store: IStats) => {
   const stat: IStat = calcStats(store);
 
   return (
     <React.Fragment>
+      <Filter store={store} />
       <StatsInfo
         total={stat.total}
         pending={stat.pending}
@@ -84,7 +62,7 @@ const renderInfo = (store: IPaginator<IPredictionMatch[]>) => {
           id={item.id}
         />
       ))}
-      {store.initialData.length > LIMIT ? (
+      {store.filteredData.length > LIMIT ? (
         <DecoratedPagination store={store} />
       ) : (
         ""
@@ -96,7 +74,7 @@ const renderInfo = (store: IPaginator<IPredictionMatch[]>) => {
 export const Stats = observer(
   class extends React.Component<
     {
-      store: IPaginator<IPredictionMatch[]>;
+      store: IStats;
     },
     {}
   > {
