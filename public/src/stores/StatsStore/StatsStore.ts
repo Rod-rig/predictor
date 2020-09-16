@@ -5,12 +5,13 @@ import { IPredictionMatch, IStats, IStatsProps } from "../../@types";
 import { constants } from "../../constants";
 import { userStore } from "../UserStore";
 
-export const LIMIT: number = 20;
+export const LIMIT: number = 5;
 const START_PAGE: number = 1;
 export class StatsStore implements IStats {
   public url: string;
   @observable public isLoaded: boolean = false;
   @observable public data: IPredictionMatch[];
+  @observable public filteredData: IPredictionMatch[];
   @observable public page: number = START_PAGE;
   @observable public season: string = constants.defaultSeasonsValue;
   public initialData: IPredictionMatch[];
@@ -27,14 +28,15 @@ export class StatsStore implements IStats {
     page: number,
   ) {
     this.page = page;
-    this.data = this.getStoreByPage(this.initialData);
+    this.data = this.getStoreByPage(this.filteredData);
   }
 
   @action.bound
   public handleSeasonChange(event: React.ChangeEvent<{ value: string }>) {
     this.season = event.target.value;
     this.page = START_PAGE;
-    this.data = this.getStoreByPage(this.filterDataBySeason(this.initialData));
+    this.filteredData = this.filterDataBySeason(this.initialData);
+    this.data = this.getStoreByPage(this.filteredData);
   }
 
   @action.bound
@@ -48,6 +50,7 @@ export class StatsStore implements IStats {
   @action.bound
   private fetchDataSuccess(res: AxiosResponse) {
     this.initialData = res.data;
+    this.filteredData = res.data;
     this.data = this.getStoreByPage(res.data);
     this.isLoaded = true;
   }

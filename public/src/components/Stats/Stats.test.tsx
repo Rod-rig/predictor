@@ -15,6 +15,7 @@ describe("Stats", () => {
       <Stats
         store={{
           data,
+          filteredData: data,
           handlePageChange: jest.fn(),
           handleSeasonChange: jest.fn(),
           initialData: data,

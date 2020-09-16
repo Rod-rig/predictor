@@ -7,6 +7,7 @@ export interface IStatsProps {
 
 export interface IStats {
   data: IPredictionMatch[];
+  filteredData: IPredictionMatch[];
   handlePageChange: (
     event: React.ChangeEvent<{ value: string }>,
     page: number,

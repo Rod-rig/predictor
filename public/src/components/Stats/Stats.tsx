@@ -62,7 +62,7 @@ const renderInfo = (store: IStats) => {
           id={item.id}
         />
       ))}
-      {store.initialData.length > LIMIT ? (
+      {store.filteredData.length > LIMIT ? (
         <DecoratedPagination store={store} />
       ) : (
         ""
