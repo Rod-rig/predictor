@@ -99,7 +99,7 @@
     "tslint-react": "^4.2.0",
     "typescript": "^3.9.9",
     "webpack": "^5.24.2",
-    "webpack-cli": "^3.3.12",
+    "webpack-cli": "^4.5.0",
     "webpack-dev-middleware": "^3.7.3"
   },
   "dependencies": {
