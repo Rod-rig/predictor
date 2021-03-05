@@ -3,12 +3,10 @@ const BrowserSyncPlugin = require("browser-sync-webpack-plugin");
 
 module.exports = Object.assign({}, config, {
   mode: "development",
-  devtool: "source-map",
+  devtool: "eval",
   plugins: [
     new BrowserSyncPlugin({
-      host: "localhost",
-      port: 8080,
-      proxy: "http://localhost:8080/",
+      proxy: "localhost:8080",
     }),
   ],
 });

@@ -109,7 +109,7 @@ const stats = (props: IStatsProps & { match: IId }) => {
     />
   );
 };
-console.log(222);
+
 const matchDetails = (props: RouteComponentProps<{ id: string }>) => (
   <MatchDetails id={props.match.params.id} />
 );

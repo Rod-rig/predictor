@@ -1,6 +1,6 @@
 {
   "name": "predictor",
-  "version": "2.0.1",
+  "version": "2.0.2",
   "main": "public/src/index.tsx",
   "license": "MIT",
   "scripts": {
@@ -29,9 +29,14 @@
     "url": "https://github.com/Rod-rig/pl/issues"
   },
   "homepage": "https://predict0r.herokuapp.com/",
-  "browserslist": [
-    "last 2 versions"
-  ],
+  "browserslist": {
+    "development": [
+      "last 1 Chrome version"
+    ],
+    "production": [
+      "defaults"
+    ]
+  },
   "nodemonConfig": {
     "ignore": [
       "public/*"
