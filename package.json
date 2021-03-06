@@ -1,6 +1,6 @@
 {
   "name": "predictor",
-  "version": "2.0.1",
+  "version": "2.0.2",
   "main": "public/src/index.tsx",
   "license": "MIT",
   "scripts": {
@@ -29,9 +29,14 @@
     "url": "https://github.com/Rod-rig/pl/issues"
   },
   "homepage": "https://predict0r.herokuapp.com/",
-  "browserslist": [
-    "last 2 versions"
-  ],
+  "browserslist": {
+    "development": [
+      "last 1 Chrome version"
+    ],
+    "production": [
+      "defaults"
+    ]
+  },
   "nodemonConfig": {
     "ignore": [
       "public/*"
@@ -84,6 +89,8 @@
     ]
   },
   "devDependencies": {
+    "browser-sync": "^2.26.12",
+    "browser-sync-webpack-plugin": "^2.2.2",
     "coveralls": "^3.1.0",
     "husky": "^3.1.0",
     "jest": "^26.6.3",

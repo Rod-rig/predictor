@@ -23,4 +23,7 @@ const registerServiceWorker = () => {
 };
 
 ReactDOM.render(<App />, document.getElementById("root"));
-registerServiceWorker();
+
+if (process.env.NODE_ENV !== "development") {
+  registerServiceWorker();
+}
