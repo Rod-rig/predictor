@@ -1,6 +1,6 @@
 {
   "name": "predictor",
-  "version": "2.0.2",
+  "version": "2.0.3",
   "main": "public/src/index.tsx",
   "license": "MIT",
   "scripts": {
@@ -18,7 +18,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/Rod-rig/pl"
+    "url": "https://github.com/Rod-rig/predictor"
   },
   "keywords": [
     "markup",
@@ -26,7 +26,7 @@
   ],
   "author": "Vadim Cherniak <cherniakvadim08@gmail.com>",
   "bugs": {
-    "url": "https://github.com/Rod-rig/pl/issues"
+    "url": "https://github.com/Rod-rig/predictor/issues"
   },
   "homepage": "https://predict0r.herokuapp.com/",
   "browserslist": {
