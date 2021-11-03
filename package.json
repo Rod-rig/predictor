@@ -148,6 +148,6 @@
     "react-router-dom": "^5.2.0",
     "react-test-renderer": "^16.14.0",
     "uuid": "^3.4.0",
-    "validator": "^11.1.0"
+    "validator": "^13.7.0"
   }
 }
