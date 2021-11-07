@@ -15,6 +15,7 @@ interface IStat {
   total: number;
 }
 
+/* istanbul ignore next */
 const calcStats = (store: IStats): IStat => {
   const total = store.filteredData.length;
   let success = 0;
@@ -42,6 +43,7 @@ const calcStats = (store: IStats): IStat => {
 const renderInfo = (store: IStats) => {
   const stat: IStat = calcStats(store);
 
+  /* istanbul ignore next */
   return (
     <React.Fragment>
       <Filter store={store} />
