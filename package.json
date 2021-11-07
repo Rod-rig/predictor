@@ -71,7 +71,8 @@
       "jsx",
       "json",
       "node"
-    ]
+    ],
+    "testEnvironment": "jsdom"
   },
   "prettier": {
     "trailingComma": "all",

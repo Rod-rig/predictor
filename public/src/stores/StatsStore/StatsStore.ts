@@ -6,7 +6,7 @@ import { constants } from "../../constants";
 import { userStore } from "../UserStore";
 
 export const LIMIT: number = 20;
-const START_PAGE: number = 1;
+export const START_PAGE: number = 1;
 export class StatsStore implements IStats {
   public url: string;
   @observable public isLoaded: boolean = false;
@@ -29,6 +29,7 @@ export class StatsStore implements IStats {
   ) {
     this.page = page;
     this.data = this.getStoreByPage(this.filteredData);
+    console.log(this.data);
   }
 
   @action.bound

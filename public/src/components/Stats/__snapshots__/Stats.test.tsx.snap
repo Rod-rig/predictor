@@ -218,7 +218,7 @@ Array [
         className="MuiListItemAvatar-root"
       >
         <div
-          className="MuiAvatar-root MuiAvatar-circle Component-homeIcon-12 Component-logo-13"
+          className="MuiAvatar-root MuiAvatar-circular Component-homeIcon-12 Component-logo-13"
         >
           <img
             className="MuiAvatar-img"
@@ -249,7 +249,7 @@ Array [
         className="MuiListItemAvatar-root"
       >
         <div
-          className="MuiAvatar-root MuiAvatar-circle Component-awayIcon-6 Component-logo-13"
+          className="MuiAvatar-root MuiAvatar-circular Component-awayIcon-6 Component-logo-13"
         >
           <img
             className="MuiAvatar-img"
@@ -292,7 +292,7 @@ Array [
         className="MuiListItemAvatar-root"
       >
         <div
-          className="MuiAvatar-root MuiAvatar-circle Component-homeIcon-12 Component-logo-13"
+          className="MuiAvatar-root MuiAvatar-circular Component-homeIcon-12 Component-logo-13"
         >
           <img
             className="MuiAvatar-img"
@@ -323,7 +323,7 @@ Array [
         className="MuiListItemAvatar-root"
       >
         <div
-          className="MuiAvatar-root MuiAvatar-circle Component-awayIcon-6 Component-logo-13"
+          className="MuiAvatar-root MuiAvatar-circular Component-awayIcon-6 Component-logo-13"
         >
           <img
             className="MuiAvatar-img"
@@ -366,7 +366,7 @@ Array [
         className="MuiListItemAvatar-root"
       >
         <div
-          className="MuiAvatar-root MuiAvatar-circle Component-homeIcon-12 Component-logo-13"
+          className="MuiAvatar-root MuiAvatar-circular Component-homeIcon-12 Component-logo-13"
         >
           <img
             className="MuiAvatar-img"
@@ -397,7 +397,7 @@ Array [
         className="MuiListItemAvatar-root"
       >
         <div
-          className="MuiAvatar-root MuiAvatar-circle Component-awayIcon-6 Component-logo-13"
+          className="MuiAvatar-root MuiAvatar-circular Component-awayIcon-6 Component-logo-13"
         >
           <img
             className="MuiAvatar-img"
@@ -440,7 +440,7 @@ Array [
         className="MuiListItemAvatar-root"
       >
         <div
-          className="MuiAvatar-root MuiAvatar-circle Component-homeIcon-12 Component-logo-13"
+          className="MuiAvatar-root MuiAvatar-circular Component-homeIcon-12 Component-logo-13"
         >
           <img
             className="MuiAvatar-img"
@@ -471,7 +471,7 @@ Array [
         className="MuiListItemAvatar-root"
       >
         <div
-          className="MuiAvatar-root MuiAvatar-circle Component-awayIcon-6 Component-logo-13"
+          className="MuiAvatar-root MuiAvatar-circular Component-awayIcon-6 Component-logo-13"
         >
           <img
             className="MuiAvatar-img"
