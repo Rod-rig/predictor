@@ -31,7 +31,7 @@ exports[`MatchItem should render future match correctly 1`] = `
       className="MuiListItemAvatar-root"
     >
       <div
-        className="MuiAvatar-root MuiAvatar-circle Component-homeIcon-7 Component-logo-8"
+        className="MuiAvatar-root MuiAvatar-circular Component-homeIcon-7 Component-logo-8"
       >
         <img
           className="MuiAvatar-img"
@@ -56,7 +56,7 @@ exports[`MatchItem should render future match correctly 1`] = `
       className="MuiListItemAvatar-root"
     >
       <div
-        className="MuiAvatar-root MuiAvatar-circle Component-awayIcon-1 Component-logo-8"
+        className="MuiAvatar-root MuiAvatar-circular Component-awayIcon-1 Component-logo-8"
       >
         <img
           className="MuiAvatar-img"
@@ -105,7 +105,7 @@ exports[`MatchItem should render played match correctly 1`] = `
       className="MuiListItemAvatar-root"
     >
       <div
-        className="MuiAvatar-root MuiAvatar-circle Component-homeIcon-7 Component-logo-8"
+        className="MuiAvatar-root MuiAvatar-circular Component-homeIcon-7 Component-logo-8"
       >
         <img
           className="MuiAvatar-img"
@@ -136,7 +136,7 @@ exports[`MatchItem should render played match correctly 1`] = `
       className="MuiListItemAvatar-root"
     >
       <div
-        className="MuiAvatar-root MuiAvatar-circle Component-awayIcon-1 Component-logo-8"
+        className="MuiAvatar-root MuiAvatar-circular Component-awayIcon-1 Component-logo-8"
       >
         <img
           className="MuiAvatar-img"
@@ -182,7 +182,7 @@ exports[`MatchItem should render predicted wrong match correctly 1`] = `
       className="MuiListItemAvatar-root"
     >
       <div
-        className="MuiAvatar-root MuiAvatar-circle Component-homeIcon-7 Component-logo-8"
+        className="MuiAvatar-root MuiAvatar-circular Component-homeIcon-7 Component-logo-8"
       >
         <img
           className="MuiAvatar-img"
@@ -213,7 +213,7 @@ exports[`MatchItem should render predicted wrong match correctly 1`] = `
       className="MuiListItemAvatar-root"
     >
       <div
-        className="MuiAvatar-root MuiAvatar-circle Component-awayIcon-1 Component-logo-8"
+        className="MuiAvatar-root MuiAvatar-circular Component-awayIcon-1 Component-logo-8"
       >
         <img
           className="MuiAvatar-img"

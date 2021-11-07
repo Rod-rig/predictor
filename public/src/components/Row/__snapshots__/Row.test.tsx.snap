@@ -17,7 +17,7 @@ exports[`Row should render correctly 1`] = `
         className="Component-info-7"
       >
         <div
-          className="MuiAvatar-root MuiAvatar-circle Component-img-6"
+          className="MuiAvatar-root MuiAvatar-circular Component-img-6"
         >
           <img
             className="MuiAvatar-img"
@@ -102,7 +102,7 @@ exports[`Row should render correctly 1`] = `
         className="Component-info-7"
       >
         <div
-          className="MuiAvatar-root MuiAvatar-circle Component-img-6"
+          className="MuiAvatar-root MuiAvatar-circular Component-img-6"
         >
           <img
             className="MuiAvatar-img"
@@ -187,7 +187,7 @@ exports[`Row should render correctly 1`] = `
         className="Component-info-7"
       >
         <div
-          className="MuiAvatar-root MuiAvatar-circle Component-img-6"
+          className="MuiAvatar-root MuiAvatar-circular Component-img-6"
         >
           <img
             className="MuiAvatar-img"
@@ -272,7 +272,7 @@ exports[`Row should render correctly 1`] = `
         className="Component-info-7"
       >
         <div
-          className="MuiAvatar-root MuiAvatar-circle Component-img-6"
+          className="MuiAvatar-root MuiAvatar-circular Component-img-6"
         >
           <img
             className="MuiAvatar-img"
@@ -357,7 +357,7 @@ exports[`Row should render correctly 1`] = `
         className="Component-info-7"
       >
         <div
-          className="MuiAvatar-root MuiAvatar-circle Component-img-6"
+          className="MuiAvatar-root MuiAvatar-circular Component-img-6"
         >
           <img
             className="MuiAvatar-img"
@@ -442,7 +442,7 @@ exports[`Row should render correctly 1`] = `
         className="Component-info-7"
       >
         <div
-          className="MuiAvatar-root MuiAvatar-circle Component-img-6"
+          className="MuiAvatar-root MuiAvatar-circular Component-img-6"
         >
           <img
             className="MuiAvatar-img"

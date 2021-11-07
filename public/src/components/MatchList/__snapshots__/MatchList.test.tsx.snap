@@ -66,7 +66,7 @@ exports[`MatchList should render match list correctly 1`] = `
             className="MuiListItemAvatar-root"
           >
             <div
-              className="MuiAvatar-root MuiAvatar-circle Component-homeIcon-11 Component-logo-12"
+              className="MuiAvatar-root MuiAvatar-circular Component-homeIcon-11 Component-logo-12"
             >
               <img
                 className="MuiAvatar-img"
@@ -97,7 +97,7 @@ exports[`MatchList should render match list correctly 1`] = `
             className="MuiListItemAvatar-root"
           >
             <div
-              className="MuiAvatar-root MuiAvatar-circle Component-awayIcon-5 Component-logo-12"
+              className="MuiAvatar-root MuiAvatar-circular Component-awayIcon-5 Component-logo-12"
             >
               <img
                 className="MuiAvatar-img"
@@ -140,7 +140,7 @@ exports[`MatchList should render match list correctly 1`] = `
             className="MuiListItemAvatar-root"
           >
             <div
-              className="MuiAvatar-root MuiAvatar-circle Component-homeIcon-11 Component-logo-12"
+              className="MuiAvatar-root MuiAvatar-circular Component-homeIcon-11 Component-logo-12"
             >
               <img
                 className="MuiAvatar-img"
@@ -171,7 +171,7 @@ exports[`MatchList should render match list correctly 1`] = `
             className="MuiListItemAvatar-root"
           >
             <div
-              className="MuiAvatar-root MuiAvatar-circle Component-awayIcon-5 Component-logo-12"
+              className="MuiAvatar-root MuiAvatar-circular Component-awayIcon-5 Component-logo-12"
             >
               <img
                 className="MuiAvatar-img"
@@ -226,7 +226,7 @@ exports[`MatchList should render match list correctly 1`] = `
             className="MuiListItemAvatar-root"
           >
             <div
-              className="MuiAvatar-root MuiAvatar-circle Component-homeIcon-11 Component-logo-12"
+              className="MuiAvatar-root MuiAvatar-circular Component-homeIcon-11 Component-logo-12"
             >
               <img
                 className="MuiAvatar-img"
@@ -257,7 +257,7 @@ exports[`MatchList should render match list correctly 1`] = `
             className="MuiListItemAvatar-root"
           >
             <div
-              className="MuiAvatar-root MuiAvatar-circle Component-awayIcon-5 Component-logo-12"
+              className="MuiAvatar-root MuiAvatar-circular Component-awayIcon-5 Component-logo-12"
             >
               <img
                 className="MuiAvatar-img"

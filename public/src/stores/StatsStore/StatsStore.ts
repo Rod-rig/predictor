@@ -6,7 +6,7 @@ import { constants } from "../../constants";
 import { userStore } from "../UserStore";
 
 export const LIMIT: number = 20;
-const START_PAGE: number = 1;
+export const START_PAGE: number = 1;
 export class StatsStore implements IStats {
   public url: string;
   @observable public isLoaded: boolean = false;
@@ -22,6 +22,7 @@ export class StatsStore implements IStats {
     this.fetchList();
   }
 
+  /* istanbul ignore next */
   @action.bound
   public handlePageChange(
     event: React.ChangeEvent<{ value: string }>,
@@ -31,6 +32,7 @@ export class StatsStore implements IStats {
     this.data = this.getStoreByPage(this.filteredData);
   }
 
+  /* istanbul ignore next */
   @action.bound
   public handleSeasonChange(event: React.ChangeEvent<{ value: string }>) {
     this.season = event.target.value;
@@ -39,6 +41,7 @@ export class StatsStore implements IStats {
     this.data = this.getStoreByPage(this.filteredData);
   }
 
+  /* istanbul ignore next */
   @action.bound
   private fetchDataFailed({ status }: { status: number }) {
     this.isLoaded = false;
@@ -47,6 +50,7 @@ export class StatsStore implements IStats {
     }
   }
 
+  /* istanbul ignore next */
   @action.bound
   private fetchDataSuccess(res: AxiosResponse) {
     this.initialData = res.data;
@@ -55,16 +59,19 @@ export class StatsStore implements IStats {
     this.isLoaded = true;
   }
 
+  /* istanbul ignore next */
   private fetchList() {
     axios.get(this.url).then(this.fetchDataSuccess, this.fetchDataFailed);
   }
 
+  /* istanbul ignore next */
   private getStoreByPage(data: IPredictionMatch[]) {
     const start: number = (this.page - 1) * this.limit;
     const end: number = this.page * this.limit;
     return data.slice(start, end);
   }
 
+  /* istanbul ignore next */
   private filterDataBySeason(data: IPredictionMatch[]) {
     return this.season === constants.defaultSeasonsValue
       ? data

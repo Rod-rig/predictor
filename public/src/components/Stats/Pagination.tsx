@@ -9,6 +9,7 @@ interface IProps {
   store: IStats;
 }
 
+/* istanbul ignore next */
 const decorate = withStyles(({ spacing }: Theme) => ({
   ul: {
     justifyContent: "center",
@@ -16,6 +17,7 @@ const decorate = withStyles(({ spacing }: Theme) => ({
   },
 }));
 
+/* istanbul ignore next */
 export const DecoratedPagination = decorate((props: IProps) => (
   <Pagination
     classes={{
