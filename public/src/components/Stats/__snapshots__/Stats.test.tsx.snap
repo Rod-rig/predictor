@@ -222,7 +222,7 @@ Array [
         >
           <img
             className="MuiAvatar-img"
-            src="https://cdn2.iconfinder.com/data/icons/sport-items-2/512/football_soccer_badge_shield_ball_heraldic-128.png"
+            src="https://upload.wikimedia.org/wikipedia/en/5/56/Newcastle_United_Logo.svg"
           />
         </div>
       </div>
@@ -253,7 +253,7 @@ Array [
         >
           <img
             className="MuiAvatar-img"
-            src="https://cdn2.iconfinder.com/data/icons/sport-items-2/512/football_soccer_badge_shield_ball_heraldic-128.png"
+            src="https://upload.wikimedia.org/wikipedia/en/b/b4/Tottenham_Hotspur.svg"
           />
         </div>
       </div>
@@ -327,7 +327,7 @@ Array [
         >
           <img
             className="MuiAvatar-img"
-            src="https://cdn2.iconfinder.com/data/icons/sport-items-2/512/football_soccer_badge_shield_ball_heraldic-128.png"
+            src="https://upload.wikimedia.org/wikipedia/en/c/c2/West_Ham_United_FC_logo.svg"
           />
         </div>
       </div>
@@ -370,7 +370,7 @@ Array [
         >
           <img
             className="MuiAvatar-img"
-            src="https://cdn2.iconfinder.com/data/icons/sport-items-2/512/football_soccer_badge_shield_ball_heraldic-128.png"
+            src="https://upload.wikimedia.org/wikipedia/en/f/fc/Wolverhampton_Wanderers.svg"
           />
         </div>
       </div>
@@ -401,7 +401,7 @@ Array [
         >
           <img
             className="MuiAvatar-img"
-            src="https://cdn2.iconfinder.com/data/icons/sport-items-2/512/football_soccer_badge_shield_ball_heraldic-128.png"
+            src="https://upload.wikimedia.org/wikipedia/en/e/eb/Manchester_City_FC_badge.svg"
           />
         </div>
       </div>

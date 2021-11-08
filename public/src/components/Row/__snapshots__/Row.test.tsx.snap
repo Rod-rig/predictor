@@ -191,7 +191,7 @@ exports[`Row should render correctly 1`] = `
         >
           <img
             className="MuiAvatar-img"
-            src="https://cdn2.iconfinder.com/data/icons/sport-items-2/512/football_soccer_badge_shield_ball_heraldic-128.png"
+            src="https://upload.wikimedia.org/wikipedia/en/f/fd/Brighton_%26_Hove_Albion_logo.svg"
           />
         </div>
         <span>
