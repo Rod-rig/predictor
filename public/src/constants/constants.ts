@@ -25,5 +25,9 @@ export const constants: {
       label: "2020/2021",
       value: "20/21",
     },
+    {
+      label: "2021/2022",
+      value: "21/22",
+    },
   ],
 };

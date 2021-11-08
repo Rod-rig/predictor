@@ -138,7 +138,7 @@ exports[`FixturesList should render match list correctly 1`] = `
             >
               <img
                 className="MuiAvatar-img"
-                src="https://cdn2.iconfinder.com/data/icons/sport-items-2/512/football_soccer_badge_shield_ball_heraldic-128.png"
+                src="https://upload.wikimedia.org/wikipedia/en/f/fd/Brighton_%26_Hove_Albion_logo.svg"
               />
             </div>
           </div>
@@ -231,7 +231,7 @@ exports[`FixturesList should render match list correctly 1`] = `
             >
               <img
                 className="MuiAvatar-img"
-                src="https://cdn2.iconfinder.com/data/icons/sport-items-2/512/football_soccer_badge_shield_ball_heraldic-128.png"
+                src="https://upload.wikimedia.org/wikipedia/en/7/7a/Manchester_United_FC_crest.svg"
               />
             </div>
           </div>
@@ -299,7 +299,7 @@ exports[`FixturesList should render match list correctly 1`] = `
             >
               <img
                 className="MuiAvatar-img"
-                src="https://cdn2.iconfinder.com/data/icons/sport-items-2/512/football_soccer_badge_shield_ball_heraldic-128.png"
+                src="https://upload.wikimedia.org/wikipedia/en/f/fc/Wolverhampton_Wanderers.svg"
               />
             </div>
           </div>
@@ -342,7 +342,7 @@ exports[`FixturesList should render match list correctly 1`] = `
             >
               <img
                 className="MuiAvatar-img"
-                src="https://cdn2.iconfinder.com/data/icons/sport-items-2/512/football_soccer_badge_shield_ball_heraldic-128.png"
+                src="https://upload.wikimedia.org/wikipedia/en/e/eb/Manchester_City_FC_badge.svg"
               />
             </div>
           </div>
@@ -410,7 +410,7 @@ exports[`FixturesList should render match list correctly 1`] = `
             >
               <img
                 className="MuiAvatar-img"
-                src="https://cdn2.iconfinder.com/data/icons/sport-items-2/512/football_soccer_badge_shield_ball_heraldic-128.png"
+                src="https://upload.wikimedia.org/wikipedia/en/5/56/Newcastle_United_Logo.svg"
               />
             </div>
           </div>
@@ -503,7 +503,7 @@ exports[`FixturesList should render match list correctly 1`] = `
             >
               <img
                 className="MuiAvatar-img"
-                src="https://cdn2.iconfinder.com/data/icons/sport-items-2/512/football_soccer_badge_shield_ball_heraldic-128.png"
+                src="https://upload.wikimedia.org/wikipedia/en/b/b4/Tottenham_Hotspur.svg"
               />
             </div>
           </div>
@@ -571,7 +571,7 @@ exports[`FixturesList should render match list correctly 1`] = `
             >
               <img
                 className="MuiAvatar-img"
-                src="https://cdn2.iconfinder.com/data/icons/sport-items-2/512/football_soccer_badge_shield_ball_heraldic-128.png"
+                src="https://upload.wikimedia.org/wikipedia/en/0/0c/Crystal_Palace_FC_logo.svg"
               />
             </div>
           </div>
@@ -639,7 +639,7 @@ exports[`FixturesList should render match list correctly 1`] = `
             >
               <img
                 className="MuiAvatar-img"
-                src="https://cdn2.iconfinder.com/data/icons/sport-items-2/512/football_soccer_badge_shield_ball_heraldic-128.png"
+                src="https://upload.wikimedia.org/wikipedia/en/f/f9/Aston_Villa_FC_crest_%282016%29.svg"
               />
             </div>
           </div>
@@ -682,7 +682,7 @@ exports[`FixturesList should render match list correctly 1`] = `
             >
               <img
                 className="MuiAvatar-img"
-                src="https://cdn2.iconfinder.com/data/icons/sport-items-2/512/football_soccer_badge_shield_ball_heraldic-128.png"
+                src="https://upload.wikimedia.org/wikipedia/en/c/c2/West_Ham_United_FC_logo.svg"
               />
             </div>
           </div>
@@ -707,7 +707,7 @@ exports[`FixturesList should render match list correctly 1`] = `
             >
               <img
                 className="MuiAvatar-img"
-                src="https://cdn2.iconfinder.com/data/icons/sport-items-2/512/football_soccer_badge_shield_ball_heraldic-128.png"
+                src="https://upload.wikimedia.org/wikipedia/en/2/2d/Leicester_City_crest.svg"
               />
             </div>
           </div>
@@ -787,7 +787,7 @@ exports[`FixturesList should render match list correctly 1`] = `
             >
               <img
                 className="MuiAvatar-img"
-                src="https://cdn2.iconfinder.com/data/icons/sport-items-2/512/football_soccer_badge_shield_ball_heraldic-128.png"
+                src="https://upload.wikimedia.org/wikipedia/en/7/7a/Manchester_United_FC_crest.svg"
               />
             </div>
           </div>
@@ -830,7 +830,7 @@ exports[`FixturesList should render match list correctly 1`] = `
             >
               <img
                 className="MuiAvatar-img"
-                src="https://cdn2.iconfinder.com/data/icons/sport-items-2/512/football_soccer_badge_shield_ball_heraldic-128.png"
+                src="https://upload.wikimedia.org/wikipedia/en/f/fd/Brighton_%26_Hove_Albion_logo.svg"
               />
             </div>
           </div>
@@ -923,7 +923,7 @@ exports[`FixturesList should render match list correctly 1`] = `
             >
               <img
                 className="MuiAvatar-img"
-                src="https://cdn2.iconfinder.com/data/icons/sport-items-2/512/football_soccer_badge_shield_ball_heraldic-128.png"
+                src="https://upload.wikimedia.org/wikipedia/en/f/f9/Aston_Villa_FC_crest_%282016%29.svg"
               />
             </div>
           </div>
@@ -1034,7 +1034,7 @@ exports[`FixturesList should render match list correctly 1`] = `
             >
               <img
                 className="MuiAvatar-img"
-                src="https://cdn2.iconfinder.com/data/icons/sport-items-2/512/football_soccer_badge_shield_ball_heraldic-128.png"
+                src="https://upload.wikimedia.org/wikipedia/en/e/eb/Manchester_City_FC_badge.svg"
               />
             </div>
           </div>
@@ -1102,7 +1102,7 @@ exports[`FixturesList should render match list correctly 1`] = `
             >
               <img
                 className="MuiAvatar-img"
-                src="https://cdn2.iconfinder.com/data/icons/sport-items-2/512/football_soccer_badge_shield_ball_heraldic-128.png"
+                src="https://upload.wikimedia.org/wikipedia/en/5/56/Newcastle_United_Logo.svg"
               />
             </div>
           </div>
@@ -1127,7 +1127,7 @@ exports[`FixturesList should render match list correctly 1`] = `
             >
               <img
                 className="MuiAvatar-img"
-                src="https://cdn2.iconfinder.com/data/icons/sport-items-2/512/football_soccer_badge_shield_ball_heraldic-128.png"
+                src="https://upload.wikimedia.org/wikipedia/en/2/2d/Leicester_City_crest.svg"
               />
             </div>
           </div>
@@ -1195,7 +1195,7 @@ exports[`FixturesList should render match list correctly 1`] = `
             >
               <img
                 className="MuiAvatar-img"
-                src="https://cdn2.iconfinder.com/data/icons/sport-items-2/512/football_soccer_badge_shield_ball_heraldic-128.png"
+                src="https://upload.wikimedia.org/wikipedia/en/0/0c/Crystal_Palace_FC_logo.svg"
               />
             </div>
           </div>
@@ -1263,7 +1263,7 @@ exports[`FixturesList should render match list correctly 1`] = `
             >
               <img
                 className="MuiAvatar-img"
-                src="https://cdn2.iconfinder.com/data/icons/sport-items-2/512/football_soccer_badge_shield_ball_heraldic-128.png"
+                src="https://upload.wikimedia.org/wikipedia/en/b/b4/Tottenham_Hotspur.svg"
               />
             </div>
           </div>
@@ -1331,7 +1331,7 @@ exports[`FixturesList should render match list correctly 1`] = `
             >
               <img
                 className="MuiAvatar-img"
-                src="https://cdn2.iconfinder.com/data/icons/sport-items-2/512/football_soccer_badge_shield_ball_heraldic-128.png"
+                src="https://upload.wikimedia.org/wikipedia/en/f/fc/Wolverhampton_Wanderers.svg"
               />
             </div>
           </div>
@@ -1374,7 +1374,7 @@ exports[`FixturesList should render match list correctly 1`] = `
             >
               <img
                 className="MuiAvatar-img"
-                src="https://cdn2.iconfinder.com/data/icons/sport-items-2/512/football_soccer_badge_shield_ball_heraldic-128.png"
+                src="https://upload.wikimedia.org/wikipedia/en/c/c2/West_Ham_United_FC_logo.svg"
               />
             </div>
           </div>
@@ -1454,7 +1454,7 @@ exports[`FixturesList should render match list correctly 1`] = `
             >
               <img
                 className="MuiAvatar-img"
-                src="https://cdn2.iconfinder.com/data/icons/sport-items-2/512/football_soccer_badge_shield_ball_heraldic-128.png"
+                src="https://upload.wikimedia.org/wikipedia/en/f/f9/Aston_Villa_FC_crest_%282016%29.svg"
               />
             </div>
           </div>
@@ -1479,7 +1479,7 @@ exports[`FixturesList should render match list correctly 1`] = `
             >
               <img
                 className="MuiAvatar-img"
-                src="https://cdn2.iconfinder.com/data/icons/sport-items-2/512/football_soccer_badge_shield_ball_heraldic-128.png"
+                src="https://upload.wikimedia.org/wikipedia/en/e/eb/Manchester_City_FC_badge.svg"
               />
             </div>
           </div>
@@ -1658,7 +1658,7 @@ exports[`FixturesList should render match list correctly 1`] = `
             >
               <img
                 className="MuiAvatar-img"
-                src="https://cdn2.iconfinder.com/data/icons/sport-items-2/512/football_soccer_badge_shield_ball_heraldic-128.png"
+                src="https://upload.wikimedia.org/wikipedia/en/0/0c/Crystal_Palace_FC_logo.svg"
               />
             </div>
           </div>
@@ -1751,7 +1751,7 @@ exports[`FixturesList should render match list correctly 1`] = `
             >
               <img
                 className="MuiAvatar-img"
-                src="https://cdn2.iconfinder.com/data/icons/sport-items-2/512/football_soccer_badge_shield_ball_heraldic-128.png"
+                src="https://upload.wikimedia.org/wikipedia/en/f/fd/Brighton_%26_Hove_Albion_logo.svg"
               />
             </div>
           </div>
@@ -1794,7 +1794,7 @@ exports[`FixturesList should render match list correctly 1`] = `
             >
               <img
                 className="MuiAvatar-img"
-                src="https://cdn2.iconfinder.com/data/icons/sport-items-2/512/football_soccer_badge_shield_ball_heraldic-128.png"
+                src="https://upload.wikimedia.org/wikipedia/en/2/2d/Leicester_City_crest.svg"
               />
             </div>
           </div>
@@ -1862,7 +1862,7 @@ exports[`FixturesList should render match list correctly 1`] = `
             >
               <img
                 className="MuiAvatar-img"
-                src="https://cdn2.iconfinder.com/data/icons/sport-items-2/512/football_soccer_badge_shield_ball_heraldic-128.png"
+                src="https://upload.wikimedia.org/wikipedia/en/7/7a/Manchester_United_FC_crest.svg"
               />
             </div>
           </div>
@@ -1955,7 +1955,7 @@ exports[`FixturesList should render match list correctly 1`] = `
             >
               <img
                 className="MuiAvatar-img"
-                src="https://cdn2.iconfinder.com/data/icons/sport-items-2/512/football_soccer_badge_shield_ball_heraldic-128.png"
+                src="https://upload.wikimedia.org/wikipedia/en/c/c2/West_Ham_United_FC_logo.svg"
               />
             </div>
           </div>
@@ -1998,7 +1998,7 @@ exports[`FixturesList should render match list correctly 1`] = `
             >
               <img
                 className="MuiAvatar-img"
-                src="https://cdn2.iconfinder.com/data/icons/sport-items-2/512/football_soccer_badge_shield_ball_heraldic-128.png"
+                src="https://upload.wikimedia.org/wikipedia/en/b/b4/Tottenham_Hotspur.svg"
               />
             </div>
           </div>
@@ -2066,7 +2066,7 @@ exports[`FixturesList should render match list correctly 1`] = `
             >
               <img
                 className="MuiAvatar-img"
-                src="https://cdn2.iconfinder.com/data/icons/sport-items-2/512/football_soccer_badge_shield_ball_heraldic-128.png"
+                src="https://upload.wikimedia.org/wikipedia/en/f/fc/Wolverhampton_Wanderers.svg"
               />
             </div>
           </div>
@@ -2091,7 +2091,7 @@ exports[`FixturesList should render match list correctly 1`] = `
             >
               <img
                 className="MuiAvatar-img"
-                src="https://cdn2.iconfinder.com/data/icons/sport-items-2/512/football_soccer_badge_shield_ball_heraldic-128.png"
+                src="https://upload.wikimedia.org/wikipedia/en/5/56/Newcastle_United_Logo.svg"
               />
             </div>
           </div>
@@ -2214,7 +2214,7 @@ exports[`FixturesList should render match list correctly 1`] = `
             >
               <img
                 className="MuiAvatar-img"
-                src="https://cdn2.iconfinder.com/data/icons/sport-items-2/512/football_soccer_badge_shield_ball_heraldic-128.png"
+                src="https://upload.wikimedia.org/wikipedia/en/f/fd/Brighton_%26_Hove_Albion_logo.svg"
               />
             </div>
           </div>
@@ -2239,7 +2239,7 @@ exports[`FixturesList should render match list correctly 1`] = `
             >
               <img
                 className="MuiAvatar-img"
-                src="https://cdn2.iconfinder.com/data/icons/sport-items-2/512/football_soccer_badge_shield_ball_heraldic-128.png"
+                src="https://upload.wikimedia.org/wikipedia/en/f/f9/Aston_Villa_FC_crest_%282016%29.svg"
               />
             </div>
           </div>
@@ -2307,7 +2307,7 @@ exports[`FixturesList should render match list correctly 1`] = `
             >
               <img
                 className="MuiAvatar-img"
-                src="https://cdn2.iconfinder.com/data/icons/sport-items-2/512/football_soccer_badge_shield_ball_heraldic-128.png"
+                src="https://upload.wikimedia.org/wikipedia/en/2/2d/Leicester_City_crest.svg"
               />
             </div>
           </div>
@@ -2375,7 +2375,7 @@ exports[`FixturesList should render match list correctly 1`] = `
             >
               <img
                 className="MuiAvatar-img"
-                src="https://cdn2.iconfinder.com/data/icons/sport-items-2/512/football_soccer_badge_shield_ball_heraldic-128.png"
+                src="https://upload.wikimedia.org/wikipedia/en/7/7a/Manchester_United_FC_crest.svg"
               />
             </div>
           </div>
@@ -2418,7 +2418,7 @@ exports[`FixturesList should render match list correctly 1`] = `
             >
               <img
                 className="MuiAvatar-img"
-                src="https://cdn2.iconfinder.com/data/icons/sport-items-2/512/football_soccer_badge_shield_ball_heraldic-128.png"
+                src="https://upload.wikimedia.org/wikipedia/en/e/eb/Manchester_City_FC_badge.svg"
               />
             </div>
           </div>
@@ -2443,7 +2443,7 @@ exports[`FixturesList should render match list correctly 1`] = `
             >
               <img
                 className="MuiAvatar-img"
-                src="https://cdn2.iconfinder.com/data/icons/sport-items-2/512/football_soccer_badge_shield_ball_heraldic-128.png"
+                src="https://upload.wikimedia.org/wikipedia/en/0/0c/Crystal_Palace_FC_logo.svg"
               />
             </div>
           </div>
@@ -2486,7 +2486,7 @@ exports[`FixturesList should render match list correctly 1`] = `
             >
               <img
                 className="MuiAvatar-img"
-                src="https://cdn2.iconfinder.com/data/icons/sport-items-2/512/football_soccer_badge_shield_ball_heraldic-128.png"
+                src="https://upload.wikimedia.org/wikipedia/en/5/56/Newcastle_United_Logo.svg"
               />
             </div>
           </div>
@@ -2647,7 +2647,7 @@ exports[`FixturesList should render match list correctly 1`] = `
             >
               <img
                 className="MuiAvatar-img"
-                src="https://cdn2.iconfinder.com/data/icons/sport-items-2/512/football_soccer_badge_shield_ball_heraldic-128.png"
+                src="https://upload.wikimedia.org/wikipedia/en/f/fc/Wolverhampton_Wanderers.svg"
               />
             </div>
           </div>
@@ -2715,7 +2715,7 @@ exports[`FixturesList should render match list correctly 1`] = `
             >
               <img
                 className="MuiAvatar-img"
-                src="https://cdn2.iconfinder.com/data/icons/sport-items-2/512/football_soccer_badge_shield_ball_heraldic-128.png"
+                src="https://upload.wikimedia.org/wikipedia/en/b/b4/Tottenham_Hotspur.svg"
               />
             </div>
           </div>
@@ -2758,7 +2758,7 @@ exports[`FixturesList should render match list correctly 1`] = `
             >
               <img
                 className="MuiAvatar-img"
-                src="https://cdn2.iconfinder.com/data/icons/sport-items-2/512/football_soccer_badge_shield_ball_heraldic-128.png"
+                src="https://upload.wikimedia.org/wikipedia/en/c/c2/West_Ham_United_FC_logo.svg"
               />
             </div>
           </div>

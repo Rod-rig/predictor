@@ -1,8 +1,8 @@
-import { createMuiTheme } from "@material-ui/core";
+import { createTheme } from "@material-ui/core";
 import { ThemeProvider } from "@material-ui/styles";
 import * as React from "react";
 
-const theme = createMuiTheme({
+const theme = createTheme({
   overrides: {
     MuiAvatar: {
       img: {
