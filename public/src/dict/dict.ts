@@ -42,6 +42,7 @@ export interface IDict {
     correct: string;
     correctAbbr: string;
     name: string;
+    note: string;
     onextwo: string;
     onextwoAbbr: string;
     rank: string;
@@ -111,6 +112,8 @@ export const dict: IDict = {
     correct: "Correct Predictions",
     correctAbbr: "CP",
     name: "Name",
+    note:
+      "Your name will appear in the rating list when you make > 20 predictions",
     onextwo: "1X2 Success Rate, %",
     onextwoAbbr: "1X2",
     rank: "Rating",
@@ -122,9 +125,9 @@ export const dict: IDict = {
   register: "Register",
   registration_error: "User with these credentials is already registered",
   results: "Results",
+  season: "Season",
   sidebar_menu_prediction: "Predictions",
   sidebar_menu_rating: "Rating",
-  season: "Season",
   submit_btn_text: "Submit",
   success: "Success",
   table: "Table",
