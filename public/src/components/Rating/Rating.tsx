@@ -1,6 +1,9 @@
+import Box from "@material-ui/core/Box";
+import Typography from "@material-ui/core/Typography";
 import axios, { AxiosResponse } from "axios";
 import * as React from "react";
 import { Loader } from "../";
+import { dict } from "../../dict";
 import { ASC, DESC, ORDER_BY } from "./constants";
 import { IUser, RatingTable } from "./RatingTable";
 
@@ -61,15 +64,20 @@ export class Rating extends React.Component<
   }
 
   public render() {
-    const { isLoaded, order, orderBy, rating } = this.state;
-
-    return isLoaded ? (
-      <RatingTable
-        onRequestSort={this.handleRequestSort}
-        order={order}
-        orderBy={orderBy}
-        rating={rating.sort(this.sort)}
-      />
+    return this.state.isLoaded ? (
+      <>
+        <Typography>
+          <Box textAlign="center" m={1}>
+            {dict.rating.note}
+          </Box>
+        </Typography>
+        <RatingTable
+          onRequestSort={this.handleRequestSort}
+          order={this.state.order}
+          orderBy={this.state.orderBy}
+          rating={this.state.rating.sort(this.sort)}
+        />
+      </>
     ) : (
       <Loader />
     );
