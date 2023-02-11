@@ -96,7 +96,7 @@
     "husky": "^3.1.0",
     "jest": "^27.3.1",
     "lint-staged": "^11.2.6",
-    "nodemon": "^2.0.10",
+    "nodemon": "^2.0.20",
     "prettier": "^1.19.1",
     "source-map-loader": "^0.2.4",
     "terser-webpack-plugin": "^5.1.4",
